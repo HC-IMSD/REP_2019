@@ -405,14 +405,18 @@
                     vm.descriptionList = TransactionLists.getPresubTypes();
                     break;*/
                 case ("B02-20160301-001"): //ANDS
-                    if(vm.lifecycleModel.activityLead == "B14-20160301-11") {
+                    if(vm.lifecycleModel.activityLead === "B14-20160301-11") {
                         vm.descriptionList = TransactionLists.getV_AndsType();
                     } else {
                         vm.descriptionList = TransactionLists.getAndsType();
                     }
                     break;
-                case ("B02-20160301-018"):
-                    vm.descriptionList = TransactionLists.getDinaType();
+                case ("B02-20160301-018"): //DINA
+                    if(vm.lifecycleModel.activityLead === "B14-20160301-11"){
+                        vm.descriptionList = TransactionLists.getV_DinaType();
+                    }else {
+                        vm.descriptionList = TransactionLists.getDinaType();
+                    }
                     break;
               case ("B02-20160301-019"):
                     vm.descriptionList = TransactionLists.getDinbType();
@@ -425,7 +429,7 @@
                     vm.descriptionList = TransactionLists.getEusndsType();
                     break;
                 case ("B02-20160301-038"): //Level 3 - Notice of Change (Post-Notice of Compliance Changes - Level III)
-                    if(vm.lifecycleModel.activityLead == "B14-20160301-11"){
+                    if(vm.lifecycleModel.activityLead === "B14-20160301-11"){
                         vm.descriptionList = TransactionLists.getV_Level3Type();
                     }else {
                         vm.descriptionList = TransactionLists.getLevel3Type();
@@ -433,7 +437,7 @@
                     break;
 
                 case ("B02-20160301-046"): //	MPNC (Pre-NC Meeting)
-                    if(vm.lifecycleModel.activityLead == "B14-20160301-11"){
+                    if(vm.lifecycleModel.activityLead === "B14-20160301-11"){
                         vm.descriptionList = TransactionLists.getV_MpncType();
                     } else {
                         vm.descriptionList = TransactionLists.getMPNCType();
@@ -441,14 +445,14 @@
                     break;
 
                 case ("B02-20160301-047"): //	MPNDS (Pre-NDS Meeting)
-                    if(vm.lifecycleModel.activityLead == "B14-20160301-11") {
+                    if(vm.lifecycleModel.activityLead === "B14-20160301-11") {
                         vm.descriptionList = TransactionLists.getV_MpndsType();
                     } else {
                         vm.descriptionList = TransactionLists.getMPNDSType();
                     }
                     break;
                 case ("B02-20160301-049"): //	MPSNDS (Pre-SNDS Meeting)
-                    if(vm.lifecycleModel.activityLead == "B14-20160301-11") {
+                    if(vm.lifecycleModel.activityLead === "B14-20160301-11") {
                         vm.descriptionList = TransactionLists.getV_MpsndsType();
                     } else {
                         vm.descriptionList = TransactionLists.getMPSNDSType();
@@ -456,14 +460,14 @@
                     break;
 
                 case ("B02-20160301-050"): //NC (Notifiable Change)
-                    if(vm.lifecycleModel.activityLead == "B14-20160301-11") {
+                    if(vm.lifecycleModel.activityLead === "B14-20160301-11") {
                         vm.descriptionList = TransactionLists.getV_NcType();
                     } else {
                         vm.descriptionList = TransactionLists.getNcType();
                     }
                     break;
                 case ("B02-20160301-051"): //NDS (New Drug Submission)
-                    if(vm.lifecycleModel.activityLead == "B14-20160301-11") {
+                    if(vm.lifecycleModel.activityLead === "B14-20160301-11") {
                         vm.descriptionList = TransactionLists.getV_NdsType();
                     } else {
                         vm.descriptionList = TransactionLists.getNdsType();
@@ -497,7 +501,7 @@
                     vm.descriptionList = TransactionLists.getpSurCType();
                     break;
                 case ("B02-20160301-079"): //PSUR-PV (Periodic Safety Update Report - Pharmacovigilance)
-                    if(vm.lifecycleModel.activityLead == "B14-20160301-11") {
+                    if(vm.lifecycleModel.activityLead === "B14-20160301-11") {
                         vm.descriptionList = TransactionLists.getV_PsurPvType();
                     } else {
                         vm.descriptionList = TransactionLists.getpSurPvType();
@@ -507,14 +511,14 @@
                     vm.descriptionList = TransactionLists.getRmpPvType();
                     break;
                 case ("B02-20160301-082"): //SANDS (Supplement to an Abbreviated New Drug Submission)
-                    if(vm.lifecycleModel.activityLead == "B14-20160301-11"){
+                    if(vm.lifecycleModel.activityLead === "B14-20160301-11"){
                         vm.descriptionList = TransactionLists.getV_SandsType();
                     }else {
                         vm.descriptionList = TransactionLists.getSandsType();
                     }
                     break;
                 case ("B02-20160301-084"): //SNDS (Supplement to a New Drug Submission)
-                    if(vm.lifecycleModel.activityLead == "B14-20160301-11") {
+                    if(vm.lifecycleModel.activityLead === "B14-20160301-11") {
                         vm.descriptionList = TransactionLists.getV_SndsType();
                     } else {
                         vm.descriptionList = TransactionLists.getSndsType();
@@ -524,7 +528,7 @@
                     vm.descriptionList = TransactionLists.getSndsCType();
                     break;
                 case ("B02-20160301-088"): //UDRA (Undefined Regulatory Activity)
-                    if(vm.lifecycleModel.activityLead == "B14-20160301-11") {
+                    if(vm.lifecycleModel.activityLead === "B14-20160301-11") {
                         vm.descriptionList = TransactionLists.getV_UdraType();
                     } else {
                         vm.descriptionList = TransactionLists.getUdraType();
@@ -540,17 +544,11 @@
                     vm.descriptionList = TransactionLists.getDSurType();
                     break;
                 case ("B02-20160301-043"):
-                    if(vm.lifecycleModel.activityLead == "B14-20160301-11"){
+                    if(vm.lifecycleModel.activityLead === "B14-20160301-11"){
                         vm.descriptionList = TransactionLists.getV_MpdinType();
                     } else {
                         vm.descriptionList = TransactionLists.getMPDINType();
                     }
-                    break;
-                case ("B02-20160301-070"):
-                    vm.descriptionList = TransactionLists.getPdcType();
-                    break;
-                case ("B02-20160301-071"):
-                    vm.descriptionList = TransactionLists.getPdcBType();
                     break;
                 case ("B02-20160301-020"):
                     vm.descriptionList = TransactionLists.getDindType();
@@ -584,6 +582,18 @@
                     break;
                 case ("B02-20190627-08"): //EUSANDS
                     vm.descriptionList = TransactionLists.getEUSANDSType();
+                    break;
+
+                case ("B02-20160301-041"): //	Pre-ANDS (Pre-ANDS Meeting)
+                        vm.descriptionList = TransactionLists.getV_MpandsType();
+                    break;
+
+                case ("B02-20160301-048"): //	Pre-SANDS (Pre-SANDS Meeting)
+                        vm.descriptionList = TransactionLists.getV_MpsandsType();
+                    break;
+
+                case ("B02-20180912-01"): //	RCC (Regulatory Cooperation Council)
+                        vm.descriptionList = TransactionLists.getV_RccType();
                     break;
 
                 default:
@@ -691,12 +701,14 @@
                 case(vm.descriptionObj.DISSEM_LIST):
                 case(vm.descriptionObj.RISK_COMMUN_DOC):        /*FALLTHROUGH*/
                 case(vm.descriptionObj.CTN_INVESTIGATOR):
+                case(vm.descriptionObj.CTN_FORM_BROC_UPDATES):
                     setVersionAndDate();
                     vm.setConcatDetails();
                     break;
                 case(vm.descriptionObj.CTN_INFORMED):
                 case(vm.descriptionObj.CTN_PROTOCOL_INFO_UPDATE):
                 case(vm.descriptionObj.CTN_PROTOCOL_UPDATE):
+                case(vm.descriptionObj.CTN_IMPD_UPDATE):
                     setVersion();
                     vm.setConcatDetails();
                     break;
@@ -710,7 +722,7 @@
                 case(vm.descriptionObj.CTN_ADMINISTRATIVE):
                 case(vm.descriptionObj.CTN_APPENDIX):
                 case(vm.descriptionObj.CTN_NEW_MANUFACTURING):
-                // case(vm.descriptionObj.CTN_QOS):
+                case(vm.descriptionObj.CTN_CONTACT):
                 case(vm.descriptionObj.CTN_SAFETY):
                 case(vm.descriptionObj.CTN_SOURCE):
                 case(vm.descriptionObj.CTN_STUDY_DISC):

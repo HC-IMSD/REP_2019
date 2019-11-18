@@ -128,7 +128,7 @@
             CTN_DRUG_SUBS:"CTN_DRUG_SUBS",
             CTN_ENROLLMENT:"CTN_ENROLLMENT",
             CTN_ETHICS:"CTN_ETHICS",
-            CTN_EXCLUSION_INCLUSION:"CTN_EXCLUSION_INCLUSION",
+            // CTN_EXCLUSION_INCLUSION:"CTN_EXCLUSION_INCLUSION",
             CTN_INFORMED:"CTN_INFORMED",
             CTN_INVESTIGATOR:"CTN_INVESTIGATOR",
             CTN_NEW_MANUFACTURING:"CTN_NEW_MANUFACTURING",
@@ -156,7 +156,12 @@
             CTN_TRANS_OWN:"CTN_TRANS_OWN",
             CLINICAL:"CLINICAL",
             CLINICAL_QUALITY:"CLINICAL_QUALITY",
-            QUALITY:"QUALITY"
+            QUALITY:"QUALITY",
+            INITIAL_TEAT_SOLU_MONO:"INITIAL_TEAT_SOLU_MONO",   //INITIAL - Teat Solutions Monograph
+            REQ_ACCEPTED:"REQ_ACCEPTED",                       //Request Accepted
+            CTN_FORM_BROC_UPDATES:"CTN_FORM_BROC_UPDATES",     //  CTN- Informed Consent Form and Investigator’s Brochure Updates
+            CTN_IMPD_UPDATE:"CTN_IMPD_UPDATE",                 // CTN-IMPD Update
+            CTN_NEW_SUMM_ADF:"CTN_NEW_SUMM_ADF"                // CTN- New Summary of Additional Drugs Form
 
     };
 
@@ -183,6 +188,7 @@
             getCta_aType: getCta_aArray,
             getPreCtaType: getPreCtaArray,
             getDinaType: getDINAArray,
+            getV_DinaType: getV_DINAArray,
             getDinbType: getDINBArray,
             getDindType: getDINDArray,
             getDinfType: getDINFArray,
@@ -218,6 +224,9 @@
             getV_MpncType: getV_MpncArray,
             getMPNDSType: _getMPNDSArray,
             getV_MpndsType: getV_MpndsArray,
+            getV_MpandsType: getV_MpandsArray,
+            getV_MpsandsType: getV_MpsandsArray,
+            getV_RccType: getV_RccArray,
             getMPSNDSType: _getMPSNDSArray,
             getV_MpsndsType: getV_MpsndsArray,
             getPANDType: _getPANDArray,
@@ -972,6 +981,32 @@
             ]);
         }
 
+        function getV_DINAArray() {
+            return ([
+                vm.allActivities.ADMINISTRATIVE,
+                vm.allActivities.CANCEL_LETTER,
+                vm.allActivities.CHANGE_TO_DIN,
+                vm.allActivities.INITIAL,
+                vm.allActivities.MEETING_MINUTES,
+                vm.allActivities.POST_CLEARANCE_DATA,
+                vm.allActivities.CLIN_CLARIF_RESPONSE,
+                vm.allActivities.EMAIL_RQ_RESPONSE,
+                vm.allActivities.HSC_RQ_RESPONSE,
+                vm.allActivities.LABEL_CLARIF_RESPONSE, //Response to labelling clarification request
+                vm.allActivities.PROCESSING_CLARIF_RESPONSE, //Response to processing Clarification Request
+                vm.allActivities.QHSC_RQ_RESPONSE, //Response to Quality & Human Safety Clarification Request
+                vm.allActivities.CHSC_RQ_RESPONSE, // Response to Clinical & Human Safety Clarification Request
+                vm.allActivities.QCHSC_RQ_RESPONSE, // Response to Quality, Clinical and Human Safety Clarification Request
+                vm.allActivities.SCREENING_ACCEPT_RESPONSE, //response to screening acceptance letter
+                vm.allActivities.SCREENING_CLARIF_RESPONSE,
+                vm.allActivities.SDN_RESPONSE,
+                vm.allActivities.PHONE_RQ_RESPONSE,
+                vm.allActivities.UNSOLICITED_DATA,
+                vm.allActivities.INITIAL_TEAT_SOLU_MONO,
+                vm.allActivities.NOD_RESPONSE //Response to NOD
+            ]);
+        }
+
         function getDINBArray() {
             return ([
                 vm.allActivities.ADMINISTRATIVE,
@@ -1365,12 +1400,14 @@
                 vm.allActivities.CTN_DRUG_SUBS,
                 vm.allActivities.CTN_ENROLLMENT,
                 vm.allActivities.CTN_ETHICS,
-                vm.allActivities.CTN_EXCLUSION_INCLUSION,
+                vm.allActivities.CTN_IMPD_UPDATE,
                 vm.allActivities.CTN_INFORMED,
+                vm.allActivities.CTN_FORM_BROC_UPDATES,
                 vm.allActivities.CTN_INVESTIGATOR,
                 vm.allActivities.CTN_NEW_MANUFACTURING,
                 vm.allActivities.CTN_NEW_PKG,
                 vm.allActivities.CTN_NEW_QC,
+                vm.allActivities.CTN_NEW_SUMM_ADF,
                 vm.allActivities.CTN_PACKAGING_LABELLING,
                 vm.allActivities.CTN_PROTOCOL_INFO_UPDATE,
                 vm.allActivities.CTN_PROTOCOL_UPDATE,
@@ -1439,8 +1476,8 @@
             return ([
                 vm.allActivities.CANCEL_LETTER,
                 vm.allActivities.MEETING_MINUTES,
-                vm.allActivities.EMAIL_RQ_RESPONSE,
-                vm.allActivities.PROCESSING_CLARIF_RESPONSE,
+                // vm.allActivities.EMAIL_RQ_RESPONSE,
+                // vm.allActivities.PROCESSING_CLARIF_RESPONSE,
                 vm.allActivities.PHONE_RQ_RESPONSE,
                 vm.allActivities.PRESUB_MEETING_PKG,
                 vm.allActivities.PRESUB_MEETING_RQ,
@@ -1481,6 +1518,31 @@
                 vm.allActivities.PRESUB_MEETING_PKG,
                 vm.allActivities.PRESUB_MEETING_RQ,
                 vm.allActivities.UNSOLICITED_DATA
+            ]);
+        }
+        function getV_MpandsArray() {
+            return ([
+                vm.allActivities.CANCEL_LETTER,
+                vm.allActivities.MEETING_MINUTES,
+                vm.allActivities.PHONE_RQ_RESPONSE,
+                vm.allActivities.PRESUB_MEETING_PKG,
+                vm.allActivities.PRESUB_MEETING_RQ,
+                vm.allActivities.UNSOLICITED_DATA
+            ]);
+        }
+        function getV_MpsandsArray() {
+            return ([
+                vm.allActivities.CANCEL_LETTER,
+                vm.allActivities.MEETING_MINUTES,
+                vm.allActivities.PHONE_RQ_RESPONSE,
+                vm.allActivities.PRESUB_MEETING_PKG,
+                vm.allActivities.PRESUB_MEETING_RQ,
+                vm.allActivities.UNSOLICITED_DATA
+            ]);
+        }
+        function getV_RccArray() {
+            return ([
+                vm.allActivities.REQ_ACCEPTED
             ]);
         }
         function getV_NcArray() {
