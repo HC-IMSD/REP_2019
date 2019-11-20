@@ -393,7 +393,7 @@
                 vm.transactionModel.ectd.lifecycleRecord = angular.copy(vm.transactionModel.ectd.lifecycleModel);
                 vm.transactionModel.projectManager1 = ""; //43 - projectManager1
                 vm.transactionModel.projectManager2 = ""; // 44 -projectManager2
-                vm.transactionModel.ectd.productProtocol="";
+                // vm.transactionModel.ectd.productProtocol="";
                 vm.transactionModel.isFees = ""; // 46 - fee
                 vm.transactionModel.feeDetails = null;
                 vm.transactionModel.confirmContactValid = false; //93 confirmation
