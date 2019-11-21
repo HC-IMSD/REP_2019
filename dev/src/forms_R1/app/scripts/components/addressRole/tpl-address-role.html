@@ -12,7 +12,7 @@
         </legend>
 
         <div data-ng-if="!ar.isContact">
-            <input id="{{::ar.roleMissingId}}" type="hidden" name="{{::ar.roleMissingId}}"
+            <input id="{{::ar.roleMissingId}}" type="text" name="{{::ar.roleMissingId}}" data-ng-show="false"
                    data-ng-model="ar.isSelected" data-ng-required="true"/>
             <strong id="address-role-error" class="error" data-ng-show="ar.showErrorMissing()">
                         <span class="label label-danger" data-ng-messages="ar.roleForm.{{::ar.roleMissingId}}.$error">
@@ -21,7 +21,7 @@
             </strong>
         </div>
         <div data-ng-if="ar.isContact">
-            <input id="{{::ar.contactRoleMissingId}}" type="hidden" name="{{::ar.contactRoleMissingId}}"
+            <input id="{{::ar.contactRoleMissingId}}" type="text" name="{{::ar.contactRoleMissingId}}" data-ng-show="false"
                    data-ng-model="ar.isSelected" data-ng-required="true"/>
             <strong id="contact-role-error" class="error" data-ng-show="ar.showErrorMissing()">
                         <span class="label label-danger" data-ng-messages="ar.roleForm.{{::ar.contactRoleMissingId}}.$error">
