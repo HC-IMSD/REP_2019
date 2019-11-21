@@ -584,11 +584,11 @@
                     vm.descriptionList = TransactionLists.getEUSANDSType();
                     break;
 
-                case ("B02-20160301-041"): //	Pre-ANDS (Pre-ANDS Meeting)
+                case ("B02-20160301-041"): //	MPANDS (Pre-ANDS Meeting)
                         vm.descriptionList = TransactionLists.getV_MpandsType();
                     break;
 
-                case ("B02-20160301-048"): //	Pre-SANDS (Pre-SANDS Meeting)
+                case ("B02-20160301-048"): //	MPSANDS (Pre-SANDS Meeting)
                         vm.descriptionList = TransactionLists.getV_MpsandsType();
                     break;
 
@@ -1123,7 +1123,10 @@
                     concatText = enDescription + " " + vm.lifecycleModel.sequenceVersion + concatText;
                 } else if (vm.lifecycleModel.descriptionValue === vm.descriptionObj.CTN_PROTOCOL_INFO_UPDATE) {
                     concatText = "CTN-Protocol version " + vm.lifecycleModel.sequenceVersion +
-                        " and Informed Consent Form version " + vm.lifecycleModel.sequenceVersion + " Update ";
+                        " and Informed Consent Form version " + vm.lifecycleModel.sequenceVersion + " Update";
+                } else if (vm.lifecycleModel.descriptionValue === vm.descriptionObj.CTN_FORM_BROC_UPDATES) {
+                    concatText = "CTN-Informed Consent Form version " + vm.lifecycleModel.sequenceVersion +
+                        " and Investigator’s Brochure version " + vm.lifecycleModel.sequenceVersion + concatText + " Updates";
                 } else {
                     concatText = enDescription + " version " + vm.lifecycleModel.sequenceVersion + concatText;
                 }
