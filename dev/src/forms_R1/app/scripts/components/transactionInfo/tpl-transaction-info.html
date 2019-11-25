@@ -4,11 +4,11 @@
             <header class="panel-heading clearfix">
                 <h2 class="panel-title col-md-4">{{::'TRANSACTION_HDING'|translate}}
                 </h2>
-                <button class="btn  btn-primary btn-sm active"
-                        id="btn_reset"
-                        data-ng-show ="transInfoCtrl.finalState"
-                        data-ng-click="transInfoCtrl.resetSpecificValues()">{{::'RESET'|translate}}
-                </button>
+                <!--<button class="btn  btn-primary btn-sm active"-->
+                        <!--id="btn_reset"-->
+                        <!--data-ng-show ="transInfoCtrl.finalState"-->
+                        <!--data-ng-click="transInfoCtrl.resetSpecificValues()">{{::'RESET'|translate}}-->
+                <!--</button>-->
                 <sup id="tr2_ref" data-ng-show ="transInfoCtrl.finalState">
                     <a class="fn-lnk" href="#tr2"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>2</a>
                 </sup>
@@ -20,8 +20,8 @@
                                     <label for="{{::transInfoCtrl.typeId}}" class="required">
                                         <span class="field-name">{{::'DOSSIER_TYPE' |translate}}</span>
                                         <strong class="required">{{::"REQUIRED" |translate}}</strong>
-                                        <sup id="tr3_ref">
-                                            <a class="fn-lnk" href="#tr3"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>3</a>
+                                        <sup id="tr2_ref">
+                                            <a class="fn-lnk" href="#tr2"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>2</a>
                                         </sup>
                                         <cmp-error-message field-name="transInfoCtrl.typeId"
                                                            form-ref="transInfoCtrl.transInfoForm"
@@ -43,8 +43,8 @@
                                     <label for="{{::transInfoCtrl.companyId}}" class="required full-width">
                                         <span class="field-name">{{::"COMPANY_ID" |translate}}{{::"LEAST_5_DIGIT" |translate}}
                                         <strong class="required"> {{::"REQUIRED" |translate}}</strong>
-                                        <sup id="tr4_ref">
-                                            <a class="fn-lnk" href="#tr4"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>4</a>
+                                        <sup id="tr3_ref">
+                                            <a class="fn-lnk" href="#tr3"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>3</a>
                                         </sup>
                                         </span>
                                         <cmp-error-message field-name="transInfoCtrl.companyId"
@@ -63,8 +63,8 @@
                                     <label for="{{::transInfoCtrl.dossierId}}" class="required full-width">
                                         <span class="field-name">{{::"DOSSIER_ID" |translate}}{{::"LEAST_7_CHAR" |translate}}
                                             <strong class="required"> {{::"REQUIRED" |translate}}</strong>
-                                            <sup id="tr5_ref">
-                                                <a class="fn-lnk" href="#tr5"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>5</a>
+                                            <sup id="tr4_ref">
+                                                <a class="fn-lnk" href="#tr4"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>4</a>
                                             </sup>
                                         </span>
                                         <cmp-error-message field-name="transInfoCtrl.dossierId"
@@ -86,8 +86,8 @@
                                     <label for="{{::transInfoCtrl.productNameId}}" class="required full-width">
                                         <span class="field-name">{{::"PROD_NAME" |translate}}
                                         <strong class="required"> {{::"REQUIRED" |translate}}</strong>
-                                         <sup id="tr6_ref">
-                                            <a class="fn-lnk" href="#tr6"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>6</a>
+                                         <sup id="tr5_ref">
+                                            <a class="fn-lnk" href="#tr5"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>5</a>
                                          </sup>
                                         </span>
                                         <cmp-error-message field-name="transInfoCtrl.productNameId"
@@ -172,8 +172,8 @@
                                 <label for="{{::transInfoCtrl.isAdminSubId}}" class="required full-width">
                                     <span class="field-name">{{::"IS_ADMIN_SUBMISSION" |translate}}
                                     <strong class="required"> {{::"REQUIRED" |translate}}</strong>
-                                    <sup id="tr7_ref">
-                                    <a class="fn-lnk" href="#tr7"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>7</a>
+                                    <sup id="tr6_ref">
+                                    <a class="fn-lnk" href="#tr6"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>6</a>
                                     </sup>
                                     </span>
                                     <cmp-error-message field-name="transInfoCtrl.isAdminSubId"
@@ -353,8 +353,8 @@
             <section class="panel  panel-primary">
                 <header class="panel-heading clearfix">
                     <h2 class="panel-title col-md-8">{{::'REGULATORY_FEES' |translate}}
-                        <sup id="tr13_ref">
-                            <a class="fn-lnk" href="#tr13"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>13</a>
+                        <sup id="tr12_ref">
+                            <a class="fn-lnk" href="#tr12"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>12</a>
                         </sup>
                     </h2>
                 </header>
@@ -370,8 +370,8 @@
             <section class="panel  panel-primary">
                 <header class="panel-heading clearfix">
                     <h2 class="panel-title col-md-8">{{::'REG_CONTACT_THIS' |translate}}
-                        <sup id="tr16_ref">
-                            <a class="fn-lnk" href="#tr16"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>16</a>
+                        <sup id="tr13_ref">
+                            <a class="fn-lnk" href="#tr13"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>13</a>
                         </sup>
                     </h2>
                 </header>
@@ -384,8 +384,8 @@
                                     <label for="{{::transInfoCtrl.companyNameId}}" class="required full-width">
                                         <span class="field-name">{{::"COMPANY_NOABBREV" |translate}}</span>
                                         <strong class="required"> {{::"REQUIRED" |translate}}</strong>
-                                        <sup id="tr17_ref">
-                                            <a class="fn-lnk" href="#tr17"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>17</a>
+                                        <sup id="tr14_ref">
+                                            <a class="fn-lnk" href="#tr14"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>14</a>
                                         </sup>
                                         <cmp-error-message field-name="transInfoCtrl.companyNameId"
                                                            form-ref="transInfoCtrl.transInfoForm"
@@ -423,7 +423,7 @@
                                 <label for="{{::transInfoCtrl.contactSameId}}" class="required">
                                     <input type="checkbox" data-ng-model="transInfoCtrl.transactionModel.confirmContactValid"
                                            name="{{::transInfoCtrl.contactSameId}}" id="{{::transInfoCtrl.contactSameId}}" required/>
-                                    {{::"CONFIRM_CONTACT_VALID"|translate}}
+                                    {{::"CONFIRM_CONTACT_VALID"|translate}}<strong class="required"> {{::"REQUIRED" |translate}}</strong>
                                 </label>
                                 <cmp-error-message field-name="transInfoCtrl.contactSameId"
                                                    form-ref="transInfoCtrl.transInfoForm"

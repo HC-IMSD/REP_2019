@@ -41,7 +41,7 @@
             this.rootTag = "TRANSACTION_ENROL";
             this.currSequence = 0;
             // this.xslFileName = XSL_PREFIX + "REP_RT_2_2.xsl";
-            this.xslFileName = "REP_RT_3_0.xsl";
+            this.xslFileName = "REP_RT_5_0.xsl";
         }
 
         // function loadContactData() {
@@ -100,7 +100,7 @@
                     TRANSACTION_ENROL: {
                         template_type: "PHARMA",
                         date_saved: today,
-                        software_version: "3.0.1",
+                        software_version: "5.0.1",
                         data_checksum: jsonObj.dataChecksum,
                        // transaction_type: jsonObj.transactionType,
                         is_third_party: jsonObj.isThirdParty,
@@ -403,26 +403,45 @@
                 result.submission_description = _getSubDescription(feeObj.submissionClass, currentLang, ENGLISH, FRENCH);
                 result.fee = feeObj.submissionClass.fee;
             }
-            result.deferral_request = feeObj.deferralRequest;
-            result.fee_remission = feeObj.feeRemission;
-            result.gross_revenue = feeObj.grossRevenue;
-            result.percent_gross = feeObj.percentGross;
-            result.required_docs.deferral_statement = feeObj.requiredDocs.deferralStat === true ? YES : NO;
-            result.required_docs.remission_certified = feeObj.requiredDocs.revStat === true ? YES : NO;
-            result.required_docs.sales_history = feeObj.requiredDocs.salesHistory === true ? YES : NO;
-            result.required_docs.avg_sale_price = feeObj.requiredDocs.avgSalePrice === true ? YES : NO;
-            result.required_docs.est_market_share = feeObj.requiredDocs.estMarketShare === true ? YES : NO;
-            result.required_docs.comparison_products = feeObj.requiredDocs.comparison === true ? YES : NO;
-            result.required_docs.market_plan = feeObj.requiredDocs.marketPlan === true ? YES : NO;
-            result.required_docs.other = feeObj.requiredDocs.other === true ? YES : NO;
-            result.required_docs.other_details = feeObj.requiredDocs.otherDetails;
-            result.payment_method.credit_card = feeObj.paymentMethod.creditCard === true ? YES : NO;
-            result.payment_method.cheque = feeObj.paymentMethod.cheque === true ? YES : NO;
-            result.payment_method.money_order = feeObj.paymentMethod.moneyOrder === true ? YES : NO;
-            result.payment_method.bank_draft = feeObj.paymentMethod.bankDraft === true ? YES : NO;
-            result.payment_method.existing_credit = feeObj.paymentMethod.existingCredit === true ? YES : NO;
-            result.payment_method.bank_wire = feeObj.paymentMethod.bankWire === true ? YES : NO;
-            result.payment_method.bill_payment = feeObj.paymentMethod.billPayment === true ? YES : NO;
+            // result.deferral_request = feeObj.deferralRequest;
+            // result.fee_remission = feeObj.feeRemission;
+            // result.gross_revenue = feeObj.grossRevenue;
+            // result.percent_gross = feeObj.percentGross;
+            // result.required_docs.deferral_statement = feeObj.requiredDocs.deferralStat === true ? YES : NO;
+            // result.required_docs.remission_certified = feeObj.requiredDocs.revStat === true ? YES : NO;
+            // result.required_docs.sales_history = feeObj.requiredDocs.salesHistory === true ? YES : NO;
+            // result.required_docs.avg_sale_price = feeObj.requiredDocs.avgSalePrice === true ? YES : NO;
+            // result.required_docs.est_market_share = feeObj.requiredDocs.estMarketShare === true ? YES : NO;
+            // result.required_docs.comparison_products = feeObj.requiredDocs.comparison === true ? YES : NO;
+            // result.required_docs.market_plan = feeObj.requiredDocs.marketPlan === true ? YES : NO;
+            // result.required_docs.other = feeObj.requiredDocs.other === true ? YES : NO;
+            // result.required_docs.other_details = feeObj.requiredDocs.otherDetails;
+            // result.payment_method.credit_card = feeObj.paymentMethod.creditCard === true ? YES : NO;
+            // result.payment_method.cheque = feeObj.paymentMethod.cheque === true ? YES : NO;
+            // result.payment_method.money_order = feeObj.paymentMethod.moneyOrder === true ? YES : NO;
+            // result.payment_method.bank_draft = feeObj.paymentMethod.bankDraft === true ? YES : NO;
+            // result.payment_method.existing_credit = feeObj.paymentMethod.existingCredit === true ? YES : NO;
+            // result.payment_method.bank_wire = feeObj.paymentMethod.bankWire === true ? YES : NO;
+            // result.payment_method.bill_payment = feeObj.paymentMethod.billPayment === true ? YES : NO;
+            //mitigation
+            result.mitigation.mitigation_type = "";
+            if (feeObj.mitigation.mitigationType && feeObj.mitigation.mitigationType.id) {
+                var tempType = (angular.fromJson(angular.toJson(feeObj.mitigation.mitigationType)));
+                result.mitigation.mitigation_type =
+                    {
+                        _id: tempType.id,
+                        _label_en: tempType.en,
+                        _label_fr: tempType.fr,
+                        __text: currentLang == ENGLISH ? tempType.en : tempType.fr
+                    };
+            }
+            // result.mitigation.mitigation_type = feeObj.mitigation.mitigationType;
+            result.mitigation.certify_organization = feeObj.mitigation.certifyOrganization   === true ? 'Y' : 'N';
+            result.mitigation.small_business_fee_application = feeObj.mitigation.smallBusinessFeeApplication;
+            result.mitigation.first_submission = feeObj.mitigation.firstSubmission;
+            result.mitigation.certify_goverment_organization = feeObj.mitigation.certifyGovermentOrganization  === true ? 'Y' : 'N';
+            result.mitigation.certify_urgent_health_need = feeObj.mitigation.certifyUrgentHealthNeed   === true ? 'Y' : 'N';
+            result.mitigation.certify_funded_health_institution = feeObj.mitigation.certifyFundedHealthInstitution   === true ? 'Y' : 'N';
 
             return result;
         };
@@ -442,27 +461,44 @@
             if (feeObj.submission_class && feeObj.submission_class._id) {
                 result.submissionClass = $filter('findListItemById')(TransactionLists.getFeeList(), {id: feeObj.submission_class._id});
             }
-            result.deferralRequest = feeObj.deferral_request;
-            result.feeRemission = feeObj.fee_remission;
-            result.grossRevenue = Number(feeObj.gross_revenue);
-            result.percentGross = feeObj.percent_gross;
-            result.requiredDocs.deferralStat = feeObj.required_docs.deferral_statement === YES;
-            result.requiredDocs.revStat = feeObj.required_docs.remission_certified === YES;
-            result.requiredDocs.salesHistory = feeObj.required_docs.sales_history === YES;
-            result.requiredDocs.avgSalePrice = feeObj.required_docs.avg_sale_price === YES;
-            result.requiredDocs.estMarketShare = feeObj.required_docs.est_market_share === YES;
-            result.requiredDocs.comparison = feeObj.required_docs.comparison_products === YES;
-            result.requiredDocs.marketPlan = feeObj.required_docs.market_plan === YES;
-            result.requiredDocs.other = feeObj.required_docs.other === YES;
-            result.requiredDocs.otherDetails = feeObj.required_docs.other_details;
-            result.paymentMethod.creditCard = feeObj.payment_method.credit_card === YES;
-            result.paymentMethod.cheque = feeObj.payment_method.cheque === YES;
-            result.paymentMethod.moneyOrder = feeObj.payment_method.money_order === YES;
-            result.paymentMethod.bankDraft = feeObj.payment_method.bank_draft === YES;
-            result.paymentMethod.existingCredit = feeObj.payment_method.existing_credit === YES;
-            result.paymentMethod.bankWire = feeObj.payment_method.bank_wire === YES;
-            result.paymentMethod.billPayment = feeObj.payment_method.bill_payment === YES;
+            // // result.deferralRequest = feeObj.deferral_request;
+            // // result.feeRemission = feeObj.fee_remission;
+            // // result.grossRevenue = Number(feeObj.gross_revenue);
+            // // result.percentGross = feeObj.percent_gross;
+            // if(feeObj.required_docs){
+            //     if(feeObj.required_docs.deferral_statement){
+            //         result.requiredDocs.deferralStat = feeObj.required_docs.deferral_statement === YES;
+            //     }
+            //     result.requiredDocs.revStat = feeObj.required_docs.remission_certified === YES;
+            //     result.requiredDocs.salesHistory = feeObj.required_docs.sales_history === YES;
+            //     result.requiredDocs.avgSalePrice = feeObj.required_docs.avg_sale_price === YES;
+            //     result.requiredDocs.estMarketShare = feeObj.required_docs.est_market_share === YES;
+            //     result.requiredDocs.comparison = feeObj.required_docs.comparison_products === YES;
+            //     result.requiredDocs.marketPlan = feeObj.required_docs.market_plan === YES;
+            //     result.requiredDocs.other = feeObj.required_docs.other === YES;
+            //     result.requiredDocs.otherDetails = feeObj.required_docs.other_details;
+            // }
+            // if(feeObj.payment_method){
+            //     result.paymentMethod.creditCard = feeObj.payment_method.credit_card === YES;
+            //     result.paymentMethod.cheque = feeObj.payment_method.cheque === YES;
+            //     result.paymentMethod.moneyOrder = feeObj.payment_method.money_order === YES;
+            //     result.paymentMethod.bankDraft = feeObj.payment_method.bank_draft === YES;
+            //     result.paymentMethod.existingCredit = feeObj.payment_method.existing_credit === YES;
+            //     result.paymentMethod.bankWire = feeObj.payment_method.bank_wire === YES;
+            //     result.paymentMethod.billPayment = feeObj.payment_method.bill_payment === YES;
+            // }
 
+            if(feeObj.mitigation){
+                if (feeObj.mitigation.mitigation_type && feeObj.mitigation.mitigation_type._id) {
+                    result.mitigation.mitigationType = $filter('findListItemById')(TransactionLists.getMitigationList(), {id: feeObj.mitigation.mitigation_type._id});
+                }
+                result.mitigation.certifyOrganization = feeObj.mitigation.certify_organization === YES;
+                result.mitigation.smallBusinessFeeApplication = feeObj.mitigation.small_business_fee_application;
+                result.mitigation.firstSubmission = feeObj.mitigation.first_submission;
+                result.mitigation.certifyGovermentOrganization = feeObj.mitigation.certify_goverment_organization === YES;
+                result.mitigation.certifyUrgentHealthNeed = feeObj.mitigation.certify_urgent_health_need === YES;
+                result.mitigation.certifyFundedHealthInstitution  = feeObj.mitigation.certify_funded_health_institution ===  YES;
+            }
             return result;
             //}
         };
@@ -529,6 +565,9 @@
         var lifecycleRec = _createLifeCycleModel();
         // lifecycleRec.sequence = lifecycleObj.sequence_number;
         // lifecycleRec.dateFiled = lifecycleObj.date_filed;
+        if(! lifecycleObj){
+            return lifecycleRec;
+        }
         lifecycleRec.controlNumber = lifecycleObj.control_number;
         if (lifecycleObj.regulatory_activity_lead) {
             lifecycleRec.activityLead = lifecycleObj.regulatory_activity_lead._id;
@@ -822,7 +861,11 @@
         address.street = addressObj.street_address;
         address.city = addressObj.city;
         if (addressObj.province_lov) {
-            address.stateList = addressObj.province_lov._id;
+            if(addressObj.province_lov._id){
+                address.stateList = addressObj.province_lov._id;
+            } else {
+                address.stateList = addressObj.province_lov;
+            }
         } else {
             address.stateList = "";
         }
@@ -831,6 +874,10 @@
         var currentLang = $translate.proposedLanguage() || $translate.use();
         if (addressObj.country._id) {
             address.country = $filter('filter')(getCountryAndProvinces.getCountries(), {id: addressObj.country._id})[0];
+            address.countryHtml = $translate.instant(address.country.id, "", '', currentLang);
+            address.countryDisplay = address.country.id;
+        } else if(addressObj.country){
+            address.country = $filter('filter')(getCountryAndProvinces.getCountries(), {id: addressObj.country.__text})[0];
             address.countryHtml = $translate.instant(address.country.id, "", '', currentLang);
             address.countryDisplay = address.country.id;
         }
@@ -920,7 +967,7 @@
         var defaultTransactionData = {
             dataChecksum: "",
             dateSaved: "",
-            softwareVersion: "3.0.1",
+            softwareVersion: "5.0.1",
            // transactionType: "",
             isThirdParty: "",
             isPriority: "",
@@ -983,6 +1030,16 @@
                 existingCredit: false,
                 bankWire: false,
                 billPayment: false
+            },
+            feeRemitNoPayment: null,
+            mitigation: {
+                mitigationType: "", //statement supporting the deferral request
+                certifyOrganization: false,
+                smallBusinessFeeApplication: "",
+                firstSubmission: null,
+                certifyGovermentOrganization:false,
+                certifyUrgentHealthNeed: false,
+                certifyFundedHealthInstitution: false
             }
         };
         return feeObj;
@@ -1016,6 +1073,15 @@
                 existing_credit: NO,
                 bank_wire: NO,
                 bill_payment: NO
+            },
+            mitigation: {
+                mitigation_type : "",// mitigation measures
+                certify_organization : NO, //number of employees less than 100 people
+                small_business_fee_application : NO, //completed the Small Business Fee Mitigation Application and attached it
+                first_submission : NO, //This is my first submission/application
+                certify_goverment_organization : NO, // certify that our organization is a branch or agency of the Government of Canada or of a province or territory.
+                certify_urgent_health_need: NO,
+                certify_funded_health_institution: NO
             }
         };
         return feeObj;

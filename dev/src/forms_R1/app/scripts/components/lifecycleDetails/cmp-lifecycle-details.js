@@ -863,8 +863,10 @@
 
                 concatText = enDescription + "\n" + vm.lifecycleModel.details;
             }
-            if (vm.versionVisible) {
-                concatText = enDescription +" version "+ vm.lifecycleModel.sequenceVersion + concatText;
+            if (vm.lifecycleModel.descriptionValue === vm.descriptionObj.RMP_VERSION_DATE) {
+                concatText = enDescription + " " + vm.lifecycleModel.sequenceVersion + concatText;
+            } else {
+                concatText = enDescription + " version " + vm.lifecycleModel.sequenceVersion + concatText;
             }
             if (vm.yearChangeVisible) {
                 concatText = vm.lifecycleModel.year + ", " + vm.lifecycleModel.details;
