@@ -131,7 +131,7 @@
                                    </input>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row form-group">
                         <fieldset class="col-md-12 chkbxrdio-grp" data-ng-class="{'has-error':transInfoCtrl.transInfoForm[transInfoCtrl.thirdPartyId].$invalid}">
                             <legend class="required">
                                     {{::"IS_SIGNED_3RD_PARTY" |translate}}
@@ -157,7 +157,7 @@
                         <p> {{::'AUT_LETTER_NOTE'|translate}}</p>
                     </div>
                 </div>
-                <div class="row" data-ng-if="transInfoCtrl.isPB()">
+                <div class="row form-group" data-ng-if="transInfoCtrl.isPB()">
                     <fieldset class="col-md-12 chkbxrdio-grp" data-ng-class="{'has-error':transInfoCtrl.transInfoForm[transInfoCtrl.isPriorityId].$invalid}">
                         <legend class="required">
                             <strong>{{::"IS_PRIORITY" |translate}}<strong class="required"> {{::"REQUIRED" |translate}}</strong>
@@ -176,7 +176,7 @@
                         <label class="col-xs-2" for="{{::transInfoCtrl.isPriorityId}}_1"><input type="radio" id="{{::transInfoCtrl.isPriorityId}}_1" name="{{::transInfoCtrl.isPriorityId}}" value="N" data-ng-model="transInfoCtrl.transactionModel.isPriority" required />&nbsp;{{::'N'|translate}}</label>
                     </fieldset>
                 </div>
-                <div class="row" data-ng-if="transInfoCtrl.isPB()">
+                <div class="row form-group" data-ng-if="transInfoCtrl.isPB()">
                     <fieldset class="col-md-12 chkbxrdio-grp" data-ng-class="{'has-error':transInfoCtrl.transInfoForm[transInfoCtrl.isNocId].$invalid}">
                         <legend class="required">
                             <strong>{{::"IS_NOC" |translate}}<strong class="required"> {{::"REQUIRED" |translate}}</strong>
@@ -198,7 +198,7 @@
                 </div>
 
                 <div data-ng-if="transInfoCtrl.transactionModel.ectd.dossierType != 'D26'">
-                    <div class="row">
+                    <div class="row form-group">
                         <fieldset class="col-md-12 chkbxrdio-grp" data-ng-class="{'has-error':transInfoCtrl.transInfoForm[transInfoCtrl.isAdminSubId].$invalid}">
                             <legend>
                                 {{::"IS_ADMIN_SUBMISSION" |translate}}
