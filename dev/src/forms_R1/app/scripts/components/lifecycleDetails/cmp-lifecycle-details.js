@@ -1099,11 +1099,11 @@
             //translate value to english
            var enDescription = translateToEnglish(vm.lifecycleModel.descriptionValue);
             if (vm.descriptionVisible && !vm.yearChangeVisible) {
-                if (vm.startDateVisible ) {
+                // if (vm.startDateVisible ) {
                     concatText = enDescription + " - " + vm.lifecycleModel.details;
-                } else {
-                    concatText = enDescription + "\n" + vm.lifecycleModel.details;
-                }
+                // } else {
+                //     concatText = enDescription + "\n" + vm.lifecycleModel.details;
+                // }
             }
             if (vm.startDateVisible) {
                 startDate = convertDate(vm.lifecycleModel.startDate);
