@@ -47,6 +47,7 @@
                 resetEctd: '&',
                 deprecateSequence: '&',
                 language:'<',
+                htIndxList:'<',
                 sequenceUpdated:'<',
                 getCurrentSequence:'&',
                 showErrorSummary: '<',

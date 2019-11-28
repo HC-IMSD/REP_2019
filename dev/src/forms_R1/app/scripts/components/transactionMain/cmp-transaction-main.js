@@ -5,6 +5,7 @@
             'transactionInfo',
             'transactionService',
             'transactionLoadService',
+            'transactionHelpText',
             'fileIO',
             'services',
             'dataLists',
@@ -46,6 +47,7 @@
         vm.transactionService = new TransactionService();
         vm.rootTag = vm.transactionService.getRootTag();
         vm.transaction = vm.transactionService.getModelInfo();
+        vm.indexList = vm.transactionService.helpTextSequences;
         vm.showContent = _loadFileContent;
         vm.alerts = [false, false,false];
         vm.lang = $translate.proposedLanguage() || $translate.use();

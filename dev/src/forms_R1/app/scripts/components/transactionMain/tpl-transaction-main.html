@@ -17,8 +17,10 @@
         <span id="instructions"></span>
         <aside class="wb-fnote" role="note">
             <h2>{{::'FOOTNOTE_INSTRUCTION'|translate}}</h2>
-            <section data-ng-if="!main.isFrench()" data-ng-include="'app/scripts/templates/transaction/tpl-transaction-footnote-en.html'"></section>
-            <section data-ng-if="main.isFrench()" data-ng-include="'app/scripts/templates/transaction/tpl-transaction-footnote-fr.html'"></section>
+            <cmp-transaction-help-text ht-indx-list="main.indexList">
+            </cmp-transaction-help-text>
+            <!--<section data-ng-if="!main.isFrench()" data-ng-include="'app/scripts/templates/transaction/tpl-transaction-footnote-en.html'"></section>-->
+            <!--<section data-ng-if="main.isFrench()" data-ng-include="'app/scripts/templates/transaction/tpl-transaction-footnote-fr.html'"></section>-->
         </aside>
         <span id="main"></span>
         <div class="row mrgn-tp-md">
@@ -32,7 +34,7 @@
             <header class="panel-heading clearfix">
                 <h2 class="panel-title col-md-8">{{'LOAD_TRANSACTION'|translate}}
                     <sup id="tr1_ref">
-                        <a class="fn-lnk" href="#tr1"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>1</a>
+                        <a class="fn-lnk" href="#tr1"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::main.indexList.loadFileInx}}</a>
                     </sup>
                 </h2>
             </header>
@@ -61,7 +63,7 @@
                                   sequence-updated="main.sequenceUpdated" update-error-summary="main.updateErrorSummaryState()"
                                   get-current-sequence="main.transactionService.getCurrentSequence()"
                                   get-rep-contact="main.transactionService.getNewRepContact()"
-                                  is-file-loaded="main.isFileLoaded"
+                                  is-file-loaded="main.isFileLoaded" ht-indx-list="main.indexList"
                                   is-final="main.isFinal">
             </cmp-transaction-info>
             <div class="row">
@@ -95,7 +97,7 @@
                             >{{::'GENERATE_FINAL'|translate}}
                     </button>
                     <sup id="tr15_ref">
-                        <a class="fn-lnk" href="#tr15"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>15</a>
+                        <a class="fn-lnk" href="#tr15"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::main.indexList.genXmlInx}}</a>
                     </sup>
 
                 </div>

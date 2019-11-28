@@ -32,6 +32,7 @@
                 onDelete: '&',
                 enableDeleteIndex: '&',
                 isEctd: '<',
+                htIndxList:'<',
                 getDossierType: '<',
                 activityTypes:'<', //list of activity types
                 sequenceUpdated:'<',

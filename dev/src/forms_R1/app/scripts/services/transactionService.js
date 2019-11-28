@@ -42,6 +42,28 @@
             this.currSequence = 0;
             // this.xslFileName = XSL_PREFIX + "REP_RT_2_2.xsl";
             this.xslFileName = "REP_RT_5_0.xsl";
+            this.helpTextSequences = {
+                loadFileInx: 0,
+                dossierTypeInx: 0,
+                compIdInx: 0,
+                dossiIdInx: 0,
+                prodNameInx: 0,
+                adminSubInx: 0,
+                ctrlNumInx: 0,
+                actLeadInx: 0,
+                yearChgInx: 0,
+                descChgInx: 0,
+                reqSoliInx: 0,
+                feesInx: 0,
+                contactInx: 0,
+                compNameInx: 0,
+                genXmlInx: 0
+            };
+
+            var keys = Object.keys(this.helpTextSequences);
+            for (var i = 0; i < keys.length; i++) {
+                this.helpTextSequences[keys[i]] = i + 1;
+            }
         }
 
         // function loadContactData() {
