@@ -41,7 +41,7 @@
             this.rootTag = "TRANSACTION_ENROL";
             this.currSequence = 0;
             // this.xslFileName = XSL_PREFIX + "REP_RT_2_2.xsl";
-            this.xslFileName = "REP_RT_5_0.xsl";
+            this.xslFileName = "REP_RT_3_3.xsl";
             this.helpTextSequences = {
                 loadFileInx: 0,
                 dossierTypeInx: 0,
@@ -122,7 +122,7 @@
                     TRANSACTION_ENROL: {
                         template_type: "PHARMA",
                         date_saved: today,
-                        software_version: "5.0.1",
+                        software_version: "3.3",
                         data_checksum: jsonObj.dataChecksum,
                        // transaction_type: jsonObj.transactionType,
                         is_third_party: jsonObj.isThirdParty,
@@ -989,7 +989,7 @@
         var defaultTransactionData = {
             dataChecksum: "",
             dateSaved: "",
-            softwareVersion: "5.0.1",
+            softwareVersion: "3.3",
            // transactionType: "",
             isThirdParty: "",
             isPriority: "",
