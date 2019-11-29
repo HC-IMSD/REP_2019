@@ -482,6 +482,9 @@
 
             if (feeObj.submission_class && feeObj.submission_class._id) {
                 result.submissionClass = $filter('findListItemById')(TransactionLists.getFeeList(), {id: feeObj.submission_class._id});
+                if(result.submissionClass.fee != feeObj.fee){
+                    result.submissionClass = {};
+                }
             }
             // // result.deferralRequest = feeObj.deferral_request;
             // // result.feeRemission = feeObj.fee_remission;
