@@ -50,7 +50,7 @@
     "fr": "Données cliniques ou non cliniques seulement, à l’appui des mises à jour de l’étiquetage concernant l’innocuité",
     "description_en": "Submissions based only on clinical or non-clinical data, in support of safety updates to the labelling materials for a  new drug that does not include a new active substance.",
     "description_fr": "Présentations fondées seulement sur des données cliniques ou non cliniques à l’appui de mises à jour de l’innocuité sur l’étiquetage à l’égard d’un nouveau médicament exempt de nouvelle substance active.",
-    "fee": "19921",
+    "fee": "19442",
     "sortBy":"FC06"
   },
   {
@@ -93,8 +93,8 @@
     "id": "FC11",
     "en": "Labelling only (Disinfectants)",
     "fr": "Étiquetage seulement (Désinfectants)",
-    "description_en": "Applications attesting to compliance with a labelling standard or Category IV Monograph for a drug that does not include clinical or non-clinical data or chemistry and manufacturing data.",
-    "description_fr": "Demandes attestant la conformité à une norme d’étiquetage ou  à une monographie de catégorie IV pour une drogue ne comportant aucune donnée clinique ou non clinique ni donnée sur la chimie ou la fabrication.",
+    "description_en": "Submissions  in support of changes to the labelling of disinfectants that do not require supporting data, submissions in support of safety updates for disinfectants that are new drugs or submissions in support of a change in the manufacturer’s name or  brand name that requires  a review of labelling material due to deviations from the previously authorized labelling or drug.",
+    "description_fr": "Présentations à l’appui de changements à l’étiquetage de désinfectants et qui ne nécessitent pas de données complémentaires, présentations à l’appui de mises à jour sur l’innocuité pour des désinfectants qui sont de nouveaux médicaments ou présentations à l’appui d’un changement de nom du fabricant ou de la marque et qui nécessitent un examen du matériel d’étiquetage en raison de dérogations à l’étiquetage ou au médicament préalablement autorisés.",
     "fee": "2507",
     "sortBy":"FC11"
   },
@@ -102,8 +102,8 @@
     "id": "FC12",
     "en": "Drug identification number application - labelling standards",
     "fr": "Demande d’une identification numérique — normes d’étiquetage",
-    "description_en": "Submissions  in support of changes to the labelling of disinfectants that do not require supporting data, submissions in support of  safety updates for disinfectants that are new drugs or submissions in support of a change in the manufacturer’s name or  brand name that requires  a review of labelling material due to deviations from the previously authorized labelling or drug.",
-    "description_fr": "Présentations à l’appui de changements à l’étiquetage de désinfectants et qui ne nécessitent pas de données complémentaires, présentations à l’appui de mises à jour sur l’innocuité pour des désinfectants qui sont de nouveaux médicaments ou présentations à l’appui d’un changement de nom du fabricant ou de la marque et qui nécessitent un examen du matériel d’étiquetage en raison de dérogations à l’étiquetage ou au médicament préalablement autorisés .",
+    "description_en": "Applications, including those that pertain to changes to brand names for non-prescription drugs, that include an attestation of compliance  with a labelling standard or Category IV Monograph for a drug and that do not include clinical or non-clinical data or chemistry and manufacturing data.",
+    "description_fr": "Demandes, y compris les demandes relatives à des changements de nom de marque pour des médicaments sans ordonnance, qui comprennent une attestation de conformité à une norme d’étiquetage ou à une monographie de catégorie IV pour un médicament et qui ne comportent pas de données cliniques ou non cliniques ou de données sur la chimie ou la fabrication.",
     "fee": "1616",
     "sortBy":"FC12"
   }
