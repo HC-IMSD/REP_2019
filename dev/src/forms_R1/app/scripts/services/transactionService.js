@@ -1029,31 +1029,31 @@
         var feeObj = {
 
             submissionClass: null,
-            deferralRequest: '', //defer payment for two years
-            feeRemission: "", //applying for fee remission
-            grossRevenue: 0,
-            percentGross: "",
-            requiredDocs: {
-                deferralStat: false, //statement supporting the deferral request
-                revStat: false,
-                salesHistory: false, //sales history
-                avgSalePrice: false, //average sales price and demand
-                estMarketShare: false, //estimated market share
-                comparison: false, ///compariosn to similar products
-                marketPlan: false, //marketing palne for the drug product
-                other: false,   //other
-                otherDetails: ""
-            },
-            paymentMethod: {
-                creditCard: false,
-                cheque: false,
-                moneyOrder: false,
-                bankDraft: false,
-                existingCredit: false,
-                bankWire: false,
-                billPayment: false
-            },
-            feeRemitNoPayment: null,
+            // deferralRequest: '', //defer payment for two years
+            // feeRemission: "", //applying for fee remission
+            // grossRevenue: 0,
+            // percentGross: "",
+            // requiredDocs: {
+            //     deferralStat: false, //statement supporting the deferral request
+            //     revStat: false,
+            //     salesHistory: false, //sales history
+            //     avgSalePrice: false, //average sales price and demand
+            //     estMarketShare: false, //estimated market share
+            //     comparison: false, ///compariosn to similar products
+            //     marketPlan: false, //marketing palne for the drug product
+            //     other: false,   //other
+            //     otherDetails: ""
+            // },
+            // paymentMethod: {
+            //     creditCard: false,
+            //     cheque: false,
+            //     moneyOrder: false,
+            //     bankDraft: false,
+            //     existingCredit: false,
+            //     bankWire: false,
+            //     billPayment: false
+            // },
+            // feeRemitNoPayment: null,
             mitigation: {
                 mitigationType: "", //statement supporting the deferral request
                 certifyOrganization: false,
@@ -1072,30 +1072,30 @@
             submission_class: null,
             submission_description: null,
             fee: "",
-            deferral_request: NO, //defer payment for two years
-            fee_remission: "", //applying for fee remission
-            gross_revenue: 0,
-            percent_gross: "",
-            required_docs: {
-                deferral_statement: NO, //statement supporting the deferral request
-                remission_certified: NO,
-                sales_history: NO, //sales history
-                avg_sale_price: NO, //average sales price and demand
-                est_market_share: NO, //estimated market share
-                comparison_products: NO, ///compariosn to similar products
-                market_plan: NO, //marketing palne for the drug product
-                other: NO,   //other
-                other_details: ""
-            },
-            payment_method: {
-                credit_card: NO,
-                cheque: NO,
-                money_order: NO,
-                bank_draft: NO,
-                existing_credit: NO,
-                bank_wire: NO,
-                bill_payment: NO
-            },
+            // deferral_request: NO, //defer payment for two years
+            // fee_remission: "", //applying for fee remission
+            // gross_revenue: 0,
+            // percent_gross: "",
+            // required_docs: {
+            //     deferral_statement: NO, //statement supporting the deferral request
+            //     remission_certified: NO,
+            //     sales_history: NO, //sales history
+            //     avg_sale_price: NO, //average sales price and demand
+            //     est_market_share: NO, //estimated market share
+            //     comparison_products: NO, ///compariosn to similar products
+            //     market_plan: NO, //marketing palne for the drug product
+            //     other: NO,   //other
+            //     other_details: ""
+            // },
+            // payment_method: {
+            //     credit_card: NO,
+            //     cheque: NO,
+            //     money_order: NO,
+            //     bank_draft: NO,
+            //     existing_credit: NO,
+            //     bank_wire: NO,
+            //     bill_payment: NO
+            // },
             mitigation: {
                 mitigation_type : "",// mitigation measures
                 certify_organization : NO, //number of employees less than 100 people
