@@ -7,7 +7,7 @@
   "SEQUENCE_DESCRIPT": "Regulatory Transaction Description",
   "IS_ACTCHANGES": "Same as Regulatory Activity Contact for this Submission?",
   "COMPANY_ID": "Company Identification",
-  "DOSSIER_ID": "Dossier Identification",
+  "DOSSIER_ID": "Dossier Identifier",
   "DOSSIER_NAME": "Dossier Name",
   "IS_ECTD": "Is this an eCTD transaction?",
   "IS_SOLICITED": "Is this solicited information?",
