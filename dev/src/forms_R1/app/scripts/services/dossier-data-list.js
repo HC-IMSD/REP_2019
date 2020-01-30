@@ -189,7 +189,8 @@
         }
 
         function _getDrugUseArray(){
-            return(angular.merge(_getVetDrugUseArray(), _getCTADrugUseArray()));
+            var dul = _getCTADrugUseArray();
+            return (dul.concat(_getVetDrugUseArray()));
         }
 
         function _getVetDrugUseArray(){

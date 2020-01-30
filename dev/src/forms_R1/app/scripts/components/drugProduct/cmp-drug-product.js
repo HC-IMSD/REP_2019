@@ -209,6 +209,7 @@
                 vm.model = vm.drugProductService.loadFromFile(resultJson);
                 //process file load results
                 //load into data model as result json is not null
+                vm.dossierTypeChange();
                 vm.drugUseUpdate();
                 if (vm.model.drugProduct) {
                     vm.setSceduleFieldset();
