@@ -41,7 +41,7 @@
             this.addressID = 0;
             this.contactId = 0;
             // this.xslFileName = XSL_PREFIX + "REP_CO_2_2.xsl";
-            this.xslFileName = "REP_CO_3_0.xsl";
+            this.xslFileName = "REP_CO_3_1.xsl";
         }
         //TODO rewrite this object to proper prototype syntax
         CompanyService.prototype = {
@@ -84,8 +84,8 @@
                     mailing: false,
                     billing: false,
                    // importer: false,
-                    repPrimary: false,
-                    repSecondary: false
+                    repPrimary: false
+                    // repSecondary: false
                 };
                 return (defaultContactRole);
             },
@@ -93,6 +93,7 @@
                 var defaultAddress = {
                     addressID: 1,
                     companyName: "",
+                    businessNumber: "",
                     importerID: "",
                     addressRole: {
                         manufacturer: false,
@@ -124,9 +125,9 @@
                         manufacturer: false,
                         mailing: false,
                         billing: false,
-                       // importer: false,
-                        repPrimary: false,
-                        repSecondary: false
+                        // importer: false,
+                        repPrimary: false
+                        // repSecondary: false
                     },
                     contactRole: "",
                    // salutation: "",
@@ -136,7 +137,9 @@
                     title: "",
                     phone: "",
                     phoneExt: "",
-                    fax: ""
+                    fax: "",
+                    email: "",
+                    routingId: ""
                 };
                 defaultContact.contactId = this.getNextContactID();
                 return (defaultContact);
@@ -252,6 +255,7 @@
                     var address = {};
                     address.addressID = adrList[i].address_id;
                     address.companyName = adrList[i].company_name;
+                    address.businessNumber = adrList[i].business_number;
                     address.importerID = adrList[i].importer_id;
                     address.addressRole = {};
                     address.addressRole.manufacturer = adrList[i].manufacturer === 'Y';
@@ -319,7 +323,7 @@
                     contact.addressRole.manufacturer = contacts[i].manufacturer === 'Y';
                     contact.addressRole.mailing = contacts[i].mailing === 'Y';
                     contact.addressRole.billing = contacts[i].billing === 'Y';
-                    //contact.addressRole.importer = contacts[i].importer === 'Y';
+                    contact.addressRole.importer = contacts[i].importer === 'Y';
                     contact.addressRole.repPrimary = contacts[i].rep_primary === 'Y';
                     contact.addressRole.repSecondary = contacts[i].rep_secondary === 'Y';
                     //contact.contactRole = contacts[i].company_contact_details.rep_contact_role;
@@ -333,6 +337,7 @@
                     contact.phoneExt = contacts[i].company_contact_details.phone_ext;
                     contact.fax = contacts[i].company_contact_details.fax_num;
                     contact.email = contacts[i].company_contact_details.email;
+                    contact.routingId = contacts[i].routing_id;
                     list.push(contact);
                 }
                 return list;
@@ -359,6 +364,7 @@
                 address.billing = adrList[i].addressRole.billing === true ? 'Y' : 'N';
                 address.importer = adrList[i].addressRole.importer === true ? 'Y' : 'N';
                 address.company_name = adrList[i].companyName;
+                address.business_number = adrList[i].businessNumber;
                 address.importer_id = adrList[i].importerID;
                 address.company_address_details = {};
                 address.company_address_details.street_address = adrList[i].street;
@@ -406,9 +412,9 @@
                 contact.manufacturer = contacts[i].addressRole.manufacturer === true ? 'Y' : 'N';
                 contact.mailing = contacts[i].addressRole.mailing === true ? 'Y' : 'N';
                 contact.billing = contacts[i].addressRole.billing === true ? 'Y' : 'N';
-               // contact.importer = contacts[i].addressRole.importer === true ? 'Y' : 'N';
+               contact.importer = contacts[i].addressRole.importer === true ? 'Y' : 'N';
                 contact.rep_primary = contacts[i].addressRole.repPrimary === true ? 'Y' : 'N';
-                contact.rep_secondary = contacts[i].addressRole.repSecondary === true ? 'Y' : 'N';
+                // contact.rep_secondary = contacts[i].addressRole.repSecondary === true ? 'Y' : 'N';
                 //contact.rep_contact_role = contacts[i].addressRole.contactRole === true ? 'Y' : 'N';
                 contact.company_contact_details = {};
                // contact.company_contact_details.salutation = contacts[i].salutation;
@@ -424,6 +430,7 @@
                 contact.company_contact_details.phone_ext = contacts[i].phoneExt;
                 contact.company_contact_details.fax_num = contacts[i].fax;
                 contact.company_contact_details.email = contacts[i].email;
+                contact.routing_id = contacts[i].routingId;
                 contactList.push(contact);
             }
         }

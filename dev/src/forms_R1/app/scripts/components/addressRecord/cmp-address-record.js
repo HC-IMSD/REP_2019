@@ -65,6 +65,7 @@
         vm.addressModel = {
             addressID: 1,
             companyName: "",
+            businessNumber: "",
             importerID:"",
             amendRecord: false,
             addressRole: {

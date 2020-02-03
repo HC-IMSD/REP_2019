@@ -7,7 +7,7 @@
   "REPRESENT_INSTRUCT":"Company Representative Information",
   "SAVE_INSTRUCT": "Company File Save Instructions",
   "AMEND_NOTE": "The “Amend Enrolment” button must be selected when amending a Final Company XML.",
-  "FIELDID": "Company Identification",
-  "IMPORTERID":"Importer Company Identification",
+  "FIELDID": "Company Identifier",
+  "IMPORTERID":"Importer Company Identifier",
   "COMPANY_NAME": "Company Name"
 }

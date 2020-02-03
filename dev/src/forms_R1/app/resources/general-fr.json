@@ -26,6 +26,7 @@
   "MANUFACTURER": "Adresse postale du fabricant / promoteur",
   "IMPORTER_ADDRESS": "Adresse postale de l'importateur canadien",
   "CONTACTMAILING": "Courrier réglementaire / adresse de personne-ressource pour l'annuelle",
+  "CAN_IMP":"Importateur canadien",
   "CONTACTBILLING": "Personne-ressource de facturation",
   "CONTACTMANUFACTURER": "Personne-ressource du fabricant/promoteur",
   "CONTACT_IMPORTER": "Personne-ressource de l'importateur",
@@ -38,7 +39,7 @@
   "REP_CONTACT_INFO": "fr_Main Contact Information",
   "SAVE_CONTACT": "fr_Save Contact",
   "DELETE_CONTACT": "fr_Delete Contact",
-  "COMPANY_ID": "Numéro d'entreprise",
+  "COMPANY_ID": "Numéro de la compagnie",
   "DOSSIER_ID": "Numéro de dossier",
   "IMPORTER": "Importateur",
   "IMPORTERID":"Numéro d'entreprise de l'importateur",
@@ -59,6 +60,7 @@
   "HELP_REP_CONTACT": "Regulatory Enrolment Process Contact Instructions",
   "OTHER_UNITS": "Unités, autre détails",
   "COMPANYNAME":"Nom de l'entreprise (nom légal complet, sans abbréviation)",
+  "BUSINESSNUMBER": "Numéro d'entreprise",
   "ACOMPANYNAME":"Nom de l'entreprise (nom légal complet, sans abbréviation)",
   "COPY":"fr_Copy",
   "DELETE":"Supprimer",
@@ -79,6 +81,7 @@
   "INCLUDE_AREA_CODE":" (y compris indicatif régional)",
   "LEAST_6_DIGIT":" (6 chiffres seulement)",
   "LEAST_5_DIGIT":" (5 chiffres seulement)",
+  "LEAST_9_CHAR":" (9 caractères)",
   "INSTRUCTION":"Instructions",
   "RETURN_INSTRUCTION":"Retourne aux instructions ",
   "PRIVACY_STATEMENT_HELP":"fr_View Privacy Notice Statement",
@@ -93,5 +96,6 @@
   "D22": "Pharmaceutique",
   "BROWSER": "Navigateur",
   "TABLE_EXPANDED_STATE": "État ouvert",
-  "PROTECTED_B": "Protégé \"B\" une fois rempli"
+  "PROTECTED_B": "Protégé \"B\" une fois rempli",
+  "ROUTING_ID": "Identificateur  d'acheminement"
 }

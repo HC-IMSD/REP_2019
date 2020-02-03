@@ -30,6 +30,21 @@
                 </div>
             </div>
             <div class="row">
+                <div class="form-group col-md-12">
+                    <label for="{{::addressRec.businessNumberId}}" class="full-width">
+                        <span class="field-name">{{::"BUSINESSNUMBER" |translate}}</span>
+                        <sup id="co3a_ref" data-ng-if="!ar.isContact">
+                            <a class="fn-lnk" href="#co3a"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>4</a>
+                        </sup>
+                        <input type="text" id="{{::addressRec.businessNumberId}}" name="{{::addressRec.businessNumberId}}"
+                               data-ng-model="addressRec.addressModel.businessNumber"
+                               class="form-control full-width" maxlength="9"
+                               data-ng-blur="addressRec.updateErrorSummaryState()" data-ng-readonly="!addressRec.isEditable"
+                               />
+                    </label>
+                </div>
+            </div>
+            <div class="row">
                 <cmp-address-details address-record="addressRec.addressModel" is-amend="addressRec.isEditable"
                                      on-update="addressRec.onUpdateAddressRecord(address)"
                                      update-error-summary="addressRec.updateErrorSummaryState()"

@@ -4,10 +4,10 @@
             <span class="field-name">{{::ar.legendText |translate}}</span>
             <strong class="required"> {{::"REQUIRED" |translate}}</strong>
             <sup id="co4_ref" data-ng-if="!ar.isContact">
-                <a class="fn-lnk" href="#co4"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>4</a>
+                <a class="fn-lnk" href="#co4"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>5</a>
             </sup>
             <sup id="co6_ref" data-ng-if="ar.isContact">
-                <a class="fn-lnk" href="#co6"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>6</a>
+                <a class="fn-lnk" href="#co6"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>8</a>
             </sup>
         </legend>
 
@@ -150,23 +150,6 @@
                     </label>
                 </div>
             </div>
-            <div class="col-sm-7" data-ng-show="! ar.isContact">
-                <div class="checkbox">
-                    <label for="{{::ar.chkImpId}}">
-                        <input type="checkbox" name="importer" data-ng-model="ar.roleModel.importer"
-                               data-ng-disabled="!ar.isEditable"
-                               data-ng-change="ar.updateImporterState(ar.roleForm.importer,'importer')" id="{{::ar.chkImpId}}"/>
-                        <!--  <span data-ng-if="!ar.isContact">{{::"IMPORTER_ADDRESS"|translate}}</span>
-                          <span data-ng-if="ar.isContact">{{::"CONTACT_IMPORTER"|translate}}</span> -->
-                        <span>{{::"IMPORTER_ADDRESS"|translate}}</span>
-                        <strong id="importer-rolec-error" class="error" data-ng-if="ar.roleForm.importer.$invalid">
-                         <span class="label label-danger" data-ng-messages="ar.roleForm.importer.$error">
-                                    <span data-ng-message="duplicateRole">{{::"TYPE_DUPLICATEROLE"|translate}}</span>
-                                </span>
-                        </strong>
-                    </label>
-                </div>
-            </div>
             <div class="col-sm-7">
                 <div data-ng-show="ar.isContact" class="checkbox">
                     <label for="{{::ar.chkRePrimId}}">
@@ -183,6 +166,24 @@
                                     <!--<span data-ng-message="duplicateRole">{{::"TYPE_DUPLICATEROLE"|translate}}</span>-->
                                 <!--</span>-->
                         <!--</strong>-->
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-7">
+                <div class="checkbox">
+                    <label for="{{::ar.chkImpId}}">
+                        <input type="checkbox" name="importer" data-ng-model="ar.roleModel.importer"
+                               data-ng-disabled="!ar.isEditable"
+                               data-ng-change="ar.updateImporterState(ar.roleForm.importer,'importer')" id="{{::ar.chkImpId}}"/>
+                        <!--  <span data-ng-if="!ar.isContact">{{::"IMPORTER_ADDRESS"|translate}}</span>
+                          <span data-ng-if="ar.isContact">{{::"CONTACT_IMPORTER"|translate}}</span> -->
+                        <span data-ng-if="ar.isContact">{{::"CAN_IMP"|translate}}</span>
+                        <span data-ng-if="!ar.isContact">{{::"IMPORTER_ADDRESS"|translate}}</span>
+                        <strong id="importer-rolec-error" class="error" data-ng-if="ar.roleForm.importer.$invalid">
+                         <span class="label label-danger" data-ng-messages="ar.roleForm.importer.$error">
+                                    <span data-ng-message="duplicateRole">{{::"TYPE_DUPLICATEROLE"|translate}}</span>
+                                </span>
+                        </strong>
                     </label>
                 </div>
             </div>
@@ -205,25 +206,25 @@
                        </label>
                    </div>
                </div>  -->
-            <div class="col-sm-7">
-                <div data-ng-show="ar.isContact" class="checkbox">
-                    <label for="{{::ar.chkRepSecId}}">
-                        <input type="checkbox" name="{{::ar.chkRepSecId}}" data-ng-model="ar.roleModel.repSecondary"
-                               data-ng-disabled="!ar.isEditable"
-                               data-ng-change="ar.oneSelected(ar.roleForm.{{::ar.chkRepSecId}},'repSecondary')"
-                               id="{{::ar.chkRepSecId}}"/> {{'REPSECONDARY'|translate}}
-                        <cmp-error-message field-name="ar.chkRepSecId"
-                                           form-ref="ar.roleForm"
-                                           show-error="ar.showError(ar.roleForm[ar.chkRepSecId])"
-                                           error-types="ar.duplicateRole"></cmp-error-message>
-                        <!--<strong id="repSecondary-role-error" class="error" data-ng-if="ar.roleForm.repSecondary.$invalid">-->
-                         <!--<span class="label label-danger" data-ng-messages="ar.roleForm.repSecondary.$error">-->
-                                    <!--<span data-ng-message="duplicateRole">{{::"TYPE_DUPLICATEROLE"|translate}}</span>-->
-                                <!--</span>-->
-                        <!--</strong>-->
-                    </label>
-                </div>
-            </div>
+            <!--<div class="col-sm-7">-->
+                <!--<div data-ng-show="ar.isContact" class="checkbox">-->
+                    <!--<label for="{{::ar.chkRepSecId}}">-->
+                        <!--<input type="checkbox" name="{{::ar.chkRepSecId}}" data-ng-model="ar.roleModel.repSecondary"-->
+                               <!--data-ng-disabled="!ar.isEditable"-->
+                               <!--data-ng-change="ar.oneSelected(ar.roleForm.{{::ar.chkRepSecId}},'repSecondary')"-->
+                               <!--id="{{::ar.chkRepSecId}}"/> {{'REPSECONDARY'|translate}}-->
+                        <!--<cmp-error-message field-name="ar.chkRepSecId"-->
+                                           <!--form-ref="ar.roleForm"-->
+                                           <!--show-error="ar.showError(ar.roleForm[ar.chkRepSecId])"-->
+                                           <!--error-types="ar.duplicateRole"></cmp-error-message>-->
+                        <!--&lt;!&ndash;<strong id="repSecondary-role-error" class="error" data-ng-if="ar.roleForm.repSecondary.$invalid">&ndash;&gt;-->
+                         <!--&lt;!&ndash;<span class="label label-danger" data-ng-messages="ar.roleForm.repSecondary.$error">&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<span data-ng-message="duplicateRole">{{::"TYPE_DUPLICATEROLE"|translate}}</span>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</span>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</strong>&ndash;&gt;-->
+                    <!--</label>-->
+                <!--</div>-->
+            <!--</div>-->
         </div>
     </fieldset>
 </ng-form>

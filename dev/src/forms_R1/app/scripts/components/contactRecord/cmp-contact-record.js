@@ -132,15 +132,15 @@
             if (addressRoles.mailing) {
                 result = result + " MAIL"
             }
-          //  if (addressRoles.importer) {
-          //   result = result + " IMP"
-         //   }
+           if (addressRoles.importer) {
+            result = result + " IMP"
+           }
             if (addressRoles.repPrimary) {
                 result = result + " REP1"
             }
-            if (addressRoles.repSecondary) {
-                result = result + " REP2"
-            }
+            // if (addressRoles.repSecondary) {
+            //     result = result + " REP2"
+            // }
             return result;
         }
 

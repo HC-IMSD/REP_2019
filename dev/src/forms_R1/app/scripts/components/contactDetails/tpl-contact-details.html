@@ -135,6 +135,21 @@
                 </label>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label for="{{::contCtrl.routingIdentifierId}}" class="full-width">
+                    <span class="field-name">{{::'ROUTING_ID'|translate}}</span>
+                    <sup id="co5a_ref">
+                        <a class="fn-lnk" href="#co5a"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>7</a>
+                    </sup>
+                    <input type="text" id="{{::contCtrl.routingIdentifierId}}"
+                           data-ng-model="contCtrl.contactModel.routingId"
+                           data-ng-readonly="!contCtrl.isEditable" maxlength="64"
+                           class="form-control full-width" name="{{::contCtrl.routingIdentifierId}}" />
+
+                </label>
+            </div>
+        </div>
         <!--<pre>contact model: {{contCtrl.contactRecord | json : spacing}}</pre>-->
     </ng-form>
 </div>
