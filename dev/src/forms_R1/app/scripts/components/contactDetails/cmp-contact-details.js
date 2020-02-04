@@ -29,7 +29,8 @@
                 showErrors: '&',
                 faxMandatory:'@',
                 updateErrorSummary:'&',
-                fieldSuffix:'<'
+                fieldSuffix:'<',
+                htIndxList:'<'
             }
     });
 

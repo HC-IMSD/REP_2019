@@ -113,23 +113,23 @@ var activityRootTitles_fr = {
 };
 
 var companyRootTitles_en = {
-    mainHeading: "Company Template: Regulatory Enrolment Process (REP)",
+    mainHeading: "Company Template: Regulatory Enrolment Process (REP) (Version 3.1.0)",
     title: 'Company Template: Regulatory Enrolment Process - Canada.ca'
 
 };
 var companyRootTitles_fr = {
-    mainHeading: "Modèle de l'entreprise: Processus d'Inscription Réglementaire",
+    mainHeading: "Modèle de l'entreprise: Processus d'Inscription Réglementaire (Version 3.1.0)",
     title: "Modèle de l'entreprise: Processus d'Inscription Réglementaire - Canada.ca"
 
 };
 
 var transactionRootTitles_en = {
-    mainHeading: "Regulatory Transaction Template: Regulatory Enrolment Process (REP)",
+    mainHeading: "Regulatory Transaction Template: Regulatory Enrolment Process (REP) (Version 3.1.0)",
     title: 'Regulatory Transaction Template: Regulatory Enrolment Process - Canada.ca'
 
 };
 var transactionRootTitles_fr = {
-    mainHeading: "Modèle de transaction réglementaire: Processus d'inscription réglementaire",
+    mainHeading: "Modèle de transaction réglementaire: Processus d'inscription réglementaire (Version 3.1.0)",
     title: 'Modèle de transaction réglementaire: Processus d\'inscription réglementaire - Canada.ca'
 
 };
@@ -147,13 +147,13 @@ var dossierRootTitles_fr = {
 };
 
 var drugProductRootTitles_en = {
-    mainHeading: "Product Information Template: Regulatory Enrolment Process (REP)",
+    mainHeading: "Product Information Template: Regulatory Enrolment Process (REP) (Version 3.1.0)",
     title: 'Product Information Template: Regulatory Enrolment Process - Canada.ca'
 
 };
 
 var drugProductRootTitles_fr = {
-    mainHeading: "Modèle d'information sur le produit: Processus d'inscription réglementaire",
+    mainHeading: "Modèle d'information sur le produit: Processus d'inscription réglementaire (Version 3.1.0)",
     title: "Modèle d'information sur le produit: Processus d'inscription réglementaire - Canada.ca"
 
 };

@@ -57,6 +57,7 @@
                 feesInx: 0,
                 contactInx: 0,
                 compNameInx: 0,
+                routingIdInx: 0,
                 genXmlInx: 0
             };
 
@@ -830,6 +831,7 @@
         contact.phoneExt = contactObj.phone_ext;
         contact.fax = contactObj.fax_num;
         contact.email = contactObj.email;
+        contact.routingId = contactObj.routing_id;
         return contact;
     }
 
@@ -849,6 +851,7 @@
         contact.phone_ext = contactObj.phoneExt;
         contact.fax_num = contactObj.fax;
         contact.email = contactObj.email;
+        contact.routing_id = contactObj.routingId;
         return contact;
     }
 
@@ -965,6 +968,7 @@
         contact.phoneExt = "";
         contact.fax = "";
         contact.email = "";
+        contact.routingId = "";
         return contact;
     }
 

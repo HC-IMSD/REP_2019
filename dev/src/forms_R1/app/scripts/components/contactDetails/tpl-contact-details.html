@@ -140,7 +140,7 @@
                 <label for="{{::contCtrl.routingIdentifierId}}" class="full-width">
                     <span class="field-name">{{::'ROUTING_ID'|translate}}</span>
                     <sup id="co5a_ref">
-                        <a class="fn-lnk" href="#co5a"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>7</a>
+                        <a class="fn-lnk" href="#co5a"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::contCtrl.htIndxList.routingIdInx}}</a>
                     </sup>
                     <input type="text" id="{{::contCtrl.routingIdentifierId}}"
                            data-ng-model="contCtrl.contactModel.routingId"
