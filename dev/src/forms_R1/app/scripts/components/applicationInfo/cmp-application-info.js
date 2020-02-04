@@ -50,6 +50,7 @@
         vm.isDossier = false;
         vm.isNumber=false;
         vm.isAmend = false;
+        vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
         vm.min6Error = [
             {type: "required", displayAlias: "MSG_ERR_MAND"},
             {type: "minlength", displayAlias: "MSG_LENGTH_MIN5"}
@@ -139,7 +140,7 @@
         function _setIdNames() {
             var scopeId="_"+  $scope.$id;
             vm.fieldId = "fieldId" +scopeId;
-            vm.reasonAmend = "reasonAmend" + scopeId;
+            vm.reasonAmend = "reason_amend" + scopeId;
             vm.compId = "company_id"+ scopeId;
             vm.dossierId = "dossier_id" + scopeId;
         }
