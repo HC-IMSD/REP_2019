@@ -171,6 +171,7 @@
             angular.extend(aRole, newRole);
             vm.contactModel.addressRole = aRole;
             vm.updateContactModel2();
+            vm.showRoutingId();
             vm.setEditable();
         };
         /**
@@ -245,7 +246,16 @@
                 vm.isEditable = false;
             }
         }
-
+        vm.showRoutingId = function(){
+            vm.contactModel.roleConcat = _getRolesConcat();
+            if(vm.contactModel.roleConcat.indexOf(' MFR') > -1
+                || vm.contactModel.roleConcat.indexOf(' MAIL') > -1
+                || vm.contactModel.roleConcat.indexOf(' IMP') > -1
+            ){
+                return true;
+            }
+            return false;
+        }
     }
 
 
