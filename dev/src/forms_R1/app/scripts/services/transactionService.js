@@ -963,7 +963,7 @@
         contact.initials = "";
         contact.surname = "";
         contact.jobTitle = "";
-        contact.languageCorrespondance = "";
+        contact.language = "";
         contact.phoneNum = "";
         contact.phoneExt = "";
         contact.fax = "";
