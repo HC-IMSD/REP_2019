@@ -50,9 +50,11 @@
             surname: "",
             initials: "",
             title: "",
+            language: "",
             phone: "",
             phoneExt: "",
             fax: "",
+            email: "",
             routingId: ""
         };
         vm.inputModelOptions={updateOn: 'blur'};
