@@ -107,7 +107,6 @@
             vm.phoneNumberId="phoneNumber" + scopeId;
             vm.phoneExtId="phoneExt" + scopeId;
             vm.contactEmailId="contactEmail" + scopeId;
-            vm.businessNumberId="businessNumber" + scopeId;
             vm.routingIdentifierId="routingIdentifier" + scopeId;
         }
         $scope.$watch('contCtrl.contactForm.$error', function () {
