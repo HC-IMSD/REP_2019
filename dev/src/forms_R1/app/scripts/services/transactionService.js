@@ -57,7 +57,7 @@
                 feesInx: 0,
                 contactInx: 0,
                 compNameInx: 0,
-                routingIdIdx: 0,
+                routingIdInx: 0,
                 genXmlInx: 0
             };
 

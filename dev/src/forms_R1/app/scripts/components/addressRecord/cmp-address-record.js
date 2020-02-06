@@ -319,6 +319,7 @@
             vm.companyNameId = "COMPANYNAME" +scopeId;
             vm.importerID = "importerID" + scopeId;
             vm.formNameId="company-address-record-form"+scopeId;
+            vm.businessNumberId = "businessNumberId" + scopeId;
         }
 
     }
