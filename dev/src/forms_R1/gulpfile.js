@@ -308,7 +308,8 @@ var componentFolders = {
     cspApplicantList: 'cspContactList/',
     alertComp: "alertComponent/",
     transFees: 'transactionFees/',
-    rtHelpComp: "transactionHelpText/"
+    rtHelpComp: "transactionHelpText/",
+    companyHelpComp: "companyHelpText/"
 };
 
 //exclude custom styles only lib
@@ -389,7 +390,8 @@ var companyComponentFolders =
         componentFolders.dossierIdDetails,
         componentFolders.errorSummary,
         componentFolders.errorMsg,
-        componentFolders.alertComp
+        componentFolders.alertComp,
+        componentFolders.companyHelpComp
     ];
 
 //Dossier Form Components

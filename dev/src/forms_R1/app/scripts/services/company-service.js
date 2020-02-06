@@ -42,6 +42,22 @@
             this.contactId = 0;
             // this.xslFileName = XSL_PREFIX + "REP_CO_2_2.xsl";
             this.xslFileName = "REP_CO_3_1.xsl";
+            this.helpTextSequences = {
+                loadFileInx: 0,
+                enrolIdx: 0,
+                addressIdx: 0,
+                businessIdx: 0,
+                roleIdx: 0,
+                companyRepIdx: 0,
+                routingIdIdx: 0,
+                companyRoleIdx: 0,
+                genXmlIdx: 0
+            };
+
+            var keys = Object.keys(this.helpTextSequences);
+            for (var i = 0; i < keys.length; i++) {
+                this.helpTextSequences[keys[i]] = i + 1;
+            }
         }
         //TODO rewrite this object to proper prototype syntax
         CompanyService.prototype = {

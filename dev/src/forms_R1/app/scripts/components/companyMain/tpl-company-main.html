@@ -17,9 +17,10 @@
 <span id="instructions"></span>
 <aside class="wb-fnote" role="note">
     <h2>{{::'FOOTNOTE_INSTRUCTION'|translate}}</h2>
-    <section data-ng-if="!main.isFrench()" data-ng-include="'app/scripts/templates/company/tpl-company-footnote-en.html'"></section>
-    <section data-ng-if="main.isFrench()" data-ng-include="'app/scripts/templates/company/tpl-company-footnote-fr.html'"></section>
-</aside>
+    <!--<section data-ng-if="!main.isFrench()" data-ng-include="'app/scripts/templates/company/tpl-company-footnote-en.html'"></section>-->
+    <!--<section data-ng-if="main.isFrench()" data-ng-include="'app/scripts/templates/company/tpl-company-footnote-fr.html'"></section>-->
+    <cmp-company-help-text ht-indx-list="main.indexList">
+    </cmp-company-help-text></aside>
 
 <span id="main"></span>
         <div class="row mrgn-tp-md">
@@ -107,6 +108,7 @@
                                                           error-summary-update="main.updateSummary"
                                                           show-error-summary="main.showErrorSummary"
                                                           update-error-summary="main.updateErrorSummary()"
+                                                          ht-indx-list="main.indexList"
                                                           company-service="main.companyService">
                                 </cmp-company-contact-list>
                             </div>

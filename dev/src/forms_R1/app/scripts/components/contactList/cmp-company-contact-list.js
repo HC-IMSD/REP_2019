@@ -28,7 +28,8 @@
                 showErrorSummary:'<',
                 errorSummaryUpdate:'<',
                 updateErrorSummary:'&', //update the parent error summary
-                userType:'<'
+                userType:'<',
+                htIndxList: '<'
             }
         });
     contactListCtrl.$inject = ['$filter','CompanyService', 'INTERNAL_TYPE'];

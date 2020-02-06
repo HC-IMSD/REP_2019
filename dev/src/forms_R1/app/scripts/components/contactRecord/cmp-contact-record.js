@@ -30,7 +30,8 @@
                 recordIndex: '<', /* used to obtain record index, controlled by list */
                 errorSummaryUpdate: '&', /* used to message that a parent errorSummary needs updating */
                 showErrorSummary: '<',
-                updateErrorSummary:'&' //update the parent error summary
+                updateErrorSummary:'&', //update the parent error summary
+                htIndxList: '<'
             }
         });
     contactRecCtrl.$inject = ['$scope'];

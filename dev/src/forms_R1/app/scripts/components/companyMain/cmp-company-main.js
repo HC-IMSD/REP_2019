@@ -4,6 +4,7 @@
         .module('companyMain', [
             'companyService',
             'applicationInfoService',
+            'companyHelpText',
             'ngMessages',
             'ngAria',
             'addressList',
@@ -64,6 +65,7 @@
         vm.applTypes = vm.companyService.getApplicationTypes();
         vm.formTypeList = getRoleLists.getFormTypes();
         vm.company = vm.companyService.getModelInfo();
+        vm.indexList = vm.companyService.helpTextSequences;
         vm.alerts = [false, false, false, false, false, false];
         /**vm.alertAnchors = ["load-instructions-toggle",
             "load-instructions-toggle",
