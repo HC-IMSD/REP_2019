@@ -113,7 +113,7 @@ var activityRootTitles_fr = {
 };
 
 var companyRootTitles_en = {
-    mainHeading: "Company Template: Regulatory Enrolment Process (REP) (Version 3.1.0)",
+    mainHeading: "Company Template: Regulatory Enrolment Process (REP)<br>(Version 3.1.0)",
     title: 'Company Template: Regulatory Enrolment Process - Canada.ca'
 
 };

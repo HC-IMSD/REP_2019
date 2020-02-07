@@ -25,7 +25,7 @@
                 enrolmentVersion: "0.0",
                 dateSaved: "",
                 applicationType: "NEW",
-                softwareVersion: "3.0.1",
+                softwareVersion: "3.1.0",
                 companyId: "",
                 reasonAmend:"",
                 addressList: [],
@@ -353,7 +353,7 @@
                     contact.phoneExt = contacts[i].company_contact_details.phone_ext;
                     contact.fax = contacts[i].company_contact_details.fax_num;
                     contact.email = contacts[i].company_contact_details.email;
-                    contact.routingId = contacts[i].routing_id;
+                    contact.routingId = contacts[i].company_contact_details.routing_id;
                     list.push(contact);
                 }
                 return list;
@@ -446,7 +446,7 @@
                 contact.company_contact_details.phone_ext = contacts[i].phoneExt;
                 contact.company_contact_details.fax_num = contacts[i].fax;
                 contact.company_contact_details.email = contacts[i].email;
-                contact.routing_id = contacts[i].routingId;
+                contact.company_contact_details.routing_id = contacts[i].routingId;
                 contactList.push(contact);
             }
         }
