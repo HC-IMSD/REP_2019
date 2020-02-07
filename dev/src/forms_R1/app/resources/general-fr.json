@@ -26,7 +26,7 @@
   "MANUFACTURER": "Adresse postale du fabricant / promoteur",
   "IMPORTER_ADDRESS": "Adresse postale de l'importateur canadien",
   "CONTACTMAILING": "Courrier réglementaire / adresse de personne-ressource pour l'annuelle",
-  "CAN_IMP":"Importateur canadien",
+  "CAN_IMP":"Personne-ressource de importateur canadien",
   "CONTACTBILLING": "Personne-ressource de facturation",
   "CONTACTMANUFACTURER": "Personne-ressource du fabricant/promoteur",
   "CONTACT_IMPORTER": "Personne-ressource de l'importateur",

@@ -25,7 +25,7 @@
   "BILLING": "Billing Address",
   "MANUFACTURER": "Manufacturer / Sponsor Mailing Address",
   "IMPORTER_ADDRESS": "Canadian Importer Mailing Address",
-  "CAN_IMP":"Canadian Importer",
+  "CAN_IMP":"Canadian Importer Contact",
   "CONTACTMAILING": "Regulatory Mailing / Annual Contact",
   "CONTACTBILLING": "Billing Contact",
   "CONTACTMANUFACTURER": "Manufacturer / Sponsor Contact",
