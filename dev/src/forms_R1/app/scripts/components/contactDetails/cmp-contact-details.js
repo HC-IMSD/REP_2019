@@ -30,7 +30,7 @@
                 faxMandatory:'@',
                 updateErrorSummary:'&',
                 fieldSuffix:'<',
-                htIndxList:'<',
+                routingIdIndex:'<',
                 showRoutingId: '&'
             }
     });
