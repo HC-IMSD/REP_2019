@@ -251,7 +251,7 @@
   "ROUTING_ID_1": "The routing identifier is a unique identifier within the Electronic Submissions Gateway (ESG) for each account, used to identify the specific gateway account, whether it uses the Applicability Statement 2 (AS2) or WebTrader interfaces.",
   "ROUTING_ID_2": "For the WebTrader users, the routing identifier is automatically assigned to each account by the system. It can be retrieved from any message disposition notification receipt, under attribute: “X-Cyclone-To:” ",
   "ROUTING_ID_3": "For AS2 users, the routing identifier has to be created by the company. It is recommended that the company's data universal numbering system number be used for this, but any alpha-numeric text string is acceptable.",
-  "ROUTING_ID_4": "For any further questions on the routing identifier, please contact the Food and Drug Administration Help Desk at ESGHelpDesk@fda.hhs.gov.",
+  "ROUTING_ID_4": "For any further questions on the routing identifier, please contact the Food and Drug Administration Help Desk at ",
   "ROUTING_ID_5": "The routing identifier could be the same for the manufacturer / sponsor contact and regulatory / annual contact. The Canadian importer would have a separate routing identifier.",
   "HT_XML_1": "A final regulatory transaction XML file must be included in section 1.2.1 for each of your REP transactions.",
   "HT_XML_2": "Refer to the REP guidance document for detailed information."
