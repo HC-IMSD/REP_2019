@@ -47,9 +47,9 @@
 
 
                 <div ng-if="cspApplCtrl.model.role.applicant">
-                    <div class="form-group col-xs-12"
+                    <div class="form-group col-xs-8"
                      ng-class="{'has-error':cspApplCtrl.applForm[cspApplCtrl.applicantId].$invalid}">
-                    <label for="{{::cspApplCtrl.applicantId}}" class="required">
+                    <label for="{{::cspApplCtrl.applicantId}}" class="required col-xs-12">
                         <span class="field-name">{{cspApplCtrl.applicantTextAlias |translate}}</span>
                         <strong class="required"> {{::"REQUIRED" |translate}} </strong>
                         <input type="text" id="{{::cspApplCtrl.applicantId}}" name="{{::cspApplCtrl.applicantId}}"
@@ -62,10 +62,26 @@
                                            error-types="cspApplCtrl.requiredOnly"></cmp-error-message>
                     </label>
                     </div>
+
+                    <div class="form-group col-xs-4"
+                         ng-class="{'has-error':cspApplCtrl.applForm[cspApplCtrl.craBusinessNumberId].$invalid}">
+                        <label for="{{::cspApplCtrl.craBusinessNumberId}}" class="col-xs-12">
+                            <span class="field-name">{{'CRA_BUSINESSNUMBER'|translate}}</span>
+                            <input type="text" id="{{::cspApplCtrl.craBusinessNumberId}}" only-digits
+                                   data-ng-model="cspApplCtrl.model.craBusinessNumber"
+                                   class="form-control full-width" name="{{::cspApplCtrl.craBusinessNumberId}}"
+                                   minlength="9" maxlength="9" title="{{::'CRA_BUSINESSNUMBER'|translate}}"
+                                   ng-readonly="cspApplCtrl.isEditable" ng-blur="cspApplCtrl.craBusinessNumberOnBlur()"/>
+                            <cmp-error-message field-name="cspApplCtrl.craBusinessNumberId" form-ref="cspApplCtrl.applForm"
+                                               show-error="cspApplCtrl.showErrors()"
+                                               error-types="cspApplCtrl.craBusinessNumberError"></cmp-error-message>
+
+                        </label>
+                    </div>
                     <div class="row">
-                        <div class="form-group col-xs-12"
+                        <div class="form-group col-xs-8"
                              ng-class="{'has-error':cspApplCtrl.applForm[cspApplCtrl.agentNameId].$invalid}">
-                            <label for="{{::cspApplCtrl.agentNameId}}" >
+                            <label for="{{::cspApplCtrl.agentNameId}}" class="col-xs-12">
                                 <span class="field-name">{{'AGENTNAME'|translate}}</span>
                                 <!--strong-- class="required">{{"REQUIRED" |translate}}</strong-->
                                 <input type="text" id="{{::cspApplCtrl.agentNameId}}"
