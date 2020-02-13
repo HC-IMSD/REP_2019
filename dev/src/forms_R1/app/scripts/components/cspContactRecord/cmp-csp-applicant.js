@@ -78,8 +78,10 @@
         vm.craBusinessNumberError=[{type: "minlength", displayAlias: "MSG_BUSINESS_NUMBER"}];
         vm.craBusinessNumberOnBlur = function () {
             if (vm.applForm[vm.craBusinessNumberId]){
-                var craBusinessNumberLength = vm.applForm[vm.craBusinessNumberId].$viewValue.length < 9;
+                var craBusinessNumberLength = vm.applForm[vm.craBusinessNumberId].$viewValue.length;
+                if (craBusinessNumberLength < 9 && craBusinessNumberLength !== 0) {
                 vm.applForm[vm.craBusinessNumberId].$setValidity("minlength", !craBusinessNumberLength);
+                }
             }
         }
         vm.isCountryEditable=false;
