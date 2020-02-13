@@ -8,7 +8,6 @@
   "SAVE_INSTRUCT": "fr_Company File Save Instructions",
   "AMEND_NOTE": "Le bouton «Modifier l'inscription» doit être sélectionné lors de la modification d'un XML d'entreprise final.",
   "FIELDID": "Numéro d'entreprise",
-  "IMPORTERID":"Numéro d'entreprise de l'importateur",
   "COMPANY_NAME": "Nom d’entreprise",
   "HT_LOAD_FILE_1": "Il n’est pas nécessaire de charger un fichier de transaction s’il s’agit de la première transaction du PIR pour ce dossier.",
   "HT_LOAD_FILE_2": "Lors de la production d’une copie de travail, le fichier doit être chargé en format .hcsc.",
