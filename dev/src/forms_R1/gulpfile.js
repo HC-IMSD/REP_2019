@@ -309,7 +309,8 @@ var componentFolders = {
     alertComp: "alertComponent/",
     transFees: 'transactionFees/',
     rtHelpComp: "transactionHelpText/",
-    companyHelpComp: "companyHelpText/"
+    companyHelpComp: "companyHelpText/",
+    piHelpComp: "productInfoHelpText/"
 };
 
 //exclude custom styles only lib
@@ -435,7 +436,8 @@ var drugProductComponentFolders =
         componentFolders.expandingTable,
         componentFolders.errorMsg,
         componentFolders.errorSummary,
-        componentFolders.alertComp
+        componentFolders.alertComp,
+        componentFolders.piHelpComp
     ];
 
 

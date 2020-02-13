@@ -63,7 +63,8 @@
                     <span class="field-name">{{::"CITY" |translate}}</span>
                     <strong class="required"> {{::"REQUIRED" |translate}} </strong>
                     <cmp-error-message field-name="importerRecCtrl.cityId" form-ref="importerRecCtrl.importerForm"
-                                       show-error="importerRecCtrl.showError(importerRecCtrl.importerForm[importerRecCtrl.cityId])" error-types="importerRecCtrl.requiredOnly">
+                                       show-error="importerRecCtrl.showError(importerRecCtrl.importerForm[importerRecCtrl.cityId])"
+                                       error-types="importerRecCtrl.requiredOnly">
                     </cmp-error-message>
                     <input type="text" id="{{::importerRecCtrl.cityId}}" name="{{::importerRecCtrl.cityId}}"
                            data-ng-model="importerRecCtrl.model.city"
@@ -95,7 +96,8 @@
                         <span class="field-name">{{importerRecCtrl.provListLabel |translate}}</span>
                         <strong class="required"> {{::"REQUIRED" |translate}} </strong>
                         <cmp-error-message field-name="importerRecCtrl.stateListId" form-ref="importerRecCtrl.importerForm"
-                                           show-error="importerRecCtrl.showError(importerRecCtrl.importerForm[importerRecCtrl.stateListId])" error-types="importerRecCtrl.requiredOnly">
+                                           show-error="importerRecCtrl.showError(importerRecCtrl.importerForm[importerRecCtrl.stateListId])"
+                                           error-types="importerRecCtrl.requiredOnly">
                         </cmp-error-message>
                         <select class="form-control full-width" data-ng-model="importerRecCtrl.model.stateList"
                                 id="{{::importerRecCtrl.stateListId}}" name="{{::importerRecCtrl.stateListId}}"
@@ -118,13 +120,88 @@
                     <span class="field-name">{{importerRecCtrl.postalLabel |translate}}</span>
                     <strong data-ng-show="importerRecCtrl.isPostalRequired" class="required">{{::"REQUIRED" |translate}} </strong>
                     <cmp-error-message field-name="importerRecCtrl.postalId" form-ref="importerRecCtrl.importerForm"
-                                       show-error="importerRecCtrl.showError(importerRecCtrl.importerForm[importerRecCtrl.postalId])" error-types="importerRecCtrl.postalErrorList">
+                                       show-error="importerRecCtrl.showError(importerRecCtrl.importerForm[importerRecCtrl.postalId])"
+                                       error-types="importerRecCtrl.postalErrorList">
                     </cmp-error-message>
                     <input type="text" id="{{::importerRecCtrl.postalId}}" name="{{::importerRecCtrl.postalId}}"
                            data-ng-model="importerRecCtrl.model.postalCode"
                            class="form-control" ng-maxlength="7" data-ng-required="importerRecCtrl.isPostalRequired"
                            data-ng-change="importerRecCtrl.postalCodeChanged()"
                            maxlength="7" data-ng-pattern="importerRecCtrl.postalPattern"/>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 form-group"
+                 data-ng-class="{'has-error':importerRecCtrl.importerForm[importerRecCtrl.phoneNumberId].$invalid}">
+                <label for="{{::importerRecCtrl.phoneNumberId}}" class="required">
+                    <span class="field-name">{{::'PHONENUMBER'|translate}}{{::'INCLUDE_AREA_CODE'|translate}}</span>
+                    <strong class="required">{{::"REQUIRED" |translate}}</strong>
+                    <cmp-error-message field-name="importerRecCtrl.phoneNumberId" form-ref="importerRecCtrl.importerForm"
+                                       show-error="importerRecCtrl.showError(importerRecCtrl.importerForm[importerRecCtrl.phoneNumberId])"
+                                       error-types="importerRecCtrl.phoneError"></cmp-error-message>
+                    <input type="tel" id="{{::importerRecCtrl.phoneNumberId}}"
+                           data-ng-model="importerRecCtrl.model.phone"
+                           class="form-control full-width" name="{{::importerRecCtrl.phoneNumberId}}"
+                           data-ng-pattern="importerRecCtrl.phoneReg"
+                           required data-only-digits/>
+
+                </label>
+            </div>
+            <div class="col-md-6 form-group">
+                <label for="{{::importerRecCtrl.phoneExtId}}"><span class="field-name">{{::'PHONE_EXT'|translate}}</span>
+                    <input type="text" id="{{::importerRecCtrl.phoneExtId}}" data-ng-model="importerRecCtrl.model.phoneExt"
+                           class="form-control" name="{{::importerRecCtrl.phoneExtId}}" maxlength="10"/>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 form-group"
+                 data-ng-class="{'has-error':importerRecCtrl.importerForm[importerRecCtrl.faxId].$invalid}">
+                <label for="{{::importerRecCtrl.faxId}}" data-ng-class="required">
+                    <span class="field-name">{{::'FAX_NUMBER'|translate}}{{::'INCLUDE_AREA_CODE'|translate}}</span>
+                    <strong class="required">{{::'REQUIRED'|translate}}</strong>
+                    <cmp-error-message field-name="importerRecCtrl.faxId"
+                                       form-ref="importerRecCtrl.importerForm"
+                                       show-error="importerRecCtrl.showError(importerRecCtrl.importerForm[importerRecCtrl.faxId])"
+                                       error-types="importerRecCtrl.faxError">
+                    </cmp-error-message>
+                    <input type="tel" id="{{::importerRecCtrl.faxId}}"
+                           data-ng-model="importerRecCtrl.model.fax"
+                           data-ng-required="true" class="form-control full-width" data-ng-pattern="importerRecCtrl.faxReg"
+                           name="{{::importerRecCtrl.faxId}}" data-only-digits/>
+                    <span>{{::'FAX_NOT_AVAILABLE'|translate}} </span>
+                </label>
+            </div>
+            <div class="col-md-6 form-group"
+                 data-ng-class="{'has-error':importerRecCtrl.importerForm[importerRecCtrl.contactEmailId].$invalid}">
+                <label for="{{::importerRecCtrl.contactEmailId}}" class="required">
+                    <span class="field-name">{{::'CONTACTEMAIL'|translate}}</span>
+                    <strong class="required">{{::"REQUIRED" |translate}}</strong>
+                    <cmp-error-message field-name="importerRecCtrl.contactEmailId" form-ref="importerRecCtrl.importerForm"
+                                       show-error="importerRecCtrl.showError(importerRecCtrl.importerForm[importerRecCtrl.contactEmailId])"
+                                       error-types="importerRecCtrl.emailError">
+                    </cmp-error-message>
+                    <input type="email" id="{{::importerRecCtrl.contactEmailId}}"
+                           data-ng-model="importerRecCtrl.model.email"
+                           maxlength="50" size="60"
+                           class="form-control full-width" name="{{::importerRecCtrl.contactEmailId}}" required/>
+
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label for="{{::importerRecCtrl.routingIdentifierId}}" class="full-width">
+                    <span class="field-name">{{::'ROUTING_ID'|translate}}</span>
+                    <sup id="co5a_ref">
+                        <a class="fn-lnk" href="#co5a"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::importerRecCtrl.htIndxList.routingIdIndx}}</a>
+                    </sup>
+                    <input type="text" id="{{::importerRecCtrl.routingIdentifierId}}"
+                           data-ng-model="importerRecCtrl.model.routingId"
+                           maxlength="64"
+                           class="form-control full-width" name="{{::importerRecCtrl.routingIdentifierId}}" />
+
                 </label>
             </div>
         </div>

@@ -10,6 +10,7 @@
                                on-add-ing="ailCtrl.addIng(ing)" record-index="$parent.$index"
                                on-delete="ailCtrl.deleteIng($parent.$index)" delete-btn="true"
                                update-error-summary="ailCtrl.updateErrorSummary()"
+                               ht-indx-list="ailCtrl.htIndxList"
                                error-summary-update="ailCtrl.errorSummaryUpdate" show-error-summary="ailCtrl.showErrorSummary"
                                is-detail-valid="ailCtrl.setValid(state)"></cmp-active-ing-record>
 
@@ -17,6 +18,7 @@
     <div id="new-record">
         <cmp-active-ing-record data-ng-if="ailCtrl.newIngFormShown === true" on-add-ing="ailCtrl.addIng(ing)"
                                on-cancel="ailCtrl.onNewCancel()" delete-btn="false"
+                               ht-indx-list="ailCtrl.htIndxList"
                                error-summary-update="ailCtrl.errorSummaryUpdate" show-error-summary="ailCtrl.showErrorSummary"
                                record-index="ailCtrl.ingList.length"></cmp-active-ing-record>
     </div>

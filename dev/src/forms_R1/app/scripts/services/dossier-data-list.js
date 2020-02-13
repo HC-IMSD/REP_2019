@@ -301,7 +301,8 @@
             return ([
                 "CAB_YES1",
                 "CAB_YES2",
-                "CAB_NO"
+                "CAB_NO",
+                "CAB_NO2"
             ]);
         }
         function animalSourcesArray() {

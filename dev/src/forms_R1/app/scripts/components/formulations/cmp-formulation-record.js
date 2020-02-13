@@ -49,6 +49,7 @@
                 addCopy:'&',
                 errorSummaryUpdate:'<',
                 isFileLoaded: '<',
+                htIndxList:'<',
                 showErrorSummary:'<',
                 updateErrorSummary:'&'
             }

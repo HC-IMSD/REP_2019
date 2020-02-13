@@ -29,6 +29,7 @@
                 errorSummaryUpdate:'<',
                 showErrorSummary:'<',
                 isFileLoaded: '<',
+                htIndxList:'<',
                 updateErrorSummary:'&'
             }
         });

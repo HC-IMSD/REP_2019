@@ -34,6 +34,7 @@
                 onCancel: '&',
                 isDetailValid: '&',
                 recordIndex: '<',
+                htIndxList:'<',
                 errorSummaryUpdate:'<',
                 showErrorSummary:'<',
                 updateErrorSummary:'&'

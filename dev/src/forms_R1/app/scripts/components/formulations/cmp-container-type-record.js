@@ -33,6 +33,7 @@
                 showErrors:'&',
                 isDetailValid: '&',
                 recordIndex:'<',
+                htIndxList:'<',
                 errorSummaryUpdate:'<',
                 showErrorSummary:'<'
             }

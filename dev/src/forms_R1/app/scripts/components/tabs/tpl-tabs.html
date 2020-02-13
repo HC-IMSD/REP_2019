@@ -10,7 +10,7 @@
         </li>
         <li>
             <sup id="dr10_ref">
-                <a class="fn-lnk" href="#dr10" style="color: #284162;text-decoration: underline;cursor: pointer;"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>11</a>
+                <a class="fn-lnk" href="#dr10" style="color: #284162;text-decoration: underline;cursor: pointer;"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::tabsCtrl.service.helpTextSequences.haSIMIndx}}</a>
             </sup>
         </li>
         <!--<li>
@@ -49,6 +49,7 @@
                          show-error-summary="tabsCtrl.showSummary"
                          update-error-summary="tabsCtrl.updateErrorSummary()"
                          is-file-loaded="tabsCtrl.isFileLoaded"
+                         ht-indx-list="tabsCtrl.service.helpTextSequences"
                          record-changed="tabsCtrl.recordChanged()"></cmp-formulations>
                 </div>
             </div>

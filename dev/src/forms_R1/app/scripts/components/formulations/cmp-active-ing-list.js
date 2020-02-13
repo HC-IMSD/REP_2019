@@ -24,6 +24,7 @@
                 onUpdate: '&',
                 errorSummaryUpdate:'<',
                 isFileLoaded: '<',
+                htIndxList:'<',
                 showErrorSummary:'<',
                 updateErrorSummary:'&'
             }

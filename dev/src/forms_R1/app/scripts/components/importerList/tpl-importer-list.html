@@ -9,6 +9,8 @@
                              fieldset-label="{{importerListCtrl.fieldLabel}}"
                              on-update="importerListCtrl.saveRecord(importer)"
                              on-delete="importerListCtrl.deleteRecord(id)"
+                             ht-indx-list="importerListCtrl.htIndxList"
+                             update-error-summary="importerListCtrl.updateErrorSummary()"
                              show-errors="importerListCtrl.showDetailErrors">
         </cmp-importer-record>
     </cmp-expanding-table>

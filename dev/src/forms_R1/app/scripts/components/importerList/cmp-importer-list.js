@@ -22,6 +22,7 @@
                 onUpdate: '&',
                 onDelete: '&',
                 showErrors:'<',
+                htIndxList:'<',
                 updateErrorSummary:'&'
             }
         });
@@ -69,7 +70,12 @@
             countryDisplay:"CAN",
             stateLov: "",
             stateText: "",
-            postalCode: ""
+            postalCode: "",
+            phone: "",
+            phoneExt: "",
+            fax: "",
+            email: "",
+            routingId: ""
         };
 
 
@@ -144,8 +150,8 @@
         };
 
 
-        /*  $scope.$watch('countryListCtrl.countryListForm.$error', function () {
+        $scope.$watch('importerListCtrl.importerListForm.$error', function () {
                     vm.updateErrorSummary();
-                }, true);*/
+                }, true);
     }
 })();

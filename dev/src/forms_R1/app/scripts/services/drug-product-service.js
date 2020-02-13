@@ -25,7 +25,7 @@
         var yesValue = YES;
         var noValue = NO;
         // var xslName = XSL_PREFIX + "REP_PI_2_2.xsl";
-        var xslName = "REP_PI_3_0.xsl";
+        var xslName = "REP_PI_3_1.xsl";
 
         // Define the DrugProductService object
         function DrugProductService() {
@@ -33,6 +33,40 @@
 
         function DrugProductService(formData) {
             //construction logic
+            this.helpTextSequences = {
+                loadFileIndx: 0,
+                prodInfoIndx: 0,
+                compIdIndx: 0,
+                dossiTypeIndx: 0,
+                prodNameIndx: 0,
+                proComNameIndx: 0,
+                dnfNocAddrIndx: 0,
+                importerIndx: 0,
+                routingIdIndx: 0,
+                drugUseIndx: 0,
+                pudIndx: 0,
+                formuIndx: 0,
+                formuDetailIndx: 0,
+                ingredIndx: 0,
+                ingNameIndx: 0,
+                variaNameIndx: 0,
+                purposeIndx: 0,
+                standardIndx: 0,
+                isNanoIndx: 0,
+                ahSourcedIndx: 0,
+                isMaterialIndx: 0,
+                contaTypeIndx: 0,
+                packSizeIndx: 0,
+                shelfLifeIndx: 0,
+                manuCntryIndx: 0,
+                haSIMIndx: 0,
+                genXmlIndx: 0
+            };
+
+            var keys = Object.keys(this.helpTextSequences);
+            for (var i = 0; i < keys.length; i++) {
+                this.helpTextSequences[keys[i]] = i + 1;
+            }
 
             angular.extend(this._default, formData);
         }
@@ -55,7 +89,7 @@
                 enrolmentVersion: "0.00",
                 dateSaved: "",
                 //applicationType: "NEW",
-                softwareVersion: "3.0.1",
+                softwareVersion: "3.1.0",
                 xslFileName: xslName,
                 dataChecksum: "",
                 privacyStat:"",
@@ -76,6 +110,7 @@
                     isRegulatedCDSA: false,
                     isNonPrescriptionDrug: false,
                     isScheduleA: false,
+                    isDrugAdmin: false,
                     scheduleAGroup: getDefaultSchedA(),
                    // therapeutic: [],
                   //  canRefProducts: [],//grid
@@ -142,6 +177,7 @@
                         isRegulatedCDSA: info.is_regulated_cdsa === 'Y',
                         isNonPrescriptionDrug: info.is_non_prescription_drug === 'Y',
                         isScheduleA: info.is_sched_a === 'Y',
+                        isDrugAdmin: info.is_drug_admin === 'Y',
                        // therapeutic: [],
                        // canRefProducts: getCanRefProductList(info.ref_product_list.cdn_ref_product),//grid
                         propIndication: info.proposed_indication,
@@ -198,7 +234,7 @@
             baseModel.enrolment_version = jsonObj.enrolmentVersion;
             baseModel.date_saved = jsonObj.dateSaved;
             // baseModel.application_type = jsonObj.applicationType;
-            baseModel.software_version = "3.0.1"; //TODO: hard code or make a function, should be centrally available
+            baseModel.software_version = "3.1.0"; //TODO: hard code or make a function, should be centrally available
             baseModel.data_checksum = "";
 
             baseModel.company_id = jsonObj.companyID;
@@ -242,6 +278,7 @@
             baseModel.is_regulated_cdsa = jsonObj.drugProduct.isRegulatedCDSA === true ? 'Y' : 'N';
             baseModel.is_non_prescription_drug = jsonObj.drugProduct.isNonPrescriptionDrug === true ? 'Y' : 'N';
             baseModel.is_sched_a = jsonObj.drugProduct.isScheduleA === true ? 'Y' : 'N';
+            baseModel.is_drug_admin = jsonObj.drugProduct.isDrugAdmin === true ? 'Y' : 'N';
 
             baseModel.proposed_indication = jsonObj.drugProduct.propIndication;
 
@@ -837,6 +874,11 @@
                     record.countryDisplay = record.country.id;
                 }
                 record.postalCode = jsonObj[i].postal_code;
+                record.phone = jsonObj[i].phone_num;
+                record.phoneExt = jsonObj[i].phone_ext;
+                record.fax = jsonObj[i].fax_num;
+                record.email = jsonObj[i].email;
+                record.routingId = jsonObj[i].routing_id;
                 importerRecord.push(record);
             }
             return importerRecord;
@@ -870,6 +912,11 @@
                     };
                 }
                 importerRec.postal_code = importerObj.postalCode;
+                importerRec.phone_num = importerObj.phone;
+                importerRec.phone_ext = importerObj.phoneExt;
+                importerRec.fax_num = importerObj.fax;
+                importerRec.email = importerObj.email;
+                importerRec.routing_id = importerObj.routingId;
             }
             return (importerRec);
         }

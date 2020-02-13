@@ -10,6 +10,7 @@
                                    is-detail-valid="ctlCtrl.setValid(state)"
                                    error-summary-update="ctlCtrl.errorSummaryUpdate" show-error-summary="ctlCtrl.showErrorSummary"
                                    on-delete="ctlCtrl.deleteRec($parent.$index)" record-index="$parent.$index"
+                                   ht-indx-list="ctlCtrl.htIndxList"
                                    delete-btn="true"></cmp-container-type-record>
 
     </cmp-expanding-table>
@@ -17,6 +18,7 @@
         <cmp-container-type-record ng-if="ctlCtrl.newIngFormShown === true" on-add-ing="ctlCtrl.addNew(cType)"
                                    on-cancel="ctlCtrl.onNewCancel()" delete-btn="false"
                                    error-summary-update="ctlCtrl.errorSummaryUpdate" show-error-summary="ctlCtrl.showErrorSummary"
+                                   ht-indx-list="ctlCtrl.htIndxList"
                                    record-index="ctlCtrl.containerList.length">
         </cmp-container-type-record>
     </div>
