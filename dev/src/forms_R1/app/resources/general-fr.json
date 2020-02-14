@@ -42,7 +42,7 @@
   "COMPANY_ID": "Numéro de la compagnie",
   "DOSSIER_ID": "Numéro de dossier",
   "IMPORTER": "Importateur",
-  "IMPORTERID":"Numéro d'entreprise de l'importateur",
+  "IMPORTERID":"Numéro de la compagnie de l'importateur",
   "IMPORTER_COMPANY_NAME": "Nom d'entreprise de l'importateur",
   "IMPORTER_COMPANY_ID_IF": "fr_Importer Company Identification (if applicable)",
   "IMPORTER_COMPANY_NAME_IF": "fr_Importer Company Name (if applicable)",
