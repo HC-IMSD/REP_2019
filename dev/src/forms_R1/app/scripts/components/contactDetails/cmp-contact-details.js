@@ -92,7 +92,6 @@
 
         function _setIdNames() {
             var scopeId = vm.fldId+ "_" + $scope.$id;
-            vm.agentNameId = "agentName" + scopeId;
             vm.salutationId = "salutation" + scopeId;
             vm.firstNameId="firstName" + scopeId;
             vm.lastNameId="lastName" + scopeId;

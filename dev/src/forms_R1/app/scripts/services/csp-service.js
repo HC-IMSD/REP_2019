@@ -215,6 +215,7 @@
             var record = this.createContactRecord();
             record.applicantName = "";
             record.agentName = "";
+            record.craBusinessNumber = '';
             record.isBillingDifferent = false;
             if (!isApplicant) {
                 record.role.applicant = false;
@@ -428,6 +429,7 @@
             record.applicant_role = NO;
             record.applicant_name = "";
             record.agent_name = "";
+            record.cra_businessnumber ='';
             record.contact = {};
             record.contact.given_name = "";
             record.contact.initials = "";
@@ -469,6 +471,9 @@
                 }
                 if (inputJson[i].agentName) {
                     record.agent_name = inputJson[i].agentName;
+                }
+                if (inputJson[i].craBusinessNumber) {
+                    record.cra_businessnumber = inputJson[i].craBusinessNumber;
                 }
                 if (inputJson[i].contact.salutation) {
                     record.contact.salutation = inputJson[i].contact.salutation;
@@ -563,6 +568,7 @@
                 }
                 record.applicantName = externalRecord.applicant_name;
                 record.agentName = externalRecord.agent_name;
+                record.craBusinessNumber = externalRecord.cra_businessnumber;
                 record.contact.salutation = externalRecord.contact.salutation;
                 record.contact.givenName = externalRecord.contact.given_name;
                 record.contact.surname = externalRecord.contact.surname;
