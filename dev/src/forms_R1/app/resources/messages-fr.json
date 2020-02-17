@@ -27,6 +27,6 @@
   "MSG_ERR_NOTIF_SEL": "Sélectionnez au moins un changement de déclaration",
   "MSG_ERR_MIN_POS": "Doit être un nombre positif",
   "MSG_ERR_MAX": "Dépasse le maximum.",
-  "MSG_BUSINESS_NUMBER": "Moins de longueur minimale."
+  "MSG_BUSINESS_NUMBER": "Veuillez fournir 9 chiffres."
 
 }

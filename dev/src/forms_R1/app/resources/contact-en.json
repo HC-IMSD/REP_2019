@@ -27,5 +27,5 @@
   "ADD_REPRES": "Add Company Representative",
   "DELETE_REPRES": "Delete Company Rep.",
   "SAVE_REPRES": "Save Company Rep.",
-  "CRA_BUSINESSNUMBER": "CRA Business Number (9 digits)"
+  "CRA_BUSINESSNUMBER": "CRA Business Number"
 }

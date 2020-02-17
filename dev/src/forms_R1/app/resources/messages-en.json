@@ -29,5 +29,5 @@
   "MSG_ERR_NOTIF_SEL": "Please select at least one notifiable change.",
   "MSG_ERR_MIN_POS": "Must be a positive number",
   "MSG_ERR_MAX": "Exceeds the maximum",
-  "MSG_BUSINESS_NUMBER": "Less than minimum length."
+  "MSG_BUSINESS_NUMBER": "Please enter 9 digits."
 }

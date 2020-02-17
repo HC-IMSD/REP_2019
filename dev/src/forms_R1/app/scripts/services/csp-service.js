@@ -429,7 +429,7 @@
             record.applicant_role = NO;
             record.applicant_name = "";
             record.agent_name = "";
-            record.cra_businessnumber ='';
+            record.cra_business_number ='';
             record.contact = {};
             record.contact.given_name = "";
             record.contact.initials = "";
@@ -473,7 +473,7 @@
                     record.agent_name = inputJson[i].agentName;
                 }
                 if (inputJson[i].craBusinessNumber) {
-                    record.cra_businessnumber = inputJson[i].craBusinessNumber;
+                    record.cra_business_number = inputJson[i].craBusinessNumber;
                 }
                 if (inputJson[i].contact.salutation) {
                     record.contact.salutation = inputJson[i].contact.salutation;
@@ -568,7 +568,7 @@
                 }
                 record.applicantName = externalRecord.applicant_name;
                 record.agentName = externalRecord.agent_name;
-                record.craBusinessNumber = externalRecord.cra_businessnumber;
+                record.craBusinessNumber = externalRecord.cra_business_number;
                 record.contact.salutation = externalRecord.contact.salutation;
                 record.contact.givenName = externalRecord.contact.given_name;
                 record.contact.surname = externalRecord.contact.surname;

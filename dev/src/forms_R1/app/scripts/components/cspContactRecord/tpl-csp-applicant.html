@@ -70,8 +70,7 @@
                             <input type="text" id="{{::cspApplCtrl.craBusinessNumberId}}" only-digits
                                    data-ng-model="cspApplCtrl.model.craBusinessNumber"
                                    class="form-control full-width" name="{{::cspApplCtrl.craBusinessNumberId}}"
-                                   minlength="9" maxlength="9" title="{{::'CRA_BUSINESSNUMBER'|translate}}"
-                                   ng-readonly="cspApplCtrl.isEditable" ng-blur="cspApplCtrl.craBusinessNumberOnBlur()"/>
+                                   minlength="9" maxlength="9" title="{{::'CRA_BUSINESSNUMBER'|translate}}"/>
                             <cmp-error-message field-name="cspApplCtrl.craBusinessNumberId" form-ref="cspApplCtrl.applForm"
                                                show-error="cspApplCtrl.showErrors()"
                                                error-types="cspApplCtrl.craBusinessNumberError"></cmp-error-message>
