@@ -353,6 +353,7 @@
         function _setIdNames() {
             var scopeId = "_" + $scope.$id;
             vm.formulationFormRecordId="formulationRecord" + scopeId;
+            vm.formulNameId = "formul_name" + scopeId;
             vm.dosageId = "dosage_form" + scopeId;
             vm.dosageOtherId = "dosage_form_other" + scopeId;
             vm.noActiveId="no_active"+scopeId; //Todo: can remove?
