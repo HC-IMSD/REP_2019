@@ -365,7 +365,7 @@
         };
 
         vm.showRoutingId = function(){
-            return true;
+            return 0;
         }
 
 
