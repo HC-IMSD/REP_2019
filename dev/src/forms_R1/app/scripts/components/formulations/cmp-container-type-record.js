@@ -80,9 +80,9 @@
             if (changes.record && changes.record.currentValue) {
                 vm.ctModel = angular.copy(changes.record.currentValue);
                 vm.ctModel.shelfLifeUnit = angular.copy(changes.record.currentValue.shelfLifeUnit);
-                vm.ctModel.shelfLifeNumber = Number(changes.record.currentValue.shelfLifeNumber);
-                vm.ctModel.tempMin = Number(changes.record.currentValue.tempMin);
-                vm.ctModel.tempMax = Number(changes.record.currentValue.tempMax);
+                vm.ctModel.shelfLifeNumber = changes.record.currentValue.shelfLifeNumber ? Number(changes.record.currentValue.shelfLifeNumber) : undefined;
+                vm.ctModel.tempMin = changes.record.currentValue.tempMin ? Number(changes.record.currentValue.tempMin) : undefined;
+                vm.ctModel.tempMax = changes.record.currentValue.tempMax ? Number(changes.record.currentValue.tempMax) : undefined;
                 vm.backup = angular.copy(vm.ctModel);
             }
             if(changes.showErrorSummary){
