@@ -18,7 +18,7 @@
   "PRESC_DRUG_LIST":"sur la liste des médicaments sur ordonnance",
   "REGULATED_CDSA":"réglementé en vertu de la Loi réglementant certaines drogues et autres substances",
   "NON_PRESC_DRUG":"un médicament sans ordonnance",
-  "NON_PRESC_SCHEDULE_A":"Fournissez les informations ci-dessous pour les produits sans ordonnance qui ont associé des revendications de l’annexe A seulement",
+  "NON_PRESC_SCHEDULE_A":"un médicament sans ordonnance auquel une ou plusieurs des réclamations de l'Annexe A s'appliquent",
   "DRUG_ADMIN":"un médicament qui peut être vendu sans ordonnance, mais doit être administré uniquement sous la surveillance d’un praticien",
   "ADDRESS_NOC":"Adresse où le formulaire de déclaration de médicament (FDM)/l’avis de conformité (AC) doivent être envoyés (lorsque nécessaire):",
   "ADDR_INSTRUCT": "fr_Activity Address Instructions",
