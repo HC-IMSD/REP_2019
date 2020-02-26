@@ -98,7 +98,7 @@
             return false
         }
         vm.showRoutingIdErr = function () {
-            return  vm.contactForm[vm.routingIdentifierId].$invalid || vm.showRoutingIdError();
+            return  vm.contactForm[vm.routingIdentifierId].$invalid;
         }
 
         function _setIdNames() {
