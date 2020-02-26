@@ -137,17 +137,17 @@
         </div>
         <div class="row" data-ng-if="contCtrl.showRoutingId() > -1">
             <div class="col-md-6 form-group" data-ng-class="{'has-error':contCtrl.contactForm[contCtrl.routingId].$invalid && contCtrl.showRoutingId() > 0}">
-                <label for="{{::contCtrl.routingIdentifierId}}" class="full-width" data-ng-class="{'required':contCtrl.showRoutingId() > 0}">
+                <label for="{{::contCtrl.routingIdentifierId}}" class="full-width" data-ng-class="{'required':contCtrl.showRoutingId() > 0}" >
                     <span class="field-name">{{::'ROUTING_ID'|translate}}</span><strong class="required" data-ng-if="contCtrl.showRoutingId() > 0">{{::"REQUIRED" |translate}}</strong>
                     <sup id="co5a_ref">
                         <a class="fn-lnk" href="#co5a"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::contCtrl.routingIdIndex}}</a>
                     </sup>
-                    <cmp-error-message field-name="contCtrl.routingIdentifierId" form-ref="contCtrl.contactForm" data-ng-if="contCtrl.showRoutingId() > 0"
-                                       show-error="contCtrl.showErrors()" error-types="contCtrl.requiredOnly">
+                    <cmp-error-message field-name="contCtrl.routingIdentifierId" form-ref="contCtrl.contactForm" data-ng-if="contCtrl.showRoutingIdErr()"
+                                       show-error="contCtrl.showErrors()" error-types="contCtrl.routingIdError">
                     </cmp-error-message>
                     <input type="text" id="{{::contCtrl.routingIdentifierId}}"
-                           data-ng-model="contCtrl.contactModel.routingId"
-                           data-ng-readonly="!contCtrl.isEditable" maxlength="64"
+                           data-ng-model="contCtrl.contactModel.routingId" maxlength="64"
+                           data-ng-readonly="!contCtrl.isEditable" data-ng-pattern="/^[a-zA-Z0-9]{0,1}[a-zA-Z0-9\-]{0,63}$/"
                            class="form-control full-width" name="{{::contCtrl.routingIdentifierId}}" data-ng-required="contCtrl.showRoutingId() > 0"/>
 
                 </label>

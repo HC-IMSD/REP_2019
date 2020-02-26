@@ -353,7 +353,7 @@
                     contact.phoneExt = contacts[i].company_contact_details.phone_ext;
                     contact.fax = contacts[i].company_contact_details.fax_num;
                     contact.email = contacts[i].company_contact_details.email;
-                    contact.routingId = contacts[i].company_contact_details.routing_id;
+                    contact.routingId = contacts[i].company_contact_details.RoutingID;
                     list.push(contact);
                 }
                 return list;
@@ -446,7 +446,7 @@
                 contact.company_contact_details.phone_ext = contacts[i].phoneExt;
                 contact.company_contact_details.fax_num = contacts[i].fax;
                 contact.company_contact_details.email = contacts[i].email;
-                contact.company_contact_details.routing_id = contacts[i].routingId;
+                contact.company_contact_details.RoutingID = contacts[i].routingId;
                 contactList.push(contact);
             }
         }

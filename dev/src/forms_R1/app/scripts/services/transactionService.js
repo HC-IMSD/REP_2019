@@ -831,7 +831,7 @@
         contact.phoneExt = contactObj.phone_ext;
         contact.fax = contactObj.fax_num;
         contact.email = contactObj.email;
-        contact.routingId = contactObj.routing_id;
+        contact.routingId = contactObj.RoutingID;
         return contact;
     }
 
@@ -851,7 +851,7 @@
         contact.phone_ext = contactObj.phoneExt;
         contact.fax_num = contactObj.fax;
         contact.email = contactObj.email;
-        contact.routing_id = contactObj.routingId;
+        contact.RoutingID = contactObj.routingId;
         return contact;
     }
 
