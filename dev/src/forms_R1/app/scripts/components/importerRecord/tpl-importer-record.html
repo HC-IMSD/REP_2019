@@ -197,9 +197,13 @@
                     <sup id="co5a_ref">
                         <a class="fn-lnk" href="#co5a"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::importerRecCtrl.htIndxList.routingIdIndx}}</a>
                     </sup>
+                    <cmp-error-message field-name="importerRecCtrl.routingIdentifierId" form-ref="importerRecCtrl.importerForm"
+                                       show-error="importerRecCtrl.showError(importerRecCtrl.importerForm[importerRecCtrl.routingIdentifierId])"
+                                       error-types="importerRecCtrl.routingIdError">
+                    </cmp-error-message>
                     <input type="text" id="{{::importerRecCtrl.routingIdentifierId}}"
                            data-ng-model="importerRecCtrl.model.routingId"
-                           maxlength="64"
+                           maxlength="64" data-ng-pattern="importerRecCtrl.routingIdReg"
                            class="form-control full-width" name="{{::importerRecCtrl.routingIdentifierId}}" />
 
                 </label>
