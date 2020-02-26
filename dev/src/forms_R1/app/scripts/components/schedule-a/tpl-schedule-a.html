@@ -13,14 +13,16 @@
                             <div class="col-xs-12 form-group" data-ng-class="{'has-error':schedACtrl.schedAForm[schedACtrl.dinId].$invalid}">
                                 <label for="{{::schedACtrl.dinId}}">
                                     <span class="field-name">{{::'DIN_FULL'|translate}}</span>
-                                    <cmp-error-message field-name="schedACtrl.dinId"
-                                                       form-ref="schedACtrl.schedAForm"
-                                                       show-error="schedACtrl.showError(schedACtrl.schedAForm[schedACtrl.dinId])"
-                                                       error-types="schedACtrl.errorMinLength">
-                                    </cmp-error-message>
+                                    <sup id="dr7a_ref">
+                                        <a class="fn-lnk" href="#dr7a"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::schedACtrl.htIndxList.dinIndx}}</a>
+                                    </sup>
+                                    <!--<cmp-error-message field-name="schedACtrl.dinId"-->
+                                                       <!--form-ref="schedACtrl.schedAForm"-->
+                                                       <!--show-error="schedACtrl.showError(schedACtrl.schedAForm[schedACtrl.dinId])"-->
+                                                       <!--error-types="schedACtrl.errorMinLength">-->
+                                    <!--</cmp-error-message>-->
                                 </label>
-                                    <input type="text" class="form-control" id="{{::schedACtrl.dinId}}" name="{{::schedACtrl.dinId}}"
-                                           maxlength="8" size="8" data-only-digits data-ng-minlength="8"
+                                    <input type="text" class="form-control full-width" id="{{::schedACtrl.dinId}}" name="{{::schedACtrl.dinId}}"
                                            data-ng-model="schedACtrl.model.drugIdNumber"/>
                             </div>
                         </div>

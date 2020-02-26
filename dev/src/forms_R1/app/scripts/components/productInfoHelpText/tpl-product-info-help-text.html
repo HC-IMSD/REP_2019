@@ -18,6 +18,7 @@
                     <p>{{::'DRUG_PRODUCT'|translate}}</p>
                     <ul>
                         <li>{{::'HT_PROD_INFO_1' |translate}}</li>
+                        <li>{{::'HT_PROD_INFO_1A' |translate}}</li>
                         <li>{{::'HT_PROD_INFO_2' |translate}}</li>
                         <li>{{::'HT_PROD_INFO_3' |translate}}</li>
                     </ul>
@@ -103,8 +104,8 @@
                         <li>{{::'HT_ROUTING_ID_2' |translate}}</li>
                         <li>{{::'HT_ROUTING_ID_3' |translate}}</li>
                     </ul>
-                    <P>{{::'HT_ROUTING_ID_4' |translate}}<a href="mailto:ESGHelpDesk@fda.hhs.gov">ESGHelpDesk@fda.hhs.gov</a></P>
-                    <p>{{::"HT_ROUTING_ID_5" |translate}}</p>
+                    <P>{{::'HT_ROUTING_ID_4' |translate}}</P>
+                    <p>{{::"HT_ROUTING_ID_5" |translate}}<a href="mailto:ESGHelpDesk@fda.hhs.gov">ESGHelpDesk@fda.hhs.gov</a></p>
                     <p class="fn-rtn">
                         <a href="#co5a_ref">
                             <span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::helpCtrl.htIndxList.routingIdIndx}}
@@ -117,6 +118,14 @@
                     <p>{{::'DRUG_USE'|translate}}</p>
                     <p>{{::'HT_DRUG_USE' |translate}}</p>
                     <p class="fn-rtn"><a href="#dr7_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::helpCtrl.htIndxList.drugUseIndx}}
+                        <span class="wb-inv"> referrer</span></a>
+                    </p>
+                </dd>
+                <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::helpCtrl.htIndxList.dinIndx}}</dt>
+                <dd id="dr7a">
+                    <p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{::'DIN_FULL'|translate}}</p>
+                    <p>{{::'HT_DIN' |translate}}</p>
+                    <p class="fn-rtn"><a href="#dr7a_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::helpCtrl.htIndxList.dinIndx}}
                         <span class="wb-inv"> referrer</span></a>
                     </p>
                 </dd>

@@ -359,7 +359,10 @@
                 </div>
                 <div class="row" data-ng-if="drugProdCtrl.isSchedA()">
                     <div class="col-xs-12 form-group">
-                        <cmp-schedule-a schedule-group="drugProdCtrl.model.drugProduct.scheduleAGroup" show-errors="drugProdCtrl.showSummary"></cmp-schedule-a>
+                        <cmp-schedule-a schedule-group="drugProdCtrl.model.drugProduct.scheduleAGroup"
+                                        ht-indx-list="drugProdCtrl.htIndxList"
+                                        show-errors="drugProdCtrl.showSummary">
+                        </cmp-schedule-a>
                     </div>
                 </div>
                 <div class="row">

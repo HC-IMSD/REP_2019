@@ -21,6 +21,7 @@
             controllerAs:'schedACtrl',
             bindings: {
                 scheduleGroup: '<',
+                htIndxList:'<',
                 //onUpdate: '&',
                 //onDelete: '&',
                 showErrors: '<'

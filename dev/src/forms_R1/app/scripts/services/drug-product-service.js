@@ -44,6 +44,7 @@
                 importerIndx: 0,
                 routingIdIndx: 0,
                 drugUseIndx: 0,
+                dinIndx: 0,
                 pudIndx: 0,
                 formuIndx: 0,
                 formuDetailIndx: 0,
@@ -878,7 +879,7 @@
                 record.phoneExt = jsonObj[i].phone_ext;
                 record.fax = jsonObj[i].fax_num;
                 record.email = jsonObj[i].email;
-                record.routingId = jsonObj[i].routing_id;
+                record.routingId = jsonObj[i].RoutingID;
                 importerRecord.push(record);
             }
             return importerRecord;
@@ -916,7 +917,7 @@
                 importerRec.phone_ext = importerObj.phoneExt;
                 importerRec.fax_num = importerObj.fax;
                 importerRec.email = importerObj.email;
-                importerRec.routing_id = importerObj.routingId;
+                importerRec.RoutingID = importerObj.routingId; //use RoutingID to meet docbridge automation requirement
             }
             return (importerRec);
         }
