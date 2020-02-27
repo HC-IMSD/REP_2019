@@ -197,7 +197,13 @@
          */
          function _createArray(arraySize,initialVal){
          var anArray = [];
-         for (var i = 0; i < arraySize; i++) anArray.push (initialVal);
+         for (var i = 0; i < arraySize; i++) {
+             if (vm.transcludeForm && vm.transcludeForm[i] && vm.transcludeForm[i].$invalid) {
+                 anArray.push (false);
+             } else {
+                 anArray.push(initialVal);
+             }
+         }
          return anArray
          }
 
