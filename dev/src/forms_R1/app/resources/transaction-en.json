@@ -197,5 +197,6 @@
   "CERTIFY_FUNDED_HEALTH_INSTITUTION":"We certify that our institution is funded by the Government of Canada or the government of a province or territory and that it is",
   "CERTIFY_FUNDED_HEALTH_INSTITUTION_A":"a) licensed, approved or designated by a province in accordance with the laws of the province to provide care or treatment to persons or animals suffering from any form of disease or illness; or",
   "CERTIFY_FUNDED_HEALTH_INSTITUTION_B":"b) owned or operated by the Government of Canada or the government of a province and that provides health services.",
-  "TYPE_MIN": "End Date should not be earlier than Start Date."
+  "TYPE_MIN": "End Date should not be earlier than Start Date.",
+  "NOTICE_APR_2020":"Important Note: This template is to be used for regulatory transactions intended for filing BEFORE April 1, 2020 ONLY."
 }
