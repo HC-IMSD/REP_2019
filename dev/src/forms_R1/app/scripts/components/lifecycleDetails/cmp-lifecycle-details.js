@@ -618,7 +618,8 @@
                     vm.setConcatDetails();
                     break;
                 default:
-                    console.warn("Lifecycle Details activity not found: " + value);
+                    setDetailsAsNone();
+                    vm.setConcatDetails();
                     break;
             }
 
@@ -866,7 +867,7 @@
             }
             if (vm.lifecycleModel.descriptionValue === vm.descriptionObj.RMP_VERSION_DATE) {
                 concatText = enDescription + " " + vm.lifecycleModel.sequenceVersion + concatText;
-            } else {
+            } else if(vm.versionVisible){
                 concatText = enDescription + " version " + vm.lifecycleModel.sequenceVersion + concatText;
             }
             if (vm.yearChangeVisible) {
