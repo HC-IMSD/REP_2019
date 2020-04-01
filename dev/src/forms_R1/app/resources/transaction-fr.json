@@ -254,5 +254,6 @@
   "ROUTING_ID_5": "Pour toutes autres questions sur l'identificateur d'acheminement, veuillez contacter directement le service de dépannage de la Food and Drug Administration au ",
   "ROUTING_ID_4": "Il est possible que la personne-ressource du  fabricant ou promoteur et la personne-ressource recevant le courrier de nature réglementaire et la notification annuelle aient le même identificateur d'acheminement. Cependant, il est important de noter que l'importateur canadien aura toujours un identificateur différent.",
   "HT_XML_1": "Chaque transaction du PIR doit contenir une version finale du fichier de transaction réglementaire (en format XML) dans la section 1.2.1.",
-  "HT_XML_2": "Consultez les lignes directrices du PIR pour obtenir des renseignements détaillés."
+  "HT_XML_2": "Consultez les lignes directrices du PIR pour obtenir des renseignements détaillés.",
+  "NOTICE_APR_2020":"Remarque importante: Ce modèle comprend les frais révisés à partir du 1er avril 2020 et devrait être utilisé pour les transactions réglementaires prévues à être déposées le 1er avril 2020 ou APRÈS."
 }

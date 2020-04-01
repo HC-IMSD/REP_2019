@@ -79,7 +79,7 @@
          */
         function _loadFeeType() {
             var deferred = $q.defer();
-            var feeClassUrl = RELATIVE_FOLDER_DATA+"feeClass.json";
+            var feeClassUrl = RELATIVE_FOLDER_DATA+"feeClass_new.json";
             $http.get(feeClassUrl).success(function (data, status, headers, config) {
                 var lang = $translate.proposedLanguage() || $translate.use();
                 var newList = _createSortedArray(data, lang);
