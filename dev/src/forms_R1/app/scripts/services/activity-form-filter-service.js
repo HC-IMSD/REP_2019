@@ -62,9 +62,9 @@
                     case 'B02-20160301-049': //MPSNDS
                         newList.push(raList[i]);
                         break;
-                    // case 'B02-20160301-050': //NC
-                    //     newList.push(raList[i]);
-                    //     break;
+                    case 'B02-20160301-050': //NC
+                        newList.push(raList[i]);
+                        break;
                     case 'B02-20160301-051': //NDS
                         newList.push(raList[i]);
                         break;
@@ -296,9 +296,9 @@
                     case 'B02-20160301-049': //MPSNDS
                         newList.push(raList[i]);
                         break;
-                    // case 'B02-20160301-050': //NC
-                    //     newList.push(raList[i]);
-                    //     break;
+                    case 'B02-20160301-050': //NC
+                        newList.push(raList[i]);
+                        break;
                     case 'B02-20160301-051': //NDS
                         newList.push(raList[i]);
                         break;

@@ -375,7 +375,11 @@
                     break;
 
                 case ("B02-20160301-050"): //NC (Notifiable Change)
-                    vm.descriptionList = TransactionLists.getNcType();
+                    if (vm.lifecycleModel.activityLead === TransactionLists.getBiologicalLeadValue()) {
+                        vm.descriptionList = TransactionLists.getNcType();
+                    } else {
+                        vm.descriptionList = TransactionLists.getNcPharmaType();
+                    }
                     break;
                 case ("B02-20160301-051"): //NDS (New Drug Submission)
                     vm.descriptionList = TransactionLists.getNdsType();
