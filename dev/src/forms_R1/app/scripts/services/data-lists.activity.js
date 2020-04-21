@@ -161,7 +161,9 @@
             REQ_ACCEPTED:"REQ_ACCEPTED",                       //Request Accepted
             CTN_FORM_BROC_UPDATES:"CTN_FORM_BROC_UPDATES",     //  CTN- Informed Consent Form and Investigator’s Brochure Updates
             CTN_IMPD_UPDATE:"CTN_IMPD_UPDATE",                 // CTN-IMPD Update
-            CTN_NEW_SUMM_ADF:"CTN_NEW_SUMM_ADF"                // CTN- New Summary of Additional Drugs Form
+            CTN_NEW_SUMM_ADF:"CTN_NEW_SUMM_ADF",                // CTN- New Summary of Additional Drugs Form
+            COVIR_19: 'COVIR-19',
+            COVIR_19AMD: 'COVIR-19AMD'
 
     };
 
@@ -255,7 +257,10 @@
             getActivityLeadListByD21: _getActivityLeadD21Array,
             getActivityLeadListByD24: _getActivityLeadD24Array,
             getActivityLeadListByD26: _getActivityLeadD26Array,
-            getShelfLifeUnitsList:_getShelfLifeUnitsArray
+            getShelfLifeUnitsList:_getShelfLifeUnitsArray,
+
+            getCOVIR19Type: _getCoVir19Array,
+            getCOVID19AMDType: _getCoVir19AmdArray
         };
         return service;
 
@@ -1706,6 +1711,12 @@
                 vm.allActivities.PRESUB_MEETING_RQ,
                 vm.allActivities.UNSOLICITED_DATA
             ]);
+        }
+        function _getCoVir19Array() {
+            return [vm.allActivities.COVIR_19]
+        }
+        function _getCoVir19AmdArray() {
+            return [vm.allActivities.COVIR_19AMD]
         }
         /**
          * Gets the activity lead array. Hard coded as the biological entry has business logic
