@@ -254,7 +254,5 @@
   "TYPE_MIN": "End Date should not be earlier than Start Date.",
   "PROD_PROTOCOL": "Protocol Number",
   "CTA_FROM": "From [time]",
-  "CTA_TO": "To [time]",
-  "COVIR-19": "COVID-19 Interim Order Application",
-  "COVIR-19AMD": "COVID-19 Interim Order Ap - Amendment"
+  "CTA_TO": "To [time]"
 }

@@ -254,7 +254,5 @@
   "TYPE_MIN": "La date de fin ne doit pas être antérieure à la date de début.",
   "PROD_PROTOCOL": "fr_Protocol Number",
   "CTA_FROM": "fr_From [time]",
-  "CTA_TO": "fr_To [time]",
-  "COVIR-19": "Demande d'ordonnance provisoire COVID-19",
-  "COVIR-19AMD": "Demande d'ordonnance provisoire COVID-19 - Modification"
+  "CTA_TO": "fr_To [time]"
 }
