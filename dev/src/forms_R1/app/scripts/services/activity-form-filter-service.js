@@ -128,6 +128,12 @@
                     case 'B02-20190627-06': //SANDS-C
                         newList.push(raList[i]);
                         break;
+                    case ("B02-20200417-01"): //COVID-19 Interim Order Application
+                        newList.push(raList[i]);
+                        break;
+                    case ("B02-20200417-02"): //COVID-19 Interim Order Application - Amendment
+                        newList.push(raList[i]);
+                        break;
                 }
             }//for
             return newList;
@@ -221,6 +227,12 @@
                     case 'B02-20190627-06': //SANDS-C
                         newList.push(raList[i]);
                         break;
+                    case ("B02-20200417-01"): //COVID-19 Interim Order Application
+                        newList.push(raList[i]);
+                        break;
+                    case ("B02-20200417-02"): //COVID-19 Interim Order Application - Amendment
+                        newList.push(raList[i]);
+                        break;
                 }
             }//for
             return newList;
@@ -259,6 +271,12 @@
                         newList.push(raList[i]);
                         break;
                     case 'B02-20190627-05': //REG-PV
+                        newList.push(raList[i]);
+                        break;
+                    case ("B02-20200417-01"): //COVID-19 Interim Order Application
+                        newList.push(raList[i]);
+                        break;
+                    case ("B02-20200417-02"): //COVID-19 Interim Order Application - Amendment
                         newList.push(raList[i]);
                         break;
                 }
@@ -360,6 +378,12 @@
                         newList.push(raList[i]);
                         break;
                     case 'B02-20190627-06': //SANDS-C
+                        newList.push(raList[i]);
+                        break;
+                    case ("B02-20200417-01"): //COVID-19 Interim Order Application
+                        newList.push(raList[i]);
+                        break;
+                    case ("B02-20200417-02"): //COVID-19 Interim Order Application - Amendment
                         newList.push(raList[i]);
                         break;
                 }
