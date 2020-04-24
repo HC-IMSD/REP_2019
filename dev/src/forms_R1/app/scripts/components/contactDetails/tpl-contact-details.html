@@ -135,7 +135,7 @@
                 </label>
             </div>
         </div>
-        <div class="row" data-ng-if="contCtrl.showRoutingId() > -1">
+        <div class="row" data-ng-if="contCtrl.showRoutingId() > -1" data-ng-class="{'has-error':contCtrl.showRoutingId() > 0}">
             <div class="col-md-6 form-group" data-ng-class="{'has-error':contCtrl.contactForm[contCtrl.routingId].$invalid && contCtrl.showRoutingId() > 0}">
                 <label for="{{::contCtrl.routingIdentifierId}}" class="full-width" data-ng-class="{'required':contCtrl.showRoutingId() > 0}" >
                     <span class="field-name">{{::'ROUTING_ID'|translate}}</span><strong class="required" data-ng-if="contCtrl.showRoutingId() > 0">{{::"REQUIRED" |translate}}</strong>
