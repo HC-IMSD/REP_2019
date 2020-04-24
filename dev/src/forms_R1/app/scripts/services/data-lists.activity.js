@@ -166,6 +166,8 @@
             getPostDINType: _getPostDINArray,
             getEUANDSType: _getEUANDSArray,
             getEUSANDSType: _getEUSANDSArray,
+            getCOVID19Type: getNDSArray,
+            getCOVID19AMENType: getNDSArray,
 
             getYesNoList: yesNoArray,
             getFeeList: _getfeeTypeArray,

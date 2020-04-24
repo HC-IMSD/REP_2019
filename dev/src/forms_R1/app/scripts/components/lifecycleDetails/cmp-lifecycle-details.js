@@ -480,6 +480,12 @@
                 case ("B02-20190627-08"): //EUSANDS
                     vm.descriptionList = TransactionLists.getEUSANDSType();
                     break;
+                case ("B02-20200417-01"): //COVID-19 Interim Order Application
+                    vm.descriptionList = TransactionLists.getCOVID19Type();
+                    break;
+                case ("B02-20200417-02"): //COVID-19 Interim Order Application - Amendment
+                    vm.descriptionList = TransactionLists.getCOVID19AMENType();
+                    break;
 
                 default:
                     try {
