@@ -139,8 +139,8 @@
                 //resultJson.TRANSACTION_ENROL.is_solicited = jsonObj.isSolicited;
               //  resultJson.TRANSACTION_ENROL.solicited_requester_record =
                //     this._transformReqToFile(jsonObj.solicitedRequesterReord);
-                resultJson.TRANSACTION_ENROL.regulatory_project_manager1 = jsonObj.projectManager1;
-                resultJson.TRANSACTION_ENROL.regulatory_project_manager2 = jsonObj.projectManager2;
+               //  resultJson.TRANSACTION_ENROL.regulatory_project_manager1 = jsonObj.projectManager1;
+               //  resultJson.TRANSACTION_ENROL.regulatory_project_manager2 = jsonObj.projectManager2;
                 resultJson.TRANSACTION_ENROL.is_fees = jsonObj.isFees;
                 if (jsonObj.isFees===YES) {
                     resultJson.TRANSACTION_ENROL.fee_details = this._mapFeeDetailsToOutput(jsonObj.feeDetails, YES, NO, $filter);
@@ -255,8 +255,8 @@
                 }
                // model.isSolicited = jsonObj.is_solicited;
                // this._transformReqFromFile(model, jsonObj.solicited_requester_record);
-                model.projectManager1 = jsonObj.regulatory_project_manager1;
-                model.projectManager2 = jsonObj.regulatory_project_manager2;
+               //  model.projectManager1 = jsonObj.regulatory_project_manager1;
+               //  model.projectManager2 = jsonObj.regulatory_project_manager2;
                 model.isFees = jsonObj.is_fees;
                 model.feeDetails = null;
                 if (model.isFees) {
@@ -1012,8 +1012,8 @@
             },
           //  isSolicited: "",
           //  solicitedRequesterReord: [],
-            projectManager1: "",
-            projectManager2: "",
+          //   projectManager1: "",
+          //   projectManager2: "",
             isFees: "",
             resetBtnClicked : false,
             feeDetails: null,
