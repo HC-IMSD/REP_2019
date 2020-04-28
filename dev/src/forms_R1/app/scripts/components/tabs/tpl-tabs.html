@@ -1,18 +1,18 @@
 <div class="form-group">
     <!--<pre>tabs {{tabsCtrl.appendix4List | json}}</pre>-->
 
-    <ul class="nav nav-tabs">
-        <li data-ng-repeat="tab in tabsCtrl.tabs" role="presentation" data-ng-click="tabsCtrl.selectTab($index)"
-            data-ng-class="{'active':tabsCtrl.tabs[$index].selected === true}">
-            <a role="tab">{{tab.label |translate}}
-                <strong class="required">{{::"REQUIRED" |translate}}</strong>
-            </a>
-        </li>
-        <li>
-            <sup id="dr10_ref">
-                <a class="fn-lnk" href="#dr10" style="color: #284162;text-decoration: underline;cursor: pointer;"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::tabsCtrl.service.helpTextSequences.haSIMIndx}}</a>
-            </sup>
-        </li>
+    <!--<ul class="nav nav-tabs">-->
+        <!--<li data-ng-repeat="tab in tabsCtrl.tabs" role="presentation" data-ng-click="tabsCtrl.selectTab($index)"-->
+            <!--data-ng-class="{'active':tabsCtrl.tabs[$index].selected === true}">-->
+            <!--<a role="tab">{{tab.label |translate}}-->
+                <!--<strong class="required">{{::"REQUIRED" |translate}}</strong>-->
+            <!--</a>-->
+        <!--</li>-->
+        <!--<li>-->
+            <!--<sup id="dr10_ref">-->
+                <!--<a class="fn-lnk" href="#dr10" style="color: #284162;text-decoration: underline;cursor: pointer;"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::tabsCtrl.service.helpTextSequences.haSIMIndx}}</a>-->
+            <!--</sup>-->
+        <!--</li>-->
         <!--<li>
             <button title="{{::'EXPAND'|translate}} {{::'AH_SOURCED_INSTRUCT'|translate}}" class="btn rep-help-button-primary btn-xs"
                     id="ah-sourced-instructions-toggle" data-ng-click="tabsCtrl.addInstruct(0)">
@@ -20,7 +20,7 @@
                 <span class="wb-inv">{{::'AH_SOURCED_INSTRUCT'|translate}}</span>
             </button>
         </li> -->
-    </ul>
+    <!--</ul>-->
     <!--<div class="row">
         <div class="col-md-12">
             <div>
@@ -40,10 +40,20 @@
             </div>
         </div>
     </div> -->
-    <div class="tabpanels">
+    <div class="row">
+        <div class="col-xs-12 form-group">
+            <strong>
+                <span class="field-name">11. {{::'FORMULATION'|translate}}</span>
+                <sup id="dr9_ref">
+                    <a class="fn-lnk" href="#dr9"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::tabsCtrl.service.helpTextSequences.formuIndx}}</a>
+                </sup>
+            </strong>
+        </div>
+    </div>
+    <!--<div class="tabpanels">-->
         <ng-form name="tabsCtrl.tabs[0].form">
-            <div id="formulations-panel" role="tabpanel" class="out">
-                <div data-ng-show="tabsCtrl.tabs[0].selected">
+            <div id="formulations-panel" role="tabpanel">
+                <div class="form-group">
                     <cmp-formulations formulations="tabsCtrl.formulationList"
                          error-summary-update="tabsCtrl.updateSummary"
                          show-error-summary="tabsCtrl.showSummary"
@@ -54,9 +64,48 @@
                 </div>
             </div>
         </ng-form>
-        <ng-form name="tabsCtrl.tabs[1].form">
-            <div id="appendix4-panel" role="tabpanel" class="out">
-                <div  data-ng-show="tabsCtrl.tabs[1].selected">
+    <div class="row"><div class="col-xs-12"><br/></div></div>
+    <div class="row">
+        <div class="col-xs-12 form-group">
+            <strong>
+                <span class="field-name">12. {{::'Human/Animal Sourced Ingredient/Material'|translate}}</span>
+                <sup id="dr10_ref">
+                    <a class="fn-lnk" href="#dr10"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::tabsCtrl.service.helpTextSequences.haSIMIndx}}</a>
+                </sup>
+            </strong>
+        </div>
+    </div>
+    <ng-form name="tabsCtrl.tabs[1].form">
+        <div>
+            <section data-ng-if="drugProdCtrl.appendixMissingError()">
+                <input type="hidden" required data-ng-model="drugProdCtrl.missingAppendixModel"
+                       aria-hidden="true" name="fake.appendix_missing_error" id="fake.appendix_missing_error"/>
+                <details class="alert alert-danger" id="errors-summary-fake.appendix_missing_error" open="open">
+                    <summary class="h3">
+                        <h2>{{::'MISSING_APPENDIX'|translate}}</h2>
+                    </summary>
+                    <ul>
+                        <li data-ng-repeat="ingred in drugProdCtrl.errorAppendix">{{ingred}}</li>
+                    </ul>
+                </details>
+            </section>
+        </div>
+        <div>
+            <section ng-if="drugProdCtrl.appendixExtraError()">
+                <input type="hidden"  data-ng-model="drugProdCtrl.extraAppendixModel"
+                       aria-hidden="true" id="fake.appendix_extra_error" name="fake.appendix_extra_error"/>
+                <details class="alert alert-danger" id="errors-summary-fake.appendix_extra_error" open="open">
+                    <summary class="h3">
+                        <h2>{{::'EXTRA_APPENDIX'|translate}}</h2>
+                    </summary>
+                    <ul>
+                        <li data-ng-repeat="ingred in drugProdCtrl.extraAppendix">{{ingred}}</li>
+                    </ul>
+                </details>
+            </section>
+        </div>
+            <div id="appendix4-panel" role="tabpanel">
+                <div class="form-group">
                     <cmp-appendix-four ingredients="tabsCtrl.appendix4List" service="tabsCtrl.service"
                                        update-error-summary="tabsCtrl.updateErrorSummary()"
                                        error-summary-update="tabsCtrl.updateSummary"
@@ -66,6 +115,6 @@
                 </div>
             </div>
         </ng-form>
-    </div>
+    <!--</div>-->
  <!--   <pre>{{tabsCtrl.tabs[0]}}</pre>-->
 </div>
