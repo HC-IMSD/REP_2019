@@ -12,5 +12,5 @@
 "POSTAL_FORMAT": "Entrez un format valide.",
 "TYPE_DATE":"Veuillez fournir une une date valide.",
 "TYPE_NUMBER":"Veuillez fournir un numéro valide.",
-"TYPE_PATTERN": "Le format n’est pas valide"
+"TYPE_PATTERN": "Format incorrecte"
 }

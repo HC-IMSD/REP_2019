@@ -12,5 +12,5 @@
   "POSTAL_FORMAT": "Please enter a valid format",
   "TYPE_DATE":"Please enter a valid date",
   "TYPE_NUMBER":"Please enter a valid number",
-  "TYPE_PATTERN": "The format is not valid"
+  "TYPE_PATTERN": "Format incorrecte"
 }

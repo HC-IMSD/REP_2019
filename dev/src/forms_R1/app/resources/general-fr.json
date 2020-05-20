@@ -98,5 +98,6 @@
   "TABLE_EXPANDED_STATE": "État ouvert",
   "PROTECTED_B": "Protégé \"B\" une fois rempli",
   "ROUTING_ID": "Identificateur  d'acheminement",
-  "REFERRER": " référent"
+  "REFERRER": " référent",
+  "CHAR_6_DIGITS": " (composé d’une lettre suivie de six chiffres)"
 }
