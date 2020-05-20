@@ -61,7 +61,7 @@
                     <div class="row">
                         <div class="form-group col-md-12">
                                     <label for="{{::transInfoCtrl.dossierId}}" class="required full-width">
-                                        <span class="field-name">{{::"DOSSIER_ID" |translate}}{{::"LEAST_7_CHAR" |translate}}
+                                        <span class="field-name">{{::"DOSSIER_ID" |translate}}{{::"CHAR_6_DIGITS" |translate}}
                                             <strong class="required"> {{::"REQUIRED" |translate}}</strong>
                                             <sup id="tr4_ref">
                                                 <a class="fn-lnk" href="#tr4"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::transInfoCtrl.htIndxList.dossiIdInx}}</a>
@@ -76,7 +76,7 @@
                                             <span data-ng-class="{'has-error':transInfoCtrl.transInfoForm[transInfoCtrl.dossierId].$invalid}">
                                                 <input type="text" class="form-control" id="{{::transInfoCtrl.dossierId}}"
                                                        size="7" maxlength="7" data-ng-minlength="7" name="{{::transInfoCtrl.dossierId}}" required
-                                                       data-ng-pattern="/^[a-zA-Z0-9]{7}$/"
+                                                       data-ng-pattern="/^[edp]{1}[0-9]{6}$/"
                                                        data-ng-model="transInfoCtrl.transactionModel.ectd.dossierId" />
                                             </span>
                                         </span>
