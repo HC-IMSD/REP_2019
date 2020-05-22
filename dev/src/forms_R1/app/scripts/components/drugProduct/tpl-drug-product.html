@@ -81,7 +81,7 @@
                 <div class="row">
                     <div class="col-xs-12 form-group">
                         <label for="{{::drugProdCtrl.dossierId}}" class="required">
-                            <span class="field-name">2.&nbsp;{{::'DOSSIER_ID' |translate}}{{::'LEAST_7_CHAR' |translate}}</span>
+                            <span class="field-name">2.&nbsp;{{::'DOSSIER_ID' |translate}}{{::'CHAR_6_DIGITS' |translate}}</span>
                             <strong class="required">{{::"REQUIRED" |translate}}</strong>
                             <cmp-error-message field-name="drugProdCtrl.dossierId"
                                                form-ref="drugProdCtrl.drugProdForm"
@@ -92,7 +92,7 @@
                             <span class="input-group-addon">HC6-024-</span>
                             <div data-ng-class="{'has-error':drugProdCtrl.drugProdForm[drugProdCtrl.dossierId].$invalid}">
                                 <input type="text" class="form-control" id="{{::drugProdCtrl.dossierId}}"
-                                       maxlength="7"  minlength="7" name="{{::drugProdCtrl.dossierId}}"
+                                       maxlength="7"  minlength="7" name="{{::drugProdCtrl.dossierId}}" data-ng-pattern="/^[a-z]{1}[0-9]{6}$/"
                                        size="7" data-ng-model="drugProdCtrl.model.dossierID" required/>
                             </div>
                         </div>
@@ -160,6 +160,29 @@
                                   data-ng-change="drugProdCtrl.model.properName=drugProdCtrl.model.properName.toUpperCase()"
                               required data-ng-model="drugProdCtrl.model.properName" maxlength="256" rows="3">
                         </textarea>
+                    </div>
+                </div>
+                <div class="row" data-ng-if="drugProdCtrl.isCTA()">
+                    <div class="col-xs-12 form-group">
+                        <section class="panel panel-default">
+                            <header class="panel-heading clearfix">
+                                <strong><span class="field-name">6. {{'CLINICAL_TRIAL'|translate}}
+                            </span>
+                                    <sup id="dr4a_ref">
+                                        <a class="fn-lnk" href="#dr4a"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>7</a>
+                                    </sup></strong>
+                            </header>
+                            <div class="panel-body">
+                                <div>
+                                    <cmp-clinical-trial record="drugProdCtrl.model.clinicalTrial"
+                                                        update-error-summary="drugProdCtrl.updateErrorSummary()"
+                                                        show-errors="drugProdCtrl.showSummary"
+                                                        is-file-loaded="drugProdCtrl.isFileLoaded"
+                                                        on-update="drugProdCtrl.updateCTAInfo(record)">
+                                    </cmp-clinical-trial>
+                                </div>
+                            </div>
+                        </section>
                     </div>
                 </div>
                 <div class="row">
