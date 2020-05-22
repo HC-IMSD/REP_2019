@@ -291,6 +291,7 @@
     function getRolesService() {
         var _biologic = 'D21'; // 'BIOLOGIC';
         var _pharma = 'D22';  //'PHARMACEUTICAL';
+        var _clinical = 'D26';
 
         var service = {
             getContactRoles: getRoleValuesArray,
@@ -315,9 +316,9 @@
             return (
                 [
                     _biologic,
-                    _pharma
+                    _pharma,
                    // _veterinary,
-                   // _clinical
+                   _clinical
                 ]);
         }
 
@@ -334,12 +335,12 @@
 
             return _veterinary;
         }
+ **/
 
         function _getClinicalTrial() {
 
             return _clinical;
         }
- **/
 
     }
 

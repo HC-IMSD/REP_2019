@@ -117,6 +117,10 @@
             "disi_type_missing": {
                 "type": "fieldset",
                 "parent": "fs_disi_type_missing"
+            },
+            "no_cta_country": {
+                "type": "element",
+                "target": "list_cta_country"
             }
         };
         vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
@@ -140,6 +144,7 @@
 
         vm.$onInit = function () {
             vm.showSummary = false;
+            vm.ctaDrugUseList = DossierLists.getCTADrugUseList();
             vm.drugUseList = DossierLists.getDrugUseList();
             vm.disinfectantTypeList = DossierLists.getDisinfectantTypeList();
             _setIdNames();
@@ -317,6 +322,17 @@
         };
 
         /***
+         * determin to display Address to sent fieldset
+         */
+        vm.isCTA = function () {
+            if (vm.model && vm.model.dossierType && vm.model.dossierType === "D26") {
+                return true;
+            } else if (vm.drugProductService) {
+                vm.model.clinicalTrial = vm.drugProductService.getEmptyCtaModel();
+            }
+            return false;
+        };
+        /***
          * reset Disinfectant Type field
          */
         vm.drugUseUpdate = function () {
@@ -358,6 +374,14 @@
         vm.updateImporterList = function(list){
             if(!list) return;
             vm.model.importerRecord = list;
+        };
+
+        /***
+         * update Clinical Trial record
+         */
+        vm.updateCTAInfo = function(record){
+            if(!record) return;
+            vm.model.clinicalTrial = record;
         };
 
         /**
