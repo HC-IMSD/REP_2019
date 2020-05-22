@@ -11,6 +11,7 @@
          'drugUseModule',
         'scheduleAModule',
         'importerListModule',
+        'clinicalTrial',
         'disinfectantTypeModule',
         'dossierDataLists',
         'dataLists',

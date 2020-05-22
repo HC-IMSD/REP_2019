@@ -312,7 +312,8 @@ var componentFolders = {
     transFees: 'transactionFees/',
     rtHelpComp: "transactionHelpText/",
     companyHelpComp: "companyHelpText/",
-    piHelpComp: "productInfoHelpText/"
+    piHelpComp: "productInfoHelpText/",
+    clinicalTrial: "clinicalTrial/"
 };
 
 //exclude custom styles only lib
@@ -428,6 +429,7 @@ var drugProductComponentFolders =
         componentFolders.applicationInfo,
         componentFolders.importerList,
         componentFolders.importerRecord,
+        componentFolders.clinicalTrial,
         componentFolders.drugUse,
         componentFolders.disinfectantType,
         componentFolders.routeAdmin,

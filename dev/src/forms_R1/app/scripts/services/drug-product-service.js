@@ -121,6 +121,29 @@
                      ingredientList:[]
                      }//tab + grid +*/
 
+                },
+                clinicalTrial: {
+                    protocolNum: "",
+                    protocolTitle:"",
+                    composition: {
+                        fmpp: false,
+                        mpp: false,
+                        fmap: false,
+                        map: false
+                    },
+                    phase: {
+                         phase1Bio: false,
+                         phase1Study: false,
+                         phase1Other: false,
+                         phase2: false,
+                         phase3: false,
+                         phaseOther: false,
+                        ctaPhaseOtherDetails:""
+                    },
+                    isRefuseInfo:""
+                    // hasDinNoc:"",
+                    // isCanMarket:"",
+                    // ctaSrcCountryList: []
                 }
                 //contactList: []
 
@@ -153,6 +176,29 @@
                     dossierType: info.dossier_type._id,
                     productName: info.product_name,
                     properName: info.proper_name,
+                    clinicalTrial: {
+                        protocolNum: info.protocol_number,
+                        protocolTitle:info.protocol_title,
+                        composition: {
+                            fmpp: info.composition ? info.composition.female_paediatric === 'Y' : false,
+                            mpp: info.composition ? info.composition.male_paediatric === 'Y' : false,
+                            fmap: info.composition ? info.composition.female_adult === 'Y' : false,
+                            map: info.composition ? info.composition.male_adult === 'Y' : false
+                        },
+                        phase: {
+                            phase1Bio: info.phase ? info.phase.phase_1_bioequivalence === 'Y' : false,
+                            phase1Study:  info.phase ? info.phase.phase_1_healthy === 'Y' : false,
+                            phase1Other: info.phase ? info.phase.phase_1_other === 'Y' : false,
+                            phase2: info.phase ? info.phase.phase_2 === 'Y' : false,
+                            phase3: info.phase ? info.phase.phase_3 === 'Y' : false,
+                            phaseOther: info.phase ? info.phase.other === 'Y' : false,
+                            ctaPhaseOtherDetails: info.phase ? info.phase.other_details : ''
+                        },
+                        isRefuseInfo: info.is_reb_info_refused,
+                        hasDinNoc: info.has_din_noc,
+                        isCanMarket: info.is_canadian_market,
+                        ctaSrcCountryList: transformCtaCountryFromFile(info.cta_source_countries)
+                    },
                     manu: info.manufacturer === 'Y',
                     mailling: info.mailing === 'Y',
                     thisActivity: info.this_activity === 'Y',
@@ -248,6 +294,34 @@
             };
             baseModel.product_name = jsonObj.productName;
             baseModel.proper_name = jsonObj.properName;
+
+            if(jsonObj.dossierType && jsonObj.dossierType === 'D26') {
+                baseModel.protocol_number = jsonObj.clinicalTrial.protocolNum;
+                baseModel.protocol_title = jsonObj.clinicalTrial.protocolTitle;
+
+                baseModel.composition = {
+                    female_paediatric: jsonObj.clinicalTrial.composition.fmpp === true ? 'Y' : 'N',
+                    male_paediatric: jsonObj.clinicalTrial.composition.mpp === true ? 'Y' : 'N',
+                    female_adult: jsonObj.clinicalTrial.composition.fmap === true ? 'Y' : 'N',
+                    male_adult: jsonObj.clinicalTrial.composition.map === true ? 'Y' : 'N'
+                };
+                baseModel.phase = {
+                    phase_1_bioequivalence: jsonObj.clinicalTrial.phase.phase1Bio === true ? 'Y' : 'N',
+                    phase_1_healthy: jsonObj.clinicalTrial.phase.phase1Study === true ? 'Y' : 'N',
+                    phase_1_other: jsonObj.clinicalTrial.phase.phase1Other === true ? 'Y' : 'N',
+                    phase_2: jsonObj.clinicalTrial.phase.phase2 === true ? 'Y' : 'N',
+                    phase_3: jsonObj.clinicalTrial.phase.phase3 === true ? 'Y' : 'N',
+                    other: jsonObj.clinicalTrial.phase.phaseOther === true ? 'Y' : 'N',
+                    other_details: jsonObj.clinicalTrial.phase.ctaPhaseOtherDetails
+                };
+                baseModel.is_reb_info_refused = jsonObj.clinicalTrial.isRefuseInfo;
+                baseModel.has_din_noc = jsonObj.clinicalTrial.hasDinNoc;
+                baseModel.is_canadian_market = jsonObj.clinicalTrial.isCanMarket;
+                if (jsonObj.clinicalTrial.ctaSrcCountryList && jsonObj.clinicalTrial.ctaSrcCountryList.length > 0) {
+                    baseModel.cta_source_countries = countryListToOutput(jsonObj.clinicalTrial.ctaSrcCountryList, currentLang);
+                }
+            }
+
             baseModel.manufacturer = jsonObj.manu === true ? 'Y' : 'N';
             baseModel.mailing = jsonObj.mailling === true ? 'Y' : 'N';
             baseModel.this_activity = jsonObj.thisActivity === true ? 'Y' : 'N';
@@ -378,6 +452,33 @@
 
         DrugProductService.prototype.getRootTagName = function () {
             return ("DRUG_PRODUCT_ENROL");
+        };
+
+        DrugProductService.prototype.getEmptyCtaModel = function () {
+            var emptyCtaModel = {
+                protocolNum: "",
+                protocolTitle:"",
+                composition: {
+                    fmpp: false,
+                    mpp: false,
+                    fmap: false,
+                    map: false
+                },
+                phase: {
+                    phase1Bio: false,
+                    phase1Study: false,
+                    phase1Other: false,
+                    phase2: false,
+                    phase3: false,
+                    phaseOther: false,
+                    ctaPhaseOtherDetails:""
+                },
+                isRefuseInfo:"",
+                hasDinNoc:"",
+                isCanMarket:"",
+                ctaSrcCountryList: []
+            };
+            return emptyCtaModel;
         };
 
         //return the Dossier Service object
@@ -823,6 +924,22 @@
             return this.charAt(0).toUpperCase() + this.slice(1).toLowerCase();
             //return this.replace( /(^|\s)([a-z])/g , function(m,p1,p2){ return p1+p2.toUpperCase(); } );
         };
+
+        function transformCtaCountryFromFile(countries) {
+            if (countries) {
+
+                var countryArray = [];
+                if (!(countries instanceof Array)) {
+                    //make it an array, case there is only one
+                    countryArray = [countries];
+                } else {
+                    countryArray = countries;
+                }
+                return getFormulationCountryList(countryArray);
+            } else {
+                return [];
+            }
+        }
 
         /**
          *
