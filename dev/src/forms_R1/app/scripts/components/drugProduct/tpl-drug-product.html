@@ -189,7 +189,7 @@
                     <div class="col-xs-12 form-group">
                         <fieldset id="fs_addrMissing_{{::$id}}">
                     <legend><strong>
-                        <span class="label-pi">6. {{::'ADDRESS_NOC'|translate}}
+                        <span class="label-pi"><span data-ng-if="! drugProdCtrl.isCTA()">6</span><span data-ng-if="drugProdCtrl.isCTA()">7</span>. {{::'ADDRESS_NOC'|translate}}
                         <sup id="dr5_ref">
                             <a class="fn-lnk" href="#dr5"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::drugProdCtrl.htIndxList.dnfNocAddrIndx}}</a>
                         </sup></span></strong>
@@ -247,11 +247,31 @@
                 </fieldset>
                     </div>
                 </div>
+                <div class="row" data-ng-if="drugProdCtrl.isCTA()">
+                    <div class="col-xs-12 form-group">
+                        <fieldset >
+                            <legend><strong>
+                        <span class="label-pi">8. {{::'ARE_CTA_IMPORTED'|translate}}
+                        <sup id="dr5_ref">
+                            <a class="fn-lnk" href="#dr5"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::drugProdCtrl.htIndxList.dnfNocAddrIndx}}</a>
+                        </sup></span></strong>
+                            </legend>
+                            <div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <label class="col-xs-2" for="areDrugsImportedId"><input type="radio" id="areDrugsImportedId" name="areDrugsImportedId" value="Y" data-ng-model="drugProdCtrl.model.clinicalTrial.isImport" />&nbsp;{{::'Y'|translate}}</label>
+                                        <label class="col-xs-2" for="areDrugsImportedId_1"><input type="radio" id="areDrugsImportedId_1" name="areDrugsImportedId_1" value="N" data-ng-model="drugProdCtrl.model.clinicalTrial.isImport" />&nbsp;{{::'N'|translate}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-xs-12 form-group">
                         <section class="panel panel-default">
                     <header class="panel-heading clearfix">
-                        <h3 class="panel-title">7. {{'IMPORTER'|translate}}
+                        <h3 class="panel-title"><span data-ng-if="! drugProdCtrl.isCTA()">7</span><span data-ng-if="drugProdCtrl.isCTA()">9</span>. {{'IMPORTER'|translate}}
                             <sup id="dr6_ref">
                                 <a class="fn-lnk" href="#dr6"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::drugProdCtrl.htIndxList.importerIndx}}</a>
                             </sup>
@@ -275,7 +295,7 @@
                     <div class="col-xs-12 form-group"
                          data-ng-class="{'has-error':drugProdCtrl.drugProdForm[drugProdCtrl.drugUseId].$invalid}">
                         <label for="{{::drugProdCtrl.drugUseId}}" class="required">
-                            <span class="field-name">8.&nbsp;{{::'DRUG_USE'|translate}}</span>
+                            <span class="field-name"><span data-ng-if="! drugProdCtrl.isCTA()">8</span><span data-ng-if="drugProdCtrl.isCTA()">10</span>.&nbsp;{{::'DRUG_USE'|translate}}</span>
                             <strong class="required">{{::"REQUIRED" |translate}}</strong>
                             <sup id="dr7_ref">
                                 <a class="fn-lnk" href="#dr7"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::drugProdCtrl.htIndxList.drugUseIndx}}</a>
@@ -306,7 +326,7 @@
                     <fieldset id="{{::drugProdCtrl.fsType}}">
                     <legend>
                         <strong>
-                            <span class="label-pi">9.&nbsp;{{::'SCHEDULE_PRESC_STATUS'|translate}}</span>
+                            <span class="label-pi"><span data-ng-if="! drugProdCtrl.isCTA()">9</span><span data-ng-if="drugProdCtrl.isCTA()">11</span>.&nbsp;{{::'SCHEDULE_PRESC_STATUS'|translate}}</span>
                         </strong>
                     </legend>
                     <div class="row">
@@ -392,7 +412,7 @@
                     <div class="form-group col-xs-12"
                          data-ng-class="{'has-error':drugProdCtrl.drugProdForm[drugProdCtrl.propIndicationId].$invalid}">
                         <label class="required" for="{{::drugProdCtrl.propIndicationId}}">
-                            <span class="field-name">10. {{::'PROP_INDICATION'|translate}}</span>
+                            <span class="field-name"><span data-ng-if="! drugProdCtrl.isCTA()">10</span><span data-ng-if="drugProdCtrl.isCTA()">12</span>. {{::'PROP_INDICATION'|translate}}</span>
                             <strong class="required">{{::'REQUIRED' |translate}}</strong>
                             <sup id="dr8_ref">
                                 <a class="fn-lnk" href="#dr8"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::drugProdCtrl.htIndxList.pudIndx}}</a>
@@ -455,7 +475,7 @@
                               error-summary-update="drugProdCtrl.updateSummary" show-error-summary="drugProdCtrl.showSummary"
                               update-error-summary="drugProdCtrl.updateErrorSummaryState()"
                               set-selected-tab="drugProdCtrl.setVisibleTabIndex"
-                              is-file-loaded="drugProdCtrl.isFileLoaded"
+                              is-file-loaded="drugProdCtrl.isFileLoaded" is-cta="drugProdCtrl.isCTA()"
                               appendix4-list="drugProdCtrl.model.drugProduct.appendixFourList">
                     </cmp-tabs>
                 </div>

@@ -208,6 +208,7 @@
                 vm.model = vm.drugProductService.loadFromFile(resultJson);
                 //process file load results
                 //load into data model as result json is not null
+                vm.dossierTypeChange();
                 vm.drugUseUpdate();
                 vm.drugProdForm.$setDirty();
             }
@@ -350,7 +351,27 @@
             }
         };
 
-        //????
+        /***
+         * dossier Type Changed
+         */
+        vm.dossierTypeChange = function () {
+            if (vm.model && vm.model.dossierType && vm.model.dossierType === "D26") {
+                vm.drugUseList = vm.ctaDrugUseList;
+                vm.model.manu = false;
+                vm.model.mailling = false;
+                vm.model.thisActivity = false;
+                vm.model.importer = false;
+                vm.model.importerRecord = [];
+            } else if (vm.model && vm.model.dossierType && vm.model.dossierType === "D24"){
+                vm.drugUseList = vm.vetDrugUseList;
+                vm.model.areDrugsImported ="";
+            } else {
+                vm.drugUseList = vm.defaultDrugUseList;
+                vm.model.areDrugsImported ="";
+            }
+        };
+
+        //update Disinfectant Type
         vm.onDisiTypeUpdate = function (newRole) {
             var aRole = {};
             angular.extend(aRole, newRole);
@@ -525,6 +546,13 @@
             vm.setVisibleTabIndex=temp;
         };
 
+        vm.orderNum = function (index) {
+            if(vm.isCTA()){
+                return 9 + index;
+            } else {
+                return 7 + index;
+            }
+        }
 
         function _setIdNames() {
             var scopeId = "_" + $scope.$id;

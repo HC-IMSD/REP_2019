@@ -107,8 +107,55 @@
             TEST_STUDIES_ORDER: "TEST_STUDIES_ORDER", //Test and Studies Order
             TERM_COND_COMM: "TERM_COND_COMM", //Terms and Conditions Commitment
             YEAR: "YEAR", //Year
-            SND_LANG_PM: "SND_LANG_PM"
-        };
+            CTN_ADMINISTRATIVE:"CTN_ADMINISTRATIVE",
+            CTN_APPENDIX:"CTN_APPENDIX",
+            CTN_CONTACT:"CTN_CONTACT",
+            // CTN_CROSS:"CTN_CROSS",
+            CTN_DATA:"CTN_DATA",
+            CTN_DEAR:"CTN_DEAR",
+            CTN_DILUENT:"CTN_DILUENT",
+            CTN_DRUG_PROD:"CTN_DRUG_PROD",
+            CTN_DRUG_SUBS:"CTN_DRUG_SUBS",
+            CTN_ENROLLMENT:"CTN_ENROLLMENT",
+            CTN_ETHICS:"CTN_ETHICS",
+            // CTN_EXCLUSION_INCLUSION:"CTN_EXCLUSION_INCLUSION",
+            CTN_INFORMED:"CTN_INFORMED",
+            CTN_INVESTIGATOR:"CTN_INVESTIGATOR",
+            CTN_NEW_MANUFACTURING:"CTN_NEW_MANUFACTURING",
+            CTN_NEW_PKG:"CTN_NEW_PKG",
+            CTN_NEW_QC:"CTN_NEW_QC",
+            // CTN_NOL:"CTN_NOL",
+            CTN_PACKAGING_LABELLING:"CTN_PACKAGING_LABELLING",
+            // CTN_PM:"CTN_PM",
+            CTN_PROTOCOL_INFO_UPDATE:"CTN_PROTOCOL_INFO_UPDATE",
+            CTN_PROTOCOL_UPDATE:"CTN_PROTOCOL_UPDATE",
+            CTN_QOS:"CTN_QOS",
+            CTN_REFUSALS:"CTN_REFUSALS",
+            CTN_REGULATORY:"CTN_REGULATORY",
+            CTN_RESPONSE:"CTN_RESPONSE",
+            CTN_SAFETY:"CTN_SAFETY",
+            CTN_SHELF_PD:"CTN_SHELF_PD",
+            CTN_SHELF_DS:"CTN_SHELF_DS",
+            CTN_SITE:"CTN_SITE",
+            CTN_SOURCE:"CTN_SOURCE",
+            CTN_STRAIN:"CTN_STRAIN",
+            CTN_STUDY_COMPLETION:"CTN_STUDY_COMPLETION",
+            CTN_STUDY_DISC:"CTN_STUDY_DISC",
+            CTN_STUDY_EXT:"CTN_STUDY_EXT",
+            CTN_STUDY_SUS:"CTN_STUDY_SUS",
+            CTN_TRANS_OWN:"CTN_TRANS_OWN",
+            CLINICAL:"CLINICAL",
+            CLINICAL_QUALITY:"CLINICAL_QUALITY",
+            QUALITY:"QUALITY",
+            INITIAL_TEAT_SOLU_MONO:"INITIAL_TEAT_SOLU_MONO",   //INITIAL - Teat Solutions Monograph
+            REQ_ACCEPTED:"REQ_ACCEPTED",                       //Request Accepted
+            CTN_FORM_BROC_UPDATES:"CTN_FORM_BROC_UPDATES",     //  CTN- Informed Consent Form and Investigator’s Brochure Updates
+            CTN_IMPD_UPDATE:"CTN_IMPD_UPDATE",                 // CTN-IMPD Update
+            CTN_NEW_SUMM_ADF:"CTN_NEW_SUMM_ADF",                // CTN- New Summary of Additional Drugs Form
+            COVIR_19: 'COVIR-19',
+            COVIR_19AMD: 'COVIR-19AMD'
+
+    };
 
 
         var service = {
@@ -117,12 +164,18 @@
             createRaTypes: _createRaArray,
             getPharmaceuticalValue: _getPharmaceutical,
             getBiologicValue: _getBiologic,
+            getClinicalValue: _getClinical,
             getBiologicalLeadValue: _getBiologicalLead,
             getPharmaLeadValue: _getPharmaLead,
             getPostMarketLeadValue: _getPostMarketLead,
             getConsumHealthLeadValue: _getConsumHealthLead,
+            getClinicalBioLeadValue: _getClinicalBioLead,
+            getClinicalPhaLeadValue: _getClinicalPhaLead,
             getPresubTypes: getPresubArray,
             getAndsType: getANDSArray,
+            getCtaType: getCtaArray,
+            getCta_aType: getCta_aArray,
+            getPreCtaType: getPreCtaArray,
             getDinaType: getDINAArray,
             getDinbType: getDINBArray,
             getDindType: getDINDArray,
@@ -176,7 +229,8 @@
             createMitigationList: _createMitigationArray,
             getActivityLeadList: _getActivityLeadArray,
             getActivityLeadListByD22: _getActivityLeadD22Array,
-            getActivityLeadListByD21: _getActivityLeadD21Array
+            getActivityLeadListByD21: _getActivityLeadD21Array,
+            getActivityLeadListByD26: _getActivityLeadD26Array,
         };
         return service;
 
@@ -1317,6 +1371,9 @@
         function _getBiologic(){
             return vm.D21; // D22 - Biologic
         }
+        function _getClinical() {
+            return vm.D26;
+        }
 
         function _getBiologicalLead() {
             return vm.BIOLOGICAL;
@@ -1330,6 +1387,12 @@
         }
         function _getConsumHealthLead(){
             return vm.CONSUMERHEALTH;
+        }
+        function _getClinicalBioLead() {
+            return vm.CLINICAL_BIO;
+        }
+        function _getClinicalPhaLead() {
+            return vm.CLINICAL_PHA;
         }
 
     }

@@ -90,7 +90,7 @@
                 enrolmentVersion: "0.00",
                 dateSaved: "",
                 //applicationType: "NEW",
-                softwareVersion: "3.1.0",
+                softwareVersion: "4.0.1",
                 xslFileName: xslName,
                 dataChecksum: "",
                 privacyStat:"",
@@ -140,7 +140,8 @@
                          phaseOther: false,
                         ctaPhaseOtherDetails:""
                     },
-                    isRefuseInfo:""
+                    isRefuseInfo:"",
+                    isImport:""
                     // hasDinNoc:"",
                     // isCanMarket:"",
                     // ctaSrcCountryList: []
@@ -281,7 +282,7 @@
             baseModel.enrolment_version = jsonObj.enrolmentVersion;
             baseModel.date_saved = jsonObj.dateSaved;
             // baseModel.application_type = jsonObj.applicationType;
-            baseModel.software_version = "3.1.0"; //TODO: hard code or make a function, should be centrally available
+            baseModel.software_version = "4.0.1"; //TODO: hard code or make a function, should be centrally available
             baseModel.data_checksum = "";
 
             baseModel.company_id = jsonObj.companyID;

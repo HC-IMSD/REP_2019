@@ -21,6 +21,7 @@
   "NON_PRESC_SCHEDULE_A":"un médicament sans ordonnance auquel une ou plusieurs des réclamations de l'Annexe A s'appliquent",
   "DRUG_ADMIN":"un médicament qui peut être vendu sans ordonnance, mais doit être administré uniquement sous la surveillance d’un praticien",
   "ADDRESS_NOC":"Adresse où le formulaire de déclaration de médicament (FDM)/l’avis de conformité (AC) doivent être envoyés (lorsque nécessaire):",
+  "ARE_CTA_IMPORTED":"fr_Are clinical trial drugs imported into Canada?",
   "ADDR_INSTRUCT": "fr_Activity Address Instructions",
   "FAKE.APPENDIX_MISSING_ERROR":"fr_with the Human /Animal Sourced Records, missing source",
   "FAKE.APPENDIX_EXTRA_ERROR":"fr_with the Human /Animal Sourced Records, extra source",
