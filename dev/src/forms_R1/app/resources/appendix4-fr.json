@@ -140,6 +140,7 @@
   "REPRODUCTIVE_LEGEND": "Sélectionnez un ou plus sélections de système reproductif et urinaire",
   "MUSCLE_LEGEND": "Sélectionnez un ou plus sélections de système musculo-squelettique",
   "SKIN_LEGEND": "Sélectionnez un ou plus sélections de système peau et glandulaire",
-  "AP4CTRL.APPENDIXFORM":"dans l'onglet source animale / humaine",
+  "AP4CTRL.APPENDIXFORM":"dans la section source animale / humaine",
+  "HUMAN_ANIMAL_SOURCED_TAB": "section source animale / humaine",
   "CMP-APPENDIX-FOUR-RECORD":" dans la section source animale / humaine"
 }

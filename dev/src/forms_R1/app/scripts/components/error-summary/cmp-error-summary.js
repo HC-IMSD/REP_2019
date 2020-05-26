@@ -155,7 +155,7 @@
                 hashId=errorRecord.name;
             }
             vm.expandRecord({index: errorRecord.exIndex});
-            console.log("jangyoung:" + hashId );
+            // console.log("jangyoung:" + hashId );
             $location.hash(hashId);
             $anchorScroll();
         };

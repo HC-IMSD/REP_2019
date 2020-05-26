@@ -81,7 +81,7 @@
                 <div class="row">
                     <div class="col-xs-12 form-group">
                         <label for="{{::drugProdCtrl.dossierId}}" class="required">
-                            <span class="field-name">2.&nbsp;{{::'DOSSIER_ID' |translate}}{{::'LEAST_7_CHAR' |translate}}</span>
+                            <span class="field-name">2.&nbsp;{{::'DOSSIER_ID' |translate}}{{::'CHAR_6_DIGITS' |translate}}</span>
                             <strong class="required">{{::"REQUIRED" |translate}}</strong>
                             <cmp-error-message field-name="drugProdCtrl.dossierId"
                                                form-ref="drugProdCtrl.drugProdForm"
@@ -92,7 +92,7 @@
                             <span class="input-group-addon">HC6-024-</span>
                             <div data-ng-class="{'has-error':drugProdCtrl.drugProdForm[drugProdCtrl.dossierId].$invalid}">
                                 <input type="text" class="form-control" id="{{::drugProdCtrl.dossierId}}"
-                                       maxlength="7"  minlength="7" name="{{::drugProdCtrl.dossierId}}"
+                                       maxlength="7"  minlength="7" name="{{::drugProdCtrl.dossierId}}" data-ng-pattern="/^[a-z]{1}[0-9]{6}$/"
                                        size="7" data-ng-model="drugProdCtrl.model.dossierID" required/>
                             </div>
                         </div>
@@ -401,20 +401,20 @@
                         </details>
                     </section>
                 </div>
-                <div>
-                    <section ng-if="drugProdCtrl.appendixExtraError()">
-                        <input type="hidden"  data-ng-model="drugProdCtrl.extraAppendixModel"
-                               aria-hidden="true" id="fake.appendix_extra_error" name="fake.appendix_extra_error"/>
-                        <details class="alert alert-danger" id="errors-summary-fake.appendix_extra_error" open="open">
-                            <summary class="h3">
-                                <h2>{{::'EXTRA_APPENDIX'|translate}}</h2>
-                            </summary>
-                            <ul>
-                                <li data-ng-repeat="ingred in drugProdCtrl.extraAppendix">{{ingred}}</li>
-                            </ul>
-                        </details>
-                    </section>
-                </div>
+                <!--<div>-->
+                    <!--<section ng-if="drugProdCtrl.appendixExtraError()">-->
+                        <!--<input type="hidden"  data-ng-model="drugProdCtrl.extraAppendixModel"-->
+                               <!--aria-hidden="true" id="fake.appendix_extra_error" name="fake.appendix_extra_error"/>-->
+                        <!--<details class="alert alert-danger" id="errors-summary-fake.appendix_extra_error" open="open">-->
+                            <!--<summary class="h3">-->
+                                <!--<h2>{{::'EXTRA_APPENDIX'|translate}}</h2>-->
+                            <!--</summary>-->
+                            <!--<ul>-->
+                                <!--<li data-ng-repeat="ingred in drugProdCtrl.extraAppendix">{{ingred}}</li>-->
+                            <!--</ul>-->
+                        <!--</details>-->
+                    <!--</section>-->
+                <!--</div>-->
 
                 <!--<div class="row">-->
                     <!--<div class="col-xs-12 form-group">-->
@@ -427,14 +427,70 @@
                     <!--</div>-->
                 <!--</div>-->
                 <div>
-                    <cmp-tabs formulation-list="drugProdCtrl.model.drugProduct.formulations"
-                              record-changed="drugProdCtrl.recordsChanged()" service="drugProdCtrl.drugProductService"
-                              error-summary-update="drugProdCtrl.updateSummary" show-error-summary="drugProdCtrl.showSummary"
-                              update-error-summary="drugProdCtrl.updateErrorSummaryState()"
-                              set-selected-tab="drugProdCtrl.setVisibleTabIndex"
-                              is-file-loaded="drugProdCtrl.isFileLoaded"
-                              appendix4-list="drugProdCtrl.model.drugProduct.appendixFourList">
-                    </cmp-tabs>
+                    <!--<cmp-tabs formulation-list="drugProdCtrl.model.drugProduct.formulations"-->
+                              <!--record-changed="drugProdCtrl.recordsChanged()" service="drugProdCtrl.drugProductService"-->
+                              <!--error-summary-update="drugProdCtrl.updateSummary" show-error-summary="drugProdCtrl.showSummary"-->
+                              <!--update-error-summary="drugProdCtrl.updateErrorSummaryState()"-->
+                              <!--set-selected-tab="drugProdCtrl.setVisibleTabIndex"-->
+                              <!--is-file-loaded="drugProdCtrl.isFileLoaded"-->
+                              <!--appendix4-list="drugProdCtrl.model.drugProduct.appendixFourList">-->
+                    <!--</cmp-tabs>-->
+                    <div class="row">
+                        <div class="col-xs-12 form-group">
+                            <strong>
+                                <span class="field-name">11. {{::'FORMULATION'|translate}}</span>
+                                <sup id="dr9_ref">
+                                    <a class="fn-lnk" href="#dr9"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::drugProdCtrl.drugProductService.helpTextSequences.formuIndx}}</a>
+                                </sup>
+                            </strong>
+                        </div>
+                    </div>
+                    <div id="formulations-panel" role="tabpanel">
+                        <div class="form-group">
+                            <cmp-formulations formulations="drugProdCtrl.model.drugProduct.formulations"
+                                              error-summary-update="drugProdCtrl.updateSummary"
+                                              show-error-summary="drugProdCtrl.showSummary"
+                                              update-error-summary="drugProdCtrl.updateErrorSummaryState()"
+                                              is-file-loaded="drugProdCtrl.isFileLoaded"
+                                              ht-indx-list="drugProdCtrl.drugProductService.helpTextSequences"
+                                              record-changed="drugProdCtrl.recordsChanged()"></cmp-formulations>
+                        </div>
+                    </div>
+                    <div class="row"><div class="col-xs-12"><br/></div></div>
+                    <div>
+                        <section ng-if="drugProdCtrl.appendixExtraError()">
+                            <input type="hidden"  data-ng-model="drugProdCtrl.extraAppendixModel"
+                                   aria-hidden="true" id="fake.appendix_extra_error" name="fake.appendix_extra_error"/>
+                            <details class="alert alert-danger" id="errors-summary-fake.appendix_extra_error" open="open">
+                                <summary class="h3">
+                                    <h2>{{::'EXTRA_APPENDIX'|translate}}</h2>
+                                </summary>
+                                <ul>
+                                    <li data-ng-repeat="ingred in drugProdCtrl.extraAppendix">{{ingred}}</li>
+                                </ul>
+                            </details>
+                        </section>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 form-group">
+                            <strong>
+                                <span class="field-name">12. {{::'Human/Animal Sourced Ingredient/Material'|translate}}</span>
+                                <sup id="dr10_ref">
+                                    <a class="fn-lnk" href="#dr10"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::drugProdCtrl.drugProductService.helpTextSequences.haSIMIndx}}</a>
+                                </sup>
+                            </strong>
+                        </div>
+                    </div>
+                    <div id="appendix4-panel" role="tabpanel">
+                        <div class="form-group">
+                            <cmp-appendix-four ingredients="drugProdCtrl.model.drugProduct.appendixFourList" service="drugProdCtrl.drugProductService"
+                                               update-error-summary="drugProdCtrl.updateErrorSummary()"
+                                               error-summary-update="drugProdCtrl.updateSummary"
+                                               show-error-summary="drugProdCtrl.showSummary"
+                                               is-file-loaded="drugProdCtrl.isFileLoaded"
+                                               record-changed="drugProdCtrl.recordsChanged()"></cmp-appendix-four>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
