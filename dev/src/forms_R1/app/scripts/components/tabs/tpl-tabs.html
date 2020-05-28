@@ -76,34 +76,34 @@
         </div>
     </div>
     <ng-form name="tabsCtrl.tabs[1].form">
-        <div>
-            <section data-ng-if="drugProdCtrl.appendixMissingError()">
-                <input type="hidden" required data-ng-model="drugProdCtrl.missingAppendixModel"
-                       aria-hidden="true" name="fake.appendix_missing_error" id="fake.appendix_missing_error"/>
-                <details class="alert alert-danger" id="errors-summary-fake.appendix_missing_error" open="open">
-                    <summary class="h3">
-                        <h2>{{::'MISSING_APPENDIX'|translate}}</h2>
-                    </summary>
-                    <ul>
-                        <li data-ng-repeat="ingred in drugProdCtrl.errorAppendix">{{ingred}}</li>
-                    </ul>
-                </details>
-            </section>
-        </div>
-        <div>
-            <section ng-if="drugProdCtrl.appendixExtraError()">
-                <input type="hidden"  data-ng-model="drugProdCtrl.extraAppendixModel"
-                       aria-hidden="true" id="fake.appendix_extra_error" name="fake.appendix_extra_error"/>
-                <details class="alert alert-danger" id="errors-summary-fake.appendix_extra_error" open="open">
-                    <summary class="h3">
-                        <h2>{{::'EXTRA_APPENDIX'|translate}}</h2>
-                    </summary>
-                    <ul>
-                        <li data-ng-repeat="ingred in drugProdCtrl.extraAppendix">{{ingred}}</li>
-                    </ul>
-                </details>
-            </section>
-        </div>
+        <!--<div>-->
+            <!--<section data-ng-if="drugProdCtrl.appendixMissingError()">-->
+                <!--<input type="hidden" required data-ng-model="drugProdCtrl.missingAppendixModel"-->
+                       <!--aria-hidden="true" name="fake.appendix_missing_error" id="fake.appendix_missing_error"/>-->
+                <!--<details class="alert alert-danger" id="errors-summary-fake.appendix_missing_error" open="open">-->
+                    <!--<summary class="h3">-->
+                        <!--<h2>{{::'MISSING_APPENDIX'|translate}}</h2>-->
+                    <!--</summary>-->
+                    <!--<ul>-->
+                        <!--<li data-ng-repeat="ingred in drugProdCtrl.errorAppendix">{{ingred}}</li>-->
+                    <!--</ul>-->
+                <!--</details>-->
+            <!--</section>-->
+        <!--</div>-->
+        <!--<div>-->
+            <!--<section ng-if="drugProdCtrl.appendixExtraError()">-->
+                <!--<input type="hidden"  data-ng-model="drugProdCtrl.extraAppendixModel"-->
+                       <!--aria-hidden="true" id="fake.appendix_extra_error" name="fake.appendix_extra_error"/>-->
+                <!--<details class="alert alert-danger" id="errors-summary-fake.appendix_extra_error" open="open">-->
+                    <!--<summary class="h3">-->
+                        <!--<h2>{{::'EXTRA_APPENDIX'|translate}}</h2>-->
+                    <!--</summary>-->
+                    <!--<ul>-->
+                        <!--<li data-ng-repeat="ingred in drugProdCtrl.extraAppendix">{{ingred}}</li>-->
+                    <!--</ul>-->
+                <!--</details>-->
+            <!--</section>-->
+        <!--</div>-->
             <div id="appendix4-panel" role="tabpanel">
                 <div class="form-group">
                     <cmp-appendix-four ingredients="tabsCtrl.appendix4List" service="tabsCtrl.service"

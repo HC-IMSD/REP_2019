@@ -78,8 +78,8 @@
   "COUNTRIES_MANUFACT": "Countries of manufacture for this product",
   "IN_LIST": "In list",
   "UNITS_SRCH":"Select or Search Units",
-  "SOURCED_INFO":"Please provide additional details related to this ingredient on the Animal / Human Source tab",
-  "SOURCED_INFO_MATERIAL":"Please provide additional details related to this material on the Animal / Human Source tab",
+  "SOURCED_INFO":"Please complete additional details related to this ingredient in section “12. Animal/Human Sourced Ingredient/Material”",
+  "SOURCED_INFO_MATERIAL":"Please complete additional details related to this material in section “12. Animal/Human Sourced Ingredient/Material”",
   "DELETE_FORMULATION":  "Delete Formulation",
   "COPY_FORMULATION":"Copy formulation",
   "ADD_FORMULATION":"Add formulation",
@@ -109,7 +109,7 @@
   "INGRECCTRL.ACTIVEINGFORM":"in the medicinal ingredient details",
   "NINGRECCTRL.NONMEDINGFORM":"in the non-medicinal ingredient details",
   "CTRCTRL.CONTAINERTYPEFORM":"in the container type details",
-  "FORMULCTRL.FORMULATIONSFORM":"in the formulations tab",
+  "FORMULCTRL.FORMULATIONSFORM":"in the formulations section",
   "INGREDIENT_INSTRUCT":"Ingredient Instructions",
   "SHELF_LIFE_NUMBER": "Value"
 }

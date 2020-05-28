@@ -22,7 +22,7 @@
   "MSG_LENGTH_6": "Less than minimum length.",
   "MSG_LENGTH_6NUM": "Less than minimum length.",
   "MSG_LENGTH_8NUM": "Less than minimum length.",
-  "MSG_LENGTH_7": "Less than minimum length.",
+  "MSG_LENGTH_7": "Incorrect format - Less than minimum length.",
   "MSG_LENGTH_7NUM": "Less than minimum length.",
   "ONE_REP": "At least one contact is required.",
   "MSG_ERR_NOTIF_SEL": "Please select at least one notifiable change.",
@@ -30,6 +30,6 @@
   "MSG_ERR_MAX": "Exceeds the maximum",
   "MSG_FORMAT_CHAR_6DIGITS": "ID should be a letter plus 6 digits.",
   "MSG_ERR_DUPLICATED_SYSTEM": "Duplicated System.",
-  "MSG_FORMAT_ALPHA_NUMBERIC": "Alpha numeric",
+  "MSG_FORMAT_ALPHA_NUMBERIC": "Incorrect format - must be lowercase letter followed by six numbers",
   "MSG_ERR_INVALID_END_DATE": "End Date should not be earlier than Start Date."
 }
