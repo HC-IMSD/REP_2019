@@ -548,7 +548,7 @@
                 }
                 for (var i = 0; i < info.length; i++) {
                     var ing = {};
-                    ing.id = info[i].ingredient_id;
+                    ing.id = Number(info[i].ingredient_id);
                     ing.ingredientName = info[i].ingredient_name;
                     ing.humanSourced = info[i].human_sourced === 'Y';
                     ing.animalSourced = info[i].animal_sourced === 'Y';
