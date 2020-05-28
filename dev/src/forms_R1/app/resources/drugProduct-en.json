@@ -55,6 +55,7 @@
   "MPP":"Male paediatric population (0-18 years of age)",
   "FMAP":"Female adult population",
   "MAP":"Male adult population",
+  "IMPORT_LETTER": "A letter of authorization signed by the clinical trial sponsor must be provided in section 1.2.1 for a third party to import the new drug(s) described in this clinical trial application or amendment. If the importer has not changed when a clinical trial application amendment (CTA-A) is filed, a letter of authorization does not need to be submitted.",
 
   "HT_LOAD_FILE_1":"When continuing with a working copy, the format of the file to load should be .hcsc.",
   "HT_LOAD_FILE_2":"When viewing/updating a final XML file, the format of the file to load should be .xml.",

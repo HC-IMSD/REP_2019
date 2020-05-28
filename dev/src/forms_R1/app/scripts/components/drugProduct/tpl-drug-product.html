@@ -259,12 +259,27 @@
                             <div>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <label class="col-xs-2" for="areDrugsImportedId"><input type="radio" id="areDrugsImportedId" name="areDrugsImportedId" value="Y" data-ng-model="drugProdCtrl.model.clinicalTrial.isImport" />&nbsp;{{::'Y'|translate}}</label>
-                                        <label class="col-xs-2" for="areDrugsImportedId_1"><input type="radio" id="areDrugsImportedId_1" name="areDrugsImportedId_1" value="N" data-ng-model="drugProdCtrl.model.clinicalTrial.isImport" />&nbsp;{{::'N'|translate}}</label>
+                                        <label class="col-xs-2" for="areDrugsImportedId">
+                                            <input type="radio" id="areDrugsImportedId" name="areDrugsImportedId"
+                                                   value="Y" data-ng-model="drugProdCtrl.model.areDrugsImported"/>
+                                            &nbsp;{{::'Y'|translate}}
+                                        </label>
+                                        <label class="col-xs-2" for="areDrugsImportedId_1">
+                                            <input type="radio" id="areDrugsImportedId_1" name="areDrugsImportedId"
+                                                   value="N" data-ng-model="drugProdCtrl.model.areDrugsImported"/>
+                                            &nbsp;{{::'N'|translate}}
+                                        </label>
                                     </div>
                                 </div>
                             </div>
                         </fieldset>
+                    </div>
+                </div>
+                <div class="row" data-ng-if="drugProdCtrl.model.areDrugsImported && drugProdCtrl.model.areDrugsImported === 'Y'" class="alert alert-info">
+                    <div class="col-xs-12">
+                        <div class="alert alert-info" aria-live="polite">
+                            {{'IMPORT_LETTER'|translate}}
+                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -481,7 +496,7 @@
                     <div class="row">
                         <div class="col-xs-12 form-group">
                             <strong>
-                                <span class="field-name">11. {{::'FORMULATION'|translate}}</span>
+                                <span class="field-name"><span data-ng-if="! drugProdCtrl.isCTA()">11</span><span data-ng-if="drugProdCtrl.isCTA()">13</span>. {{::'FORMULATION'|translate}}</span>
                                 <sup id="dr9_ref">
                                     <a class="fn-lnk" href="#dr9"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::drugProdCtrl.drugProductService.helpTextSequences.formuIndx}}</a>
                                 </sup>
@@ -517,7 +532,7 @@
                     <div class="row">
                         <div class="col-xs-12 form-group">
                             <strong>
-                                <span class="field-name">12. {{::'Human/Animal Sourced Ingredient/Material'|translate}}</span>
+                                <span class="field-name"><span data-ng-if="! drugProdCtrl.isCTA()">12</span><span data-ng-if="drugProdCtrl.isCTA()">14</span>. {{::'Human/Animal Sourced Ingredient/Material'|translate}}</span>
                                 <sup id="dr10_ref">
                                     <a class="fn-lnk" href="#dr10"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::drugProdCtrl.drugProductService.helpTextSequences.haSIMIndx}}</a>
                                 </sup>

@@ -357,11 +357,11 @@
         vm.dossierTypeChange = function () {
             if (vm.model && vm.model.dossierType && vm.model.dossierType === "D26") {
                 vm.drugUseList = vm.ctaDrugUseList;
-                vm.model.manu = false;
-                vm.model.mailling = false;
-                vm.model.thisActivity = false;
-                vm.model.importer = false;
-                vm.model.importerRecord = [];
+                // vm.model.manu = false;
+                // vm.model.mailling = false;
+                // vm.model.thisActivity = false;
+                // vm.model.importer = false;
+                // vm.model.importerRecord = [];
             } else if (vm.model && vm.model.dossierType && vm.model.dossierType === "D24"){
                 vm.drugUseList = vm.vetDrugUseList;
                 vm.model.areDrugsImported ="";
@@ -546,13 +546,6 @@
             vm.setVisibleTabIndex=temp;
         };
 
-        vm.orderNum = function (index) {
-            if(vm.isCTA()){
-                return 9 + index;
-            } else {
-                return 7 + index;
-            }
-        }
 
         function _setIdNames() {
             var scopeId = "_" + $scope.$id;

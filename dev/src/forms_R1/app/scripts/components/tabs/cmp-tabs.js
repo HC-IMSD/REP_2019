@@ -28,8 +28,7 @@
             showErrorSummary:'<',
             isFileLoaded:'<',
             updateErrorSummary:'&',
-            setSelectedTab:'<',
-            isCta: '&'
+            setSelectedTab:'<'
         }
     });
 
