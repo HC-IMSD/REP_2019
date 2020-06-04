@@ -144,7 +144,7 @@
         vm.onUpdatesRecord = function () {
             vm.selectRecord = -1;
             vm.requiredFlag = false;
-            vm.resetCollapsed = !vm.resetCollapsed;
+            vm.resetToCollapsed = !vm.resetToCollapsed;
         };
         vm.deleteRecord = function (recId) {
             var idx = vm.model.tissuesFluidsList.indexOf(

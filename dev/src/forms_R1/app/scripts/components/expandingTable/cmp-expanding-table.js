@@ -197,13 +197,15 @@
          */
          function _createArray(arraySize,initialVal){
          var anArray = [];
-         for (var i = 0; i < arraySize; i++) {
-             if (vm.transcludeForm && vm.transcludeForm[i] && vm.transcludeForm[i].$invalid) {
-                 anArray.push (false);
-             } else {
-                 anArray.push(initialVal);
-             }
-         }
+         for (var i = 0; i < arraySize; i++) anArray.push (initialVal);
+         // to fix tissueFluids didn't reocrd didn't close properly, rollback previous bug fix chnges
+         // {
+         //     if (vm.transcludeForm && vm.transcludeForm[i] && vm.transcludeForm[i].$invalid) {
+         //         anArray.push (false);
+         //     } else {
+         //         anArray.push(initialVal);
+         //     }
+         // }
          return anArray
          }
 
