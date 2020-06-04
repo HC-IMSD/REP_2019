@@ -30,7 +30,8 @@
                 errorSummaryUpdate:'<',
                 showErrorSummary:'<',
                 isFileLoaded: '<',
-                updateErrorSummary:'&'
+                updateErrorSummary:'&',
+                humanAnimalIngredientNameList: '&'
             }
         });
 
