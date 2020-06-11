@@ -249,14 +249,19 @@
         }
         vm.showRoutingId = function(){
             vm.contactModel.roleConcat = _getRolesConcat();
-            if(vm.contactModel.roleConcat.indexOf(' MFR') > -1){
-                return 1;
-            }else if( vm.contactModel.roleConcat.indexOf(' MAIL') > -1
+            // if(vm.contactModel.roleConcat.indexOf(' MFR') > -1){
+            //     return 1;
+            // }else
+            // jira ticket: REPPBFORM-294, routing id should be optional
+            if( vm.contactModel.roleConcat.indexOf(' MAIL') > -1
                 || vm.contactModel.roleConcat.indexOf(' IMP') > -1
+                || vm.contactModel.roleConcat.indexOf(' MFR') > -1
             ){
                 return 0;
+            } else {
+                vm.contactModel.routingId = '';
+                return -1;
             }
-            return -1;
         }
     }
 
