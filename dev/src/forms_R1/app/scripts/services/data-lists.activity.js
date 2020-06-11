@@ -30,10 +30,15 @@
         /** Lead values. Hard coded as different lists need to be   **/
         vm.D21 = 'D21';
         vm.D22 = 'D22';
+        vm.D24 = 'D24';
+        vm.D26 = 'D26';
         vm.BIOLOGICAL = "B14-20160301-02"; //biological
         vm.CONSUMERHEALTH = "B14-20160301-06"; //Consumer Health Products
         vm.PHARMA = "B14-20160301-09"; //pharmaceutical
         vm.POSTMARKET = "B14-20160301-10"; //postmarket covigilance
+        vm.VETERINARY = "B14-20160301-11";
+        vm.CLINICAL_BIO = "B14-20160301-02";
+        vm.CLINICAL_PHA = "B14-20160301-09";
 
         vm.allActivities = {
             ADMINISTRATIVE: "ADMINISTRATIVE", //administrative
