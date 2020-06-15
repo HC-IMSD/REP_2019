@@ -391,7 +391,7 @@
         };
 
         /***
-         * reset Disinfectant Type field
+         * update importer list
          */
         vm.updateImporterList = function(list){
             if(!list) return;

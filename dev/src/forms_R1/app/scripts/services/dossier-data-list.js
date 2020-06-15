@@ -36,11 +36,17 @@
         vm.unitsPresentationList = [];
         vm.unitsMeasureList = [];
         vm.activeList = [];
+        vm.speciesList = [];
+        vm.subTypesList = [];
         vm.unitsList = [];
         //TODO create getters/setters? safer as is
         var service = {
             setActiveList: _setActiveArray,
+            setSpeciesList: _setSpeciesArray,
+            setSubTypesList: _setSubTypesArray,
             getActiveList: _getActiveArray,
+            getSpeciesList: _getSpeciesArray,
+            getSubTypesList: _getSubTypesArray,
             createRoaList: _createRoaArray,
             createUnitsList: _createUnitsArray,
             createUnitsPresentationList: _createUnitsPresentationArray,
@@ -51,6 +57,7 @@
             getUnitsPresentationList: _getUnitsPresentationArray,
             getUnitsMeasureList: _getUnitsMeasureArray,
             getDrugUseList:_getDrugUseArray,
+            getVetDrugUseList:_getVetDrugUseArray,
             getCTADrugUseList:_getCTADrugUseArray,
             getDisinfectantTypeList:_getDisinfectantTypeArray,
             getIngRoleList:_getIngRoleArray,
@@ -98,9 +105,24 @@
             vm.activeList = data;
         }
 
+        function _setSpeciesArray(data) {
+            vm.speciesList = data;
+        }
+
+        function _setSubTypesArray(data) {
+            vm.subTypesList = data;
+        }
+
         function _getActiveArray() {
             return (vm.activeList);
+        }
 
+        function _getSpeciesArray() {
+            return (vm.speciesList);
+        }
+
+        function _getSubTypesArray() {
+            return (vm.subTypesList);
         }
 
         ////////////////

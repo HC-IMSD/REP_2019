@@ -282,11 +282,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="row" data-ng-if="! drugProdCtrl.isCTA()">
+                <div class="row">
                     <div class="col-xs-12 form-group">
                         <section class="panel panel-default">
                     <header class="panel-heading clearfix">
-                        <h3 class="panel-title">7. {{'IMPORTER'|translate}}
+                        <h3 class="panel-title"><span data-ng-if="! drugProdCtrl.isCTA()">7</span><span data-ng-if="drugProdCtrl.isCTA()">9</span>. {{'IMPORTER'|translate}}
                             <sup id="dr6_ref">
                                 <a class="fn-lnk" href="#dr6"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::drugProdCtrl.htIndxList.importerIndx}}</a>
                             </sup>
@@ -310,7 +310,7 @@
                     <div class="col-xs-12 form-group"
                          data-ng-class="{'has-error':drugProdCtrl.drugProdForm[drugProdCtrl.drugUseId].$invalid}">
                         <label for="{{::drugProdCtrl.drugUseId}}" class="required">
-                            <span class="field-name"><span data-ng-if="! drugProdCtrl.isCTA()">8</span><span data-ng-if="drugProdCtrl.isCTA()">9</span>.&nbsp;{{::'DRUG_USE'|translate}}</span>
+                            <span class="field-name"><span data-ng-if="! drugProdCtrl.isCTA()">8</span><span data-ng-if="drugProdCtrl.isCTA()">10</span>.&nbsp;{{::'DRUG_USE'|translate}}</span>
                             <strong class="required">{{::"REQUIRED" |translate}}</strong>
                             <sup id="dr7_ref">
                                 <a class="fn-lnk" href="#dr7"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::drugProdCtrl.htIndxList.drugUseIndx}}</a>
@@ -341,7 +341,7 @@
                     <fieldset id="{{::drugProdCtrl.fsType}}">
                     <legend>
                         <strong>
-                            <span class="label-pi"><span data-ng-if="! drugProdCtrl.isCTA()">9</span><span data-ng-if="drugProdCtrl.isCTA()">10</span>.&nbsp;{{::'SCHEDULE_PRESC_STATUS'|translate}}</span>
+                            <span class="label-pi"><span data-ng-if="! drugProdCtrl.isCTA()">9</span><span data-ng-if="drugProdCtrl.isCTA()">11</span>.&nbsp;{{::'SCHEDULE_PRESC_STATUS'|translate}}</span>
                         </strong>
                     </legend>
                     <div class="row">
@@ -427,7 +427,7 @@
                     <div class="form-group col-xs-12"
                          data-ng-class="{'has-error':drugProdCtrl.drugProdForm[drugProdCtrl.propIndicationId].$invalid}">
                         <label class="required" for="{{::drugProdCtrl.propIndicationId}}">
-                            <span class="field-name"><span data-ng-if="! drugProdCtrl.isCTA()">10</span><span data-ng-if="drugProdCtrl.isCTA()">11</span>. {{::'PROP_INDICATION'|translate}}</span>
+                            <span class="field-name"><span data-ng-if="! drugProdCtrl.isCTA()">10</span><span data-ng-if="drugProdCtrl.isCTA()">12</span>. {{::'PROP_INDICATION'|translate}}</span>
                             <strong class="required">{{::'REQUIRED' |translate}}</strong>
                             <sup id="dr8_ref">
                                 <a class="fn-lnk" href="#dr8"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::drugProdCtrl.htIndxList.pudIndx}}</a>
@@ -496,7 +496,7 @@
                     <div class="row">
                         <div class="col-xs-12 form-group">
                             <strong>
-                                <span class="field-name"><span data-ng-if="! drugProdCtrl.isCTA()">11</span><span data-ng-if="drugProdCtrl.isCTA()">12</span>. {{::'FORMULATION'|translate}}</span>
+                                <span class="field-name"><span data-ng-if="! drugProdCtrl.isCTA()">11</span><span data-ng-if="drugProdCtrl.isCTA()">13</span>. {{::'FORMULATION'|translate}}</span>
                                 <sup id="dr9_ref">
                                     <a class="fn-lnk" href="#dr9"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::drugProdCtrl.drugProductService.helpTextSequences.formuIndx}}</a>
                                 </sup>
@@ -532,7 +532,7 @@
                     <div class="row">
                         <div class="col-xs-12 form-group">
                             <strong>
-                                <span class="field-name"><span data-ng-if="! drugProdCtrl.isCTA()">12</span><span data-ng-if="drugProdCtrl.isCTA()">13</span>. {{::'Human/Animal Sourced Ingredient/Material'|translate}}</span>
+                                <span class="field-name"><span data-ng-if="! drugProdCtrl.isCTA()">12</span><span data-ng-if="drugProdCtrl.isCTA()">14</span>. {{::'Human/Animal Sourced Ingredient/Material'|translate}}</span>
                                 <sup id="dr10_ref">
                                     <a class="fn-lnk" href="#dr10"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::drugProdCtrl.drugProductService.helpTextSequences.haSIMIndx}}</a>
                                 </sup>
