@@ -11,6 +11,7 @@
          'drugUseModule',
         'scheduleAModule',
         'importerListModule',
+        'speciesListModule',
         'clinicalTrial',
         'disinfectantTypeModule',
         'dossierDataLists',
@@ -131,8 +132,8 @@
         ];
         vm.min7Error = [
             {type: "required", displayAlias: "MSG_ERR_MAND"},
-            {type: "minlength", displayAlias: "MSG_LENGTH_7"},
-            {type: "pattern", displayAlias: "TYPE_PATTERN"}
+            {type: "minlength", displayAlias: "FORMAT_TYPE_MINLENGTH"},
+            {type: "pattern", displayAlias: "FORMAT_TYPE_PATTERN"}
         ];
 
         vm.alerts = [false, false, false, false, false, false, false, false, false, false, false, false]; //for help boxes
@@ -145,8 +146,10 @@
 
         vm.$onInit = function () {
             vm.showSummary = false;
+            vm.defaultDrugUseList = DossierLists.getDrugUseList();
+            vm.vetDrugUseList = DossierLists.getVetDrugUseList();
             vm.ctaDrugUseList = DossierLists.getCTADrugUseList();
-            vm.drugUseList = DossierLists.getDrugUseList();
+            vm.drugUseList = vm.defaultDrugUseList;
             vm.disinfectantTypeList = DossierLists.getDisinfectantTypeList();
             _setIdNames();
             vm.model = vm.drugProductService.getDefaultObject();
@@ -334,6 +337,19 @@
             }
             return false;
         };
+
+        /***
+         * determin to display schedule fieldset
+         */
+        vm.isVet = function () {
+            if (vm.model && vm.model.drugProduct && vm.model.drugProduct.drugUse && vm.model.drugProduct.drugUse.id === "VET") {
+                return true;
+            } else if (vm.model && vm.model.drugProduct) {
+                vm.model.drugProduct.speciesRecord = [];
+            }
+            return false;
+        };
+
         /***
          * reset Disinfectant Type field
          */
@@ -399,11 +415,51 @@
         };
 
         /***
+         * update species list
+         */
+        vm.updateSpeciesList = function(list){
+            if(!list) return;
+            vm.model.drugProduct.speciesRecord = list;
+        };
+
+        /***
          * update Clinical Trial record
          */
         vm.updateCTAInfo = function(record){
             if(!record) return;
             vm.model.clinicalTrial = record;
+        };
+
+        /***
+         * update sceduleSelected field when load data from file
+         */
+        vm.setSceduleFieldset = function(){
+            if(vm.model.drugProduct.isScheduleC ||
+                vm.model.drugProduct.isScheduleD ||
+                vm.model.drugProduct.isPrescriptionDrugList ||
+                vm.model.drugProduct.isRegulatedCDSA ||
+                vm.model.drugProduct.isNonPrescriptionDrug ||
+                vm.model.drugProduct.isScheduleA) {
+                vm.model.drugProduct.scheduleSelected = "scheduleSelected";
+            } else {
+                vm.model.drugProduct.scheduleSelected = "";
+            }
+        };
+
+        /***
+         * update sceduleSelected field
+         */
+        vm.updateSceduleFieldset = function(value){
+            if(value) {
+                vm.model.drugProduct.scheduleSelected = "scheduleSelected";
+            } else if(!vm.model.drugProduct.isScheduleC &&
+                    !vm.model.drugProduct.isScheduleD &&
+                    !vm.model.drugProduct.isPrescriptionDrugList &&
+                    !vm.model.drugProduct.isRegulatedCDSA &&
+                    !vm.model.drugProduct.isNonPrescriptionDrug &&
+                    !vm.model.drugProduct.isScheduleA) {
+                vm.model.drugProduct.scheduleSelected = "";
+            }
         };
 
         /**

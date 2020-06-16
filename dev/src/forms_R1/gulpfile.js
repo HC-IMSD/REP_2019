@@ -313,7 +313,9 @@ var componentFolders = {
     rtHelpComp: "transactionHelpText/",
     companyHelpComp: "companyHelpText/",
     piHelpComp: "productInfoHelpText/",
-    clinicalTrial: "clinicalTrial/"
+    clinicalTrial: "clinicalTrial/",
+    speciesList: 'speciesList/',
+    speciesRecord: 'speciesRecord/'
 };
 
 //exclude custom styles only lib
@@ -430,6 +432,8 @@ var drugProductComponentFolders =
         componentFolders.importerList,
         componentFolders.importerRecord,
         componentFolders.clinicalTrial,
+        componentFolders.speciesList,
+        componentFolders.speciesRecord,
         componentFolders.drugUse,
         componentFolders.disinfectantType,
         componentFolders.routeAdmin,

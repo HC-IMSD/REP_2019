@@ -40,6 +40,13 @@
   "ADD_IMPORTER" : "Ajouter un importateur",
   "TYPE_MIN": "Doit être supérieur au minimum",
   "IMPORT_LETTER": "fr_A letter of authorization signed by the clinical trial sponsor must be provided in section 1.2.1 for a third party to import the new drug(s) described in this clinical trial application or amendment. If the importer has not changed when a clinical trial application amendment (CTA-A) is filed, a letter of authorization does not need to be submitted.",
+  "VET_SPECIES_REMM": "Espèces et sous-types pour lesquels l’usage est recommandé",
+  "VET_SPECIES_SUBTYPES": "Espèces et sous-types",
+  "IS_TREAT_FP": "Est-il utilisé pour le traitement d’animaux producteurs d’aliments?",
+  "WITHDRAWAL": "Délai d'attente",
+  "VET_SPECIES": "Espèce",
+  "VET_SUBTYPES": "Sous-types",
+  "ADD_SPECIES": "Ajouter des espèces",
 
   "HT_LOAD_FILE_1":"Lors de la production d’une copie de travail, le fichier doit être chargé en format .hcsc.",
   "HT_LOAD_FILE_2":"Lors de la consultation ou de la mise à jour d’une version finale du fichier XML, le fichier doit être chargé en format .xml.",
