@@ -247,18 +247,19 @@
                 vm.isEditable = false;
             }
         }
-        vm.showRoutingId = function(){
+        vm.showRoutingId = function () {
             vm.contactModel.roleConcat = _getRolesConcat();
-            if(vm.contactModel.roleConcat.indexOf(' MFR') > -1){
-                return 1;
-            }else if( vm.contactModel.roleConcat.indexOf(' MAIL') > -1
+            if (vm.contactModel.roleConcat.indexOf(' MFR') > -1 || vm.contactModel.roleConcat.indexOf(' MAIL') > -1
                 || vm.contactModel.roleConcat.indexOf(' IMP') > -1
-            ){
+            ) {
                 return 0;
+            } else {
+                vm.contactModel.routingId = '';
+                return -1;
             }
-            return -1;
         }
     }
+
 
 
 })();
