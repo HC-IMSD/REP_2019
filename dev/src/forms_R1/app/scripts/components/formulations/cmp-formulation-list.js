@@ -30,7 +30,8 @@
                 showErrorSummary:'<',
                 isFileLoaded: '<',
                 htIndxList:'<',
-                updateErrorSummary:'&'
+                updateErrorSummary:'&',
+                dossierType: '<'
             }
         });
 

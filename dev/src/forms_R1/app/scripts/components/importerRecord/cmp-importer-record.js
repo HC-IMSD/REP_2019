@@ -67,8 +67,8 @@
         vm.updateSummary=0; //triggers and error summary update
         vm.countryList= getCountryAndProvinces.getCountries();
         vm.fdId="";
-        vm.phoneReg=/^([0-9]*$)/;
-        vm.faxReg=/^([0-9]{10,}$)/;
+        vm.phoneReg=/^([0-9]{10,25}$)/;
+        vm.faxReg=/^([0-9]{10,25}$)/;
         vm.routingIdReg=/^([0-9A-Za-z-]*$)/;
         vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
         vm.postalErrorList = [{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "TYPE_PATTERN"}];

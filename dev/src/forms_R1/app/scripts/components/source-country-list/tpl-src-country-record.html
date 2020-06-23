@@ -50,7 +50,7 @@
 
                     </label>
                     <textarea id="{{::srcCountryRecCtrl.unknownCountryId}}"
-                          data-ng-model="srcCountryRecCtrl.model.unknownCountryDetails" maxlength="1024" rows="3" data-ng-model-options="{ debounce: $inherit}"
+                          data-ng-model="srcCountryRecCtrl.model.unknownCountryDetails" maxlength="1024" rows="3" data-ng-model-options="{ updateOn: 'blur'}"
                           class="form-control full-width" name="{{::srcCountryRecCtrl.unknownCountryId}}" required>
                     </textarea>
                 </div>

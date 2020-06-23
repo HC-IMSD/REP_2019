@@ -51,13 +51,16 @@
                 isFileLoaded: '<',
                 htIndxList:'<',
                 showErrorSummary:'<',
-                updateErrorSummary:'&'
+                updateErrorSummary:'&',
+                isFocus: '<',
+                cancelFocus: '&',
+                dossierType: '<'
             }
 
         });
 
-    formulationRecCtrl.$inject = ['DossierLists', '$translate', '$scope', 'FRENCH'];
-    function formulationRecCtrl(DossierLists, $translate ,$scope, FRENCH) {
+    formulationRecCtrl.$inject = ['DossierLists', '$translate', '$scope', 'FRENCH', 'OTHER'];
+    function formulationRecCtrl(DossierLists, $translate ,$scope, FRENCH, OTHER) {
 
         var vm = this;
         vm.noCountries="";
@@ -85,7 +88,7 @@
         };
         vm.alias={
             "no_country": {
-                "type": "elementnoid",
+                "type": "element",
                 "target": "list_country"
             },
             "no_roa": {
@@ -99,11 +102,17 @@
             "no_container": {
                 "type": "element",
                 "target": "list_container"
+            },
+            "no_din_country": {
+                "type": "element",
+                "target": "list_din_country"
             }
         };
         vm.transcludeList={
 
         };
+        vm.orderString = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+
         // "cmp-roa-record": "true"
         vm.$onInit = function () {
 
@@ -124,6 +133,13 @@
             if(changes.errorSummaryUpdate){
 
                 vm.updateErrorSummaryState();
+            }
+            if(changes.dossierType){
+                if(changes.dossierType.currentValue != 'D26' && changes.dossierType.previousValue == 'D26'){
+                    vm.frmModel.drugMarket = "";
+                    vm.frmModel.din = "";
+                    vm.frmModel.dinCountryList = [];
+                }
             }
 
         };
@@ -156,14 +172,26 @@
          */
         vm.noCountry=function(){
             if(!vm.frmModel){
-                vm.noCountries="";
+                vm.frmModel.noCountries="";
                 return false;
             }
             if(!vm.frmModel.countryList || vm.frmModel.countryList.length===0){
-                vm.noCountries="";
+                vm.frmModel.noCountries="";
                 return true;
             }
-            vm.noCountries=vm.frmModel.countryList.length;
+            vm.frmModel.noCountries=vm.frmModel.countryList.length;
+            return false;
+        };
+        vm.noDinCountry=function(){
+            if(!vm.frmModel){
+                vm.frmModel.noDinCountries="";
+                return false;
+            }
+            if(!vm.frmModel.dinCountryList || vm.frmModel.dinCountryList.length===0){
+                vm.frmModel.noDinCountries="";
+                return true;
+            }
+            vm.frmModel.noDinCountries=vm.frmModel.dinCountryList.length;
             return false;
         };
         /**
@@ -259,6 +287,12 @@
             vm.frmModel.countryList = list;
             vm.noCountry();
         };
+        vm.updateDinCountryList = function(list){
+            if(!list) return;
+
+            vm.frmModel.dinCountryList = list;
+            vm.noDinCountry();
+        };
         /**
          * @ngDoc determines if dosage Other should be shown
          * @returns {boolean}
@@ -305,28 +339,30 @@
             return(vm.lang===FRENCH);
         };
 
-        vm.dosageFormChange = function() {
-            var found = false;
+        vm.dosageFormBlur = function() {
+            if(! vm.frmModel.dosageForm.id ){
+                vm.frmModel.dosageFormHtml = "";
+                vm.frmModel.dosageFormOther = "";
+                vm.isDosageOther = false;
+            }
+        };
+
+        vm.dosageFormChange = function(e) {
+            vm.frmModel.dosageForm = {};
+            vm.frmModel.dosageFormOther = "";
+            vm.isDosageOther = false;
+            vm.frmModel.dosageFormHtml = e;
             for(var i = 0; i < vm.dosageFormList.length; i++) {
                 var option =vm.dosageFormList[i];
                 if(option[vm.lang] === vm.frmModel.dosageFormHtml) {
                     vm.frmModel.dosageForm = option;
                     if ((vm.frmModel.dosageForm.id === vm.otherValue)) {
                         vm.isDosageOther = true;
-                    } else {
-                        vm.frmModel.dosageFormOther = "";
-                        vm.isDosageOther = false;
                     }
-                    found = true;
                     break;
                 }
             }
-            if( ! found ){
-                vm.frmModel.dosageForm = "";
-                vm.frmModel.dosageFormHtml = "";
-                vm.frmModel.dosageFormOther = "";
-                vm.isDosageOther = false;
-            }
+            $scope.$apply();
         };
 
         vm.updateDosageForm = function() {
@@ -341,26 +377,45 @@
             }
             if ((vm.frmModel.dosageForm && vm.frmModel.dosageForm.id === vm.otherValue)) {
                 vm.isDosageOther = true;
-            } else {
-                vm.isDosageOther = false;
             }
         };
+        vm.getFirstOrder = function (v) {
+            return vm.orderString[v-1];
+        }
+        vm.getNextOrder = function (v) {
+            if(vm.dossierType == 'D26' && v > 3){
+                v++;
+            }
+            return vm.orderString[v-2];
+        }
+        vm.clickDrugMarket = function () {
+            if('CANADIAN' == vm.frmModel.drugMarket){
+                vm.frmModel.dinCountryList = [];
+            } else if('CANADIAN' == vm.frmModel.drugMarket){
+                vm.frmModel.din = '';
+            } else {
+                vm.frmModel.din = '';
+                vm.frmModel.dinCountryList = [];
+            }
+        }
 
         /**
          * sets the names of the fields. Use underscore as the separator for the scope id. Scope id must be at end
          * @private
          */
         function _setIdNames() {
-            var scopeId = "_" + $scope.$id;
-            vm.formulationFormRecordId="formulationRecord" + scopeId;
-            vm.formulNameId = "formul_name" + scopeId;
-            vm.dosageId = "dosage_form" + scopeId;
-            vm.dosageOtherId = "dosage_form_other" + scopeId;
-            vm.noActiveId="no_active"+scopeId; //Todo: can remove?
-            vm.noContainerId="no_container"+scopeId;
-            vm.noRoaId="no_roa"+scopeId;
-            vm.noCountryId="no_country"+scopeId;
-            vm.isAnimalHumanMaterialId="is_animal_human_material"+scopeId;
+            vm.scopeId = "_" + $scope.$id;
+            vm.formulationFormRecordId="formulationRecord" + vm.scopeId;
+            vm.dosageId = "dosage_form" + vm.scopeId;
+            vm.dosageOtherId = "dosage_form_other" + vm.scopeId;
+            vm.noActiveId="no_active"+vm.scopeId; //Todo: can remove?
+            vm.noContainerId="no_container"+vm.scopeId;
+            vm.noRoaId="no_roa"+vm.scopeId;
+            vm.noCountryId="no_country"+vm.scopeId;
+            vm.isAnimalHumanMaterialId="is_animal_human_material"+vm.scopeId;
+            vm.dinId = "dinId_" + vm.scopeId;
+            vm.noDinCountryId = "no_din_country" + vm.scopeId;
+            vm.drugMarketId = 'drugMarketId_' + vm.scopeId;
         }
 
         $scope.$watch('formulRecCtrl.formulationForm.$error', function () {

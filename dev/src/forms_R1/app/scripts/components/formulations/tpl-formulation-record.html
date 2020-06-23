@@ -52,7 +52,7 @@
             <div class="row">
                 <div class="col-md-5 form-group">&#160;&#160;&#160;
                     <label for="{{::formulRecCtrl.dosageId}}" class="required">
-                        <span class="field-name">B. {{'DOSAGE_FORM'|translate}}</span>
+                        <span class="field-name">{{::formulRecCtrl.getFirstOrder(2)}}. {{'DOSAGE_FORM'|translate}}</span>
                         <strong class="required">{{"REQUIRED" |translate}}</strong>
                         <cmp-error-message field-name="formulRecCtrl.dosageId"
                                            form-ref="formulRecCtrl.formulationForm"
@@ -89,7 +89,7 @@
             <div>
                 <section class="panel panel-default">
                     <header class="panel-heading clearfix">
-                        <h3 class="panel-title">C. {{'INGREDIENTS'|translate}}
+                        <h3 class="panel-title">{{::formulRecCtrl.getFirstOrder(3)}}. {{'INGREDIENTS'|translate}}
                             <sup id="dr9c_ref">
                                 <a class="fn-lnk" href="#dr9c"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::formulRecCtrl.htIndxList.ingredIndx}}</a>
                             </sup>
@@ -108,27 +108,76 @@
                     </div>
                 </section>
             </div>
+            <div data-ng-if="formulRecCtrl.dossierType == 'D26'">
+                <section class="panel panel-default">
+                    <header/>
+                    <div class="col-md-12 form-group rep-pad-top-10">
+                        <h4 class="panel-title required">{{formulRecCtrl.getFirstOrder(4)}}. {{'DRUGMARKETID_'|translate}} <strong class="required">{{"REQUIRED" |translate}}</strong></h4>
+                        <cmp-error-message field-name="formulRecCtrl.drugMarketId"
+                                           form-ref="formulRecCtrl.formulationForm"
+                                           show-error="formulRecCtrl.showError(formulRecCtrl.formulationForm[formulRecCtrl.drugMarketId])"
+                                           error-types="formulRecCtrl.requiredOnly"></cmp-error-message>
+                        <label class="col-xs-3 rep-pad-top-10" for="{{::formulRecCtrl.drugMarketId}}"><input type="radio" id="{{::formulRecCtrl.drugMarketId}}" name="{{::formulRecCtrl.drugMarketId}}" value="CANADIAN" data-ng-model="formulRecCtrl.frmModel.drugMarket" ng-required="!formulRecCtrl.frmModel.drugMarket" data-ng-click="formulRecCtrl.clickDrugMarket();"/>&nbsp;{{::'CANADIAN'|translate}}</label>
+                        <label class="col-xs-3 rep-pad-top-10" for="{{::formulRecCtrl.drugMarketId}}_1"><input type="radio" id="{{::formulRecCtrl.drugMarketId}}_1" name="{{::formulRecCtrl.drugMarketId}}" value="FOREIGN" data-ng-model="formulRecCtrl.frmModel.drugMarket" ng-required="!formulRecCtrl.frmModel.drugMarket" data-ng-click="formulRecCtrl.clickDrugMarket();"/>&nbsp;{{::'FOREIGN'|translate}}</label>
+                        <label class="col-xs-3 rep-pad-top-10" for="{{::formulRecCtrl.drugMarketId}}_2"><input type="radio" id="{{::formulRecCtrl.drugMarketId}}_2" name="{{::formulRecCtrl.drugMarketId}}" value="NOT_MARKETED" data-ng-model="formulRecCtrl.frmModel.drugMarket" ng-required="!formulRecCtrl.frmModel.drugMarket" data-ng-click="formulRecCtrl.clickDrugMarket();"/>&nbsp;{{::'NOT_MARKETED'|translate}}</label>
+                        <br/>
+                    </div>
+                    <div class="panel-body" data-ng-if="formulRecCtrl.frmModel.drugMarket == 'CANADIAN'">
+                        <div  class="col-md-12 form-group">
+                            <label class="form-group required" for="{{::formulRecCtrl.dinId}}">{{::'SCHED_DIN'|translate}} <strong class="required">{{::"REQUIRED" |translate}}</strong>:
+                                <cmp-error-message field-name="formulRecCtrl.dinId"
+                                                   form-ref="formulRecCtrl.formulationForm"
+                                                   show-error="formulRecCtrl.showError(formulRecCtrl.formulationForm[formulRecCtrl.dinId])"
+                                                   error-types="formulRecCtrl.requiredOnly"></cmp-error-message>
+
+                                <input type="text" id="{{::formulRecCtrl.dinId}}" name="{{::formulRecCtrl.dinId}}" maxlength="8" data-ng-model="formulRecCtrl.frmModel.din" required/>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="panel-body" data-ng-if="formulRecCtrl.frmModel.drugMarket == 'FOREIGN'">
+                        <div  class="col-md-12 form-group">
+                            <cmp-error-message field-name="formulRecCtrl.noDinCountryId"
+                                               form-ref="formulRecCtrl.formulationForm"
+                                               show-error="formulRecCtrl.showError(formulRecCtrl.formulationForm[formulRecCtrl.noDinCountryId])"
+                                               error-types="formulRecCtrl.requiredOnly"></cmp-error-message>
+                            <strong id="list_din_country{{::formulRecCtrl.scopeId}}">{{::'LIST_DRUG_FROM'|translate}} <strong class="required">{{::"REQUIRED" |translate}}</strong>
+                            </strong>
+                            <input type="hidden" name="{{::formulRecCtrl.noDinCountryId}}" id="{{::formulRecCtrl.noDinCountryId}}"
+                                   aria-hidden="true" data-ng-model="formulRecCtrl.frmModel.noDinCountries" required/>
+                            <cmp-country-list list-items="formulRecCtrl.frmModel.dinCountryList" with-unknown="false"
+                                              on-update="formulRecCtrl.updateDinCountryList(list)"
+                                              show-errors="formulRecCtrl.showSummary"
+                                              is-file-loaded="formulRecCtrl.isFileLoaded" add-button-label="ADD_COUNTRY"
+                                              field-label="COUNTRY_DIN">
+                            </cmp-country-list>
+                        </div>
+                    </div>
+                </section>
+            </div>
             <div class="row">
                 <div class="form-group  col-md-16 col-xs-12"
                      data-ng-class="{'has-error':formulRecCtrl.formulationForm[formulRecCtrl.isAnimalHumanMaterialId].$invalid}">
-                    <label for="{{::formulRecCtrl.isAnimalHumanMaterialId}}" class="required rep-required-offset full-width">
-                        <span class="field-name">&#160;D. {{'IS_ANIMAL_HUMAN_MATERIAL'|translate}}</span>
+                    <h4 class="required rep-required-offset full-width">
+                        <span class="field-name">&#160;{{formulRecCtrl.getNextOrder(5)}}. {{'IS_ANIMAL_HUMAN_MATERIAL'|translate}}</span>
                         <strong class="required">{{"REQUIRED" |translate}}</strong>
                         <sup id="dr9d_ref">
                             <a class="fn-lnk" href="#dr9d"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::formulRecCtrl.htIndxList.isMaterialIndx}}</a>
                         </sup>
-                    </label>
+                    </h4>
 
                     <div  class="col-md-12">
                     <cmp-error-message field-name="formulRecCtrl.isAnimalHumanMaterialId"
                                        form-ref="formulRecCtrl.formulationForm"
                                        show-error="formulRecCtrl.showError(formulRecCtrl.formulationForm[formulRecCtrl.isAnimalHumanMaterialId])"
                                        error-types="formulRecCtrl.requiredOnly"></cmp-error-message>
-                        <select id="{{::formulRecCtrl.isAnimalHumanMaterialId}}" data-ng-model="formulRecCtrl.frmModel.isAnimalHumanMaterial" data-ng-required="true"
-                                class="form-control" name="{{::formulRecCtrl.isAnimalHumanMaterialId}}"
-                                data-ng-options="val |translate for val in  formulRecCtrl.yesNoList">
-                            <option value="" label=" " />
-                        </select>
+                        <!--<select id="{{::formulRecCtrl.isAnimalHumanMaterialId}}" data-ng-model="formulRecCtrl.frmModel.isAnimalHumanMaterial" data-ng-required="true"-->
+                                <!--class="form-control" name="{{::formulRecCtrl.isAnimalHumanMaterialId}}"-->
+                                <!--data-ng-options="val |translate for val in  formulRecCtrl.yesNoList">-->
+                            <!--<option value="" label=" " />-->
+                        <!--</select>-->
+                        <label class="col-xs-1" for="{{::formulRecCtrl.isAnimalHumanMaterialId}}"><input type="radio" id="{{::formulRecCtrl.isAnimalHumanMaterialId}}" name="{{::formulRecCtrl.isAnimalHumanMaterialId}}" value="Y" data-ng-model="formulRecCtrl.frmModel.isAnimalHumanMaterial" required/>&nbsp;{{::'Y'|translate}}</label>
+                        <label class="col-xs-1" for="{{::formulRecCtrl.isAnimalHumanMaterialId}}_1"><input type="radio" id="{{::formulRecCtrl.isAnimalHumanMaterialId}}_1" name="{{::formulRecCtrl.isAnimalHumanMaterialId}}" value="N" data-ng-model="formulRecCtrl.frmModel.isAnimalHumanMaterial" required/>&nbsp;{{::'N'|translate}}</label>
                     </div>
                 </div>
             </div>
@@ -149,7 +198,7 @@
             <div>
                 <section class="panel panel-default">
                     <header class="panel-heading">
-                        <h3 class="panel-title">E. {{'CONTAINER_TYPES'|translate}}</h3>
+                        <h3 class="panel-title">{{formulRecCtrl.getNextOrder(6)}}. {{'CONTAINER_TYPES'|translate}}</h3>
                     </header>
                     <div class="panel-body">
                         <cmp-container-type-list containers="formulRecCtrl.frmModel.containerTypes"
@@ -165,7 +214,7 @@
             <div>
                 <section class="panel panel-default">
                     <header class="panel-heading">
-                        <h3 class="panel-title">F. {{'ROA_TITLE'|translate}}</h3>
+                        <h3 class="panel-title">{{formulRecCtrl.getNextOrder(7)}}. {{'ROA_TITLE'|translate}}</h3>
                     </header>
                     <div class="panel-body">
                         <cmp-roa-list records="formulRecCtrl.frmModel.routeAdmins"
@@ -178,7 +227,7 @@
             <div>
                 <section class="panel panel-default">
                     <header class="panel-heading">
-                        <h3 class="panel-title">G. {{'COUNTRIES_MANUFACT'|translate}}
+                        <h3 class="panel-title">{{formulRecCtrl.getNextOrder(8)}}. {{'COUNTRIES_MANUFACT'|translate}}
                             <sup id="dr9g_ref">
                                 <a class="fn-lnk" href="#dr9g"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::formulRecCtrl.htIndxList.manuCntryIndx}}</a>
                             </sup>

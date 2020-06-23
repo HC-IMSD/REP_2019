@@ -143,7 +143,7 @@
                     <input type="tel" id="{{::importerRecCtrl.phoneNumberId}}"
                            data-ng-model="importerRecCtrl.model.phone"
                            class="form-control full-width" name="{{::importerRecCtrl.phoneNumberId}}"
-                           data-ng-pattern="importerRecCtrl.phoneReg"
+                           data-ng-pattern="importerRecCtrl.phoneReg" maxlength="25"
                            required data-only-digits/>
 
                 </label>
@@ -151,7 +151,7 @@
             <div class="col-md-6 form-group">
                 <label for="{{::importerRecCtrl.phoneExtId}}"><span class="field-name">{{::'PHONE_EXT'|translate}}</span>
                     <input type="text" id="{{::importerRecCtrl.phoneExtId}}" data-ng-model="importerRecCtrl.model.phoneExt"
-                           class="form-control" name="{{::importerRecCtrl.phoneExtId}}" maxlength="10"/>
+                           class="form-control" name="{{::importerRecCtrl.phoneExtId}}" maxlength="10" data-only-digits/>
                 </label>
             </div>
         </div>
@@ -167,7 +167,7 @@
                                        error-types="importerRecCtrl.faxError">
                     </cmp-error-message>
                     <input type="tel" id="{{::importerRecCtrl.faxId}}"
-                           data-ng-model="importerRecCtrl.model.fax"
+                           data-ng-model="importerRecCtrl.model.fax" maxlength="25"
                            data-ng-required="true" class="form-control full-width" data-ng-pattern="importerRecCtrl.faxReg"
                            name="{{::importerRecCtrl.faxId}}" data-only-digits/>
                     <span>{{::'FAX_NOT_AVAILABLE'|translate}} </span>
@@ -184,7 +184,7 @@
                     </cmp-error-message>
                     <input type="email" id="{{::importerRecCtrl.contactEmailId}}"
                            data-ng-model="importerRecCtrl.model.email"
-                           maxlength="50" size="60"
+                           maxlength="50" size="50"
                            class="form-control full-width" name="{{::importerRecCtrl.contactEmailId}}" required/>
 
                 </label>
