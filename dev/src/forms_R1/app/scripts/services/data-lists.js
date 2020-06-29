@@ -28,8 +28,11 @@
     getService.inject = ['UNKNOWN'];
     function getService(UNKNOWN) {
         var vm = this;
+        vm.env = '';
         vm.countryList = [];
         var service = {
+            getEnv: _getEnvString,
+            setEnv: _setEnvString,
             getCountries: getCountryValuesArray,
             getProvinces: getProvinceValuesArray,
             getUSStates: getUSStatesValueArray,
@@ -40,6 +43,13 @@
 
         ////////////////
 
+        function _getEnvString(value) {
+            return vm.env;
+        }
+
+        function _setEnvString(value) {
+            vm.env = value.env;
+        }
 
         function _createCountryArray(translateJson) {
             vm.countryList = translateJson;
@@ -291,13 +301,16 @@
     function getRolesService() {
         var _biologic = 'D21'; // 'BIOLOGIC';
         var _pharma = 'D22';  //'PHARMACEUTICAL';
+        var _veterinary = 'D24';
         var _clinical = 'D26';
 
         var service = {
             getContactRoles: getRoleValuesArray,
             getFormTypes: _getFormTypes,
             getBiologicType: _getBiologic,
-            getPharmaType: _getPharmaceutical
+            getPharmaType: _getPharmaceutical,
+            getVeterinary: _getVeterinary,
+            getClinicalTrial: _getClinicalTrial
         };
         return service;
 
@@ -312,13 +325,18 @@
                 ]);
         }
 
-        function _getFormTypes() {
-            return (
-                [
+        function _getFormTypes( env ) {
+            return env ?
+                (
+                    [
+                        _biologic,
+                        _pharma
+                    ]) :
+                ([
                     _biologic,
                     _pharma,
-                   // _veterinary,
-                   _clinical
+                    _veterinary,
+                    _clinical
                 ]);
         }
 
@@ -330,12 +348,11 @@
 
             return _pharma;
         }
-/**
+
         function _getVeterinary() {
 
             return _veterinary;
         }
- **/
 
         function _getClinicalTrial() {
 
