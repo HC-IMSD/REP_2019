@@ -32,25 +32,29 @@
                 onDelete: '&',
                 enableDeleteIndex: '&',
                 isEctd: '<',
-                htIndxList:'<',
-                getDossierType: '<',
-                activityTypes:'<', //list of activity types
+                dossierType: '<',
+                // activityTypes:'<', //list of activity types
                 sequenceUpdated:'<',
                 errorSummaryUpdate:'<', //update the component error summary
                 showErrorSummary:'<', //show the component error summary
-                updateErrorSummary:'&' //update the parent error summary
+                updateErrorSummary:'&', //update the parent error summary
+                updateProductProtocol:'=' //update the parent variable
             }
         });
     lifecycleRecCtrl.$inject = ['ActivityFormFilterService',  'TransactionLists', '$filter', '$translate','$scope'];
 
     function lifecycleRecCtrl(ActivityFormFilterService,  TransactionLists, $filter, $translate, $scope) {
         var vm = this;
-        vm.activityList=[];
+        vm.activityList= TransactionLists.getActivityTypes();
+        vm.selfLifeUnitsList = TransactionLists.getShelfLifeUnitsList();
         vm.activityTypeList=[];
         vm.pharmaList =[];
         vm.biolList = [];
         vm.postMarketList = [];
         vm.consumHealthList = [];
+        vm.veterinaryList = [];
+        vm.clinicalBioList = [];
+        vm.clinicalPhaList = [];
         vm.sequenceList = [];
         vm.descriptionList = [];
         vm.requesterList =[];
@@ -59,8 +63,9 @@
         vm.yearVisible = false;
         vm.yearChangeVisible = false;
         vm.requesterVisible = false;
-       // vm.startDateVisible = false;
+        // vm.startDateVisible = false;
         vm.descriptionVisible = false;
+        vm.fromTo = false;
         vm.descriptionChangeVisible = false;
         vm.versionVisible = false;
         vm.ectd = false;
@@ -71,10 +76,14 @@
             showWeeks: false
         };
         vm.lang = $translate.proposedLanguage() || $translate.use();
-       // vm.yearList = _createYearList();
+        // vm.yearList = _createYearList();
         vm.descriptionObj=TransactionLists.getTransactionDescriptions();
         vm.leadList = [] ;
-
+        vm.activityTypeMapping = {
+            "B02-20160301-014": TransactionLists.getCtaType(),
+            "B02-20160301-015": TransactionLists.getCta_aType(),
+            "B02-20160301-072": TransactionLists.getPreCtaType()
+        };
         vm.updateSummary=0; //message to update the summary component
         vm.showSummary=false; //show the errror summary object
         vm.focusSummary=0; //messaging to focus on the active ingredient summary
@@ -91,12 +100,16 @@
         vm.requiredOnly=[
             {type: "required", displayAlias: "MSG_ERR_MAND"}
         ];
+        vm.numberError = [
+            {type: "required", displayAlias: "MSG_ERR_MAND"},
+            {type: "number", displayAlias: "TYPE_NUMBER"}
+        ];
         //
         vm.$onInit = function () {
             _setIdNames();
             // loadContactData();
-           // vm.selectActivityLeadList();
-           // vm.selectActivityList();
+            // vm.selectActivityLeadList();
+            // vm.selectActivityList();
         };
 
         /**
@@ -104,31 +117,40 @@
          * @param changes
          */
         vm.$onChanges = function (changes) {
-            if(changes.activityTypes){
-                vm.activityList=changes.activityTypes.currentValue;
-                if(vm.activityList) {
-                    vm.pharmaList = ActivityFormFilterService.getPharmaRAList(vm.activityList);
-                    vm.biolList = ActivityFormFilterService.getBiolRAList(vm.activityList);
-                    vm.postMarketList = ActivityFormFilterService.getPostMarketRAList(vm.activityList);
-                    vm.consumHealthList = ActivityFormFilterService.getConsumHealthList(vm.activityList);
+            // if(changes.activityTypes){
+            //     vm.activityList=changes.activityTypes.currentValue;
+            //     if(vm.activityList) {
+            //         vm.pharmaList = ActivityFormFilterService.getPharmaRAList(vm.activityList);
+            //         vm.biolList = ActivityFormFilterService.getBiolRAList(vm.activityList);
+            //         vm.postMarketList = ActivityFormFilterService.getPostMarketRAList(vm.activityList);
+            //         vm.consumHealthList = ActivityFormFilterService.getConsumHealthList(vm.activityList);
+            //     }
+            // }
+
+            if (changes.dossierType) {
+                vm.dossierType = changes.dossierType.currentValue;
+                if( vm.dossierType === TransactionLists.getPharmaceuticalValue()) {
+                    vm.leadList = TransactionLists.getActivityLeadListByD22();
+                } else if (vm.dossierType === TransactionLists.getBiologicValue()) {
+                    vm.leadList = TransactionLists.getActivityLeadListByD21();
+                } else if(vm.dossierType === TransactionLists.getVeterinaryValue()){
+                    vm.leadList = TransactionLists.getActivityLeadListByD24();
+                } else if(vm.dossierType === TransactionLists.getClinicalValue()){
+                    vm.leadList = TransactionLists.getActivityLeadListByD26();
+                }else {
+                    vm.leadList = [];
                 }
+                // reset lead, ra type, and description
+                vm.lifecycleModel.activityLead = "";
+                vm.lifecycleModel.activityType = "";
+                vm.lifecycleModel.descriptionValue = "";
+                setDetailsAsNone();
             }
             if (changes.lifecycleRecord) {
                 _updateLocalModel(changes.lifecycleRecord.currentValue);
             }
             if (changes.isEctd) {
                 vm.ectd = changes.isEctd.currentValue;
-            }
-
-            if (changes.getDossierType) {
-                vm.dossierType = changes.getDossierType.currentValue;
-                if( vm.dossierType == TransactionLists.getPharmaceuticalValue()) {
-                    vm.leadList = TransactionLists.getActivityLeadListByD22();
-                } else if (vm.dossierType == TransactionLists.getBiologicValue()) {
-                    vm.leadList = TransactionLists.getActivityLeadListByD21();
-                }else {
-                    vm.leadList = [];
-                }
             }
             if(changes.sequenceUpdated){
                 if(!changes.lifecycleRecord && vm.lifecycleRecord) {
@@ -243,7 +265,9 @@
                 vm.leadList = [];
                 return;
             }
-
+            // if(! vm.activityList || vm.activityList.length() < 1 ){
+            //     vm.activityList= TransactionLists.getActivityTypes();
+            // }
             switch( vm.dossierType ) {
                 case  TransactionLists.getPharmaceuticalValue():
                     vm.leadList = TransactionLists.getActivityLeadListByD22();
@@ -251,14 +275,20 @@
                 case  TransactionLists.getBiologicValue():
                     vm.leadList = TransactionLists.getActivityLeadListByD21();
                     break;
+                case  TransactionLists.getVeterinaryValue():
+                    vm.leadList = TransactionLists.getActivityLeadListByD24();
+                    break;
+                case  TransactionLists.getClinicalValue():
+                    vm.leadList = TransactionLists.getActivityLeadListByD26();
+                    break;
                 default:
                     vm.leadList = [];
                     break;
             }
-            if( vm.lifecycleModel.activityLead) {
-                var temp = $filter('filter')(vm.leadList, {id: vm.lifecycleModel.activityLead.id})[0];
-                vm.lifecycleModel.activityLead = temp;
-            }
+            // if( vm.lifecycleModel.activityLead) {
+            //     var temp = $filter('filter')(vm.leadList, vm.lifecycleModel.activityLead);
+            //     vm.lifecycleModel.activityLead = temp;
+            // }
         };
 
 
@@ -276,13 +306,27 @@
                     if(vm.biolList.length == 0){
                         vm.biolList = ActivityFormFilterService.getBiolRAList(vm.activityList);
                     }
-                    vm.activityTypeList= vm.biolList;
+                    if(vm.clinicalBioList.length == 0){
+                        vm.clinicalBioList = ActivityFormFilterService.getClinicalBioList(vm.activityList);
+                    }
+                    if (vm.dossierType === TransactionLists.getBiologicValue()) {
+                        vm.activityTypeList = vm.biolList;
+                    } else {
+                        vm.activityTypeList = vm.clinicalBioList;
+                    }
                     break;
                 case  TransactionLists.getPharmaLeadValue():
                     if(vm.pharmaList.length == 0){
                         vm.pharmaList = ActivityFormFilterService.getPharmaRAList(vm.activityList)
                     }
-                    vm.activityTypeList= vm.pharmaList;
+                    if(vm.clinicalPhaList.length == 0){
+                        vm.clinicalPhaList = ActivityFormFilterService.getClinicalPhaList(vm.activityList);
+                    }
+                    if (vm.dossierType === TransactionLists.getPharmaceuticalValue()) {
+                        vm.activityTypeList = vm.pharmaList;
+                    } else {
+                        vm.activityTypeList = vm.clinicalPhaList;
+                    }
                     break;
                 case  TransactionLists.getPostMarketLeadValue():
                     if(vm.postMarketList.length == 0){
@@ -291,11 +335,29 @@
                     vm.activityTypeList= vm.postMarketList;
                     break;
                 case  TransactionLists.getConsumHealthLeadValue():
-                        if(vm.consumHealthList.length == 0){
-                            vm.consumHealthList = ActivityFormFilterService.getConsumHealthList(vm.activityList);
-                        }
+                    if(vm.consumHealthList.length == 0){
+                        vm.consumHealthList = ActivityFormFilterService.getConsumHealthList(vm.activityList);
+                    }
                     vm.activityTypeList= vm.consumHealthList;
                     break;
+                case  TransactionLists.getVeterinaryLeadValue():
+                    if(vm.veterinaryList.length == 0){
+                        vm.veterinaryList = ActivityFormFilterService.getVeterinaryList(vm.activityList);
+                    }
+                    vm.activityTypeList= vm.veterinaryList;
+                    break;
+                // case  TransactionLists.getClinicalBioLeadValue():
+                //     if(vm.clinicalList.length == 0){
+                //         vm.clinicalList = ActivityFormFilterService.getClinicalBioList(vm.activityList);
+                //     }
+                //     vm.activityTypeList= vm.clinicalList;
+                //     break;
+                // case  TransactionLists.getClinicalPhaLeadValue():
+                //     if(vm.clinicalPhaList.length == 0){
+                //         vm.clinicalPhaList = ActivityFormFilterService.getClinicalPhaList(vm.activityList);
+                //     }
+                //     vm.activityTypeList= vm.clinicalList;
+                //     break;
                 default:
                     if(vm.lifecycleModel.activityLead) console.warn("Not a valid lead choice");
                     vm.activityTypeList=[];
@@ -340,16 +402,24 @@
             vm.lifecycleModel.descriptionValue = "";
             switch (value) {
                 //commented out values not in list as of Jan 23,2017
-               /* case ("PRESUB_MEETING"):
-                    vm.descriptionList = TransactionLists.getPresubTypes();
-                    break;*/
+                /* case ("PRESUB_MEETING"):
+                     vm.descriptionList = TransactionLists.getPresubTypes();
+                     break;*/
                 case ("B02-20160301-001"): //ANDS
-                    vm.descriptionList = TransactionLists.getAndsType();
+                    if(vm.lifecycleModel.activityLead === "B14-20160301-11") {
+                        vm.descriptionList = TransactionLists.getV_AndsType();
+                    } else {
+                        vm.descriptionList = TransactionLists.getAndsType();
+                    }
                     break;
-                case ("B02-20160301-018"):
-                    vm.descriptionList = TransactionLists.getDinaType();
+                case ("B02-20160301-018"): //DINA
+                    if(vm.lifecycleModel.activityLead === "B14-20160301-11"){
+                        vm.descriptionList = TransactionLists.getV_DinaType();
+                    }else {
+                        vm.descriptionList = TransactionLists.getDinaType();
+                    }
                     break;
-              case ("B02-20160301-019"):
+                case ("B02-20160301-019"):
                     vm.descriptionList = TransactionLists.getDinbType();
                     break;
                 case ("B02-20160301-031"): //EU NDS (Extraordinary Use New Drug Submission)
@@ -360,29 +430,49 @@
                     vm.descriptionList = TransactionLists.getEusndsType();
                     break;
                 case ("B02-20160301-038"): //Level 3 - Notice of Change (Post-Notice of Compliance Changes - Level III)
-                    vm.descriptionList = TransactionLists.getLevel3Type();
+                    if(vm.lifecycleModel.activityLead === "B14-20160301-11"){
+                        vm.descriptionList = TransactionLists.getV_Level3Type();
+                    }else {
+                        vm.descriptionList = TransactionLists.getLevel3Type();
+                    }
                     break;
 
                 case ("B02-20160301-046"): //	MPNC (Pre-NC Meeting)
-                    vm.descriptionList = TransactionLists.getMPNCType();
+                    if(vm.lifecycleModel.activityLead === "B14-20160301-11"){
+                        vm.descriptionList = TransactionLists.getV_MpncType();
+                    } else {
+                        vm.descriptionList = TransactionLists.getMPNCType();
+                    }
                     break;
 
                 case ("B02-20160301-047"): //	MPNDS (Pre-NDS Meeting)
-                    vm.descriptionList = TransactionLists.getMPNDSType();
+                    if(vm.lifecycleModel.activityLead === "B14-20160301-11") {
+                        vm.descriptionList = TransactionLists.getV_MpndsType();
+                    } else {
+                        vm.descriptionList = TransactionLists.getMPNDSType();
+                    }
                     break;
                 case ("B02-20160301-049"): //	MPSNDS (Pre-SNDS Meeting)
-                    vm.descriptionList = TransactionLists.getMPSNDSType();
+                    if(vm.lifecycleModel.activityLead === "B14-20160301-11") {
+                        vm.descriptionList = TransactionLists.getV_MpsndsType();
+                    } else {
+                        vm.descriptionList = TransactionLists.getMPSNDSType();
+                    }
                     break;
 
                 case ("B02-20160301-050"): //NC (Notifiable Change)
-                    if (vm.lifecycleModel.activityLead === TransactionLists.getBiologicalLeadValue()) {
-                        vm.descriptionList = TransactionLists.getNcType();
+                    if(vm.lifecycleModel.activityLead === "B14-20160301-11") {
+                        vm.descriptionList = TransactionLists.getV_NcType();
                     } else {
-                        vm.descriptionList = TransactionLists.getNcPharmaType();
+                        vm.descriptionList = TransactionLists.getNcType();
                     }
                     break;
                 case ("B02-20160301-051"): //NDS (New Drug Submission)
-                    vm.descriptionList = TransactionLists.getNdsType();
+                    if(vm.lifecycleModel.activityLead === "B14-20160301-11") {
+                        vm.descriptionList = TransactionLists.getV_NdsType();
+                    } else {
+                        vm.descriptionList = TransactionLists.getNdsType();
+                    }
                     break;
                 case ("B02-20160301-070"):
                     vm.descriptionList = TransactionLists.getPdcType();
@@ -412,26 +502,42 @@
                     vm.descriptionList = TransactionLists.getpSurCType();
                     break;
                 case ("B02-20160301-079"): //PSUR-PV (Periodic Safety Update Report - Pharmacovigilance)
-                    vm.descriptionList = TransactionLists.getpSurPvType();
+                    if(vm.lifecycleModel.activityLead === "B14-20160301-11") {
+                        vm.descriptionList = TransactionLists.getV_PsurPvType();
+                    } else {
+                        vm.descriptionList = TransactionLists.getpSurPvType();
+                    }
                     break;
                 case ("B02-20160301-080"): //RMP-PV (Risk Management Plan - Pharmacovigilance)
                     vm.descriptionList = TransactionLists.getRmpPvType();
                     break;
                 case ("B02-20160301-082"): //SANDS (Supplement to an Abbreviated New Drug Submission)
-                    vm.descriptionList = TransactionLists.getSandsType();
+                    if(vm.lifecycleModel.activityLead === "B14-20160301-11"){
+                        vm.descriptionList = TransactionLists.getV_SandsType();
+                    }else {
+                        vm.descriptionList = TransactionLists.getSandsType();
+                    }
                     break;
                 case ("B02-20160301-084"): //SNDS (Supplement to a New Drug Submission)
-                    vm.descriptionList = TransactionLists.getSndsType();
+                    if(vm.lifecycleModel.activityLead === "B14-20160301-11") {
+                        vm.descriptionList = TransactionLists.getV_SndsType();
+                    } else {
+                        vm.descriptionList = TransactionLists.getSndsType();
+                    }
                     break;
                 case ("B02-20160301-085"): //SNDS-C (Supplement to a New Drug Submission - Conditional)
-                    vm.descriptionList = TransactionLists.getSndsCArray();
+                    vm.descriptionList = TransactionLists.getSndsCType();
                     break;
                 case ("B02-20160301-088"): //UDRA (Undefined Regulatory Activity)
-                    vm.descriptionList = TransactionLists.getUdraType();
+                    if(vm.lifecycleModel.activityLead === "B14-20160301-11") {
+                        vm.descriptionList = TransactionLists.getV_UdraType();
+                    } else {
+                        vm.descriptionList = TransactionLists.getUdraType();
+                    }
                     break;
-               /* case ("CONSULTATION"):
-                    vm.descriptionList = TransactionLists.getConsultType();
-                    break;*/
+                /* case ("CONSULTATION"):
+                     vm.descriptionList = TransactionLists.getConsultType();
+                     break;*/
                 case ("B02-20160301-089"): //YBPR (Yearly Biologic Product Report)
                     vm.descriptionList = TransactionLists.getYbprType();
                     break;
@@ -439,13 +545,11 @@
                     vm.descriptionList = TransactionLists.getDSurType();
                     break;
                 case ("B02-20160301-043"):
-                    vm.descriptionList = TransactionLists.getMPDINType();
-                    break;
-                case ("B02-20160301-070"):
-                    vm.descriptionList = TransactionLists.getPdcType();
-                    break;
-                case ("B02-20160301-071"):
-                    vm.descriptionList = TransactionLists.getPdcBType();
+                    if(vm.lifecycleModel.activityLead === "B14-20160301-11"){
+                        vm.descriptionList = TransactionLists.getV_MpdinType();
+                    } else {
+                        vm.descriptionList = TransactionLists.getMPDINType();
+                    }
                     break;
                 case ("B02-20160301-020"):
                     vm.descriptionList = TransactionLists.getDindType();
@@ -480,11 +584,26 @@
                 case ("B02-20190627-08"): //EUSANDS
                     vm.descriptionList = TransactionLists.getEUSANDSType();
                     break;
-                case ("B02-20200417-01"): //COVID-19 Interim Order Application
-                    vm.descriptionList = TransactionLists.getCOVID19Type();
+
+                case ("B02-20160301-041"): //	MPANDS (Pre-ANDS Meeting)
+                    vm.descriptionList = TransactionLists.getV_MpandsType();
                     break;
-                case ("B02-20200417-02"): //COVID-19 Interim Order Application - Amendment
-                    vm.descriptionList = TransactionLists.getCOVID19AMENType();
+
+                case ("B02-20160301-048"): //	MPSANDS (Pre-SANDS Meeting)
+                    vm.descriptionList = TransactionLists.getV_MpsandsType();
+                    break;
+
+                case ("B02-20180912-01"): //	RCC (Regulatory Cooperation Council)
+                    vm.descriptionList = TransactionLists.getV_RccType();
+                    break;
+                case ("B02-20200417-01"): //	COVIR-19
+                    vm.descriptionList = TransactionLists.getCOVIR19Type();
+                    break;
+                case ("B02-20200417-02"): //	COVID-19 AMENDMENT
+                    vm.descriptionList = TransactionLists.getCOVID19AMDType();
+                    break;
+                case ("B02-20160301-072"):
+                    vm.updateProductProtocol();
                     break;
 
                 default:
@@ -494,7 +613,6 @@
                         vm.descriptionList = "";
                     }
                     break;
-
             }
             ///find if the value is in the list
             if (temp && vm.descriptionList.indexOf(temp) !== -1) {
@@ -565,22 +683,26 @@
                 case(vm.descriptionObj.ADVISEMENT_LETTER_RESPONSE):   /*FALLTHROUGH*/
                 case(vm.descriptionObj.ADV_COMP_REQ):           /*FALLTHROUGH*/
                 case(vm.descriptionObj.ISSUE_SAFETY_REQUEST):            /*FALLTHROUGH*/
-               // case(vm.descriptionObj.LABEL_CLARIF_RESPONSE):        /*FALLTHROUGH*/
+                // case(vm.descriptionObj.LABEL_CLARIF_RESPONSE):        /*FALLTHROUGH*/
                 case(vm.descriptionObj.MHPD_RQ_RESPONSE):             /*FALLTHROUGH*/
                 case(vm.descriptionObj.NOC_RESPONSE):                  /*FALLTHROUGH*/
                 case(vm.descriptionObj.NOD_RESPONSE):                  /*FALLTHROUGH*/
                 case(vm.descriptionObj.NON_RESPONSE):                 /*FALLTHROUGH*/
+                case(vm.descriptionObj.QHSC_RQ_RESPONSE):                  /*FALLTHROUGH*/
+                case(vm.descriptionObj.CHSC_RQ_RESPONSE):                  /*FALLTHROUGH*/
+                case(vm.descriptionObj.QCHSC_RQ_RESPONSE):           /*FALLTHROUGH*/
                 case(vm.descriptionObj.PATIENT_SAFETY_INFO):   /*FALLTHROUGH*/
-              //  case(vm.descriptionObj.QUAL_CLIN_CLARIF_RESPONSE):   /*FALLTHROUGH*/
-              //  case(vm.descriptionObj.QUAL_CLARIF_RESPONSE):         /*FALLTHROUGH*/
+                //  case(vm.descriptionObj.QUAL_CLIN_CLARIF_RESPONSE):   /*FALLTHROUGH*/
+                //  case(vm.descriptionObj.QUAL_CLARIF_RESPONSE):         /*FALLTHROUGH*/
                 case(vm.descriptionObj.SDN_RESPONSE):                 /*FALLTHROUGH*/
-              //  case(vm.descriptionObj.PHONE_RQ_RESPONSE):         /*FALLTHROUGH*/
-               // case(vm.descriptionObj.BE_CLARIF_RESPONSE):        /*FALLTHROUGH*/
+                //  case(vm.descriptionObj.PHONE_RQ_RESPONSE):         /*FALLTHROUGH*/
+                // case(vm.descriptionObj.BE_CLARIF_RESPONSE):        /*FALLTHROUGH*/
                 case(vm.descriptionObj.SCREENING_ACCEPT_RESPONSE):        /*FALLTHROUGH*/
-               // case(vm.descriptionObj.SCREENING_CLARIF_RESPONSE):        /*FALLTHROUGH*/
+                // case(vm.descriptionObj.SCREENING_CLARIF_RESPONSE):        /*FALLTHROUGH*/
                 case(vm.descriptionObj.NOL_RESPONSE):        /*FALLTHROUGH*/
                 case(vm.descriptionObj.CLARIF_RESPONSE):        /*FALLTHROUGH July 17,2017*/
-              //  case(vm.descriptionObj.NONCLIN_CLARIF_RESPONSE):        /*FALLTHROUGH July 17,2017*/
+                case(vm.descriptionObj.CTN_ETHICS):        /*FALLTHROUGH */
+                case(vm.descriptionObj.CTN_RESPONSE):
                     setAsStartDate();
                     vm.setConcatDetails();
                     break;
@@ -588,7 +710,16 @@
                 case(vm.descriptionObj.CSOtRMP):
                 case(vm.descriptionObj.DISSEM_LIST):
                 case(vm.descriptionObj.RISK_COMMUN_DOC):        /*FALLTHROUGH*/
+                case(vm.descriptionObj.CTN_INVESTIGATOR):
+                case(vm.descriptionObj.CTN_FORM_BROC_UPDATES):
                     setVersionAndDate();
+                    vm.setConcatDetails();
+                    break;
+                case(vm.descriptionObj.CTN_INFORMED):
+                case(vm.descriptionObj.CTN_PROTOCOL_INFO_UPDATE):
+                case(vm.descriptionObj.CTN_PROTOCOL_UPDATE):
+                case(vm.descriptionObj.CTN_IMPD_UPDATE):
+                    setVersion();
                     vm.setConcatDetails();
                     break;
 
@@ -598,6 +729,13 @@
                     break;
 
                 case(vm.descriptionObj.UNSOLICITED_DATA):
+                case(vm.descriptionObj.CTN_ADMINISTRATIVE):
+                case(vm.descriptionObj.CTN_APPENDIX):
+                case(vm.descriptionObj.CTN_NEW_MANUFACTURING):
+                case(vm.descriptionObj.CTN_CONTACT):
+                case(vm.descriptionObj.CTN_SAFETY):
+                case(vm.descriptionObj.CTN_SOURCE):
+                case(vm.descriptionObj.CTN_STUDY_DISC):
                     setAsDescription();
                     vm.setConcatDetails();
                     break;
@@ -609,6 +747,7 @@
                 case(vm.descriptionObj.BE_CLARIF_RESPONSE):
                 case(vm.descriptionObj.CLIN_CLARIF_RESPONSE):
                 case(vm.descriptionObj.EMAIL_RQ_RESPONSE):
+                case(vm.descriptionObj.HSC_RQ_RESPONSE):
                 case(vm.descriptionObj.LABEL_CLARIF_RESPONSE):
                 case(vm.descriptionObj.NONCLIN_CLARIF_RESPONSE):
                 case(vm.descriptionObj.PROCESSING_CLARIF_RESPONSE):
@@ -623,13 +762,24 @@
                     setAsDescriptionChange();
                     vm.setConcatDetails();
                     break;
+                case(vm.descriptionObj.CTN_DATA):
+                    setAsDescriptionWithDate();
+                    vm.setConcatDetails();
+                    break;
                 case(vm.descriptionObj.YEAR):
                     setAsYearOnly();
                     vm.setConcatDetails();
                     break;
+                case(vm.descriptionObj.CTN_SHELF_PD):
+                case(vm.descriptionObj.CTN_SHELF_DS):
+                    setAsFromTo();
+                    vm.setConcatDetails();
+                    break;
                 default:
+                    //nothing visible
                     setDetailsAsNone();
                     vm.setConcatDetails();
+                    // console.warn("Lifecycle Details activity not found: " + value);
                     break;
             }
 
@@ -639,6 +789,7 @@
          * @ngdoc method -sets the details fields to all hidden
          */
         function setAsYearOnly() {
+            vm.fromTo = false;
             vm.endDateVisible = false;
             vm.startDateVisible = false;
             vm.descriptionVisible = false;
@@ -656,6 +807,8 @@
             vm.lifecycleModel.requesterNameTxt = "";
             vm.lifecycleModel.requesterName2Txt = "";
             vm.lifecycleModel.requesterName3Txt = "";
+            vm.lifecycleModel.fromValue = "";
+            vm.lifecycleModel.toValue = "";
         }
 
 
@@ -663,6 +816,7 @@
          * @ngdoc method -sets the details fields to all hidden
          */
         function setAsDescriptionYear() {
+            vm.fromTo = false;
             vm.endDateVisible = false;
             vm.startDateVisible = false;
             vm.descriptionVisible = false;
@@ -680,9 +834,12 @@
             vm.lifecycleModel.requesterNameTxt = "";
             vm.lifecycleModel.requesterName2Txt = "";
             vm.lifecycleModel.requesterName3Txt = "";
+            vm.lifecycleModel.fromValue = "";
+            vm.lifecycleModel.toValue = "";
         }
 
         function setDetailsAsNone() {
+            vm.fromTo = false;
 
             vm.endDateVisible = false;
             vm.startDateVisible = false;
@@ -703,9 +860,12 @@
             vm.lifecycleModel.requesterNameTxt = "";
             vm.lifecycleModel.requesterName2Txt = "";
             vm.lifecycleModel.requesterName3Txt = "";
+            vm.lifecycleModel.fromValue = "";
+            vm.lifecycleModel.toValue = "";
         }
 
         function setAsDescription() {
+            vm.fromTo = false;
             vm.endDateVisible = false;
             vm.startDateVisible = false;
             vm.descriptionVisible = true;
@@ -725,10 +885,13 @@
             vm.lifecycleModel.requesterNameTxt = "";
             vm.lifecycleModel.requesterName2Txt = "";
             vm.lifecycleModel.requesterName3Txt = "";
+            vm.lifecycleModel.fromValue = "";
+            vm.lifecycleModel.toValue = "";
 
         }
 
         function setAsStartDate() {
+            vm.fromTo = false;
             vm.endDateVisible = false;
             vm.startDateVisible = true;
             //vm.startDateLabel = "DATED";
@@ -748,12 +911,15 @@
             vm.lifecycleModel.requesterNameTxt = "";
             vm.lifecycleModel.requesterName2Txt = "";
             vm.lifecycleModel.requesterName3Txt = "";
+            vm.lifecycleModel.fromValue = "";
+            vm.lifecycleModel.toValue = "";
         }
 
         function setVersionAndDate() {
+            vm.fromTo = false;
             vm.endDateVisible = false;
             vm.startDateVisible = true;
-           // vm.startDateLabel = "DATED";
+            // vm.startDateLabel = "DATED";
             vm.descriptionVisible = false;
             vm.descriptionChangeVisible = false;
             vm.versionVisible = true;
@@ -770,12 +936,62 @@
             vm.lifecycleModel.requesterNameTxt = "";
             vm.lifecycleModel.requesterName2Txt = "";
             vm.lifecycleModel.requesterName3Txt = "";
+            vm.lifecycleModel.fromValue = "";
+            vm.lifecycleModel.toValue = "";
+        }
+
+        function setVersion() {
+            vm.fromTo = false;
+            vm.endDateVisible = false;
+            vm.startDateVisible = false;
+            vm.descriptionVisible = false;
+            vm.descriptionChangeVisible = false;
+            vm.versionVisible = true;
+            vm.versionLabel = "VERSION_NO";
+            vm.yearVisible = false;
+            vm.yearChangeVisible = false;
+            vm.requesterVisible = false;
+            vm.lifecycleModel.year = "";
+            vm.lifecycleModel.endDate = "";
+            vm.lifecycleModel.details = "";
+            vm.lifecycleModel.requesterName = "";
+            vm.lifecycleModel.requesterName2 = "";
+            vm.lifecycleModel.requesterName3 = "";
+            vm.lifecycleModel.requesterNameTxt = "";
+            vm.lifecycleModel.requesterName2Txt = "";
+            vm.lifecycleModel.requesterName3Txt = "";
+            vm.lifecycleModel.fromValue = "";
+            vm.lifecycleModel.toValue = "";
         }
 
         function setAsDatePeriod() {
 
+            vm.fromTo = false;
             vm.endDateVisible = true;
             vm.startDateVisible = true;
+            //vm.startDateLabel = "START_DATE";
+            vm.descriptionVisible = false;
+            vm.descriptionChangeVisible = false;
+            vm.versionVisible = false;
+            vm.yearVisible = false;
+            vm.yearChangeVisible = false;
+            vm.requesterVisible = false;
+            vm.lifecycleModel.year = "";
+            vm.lifecycleModel.details = "";
+            vm.lifecycleModel.sequenceVersion = "";
+            vm.lifecycleModel.requesterName = "";
+            vm.lifecycleModel.requesterName2 = "";
+            vm.lifecycleModel.requesterName3 = "";
+            vm.lifecycleModel.requesterNameTxt = "";
+            vm.lifecycleModel.requesterName2Txt = "";
+            vm.lifecycleModel.requesterName3Txt = "";
+            vm.lifecycleModel.fromValue = "";
+            vm.lifecycleModel.toValue = "";
+        }
+        function setAsFromTo() {
+            vm.fromTo = true;
+            vm.endDateVisible = false;
+            vm.startDateVisible = false;
             //vm.startDateLabel = "START_DATE";
             vm.descriptionVisible = false;
             vm.descriptionChangeVisible = false;
@@ -795,6 +1011,7 @@
         }
 
         function setAsVersionDescription() {
+            vm.fromTo = false;
             vm.endDateVisible = false;
             vm.startDateVisible = false;
             vm.descriptionVisible = true;
@@ -813,9 +1030,12 @@
             vm.lifecycleModel.requesterNameTxt = "";
             vm.lifecycleModel.requesterName2Txt = "";
             vm.lifecycleModel.requesterName3Txt = "";
+            vm.lifecycleModel.fromValue = "";
+            vm.lifecycleModel.toValue = "";
         }
 
         function setAsRequesterwithDate() {
+            vm.fromTo = false;
             vm.endDateVisible = false;
             vm.startDateVisible = true;
             vm.descriptionVisible = false; //
@@ -828,9 +1048,12 @@
             vm.lifecycleModel.endDate = "";
             vm.lifecycleModel.details = "";
             vm.lifecycleModel.sequenceVersion = "";
+            vm.lifecycleModel.fromValue = "";
+            vm.lifecycleModel.toValue = "";
         }
 
         function setAsDescriptionChange() {
+            vm.fromTo = false;
             vm.endDateVisible = false;
             vm.startDateVisible = false;
             vm.descriptionVisible = false;
@@ -850,6 +1073,33 @@
             vm.lifecycleModel.requesterNameTxt = "";
             vm.lifecycleModel.requesterName2Txt = "";
             vm.lifecycleModel.requesterName3Txt = "";
+            vm.lifecycleModel.fromValue = "";
+            vm.lifecycleModel.toValue = "";
+        }
+
+        function setAsDescriptionWithDate() {
+            vm.fromTo = false;
+            vm.endDateVisible = false;
+            vm.startDateVisible = true;
+            vm.descriptionVisible = true;
+            vm.descriptionChangeVisible = false;
+            vm.versionVisible = false;
+            vm.yearVisible = false;
+            vm.yearChangeVisible = false;
+            vm.requesterVisible = false;
+            // vm.lifecycleModel.startDate = "";
+            vm.lifecycleModel.endDate = "";
+            vm.lifecycleModel.year = "";
+            // vm.lifecycleModel.details = "";
+            vm.lifecycleModel.sequenceVersion = "";
+            vm.lifecycleModel.requesterName = "";
+            vm.lifecycleModel.requesterName2 = "";
+            vm.lifecycleModel.requesterName3 = "";
+            vm.lifecycleModel.requesterNameTxt = "";
+            vm.lifecycleModel.requesterName2Txt = "";
+            vm.lifecycleModel.requesterName3Txt = "";
+            vm.lifecycleModel.fromValue = "";
+            vm.lifecycleModel.toValue = "";
         }
 
         vm.setConcatDetails = function () {
@@ -857,13 +1107,20 @@
             var endDate = "";
             var concatText = "";
             //translate value to english
-           var enDescription = translateToEnglish(vm.lifecycleModel.descriptionValue);
+            var enDescription = translateToEnglish(vm.lifecycleModel.descriptionValue);
+            if (vm.descriptionVisible && !vm.yearChangeVisible) {
+                // if (vm.startDateVisible ) {
+                concatText = enDescription + " - " + vm.lifecycleModel.details;
+                // } else {
+                //     concatText = enDescription + "\n" + vm.lifecycleModel.details;
+                // }
+            }
             if (vm.startDateVisible) {
                 startDate = convertDate(vm.lifecycleModel.startDate);
                 if (vm.versionVisible){
                     concatText = " dated " + startDate;
                 }else {
-                    concatText = enDescription + " dated " + startDate;
+                    concatText = (concatText ? concatText : enDescription) + " dated " + startDate;
                 }
             }
 
@@ -871,14 +1128,18 @@
                 endDate = convertDate(vm.lifecycleModel.endDate);
                 concatText = enDescription + " " + startDate + " to " + endDate;
             }
-            if (vm.descriptionVisible && !vm.yearChangeVisible) {
-
-                concatText = enDescription + "\n" + vm.lifecycleModel.details;
-            }
-            if (vm.lifecycleModel.descriptionValue === vm.descriptionObj.RMP_VERSION_DATE) {
-                concatText = enDescription + " " + vm.lifecycleModel.sequenceVersion + concatText;
-            } else if(vm.versionVisible){
-                concatText = enDescription + " version " + vm.lifecycleModel.sequenceVersion + concatText;
+            if (vm.versionVisible) {
+                if (vm.lifecycleModel.descriptionValue === vm.descriptionObj.RMP_VERSION_DATE) {
+                    concatText = enDescription + " " + vm.lifecycleModel.sequenceVersion + concatText;
+                } else if (vm.lifecycleModel.descriptionValue === vm.descriptionObj.CTN_PROTOCOL_INFO_UPDATE) {
+                    concatText = "CTN-Protocol version " + vm.lifecycleModel.sequenceVersion +
+                        " and Informed Consent Form version " + vm.lifecycleModel.sequenceVersion + " Update";
+                } else if (vm.lifecycleModel.descriptionValue === vm.descriptionObj.CTN_FORM_BROC_UPDATES) {
+                    concatText = "CTN-Informed Consent Form version " + vm.lifecycleModel.sequenceVersion +
+                        " and Investigator’s Brochure version " + vm.lifecycleModel.sequenceVersion + concatText + " Updates";
+                } else {
+                    concatText = enDescription + " version " + vm.lifecycleModel.sequenceVersion + concatText;
+                }
             }
             if (vm.yearChangeVisible) {
                 concatText = vm.lifecycleModel.year + ", " + vm.lifecycleModel.details;
@@ -888,6 +1149,9 @@
             }
             if (vm.descriptionChangeVisible) {
                 concatText = enDescription +  "\n" + vm.lifecycleModel.detailsChange;
+            }
+            if(vm.fromTo){
+                concatText = enDescription + " From " + vm.lifecycleModel.fromValue + " To " + vm.lifecycleModel.toValue;
             }
             if (!concatText) concatText = enDescription;
             vm.lifecycleModel.sequenceConcat = concatText;
@@ -917,7 +1181,7 @@
             // result = m_names[date.getMonth()] + ". " + date.getDate() + ", " + date.getFullYear();
             return result;
         }
-         /**
+        /**
          *  calls the delete function on the parent
          */
         vm.delete = function () {
@@ -931,7 +1195,7 @@
             _updateLocalModel(vm.lifecycleRecord);
             vm.lifecycleDetailsForm.$setPristine();
             vm.isDetailValid({state: vm.lifecycleDetailsForm.$valid});
-           // vm.savePressed = false;
+            // vm.savePressed = false;
 
         };
 
@@ -966,13 +1230,13 @@
         };
         function convertToDate() {
             //TODO parse string and convert
-            if (vm.lifecycleModel.dateFiled) {
+            if (vm.lifecycleModel && vm.lifecycleModel.dateFiled) {
                 vm.lifecycleModel.dateFiled = _parseDate(vm.lifecycleModel.dateFiled)
             }
-            if (vm.lifecycleModel.startDate) {
+            if (vm.lifecycleModel && vm.lifecycleModel.startDate) {
                 vm.lifecycleModel.startDate = _parseDate(vm.lifecycleModel.startDate)
             }
-            if (vm.lifecycleModel.endDate) {
+            if (vm.lifecycleModel && vm.lifecycleModel.endDate) {
                 vm.lifecycleModel.endDate = _parseDate(vm.lifecycleModel.endDate);
             }
         }
@@ -998,21 +1262,20 @@
             }
             return (false);
         };
-/*
-        function _createYearList() {
-            var start = 1980;
-            var end = (new Date()).getFullYear();
-            var result = [];
-            for (var i = start; i <= end; i++) {
-                result.push("" + i)
-            }
-            return (result);
-        } *
-
-        /**
-         * Open the instruction alerts
-         * @param value
-         */
+        /*
+                function _createYearList() {
+                    var start = 1980;
+                    var end = (new Date()).getFullYear();
+                    var result = [];
+                    for (var i = start; i <= end; i++) {
+                        result.push("" + i)
+                    }
+                    return (result);
+                } *
+                /**
+                 * Open the instruction alerts
+                 * @param value
+                 */
         vm.addInstruct = function (value) {
 
             if (angular.isUndefined(value)) return;
@@ -1051,6 +1314,8 @@
             vm.requesterNameId2 = "requester_name2" + scopeId;
             vm.requesterNameId3 = "requester_name3" + scopeId;
             vm.descriptChangeId = "brief_desc_change" +  scopeId;
+            vm.fromValueId = "fromValue" + scopeId;
+            vm.toValueId = "toValue" +scopeId;
         }
     }
 })();

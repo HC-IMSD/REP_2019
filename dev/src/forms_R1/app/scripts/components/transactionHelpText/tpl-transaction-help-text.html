@@ -22,6 +22,8 @@
         <ul>
             <li>{{::'HT_DOSSIER_TYPE_1'|translate}}</li>
             <li>{{::'HT_DOSSIER_TYPE_2'|translate}}</li>
+            <li>{{::'HT_DOSSIER_TYPE_3' |translate}}</li>
+            <li>{{::'HT_DOSSIER_TYPE_4' |translate}}</li>
         </ul>
         <p class="fn-rtn">
             <a href="#tr2_ref">
@@ -67,6 +69,8 @@
             {{::"HT_PROD_NAME_2" |translate}}
             <br><br>
             {{::"HT_PROD_NAME_3" |translate}}
+            <br><br>
+            {{::"HT_PROD_NAME_4" |translate}}
         </p>
         <p class="fn-rtn">
             <a href="#tr5_ref">
@@ -75,8 +79,27 @@
             </a>
         </p>
     </dd>
-    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::help.htIndxList.adminSubInx}}</dt>
+    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::help.htIndxList.protoNumInx}}</dt>
     <dd id="tr6">
+        <p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{::"PROD_PROTOCOL" |translate}}</p>
+        <div>
+            <p>{{::"HT_PROTOCOL_NUM" |translate}}
+                <a target="_blank" href="{{::'HT_PROTOCOL_NUM_SUB_URL' |translate}}">
+                    {{::"HT_PROTOCOL_NUM_SUB" |translate}}
+                </a>
+            </p>
+        </div>
+        <p class="fn-rtn">
+            <a href="#tr6_ref">
+                <span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::help.htIndxList.protoNumInx}}
+                <span class="wb-inv"> referrer</span>
+            </a>
+        </p>
+    </dd>
+
+
+    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::help.htIndxList.adminSubInx}}</dt>
+    <dd id="tr7">
         <p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{::"IS_ADMIN_SUBMISSION" |translate}}</p>
         <div>
             <p>{{::"HT_REFER_TO" |translate}}
@@ -86,14 +109,14 @@
             </p>
         </div>
         <p class="fn-rtn">
-            <a href="#tr6_ref">
+            <a href="#tr7_ref">
                 <span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::help.htIndxList.adminSubInx}}
                 <span class="wb-inv"> referrer</span>
             </a>
         </p>
     </dd>
     <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::help.htIndxList.ctrlNumInx}}</dt>
-    <dd id="tr7">
+    <dd id="tr8">
         <p>{{::"CONTROL_NUM" |translate}}</p>
         <ul>
             <li> {{::"HT_CTRL_NUM_1" |translate}}</li>
@@ -103,14 +126,14 @@
             <li> {{::"HT_CTRL_NUM_5" |translate}}</li>
         </ul>
         <p class="fn-rtn">
-            <a href="#tr7_ref">
+            <a href="#tr8_ref">
                 <span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::help.htIndxList.ctrlNumInx}}
                 <span class="wb-inv"> referrer</span>
             </a>
         </p>
     </dd>
     <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::help.htIndxList.actLeadInx}}</dt>
-    <dd id="tr8">
+    <dd id="tr9">
         <p>{{::'ACTIVITY_LEAD' |translate}}</p>
         <ul><li> {{::'HT_ACT_LEAD_1' |translate}}</li>
             <li> {{::'HT_ACT_LEAD_2' |translate}}</li>
@@ -118,30 +141,43 @@
             <li> {{::'HT_ACT_LEAD_4' |translate}}</li>
         </ul>
         <p class="fn-rtn">
-            <a href="#tr8_ref">
+            <a href="#tr9_ref">
                 <span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::help.htIndxList.actLeadInx}}
                 <span class="wb-inv">referrer</span>
             </a>
         </p>
     </dd>
     <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::help.htIndxList.yearChgInx}}</dt>
-    <dd id="tr9">
+    <dd id="tr10">
         <p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{::'YEAR_CHANGE' |translate}}</p>
         <p> {{::'HT_YEAR_CHANGE_1' |translate}}</p>
         <ul>
             <li>{{::'HT_YEAR_CHANGE_2' |translate}}<a href="{{::'HT_YEAR_CHANGE_URL_1' |translate}}" target="_blank">{{::'HT_YEAR_CHANGE_3' |translate}}</a></li>
             <li>{{::'HT_YEAR_CHANGE_2' |translate}}<a href="{{::'HT_YEAR_CHANGE_URL_2' |translate}}" target="_blank">{{::'HT_YEAR_CHANGE_4' |translate}}</a></li>
         </ul>
-        <p>{{::'HT_YEAR_CHANGE_5' |translate}}</p>
+        <p> {{::'HT_YEAR_CHANGE_5' |translate}}</p>
+        <ul>
+            <li><a href="{{::'HT_YEAR_CHANGE_URL_3' |translate}}" target="_blank">{{::'HT_YEAR_CHANGE_6' |translate}}</a></li>
+            <li><a href="{{::'HT_YEAR_CHANGE_URL_4' |translate}}" target="_blank">{{::'HT_YEAR_CHANGE_7' |translate}}</a></li>
+        </ul>
+        <p>
+            {{::'HT_YEAR_CHANGE_8' |translate}}
+            <br>
+            {{::'HT_YEAR_CHANGE_9' |translate}}
+            <br>
+            {{::'HT_YEAR_CHANGE_10' |translate}}
+            <br>
+            {{::'HT_YEAR_CHANGE_11' |translate}}
+        </p>
         <p class="fn-rtn">
-            <a href="#tr9_ref">
+            <a href="#tr10_ref">
                 <span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::help.htIndxList.yearChgInx}}
                 <span class="wb-inv"> referrer</span>
             </a>
         </p>
     </dd>
     <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::help.htIndxList.descChgInx}}</dt>
-    <dd id="tr10">
+    <dd id="tr11">
         <p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{::'BRIEF_DESC_CHANGE' |translate}}</p>
         <p> {{::'HT_DESC_CHANGE_1' |translate}}<br>
             {{::'HT_DESC_CHANGE_2' |translate}}<br>
@@ -149,39 +185,39 @@
             {{::'HT_DESC_CHANGE_4' |translate}}
         </p>
         <p class="fn-rtn">
-            <a href="#tr10_ref">
+            <a href="#tr11_ref">
                 <span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::help.htIndxList.descChgInx}}
                 <span class="wb-inv"> referrer</span>
             </a>
         </p>
     </dd>
     <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::help.htIndxList.reqSoliInx}}</dt>
-    <dd id="tr11">
+    <dd id="tr12">
         <p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{::'SOLICITED_RQ' |translate}}</p>
         <p> {{::'HT_REQ_SOL' |translate}}</p>
         <p class="fn-rtn">
-            <a href="#tr11_ref">
+            <a href="#tr12_ref">
                 <span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::help.htIndxList.reqSoliInx}}
                 <span class="wb-inv"> referrer</span>
             </a>
         </p>
     </dd>
 
-    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::help.htIndxList.feesInx}}</dt>
-    <dd id="tr12">
-        <p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{::'REGULATORY_FEES' |translate}}</p>
-        <p>{{::'HT_FEES_1' |translate}}
-            <a target="_blank" href="{{::'HT_FEES_URL' |translate}}">
-                {{::'HT_FEES_2' |translate}}
-            </a>
-        </p>
-        <p class="fn-rtn">
-            <a href="#tr12_ref">
-                <span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::help.htIndxList.feesInx}}
-                <span class="wb-inv"> referrer</span>
-            </a>
-        </p>
-    </dd>
+    <!--<dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::help.htIndxList.feesInx}}</dt>-->
+    <!--<dd id="tr12">-->
+        <!--<p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{::'REGULATORY_FEES' |translate}}</p>-->
+        <!--<p>{{::'HT_FEES_1' |translate}}-->
+            <!--<a target="_blank" href="{{::'HT_FEES_URL' |translate}}">-->
+                <!--{{::'HT_FEES_2' |translate}}-->
+            <!--</a>-->
+        <!--</p>-->
+        <!--<p class="fn-rtn">-->
+            <!--<a href="#tr12_ref">-->
+                <!--<span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::help.htIndxList.feesInx}}-->
+                <!--<span class="wb-inv"> referrer</span>-->
+            <!--</a>-->
+        <!--</p>-->
+    <!--</dd>-->
     <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::help.htIndxList.contactInx}}</dt>
     <dd id="tr13">
         <p>{{::'REG_CONTACT_THIS' |translate}}</p>
