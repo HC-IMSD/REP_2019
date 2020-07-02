@@ -411,6 +411,10 @@
             }
         };
 
+        vm.showRoutingId = function(){
+            return 0;
+        };
+
         /**
          * Once Reset button clicked
          * Hide - productName,

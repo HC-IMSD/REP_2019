@@ -395,8 +395,8 @@
             <section class="panel  panel-primary">
                 <header class="panel-heading clearfix">
                     <h2 class="panel-title col-md-8">{{::'REGULATORY_FEES' |translate}}
-                        <sup id="tr14_ref">
-                            <a class="fn-lnk" href="#tr14"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>15</a>
+                        <sup id="tr13_ref">
+                            <a class="fn-lnk" href="#tr13"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>13</a>
                         </sup>
                     </h2>
                 </header>
@@ -412,8 +412,8 @@
             <section class="panel  panel-primary">
                 <header class="panel-heading clearfix">
                     <h2 class="panel-title col-md-8">{{::'REG_CONTACT_THIS' |translate}}
-                        <sup id="tr17_ref">
-                            <a class="fn-lnk" href="#tr17"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>18</a>
+                        <sup id="tr14_ref">
+                            <a class="fn-lnk" href="#tr14"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>14</a>
                         </sup>
                     </h2>
                 </header>
@@ -426,8 +426,8 @@
                                 <label for="{{::transInfoCtrl.companyNameId}}" class="required full-width">
                                     <span class="field-name">{{::"COMPANY_NOABBREV" |translate}}</span>
                                     <strong class="required"> {{::"REQUIRED" |translate}}</strong>
-                                    <sup id="tr18_ref">
-                                        <a class="fn-lnk" href="#tr18"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>19</a>
+                                    <sup id="tr15_ref">
+                                        <a class="fn-lnk" href="#tr15"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>15</a>
                                     </sup>
                                     <cmp-error-message field-name="transInfoCtrl.companyNameId"
                                                        form-ref="transInfoCtrl.transInfoForm"
@@ -455,8 +455,8 @@
                         <h3 class="mrgn-tp-sm">{{::'COMPANY_REP_THIS'|translate}}</h3>
                         <div class="row">
                             <cmp-contact-details contact-record="transInfoCtrl.transactionModel.activityContact"
-                                                 update-error-summary="transInfoCtrl.updateErrorSummary()"
-                                                 fax-mandatory="transInfoCtrl.faxMandatory()"
+                                                 update-error-summary="transInfoCtrl.updateErrorSummary()" show-routing-id="transInfoCtrl.showRoutingId()"
+                                                 fax-mandatory="true" routing-id-index="transInfoCtrl.htIndxList.routingIdInx"
                                                  is-amend="true" show-errors="transInfoCtrl.showErrors()">
                             </cmp-contact-details>
                         </div>
