@@ -28,8 +28,11 @@
     getService.inject = ['UNKNOWN'];
     function getService(UNKNOWN) {
         var vm = this;
+        vm.env = '';
         vm.countryList = [];
         var service = {
+            getEnv: _getEnvString,
+            setEnv: _setEnvString,
             getCountries: getCountryValuesArray,
             getProvinces: getProvinceValuesArray,
             getUSStates: getUSStatesValueArray,
@@ -40,6 +43,13 @@
 
         ////////////////
 
+        function _getEnvString(value) {
+            return vm.env;
+        }
+
+        function _setEnvString(value) {
+            vm.env = value.env;
+        }
 
         function _createCountryArray(translateJson) {
             vm.countryList = translateJson;
@@ -315,9 +325,14 @@
                 ]);
         }
 
-        function _getFormTypes() {
-            return (
-                [
+        function _getFormTypes( env ) {
+            return env ?
+                (
+                    [
+                        _biologic,
+                        _pharma
+                    ]) :
+                ([
                     _biologic,
                     _pharma,
                     _veterinary,
@@ -333,6 +348,7 @@
 
             return _pharma;
         }
+
         function _getVeterinary() {
 
             return _veterinary;

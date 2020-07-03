@@ -23,6 +23,7 @@
 
     function getTransactionSeq($http, $q) {
         var vm = this;
+        vm.env = '';
         vm.raTypeArray = [];
         vm.feeTypeArray = [];
         vm.mitigationTypeArray = [];
@@ -164,6 +165,8 @@
 
 
         var service = {
+            getEnv: _getEnvString,
+            setEnv: _setEnvString,
             getTransactionDescriptions: getTransactionDescriptionsArray,
             getActivityTypes: getActivityArray,
             createRaTypes: _createRaArray,
@@ -178,9 +181,9 @@
             getClinicalPhaLeadValue: _getClinicalPhaLead,
             getPresubTypes: getPresubArray,
             getAndsType: getANDSArray,
-            getCtaType: getCtaArray,
-            getCta_aType: getCta_aArray,
-            getPreCtaType: getPreCtaArray,
+            // getCtaType: getCtaArray,
+            // getCta_aType: getCta_aArray,
+            // getPreCtaType: getPreCtaArray,
             getDinaType: getDINAArray,
             getDinbType: getDINBArray,
             getDindType: getDINDArray,
@@ -235,7 +238,7 @@
             getActivityLeadList: _getActivityLeadArray,
             getActivityLeadListByD22: _getActivityLeadD22Array,
             getActivityLeadListByD21: _getActivityLeadD21Array,
-            getActivityLeadListByD26: _getActivityLeadD26Array,
+            // getActivityLeadListByD26: _getActivityLeadD26Array,
         };
         return service;
 
@@ -249,6 +252,14 @@
                 "Y",
                 "N"
             ]);
+        }
+
+        function _getEnvString(value) {
+            return vm.env;
+        }
+
+        function _setEnvString(value) {
+            vm.env = value.env;
         }
 
         function _createRaArray(value) {
