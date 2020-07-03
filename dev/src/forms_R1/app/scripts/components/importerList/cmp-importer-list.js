@@ -36,6 +36,7 @@
         vm.resetToCollapsed = true;
         vm.showDetailErrors=false;
         vm.selectRecord = -1;
+        vm.isFocus = false;
         vm.columnDef = [
             {
                 label: "IMPORTERID",
@@ -149,9 +150,17 @@
             return(vm.importerListForm.$invalid);
         };
 
+        vm.setFocus = function(){
+            vm.isFocus = true;
+        }
 
-        $scope.$watch('importerListCtrl.importerListForm.$error', function () {
+        vm.cancelFocus = function(){
+            vm.isFocus = false;
+        }
+
+
+        /*  $scope.$watch('countryListCtrl.countryListForm.$error', function () {
                     vm.updateErrorSummary();
-                }, true);
+                }, true);*/
     }
 })();

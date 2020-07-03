@@ -1,5 +1,5 @@
 <ng-form name="ap4Ctrl.appendixForm"  id="{{::ap4Ctrl.appendix4Id}}">
-
+    <div class="container-fluid">
         <cmp-error-summary form-ref="ap4Ctrl.appendixForm"
                            form-preamble="HUMAN_ANIMAL_SOURCED_TAB" exclusion-list=ap4Ctrl.exclusions
                            name-suffix="ap4Ctrl.appendixForm" set-heading-level="h2" form-id="ap4Ctrl.appendix4Id"
@@ -16,7 +16,7 @@
             <cmp-appendix-four-record record="$parent.record" on-update="ap4Ctrl.update($parent.$index,record)"
                                       service="ap4Ctrl.service"
                                       on-delete="ap4Ctrl.delete($parent.$index)" record-changed="ap4Ctrl.recordChanged()"
-                                      delete-btn="true"
+                                      delete-btn="true" is-focus="ap4Ctrl.isFocus" cancel-focus="ap4Ctrl.cancelFocus"
                                       is-file-loaded="ap4Ctrl.isFileLoaded"
                                       update-error-summary="ap4Ctrl.updateErrorSummary()"
                                       error-summary-update="ap4Ctrl.updateSummary" show-error-summary="ap4Ctrl.showSummary">
@@ -25,9 +25,9 @@
         </cmp-expanding-table>
         <div class="mrgn-tp-md mrgn-bttm-lg">
             <div class="btn-group-sm col-md-12">
-                <button  class="btn btn-primary"  name="addSrcIngred"
-                       data-ng-click="ap4Ctrl.addNew()">{{'ADD_SOURCED'|translate}}</button>
+                <button  class="btn btn-primary"  name="addSrcIngred" id="addSrcIngred"
+                       data-ng-click="ap4Ctrl.addNew();ap4Ctrl.setFocus();">{{'ADD_SOURCED'|translate}}</button>
             </div>
         </div>
-
+    </div>
 </ng-form>

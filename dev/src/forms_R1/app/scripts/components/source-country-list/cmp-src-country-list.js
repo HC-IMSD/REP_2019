@@ -46,6 +46,7 @@
         vm.showDetailErrors=false;
         vm.requiredFlag = true; //use to signal expanding table extend an empty record
         vm.selectRecord = -1;
+        vm.isFocus = false;
         vm.columnDef = [
             {
                 label: vm.fieldLabel,
@@ -218,9 +219,15 @@
         };
 
         vm.updateRecord = function(){
-            vm.resetToCollapsed = !vm.resetToCollapsed;
+            vm.selectRecord = -1;
             vm.requiredFlag = false;
             vm.resetToCollapsed = !vm.resetToCollapsed;
+        };
+        vm.setFocus = function () {
+            vm.isFocus = true;
+        };
+        vm.cancelFocus = function () {
+            vm.isFocus = false;
         }
 
         /*  $scope.$watch('countryListCtrl.countryListForm.$error', function () {

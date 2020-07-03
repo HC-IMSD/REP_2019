@@ -54,10 +54,10 @@
             }
         });
 
-    drugProductCtrl.$inject = ['$scope', 'hpfbFileProcessing', 'ApplicationInfoService', 'DrugProductService', 'DossierLists', 'getRoleLists', 'YES','INTERNAL_TYPE','EXTERNAL_TYPE','APPROVED_TYPE','FRENCH','$translate','$anchorScroll','$location'];
+    drugProductCtrl.$inject = ['$scope', 'hpfbFileProcessing', 'ApplicationInfoService', 'DrugProductService', 'DossierLists', 'getRoleLists', 'YES', 'PROD', 'INTERNAL_TYPE','EXTERNAL_TYPE','APPROVED_TYPE','FRENCH','$translate','$anchorScroll','$location'];
 
 
-    function drugProductCtrl($scope, hpfbFileProcessing, ApplicationInfoService, DrugProductService, DossierLists, getRoleLists, YES,INTERNAL_TYPE,EXTERNAL_TYPE,APPROVED_TYPE,FRENCH,$translate, $anchorScroll,$location) {
+    function drugProductCtrl($scope, hpfbFileProcessing, ApplicationInfoService, DrugProductService, DossierLists, getRoleLists, YES, PROD, INTERNAL_TYPE,EXTERNAL_TYPE,APPROVED_TYPE,FRENCH,$translate, $anchorScroll,$location) {
 
         var vm = this;
         vm.showContent = _loadFileContent; //binds the component to the function
@@ -67,7 +67,8 @@
         vm.saveXMLLabel = "APPROVE_FINAL";
         vm.yesNoList = DossierLists.getYesNoList();
         vm.yesValue = YES; //is this needed?
-        vm.formTypeList = getRoleLists.getFormTypes();
+        vm.isForProd = PROD === DossierLists.getEnv();
+        vm.formTypeList = getRoleLists.getFormTypes(vm.isForProd);
         vm.htIndxList = vm.drugProductService.helpTextSequences;
         //config for applicationInfoCompoenent
        /* vm.configField = {
@@ -213,6 +214,9 @@
                 //load into data model as result json is not null
                 vm.dossierTypeChange();
                 vm.drugUseUpdate();
+                if (vm.model.drugProduct) {
+                    vm.setSceduleFieldset();
+                }
                 vm.drugProdForm.$setDirty();
             }
             //if content is attempted to be loaded show all the errors
@@ -329,6 +333,14 @@
         /***
          * determin to display Address to sent fieldset
          */
+        vm.isNotCTA = function () {
+            if (!vm.model || !vm.model.dossierType) return false;
+            return (vm.model.dossierType !== "D26");
+        };
+
+        /***
+         * determin to display Address to sent fieldset
+         */
         vm.isCTA = function () {
             if (vm.model && vm.model.dossierType && vm.model.dossierType === "D26") {
                 return true;
@@ -373,11 +385,11 @@
         vm.dossierTypeChange = function () {
             if (vm.model && vm.model.dossierType && vm.model.dossierType === "D26") {
                 vm.drugUseList = vm.ctaDrugUseList;
-                // vm.model.manu = false;
-                // vm.model.mailling = false;
-                // vm.model.thisActivity = false;
-                // vm.model.importer = false;
-                // vm.model.importerRecord = [];
+                vm.model.manu = false;
+                vm.model.mailling = false;
+                vm.model.thisActivity = false;
+                vm.model.importer = false;
+                vm.model.importerRecord = [];
             } else if (vm.model && vm.model.dossierType && vm.model.dossierType === "D24"){
                 vm.drugUseList = vm.vetDrugUseList;
                 vm.model.areDrugsImported ="";
@@ -617,6 +629,7 @@
             vm.drugUseId="drug_use"+scopeId;
             vm.propIndicationId="prop_Indication"+scopeId;
             vm.fsType = "fs_type" + scopeId;
+            vm.scheduleSelectedId = "schedule_presc_status" + scopeId;
             vm.disiTypeId = "disinfectant_type" + scopeId;
             vm.privacyStatementID = "privacy_statement" + scopeId;
         }

@@ -2,12 +2,12 @@
     <!--  <pre>ingRecCtrl.ingModel: {{ingRecCtrl.ingModel|json}}</pre>-->
     <div class="container-fluid" style="padding-bottom:8px; border-width: thin; border-style: solid;">
         <cmp-error-summary form-ref="ingRecCtrl.activeIngForm"
-                           form-preamble="{{'INGRED_DETAILS'|translate}}&nbsp{{ingRecCtrl.recordIndex+1}}" exclusion-list=ingRecCtrl.exclusions
+                           form-preamble="{{'INGRED_DETAILS'|translate}}&nbsp;{{ingRecCtrl.recordIndex+1}}" exclusion-list=ingRecCtrl.exclusions
                            name-suffix="ingRecCtrl.activeIngForm" set-heading-level="h3" form-id="ingRecCtrl.activeFormId"
                            make-focused="ingRecCtrl.focusSummary" alias-list="ingRecCtrl.alias" show-errors="ingRecCtrl.showSummary"
                            update-errors="ingRecCtrl.updateSummary"></cmp-error-summary>
         <fieldset>
-            <legend class="legend-rep">{{'INGRED_DETAILS'|translate}}&nbsp{{ingRecCtrl.recordIndex+1}}</legend>
+            <legend class="legend-rep">{{'INGRED_DETAILS'|translate}}&nbsp;{{ingRecCtrl.recordIndex+1}}</legend>
             <div class="row">
                 <div class="form-group col-md-3" data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.ingredRoleId].$invalid}">
                     <label for="{{::ingRecCtrl.ingredRoleId}}" class="required">
@@ -19,7 +19,7 @@
                                        show-error="ingRecCtrl.showError(ingRecCtrl.activeIngForm[ingRecCtrl.ingredRoleId])"
                                        error-types="ingRecCtrl.requiredOnly"></cmp-error-message>
                     <select id="{{::ingRecCtrl.ingredRoleId}}" data-ng-model="ingRecCtrl.ingModel.ingRole"
-                            data-ng-model-options="{ debounce: '$inherit'}"
+                            data-ng-model-options="{ debounce: '$inherit'}" data-focus-if="ingRecCtrl.isFocus" data-ng-blur="ingRecCtrl.cancelFocus();"
                             class="form-control full-width" name="{{::ingRecCtrl.ingredRoleId}}" required>
                         <option label=" " value="" /><option data-ng-repeat="role in ingRecCtrl.ingRoleList" value="{{role.id}}">{{role[ingRecCtrl.lang]}}</option>
                     </select>
@@ -41,7 +41,7 @@
                                                show-error="ingRecCtrl.showError(ingRecCtrl.activeIngForm[ingRecCtrl.ingredName])"
                                                error-types="ingRecCtrl.requiredOnly"></cmp-error-message>
                             <div class="rep-margin-top">
-                                <input type="text" data-ng-model="ingRecCtrl.ingModel.ingLabel" name="{{::ingRecCtrl.ingredName}}" data-ng-if=" ingRecCtrl.lang === 'en'"
+                                <input type="text" data-ng-model="ingRecCtrl.ingModel.ingLabel" name="{{::ingRecCtrl.ingredName}}" data-ng-show=" ingRecCtrl.lang === 'en'"
                                        data-ng-model-options="{ debounce: $inherit}"
                                        id="{{::ingRecCtrl.ingredName}}" maxlength="100"
                                        uib-typeahead=" rec.en for rec in ingRecCtrl.activeList | filter:{en:$viewValue} | limitTo:15"
@@ -51,7 +51,7 @@
                                        data-ng-required="true"
                                        typeahead-on-select="ingRecCtrl.ingredSelectionUpdated($item, $model, $label, $event)"
                                        typeahead-popup-template-url="app/lib/uib-templates/customPopupTemplate.html"/>
-                                <input type="text" data-ng-model="ingRecCtrl.ingModel.ingLabel" name="{{::ingRecCtrl.ingredName}}" data-ng-if=" ingRecCtrl.lang === 'fr'"
+                                <input type="text" data-ng-model="ingRecCtrl.ingModel.ingLabel" name="{{::ingRecCtrl.ingredName}}" data-ng-show=" ingRecCtrl.lang === 'fr'"
                                        data-ng-model-options="{ debounce: $inherit}"
                                        id="{{::ingRecCtrl.ingredName}}" maxlength="100"
                                        uib-typeahead=" rec.fr for rec in ingRecCtrl.activeList | filter:{fr:$viewValue} | limitTo:15"
@@ -168,7 +168,7 @@
                                                        error-types="ingRecCtrl.numberMinError"></cmp-error-message>
                                     <input type="number" id="{{ingRecCtrl.strengthData1Id}}" data-ng-model="ingRecCtrl.ingModel.strength.data1"
                                            data-ng-model-options="{ debounce: '$inherit'}"
-                                           class="form-control full-width" name="{{ingRecCtrl.strengthData1Id}}" ng-min="0" data-ng-required="true"/>
+                                           class="form-control full-width" name="{{ingRecCtrl.strengthData1Id}}" data-ng-min="0" data-ng-required="true"/>
 
                                 </label>
                             </div>
@@ -197,15 +197,16 @@
                                                        form-ref="ingRecCtrl.activeIngForm"
                                                        show-error="ingRecCtrl.showError(ingRecCtrl.activeIngForm[ingRecCtrl.unitsId])"
                                                        error-types="ingRecCtrl.requiredOnly"></cmp-error-message>
-                                    <input type="text" id="{{::ingRecCtrl.unitsId}}" name="{{::ingRecCtrl.unitsId}}" data-ng-model="ingRecCtrl.ingModel.unitsHtml" value="ingRecCtrl.ingModel.unitsHtml"
-                                           data-ng-model-options="{ updateOn: 'blur', debounce:0 }" data-ng-change="ingRecCtrl.unitsChange()" list="unitsList" required="required" class="form-control"/>
+                                    <input type="text" id="{{::ingRecCtrl.unitsId}}" name="{{::ingRecCtrl.unitsId}}" data-ng-model="ingRecCtrl.ingModel.unitsHtml"
+                                           oninput="angular.element($(this)).scope().ingRecCtrl.unitsChange(this.value)" autocomplete="off"
+                                           data-ng-blur="ingRecCtrl.unitsBlur()" list="unitsList" required="required" class="form-control"/>
                                     <datalist id="unitsList" class="rep-selectize-dropdown rep-selectize-font">
-                                        <option data-ng-repeat="unit in ingRecCtrl.unitsList" value="{{unit[ingRecCtrl.lang]}}" label="{{unit[ingRecCtrl.lang]}}"/>
+                                        <option data-ng-repeat="unit in ingRecCtrl.unitsList" value="{{unit[ingRecCtrl.lang]}}" >
                                     </datalist>
 
                                 </label>
                             </div>
-                            <div class="form-group col-md-5" data-ng-show="ingRecCtrl.isUnitsOther()" data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.otherUnitsId].$invalid}">
+                            <div class="form-group col-md-5" data-ng-if="ingRecCtrl.isUnitsOther()" data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.otherUnitsId].$invalid}">
                                 <label for="{{::ingRecCtrl.otherUnitsId}}" class="required"><span class="field-name">{{'OTHER_UNITS'|translate}}</span>
                                     <strong class="required">{{"REQUIRED" |translate}}</strong>
                                     <cmp-error-message field-name="ingRecCtrl.otherUnitsId"
@@ -213,9 +214,9 @@
                                                        show-error="ingRecCtrl.showError(ingRecCtrl.activeIngForm[ingRecCtrl.otherUnitsId])"
                                                        error-types="ingRecCtrl.requiredOnly"></cmp-error-message>
                                     <input type="text" id="{{::ingRecCtrl.otherUnitsId}}" data-ng-model="ingRecCtrl.ingModel.otherUnits"
-                                           data-ng-model-options="{ debounce: '$inherit'}" data-focus-if="ingRecCtrl.isUnitsOther()"
-                                           size="55" class="form-control" name="{{::ingRecCtrl.otherUnitsId}}"
-                                           maxlength="55" data-ng-required="ingRecCtrl.isUnitsOther()"/>
+                                           data-ng-model-options="{ updateOn: 'blur'}"
+                                           size="60" class="form-control" name="{{::ingRecCtrl.otherUnitsId}}"
+                                           maxlength="60" data-ng-required="ingRecCtrl.isUnitsOther()"/>
 
                                 </label>
                             </div>
@@ -280,7 +281,7 @@
                                                            show-error="ingRecCtrl.showError(ingRecCtrl.activeIngForm[ingRecCtrl.perPresOtherUnitId])"
                                                            error-types="ingRecCtrl.requiredOnly"></cmp-error-message>
                                         <input type="text" id="{{::ingRecCtrl.perPresOtherUnitId}}" data-ng-model="ingRecCtrl.ingModel.perPresOtherUnits"
-                                               data-ng-model-options="{ debounce: '$inherit'}" data-focus-if="ingRecCtrl.isPerPresUnitsOther()"
+                                               data-ng-model-options="{ updateOn: 'blur'}" data-focus-if="true"
                                                size="40" class="form-control" name="{{::ingRecCtrl.perPresOtherUnitId}}"
                                                maxlength="40" data-ng-required="ingRecCtrl.isPerPresUnitsOther()"/>
 
@@ -312,8 +313,9 @@
                                                            show-error="ingRecCtrl.showError(ingRecCtrl.activeIngForm[ingRecCtrl.perMeasureUnitId])"
                                                            error-types="ingRecCtrl.requiredOnly">
                                         </cmp-error-message>
-                                        <input type="text" id="{{::ingRecCtrl.perMeasureUnitId}}" name="{{::ingRecCtrl.perMeasureUnitId}}" data-ng-model="ingRecCtrl.ingModel.perMeasUnitsHtml"
-                                               value="ingRecCtrl.ingModel.perMeasUnitsHtml" data-ng-model-options="{ updateOn: 'blur', debounce:0 }" data-ng-change="ingRecCtrl.perMeasUnitsChange()"
+                                        <input type="list" id="{{::ingRecCtrl.perMeasureUnitId}}" name="{{::ingRecCtrl.perMeasureUnitId}}" data-ng-model="ingRecCtrl.ingModel.perMeasUnitsHtml"
+                                               oninput="angular.element($(this)).scope().ingRecCtrl.perMeasUnitsChange(this.value)" autocomplete="off"
+                                               data-ng-blur="ingRecCtrl.perMeasUnitsBlur()"
                                                list="unitsList2" required="required" class="form-control full-width"/>
                                         <datalist id="unitsList2" class="rep-selectize-dropdown rep-selectize-font">
                                             <option data-ng-repeat="unit in ingRecCtrl.measureList" value="{{unit[ingRecCtrl.lang]}}" label="{{unit[ingRecCtrl.lang]}}"/>
@@ -330,7 +332,7 @@
                                                            show-error="ingRecCtrl.showError(ingRecCtrl.activeIngForm[ingRecCtrl.perMeasureOtherUnitId])"
                                                            error-types="ingRecCtrl.requiredOnly"></cmp-error-message>
                                         <input type="text" id="{{::ingRecCtrl.perMeasureOtherUnitId}}" data-ng-model="ingRecCtrl.ingModel.perMeasOtherUnits"
-                                               data-ng-model-options="{ debounce: '$inherit'}" data-focus-if="ingRecCtrl.isPerMeasUnitsOther()"
+                                               data-ng-model-options="{updateOn: 'blur'}"
                                                size="40" class="form-control" name="{{::ingRecCtrl.perMeasureOtherUnitId}}"
                                                maxlength="40" data-ng-required="ingRecCtrl.isPerMeasUnitsOther()"/>
 
@@ -339,9 +341,9 @@
                             </div>
                         </div>
                         <div class="row col-md-12" data-ng-if="ingRecCtrl.isMedIng()">
-                            <div class="form-group "
+                            <div class="form-group  col-sm-8"
                                  data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.asBaseId].$invalid}">
-                                <h4 class="required  col-sm-12">
+                                <h4 for="{{::ingRecCtrl.asBaseId}}" class="required">
                                     <span class="field-name">{{'CALCULATED_AS_BASE'|translate}}</span>
                                     <strong class="required">{{"REQUIRED" |translate}}</strong>
                                     <cmp-error-message field-name="ingRecCtrl.asBaseId"
@@ -362,10 +364,10 @@
                 </div>
                 </div>
 
-                <div class="row col-md-12">
-                    <div class="form-group"
+                <div class="row">
+                    <div class="form-group col-xs-12"
                          data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.isNanoMaterialId].$invalid}">
-                        <h4 class="required col-xs-12">
+                        <h4 for="{{::ingRecCtrl.isNanoMaterialId}}" class="full-width required">
                             <span class="field-name">{{'IS_NANO_MATERIAL'|translate}}</span>
                             <strong class="required">{{"REQUIRED" |translate}}</strong>
                             <sup id="dr9c5_ref">
@@ -384,11 +386,6 @@
                         <label class="col-xs-2" for="{{::ingRecCtrl.isNanoMaterialId}}"><input type="radio" id="{{::ingRecCtrl.isNanoMaterialId}}" name="{{::ingRecCtrl.isNanoMaterialId}}" value="Y" data-ng-model="ingRecCtrl.ingModel.isNano" required/>&nbsp;{{::'Y'|translate}}</label>
                         <label class="col-xs-2" for="{{::ingRecCtrl.isNanoMaterialId}}_1"><input type="radio" id="{{::ingRecCtrl.isNanoMaterialId}}_1" name="{{::ingRecCtrl.isNanoMaterialId}}" value="N" data-ng-model="ingRecCtrl.ingModel.isNano" required/>&nbsp;{{::'N'|translate}}</label>
                     </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-xs-12"
-                         data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.isNanoMaterialId].$invalid}">
                     <div data-ng-if="ingRecCtrl.isNanoMaterial()">
                         <div class="form-group col-md-3" data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.nanoId].$invalid}">
                             <label for="{{::ingRecCtrl.nanoId}}" class="required">
@@ -422,12 +419,11 @@
 
                         </div>
                     </div>
-                    </div>
                 </div>
-                <div class="row col-md-12">
-                    <div class="form-group"
+                <div class="row">
+                    <div class="form-group col-xs-12"
                          data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.animalHumanSrcId].$invalid}">
-                        <h4 class="required col-xs-12">
+                        <h4 class="full-width required">
                             <span class="field-name">{{'ANIMAL_HUMAN_SOURCED'|translate}}</span>
                             <strong class="required">{{"REQUIRED" |translate}}</strong>
                             <sup id="dr9c6_ref">
@@ -448,7 +444,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-xs-11">
                         <div data-ng-if="ingRecCtrl.isAnimalHumanSourced()" class="alert alert-info"
                              role="alert" aria-live="polite">
                             {{'SOURCED_INFO'|translate}}
@@ -459,10 +455,15 @@
 
             <div class="row">
                 <div class="col-xs-12 btn-group-sm align-bottom">
-                    <button class="btn btn-primary" data-ng-click="ingRecCtrl.saveIng()" id="medSave_{{::$id}}"
+                    <button class="btn btn-primary" data-ng-click="ingRecCtrl.saveIng()" data-ng-if="ctrCtrl.cancelFocus()"
+                            id="medSave_{{::$id}}" onclick="focusOnTable(this, 'active_ing_list_')"
                             name="saveMI">{{'SAVE_RECORD'|translate}}
                     </button>
-                    <button data-ng-if="ingRecCtrl.deleteBtn === true" class="btn btn-danger" id="medDelete_{{::$id}}"
+                    <button class="btn btn-primary" data-ng-click="ingRecCtrl.saveIng()" data-ng-if="! ctrCtrl.cancelFocus()"
+                            id="medSave_{{::$id}}" onclick="focusOnRow(this, 'addAI_')"
+                            name="saveMI">{{'SAVE_RECORD'|translate}}
+                    </button>
+                    <button data-ng-if="ingRecCtrl.deleteBtn === true" class="btn btn-danger" id="medDelete_{{::$id}}" onclick="focusOnRow(this, 'addAI_')"
                             name="deleteMI" data-ng-click="ingRecCtrl.delete()">{{'DELETE_RECORD'|translate}}
                     </button>
                     <button data-ng-if="ingRecCtrl.deleteBtn === true" class="btn btn-default"

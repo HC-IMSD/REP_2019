@@ -40,6 +40,7 @@
         vm.isDetailValid = true;
         vm.newIngFormShown = false;
         vm.noContainerValues="";
+        vm.isfocus = false;
 
         vm.$onInit = function () {
             vm.selectRecord = -1;
@@ -87,6 +88,7 @@
             vm.onUpdate({list:vm.containerList});
             setRecord(-1);
             vm.noContainers();
+            vm.focus = false;
         };
 
         vm.updateRec = function (idx, ing) {
@@ -136,6 +138,12 @@
             vm.noContainers();
             return(vm.newIngFormShown);
         };
+        vm.setFocus = function (){
+            vm.isFocus = true;
+        }
+        vm.cancelFocus = function () {
+            vm.isfocus = false;
+        }
 
         /**
          * When a new record is cancelled, resets state;

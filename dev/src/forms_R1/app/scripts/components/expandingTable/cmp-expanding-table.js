@@ -204,7 +204,7 @@
                  anArray.push(initialVal);
              }
          }
-         return anArray
+         return anArray;
          }
 
         vm.deletedRow=function(){

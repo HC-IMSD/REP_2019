@@ -82,7 +82,8 @@
   "FOREIGN": "fr_Foreign",
   "NOT_MARKETED": "fr_Not Marketed",
   "DINID_": "fr_Drug Identification Number (DIN)",
-  "NO_DIN_COUNTRY": "fr_Require at least one country for investigation."
+  "NO_DIN_COUNTRY": "fr_Require at least one country for investigation.",
+  "ROUTING_ID": "Identificateur  d'acheminement",
 
   "HT_LOAD_FILE_1":"Lors de la production d’une copie de travail, le fichier doit être chargé en format .hcsc.",
   "HT_LOAD_FILE_2":"Lors de la consultation ou de la mise à jour d’une version finale du fichier XML, le fichier doit être chargé en format .xml.",

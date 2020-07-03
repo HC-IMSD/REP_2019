@@ -40,6 +40,7 @@
         //define empty model
         vm.model={};
         vm.model.animalSrcList=[];
+        vm.isFocus = false;
         vm.columnDef = [
             {
                 label: "ANIMAL_TYPE",
@@ -108,6 +109,11 @@
             }
             vm.onUpdate({list: vm.model.animalSrcList});
         };
+        vm.onUpdatesRecord = function () {
+            vm.selectRecord = -1;
+            vm.requiredFlag = false;
+            vm.resetCollapsed = !vm.resetCollapsed;
+        };
         vm.deleteRecord=function(recId){
             var idx = vm.model.animalSrcList.indexOf(
                 $filter('filter')(vm.model.animalSrcList, {id: recId}, true)[0]);
@@ -116,6 +122,12 @@
             vm.requiredFlag = false;
         };
 
+        vm.setFocus = function () {
+            vm.isFocus = true;
+        }
+        vm.cancelFocus = function () {
+            vm.isFocus = false;
+        }
 
         function getMaxID(){
             var id=0;
@@ -126,6 +138,5 @@
             }
             return(id);
         }
-
     }
 })();

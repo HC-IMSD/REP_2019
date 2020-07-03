@@ -29,6 +29,8 @@
                 onDelete: '&',
                 onUpdate: '&',
                 showErrors: '<',
+                isFocus: '<',
+                cancelFocus: '&',
                 htIndxList:'<',
                 updateErrorSummary:'&'
             }
@@ -97,10 +99,6 @@
             }
             _setIdNames();
         };
-
-        $scope.$watch('importerRecCtrl.importerForm.$error', function () {
-            vm.updateErrorSummary();
-        }, true);
 
         vm.$onChanges = function (changes) {
             if (changes.record && changes.record.currentValue) {

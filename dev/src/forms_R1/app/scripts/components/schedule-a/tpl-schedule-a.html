@@ -4,7 +4,7 @@
              data-is-open="schedACtrl.expanderOpenState" data-is-disabled="schedACtrl.schedAForm.$invalid"
              data-template-url="./app/lib/uib-templates/tpl-accordian-group-caret.html">
             <div class="row">
-                <span class="field-name">{{::'SCHEDA_DESCRIPTION'|translate}}</span><p></p>
+                <span class="form-group col-md-12">{{::'SCHEDA_DESCRIPTION'|translate}}</span><p></p>
             </div>
             <div>
                 <div>
@@ -22,7 +22,8 @@
                                                        <!--error-types="schedACtrl.errorMinLength">-->
                                     <!--</cmp-error-message>-->
                                 </label>
-                                    <input type="text" class="form-control full-width" id="{{::schedACtrl.dinId}}" name="{{::schedACtrl.dinId}}"
+                                    <input type="text" class="form-control" id="{{::schedACtrl.dinId}}" name="{{::schedACtrl.dinId}}"
+                                           maxlength="8" size="8" data-only-digits data-ng-minlength="8"
                                            data-ng-model="schedACtrl.model.drugIdNumber"/>
                             </div>
                         </div>

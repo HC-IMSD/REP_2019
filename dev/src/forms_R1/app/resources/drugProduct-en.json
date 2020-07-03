@@ -82,6 +82,7 @@
   "NOT_MARKETED": "Not Marketed",
   "DINID_": "Drug Identification Number (DIN)",
   "NO_DIN_COUNTRY": "Require at least one country for investigation.",
+  "ROUTING_ID": "Routing Identifier",
 
   "HT_LOAD_FILE_1":"When continuing with a working copy, the format of the file to load should be .hcsc.",
   "HT_LOAD_FILE_2":"When viewing/updating a final XML file, the format of the file to load should be .xml.",

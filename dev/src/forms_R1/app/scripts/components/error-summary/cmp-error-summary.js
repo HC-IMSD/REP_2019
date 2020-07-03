@@ -259,14 +259,14 @@
             if (!(keys instanceof Array)) {
                 keys = [keys];
             }
-            if (keys.indexOf("lifecycleCtrl.lifecycleDetailsForm") > -1) {
-                for (var i = 0; i < keys.length; i++) {
-                    if (keys[i].indexOf("saveLifeRec") > -1) {
-                        delete errors[keys[i]];
-                        break;
-                    }
-                }
-            }
+            // if (keys.indexOf("lifecycleCtrl.lifecycleDetailsForm") > -1) {
+            //     for (var i = 0; i < keys.length; i++) {
+            //         if (keys[i].indexOf("saveLifeRec") > -1) {
+            //             delete errors[keys[i]];
+            //             break;
+            //         }
+            //     }
+            // }
             if (keys.indexOf("ingRecCtrl.activeIngForm") > -1) {
                 for (var i = 0; i < keys.length; i++) {
                     if (keys[i].indexOf("no_active") > -1) {
