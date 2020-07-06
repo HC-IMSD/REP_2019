@@ -25,7 +25,8 @@
                 showErrors:'<',
                 fieldLabel: '@',
                 isFileLoaded: '<',
-                updateErrorSummary:'&'
+                updateErrorSummary:'&',
+                addButtonLabel: '@'
             }
         });
 
@@ -44,6 +45,7 @@
         vm.showDetailErrors=false;
         vm.requiredFlag = true; //use to signal expanding table extend an empty record
         vm.selectRecord = -1;
+        vm.isFocus = false;
         vm.columnDef = [
             {
                 label: vm.fieldLabel,
@@ -90,6 +92,7 @@
 
         vm.$postLink = function () {
             if(!vm.isFileLoaded) {
+                vm.requiredFlag = true;
                 vm.addNew();
             }
         };
@@ -152,7 +155,7 @@
             var aList = vm.deleteRecFromList(vm.model.list, _id);
             vm.updateCountryList();
             vm.onUpdate({list:aList});
-            vm.requiredFlag = false;
+            vm.updateRecord();
         };
 
         vm.deleteRecFromList = function (_list, _id) {
@@ -218,7 +221,7 @@
         };
 
         vm.updateRecord = function(){
-            vm.resetToCollapsed = !vm.resetToCollapsed;
+            vm.selectRecord = -1;
             vm.requiredFlag = false;
             vm.resetToCollapsed = !vm.resetToCollapsed;
         }
@@ -226,6 +229,12 @@
             if(vm.model.list[0].country == ""){
                 vm.resetToCollapsed = true;
             }
+        }
+        vm.setFocus = function () {
+            vm.isFocus = true;
+        }
+        vm.cancelFocus = function () {
+            vm.isFocus = false;
         }
 
         /*  $scope.$watch('countryListCtrl.countryListForm.$error', function () {

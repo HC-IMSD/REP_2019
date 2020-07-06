@@ -34,7 +34,9 @@
                 updateCountryList:'<',
                 updateRecord: '&',
                 onError: '&',
-                fieldsetLabel:'@'
+                fieldsetLabel:'@',
+                isFocus: '<',
+                cancelFocus: '&'
             }
         });
 
@@ -57,7 +59,7 @@
         /**
          * Updates the display value for the object for summary display
          */
-        vm.countryChanged=function(value){
+        vm.countryChanged = function(){
             var found = false;
             for(var i = 0; i < vm.countries.length; i++){
                 if(vm.countries[i][vm.lang] === vm.model.display){
@@ -66,17 +68,20 @@
                     break;
                 }
             }
-            if(found){
-                vm.countryList = vm.updateCountryList();
-                vm.updateRecord();
-                vm.clearFilter($scope);
-            } else {
-                vm.model.display = "";
-                if (vm.model.country) {
+            if( ! found && vm.model.country[vm.lang] != vm.model.display){
+                    vm.model.display = "";
                     vm.model.country = {};
-                }
-                vm.onError();
+            } else {
+                found = true;
             }
+            return found;
+            // if(vm.countryChanged()){
+            //     vm.countryList = vm.updateCountryList();
+            //     vm.updateRecord();
+            //     vm.clearFilter($scope);
+            // } else {
+            //     vm.onError();
+            // }
 
         };
 
@@ -94,8 +99,19 @@
 
         };
 
+        vm.saveRecord = function () {
+            if(vm.countryChanged()){
+                vm.countryList = vm.updateCountryList();
+                vm.updateRecord();
+                vm.clearFilter($scope);
+                // } else {
+                //     vm.onError();
+            }
+        };
+
         vm.deleteRecord = function()  {
-            vm.onDelete({id: vm.model.id})
+            vm.clearFilter($scope);
+            vm.onDelete({id: vm.model.id});
         };
 
 
