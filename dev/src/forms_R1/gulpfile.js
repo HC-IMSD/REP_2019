@@ -23,10 +23,13 @@ var protractor = require("gulp-protractor").protractor;
 var baseScript = './app/scripts';
 var wetBase = './wet_4_0_27';
 var buildDev = './build/dev';
+var buildDevPilot = './build/dev-pilot';
 var buildProd = './build/prod/';
 var buildProdAbs = '/build/prod/';
 var templateFileEn = 'content-en.html';
 var templateFileFr = 'content-fr.html';
+var converterTemplateFileEn = 'converter-content-en.html';
+var converterTemplateFileFr = 'converter-content-fr.html';
 //GLOBAL variable save
 var _DATESTAMP = "";
 
@@ -38,18 +41,24 @@ var paths = {
     helpTemplates: 'app/help/',
     buildProd: buildProd,
     buildDev: buildDev,
+    buildDevPilot: buildDevPilot,
     buildDevDiff: buildDev + '/repDiff/',
     buildDevActivity: buildDev + '/activity/',
     buildDevCompany: buildDev + '/company/',
     buildDevTransaction: buildDev + '/transaction/',
-    buildDevDossier: buildDev + '/dossier/',
+    // buildDevDossier: buildDev + '/dossier/',
     buildDevDrugProduct: buildDev + '/drugProduct/',
+    buildDevPIConverter: buildDev + '/converter/',
     buildDevCSP: buildDev + '/csp/',
+    buildDevPilotCompany: buildDevPilot + '/company/',
+    buildDevPilotTransaction: buildDevPilot + '/transaction/',
+    buildDevPilotDrugProduct: buildDevPilot + '/drugProduct/',
     buildProdActivity: buildProd + '/activity/',
     buildProdCompany: buildProd + '/company/',
     buildProdTransaction: buildProd + '/transaction/',
     buildProdDossier: buildProd + '/dossier/',
     buildProdDrugProduct: buildProd + '/product/',
+    buildProdPIConverter: buildProd + '/converter/',
     buildProdCsp: buildProd + '/csp-cps/',
     englishTemplate: wetBase + '/' + templateFileEn, //this is the wet template before path injection
     frenchTemplate: wetBase + '/' + templateFileFr, //this is the wet template before path injection
@@ -57,11 +66,17 @@ var paths = {
     devFrenchTemplate: buildDev + '/templates/' + templateFileFr,
     prodEnglishTemplate: buildProd + '/templates/' + templateFileEn,
     prodFrenchTemplate: buildProd + '/templates/' + templateFileFr,
+    englishConverterTemplate: wetBase + '/' + converterTemplateFileEn, //this is the converter template before path injection
+    frenchConverterTemplate: wetBase + '/' + converterTemplateFileFr, //this is the converter template before path injection
+    devEnglishConverterTemplate: buildDev + '/templates/' + converterTemplateFileEn,
+    devFrenchConverterTemplate: buildDev + '/templates/' + converterTemplateFileFr,
+    prodEnglishConverterTemplate: buildProd + '/templates/' + converterTemplateFileEn,
+    prodFrenchConverterTemplate: buildProd + '/templates/' + converterTemplateFileFr,
     lib: './app/lib/',
     relLib: 'app/lib/',
     data: './app/data/',
     scripts: baseScript,
-    templates: 'app/scripts/templates/',
+    // templates: 'app/scripts/templates/',
     relScript: '/app/scripts/',
     components: baseScript + '/components/',
     directives: baseScript + '/directives/',
@@ -126,12 +141,12 @@ var companyRootTitles_fr = {
 };
 
 var transactionRootTitles_en = {
-    mainHeading: "Regulatory Transaction Template: Regulatory Enrolment Process (REP) (Version 3.1.0)",
+    mainHeading: "Regulatory Transaction Template: Regulatory Enrolment Process (REP) (Version 4.1.0)",
     title: 'Regulatory Transaction Template: Regulatory Enrolment Process - Canada.ca'
 
 };
 var transactionRootTitles_fr = {
-    mainHeading: "Modèle de transaction réglementaire: Processus d'inscription réglementaire (Version 3.1.0)",
+    mainHeading: "Modèle de transaction réglementaire: Processus d'inscription réglementaire (Version 4.1.0)",
     title: 'Modèle de transaction réglementaire: Processus d\'inscription réglementaire - Canada.ca'
 
 };
@@ -149,14 +164,26 @@ var dossierRootTitles_fr = {
 };
 
 var drugProductRootTitles_en = {
-    mainHeading: "Product Information Template: Regulatory Enrolment Process (REP) (Version 3.1.0)",
+    mainHeading: "Product Information Template: Regulatory Enrolment Process (REP) (Version 4.1.0)",
     title: 'Product Information Template: Regulatory Enrolment Process - Canada.ca'
 
 };
 
 var drugProductRootTitles_fr = {
-    mainHeading: "Modèle d'information sur le produit: Processus d'inscription réglementaire (Version 3.1.0)",
+    mainHeading: "Modèle d'information sur le produit: Processus d'inscription réglementaire (Version 4.1.0)",
     title: "Modèle d'information sur le produit: Processus d'inscription réglementaire - Canada.ca"
+
+};
+
+var piConverterRootTitles_en = {
+    mainHeading: "Product Information Template Data Converter: Version 2 to Version 3",
+    title: 'Product Information Template Data Converter: Version 2 to Version 3 - Canada.ca'
+
+};
+
+var piConverterRootTitles_fr = {
+    mainHeading: "Information produit Modèle Data Converter: Version 2 à Version 3",
+    title: 'Information produit Modèle Data Converter: Version 2 à Version 3 - Canada.ca'
 
 };
 
@@ -185,6 +212,7 @@ var jsRootContent = {
     partialTransactionRoot: 'rootContent/transactionRoot.html',
     partialDossierRoot: 'rootContent/dossierRoot.html',
     partialDrugProductRoot: 'rootContent/drugProductRoot.html',
+    partialPIConverterRoot: 'rootContent/productConverterRoot.html',
     partialDiffFormRoot: 'rootContent/diffForm.html',
     partialCSPFormRoot: 'rootContent/cspForm.html'
 };
@@ -197,6 +225,7 @@ var rootFileNames = {
     transactionRoot: "transactionApp",
     dossierRoot: "dossierApp",
     drugProductRoot: "drugProductApp",
+    piConverterRoot: "piConverterApp",
     repDiff: "diffApp",
     cspRoot: "cspApp"
 };
@@ -310,10 +339,13 @@ var componentFolders = {
     cspApplicantList: 'cspContactList/',
     alertComp: "alertComponent/",
     transFees: 'transactionFees/',
+    piConverter: 'piConverter',
     rtHelpComp: "transactionHelpText/",
     companyHelpComp: "companyHelpText/",
     piHelpComp: "productInfoHelpText/",
-    clinicalTrial: "clinicalTrial/"
+    clinicalTrial: "clinicalTrial/",
+    speciesList: 'speciesList/',
+    speciesRecord: 'speciesRecord/'
 };
 
 //exclude custom styles only lib
@@ -430,6 +462,8 @@ var drugProductComponentFolders =
         componentFolders.importerList,
         componentFolders.importerRecord,
         componentFolders.clinicalTrial,
+        componentFolders.speciesList,
+        componentFolders.speciesRecord,
         componentFolders.drugUse,
         componentFolders.disinfectantType,
         componentFolders.routeAdmin,
@@ -444,6 +478,12 @@ var drugProductComponentFolders =
         componentFolders.piHelpComp
     ];
 
+var piConverterComponentFolders =
+    [
+        componentFolders.fileIOComponentAndDep,
+        componentFolders.piConverter
+    ];
+
 
 //transaction Form Components
 var transactionComponentFolders = [
@@ -453,8 +493,8 @@ var transactionComponentFolders = [
     componentFolders.contactDetails,
     componentFolders.expandingTable,
     componentFolders.fileIOComponentAndDep,
-    componentFolders.requesterList,
-    componentFolders.requesterRecord,
+    // componentFolders.requesterList,
+    // componentFolders.requesterRecord,
     componentFolders.lifecycleList,
     componentFolders.lifecycleDetails,
     componentFolders.addressDetails,
@@ -526,6 +566,7 @@ var serviceFileNames = {
     cspDataLists: 'csp-data-lists',
     diffService: 'diff-service',
     drugProductService: 'drug-product-service',
+    piConverterService: 'product-converter-service',
     commonRepService:'rep-util-common',
     activityFormFilterService: 'activity-form-filter-service'
 };
@@ -580,6 +621,18 @@ var drugProductServiceFileNames =
 
     ];
 
+var piConverterServiceFileNames =
+    [
+        serviceFileNames.dossierDataList,
+        serviceFileNames.dossierLoadService,
+        serviceFileNames.applicationInfoService,
+        serviceFileNames.piConverterService,
+        serviceFileNames.dataLists,
+        serviceFileNames.filterLists,
+        serviceFileNames.hpfbConstants
+
+    ];
+
 //Transaction Service files
 var transactionServiceFileNames = [
 
@@ -598,6 +651,7 @@ var transactionTemplates = ["transaction/", "common/"];
 var companyTemplates = ["company/", "common/"];
 var dossierTemplates = ["dossier/", "common/"];
 var drugProductTemplates = ["drugProduct/", "common/"];
+var piConverterTemplates = ["common/"];
 var cspTemplates = ["csp/"];
 
 // Complementary Supplementary Protection Application Form
@@ -653,6 +707,7 @@ var drugProductDirectiveFolders =
     [
         directiveFolders.numberOnly
     ];
+var piConverterDirectiveFolders = [];
 
 
 //Transaction Form directives
@@ -706,6 +761,7 @@ var translationBaseFiles = {
     cspGeneral: paths.translations + 'csp',
     cspError: paths.translations + 'cspError',
     drugProduct: paths.translations + 'drugProduct',
+    piConverter: paths.translations + 'converter',
     commonXml: paths.translations+'commonXML',
     productInfoXml: paths.translations + 'drugProductXML',
     companyXml: paths.translations + 'companyXML'
@@ -792,6 +848,27 @@ var drugProductTranslationFilesBaseList =
 
     ];
 
+var piConverterTranslationFilesBaseList =
+    [
+        translationBaseFiles.address,
+        translationBaseFiles.stateProvinces,
+        translationBaseFiles.dosageForm,
+        translationBaseFiles.dossier,
+        translationBaseFiles.dossierGeneral,
+        translationBaseFiles.dossierMsg,
+        translationBaseFiles.appendix4,
+        translationBaseFiles.scheduleA,
+        translationBaseFiles.formulation,
+        translationBaseFiles.general,
+        translationBaseFiles.fileIO,
+        translationBaseFiles.applicationInfo,
+        translationBaseFiles.messages,
+        translationBaseFiles.contact,
+        translationBaseFiles.errorSummary,
+        translationBaseFiles.drugProduct,
+        translationBaseFiles.piConverter
+    ];
+
 
 ///transaction form translations
 var transactionTranslationFilesBaseList = [
@@ -803,6 +880,7 @@ var transactionTranslationFilesBaseList = [
     translationBaseFiles.general,
     translationBaseFiles.messages,
     translationBaseFiles.transaction,
+    translationBaseFiles.formulation,
     translationBaseFiles.errorSummary
 ];
 //complementary supplementary Forms
@@ -975,7 +1053,6 @@ pipes.copyWet = function (destDirectory) {
     return (copySources.pipe(gulp.dest(destDirectory)))
 };
 
-
 pipes.generateRootJsFile = function (lang, type, rootFile, destPath, skipDate) {
 
     console.log("generating the root file");
@@ -1088,7 +1165,6 @@ pipes.createRootHtml = function (templatePath, valsObj, templateName, injectRoot
     )
 
 };
-
 
 pipes.cleanBuild = function (baseDir) {
 
@@ -1284,6 +1360,26 @@ pipes.createBaseTemplates = function (destDir) {
     );
     //paths.buildDev + /temp/
 };
+
+pipes.createConverterBaseTemplates = function (destDir) {
+    var copySources = gulp.src([paths.englishConverterTemplate, paths.frenchConverterTemplate], {read: true, base: wetBase});
+    var replacement = '..';
+
+    return (
+        copySources
+            .pipe(replace({
+                patterns: [
+                    {
+                        match: 'formpath',
+                        replacement: replacement
+                    }
+
+                ]
+            }))
+            .pipe(gulp.dest(destDir))
+    );
+    //paths.buildDev + /temp/
+};
 pipes.createHelpTemplates = function (destDir) {
     var copySources = gulp.src(['./app/instructions/*.*'], {read: true, base: './app/'});
     var replacement = '..';
@@ -1408,6 +1504,12 @@ gulp.task('dev-global-create-src-template', function () {
 
 });
 
+gulp.task('dev-converter-create-src-template', function () {
+
+    return (pipes.createConverterBaseTemplates(paths.buildDev + '/templates/'));
+
+});
+
 gulp.task('dev-copy-changedFiles', function (done) {
     var destFolder = "";
     var filename = "";
@@ -1445,6 +1547,13 @@ gulp.task('dev-copy-changedFiles', function (done) {
             compFolders: drugProductComponentFolders,
             serviceFiles: drugProductServiceFileNames,
             directiveFiles: drugProductDirectiveFolders
+        },
+        {
+            matches: false,
+            formName: "ProductInfoConverter",
+            buildPath: paths.buildDevPIConverter,
+            compFolders: piConverterComponentFolders,
+            serviceFiles: piConverterServiceFileNames
         },
         {
             matches: false,
@@ -1525,108 +1634,127 @@ gulp.task('dev-global-watch', function () {
         });
 });
 
-gulp.task('dev-activity-clean', function () {
-    return pipes.cleanBuild(paths.buildDevActivity + 'app/');
-});
+// gulp.task('dev-activity-clean', function () {
+//     return pipes.cleanBuild(paths.buildDevActivity + 'app/');
+// });
 
 gulp.task('dev-company-clean', function () {
-    return (pipes.cleanBuild(paths.buildDevCompany + 'app/'));
+    return (pipes.cleanBuild(paths.buildDevCompany));
 
 });
 gulp.task('dev-transaction-clean', function () {
-    return (pipes.cleanBuild(paths.buildDevTransaction + 'app/'));
+    return (pipes.cleanBuild(paths.buildDevTransaction));
 
 });
-gulp.task('dev-dossier-clean', function () {
-    return (pipes.cleanBuild(paths.buildDevDossier + 'app/'));
-
-});
+// gulp.task('dev-dossier-clean', function () {
+//     return (pipes.cleanBuild(paths.buildDevDossier + 'app/'));
+//
+// });
 
 gulp.task('dev-drugProduct-clean', function () {
-    return (pipes.cleanBuild(paths.buildDevDrugProduct + 'app/'));
+    return (pipes.cleanBuild(paths.buildDevDrugProduct));
+
+});
+
+gulp.task('dev-piConverter-clean', function () {
+    return (pipes.cleanBuild(paths.buildDevPIConverter));
 
 });
 
 gulp.task('dev-csp-clean', function () {
-    return (pipes.cleanBuild(paths.buildDevCSP + 'app/'));
+    return (pipes.cleanBuild(paths.buildDevCSP));
+
+});
+
+gulp.task('dev-company-pilot-clean', function () {
+    return (pipes.cleanBuild(paths.buildDevPilotCompany));
+
+});
+gulp.task('dev-transaction-pilot-clean', function () {
+    return (pipes.cleanBuild(paths.buildDevPilotTransaction));
+
+});
+
+gulp.task('dev-drugProduct-pilot-clean', function () {
+    return (pipes.cleanBuild(paths.buildDevPilotDrugProduct));
 
 });
 
 /******* Activity Tasks ****/
 
-gulp.task('dev-activity-copySrc', function () {
-    /*  return (pipes.copyActivitySrc(false, paths.buildDevActivity))*/
-    return (
-        pipes.copySrcs(true, paths.buildDevActivity, activityComponentFolders, activityServiceFileNames, activityDirectiveFolders, activityTemplates, false)
-    );
+// gulp.task('dev-activity-copySrc', function () {
+//     /*  return (pipes.copyActivitySrc(false, paths.buildDevActivity))*/
+//     return (
+//         pipes.copySrcs(true, paths.buildDevActivity, activityComponentFolders, activityServiceFileNames, activityDirectiveFolders, activityTemplates, false)
+//     );
+//
+// });
+//
+// gulp.task('dev-activity-copyTranslate', function () {
+//
+//     var translationList = activityTranslationFilesBaseList;
+//
+//     return (pipes.translateDev(translationList, paths.buildDevActivity));
+// });
+//
+// gulp.task('dev-activity-createResources', gulp.series('dev-activity-copyTranslate', function () {
+//     var srcPath = paths.buildDevActivity;
+//     var destPath = paths.buildDevActivity + paths.relScript;
+//     var filename = 'translations' + createSuffixDate();
+//     return (pipes.compileTranslateFile(srcPath, destPath, filename, activityTranslationFilesBaseList));
+//
+// }));
+//
+//
+// gulp.task('dev-activity-copyLib', function () {
+//     var copySources = gulp.src([paths.lib + '**/*', paths.styles + '**/*', '!' + paths.lib + libFileNames.deepDiffMin],
+//         {read: true, base: '.'});
+//     return copySources.pipe(gulp.dest(paths.buildDevActivity))
+//
+// });
 
-});
-
-gulp.task('dev-activity-copyTranslate', function () {
-
-    var translationList = activityTranslationFilesBaseList;
-
-    return (pipes.translateDev(translationList, paths.buildDevActivity));
-});
-
-gulp.task('dev-activity-createResources', gulp.series('dev-activity-copyTranslate', function () {
-    var srcPath = paths.buildDevActivity;
-    var destPath = paths.buildDevActivity + paths.relScript;
-    var filename = 'translations' + createSuffixDate();
-    return (pipes.compileTranslateFile(srcPath, destPath, filename, activityTranslationFilesBaseList));
-
-}));
-
-
-gulp.task('dev-activity-copyLib', function () {
-    var copySources = gulp.src([paths.lib + '**/*', paths.styles + '**/*', '!' + paths.lib + libFileNames.deepDiffMin],
-        {read: true, base: '.'});
-    return copySources.pipe(gulp.dest(paths.buildDevActivity))
-
-});
-
-gulp.task('dev-global-copyWetDep', function () {
-    return (pipes.copyWet(paths.buildDev))
-});
-
-gulp.task('dev-cleanEnvironment', function () {
-    return (pipes.cleanBuild(paths.buildDev));
-});
-
-gulp.task('dev-activity-createRootJS', function () {
-    var lang = 'en';
-    var dest = paths.buildDevActivity + 'app/scripts/';
-    var rootFile = paths.scripts + "/" + rootFileNames.activityRoot + '.js';
-    var skipDate = true;
-    var generateInternalForms = true;
-    return (
-        pipes.createRootFileSet(rootFile, dest, skipDate, generateInternalForms)
-    );
-
-});
-
-gulp.task('dev-activity-copyData', function () {
-
-    var copySources = gulp.src([paths.data + '**/*'],
-        {read: true, base: 'app'});
-    return (copySources.pipe(gulp.dest(paths.buildDev)));
-});
-
-gulp.task('dev-activity-htmlBuild', gulp.series('dev-activity-clean', 'dev-global-create-src-template', 'dev-activity-copyData', 'dev-activity-copySrc', 'dev-activity-copyLib', 'dev-activity-createRootJS', 'dev-activity-createResources', function () {
-    var today = createSuffixDate();
-    today = "";
-    var deploy = deployType.dev;
-    pipes.createRootHtml(paths.devFrenchTemplate, activityRootTitles_fr, 'activityINT-fr.html', 'activityAppINT-fr' + today + '.js', jsRootContent.partialActivityRoot, paths.buildDevActivity, '/build/dev/activity', 'fr', deploy);
-    pipes.createRootHtml(paths.devFrenchTemplate, activityRootTitles_fr, 'activityEXT-fr.html', 'activityAppEXT-fr' + today + '.js', jsRootContent.partialActivityRoot, paths.buildDevActivity, '/build/dev/activity', 'fr', deploy);
-    pipes.createRootHtml(paths.devEnglishTemplate, activityRootTitles_en, 'activityEXT-en.html', 'activityAppEXT-en' + today + '.js', jsRootContent.partialActivityRoot, paths.buildDevActivity, '/build/dev/activity', 'en', deploy);
-    pipes.createRootHtml(paths.devEnglishTemplate, activityRootTitles_en, 'activityINT-en.html', 'activityAppINT-en' + today + '.js', jsRootContent.partialActivityRoot, paths.buildDevActivity, '/build/dev/activity', 'en', deploy);
-
-    return (
-        pipes.cleanBuild(paths.buildDevActivity + paths.translations)
-    );
-
-
-}));
+// gulp.task('dev-global-copyWetDep', function () {
+//     return (pipes.copyWet(paths.buildDev))
+// });
+//
+// gulp.task('dev-cleanEnvironment', function () {
+//     return (pipes.cleanBuild(paths.buildDev));
+// });
+//
+// gulp.task('dev-activity-createRootJS', function () {
+//     var lang = 'en';
+//     var dest = paths.buildDevActivity + 'app/scripts/';
+//     var rootFile = paths.scripts + "/" + rootFileNames.activityRoot + '.js';
+//     var skipDate = true;
+//     var generateInternalForms = true;
+//     return (
+//         pipes.createRootFileSet(rootFile, dest, skipDate, generateInternalForms)
+//     );
+//
+// });
+//
+// gulp.task('dev-activity-copyData', function () {
+//
+//     var copySources = gulp.src([paths.data + '**/*'],
+//         {read: true, base: 'app'});
+//     return (copySources.pipe(gulp.dest(paths.buildDev)));
+// });
+//
+// gulp.task('dev-activity-htmlBuild', gulp.series('dev-activity-clean', 'dev-global-create-src-template', 'dev-activity-copyData', 'dev-activity-copySrc', 'dev-activity-copyLib', 'dev-activity-createRootJS', 'dev-activity-createResources', function () {
+//     var today = createSuffixDate();
+//     today = "";
+//     var deploy = deployType.dev;
+//     pipes.createRootHtml(paths.devFrenchTemplate, activityRootTitles_fr, 'activityINT-fr.html', 'activityAppINT-fr' + today + '.js', jsRootContent.partialActivityRoot, paths.buildDevActivity, '/build/dev/activity', 'fr', deploy);
+//     pipes.createRootHtml(paths.devFrenchTemplate, activityRootTitles_fr, 'activityEXT-fr.html', 'activityAppEXT-fr' + today + '.js', jsRootContent.partialActivityRoot, paths.buildDevActivity, '/build/dev/activity', 'fr', deploy);
+//     pipes.createRootHtml(paths.devEnglishTemplate, activityRootTitles_en, 'activityEXT-en.html', 'activityAppEXT-en' + today + '.js', jsRootContent.partialActivityRoot, paths.buildDevActivity, '/build/dev/activity', 'en', deploy);
+//     pipes.createRootHtml(paths.devEnglishTemplate, activityRootTitles_en, 'activityINT-en.html', 'activityAppINT-en' + today + '.js', jsRootContent.partialActivityRoot, paths.buildDevActivity, '/build/dev/activity', 'en', deploy);
+//
+//     return (
+//         pipes.cleanBuild(paths.buildDevActivity + paths.translations)
+//     );
+//
+//
+// }));
 
 /******* Company Tasks ****/
 
@@ -1677,7 +1805,7 @@ gulp.task('dev-company-copyWet', function () {
     return (pipes.copyWet(paths.buildDevCompany))
 });
 
-gulp.task('dev-company-htmlBuild', gulp.series('dev-company-clean', 'dev-global-create-src-template', 'dev-company-copyData', 'dev-company-copySrc', 'dev-company-copyLib', 'dev-company-createRootJS', 'dev-company-createResources', function () {
+gulp.task('dev-company-htmlCreate', function () {
     var ignoreDir = '/build/dev/company';
     var buildDir = paths.buildDevCompany;
     var htmlPartial = jsRootContent.partialCompanyRoot;
@@ -1693,7 +1821,15 @@ gulp.task('dev-company-htmlBuild', gulp.series('dev-company-clean', 'dev-global-
 
     );
 
+});
 
+gulp.task('dev-company-htmlBuild', gulp.series('dev-company-pilot-clean', 'dev-company-clean', 'dev-global-create-src-template', 'dev-company-copyData', 'dev-company-copySrc', 'dev-company-copyLib', 'dev-company-createRootJS', 'dev-company-createResources', 'dev-company-htmlCreate', function () {
+    setTimeout(() => {
+        // console.log("pilot!");
+        var copySources = gulp.src([paths.buildDevCompany + '**/*'],
+            {read: true, base: paths.buildDevCompany});
+        return (copySources.pipe(gulp.dest(paths.buildDevPilotCompany)));
+    }, 3000);
 }));
 
 
@@ -1746,7 +1882,7 @@ gulp.task('dev-transaction-copyData', function () {
     return (copySources.pipe(gulp.dest(paths.buildDev)));
 });
 
-gulp.task('dev-transaction-htmlBuild', gulp.series('dev-transaction-clean', 'dev-global-create-src-template', 'dev-transaction-copyData', 'dev-transaction-copySrc', 'dev-transaction-copyLib', 'dev-transaction-createRootJs', 'dev-transaction-createResources', function () {
+gulp.task('dev-transaction-htmlCreate', function () {
     var ignoreDir = '/build/dev/transaction';
     var buildDir = paths.buildDevTransaction;
     var htmlPartial = jsRootContent.partialTransactionRoot;
@@ -1760,22 +1896,31 @@ gulp.task('dev-transaction-htmlBuild', gulp.series('dev-transaction-clean', 'dev
         pipes.cleanBuild(buildDir + paths.translations)
     );
 
+});
+
+gulp.task('dev-transaction-htmlBuild', gulp.series('dev-transaction-pilot-clean', 'dev-transaction-clean', 'dev-global-create-src-template', 'dev-transaction-copyData', 'dev-transaction-copySrc', 'dev-transaction-copyLib', 'dev-transaction-createRootJs', 'dev-transaction-createResources', 'dev-transaction-htmlCreate', function () {
+    setTimeout(() => {
+        // console.log("pilot!");
+        var copySources = gulp.src([paths.buildDevTransaction + '**/*'],
+            {read: true, base: paths.buildDevTransaction});
+    return (copySources.pipe(gulp.dest(paths.buildDevPilotTransaction)));
+}, 3000);
 }));
 
 /******** Dossier Related  tasks  *****************/
-
-gulp.task('dev-dossier-copyWet', function () {
-    return (pipes.copyWet(paths.buildDevDossier))
-});
+//
+// gulp.task('dev-dossier-copyWet', function () {
+//     return (pipes.copyWet(paths.buildDevDossier))
+// });
 gulp.task('dev-drugProduct-copyWet', function () {
     return (pipes.copyWet(paths.buildDevDrugProduct))
 });
 
-gulp.task('dev-dossier-copyLib', function () {
-    var copySources = gulp.src([paths.lib + '**/*', paths.styles + '**/*'],
-        {read: true, base: '.'});
-    return (copySources.pipe(gulp.dest(paths.buildDevDossier)));
-});
+// gulp.task('dev-dossier-copyLib', function () {
+//     var copySources = gulp.src([paths.lib + '**/*', paths.styles + '**/*'],
+//         {read: true, base: '.'});
+//     return (copySources.pipe(gulp.dest(paths.buildDevDossier)));
+// });
 gulp.task('dev-drugProduct-copyLib', function () {
     var copySources = gulp.src([paths.lib + '**/*', paths.styles + '**/*'],
         {read: true, base: '.'});
@@ -1783,11 +1928,11 @@ gulp.task('dev-drugProduct-copyLib', function () {
 });
 
 
-gulp.task('dev-dossier-copyData', function () {
-    var copySources = gulp.src([paths.data + '**/*'],
-        {read: true, base: 'app'});
-    return (copySources.pipe(gulp.dest(paths.buildDev)));
-});
+// gulp.task('dev-dossier-copyData', function () {
+//     var copySources = gulp.src([paths.data + '**/*'],
+//         {read: true, base: 'app'});
+//     return (copySources.pipe(gulp.dest(paths.buildDev)));
+// });
 
 gulp.task('dev-drugProduct-copyData', function () {
     var copySources = gulp.src([paths.data + '**/*'],
@@ -1802,18 +1947,18 @@ gulp.task('dev-csp-copyData', function () {
 });
 
 
-gulp.task('dev-dossier-copyTranslate', function () {
+// gulp.task('dev-dossier-copyTranslate', function () {
+//
+//     return (pipes.translateDev(dossierTranslationFilesBaseList, paths.buildDevDossier));
+// });
 
-    return (pipes.translateDev(dossierTranslationFilesBaseList, paths.buildDevDossier));
-});
-
-gulp.task('dev-dossier-createResources', gulp.series('dev-dossier-copyTranslate', function () {
-
-    var srcPath = paths.buildDevDossier;
-    var destPath = paths.buildDevDossier + paths.relScript;
-    var filename = 'translations' + createSuffixDate();
-    return (pipes.compileTranslateFile(srcPath, destPath, filename, dossierTranslationFilesBaseList));
-}));
+// gulp.task('dev-dossier-createResources', gulp.series('dev-dossier-copyTranslate', function () {
+//
+//     var srcPath = paths.buildDevDossier;
+//     var destPath = paths.buildDevDossier + paths.relScript;
+//     var filename = 'translations' + createSuffixDate();
+//     return (pipes.compileTranslateFile(srcPath, destPath, filename, dossierTranslationFilesBaseList));
+// }));
 
 gulp.task('dev-drugProduct-copyTranslate', function () {
 
@@ -1828,11 +1973,11 @@ gulp.task('dev-drugProduct-createResources', gulp.series('dev-drugProduct-copyTr
     return (pipes.compileTranslateFile(srcPath, destPath, filename, drugProductTranslationFilesBaseList));
 }));
 
-gulp.task('dev-dossier-copySrc', function () {
-    return (
-        pipes.copySrcs(true, paths.buildDevDossier, dossierComponentFolders, dossierServiceFileNames, dossierDirectiveFolders, dossierTemplates, false)
-    )
-});
+// gulp.task('dev-dossier-copySrc', function () {
+//     return (
+//         pipes.copySrcs(true, paths.buildDevDossier, dossierComponentFolders, dossierServiceFileNames, dossierDirectiveFolders, dossierTemplates, false)
+//     )
+// });
 
 gulp.task('dev-drugProduct-copySrc', function () {
     return (
@@ -1840,18 +1985,18 @@ gulp.task('dev-drugProduct-copySrc', function () {
     )
 });
 
-gulp.task('dev-dossier-createRootJS', function () {
-
-    var dest = paths.buildDevDossier + 'app/scripts/';
-    var rootFile = paths.scripts + "/" + rootFileNames.dossierRoot + '.js';
-    var skipDate = true;
-    var generateInternalForms = true;
-    return (
-        pipes.createRootFileSet(rootFile, dest, skipDate, generateInternalForms)
-    );
-
-
-});
+// gulp.task('dev-dossier-createRootJS', function () {
+//
+//     var dest = paths.buildDevDossier + 'app/scripts/';
+//     var rootFile = paths.scripts + "/" + rootFileNames.dossierRoot + '.js';
+//     var skipDate = true;
+//     var generateInternalForms = true;
+//     return (
+//         pipes.createRootFileSet(rootFile, dest, skipDate, generateInternalForms)
+//     );
+//
+//
+// });
 
 gulp.task('dev-drugProduct-createRootJS', function () {
 
@@ -1873,23 +2018,22 @@ gulp.task('dev-drugProduct-createRootJS', function () {
  * Creates 4 html files- internal english, internal french, external english, external french
  */
 //' dev-dossier-insertTranslateLoader '
-gulp.task('dev-dossier-htmlBuild', gulp.series('dev-dossier-clean', 'dev-global-create-src-template', 'dev-dossier-copyData', 'dev-dossier-copySrc', 'dev-dossier-copyLib', 'dev-dossier-createRootJS', 'dev-dossier-createResources', function () {
-
-    var ignoreDir = '/build/dev/dossier';
-    var buildDir = paths.buildDevDossier;
-    var htmlPartial = jsRootContent.partialDossierRoot;
-    var today = createSuffixDate();
-    today = "";
-    var deploy = deployType.dev;
-    pipes.createRootHtml(paths.devFrenchTemplate, dossierRootTitles_fr, 'dossierEnrolINT-fr.html', 'dossierAppINT-fr' + today + '.js', htmlPartial, buildDir, ignoreDir, 'fr', deploy);
-    pipes.createRootHtml(paths.devFrenchTemplate, dossierRootTitles_fr, 'dossierEnrolEXT-fr.html', 'dossierAppEXT-fr' + today + '.js', htmlPartial, buildDir, ignoreDir, 'fr', deploy);
-    pipes.createRootHtml(paths.devEnglishTemplate, dossierRootTitles_en, 'dossierEnrolEXT-en.html', 'dossierAppEXT-en' + today + '.js', htmlPartial, buildDir, ignoreDir, 'en', deploy);
-    pipes.createRootHtml(paths.devEnglishTemplate, dossierRootTitles_en, 'dossierEnrolINT-en.html', 'dossierAppINT-en' + today + '.js', htmlPartial, buildDir, ignoreDir, 'en', deploy);
-    return (
-        pipes.cleanBuild(buildDir + paths.translations)
-    );
-}));
-
+// gulp.task('dev-dossier-htmlBuild', gulp.series('dev-dossier-clean', 'dev-global-create-src-template', 'dev-dossier-copyData', 'dev-dossier-copySrc', 'dev-dossier-copyLib', 'dev-dossier-createRootJS', 'dev-dossier-createResources', function () {
+//
+//     var ignoreDir = '/build/dev/dossier';
+//     var buildDir = paths.buildDevDossier;
+//     var htmlPartial = jsRootContent.partialDossierRoot;
+//     var today = createSuffixDate();
+//     today = "";
+//     var deploy = deployType.dev;
+//     pipes.createRootHtml(paths.devFrenchTemplate, dossierRootTitles_fr, 'dossierEnrolINT-fr.html', 'dossierAppINT-fr' + today + '.js', htmlPartial, buildDir, ignoreDir, 'fr', deploy);
+//     pipes.createRootHtml(paths.devFrenchTemplate, dossierRootTitles_fr, 'dossierEnrolEXT-fr.html', 'dossierAppEXT-fr' + today + '.js', htmlPartial, buildDir, ignoreDir, 'fr', deploy);
+//     pipes.createRootHtml(paths.devEnglishTemplate, dossierRootTitles_en, 'dossierEnrolEXT-en.html', 'dossierAppEXT-en' + today + '.js', htmlPartial, buildDir, ignoreDir, 'en', deploy);
+//     pipes.createRootHtml(paths.devEnglishTemplate, dossierRootTitles_en, 'dossierEnrolINT-en.html', 'dossierAppINT-en' + today + '.js', htmlPartial, buildDir, ignoreDir, 'en', deploy);
+//     return (
+//         pipes.cleanBuild(buildDir + paths.translations)
+//     );
+// }));
 
 /**
  * Generates the base Drug Product HTML file.
@@ -1899,7 +2043,7 @@ gulp.task('dev-dossier-htmlBuild', gulp.series('dev-dossier-clean', 'dev-global-
  * Creates 4 html files- internal english, internal french, external english, external french
  */
 //' dev-dossier-insertTranslateLoader '
-gulp.task('dev-drugProduct-htmlBuild', gulp.series('dev-drugProduct-clean', 'dev-global-create-src-template', 'dev-drugProduct-copyData', 'dev-drugProduct-copySrc', 'dev-drugProduct-copyLib', 'dev-drugProduct-createRootJS', 'dev-drugProduct-createResources', function () {
+gulp.task('dev-drugProduct-htmlCreate', function () {
 
     var ignoreDir = '/build/dev/drugProduct';
     var buildDir = paths.buildDevDrugProduct;
@@ -1911,6 +2055,85 @@ gulp.task('dev-drugProduct-htmlBuild', gulp.series('dev-drugProduct-clean', 'dev
     pipes.createRootHtml(paths.devFrenchTemplate, drugProductRootTitles_fr, 'drugProductEnrolEXT-fr.html', 'drugProductAppEXT-fr' + today + '.js', htmlPartial, buildDir, ignoreDir, 'fr', deploy);
     pipes.createRootHtml(paths.devEnglishTemplate, drugProductRootTitles_en, 'drugProductEnrolEXT-en.html', 'drugProductAppEXT-en' + today + '.js', htmlPartial, buildDir, ignoreDir, 'en', deploy);
     // pipes.createRootHtml(paths.devEnglishTemplate, drugProductRootTitles_en, 'drugProductEnrolINT-en.html', 'drugProductAppINT-en' + today + '.js', htmlPartial, buildDir, ignoreDir, 'en', deploy);
+    return (
+        pipes.cleanBuild(buildDir + paths.translations)
+    );
+});
+
+gulp.task('dev-drugProduct-htmlBuild', gulp.series('dev-drugProduct-pilot-clean', 'dev-drugProduct-clean', 'dev-global-create-src-template', 'dev-drugProduct-copyData', 'dev-drugProduct-copySrc', 'dev-drugProduct-copyLib', 'dev-drugProduct-createRootJS', 'dev-drugProduct-createResources', 'dev-drugProduct-htmlCreate', function () {
+    setTimeout(() => {
+        // console.log("pilot!");
+        var copySources = gulp.src([paths.buildDevDrugProduct + '**/*'],
+            {read: true, base: paths.buildDevDrugProduct});
+    return (copySources.pipe(gulp.dest(paths.buildDevPilotDrugProduct)));
+}, 3000);
+}));
+
+// ******** dev piConverter tasks ******************
+gulp.task('dev-piConverter-copyWet', function () {
+    return (pipes.copyWet(paths.buildDevPIConverter))
+});
+
+gulp.task('dev-piConverter-copyLib', function () {
+    var copySources = gulp.src([paths.lib + '**/*', paths.styles + '**/*'],
+        {read: true, base: '.'});
+    return (copySources.pipe(gulp.dest(paths.buildDevPIConverter)));
+});
+
+gulp.task('dev-piConverter-copyData', function () {
+    var copySources = gulp.src([paths.data + '**/*'],
+        {read: true, base: 'app'});
+    return (copySources.pipe(gulp.dest(paths.buildDev)));
+});
+
+gulp.task('dev-piConverter-copyTranslate', function () {
+
+    return (pipes.translateDev(piConverterTranslationFilesBaseList, paths.buildDevPIConverter));
+});
+
+gulp.task('dev-piConverter-createResources', gulp.series('dev-piConverter-copyTranslate', function () {
+
+    var srcPath = paths.buildDevPIConverter;
+    var destPath = paths.buildDevPIConverter + paths.relScript;
+    var filename = 'translations' + createSuffixDate();
+    return (pipes.compileTranslateFile(srcPath, destPath, filename, piConverterTranslationFilesBaseList));
+}));
+
+gulp.task('dev-piConverter-copySrc', function () {
+    return (
+        pipes.copySrcs(true, paths.buildDevPIConverter, piConverterComponentFolders, piConverterServiceFileNames, piConverterDirectiveFolders, piConverterTemplates, false)
+    )
+});
+
+gulp.task('dev-piConverter-createRootJS', function () {
+
+    var dest = paths.buildDevPIConverter + 'app/scripts/';
+    var rootFile = paths.scripts + "/" + rootFileNames.piConverterRoot + '.js';
+    var skipDate = true;
+    var generateInternalForms = false;
+    return (
+        pipes.createRootFileSet(rootFile, dest, skipDate, generateInternalForms)
+    );
+});
+
+/**
+ * Generates the base Product Info Converter HTML file.
+ * First copies the source files (copyPiConverterSrcDev),
+ * library files (copyLibPiConverter),
+ * Then creates 4 versions of main app file (piConverterApp).
+ * Creates 2 html files- external english, external french
+ */
+//' dev-piConverter-htmlBuild '
+gulp.task('dev-piConverter-htmlBuild', gulp.series('dev-piConverter-clean', 'dev-converter-create-src-template', 'dev-piConverter-copyData', 'dev-piConverter-copySrc', 'dev-piConverter-copyLib', 'dev-piConverter-createRootJS', 'dev-piConverter-createResources', function () {
+
+    var ignoreDir = '/build/dev/converter';
+    var buildDir = paths.buildDevPIConverter;
+    var htmlPartial = jsRootContent.partialPIConverterRoot;
+    var today = createSuffixDate();
+    today = "";
+    var deploy = deployType.dev;
+    pipes.createRootHtml(paths.devFrenchConverterTemplate, piConverterRootTitles_fr, 'converter-fr.html', 'piConverterAppEXT-fr' + today + '.js', htmlPartial, buildDir, ignoreDir, 'fr', deploy);
+    pipes.createRootHtml(paths.devEnglishConverterTemplate, piConverterRootTitles_en, 'converter-en.html', 'piConverterAppEXT-en' + today + '.js', htmlPartial, buildDir, ignoreDir, 'en', deploy);
     return (
         pipes.cleanBuild(buildDir + paths.translations)
     );
@@ -2097,15 +2320,16 @@ gulp.task('dev-csp-injectTest', function () {
 
 //==================================================================
 
-gulp.task('dev-build-allForms', gulp.series(
-    'dev-activity-htmlBuild',
-    'dev-company-htmlBuild',
-    'dev-csp-htmlBuild',
-    'dev-transaction-htmlBuild',
-    'dev-dossier-htmlBuild',
-    'dev-drugProduct-htmlBuild', function (done) {
-        done();
-    }));
+// gulp.task('dev-build-allForms', gulp.series(
+//     // 'dev-activity-htmlBuild',
+//     'dev-company-htmlBuild',
+//     'dev-csp-htmlBuild',
+//     'dev-transaction-htmlBuild',
+//     // 'dev-dossier-htmlBuild',
+//     'dev-piConverter-htmlBuild',
+//     'dev-drugProduct-htmlBuild', function (done) {
+//         done();
+//     }));
 
 
 /*******************PRODUCTIION SCRIPTS START HERE **********************/
@@ -2157,112 +2381,118 @@ gulp.task('prod-global-create-src-template', function () {
 
 });
 
+gulp.task('prod-converter-create-src-template', function () {
+
+    return (pipes.createConverterBaseTemplates(paths.buildProd + '/templates/'));
+
+});
+
 /********* PRODUCTION ACTIVITY**********/
 
-
-gulp.task('prod-activity-copyTranslateFiles', function () {
-
-    var destPath = paths.buildProdActivity;
-
-    var translationList = activityTranslationFilesBaseList;
-
-    return (pipes.translateDev(translationList, destPath));
-});
-
-
-//copy source files
-gulp.task('prod-activity-copySourceFiles', function () {
-    return (
-        pipes.copySrcs(false, paths.buildProdActivity, activityComponentFolders, activityServiceFileNames, activityDirectiveFolders, activityTemplates, true)
-    );
-});
-
-gulp.task('prod-activity-deleteSourceFiles', function () {
-    return (
-        pipes.deleteSrcs(paths.buildProdActivity + 'app/scripts', activityComponentFolders, activityServiceFileNames, activityDirectiveFolders)
-    );
-});
-
-gulp.task('prod-activity-copyLib', function () {
-    var srcArray = stylesProd;
-
-    for (var i = 0; i < libProd.length; i++) {
-        srcArray.push(libProd[i])
-    }
-
-    var copySources = gulp.src(srcArray, {read: true, base: '.'});
-    return copySources.pipe(gulp.dest(paths.buildProdActivity))
-
-});
-
-gulp.task('prod-activity-createRootJsFiles', function () {
-    var dest = paths.buildProdActivity + 'app/scripts/';
-    var rootFile = paths.scripts + "/" + rootFileNames.activityRoot + ".js";
-    return (
-        pipes.createRootFileSet(rootFile, dest, true, true)
-    );
-});
-
-gulp.task('prod-activity-compileTranslateFile', gulp.series('prod-activity-copyTranslateFiles', function () {
-
-    var destPath = paths.buildProdActivity + paths.relScript;
-    var srcPath = paths.buildProdActivity;
-    return (pipes.compileTranslateFile(srcPath, destPath, "activityTranslations", activityTranslationFilesBaseList));
-
-}));
-
-gulp.task('prod-activity-compileSrcJs', gulp.series('prod-activity-compileTranslateFile', 'prod-activity-createRootJsFiles', 'prod-activity-copySourceFiles', function () {
-
-    var srcPath = paths.buildProdActivity + 'app/scripts/';
-    var dest = paths.buildProdActivity + 'app/scripts/';
-    var rootJsBaseName = "activityApp";
-    var translateName = "activityTranslations";
-    return (
-        pipes.compileSourceJsMinified(srcPath, dest, rootJsBaseName, activityComponentFolders, activityServiceFileNames, activityDirectiveFolders, translateName, true)
-    )
-}));
-
-gulp.task('prod-activity-compileHtml', gulp.series('prod-global-create-src-template', 'prod-global-copyDataFolder', 'prod-activity-compileSrcJs', 'prod-activity-copyLib', function () {
-
-    var ignorePath = '/build/prod/activity';
-    var baseActivityPath = paths.buildProdActivity;
-    var destPath = paths.buildProdActivity;
-    var htmlPartial = jsRootContent.partialActivityRoot;
-
-    var srcJsExtEn = [
-        baseActivityPath + 'app/scripts/' + 'activityAppEXT-en' + '*.min.js',
-        paths.buildProdActivity + 'app/lib/**/angular*.js'
-    ];
-    var srcJsExtFr = [
-        baseActivityPath + 'app/scripts/' + 'activityAppEXT-fr' + '*.min.js',
-        paths.buildProdActivity + 'app/lib/**/angular*.js'
-    ];
-    var srcJsIntFr = [
-        baseActivityPath + 'app/scripts/' + 'activityAppINT-fr' + '*.min.js',
-        paths.buildProdActivity + 'app/lib/**/angular*.js'
-    ];
-    var srcJsIntEn = [
-        baseActivityPath + 'app/scripts/' + 'activityAppINT-en' + '*.min.js',
-        paths.buildProdActivity + 'app/lib/**/angular*.js'
-    ];
-
-    var srcPath = paths.buildProdActivity;
-
-    pipes.createProdRootHtml2(srcPath, paths.prodEnglishTemplate, activityRootTitles_en, htmlPartial, srcJsExtEn, ignorePath, 'activityEXT-en.html', destPath, 'en', deployType.prod, 'activityEXT-fr.html');
-    pipes.createProdRootHtml2(srcPath, paths.prodFrenchTemplate, activityRootTitles_fr, htmlPartial, srcJsExtFr, ignorePath, 'activityEXT-fr.html', destPath, 'fr', deployType.prod, 'activityEXT-en.html');
-    pipes.createProdRootHtml2(srcPath, paths.prodFrenchTemplate, activityRootTitles_fr, htmlPartial, srcJsIntFr, ignorePath, 'activityINT-fr.html', destPath, 'fr', deployType.prodInt, 'activityINT-en.html');
-
-    return pipes.createProdRootHtml2(srcPath, paths.prodEnglishTemplate, activityRootTitles_en, htmlPartial, srcJsIntEn, ignorePath, 'activityINT-en.html', destPath, 'en', deployType.prodInt, 'activityINT-fr.html');
-
-}));
-
-gulp.task('prod-activity-allFormsCreate', gulp.series('prod-activity-clean', 'prod-activity-compileHtml', function () {
-
-
-    var basePath = paths.buildProdActivity;
-    return pipes.deleteResourcesNonMinFiles(paths.buildProdActivity);
-
-}));
+//
+// gulp.task('prod-activity-copyTranslateFiles', function () {
+//
+//     var destPath = paths.buildProdActivity;
+//
+//     var translationList = activityTranslationFilesBaseList;
+//
+//     return (pipes.translateDev(translationList, destPath));
+// });
+//
+//
+// //copy source files
+// gulp.task('prod-activity-copySourceFiles', function () {
+//     return (
+//         pipes.copySrcs(false, paths.buildProdActivity, activityComponentFolders, activityServiceFileNames, activityDirectiveFolders, activityTemplates, true)
+//     );
+// });
+//
+// gulp.task('prod-activity-deleteSourceFiles', function () {
+//     return (
+//         pipes.deleteSrcs(paths.buildProdActivity + 'app/scripts', activityComponentFolders, activityServiceFileNames, activityDirectiveFolders)
+//     );
+// });
+//
+// gulp.task('prod-activity-copyLib', function () {
+//     var srcArray = stylesProd;
+//
+//     for (var i = 0; i < libProd.length; i++) {
+//         srcArray.push(libProd[i])
+//     }
+//
+//     var copySources = gulp.src(srcArray, {read: true, base: '.'});
+//     return copySources.pipe(gulp.dest(paths.buildProdActivity))
+//
+// });
+//
+// gulp.task('prod-activity-createRootJsFiles', function () {
+//     var dest = paths.buildProdActivity + 'app/scripts/';
+//     var rootFile = paths.scripts + "/" + rootFileNames.activityRoot + ".js";
+//     return (
+//         pipes.createRootFileSet(rootFile, dest, true, true)
+//     );
+// });
+//
+// gulp.task('prod-activity-compileTranslateFile', gulp.series('prod-activity-copyTranslateFiles', function () {
+//
+//     var destPath = paths.buildProdActivity + paths.relScript;
+//     var srcPath = paths.buildProdActivity;
+//     return (pipes.compileTranslateFile(srcPath, destPath, "activityTranslations", activityTranslationFilesBaseList));
+//
+// }));
+//
+// gulp.task('prod-activity-compileSrcJs', gulp.series('prod-activity-compileTranslateFile', 'prod-activity-createRootJsFiles', 'prod-activity-copySourceFiles', function () {
+//
+//     var srcPath = paths.buildProdActivity + 'app/scripts/';
+//     var dest = paths.buildProdActivity + 'app/scripts/';
+//     var rootJsBaseName = "activityApp";
+//     var translateName = "activityTranslations";
+//     return (
+//         pipes.compileSourceJsMinified(srcPath, dest, rootJsBaseName, activityComponentFolders, activityServiceFileNames, activityDirectiveFolders, translateName, true)
+//     )
+// }));
+//
+// gulp.task('prod-activity-compileHtml', gulp.series('prod-global-create-src-template', 'prod-global-copyDataFolder', 'prod-activity-compileSrcJs', 'prod-activity-copyLib', function () {
+//
+//     var ignorePath = '/build/prod/activity';
+//     var baseActivityPath = paths.buildProdActivity;
+//     var destPath = paths.buildProdActivity;
+//     var htmlPartial = jsRootContent.partialActivityRoot;
+//
+//     var srcJsExtEn = [
+//         baseActivityPath + 'app/scripts/' + 'activityAppEXT-en' + '*.min.js',
+//         paths.buildProdActivity + 'app/lib/**/angular*.js'
+//     ];
+//     var srcJsExtFr = [
+//         baseActivityPath + 'app/scripts/' + 'activityAppEXT-fr' + '*.min.js',
+//         paths.buildProdActivity + 'app/lib/**/angular*.js'
+//     ];
+//     var srcJsIntFr = [
+//         baseActivityPath + 'app/scripts/' + 'activityAppINT-fr' + '*.min.js',
+//         paths.buildProdActivity + 'app/lib/**/angular*.js'
+//     ];
+//     var srcJsIntEn = [
+//         baseActivityPath + 'app/scripts/' + 'activityAppINT-en' + '*.min.js',
+//         paths.buildProdActivity + 'app/lib/**/angular*.js'
+//     ];
+//
+//     var srcPath = paths.buildProdActivity;
+//
+//     pipes.createProdRootHtml2(srcPath, paths.prodEnglishTemplate, activityRootTitles_en, htmlPartial, srcJsExtEn, ignorePath, 'activityEXT-en.html', destPath, 'en', deployType.prod, 'activityEXT-fr.html');
+//     pipes.createProdRootHtml2(srcPath, paths.prodFrenchTemplate, activityRootTitles_fr, htmlPartial, srcJsExtFr, ignorePath, 'activityEXT-fr.html', destPath, 'fr', deployType.prod, 'activityEXT-en.html');
+//     pipes.createProdRootHtml2(srcPath, paths.prodFrenchTemplate, activityRootTitles_fr, htmlPartial, srcJsIntFr, ignorePath, 'activityINT-fr.html', destPath, 'fr', deployType.prodInt, 'activityINT-en.html');
+//
+//     return pipes.createProdRootHtml2(srcPath, paths.prodEnglishTemplate, activityRootTitles_en, htmlPartial, srcJsIntEn, ignorePath, 'activityINT-en.html', destPath, 'en', deployType.prodInt, 'activityINT-fr.html');
+//
+// }));
+//
+// gulp.task('prod-activity-allFormsCreate', gulp.series('prod-activity-clean', 'prod-activity-compileHtml', function () {
+//
+//
+//     var basePath = paths.buildProdActivity;
+//     return pipes.deleteResourcesNonMinFiles(paths.buildProdActivity);
+//
+// }));
 
 /*********** COMPANY PRODCTION SCRIPTS ****************/
 
@@ -2364,105 +2594,105 @@ gulp.task('prod-company-allFormsCreate', gulp.series('prod-company-clean', 'prod
 /***START DOSSIER PROD SCRIPTS****/
 
 
-gulp.task('prod-dossier-clean', function () {
-    return (pipes.cleanBuild(paths.buildProdDossier));
-
-});
-
-gulp.task('prod-dossier-copyTranslateFiles', function () {
-
-    var destPath = paths.buildProdDossier;
-
-    var translationList = dossierTranslationFilesBaseList;
-
-    return (pipes.translateDev(translationList, destPath));
-
-});
-
-gulp.task('prod-dossier-createRootJsFiles', function () {
-    var dest = paths.buildProdDossier + 'app/scripts/';
-    var rootFile = paths.scripts + "/" + rootFileNames.dossierRoot + ".js";
-    return (
-        pipes.createRootFileSet(rootFile, dest, true, true)
-    );
-});
-
-gulp.task('prod-dossier-copySourceFiles', function () {
-    return (
-        pipes.copySrcs(false, paths.buildProdDossier, dossierComponentFolders, dossierServiceFileNames, dossierDirectiveFolders, dossierTemplates, true)
-    );
-});
-
-gulp.task('prod-dossier-copyLib', function () {
-    var srcArray = stylesProd;
-
-    for (var i = 0; i < libProd.length; i++) {
-        srcArray.push(libProd[i])
-    }
-
-    var copySources = gulp.src(srcArray, {read: true, base: '.'});
-    return copySources.pipe(gulp.dest(paths.buildProdDossier))
-
-});
-
-gulp.task('prod-dossier-compileTranslateFile', gulp.series('prod-dossier-copyTranslateFiles', function () {
-
-    var destPath = paths.buildProdDossier + paths.relScript;
-    var srcPath = paths.buildProdDossier;
-    return (pipes.compileTranslateFile(srcPath, destPath, "dossierTranslations", dossierTranslationFilesBaseList));
-
-}));
-
-gulp.task('prod-dossier-compileSrcJs', gulp.series('prod-dossier-compileTranslateFile', 'prod-dossier-createRootJsFiles', 'prod-dossier-copySourceFiles', function () {
-
-    var srcPath = paths.buildProdDossier + 'app/scripts/';
-    var dest = paths.buildProdDossier + 'app/scripts/';
-    var rootJsBaseName = "dossierApp";
-    var translateName = "dossierTranslations";
-    return (
-        pipes.compileSourceJsMinified(srcPath, dest, rootJsBaseName, dossierComponentFolders, dossierServiceFileNames, dossierDirectiveFolders, translateName, true)
-    )
-}));
-
-gulp.task('prod-dossier-compileHtml', gulp.series('prod-global-create-src-template', 'prod-global-copyDataFolder', 'prod-dossier-compileSrcJs', 'prod-dossier-copyLib', function () {
-
-    var ignorePath = '/build/prod/dossier';
-    var basePath = paths.buildProdDossier;
-    var destPath = paths.buildProdDossier;
-    var htmlPartial = jsRootContent.partialDossierRoot;
-
-    var srcJsExtEn = [
-        basePath + 'app/scripts/' + 'dossierAppEXT-en' + '*.min.js',
-        paths.buildProdDossier + 'app/lib/**/angular*.js'
-    ];
-    var srcJsExtFr = [
-        basePath + 'app/scripts/' + 'dossierAppEXT-fr' + '*.min.js',
-        paths.buildProdDossier + 'app/lib/**/angular*.js'
-    ];
-    var srcJsIntFr = [
-        basePath + 'app/scripts/' + 'dossierAppINT-fr' + '*.min.js',
-        paths.buildProdDossier + 'app/lib/**/angular*.js'
-    ];
-    var srcJsIntEn = [
-        basePath + 'app/scripts/' + 'dossierAppINT-en' + '*.min.js',
-        paths.buildProdDossier + 'app/lib/**/angular*.js'
-    ];
-
-    var srcPath = paths.buildProdDossier;
-
-    pipes.createProdRootHtml2(srcPath, paths.prodEnglishTemplate, dossierRootTitles_en, htmlPartial, srcJsExtEn, ignorePath, 'dossierEXT-en.html', destPath, 'en', deployType.prod, 'dossierEXT-fr.html');
-    pipes.createProdRootHtml2(srcPath, paths.prodFrenchTemplate, dossierRootTitles_fr, htmlPartial, srcJsExtFr, ignorePath, 'dossierEXT-fr.html', destPath, 'fr', deployType.prod, 'dossierEXT-en.html');
-    pipes.createProdRootHtml2(srcPath, paths.prodFrenchTemplate, dossierRootTitles_fr, htmlPartial, srcJsIntFr, ignorePath, 'dossierINT-fr.html', destPath, 'fr', deployType.prodInt, 'dossierINT-en.html');
-
-    return pipes.createProdRootHtml2(srcPath, paths.prodEnglishTemplate, dossierRootTitles_en, htmlPartial, srcJsIntEn, ignorePath, 'dossierINT-en.html', destPath, 'en', deployType.prodInt, 'dossierINT-fr.html');
-
-}));
-
-gulp.task('prod-dossier-allFormsCreate', gulp.series('prod-dossier-clean', 'prod-dossier-compileHtml', function () {
-
-    return pipes.deleteResourcesNonMinFiles(paths.buildProdDossier);
-
-}));
+// gulp.task('prod-dossier-clean', function () {
+//     return (pipes.cleanBuild(paths.buildProdDossier));
+//
+// });
+//
+// gulp.task('prod-dossier-copyTranslateFiles', function () {
+//
+//     var destPath = paths.buildProdDossier;
+//
+//     var translationList = dossierTranslationFilesBaseList;
+//
+//     return (pipes.translateDev(translationList, destPath));
+//
+// });
+//
+// gulp.task('prod-dossier-createRootJsFiles', function () {
+//     var dest = paths.buildProdDossier + 'app/scripts/';
+//     var rootFile = paths.scripts + "/" + rootFileNames.dossierRoot + ".js";
+//     return (
+//         pipes.createRootFileSet(rootFile, dest, true, true)
+//     );
+// });
+//
+// gulp.task('prod-dossier-copySourceFiles', function () {
+//     return (
+//         pipes.copySrcs(false, paths.buildProdDossier, dossierComponentFolders, dossierServiceFileNames, dossierDirectiveFolders, dossierTemplates, true)
+//     );
+// });
+//
+// gulp.task('prod-dossier-copyLib', function () {
+//     var srcArray = stylesProd;
+//
+//     for (var i = 0; i < libProd.length; i++) {
+//         srcArray.push(libProd[i])
+//     }
+//
+//     var copySources = gulp.src(srcArray, {read: true, base: '.'});
+//     return copySources.pipe(gulp.dest(paths.buildProdDossier))
+//
+// });
+//
+// gulp.task('prod-dossier-compileTranslateFile', gulp.series('prod-dossier-copyTranslateFiles', function () {
+//
+//     var destPath = paths.buildProdDossier + paths.relScript;
+//     var srcPath = paths.buildProdDossier;
+//     return (pipes.compileTranslateFile(srcPath, destPath, "dossierTranslations", dossierTranslationFilesBaseList));
+//
+// }));
+//
+// gulp.task('prod-dossier-compileSrcJs', gulp.series('prod-dossier-compileTranslateFile', 'prod-dossier-createRootJsFiles', 'prod-dossier-copySourceFiles', function () {
+//
+//     var srcPath = paths.buildProdDossier + 'app/scripts/';
+//     var dest = paths.buildProdDossier + 'app/scripts/';
+//     var rootJsBaseName = "dossierApp";
+//     var translateName = "dossierTranslations";
+//     return (
+//         pipes.compileSourceJsMinified(srcPath, dest, rootJsBaseName, dossierComponentFolders, dossierServiceFileNames, dossierDirectiveFolders, translateName, true)
+//     )
+// }));
+//
+// gulp.task('prod-dossier-compileHtml', gulp.series('prod-global-create-src-template', 'prod-global-copyDataFolder', 'prod-dossier-compileSrcJs', 'prod-dossier-copyLib', function () {
+//
+//     var ignorePath = '/build/prod/dossier';
+//     var basePath = paths.buildProdDossier;
+//     var destPath = paths.buildProdDossier;
+//     var htmlPartial = jsRootContent.partialDossierRoot;
+//
+//     var srcJsExtEn = [
+//         basePath + 'app/scripts/' + 'dossierAppEXT-en' + '*.min.js',
+//         paths.buildProdDossier + 'app/lib/**/angular*.js'
+//     ];
+//     var srcJsExtFr = [
+//         basePath + 'app/scripts/' + 'dossierAppEXT-fr' + '*.min.js',
+//         paths.buildProdDossier + 'app/lib/**/angular*.js'
+//     ];
+//     var srcJsIntFr = [
+//         basePath + 'app/scripts/' + 'dossierAppINT-fr' + '*.min.js',
+//         paths.buildProdDossier + 'app/lib/**/angular*.js'
+//     ];
+//     var srcJsIntEn = [
+//         basePath + 'app/scripts/' + 'dossierAppINT-en' + '*.min.js',
+//         paths.buildProdDossier + 'app/lib/**/angular*.js'
+//     ];
+//
+//     var srcPath = paths.buildProdDossier;
+//
+//     pipes.createProdRootHtml2(srcPath, paths.prodEnglishTemplate, dossierRootTitles_en, htmlPartial, srcJsExtEn, ignorePath, 'dossierEXT-en.html', destPath, 'en', deployType.prod, 'dossierEXT-fr.html');
+//     pipes.createProdRootHtml2(srcPath, paths.prodFrenchTemplate, dossierRootTitles_fr, htmlPartial, srcJsExtFr, ignorePath, 'dossierEXT-fr.html', destPath, 'fr', deployType.prod, 'dossierEXT-en.html');
+//     pipes.createProdRootHtml2(srcPath, paths.prodFrenchTemplate, dossierRootTitles_fr, htmlPartial, srcJsIntFr, ignorePath, 'dossierINT-fr.html', destPath, 'fr', deployType.prodInt, 'dossierINT-en.html');
+//
+//     return pipes.createProdRootHtml2(srcPath, paths.prodEnglishTemplate, dossierRootTitles_en, htmlPartial, srcJsIntEn, ignorePath, 'dossierINT-en.html', destPath, 'en', deployType.prodInt, 'dossierINT-fr.html');
+//
+// }));
+//
+// gulp.task('prod-dossier-allFormsCreate', gulp.series('prod-dossier-clean', 'prod-dossier-compileHtml', function () {
+//
+//     return pipes.deleteResourcesNonMinFiles(paths.buildProdDossier);
+//
+// }));
 
 
 /*******************END DOSSIER PROD SCRIPTS*************************************************/
@@ -2950,18 +3180,6 @@ gulp.task('prod-drugProduct-allFormsCreate', gulp.series('prod-drugProduct-clean
 
 }));
 
-//====================
-
-gulp.task('prod-build-allForms', gulp.series(
-    'prod-activity-allFormsCreate',
-    'prod-company-allFormsCreate',
-    'prod-csp-allFormsCreate',
-    'prod-transaction-allFormsCreate',
-    'prod-dossier-allFormsCreate',
-    'prod-drugProduct-allFormsCreate', function (done) {
-        done();
-    }));
-
 /******END DRUG-PRODUCT PROD SCRIPTS******/
 
 
@@ -2976,3 +3194,109 @@ gulp.task('prod-global-helpText-compile', gulp.series( function () {
     return(pipes.createHelpTemplates((paths.buildProd)));
 
 }));
+
+/******START PRODUCT INFO CONVERTER PROD SCRIPTS******/
+
+gulp.task('prod-piConverter-clean', function () {
+    return (pipes.cleanBuild(paths.buildProdPIConverter));
+
+});
+
+gulp.task('prod-piConverter-copyLib', function () {
+    var srcArray = stylesProd;
+
+    for (var i = 0; i < libProd.length; i++) {
+        srcArray.push(libProd[i])
+    }
+
+    var copySources = gulp.src(srcArray, {read: true, base: '.'});
+    return copySources.pipe(gulp.dest(paths.buildProdPIConverter))
+
+});
+
+gulp.task('prod-piConverter-copySourceFiles', function () {
+    return (
+        pipes.copySrcs(false, paths.buildProdPIConverter, piConverterComponentFolders, piConverterServiceFileNames, piConverterDirectiveFolders, piConverterTemplates, true)
+    );
+});
+
+
+gulp.task('prod-piConverter-copyTranslateFiles', function () {
+
+    var destPath = paths.buildProdPIConverter;
+    var translationList = piConverterTranslationFilesBaseList;
+
+    return (pipes.translateDev(translationList, destPath));
+
+});
+
+gulp.task('prod-piConverter-compileTranslateFile', gulp.series('prod-piConverter-copyTranslateFiles', function () {
+
+    var destPath = paths.buildProdPIConverter + paths.relScript;
+    var srcPath = paths.buildProdPIConverter;
+    return (pipes.compileTranslateFile(srcPath, destPath, "piConverterTranslations", piConverterTranslationFilesBaseList));
+}));
+
+/**
+ * Creates the root JS files for internal/external and french/English forms
+ * */
+gulp.task('prod-piConverter-createRootJsFiles', function () {
+    var dest = paths.buildProdPIConverter + 'app/scripts/';
+    var rootFile = paths.scripts + "/" + rootFileNames.piConverterRoot + ".js";
+    return (
+        pipes.createRootFileSet(rootFile, dest, true, false)
+    );
+});
+
+
+gulp.task('prod-piConverter-compileSrcJs', gulp.series('prod-piConverter-compileTranslateFile', 'prod-piConverter-createRootJsFiles', 'prod-piConverter-copySourceFiles', function () {
+
+    var srcPath = paths.buildProdPIConverter + 'app/scripts/';
+    var dest = paths.buildProdPIConverter + 'app/scripts/';
+    var rootJsBaseName = "piConverterApp";
+    var translateName = "piConverterTranslations"; //TODO make this a resuable variable
+    return (
+        pipes.compileSourceJsMinified(srcPath, dest, rootJsBaseName, piConverterComponentFolders, piConverterServiceFileNames, piConverterDirectiveFolders, translateName, false)
+    )
+}));
+
+gulp.task('prod-piConverter-compileHtml', gulp.series('prod-converter-create-src-template', 'prod-global-copyDataFolder', 'prod-piConverter-compileSrcJs', 'prod-piConverter-copyLib', function () {
+
+    var ignorePath = '/build/prod/converter';
+    var basePath = paths.buildProdPIConverter;
+    var destPath = paths.buildProdPIConverter;
+    var htmlPartial = jsRootContent.partialPIConverterRoot;
+
+    var srcJsExtEn = [
+        basePath + 'app/scripts/' + 'piConverterAppEXT-en' + '*.min.js',
+        paths.buildProdPIConverter + 'app/lib/**/angular*.js'
+    ];
+    var srcJsExtFr = [
+        basePath + 'app/scripts/' + 'piConverterAppEXT-fr' + '*.min.js',
+        paths.buildProdPIConverter + 'app/lib/**/angular*.js'
+    ];
+
+    var srcPath = paths.buildProdPIConverter;
+
+    pipes.createProdRootHtml2(srcPath, paths.prodEnglishConverterTemplate, piConverterRootTitles_en, htmlPartial, srcJsExtEn, ignorePath, 'converter.html', destPath, 'en', deployType.prod, 'convertisseur.html');
+    return pipes.createProdRootHtml2(srcPath, paths.prodFrenchConverterTemplate, piConverterRootTitles_fr, htmlPartial, srcJsExtFr, ignorePath, 'convertisseur.html', destPath, 'fr', deployType.prod, 'converter.html');
+}));
+
+gulp.task('prod-piConverter-allFormsCreate', gulp.series('prod-piConverter-clean', 'prod-piConverter-compileHtml', function () {
+
+    return pipes.deleteResourcesNonMinFiles(paths.buildProdPIConverter);
+
+}));
+
+//====================
+
+gulp.task('prod-build-allForms', gulp.series(
+    // 'prod-activity-allFormsCreate',
+    'prod-company-allFormsCreate',
+    'prod-csp-allFormsCreate',
+    'prod-transaction-allFormsCreate',
+    // 'prod-dossier-allFormsCreate',
+    'prod-drugProduct-allFormsCreate',
+    'prod-piConverter-allFormsCreate', function (done) {
+        done();
+    }));

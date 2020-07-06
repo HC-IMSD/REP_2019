@@ -34,7 +34,9 @@
                 updateCountryList:'<',
                 updateRecord:'&',
                 onError: '&',
-                fieldsetLabel:'@'
+                fieldsetLabel:'@',
+                isFocus: '<',
+                cancelFocus: '&'
             }
         });
 
@@ -93,6 +95,16 @@
                 vm.showDetailErrors=changes.showErrors.currentValue;
             }
 
+        };
+
+        vm.saveRecord = function () {
+            if(vm.countryChanged()){
+                vm.countryList = vm.updateCountryList();
+                vm.updateRecord();
+                vm.clearFilter($scope);
+                // } else {
+                //     vm.onError();
+            }
         };
 
         vm.deleteRecord = function()  {

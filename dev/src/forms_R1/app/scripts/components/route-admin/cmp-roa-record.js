@@ -33,7 +33,9 @@
                 onDelete: '&',
                 updateRecord: '&',
                 resetMe: '&',
-                showErrors: '<'
+                showErrors: '<',
+                isFocus: '<',
+                cancelFocus: '&'
             }
         });
 
@@ -60,7 +62,7 @@
 
             if (changes.record) {
                 vm.model=changes.record.currentValue;
-                vm.updateRecord();
+                // vm.updateRecord();
             }
             if(changes.showErrors){
 
@@ -73,25 +75,15 @@
          * @param item
          * @param model
          */
-        vm.roaChanged=function(value){
-            var found = false;
-            vm.model.roa = "";
-            for(var i = 0; i < vm.roaList.length; i++) {
-                var option =vm.roaList[i];
-                if(option[vm.lang] === vm.model.display) {
-                    vm.model.roa = option;
-                    found = true;
-                    break;
-                }
-            }
-            if(found){
+        vm.saveRecord = function(){
+            if(vm.model.roa.id){
                 vm.clearFilter($scope);
-                vm.resetMe();
+                vm.updateRecord();
             } else {
                 vm.model.display = "";
+                vm.model.roa = "";
             }
         };
-
 
         vm.deleteRecord = function()  {
             vm.onDelete({id: vm.model.id});
@@ -106,17 +98,30 @@
             return ((ctrl.$invalid && ctrl.$touched) || (ctrl.$invalid && vm.showDetailErrors) )
         };
         vm.isRoaOther = function () {
-           if(vm.model.roa && vm.model.roa.id === DossierLists.getOtherValue()){
+            vm.model.display = vm.roaRecForm[vm.roaId].$viewValue;
+           if(vm.model.display === 'Other'){
                return true;
            }else{
                vm.model.otherRoaDetails="";
                return false;
            }
         };
+        vm.roaChange = function (e) {
+            vm.model.roa = "";
+            vm.model.display = e;
+            for(var i = 0; i < vm.roaList.length; i++) {
+                var option =vm.roaList[i];
+                if(option[vm.lang] === vm.model.display) {
+                    vm.model.roa = option;
+                    break;
+                }
+            }
+            $scope.$apply();
+        }
 
         vm.clearFilter = function($scope){
             $scope.roaFilter = "";
-        }
+        };
         function _setIdNames() {
             var scopeId = "_" + $scope.$id;
             vm.roaId="roa_lbl" + scopeId;

@@ -8,6 +8,7 @@
     angular
         .module('transactionInfo',
             ['lifecycleList',
+                'services',
                 'filterLists',
                 'hpfbConstants',
                 'ui.bootstrap',
@@ -55,8 +56,8 @@
             }
         });
 
-    transactionInfoCtrl.$inject = ['$scope', 'OTHER', 'YES', 'NO', 'getContactLists', 'getRoleLists', 'ENGLISH', 'FRENCH'];
-    function transactionInfoCtrl($scope,OTHER,YES,NO,getContactLists,getRoleLists, ENGLISH,FRENCH) {
+    transactionInfoCtrl.$inject = ['$scope', 'OTHER', 'YES', 'NO', 'PROD', 'TransactionLists', 'getContactLists', 'getRoleLists', 'ENGLISH', 'FRENCH'];
+    function transactionInfoCtrl($scope,OTHER,YES,NO,PROD,TransactionLists,getContactLists,getRoleLists, ENGLISH,FRENCH) {
         var vm = this;
         vm.ngModelOptSetting = {updateOn: 'blur'};
         vm.transactionModel = {
@@ -75,7 +76,8 @@
         vm.alerts = [false, false, false, false, false, false, false, false, false];
         // vm.requesterList = [];
         vm.userList = [];
-        vm.formTypeList = getRoleLists.getFormTypes();
+        vm.isForProd = PROD === TransactionLists.getEnv();
+        vm.formTypeList = getRoleLists.getFormTypes(vm.isForProd);
         vm.lang=ENGLISH;
         vm.sequenceChange=false;
         vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];

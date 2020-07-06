@@ -17,8 +17,15 @@
             return function (options) {
                 var deferred = $q.defer();
                 //var dataFolder = "data/"; //relative forlder to the data
+                var envUrl = RELATIVE_FOLDER_DATA + "env.json";
                 var countryUrl = RELATIVE_FOLDER_DATA + "countries.json";
                 var resultTranslateList = {};
+                $http.get(envUrl)
+                    .then(function (response) {
+                        //PROCESS env data
+                        getCountryAndProvinces.setEnv(response.data);
+                        // return $http.get(countryUrl);
+                    });
                 $http.get(countryUrl)
                     .then(function (response) {
                         //PROCESS country list data

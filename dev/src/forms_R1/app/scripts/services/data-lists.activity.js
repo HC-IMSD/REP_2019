@@ -23,6 +23,7 @@
 
     function getTransactionSeq($http, $q) {
         var vm = this;
+        vm.env = '';
         vm.raTypeArray = [];
         vm.feeTypeArray = [];
         vm.mitigationTypeArray = [];
@@ -169,6 +170,8 @@
 
 
         var service = {
+            getEnv: _getEnvString,
+            setEnv: _setEnvString,
             getTransactionDescriptions: getTransactionDescriptionsArray,
             getActivityTypes: getActivityArray,
             createRaTypes: _createRaArray,
@@ -274,6 +277,14 @@
                 "Y",
                 "N"
             ]);
+        }
+
+        function _getEnvString(value) {
+            return vm.env;
+        }
+
+        function _setEnvString(value) {
+            vm.env = value.env;
         }
 
         function _createRaArray(value) {

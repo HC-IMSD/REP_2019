@@ -231,11 +231,25 @@
             _hideRequiredRecordErrors(vm.uniqueErrorList);
            // console.log( 'vm.uniqueErrorList');
            // console.log( vm.uniqueErrorList);
-            var newErrors = _sortErrorsByDomOrder();
-          //  console.log('newErrors');
-          // console.log(newErrors);
-            if (!angular.equals(vm.errorArray, newErrors)) {
-                vm.errorArray = newErrors;
+            if(vm.formPreamble == 'COMPANY_FORM'){
+                vm.errorArray = Object.keys(vm.uniqueErrorList).map(function (k) {
+                    return vm.uniqueErrorList[k]
+                });
+                var temp = vm.errorArray[0];
+                for(var i = 0; i< vm.errorArray.length - 1; i++){
+                    vm.errorArray[i] = vm.errorArray[i+1];
+                    if(vm.errorArray[i].type == "required"){
+                        vm.errorArray[i].type = "TYPE_REQUIRED";
+                    }
+                }
+                vm.errorArray[vm.errorArray.length - 1] = temp;
+            }else{
+                var newErrors = _sortErrorsByDomOrder();
+                //  console.log('newErrors');
+                // console.log(newErrors);
+                if (!angular.equals(vm.errorArray, newErrors)) {
+                    vm.errorArray = newErrors;
+                }
             }
         };
 
@@ -245,14 +259,14 @@
             if (!(keys instanceof Array)) {
                 keys = [keys];
             }
-            if (keys.indexOf("lifecycleCtrl.lifecycleDetailsForm") > -1) {
-                for (var i = 0; i < keys.length; i++) {
-                    if (keys[i].indexOf("saveLifeRec") > -1) {
-                        delete errors[keys[i]];
-                        break;
-                    }
-                }
-            }
+            // if (keys.indexOf("lifecycleCtrl.lifecycleDetailsForm") > -1) {
+            //     for (var i = 0; i < keys.length; i++) {
+            //         if (keys[i].indexOf("saveLifeRec") > -1) {
+            //             delete errors[keys[i]];
+            //             break;
+            //         }
+            //     }
+            // }
             if (keys.indexOf("ingRecCtrl.activeIngForm") > -1) {
                 for (var i = 0; i < keys.length; i++) {
                     if (keys[i].indexOf("no_active") > -1) {
@@ -435,15 +449,17 @@
                         break;
                 }
             }
-            result[error_Name] = {
-                name: destId,
-                errorName: error_Name,
-                translateKey: scrubName.toUpperCase(),
-                type: errorKey,
-                parent: parent,
-                concat: parent + '.' + error_Name,
-                isSummary: false
-            };
+            if(! result[error_Name]){
+                result[error_Name] = {
+                    name: destId,
+                    errorName: error_Name,
+                    translateKey: scrubName.toUpperCase(),
+                    type: errorKey,
+                    parent: parent,
+                    concat: parent + '.' + error_Name,
+                    isSummary: false
+                };
+            }
             return result;
         }
 
@@ -452,7 +468,7 @@
             var domFieldList = {};
             //TODO make angular friendly
             //get all the inputs and assign order index
-            $.each($('input, select, textarea'), function (k) {
+            $.each($('input, select, textarea, fieldset'), function (k) {
                 var temp_attr = $(this).attr('id');
                 if (temp_attr) {
                     domFieldList[temp_attr] = k;

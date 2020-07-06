@@ -20,8 +20,11 @@
             controllerAs:'animalSrcCtrl',
             bindings: {
                 record: '<',
+                onUpdate: '&',
                 onDelete: '&',
-                showErrors: '&'
+                showErrors: '&',
+                isFocus: '<',
+                cancelFocus: '&'
             }
         });
 
@@ -29,6 +32,7 @@
 
     function animalSourcedController(DossierLists,$scope){
         var vm = this;
+        vm.updateRecord = 0; //triggers and error update
         vm.animalsList = DossierLists.getAnimalSources();
         vm.yesNoUnknownList = DossierLists.getYesNoUnknownList();
         vm.model = {};
@@ -44,6 +48,11 @@
             }
 
 
+        };
+
+        vm.saveRecord = function () {
+            vm.updateRecord = vm.updateRecord + 1;
+            vm.onUpdate({rec: vm.model});
         };
 
         vm.deleteRecord = function()  {

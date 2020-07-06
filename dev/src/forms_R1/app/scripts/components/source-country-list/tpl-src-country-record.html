@@ -28,7 +28,8 @@
                         <!--</ui-select>-->
                     <input type="text" id="{{::srcCountryRecCtrl.countryId}}" name="{{::srcCountryRecCtrl.countryId}}"
                            data-ng-model="srcCountryRecCtrl.model.display" value="srcCountryRecCtrl.model.display"
-                           data-ng-model-options="{ updateOn: 'blur' }" data-ng-change="srcCountryRecCtrl.countryChanged(srcCountryRecCtrl.model.display)"
+                           data-focus-if="srcCountryRecCtrl.isFocus"
+                           data-ng-model-options="{ updateOn: 'blur' }" data-ng-change="srcCountryRecCtrl.countryChanged(srcCountryRecCtrl.model.display);srcCountryRecCtrl.cancelFocus();"
                            list="{{::srcCountryRecCtrl.countryListId}}" required="required" class="form-control full-width" />
                     <datalist id="{{::srcCountryRecCtrl.countryListId}}" class="rep-selectize-dropdown rep-selectize-font">
                         <option data-ng-repeat="countryRecord in srcCountryRecCtrl.countryList | filter:{[srcCountryRecCtrl.lang]: srcCountryFilter}"
@@ -49,16 +50,21 @@
                                            error-types="srcCountryRecCtrl.requiredOnly"></cmp-error-message>
 
                     </label>
-                    <textarea id="{{::srcCountryRecCtrl.unknownCountryId}}"
-                          data-ng-model="srcCountryRecCtrl.model.unknownCountryDetails" maxlength="1024" rows="3" data-ng-model-options="{ debounce: $inherit}"
+                    <textarea id="{{::srcCountryRecCtrl.unknownCountryId}}" data-focus-if="srcCountryRecCtrl.isUnknown()"
+                          data-ng-model="srcCountryRecCtrl.model.unknownCountryDetails" maxlength="1024" rows="3" data-ng-model-options="{ updateOn: 'blur'}"
                           class="form-control full-width" name="{{::srcCountryRecCtrl.unknownCountryId}}" required>
                     </textarea>
                 </div>
             </div>
             <div class="row">
-                <button data-ng-click="srcCountryRecCtrl.deleteRecord(srcCountryRecCtrl.model.id)" name="deleteCountry"
-                        class="btn btn-danger btn-md">{{'DELETE_RECORD'|translate}}
-                </button>
+                <div class="btn-group-sm col-sm-12">
+                    <button data-ng-click="srcCountryRecCtrl.saveRecord()" name="saveSrcCountry" id="saveSrcCountry_{{::$id}}" onclick="focusOnRow(this, 'addSrcCountry_')"
+                            class="btn btn-primary btn-md">{{'SAVE_RECORD'|translate}}
+                    </button>
+                    <button data-ng-click="srcCountryRecCtrl.deleteRecord(srcCountryRecCtrl.model.id)" name="deleteSrcCountry" id="deleteSrcCountry_{{::$id}}" onclick="focusOnRow(this, 'addSrcCountry_')"
+                            class="btn btn-danger btn-md">{{'DELETE_RECORD'|translate}}
+                    </button>
+                </div>
             </div>
         </fieldset>
        <!-- <pre>{{srcCountryRecCtrl.model|json}}</pre>-->

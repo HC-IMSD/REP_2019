@@ -30,7 +30,8 @@
                 showErrorSummary:'<',
                 isFileLoaded: '<',
                 htIndxList:'<',
-                updateErrorSummary:'&'
+                updateErrorSummary:'&',
+                dossierType: '<'
             }
         });
 
@@ -58,6 +59,7 @@
                 "target": "list_formulation"
             }
         };
+        vm.isFocus = false;
 
 
         vm.$onInit = function () {
@@ -182,6 +184,12 @@
             vm.selectRecord=value;
 
         };
+        vm.setFocus = function () {
+            vm.isFocus = true;
+        }
+        vm.cancelFocus = function () {
+            vm.isFocus = false;
+        }
 
         function resetMe(){
             vm.resetToCollapsed = !vm.resetToCollapsed;

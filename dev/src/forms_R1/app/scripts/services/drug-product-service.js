@@ -40,6 +40,7 @@
                 dossiTypeIndx: 0,
                 prodNameIndx: 0,
                 proComNameIndx: 0,
+                clinicalIndx: 0,
                 dnfNocAddrIndx: 0,
                 importerIndx: 0,
                 routingIdIndx: 0,

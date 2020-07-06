@@ -37,7 +37,9 @@
                 htIndxList:'<',
                 errorSummaryUpdate:'<',
                 showErrorSummary:'<',
-                updateErrorSummary:'&'
+                updateErrorSummary:'&',
+                isFocus: '<',
+                cancelFocus: '&'
             }
 
         });
@@ -60,13 +62,13 @@
         vm.alerts = [false, false, false, false, false, false]; //for help boxes
         vm.numberMinError = [
             {type: "required", displayAlias: "MSG_ERR_MAND"},
-            {type: "min", displayAlias: "MSG_ERR_INVALID_NUM_MIN0"},
-            {type: "number", displayAlias: "MSG_ERR_INVALID_NUM"}
+            {type: "min", displayAlias: "TYPE_MIN"},
+            {type: "number", displayAlias: "TYPE_NUMBER"}
         ];
         vm.numberMinLowerError = [
             {type: "required", displayAlias: "MSG_ERR_MAND"},
             {type: "min", displayAlias: "MSG_ERR_INVALID_NUM_MIN_LOWER"},
-            {type: "number", displayAlias: "MSG_ERR_INVALID_NUM"}
+            {type: "number", displayAlias: "TYPE_NUMBER"}
         ];
 
         vm.ingModel = {
@@ -96,7 +98,8 @@
             nanoMaterial:"",
             nanoMaterialOther: "",
             calcAsBase: "",
-            humanAnimalSourced: ""
+            humanAnimalSourced: "",
+            focusOnIngRole: false,
         };
 
         vm.strengthData1Title="";
@@ -110,6 +113,7 @@
 
         vm.$onInit = function () {
             vm.showSummary=false;
+            vm.ingModel.focusOnIngRole = vm.isFocus;
             vm.backup = angular.copy(vm.ingModel);
             _setIdNames();
            // vm.summaryName="cmp-active-ing-record_"+(vm.recordIndex);
@@ -339,6 +343,16 @@
                 return false;
             }
         };
+        vm.isUnitsOtherDetail = function () {
+
+            if (!vm.ingModel || !vm.ingModel.units) return false;
+            if ((vm.ingModel.units.id === OTHER)) {
+                return vm.ingModel.otherUnits == '';
+            } else {
+                vm.ingModel.otherUnits = "";
+                return false;
+            }
+        };
 
         /**
          * @ngDoc determines if per units Other should be shown
@@ -396,52 +410,42 @@
         vm.isFrench = function(){
             return(vm.lang === FRENCH);
         };
-        vm.unitsChange = function() {
-            var found = false;
+        vm.unitsBlur = function() {
+            if(! vm.ingModel.units.id ) {
+                vm.ingModel.unitsHtml = "";
+                vm.ingModel.otherUnits = "";
+            }
+        }
+        vm.unitsChange = function(e) {
+            console.log(e);
+            vm.ingModel.units = {};
+            vm.ingModel.unitsHtml = e;
             for(var i = 0; i < vm.unitsList.length; i++) {
                 var option =vm.unitsList[i];
                 if(option[vm.lang] === vm.ingModel.unitsHtml) {
                     vm.ingModel.units = option;
-                    found = true;
                     break;
                 }
             }
-            if(!found){
-                vm.ingModel.units = {};
-                vm.ingModel.unitsHtml = "";
-            }
-            // if( ! found ){
-            //     for(var i = 0; i < vm.unitsList.length; i++) {
-            //         var option =vm.unitsList[i];
-            //         if(option['id'] === vm.ingModel.units['id']) {
-            //             vm.ingModel.unitsHtml = option[vm.lang];
-            //             break;
-            //         }
-            //     }
-            // }
+            $scope.$apply();
         }
-        vm.perMeasUnitsChange = function() {
-            var found = false;
+        vm.perMeasUnitsBlur = function() {
+            if(!  vm.ingModel.perMeasUnits.id ){
+                vm.ingModel.perMeasUnitsHtml = "";
+                vm.ingModel.perPresOtherUnits = "";
+            }
+        }
+        vm.perMeasUnitsChange = function(e) {
+            vm.ingModel.perMeasUnits = {};
+            vm.ingModel.perMeasUnitsHtml = e;
             for(var i = 0; i < vm.measureList.length; i++) {
                 var option =vm.measureList[i];
                 if(option[vm.lang] === vm.ingModel.perMeasUnitsHtml) {
                     vm.ingModel.perMeasUnits = option;
-                    found = true;
                     break;
                 }
             }
-            if( ! found ){
-                // for(var i = 0; i < vm.measureList.length; i++) {
-                //     var option =vm.measureList[i];
-                //     if(option['id'] === vm.ingModel.perMeasUnits['id']) {
-                //         vm.ingModel.perMeasUnitsHtml = option[vm.lang];
-                //         break;
-                //     }
-                // }
-                vm.ingModel.perMeasUnits = {};
-                vm.ingModel.perMeasUnitsHtml = "";
-            }
-
+            $scope.$apply();
         }
 
         $scope.$watch('ingRecCtrl.activeIngForm.$dirty', function () {

@@ -18,6 +18,7 @@
             return function (options) {
                 var deferred = $q.defer();
                 //var dataFolder = "data/"; //relative forlder to the data
+                var envUrl = RELATIVE_FOLDER_DATA + "env.json";
                 var roaUrl = RELATIVE_FOLDER_DATA + "roa.json";
                 var countryUrl = RELATIVE_FOLDER_DATA + "countries.json";
                 var nanoUrl = RELATIVE_FOLDER_DATA+"nanomaterials.json";
@@ -26,7 +27,14 @@
                 var measureUnitsUrl = RELATIVE_FOLDER_DATA + "measureUnits.json";
                 var dosageFormUrl = RELATIVE_FOLDER_DATA + "dosageForm.json";
                 var activeUrl= RELATIVE_FOLDER_DATA +"activeIngred.json";
+                var speciesUrl = RELATIVE_FOLDER_DATA + "species.json";
+                var subtypesUrl= RELATIVE_FOLDER_DATA +"subTypes.json";
                 var resultTranslateList = {};
+                $http.get(envUrl)
+                    .then(function (response) {
+                        //PROCESS env data
+                        DossierLists.setEnv(response.data);
+                    });
                 $http.get(unitsUrl)
                     .then(function (response) {
                         //PROCESS units list. Not creating translate list
@@ -79,6 +87,14 @@
                 $http.get(activeUrl).then(function (response) {
                     DossierLists.setActiveList(response.data);
                    // return $http.get(roaUrl); //roa load
+                });
+                $http.get(speciesUrl).then(function (response) {
+                    DossierLists.setSpeciesList(response.data);
+                    // return $http.get(roaUrl); //roa load
+                });
+                $http.get(subtypesUrl).then(function (response) {
+                    DossierLists.setSubTypesList(response.data);
+                    // return $http.get(roaUrl); //roa load
                 });
                 $http.get(roaUrl).then(function (response) {
                     var newList = _createNewSortedArrayWithOther(response.data, DossierLists.getRoaPrefix(), options.key);

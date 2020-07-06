@@ -28,8 +28,11 @@
     getService.inject = ['UNKNOWN'];
     function getService(UNKNOWN) {
         var vm = this;
+        vm.env = '';
         vm.countryList = [];
         var service = {
+            getEnv: _getEnvString,
+            setEnv: _setEnvString,
             getCountries: getCountryValuesArray,
             getProvinces: getProvinceValuesArray,
             getUSStates: getUSStatesValueArray,
@@ -40,6 +43,13 @@
 
         ////////////////
 
+        function _getEnvString(value) {
+            return vm.env;
+        }
+
+        function _setEnvString(value) {
+            vm.env = value.env;
+        }
 
         function _createCountryArray(translateJson) {
             vm.countryList = translateJson;
@@ -187,10 +197,10 @@
                 ]);
         }
 
-        // /**
-        //  * @private
-        //  * Loads Internal contacts from a datafile
-        //  */
+        /**
+         * @private
+         * Loads Internal contacts from a datafile
+         */
         // function _createInternalContacts() {
         //     var deferred = $q.defer();
         //     var contactsUrl = RELATIVE_FOLDER_DATA+"internalContacts.json";
@@ -299,7 +309,8 @@
             getFormTypes: _getFormTypes,
             getBiologicType: _getBiologic,
             getPharmaType: _getPharmaceutical,
-            getVeterinary:_getVeterinary
+            getVeterinary: _getVeterinary,
+            getClinicalTrial: _getClinicalTrial
         };
         return service;
 
@@ -314,13 +325,18 @@
                 ]);
         }
 
-        function _getFormTypes() {
-            return (
-                [
+        function _getFormTypes( env ) {
+            return env ?
+                (
+                    [
+                        _biologic,
+                        _pharma
+                    ]) :
+                ([
                     _biologic,
                     _pharma,
                     _veterinary,
-                   _clinical
+                    _clinical
                 ]);
         }
 
@@ -337,7 +353,6 @@
 
             return _veterinary;
         }
-
 
         function _getClinicalTrial() {
 

@@ -35,7 +35,9 @@
                 recordIndex:'<',
                 htIndxList:'<',
                 errorSummaryUpdate:'<',
-                showErrorSummary:'<'
+                showErrorSummary:'<',
+                isFocus: '<',
+                cancelFocus: '&'
             }
 
         });
