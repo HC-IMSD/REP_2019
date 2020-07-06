@@ -9,8 +9,8 @@
   "date_saved": "Date Saved",
   "application_type": "Application Type",
   "software_version": "Software Version",
-  "company_id": "Company Identification",
-  "dossier_id": "Dossier ID",
+  "company_id": "Company Identifier",
+  "dossier_id": "Dossier Identifier",
   "__text": "Save Value",
   "_label_en": "English Caption",
   "_label_fr": "French Caption",
@@ -24,5 +24,5 @@
   "rep_secondary" : "REP Secondary",
   "contact_id" : "Contact ID",
   "reason_amend" : "Reason Amend",
-  "importer_id" : "Importer ID"
+  "importer_id" : "Importer Identifier"
 }

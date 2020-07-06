@@ -101,5 +101,7 @@
   "PROTECTED_B": "Protégé \"B\" une fois rempli",
   "ROUTING_ID": "Identificateur  d'acheminement",
   "REFERRER": " référent",
-  "CHAR_6_DIGITS": " (composé d’une lettre suivie de six chiffres)"
+  "CHAR_6_DIGITS": " (composé d’une lettre suivie de six chiffres)",
+  "FORMAT_TYPE_MINLENGTH": "Format incorrecte - moins que la longueur minimale",
+  "FORMAT_TYPE_PATTERN": "Format incorrecte - composé d’une lettre suivie de six chiffres"
 }

@@ -24,8 +24,9 @@
                     .then(function (response) {
                         //PROCESS env data
                         getCountryAndProvinces.setEnv(response.data);
-                        return $http.get(countryUrl);
-                    })
+                        // return $http.get(countryUrl);
+                    });
+                $http.get(countryUrl)
                     .then(function (response) {
                         //PROCESS country list data
                         var newList =  _createSortedArrayNAFirst(response.data,options.key);

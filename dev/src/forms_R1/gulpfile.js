@@ -1829,7 +1829,7 @@ gulp.task('dev-company-htmlBuild', gulp.series('dev-company-pilot-clean', 'dev-c
         var copySources = gulp.src([paths.buildDevCompany + '**/*'],
             {read: true, base: paths.buildDevCompany});
         return (copySources.pipe(gulp.dest(paths.buildDevPilotCompany)));
-    }, 2000);
+    }, 3000);
 }));
 
 
@@ -2320,16 +2320,16 @@ gulp.task('dev-csp-injectTest', function () {
 
 //==================================================================
 
-gulp.task('dev-build-allForms', gulp.series(
-    // 'dev-activity-htmlBuild',
-    'dev-company-htmlBuild',
-    'dev-csp-htmlBuild',
-    'dev-transaction-htmlBuild',
-    // 'dev-dossier-htmlBuild',
-    'dev-piConverter-htmlBuild',
-    'dev-drugProduct-htmlBuild', function (done) {
-        done();
-    }));
+// gulp.task('dev-build-allForms', gulp.series(
+//     // 'dev-activity-htmlBuild',
+//     'dev-company-htmlBuild',
+//     'dev-csp-htmlBuild',
+//     'dev-transaction-htmlBuild',
+//     // 'dev-dossier-htmlBuild',
+//     'dev-piConverter-htmlBuild',
+//     'dev-drugProduct-htmlBuild', function (done) {
+//         done();
+//     }));
 
 
 /*******************PRODUCTIION SCRIPTS START HERE **********************/

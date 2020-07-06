@@ -165,6 +165,7 @@
                 vm.editState = false;
             }
         }
+
         function _setIdNames() {
             var scopeId = "_" + $scope.$id;
             vm.repContactFormId = "rep_contact_form" + scopeId;
