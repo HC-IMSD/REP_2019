@@ -48,7 +48,6 @@
                 resetEctd: '&',
                 deprecateSequence: '&',
                 language:'<',
-                htIndxList:'<',
                 sequenceUpdated:'<',
                 getCurrentSequence:'&',
                 showErrorSummary: '<',
@@ -64,8 +63,8 @@
         vm.transactionModel = {
         };
         vm.yesNoList = [YES, NO];
-       // vm.newExistingList = [NEW, EXISTING];
-       // vm.showNewActivityFields = false;
+        // vm.newExistingList = [NEW, EXISTING];
+        // vm.showNewActivityFields = false;
         vm.showThirdPartyNote = false;
         vm.showAdminSub = false;
         vm.showEctdSection = true;
@@ -75,7 +74,7 @@
         vm.isEctd = false;
         vm.selectedDossierType = '';
         vm.alerts = [false, false, false, false, false, false, false, false, false];
-       // vm.requesterList = [];
+        // vm.requesterList = [];
         vm.userList = [];
         vm.isForProd = PROD === TransactionLists.getEnv();
         vm.formTypeList = getRoleLists.getFormTypes(vm.isForProd);
@@ -86,36 +85,37 @@
             {type: "required", displayAlias: "MSG_ERR_MAND"},
             {type: "minlength", displayAlias: "MSG_LENGTH_MIN5"}
         ];
-        vm.min7Error = [
+        vm.formatError = [
             {type: "required", displayAlias: "MSG_ERR_MAND"},
-            {type: "minlength", displayAlias: "MSG_LENGTH_7"},
-            {type: "pattern", displayAlias: "MSG_FORMAT_ALPHA_NUMBERIC"}
+            {type: "minlength", displayAlias: "FORMAT_TYPE_MINLENGTH"},
+            {type: "pattern", displayAlias: "FORMAT_TYPE_PATTERN"}
         ];
         vm.showSummary=false;
 
         vm.$onInit = function () {
             _setIdNames();
-           // vm.updateActivityType();
+            // vm.updateActivityType();
             vm.setThirdParty();
             vm.setAdminSubmission();
             vm.updateEctdState();
             vm.updateDossierTypeState();
-           // vm.setSolicitedState();
+            // vm.setSolicitedState();
             loadAdminSubData();
             // loadUserListData();
             vm.finalState=false;
             vm.displayResetBtn = false;
+
         };
 
 
         vm.$onChanges = function (changes) {
             if (changes.transactionRoot) {
                 vm.transactionModel = changes.transactionRoot.currentValue;
-             //   vm.updateActivityType();
+                //   vm.updateActivityType();
                 vm.setThirdParty();
                 vm.setAdminSubmission();
                 vm.updateEctdState();
-             //   vm.setSolicitedState();
+                //   vm.setSolicitedState();
                 vm.selectedDossierType = vm.transactionModel.ectd.dossierType;
             }
 
@@ -131,6 +131,27 @@
             }
             if(changes.isFinal){
                 vm.finalState = changes.isFinal.currentValue;
+            }
+        };
+
+        vm.isPB = function() {
+            if (vm.transactionModel.ectd.dossierType === 'D21' || vm.transactionModel.ectd.dossierType === 'D22') {
+                return true;
+            } else {
+                vm.transactionModel.ectd.isPriority = "";
+                vm.transactionModel.ectd.isNoc = "";
+                return false;
+            }
+        };
+
+        vm.isPBV = function() {
+            if (vm.transactionModel.ectd.dossierType === 'D21' || vm.transactionModel.ectd.dossierType === 'D22'
+                || vm.transactionModel.ectd.dossierType === 'D24') {
+                return true;
+            } else {
+                vm.transactionModel.ectd.isPriority = "";
+                vm.transactionModel.ectd.isNoc = "";
+                return false;
             }
         };
 
@@ -164,7 +185,7 @@
         //temp used for autimation testing. Ignore for coding
         vm.showFormErrors = function () {
 
-          //  return (vm.showErrors())
+            //  return (vm.showErrors())
         };
 
         //TODO : needed for subcomponents, replace with one way binding?
@@ -182,18 +203,23 @@
             return false;
         };
 
-        vm.updateActivityType = function () {
-          //  vm.showNewActivityFields = isNewActivity();
-            //if(!vm.showNewActivityFields){
-                vm.transactionModel.isThirdParty = "";
-                vm.transactionModel.isPriority = "";
-                vm.transactionModel.isNoc = "";
-                vm.transactionModel.isAdminSub = "";
-                vm.transactionModel.subType = "";
-                vm.showThirdPartyNote = false;
-                vm.showAdminSub = false;
+        vm.setTouch = function (ctrl) {
+            if (!ctrl) return;
+            ctrl.$setTouched();
+        };
 
-           // }
+        vm.updateActivityType = function () {
+            //  vm.showNewActivityFields = isNewActivity();
+            //if(!vm.showNewActivityFields){
+            vm.transactionModel.isThirdParty = "";
+            vm.transactionModel.isPriority = "";
+            vm.transactionModel.isNoc = "";
+            vm.transactionModel.isAdminSub = "";
+            vm.transactionModel.subType = "";
+            vm.showThirdPartyNote = false;
+            vm.showAdminSub = false;
+
+            // }
         };
 
         vm.setThirdParty = function () {
@@ -209,8 +235,29 @@
         };
 
         vm.updateDossierTypeState = function () {
-               vm.selectedDossierType = vm.transactionModel.ectd.dossierType ;
-        }
+            vm.selectedDossierType = vm.transactionModel.ectd.dossierType ;
+            if(vm.selectedDossierType === 'D26'){
+                vm.transactionModel.isPriority = '';
+                vm.transactionModel.isNoc = '';
+                vm.transactionModel.isAdminSub = '';
+                vm.transactionModel.subType = '';
+                vm.showAdminSub = false;
+                vm.transactionModel.isFees = '';
+            } else {
+                vm.transactionModel.ectd.productProtocol = '';
+                if(vm.selectedDossierType === 'D24') {
+                    vm.transactionModel.isPriority = '';
+                    vm.transactionModel.isNoc = '';
+                    vm.transactionModel.isFees = '';
+                }
+            }
+        };
+        vm.faxMandatory = function () {
+            if(vm.selectedDossierType === 'D21' || vm.selectedDossierType === 'D22'){
+                return true;
+            }
+            return false;
+        };
 
         function pharmaceuticalDossierType() {
             return vm.transactionModel.ectd.dossierType === 'D21';
@@ -221,13 +268,13 @@
         }
 
         vm.updateFeeState=function(){
-          if(vm.transactionModel.isFees === YES){
-              vm.transactionModel.feeDetails = vm.getFee();
+            if(vm.transactionModel.isFees === YES){
+                vm.transactionModel.feeDetails = vm.getFee();
 
-          }else{
-              //clear out all the fee details
-              vm.transactionModel.feeDetails = null;
-          }
+            }else{
+                //clear out all the fee details
+                vm.transactionModel.feeDetails = null;
+            }
 
         };
 
@@ -235,17 +282,17 @@
             return vm.transactionModel.isEctd === YES;
         }
 
-       // function isSolicitedValue() {
+        // function isSolicitedValue() {
         //    return true; //vm.transactionModel.isSolicited === YES;
-      //  }
+        //  }
 
         function isActivityChangesValue() {
             return vm.transactionModel.isActivityChanges === YES;
         }
 
-     //   function isNewActivity() {
-    //        return vm.transactionModel.transactionType === NEW;
-    //    }
+        //   function isNewActivity() {
+        //        return vm.transactionModel.transactionType === NEW;
+        //    }
 
         function loadAdminSubData() {
             getContactLists.getAdminSubType()
@@ -275,8 +322,7 @@
         /**
          * @ngdoc method sets the visibilty of the solicited requester field. Clears
          * the data if the field is hidden
-
-        vm.setSolicitedState = function () {
+         vm.setSolicitedState = function () {
             if (isSolicitedValue()) {
                 vm.showSolicitedDetail = true;
             } else {
@@ -345,38 +391,36 @@
          * Changes to row 11, 12, 13, 15, 16, 17, 22, 37, 41, 43, 44, 46, 93
          */
         vm.resetSpecificValues = function () {
-             if( vm.finalState )
+            if( vm.finalState )
             {
-               // vm.transactionModel.ectd.productName= ""; //11 - product name- just hidden
-               // vm.transactionModel.transactionType = ""; //12 - new or exsiting
-               // vm.updateDossierTypeState();
+                // vm.transactionModel.ectd.productName= ""; //11 - product name- just hidden
+                // vm.transactionModel.transactionType = ""; //12 - new or exsiting
+                // vm.updateDossierTypeState();
                 vm.updateActivityType();
                 vm.setThirdParty();
                 vm.setAdminSubmission();
-               // vm.transactionModel.isSolicited = "";
-               // vm.setSolicitedState();
+                // vm.transactionModel.isSolicited = "";
+                // vm.setSolicitedState();
                 vm.transactionModel.ectd.lifecycleModel = vm.getNewTransaction(); //22 - Transaction Details Record
                 vm.transactionModel.ectd.lifecycleRecord = angular.copy(vm.transactionModel.ectd.lifecycleModel);
-                // vm.transactionModel.projectManager1 = ""; //43 - projectManager1
-                // vm.transactionModel.projectManager2 = ""; // 44 -projectManager2
+                vm.transactionModel.projectManager1 = ""; //43 - projectManager1
+                vm.transactionModel.projectManager2 = ""; // 44 -projectManager2
+                // vm.transactionModel.ectd.productProtocol="";
                 vm.transactionModel.isFees = ""; // 46 - fee
                 vm.transactionModel.feeDetails = null;
                 vm.transactionModel.confirmContactValid = false; //93 confirmation
                 vm.transactionModel.resetBtnClicked = true;
-             }
+            }
         };
 
         vm.showRoutingId = function(){
             return 0;
-        }
-
+        };
 
         /**
          * Once Reset button clicked
          * Hide - productName,
-
-
-        vm.disableProductName = function(){
+         vm.disableProductName = function(){
             return (vm.finalState);
         };
          */
@@ -391,23 +435,27 @@
             vm.companyId="company_id"+scopeId;
             vm.dossierId="dossier_id"+scopeId;
             vm.productNameId="prod_name"+scopeId;
+            vm.productProtocolId="prod_protocol"+scopeId;
             vm.isEctdId="is_ectd"+scopeId;
-          //  vm.isSolicitedId="is_solicited"+scopeId;
+            //  vm.isSolicitedId="is_solicited"+scopeId;
             vm.solictedRqId="solicited_rq"+scopeId;
             vm.solicitedOtherId="solicited_rq_other"+scopeId;
             vm.companyNameId="company_noabbrev"+scopeId;
             vm.contactSameId="confirm_contact_valid"+scopeId;
             vm.isFeesId="is_fee_transaction"+scopeId;
             vm.typeId="dossier_type"+ scopeId;
-           // vm.isNewActivityId="is_new_activity"+ scopeId;
+            // vm.isNewActivityId="is_new_activity"+ scopeId;
             vm.thirdPartyId = "is_signed_3rd_party" + scopeId;
             vm.isAdminSubId = "is_admin_submission" + scopeId;
             vm.adminSubTypeId = "admin_sub_type" + scopeId;
             vm.isPriorityId = "is_priority" + scopeId;
             vm.isNocId = "is_noc" + scopeId;
         }
+
+        vm.updateProductProtocol = function () {
+            vm.transactionModel.ectd.productProtocol = "UNASSIGNED";
+        }
     }
 
 })
 ();
-

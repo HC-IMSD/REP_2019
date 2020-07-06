@@ -1,10 +1,10 @@
 <div class="container-fluid">
     <ng-form name="lifecycleCtrl.lifecycleDetailsForm" novalidate="novalidate" id="{{::lifecycleCtrl.lifecycleDetailsFormId}}">
         <!--<cmp-error-summary form-ref="lifecycleCtrl.lifecycleDetailsForm"-->
-                           <!--form-preamble="LIFE_REC"-->
-                           <!--name-suffix="lifecycleCtrl.lifecycleDetailsForm" set-heading-level="h3" form-id="lifecycleCtrl.lifecycleDetailsFormId"-->
-                           <!--make-focused="lifecycleCtrl.focusSummary" show-errors="lifecycleCtrl.showSummary"-->
-                           <!--update-errors="lifecycleCtrl.updateSummary"></cmp-error-summary>-->
+        <!--form-preamble="LIFE_REC"-->
+        <!--name-suffix="lifecycleCtrl.lifecycleDetailsForm" set-heading-level="h3" form-id="lifecycleCtrl.lifecycleDetailsFormId"-->
+        <!--make-focused="lifecycleCtrl.focusSummary" show-errors="lifecycleCtrl.showSummary"-->
+        <!--update-errors="lifecycleCtrl.updateSummary"></cmp-error-summary>-->
         <div>
             <div>
                 <fieldset>
@@ -15,8 +15,8 @@
                             <label for="{{::lifecycleCtrl.controlNumId}}" class="required">
                                 <span class="field-name">{{::"CONTROL_NUM" |translate}}{{::"LEAST_6_DIGIT" |translate}}
                                 <strong class="required">{{::"REQUIRED" |translate}}</strong>
-                                <sup id="tr7_ref">
-                                    <a class="fn-lnk" href="#tr7"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::lifecycleCtrl.htIndxList.ctrlNumInx}}</a>
+                                <sup id="tr8_ref">
+                                    <a class="fn-lnk" href="#tr8"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>8</a>
                                 </sup>
                                 </span>
                                 <cmp-error-message field-name="lifecycleCtrl.controlNumId"
@@ -37,8 +37,8 @@
                                 <label for="{{::lifecycleCtrl.activityLeadId}}" class="required">
                                     <span class="field-name"> {{::'ACTIVITY_LEAD' |translate}}</span>
                                     <strong class="required"> {{::"REQUIRED" |translate}}</strong>
-                                    <sup id="tr8_ref">
-                                        <a class="fn-lnk" href="#tr8"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::lifecycleCtrl.htIndxList.actLeadInx}}</a>
+                                    <sup id="tr9_ref">
+                                        <a class="fn-lnk" href="#tr9"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>9</a>
                                     </sup>
                                     <cmp-error-message field-name="lifecycleCtrl.activityLeadId"
                                                        form-ref="lifecycleCtrl.lifecycleDetailsForm"
@@ -95,7 +95,7 @@
                             </label>
                         </div>
                     </div>
-                    <div class="row" data-ng-if="lifecycleCtrl.startDateVisible && !lifecycleCtrl.endDateVisible">
+                    <div class="row" data-ng-show="lifecycleCtrl.startDateVisible && !lifecycleCtrl.endDateVisible">
                         <div class="form-group col-md-4"
                              data-ng-class="{'has-error':lifecycleCtrl.lifecycleDetailsForm[lifecycleCtrl.dateId].$invalid}">
                             <label for="{{::lifecycleCtrl.dateId}}" class="required">
@@ -110,13 +110,12 @@
                             <input id="{{::lifecycleCtrl.dateId}}" type="date" max='9999-12-31'
                                    name="{{::lifecycleCtrl.dateId}}"
                                    data-ng-model="lifecycleCtrl.lifecycleModel.startDate"
-                                   data-ng-required="lifecycleCtrl.startDateVisible && !lifecycleCtrl.endDateVisible"
-                                   class="form-control" required
+                                   class="form-control" data-ng-required="lifecycleCtrl.startDateVisible && !lifecycleCtrl.endDateVisible" data-rule-dateISO="true"
                                    data-ng-change="lifecycleCtrl.setConcatDetails()"/>
                         </div>
                     </div>
-                    <div class="row" data-ng-if="lifecycleCtrl.endDateVisible">
-                        <div class="form-group col-md-4"
+                    <div class="row" data-ng-show="lifecycleCtrl.endDateVisible">
+                        <div class="form-group col-md-6"
                              data-ng-class="{'has-error':lifecycleCtrl.lifecycleDetailsForm[lifecycleCtrl.startDateId].$invalid}">
                             <label for="{{::lifecycleCtrl.startDateId}}" class="required">
                                 <span class="field-name">{{::"START_DATE" |translate}}</span>
@@ -126,7 +125,7 @@
                                                    show-error="lifecycleCtrl.showError(lifecycleCtrl.lifecycleDetailsForm[lifecycleCtrl.startDateId])"
                                                    error-types="lifecycleCtrl.dateFormatError"></cmp-error-message>
                             </label>
-                             <input id="{{::lifecycleCtrl.startDateId}}"
+                            <input id="{{::lifecycleCtrl.startDateId}}"
                                    type="date" max='9999-12-31'
                                    name="{{::lifecycleCtrl.startDateId}}"
                                    data-ng-model="lifecycleCtrl.lifecycleModel.startDate"
@@ -134,7 +133,7 @@
                                    class="form-control" required
                                    data-ng-change="lifecycleCtrl.setConcatDetails()"/>
                         </div>
-                        <div class="form-group col-md-4"
+                        <div class="form-group col-md-6"
                              data-ng-class="{'has-error':lifecycleCtrl.lifecycleDetailsForm[lifecycleCtrl.endDateId].$invalid}" >
                             <label for="{{::lifecycleCtrl.endDateId}}" class="required">
                                 <span class="field-name">{{::"END_DATE" |translate}}</span>
@@ -167,10 +166,10 @@
                                 </cmp-error-message>
                             </label>
                             <input type="text" id="{{::lifecycleCtrl.yearId}}" name="{{::lifecycleCtrl.yearId}}"
-                                          data-ng-model="lifecycleCtrl.lifecycleModel.year"
-                                          data-ng-change="lifecycleCtrl.setConcatDetails()" maxlength="4"
-                                          data-ng-required="lifecycleCtrl.yearVisible" data-only-digits
-                                          class="form-control">
+                                   data-ng-model="lifecycleCtrl.lifecycleModel.year"
+                                   data-ng-change="lifecycleCtrl.setConcatDetails()" maxlength="4"
+                                   data-ng-required="lifecycleCtrl.yearVisible" data-only-digits
+                                   class="form-control">
                             </input>
                         </div>
                         <div class="form-group col-md-12"
@@ -179,8 +178,8 @@
                             <label for="{{::lifecycleCtrl.yearChangeId}}" class="required">
                                 <span class="field-name">{{::"YEAR_CHANGE" |translate}}</span>
                                 <strong class="required">{{::"REQUIRED" |translate}}</strong>
-                                <sup id="tr9_ref">
-                                    <a class="fn-lnk" href="#tr9"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::lifecycleCtrl.htIndxList.yearChgInx}}</a>
+                                <sup id="tr10_ref">
+                                    <a class="fn-lnk" href="#tr10"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>10</a>
                                 </sup>
                                 <cmp-error-message field-name="lifecycleCtrl.yearChangeId"
                                                    form-ref="lifecycleCtrl.lifecycleDetailsForm"
@@ -223,8 +222,8 @@
                             <label for="{{::lifecycleCtrl.descriptChangeId}}" class="required full-width">
                                 <span class="field-name">{{::"BRIEF_DESC_CHANGE" |translate}}</span>
                                 <strong class="required">{{::"REQUIRED" |translate}}</strong>
-                                <sup id="tr10_ref">
-                                    <a class="fn-lnk" href="#tr10"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::lifecycleCtrl.htIndxList.descChgInx}}</a>
+                                <sup id="tr11_ref">
+                                    <a class="fn-lnk" href="#tr11"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>11</a>
                                 </sup>
                                 <cmp-error-message field-name="lifecycleCtrl.descriptChangeId"
                                                    form-ref="lifecycleCtrl.lifecycleDetailsForm"
@@ -259,11 +258,46 @@
                             </label>
                         </div>
                     </div>
+                    <div class="row" data-ng-if="lifecycleCtrl.fromTo">
+                        <div class="form-group col-md-6"
+                             data-ng-class="{'has-error':lifecycleCtrl.lifecycleDetailsForm.fromValue.$invalid}">
+                            <label for="{{::lifecycleCtrl.fromValueId}}" class="required full-width">
+                                <span class="field-name">{{::"CTA_FROM" |translate}}</span>
+                                <strong class="required">{{::"REQUIRED" |translate}}</strong>
+                                <sup id="tr12a_ref">
+                                    <a class="fn-lnk" href="#tr12a"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>13</a>
+                                </sup>
+                                <cmp-error-message field-name="lifecycleCtrl.fromValueId" form-ref="lifecycleCtrl.lifecycleDetailsForm"
+                                                   show-error="lifecycleCtrl.showError(lifecycleCtrl.lifecycleDetailsForm[lifecycleCtrl.fromValueId])"
+                                                   error-types="lifecycleCtrl.requiredOnly"></cmp-error-message>
+                            </label>
+                            <input type="text" id="{{::lifecycleCtrl.fromValueId}}" name="{{::lifecycleCtrl.fromValueId}}"
+                                   data-ng-model="lifecycleCtrl.lifecycleModel.fromValue" required
+                                   class="form-control full-width"
+                                   data-ng-change="lifecycleCtrl.setConcatDetails()"/>
+                        </div>
+                        <div class="form-group col-md-6"
+                             data-ng-class="{'has-error':lifecycleCtrl.lifecycleDetailsForm.to.$invalid}">
+                            <label for="{{::lifecycleCtrl.toValueId}}" class="required full-width">
+                                <span class="field-name">{{::"CTA_TO" |translate}}</span>
+                                <strong class="required">{{::"REQUIRED" |translate}}</strong>
+                                <cmp-error-message field-name="lifecycleCtrl.toValueId" form-ref="lifecycleCtrl.lifecycleDetailsForm"
+                                                   show-error="lifecycleCtrl.showError(lifecycleCtrl.lifecycleDetailsForm[lifecycleCtrl.toValueId])"
+                                                   error-types="lifecycleCtrl.requiredOnly"></cmp-error-message>
+                                <input type="text" id="{{::lifecycleCtrl.toValueId}}" name="{{::lifecycleCtrl.toValueId}}"
+                                       data-ng-model="lifecycleCtrl.lifecycleModel.toValue"  required
+                                       class="form-control full-width"
+                                       data-ng-change="lifecycleCtrl.setConcatDetails()"/>
+
+                            </label>
+                        </div>
+                    </div>
+
                     <div class="row" data-ng-if="lifecycleCtrl.requesterVisible">
                         <p class="mrgn-lft-md mrgn-tp-sm legend-rep">{{::'SOLICITED_RQ'|translate}}
-                        <sup id="tr11_ref">
-                            <a class="fn-lnk" href="#tr11"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::lifecycleCtrl.htIndxList.reqSoliInx}}</a>
-                        </sup>
+                            <!--<sup id="tr12_ref">-->
+                                <!--<a class="fn-lnk" href="#tr12"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>12</a>-->
+                            <!--</sup>-->
                         </p>
                         <div class="form-group col-md-4 typeahead-demo"
                              data-ng-class="{'has-error':lifecycleCtrl.lifecycleDetailsForm[lifecycleCtrl.requesterNameId].$invalid}">
@@ -271,6 +305,9 @@
                                 <span class="field-name">1. {{'REQUESTER_NAME'|translate}}</span>
                                 <strong class="required">{{'REQUIRED' |translate}}</strong>
                                 <span class="rep-margin-top">
+                                <sup id="tr12_ref">
+                                    <a class="fn-lnk" href="#tr12"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>12</a>
+                                    </sup>
                                 <cmp-error-message field-name="lifecycleCtrl.requesterNameId" form-ref="lifecycleCtrl.lifecycleDetailsForm"
                                                    show-error="lifecycleCtrl.showError(lifecycleCtrl.lifecycleDetailsForm[lifecycleCtrl.requesterNameId])"
                                                    error-types="lifecycleCtrl.requiredOnly"></cmp-error-message>
