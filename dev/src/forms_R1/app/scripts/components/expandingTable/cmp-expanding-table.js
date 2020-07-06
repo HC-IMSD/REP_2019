@@ -198,6 +198,7 @@
          function _createArray(arraySize,initialVal){
          var anArray = [];
          for (var i = 0; i < arraySize; i++) {
+             // fix record window auto close error
              if (vm.transcludeForm && vm.transcludeForm[i] && vm.transcludeForm[i].$invalid) {
                  anArray.push (false);
              } else {

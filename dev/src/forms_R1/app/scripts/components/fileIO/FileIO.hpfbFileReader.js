@@ -83,8 +83,8 @@
                 }
             } else {
                 vm.status = fileContent.messages;
+                vm.updateModelRoot({fileContent: fileContent});
             }
-            vm.updateModelRoot({fileContent: fileContent});
             angular.element(fileLoad).trigger('focus');
         };
     }
