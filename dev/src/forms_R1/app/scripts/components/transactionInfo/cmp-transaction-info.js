@@ -52,7 +52,8 @@
                 getCurrentSequence:'&',
                 showErrorSummary: '<',
                 updateErrorSummary:'&',
-                defaultLifecycleRecord: '&'
+                defaultLifecycleRecord: '&',
+                htIndxList: '<'
             }
         });
 

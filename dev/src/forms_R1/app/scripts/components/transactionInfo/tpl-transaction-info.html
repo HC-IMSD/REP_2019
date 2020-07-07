@@ -21,7 +21,7 @@
                             <span class="field-name">{{::'DOSSIER_TYPE' |translate}}</span>
                             <strong class="required">{{::"REQUIRED" |translate}}</strong>
                             <sup id="tr2_ref">
-                                <a class="fn-lnk" href="#tr2"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>2</a>
+                                <a class="fn-lnk" href="#tr2"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::transInfoCtrl.htIndxList.dossierTypeInx}}</a>
                             </sup>
                             <cmp-error-message field-name="transInfoCtrl.typeId"
                                                form-ref="transInfoCtrl.transInfoForm"
@@ -44,7 +44,7 @@
                                         <span class="field-name">{{::"COMPANY_ID" |translate}}{{::"LEAST_5_DIGIT" |translate}}
                                         <strong class="required"> {{::"REQUIRED" |translate}}</strong>
                                         <sup id="tr3_ref">
-                                            <a class="fn-lnk" href="#tr3"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>3</a>
+                                            <a class="fn-lnk" href="#tr3"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::transInfoCtrl.htIndxList.compIdInx}}</a>
                                         </sup>
                                         </span>
                             <cmp-error-message field-name="transInfoCtrl.companyId"
@@ -61,10 +61,10 @@
                 <div class="row">
                     <div class="form-group col-md-12">
                         <label for="{{::transInfoCtrl.dossierId}}" class="required full-width">
-                                        <span class="field-name">{{::"DOSSIER_ID" |translate}}{{::"LETTER_6_NUMBERS" |translate}}
+                                        <span class="field-name">{{::"DOSSIER_ID" |translate}}{{::"CHAR_6_DIGITS" |translate}}
                                             <strong class="required"> {{::"REQUIRED" |translate}}</strong>
                                             <sup id="tr4_ref">
-                                                <a class="fn-lnk" href="#tr4"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>4</a>
+                                                <a class="fn-lnk" href="#tr4"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::transInfoCtrl.htIndxList.dossiIdInx}}</a>
                                             </sup>
                                         </span>
                             <cmp-error-message field-name="transInfoCtrl.dossierId"
@@ -89,7 +89,7 @@
                                         <span class="field-name">{{::"PROD_NAME" |translate}}
                                         <strong class="required"> {{::"REQUIRED" |translate}}</strong>
                                          <sup id="tr5_ref">
-                                            <a class="fn-lnk" href="#tr5"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>5</a>
+                                            <a class="fn-lnk" href="#tr5"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::transInfoCtrl.htIndxList.prodNameInx}}</a>
                                          </sup>
                                         </span>
                             <cmp-error-message field-name="transInfoCtrl.productNameId"
@@ -113,7 +113,7 @@
                                         <span class="field-name">{{::"PROD_PROTOCOL" |translate}}
                                         <strong class="required"> {{::"REQUIRED" |translate}}</strong>
                                          <sup id="tr6_ref">
-                                            <a class="fn-lnk" href="#tr6"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>6</a>
+                                            <a class="fn-lnk" href="#tr6"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::transInfoCtrl.htIndxList.prodNameInx}}</a>
                                          </sup>
                                         </span>
                             <cmp-error-message field-name="transInfoCtrl.productProtocolId"
@@ -204,7 +204,7 @@
                                 {{::"IS_ADMIN_SUBMISSION" |translate}}
                                 <strong class="required"> {{::"REQUIRED" |translate}}</strong>
                                 <sup id="tr7_ref">
-                                    <a class="fn-lnk" href="#tr7"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>7</a>
+                                    <a class="fn-lnk" href="#tr7"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::transInfoCtrl.htIndxList.adminSubInx}}</a>
                                 </sup>
                                 <cmp-error-message field-name="transInfoCtrl.isAdminSubId"
                                                    form-ref="transInfoCtrl.transInfoForm"
@@ -339,7 +339,7 @@
                     </header>
                     <div class="panel-body">
                         <cmp-lifecycle-details lifecycle-record="transInfoCtrl.transactionModel.ectd.lifecycleRecord"
-                                               is-detail-valid=""
+                                               is-detail-valid="" ht-indx-list="transInfoCtrl.htIndxList"
                                                update-product-protocol="transInfoCtrl.updateProductProtocol"
                                                is-ectd="transInfoCtrl.transactionModel.ectd.ectdValue"
                                                dossier-type ="transInfoCtrl.transactionModel.ectd.dossierType"
@@ -396,7 +396,7 @@
                 <header class="panel-heading clearfix">
                     <h2 class="panel-title col-md-8">{{::'REGULATORY_FEES' |translate}}
                         <sup id="tr13_ref">
-                            <a class="fn-lnk" href="#tr13"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>13</a>
+                            <a class="fn-lnk" href="#tr13"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::lifecycleCtrl.htIndxList.feesInx}}</a>
                         </sup>
                     </h2>
                 </header>
@@ -413,7 +413,7 @@
                 <header class="panel-heading clearfix">
                     <h2 class="panel-title col-md-8">{{::'REG_CONTACT_THIS' |translate}}
                         <sup id="tr14_ref">
-                            <a class="fn-lnk" href="#tr14"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>14</a>
+                            <a class="fn-lnk" href="#tr14"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::transInfoCtrl.htIndxList.contactInx}}</a>
                         </sup>
                     </h2>
                 </header>
@@ -427,7 +427,7 @@
                                     <span class="field-name">{{::"COMPANY_NOABBREV" |translate}}</span>
                                     <strong class="required"> {{::"REQUIRED" |translate}}</strong>
                                     <sup id="tr15_ref">
-                                        <a class="fn-lnk" href="#tr15"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>15</a>
+                                        <a class="fn-lnk" href="#tr15"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::transInfoCtrl.htIndxList.compNameInx}}</a>
                                     </sup>
                                     <cmp-error-message field-name="transInfoCtrl.companyNameId"
                                                        form-ref="transInfoCtrl.transInfoForm"

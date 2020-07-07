@@ -38,7 +38,8 @@
                 errorSummaryUpdate:'<', //update the component error summary
                 showErrorSummary:'<', //show the component error summary
                 updateErrorSummary:'&', //update the parent error summary
-                updateProductProtocol:'=' //update the parent variable
+                updateProductProtocol:'=', //update the parent variable
+                htIndxList: '<'
             }
         });
     lifecycleRecCtrl.$inject = ['ActivityFormFilterService',  'TransactionLists', '$filter', '$translate','$scope'];
