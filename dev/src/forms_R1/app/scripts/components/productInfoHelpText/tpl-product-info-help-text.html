@@ -40,7 +40,9 @@
                     <p>{{::'DOSSIER_TYPE' |translate}}</p>
                     <ul>
                         <li>{{::'HT_DOSSIER_TYPE_1' |translate}}</li>
+                        <li data-ng-if="! helpCtrl.isForProd">{{::'HT_DOSSIER_TYPE_3' |translate}}</li>
                         <li>{{::'HT_DOSSIER_TYPE_2' |translate}}</li>
+                        <li data-ng-if="! helpCtrl.isForProd">{{::'HT_DOSSIER_TYPE_4' |translate}}</li>
                     </ul>
                     <p class="fn-rtn"><a href="#dr2b_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::helpCtrl.htIndxList.dossiTypeIndx}}
                         <span class="wb-inv"> referrer</span></a>
@@ -52,7 +54,7 @@
                     <ul>
                         <li>{{::'HT_PROD_NAME_1' |translate}}</li>
                         <li>{{::'HT_PROD_NAME_2' |translate}}</li>
-                        <li>{{::'HT_PROD_NAME_3' |translate}}</li>
+                        <li data-ng-if="! helpCtrl.isForProd">{{::'HT_PROD_NAME_3' |translate}}</li>
                     </ul>
                     <p class="fn-rtn"><a href="#dr3_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::helpCtrl.htIndxList.prodNameIndx}}
                         <span class="wb-inv"> referrer</span></a>
@@ -67,8 +69,23 @@
                         <li>{{::'HT_PROP_COMM_NAME_3' |translate}}</li>
                         <li>{{::'HT_PROP_COMM_NAME_4' |translate}}</li>
                         <li>{{::'HT_PROP_COMM_NAME_5' |translate}}</li>
+                        <li data-ng-if="! helpCtrl.isForProd">{{::'HT_PROP_COMM_NAME_6' |translate}}</li>
                     </ul>
                     <p class="fn-rtn"><a href="#dr4_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::helpCtrl.htIndxList.proComNameIndx}}
+                        <span class="wb-inv"> referrer</span></a>
+                    </p>
+                </dd>
+                <dt data-ng-if="! helpCtrl.isForProd"><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::helpCtrl.htIndxList.clinicalIndx}}</dt>
+                <dd id="dr12" data-ng-if="! helpCtrl.isForProd">
+                    <p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{::'HT_CLINICAL_TRIAL'|translate}}</p>
+                    <p class="fn-rtn"><a href="#dr12_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::helpCtrl.htIndxList.clinicalIndx}}
+                        <span class="wb-inv"> referrer</span></a>
+                    </p>
+                </dd>
+                <dt data-ng-if="! helpCtrl.isForProd"><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::helpCtrl.htIndxList.protocolNoIndx}}</dt>
+                <dd id="dr13" data-ng-if="! helpCtrl.isForProd">
+                    <p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{::'HT_PROTOCOL_NUM'|translate}}</p>
+                    <p class="fn-rtn"><a href="#dr13_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::helpCtrl.htIndxList.protocolNoIndx}}
                         <span class="wb-inv"> referrer</span></a>
                     </p>
                 </dd>
@@ -81,6 +98,18 @@
                         <li>{{::'HT_DNF_NOC_3' |translate}}</li>
                     </ul>
                     <p class="fn-rtn"><a href="#dr5_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::helpCtrl.htIndxList.dnfNocAddrIndx}}
+                        <span class="wb-inv"> referrer</span></a>
+                    </p>
+                </dd>
+                <dt data-ng-if="! helpCtrl.isForProd"><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::helpCtrl.htIndxList.ctDrugImpIndx}}</dt>
+                <dd id="dr14" data-ng-if="! helpCtrl.isForProd">
+                    <p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{::'HT_CT_DRUG_IMP'|translate}}</p>
+                    <ul>
+                        <li>{{::'HT_CT_DRUG_IMP_1' |translate}}</li>
+                        <li>{{::'HT_CT_DRUG_IMP_2' |translate}}</li>
+                        <li>{{::'HT_CT_DRUG_IMP_3' |translate}}</li>
+                    </ul>
+                    <p class="fn-rtn"><a href="#dr14_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::helpCtrl.htIndxList.ctDrugImpIndx}}
                         <span class="wb-inv"> referrer</span></a>
                     </p>
                 </dd>
@@ -185,6 +214,7 @@
                 <dd id="dr9c1">
                     <p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{'ING_NAME'|translate}}</p>
                     <p>{{::'HT_ING_NAME' |translate}}</p>
+                    <p>{{::'HT_ING_NAME_1' |translate}}</p>
                     <p class="fn-rtn" style="width:4.5em;"><a href="#dr9c1_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::helpCtrl.htIndxList.ingNameIndx}}
                         <span class="wb-inv"> referrer</span></a>
                     </p>

@@ -4,8 +4,8 @@
             <label for="{{::ctaCtrl.protocolNumId}}" class="required">
                 <span class="field-name">{{::'PROTOCOL_NUMBER' |translate}}</span>
                 <strong class="required">{{::"REQUIRED" |translate}}</strong>
-                <sup id="dr4b_ref">
-                    <a class="fn-lnk" href="#dr4b"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>8</a>
+                <sup id="dr13_ref">
+                    <a class="fn-lnk" href="#dr13"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::ctaCtrl.htIndxList.protocolNoIndx}}</a>
                 </sup>
                 <cmp-error-message field-name="ctaCtrl.protocolNumId"
                                    form-ref="ctaCtrl.ctaForm"

@@ -19,21 +19,51 @@
     angular
         .module('drugProductService')
         .factory('DrugProductService', DrugProductService);
-    DrugProductService.$inject = ['DossierLists', '$translate', '$filter', 'getCountryAndProvinces', 'OTHER', 'UNKNOWN', 'YES', 'NO', 'XSL_PREFIX'];
+    DrugProductService.$inject = ['DossierLists', '$translate', '$filter', 'getCountryAndProvinces', 'OTHER', 'UNKNOWN', 'YES', 'NO', 'XSL_PREFIX', 'PROD'];
 
-    function DrugProductService(DossierLists, $translate, $filter, getCountryAndProvinces, OTHER, UNKNOWN, YES, NO, XSL_PREFIX) {
+    function DrugProductService(DossierLists, $translate, $filter, getCountryAndProvinces, OTHER, UNKNOWN, YES, NO, XSL_PREFIX, PROD) {
         var yesValue = YES;
         var noValue = NO;
         // var xslName = XSL_PREFIX + "REP_PI_2_2.xsl";
         var xslName = "REP_PI_3_1.xsl";
-
+        var isForProd = PROD === DossierLists.getEnv();
         // Define the DrugProductService object
         function DrugProductService() {
         }
 
         function DrugProductService(formData) {
             //construction logic
-            this.helpTextSequences = {
+            this.helpTextSequences = isForProd ?
+                {
+                    loadFileIndx: 0,
+                    prodInfoIndx: 0,
+                    compIdIndx: 0,
+                    dossiTypeIndx: 0,
+                    prodNameIndx: 0,
+                    proComNameIndx: 0,
+                    dnfNocAddrIndx: 0,
+                    importerIndx: 0,
+                    routingIdIndx: 0,
+                    drugUseIndx: 0,
+                    dinIndx: 0,
+                    pudIndx: 0,
+                    formuIndx: 0,
+                    formuDetailIndx: 0,
+                    ingredIndx: 0,
+                    ingNameIndx: 0,
+                    variaNameIndx: 0,
+                    purposeIndx: 0,
+                    standardIndx: 0,
+                    isNanoIndx: 0,
+                    ahSourcedIndx: 0,
+                    isMaterialIndx: 0,
+                    contaTypeIndx: 0,
+                    packSizeIndx: 0,
+                    shelfLifeIndx: 0,
+                    manuCntryIndx: 0,
+                    haSIMIndx: 0,
+                    genXmlIndx: 0
+                } : {
                 loadFileIndx: 0,
                 prodInfoIndx: 0,
                 compIdIndx: 0,
@@ -41,7 +71,9 @@
                 prodNameIndx: 0,
                 proComNameIndx: 0,
                 clinicalIndx: 0,
+                protocolNoIndx: 0,
                 dnfNocAddrIndx: 0,
+                ctDrugImpIndx: 0,
                 importerIndx: 0,
                 routingIdIndx: 0,
                 drugUseIndx: 0,
