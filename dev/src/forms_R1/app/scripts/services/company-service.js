@@ -25,7 +25,7 @@
                 enrolmentVersion: "0.0",
                 dateSaved: "",
                 applicationType: "NEW",
-                softwareVersion: "3.1.0",
+                softwareVersion: "4.1.0",
                 companyId: "",
                 reasonAmend:"",
                 addressList: [],
@@ -41,17 +41,17 @@
             this.addressID = 0;
             this.contactId = 0;
             // this.xslFileName = XSL_PREFIX + "REP_CO_2_2.xsl";
-            this.xslFileName = "REP_CO_3_1.xsl";
+            this.xslFileName = "REP_CO_4_1.xsl";
             this.helpTextSequences = {
-                loadFileInx: 1,
-                enrolIdx: 2,
-                addressIdx: 3,
-                businessIdx: 4,
-                addRoleIdx: 5,
-                companyRepIdx: 6,
-                routingIdIdx: 7,
-                contactRoleIdx: 8,
-                genXmlIdx: 9
+                loadFileInx: 0,
+                enrolIdx: 0,
+                addressIdx: 0,
+                businessIdx: 0,
+                addRoleIdx: 0,
+                companyRepIdx: 0,
+                routingIdIdx: 0,
+                contactRoleIdx: 0,
+                genXmlIdx: 0
             };
 
             var keys = Object.keys(this.helpTextSequences);
