@@ -31,7 +31,9 @@
                 errorSummaryUpdate: '&', /* used to message that a parent errorSummary needs updating */
                 showErrorSummary: '<',
                 updateErrorSummary:'&', //update the parent error summary
-                htIndxList: '<'
+                htIndxList: '<',
+                isFocus: '<',
+                cancelFocus: '&'
             }
         });
     contactRecCtrl.$inject = ['$scope'];
@@ -84,7 +86,7 @@
 
         vm.$onInit = function () {
             vm.updateErrorSummaryState();
-
+            vm.contactModel.focusOnFirstName = vm.isFocus;
         };
         /**
          * Due to binding with table expander this method does not get called
@@ -152,6 +154,7 @@
         vm.delete = function () {
             vm.onDelete({contactId: vm.contactModel.contactId});
             vm.updateErrorSummary();
+            vm.cancelFocus();
         };
         /* @ngdoc method -discards the changes and reverts to the model
          *
@@ -163,6 +166,9 @@
             vm.setEditable();
             //since we are reverting back to the last save should be pristine
             vm.contactRecForm.$setPristine();
+            if (vm.contactModel) {
+                vm.onUpdate({contact: vm.contactModel});
+            }
             vm.isDetailValid({state: vm.contactRecForm.$valid});
             vm.errorSummaryUpdate();
         };
@@ -207,6 +213,7 @@
                 vm.contactRecForm.$setPristine();
                 vm.onUpdate({contact: vm.contactModel});
                 vm.showSummary = false;
+                vm.contactModel.focusOnFirstName = false;
                 vm.errorSummaryUpdate(); //updating parent
             } else {
                 vm.showSummary = true;
@@ -246,7 +253,7 @@
             } else {
                 vm.isEditable = false;
             }
-        }
+        };
         vm.showRoutingId = function () {
             vm.contactModel.roleConcat = _getRolesConcat();
             if (vm.contactModel.roleConcat.indexOf(' MFR') > -1 || vm.contactModel.roleConcat.indexOf(' MAIL') > -1
@@ -258,8 +265,8 @@
                 return -1;
             }
         }
-    }
 
+    }
 
 
 })();

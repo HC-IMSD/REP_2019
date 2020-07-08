@@ -15,8 +15,9 @@
             <div class="row">
                 <cmp-contact-details contact-record="contactRec.contactModel" is-amend="contactRec.isEditable"
                                      on-update="contactRec.onUpdateContactRecord(contact)"
-                                     update-error-summary="contactRec.updateErrorSummaryState()" routing-id-index="contactRec.htIndxList.routingIdIdx"
+                                     update-error-summary="contactRec.updateErrorSummaryState()"
                                      fax-mandatory="true" show-routing-id="contactRec.showRoutingId()"
+                                     ht-indx-list="contactRec.htIndxList"
                                      show-errors="contactRec.showErrors()"></cmp-contact-details>
             </div>
             <div>
@@ -24,6 +25,7 @@
                                   is-contact="contactRec.isContact" is-amend="contactRec.isEditable"
                                   on-update="contactRec.onContactRoleUpdate($event.roles)"
                                   show-errors="contactRec.showErrors()"
+                                  ht-indx-list="contactRec.htIndxList"
                                   update-error-summary="contactRec.updateErrorSummaryState()"
                                   already-selected="contactRec.isOneSelected(roleName)">
                 </cmp-address-role>
@@ -31,10 +33,10 @@
             </div>
             <div  class="row">
                 <div class="btn-group-sm col-md-12">
-                    <button class="btn btn-primary mrgn-rght-sm" name="saveContact" id="saveContact"
+                    <button class="btn btn-primary mrgn-rght-sm" name="saveContact" id="saveContact" onclick="focusOnRow(this, 'addContact_');"
                             data-ng-click="contactRec.updateContactModel2()">{{::'SAVE_RECORD' |translate}}
                     </button>
-                    <button class="btn btn-danger mrgn-rght-sm" name="deleteContact"
+                    <button class="btn btn-danger mrgn-rght-sm" name="deleteContact" onclick="focusOnRow(this, 'addContact_');"
                             data-ng-click="contactRec.delete()">{{::'DELETE_RECORD'|translate}}
                     </button>
                     <button name="discardContact" class="btn btn-default"

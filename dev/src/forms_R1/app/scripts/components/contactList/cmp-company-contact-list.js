@@ -201,6 +201,7 @@
             vm.allRolesSelected= vm.isAllContactRolesSelected();
             vm.requiredFlag = false;
             vm.resetCollapsed = !vm.resetCollapsed;
+            vm.contactListForm.$setPristine();
 
         };
 
@@ -215,6 +216,7 @@
             vm.requiredFlag = false;
             vm.resetCollapsed = !vm.resetCollapsed;
             vm.updateErrorSummaryState();
+            vm.contactListForm.$setPristine();
 
         };
 
@@ -223,13 +225,19 @@
          */
         vm.addContact = function () {
             var defaultContact = vm.getNewContact();
+            defaultContact.focusOnFirstName = vm.isFocus;
             vm.contactList.push(defaultContact);
             //select table row first then make invalid
             vm.selectRecord=(vm.contactList.length - 1);
             vm.isDetailValid= false;
            // vm.showSummary=false;
         };
-
+        vm.setFocus = function(){
+            vm.isFocus = true;
+        }
+        vm.cancelFocus = function(){
+            vm.isFocus = false;
+        }
         /**
          * @ngdoc method - checks if all the roles have been selected
          * @param roleToCheck (optional) returns if a role has been selected.
