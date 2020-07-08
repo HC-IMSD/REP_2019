@@ -131,6 +131,7 @@
                 drugProduct: {
                     //thirdPartySigned: "",
                     drugUse: "",
+                    speciesRecord: [],
                     disinfectantType: {
                         hospital: false,
                         foodProcessing: false,
@@ -139,6 +140,7 @@
                         barn: false,
                         institutionalIndustrial: false
                     },
+                    scheduleSelected:"",
                     isScheduleC: false,
                     isScheduleD: false,
                     isPrescriptionDrugList: false,
@@ -245,6 +247,7 @@
                     dataChecksum: info.data_checksum,
                     drugProduct: {
                         drugUse: $filter('findListItemById')(DossierLists.getDrugUseList(), {id: drugUseValue}),
+                        speciesRecord: transformSpeciesFromFile(info.species_record),
                         disinfectantType: {
                             hospital: info.disinfectant_type.hospital === 'Y',
                             foodProcessing: info.disinfectant_type.food_processing === 'Y',
@@ -373,6 +376,7 @@
             }else{
                 baseModel.drug_use="";
             }
+            baseModel.species_record = transformSpeciesToFile(jsonObj.drugProduct.speciesRecord);
             baseModel.disinfectant_type = {
                 hospital: jsonObj.drugProduct.disinfectantType.hospital === true ? 'Y' : 'N',
                 food_processing: jsonObj.drugProduct.disinfectantType.foodProcessing === true ? 'Y' : 'N',
@@ -710,8 +714,27 @@
                         countryArray = item.country_group.country_manufacturer;
                     }
                     obj.countryList = getFormulationCountryList(countryArray);
+                    obj.noCountries = obj.countryList.length;
                 } else {
                     obj.countryList = [];
+                }
+                if(item.drug_market){
+                    obj.drugMarket = item.drug_market;
+                    obj.din = "";
+                    obj.dinCountryList = [];
+                    if(item.din){
+                        obj.din = item.din;
+                    } else if(item.din_country_list && item.din_country_list.length >0) {
+                        var countryArray = [];
+                        if (!(item.din_country_list instanceof Array)) {
+                            countryArray = [item.din_country_list];
+                        } else {
+                            countryArray = item.din_country_list;
+                        }
+                        obj.dinCountryList = getFormulationCountryList(countryArray);
+                        obj.noDinCountries = obj.dinCountryList.length;
+                    }
+
                 }
                 formulationList.push(obj);
             });
@@ -1073,6 +1096,83 @@
             return (importerRec);
         }
 
+        function transformSpeciesFromFile(jsonObj) {
+            var speciesRecords = [];
+            var currentLang = $translate.proposedLanguage() || $translate.use();
+            if (!jsonObj) return speciesRecords;
+            if (!(jsonObj instanceof Array)) {
+                //make it an array, case there is only one record
+                jsonObj = [jsonObj];
+            }
+            for (var i = 0; i < jsonObj.length; i++) {
+                var record = {};
+                if (jsonObj[i].species && jsonObj[i].species._id) {
+                    record.species = $filter('filter')(DossierLists.getSpeciesList(), {id: jsonObj[i].species._id})[0];
+                }
+                if (jsonObj[i].subtypes && jsonObj[i].subtypes._id) {
+                    record.subtypes = $filter('filter')(DossierLists.getSubTypesList(), {id: jsonObj[i].subtypes._id})[0];
+                }
+                if (record.species && record.subtypes) {
+                    record.specSubt = record.species[currentLang] + ', ' + record.subtypes[currentLang];
+                } else {
+                    record.specSubt = '';
+                }
+                record.isTreatFPA = jsonObj[i].is_treat_food_prod_animal;
+                record.withdrawalDays = Number(jsonObj[i].withdrawal_days);
+                record.withdrawalHours = Number(jsonObj[i].withdrawal_hours);
+                record.timeCombined = jsonObj[i].withdrawal_days + ' days and ' + jsonObj[i].withdrawal_hours + ' hours';
+                speciesRecords.push(record);
+            }
+            return speciesRecords;
+        }
+
+        /**
+         *
+         * @param jsonObj the json object to convert
+         * @returns {Array}
+         * @private
+         */
+        function transformSpeciesToFile(jsonObj) {
+            var importers = [];
+            var currentLang = $translate.proposedLanguage() || $translate.use();
+            if (!jsonObj) return importers;
+            if (!(jsonObj instanceof Array)) {
+                //make it an array, case there is only one record
+                jsonObj = [jsonObj]
+            }
+
+            for (var i = 0; i < jsonObj.length; i++) {
+                var record = {};
+                record.species = "";
+                if (jsonObj[i].species) {
+                    record.species = {
+                        _label_en: jsonObj[i].species.en,
+                        _label_fr: jsonObj[i].species.fr,
+                        _id: jsonObj[i].species.id,
+                        __text: jsonObj[i].species[currentLang]
+                    };
+                }
+                record.subtypes = "";
+                if (jsonObj[i].subtypes) {
+                    record.subtypes = {
+                        _label_en: jsonObj[i].subtypes.en,
+                        _label_fr: jsonObj[i].subtypes.fr,
+                        _id: jsonObj[i].subtypes.id,
+                        __text: jsonObj[i].subtypes[currentLang]
+                    };
+                }
+                record.is_treat_food_prod_animal = jsonObj[i].isTreatFPA;
+                record.withdrawal_days = jsonObj[i].withdrawalDays;
+                record.withdrawal_hours = jsonObj[i].withdrawalHours;
+
+                if (jsonObj.length === 1) {
+                    return ([record]);
+                }
+                importers.push(record);
+            }
+            return (importers);
+        }
+
 
         /**
          * Converts all the appendix 4 data to output
@@ -1239,6 +1339,15 @@
                 }
                 if (item.animalHumanMaterials && item.animalHumanMaterials.length > 0) {
                     obj.material_ingredient = materialListToOutput(item.animalHumanMaterials);
+                }
+                if(item.drugMarket){
+                    obj.drug_market = item.drugMarket;
+                    if(item.din && item.din != ''){
+                        obj.din = item.din;
+                    }
+                    if(item.dinCountryList.length > 0){
+                        obj.din_country_list = formulationCountryListToOutput(item.dinCountryList, currentLang);;
+                    }
                 }
                 formulationList.push(obj);
             });
