@@ -38,7 +38,7 @@
                 errorSummaryUpdate:'<', //update the component error summary
                 showErrorSummary:'<', //show the component error summary
                 updateErrorSummary:'&', //update the parent error summary
-                updateProductProtocol:'=', //update the parent variable
+                updateProductProtocol:'&', //update the parent variable
                 htIndxList: '<'
             }
         });
@@ -603,9 +603,6 @@
                 case ("B02-20200417-02"): //	COVID-19 AMENDMENT
                     vm.descriptionList = TransactionLists.getCOVID19AMDType();
                     break;
-                case ("B02-20160301-072"):
-                    vm.updateProductProtocol();
-                    break;
 
                 default:
                     try {
@@ -615,6 +612,8 @@
                     }
                     break;
             }
+            var isPreCta = (value === "B02-20160301-072");
+            vm.updateProductProtocol({value: isPreCta});
             ///find if the value is in the list
             if (temp && vm.descriptionList.indexOf(temp) !== -1) {
                 vm.lifecycleModel.descriptionValue = temp;

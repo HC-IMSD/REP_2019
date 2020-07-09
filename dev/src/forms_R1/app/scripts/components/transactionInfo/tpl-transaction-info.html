@@ -340,11 +340,11 @@
                     <div class="panel-body">
                         <cmp-lifecycle-details lifecycle-record="transInfoCtrl.transactionModel.ectd.lifecycleRecord"
                                                is-detail-valid="" ht-indx-list="transInfoCtrl.htIndxList"
-                                               update-product-protocol="transInfoCtrl.updateProductProtocol"
+                                               update-product-protocol="transInfoCtrl.updateProductProtocol(value)"
                                                is-ectd="transInfoCtrl.transactionModel.ectd.ectdValue"
                                                dossier-type ="transInfoCtrl.transactionModel.ectd.dossierType"
-                                               show-error-summary="transInfoCtrl.showSummary" is-file-loaded="transInfoCtrl.isFileLoaded"
-                        >
+                                               show-error-summary="transInfoCtrl.showSummary"
+                                               is-file-loaded="transInfoCtrl.isFileLoaded">
                         </cmp-lifecycle-details>
                     </div>
                 </section>
