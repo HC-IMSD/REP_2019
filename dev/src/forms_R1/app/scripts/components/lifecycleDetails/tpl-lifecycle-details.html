@@ -16,7 +16,7 @@
                                 <span class="field-name">{{::"CONTROL_NUM" |translate}}{{::"LEAST_6_DIGIT" |translate}}
                                 <strong class="required">{{::"REQUIRED" |translate}}</strong>
                                 <sup id="tr8_ref">
-                                    <a class="fn-lnk" href="#tr8"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>8</a>
+                                    <a class="fn-lnk" href="#tr8"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::lifecycleCtrl.htIndxList.ctrlNumInx}}</a>
                                 </sup>
                                 </span>
                                 <cmp-error-message field-name="lifecycleCtrl.controlNumId"
@@ -38,7 +38,7 @@
                                     <span class="field-name"> {{::'ACTIVITY_LEAD' |translate}}</span>
                                     <strong class="required"> {{::"REQUIRED" |translate}}</strong>
                                     <sup id="tr9_ref">
-                                        <a class="fn-lnk" href="#tr9"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>9</a>
+                                        <a class="fn-lnk" href="#tr9"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp&nbsp;</span>{{::lifecycleCtrl.htIndxList.actLeadInx}}</a>
                                     </sup>
                                     <cmp-error-message field-name="lifecycleCtrl.activityLeadId"
                                                        form-ref="lifecycleCtrl.lifecycleDetailsForm"
@@ -179,7 +179,7 @@
                                 <span class="field-name">{{::"YEAR_CHANGE" |translate}}</span>
                                 <strong class="required">{{::"REQUIRED" |translate}}</strong>
                                 <sup id="tr10_ref">
-                                    <a class="fn-lnk" href="#tr10"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>10</a>
+                                    <a class="fn-lnk" href="#tr10"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::lifecycleCtrl.htIndxList.yearChgInx}}</a>
                                 </sup>
                                 <cmp-error-message field-name="lifecycleCtrl.yearChangeId"
                                                    form-ref="lifecycleCtrl.lifecycleDetailsForm"
@@ -223,7 +223,7 @@
                                 <span class="field-name">{{::"BRIEF_DESC_CHANGE" |translate}}</span>
                                 <strong class="required">{{::"REQUIRED" |translate}}</strong>
                                 <sup id="tr11_ref">
-                                    <a class="fn-lnk" href="#tr11"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>11</a>
+                                    <a class="fn-lnk" href="#tr11"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::lifecycleCtrl.htIndxList.descChgInx}}</a>
                                 </sup>
                                 <cmp-error-message field-name="lifecycleCtrl.descriptChangeId"
                                                    form-ref="lifecycleCtrl.lifecycleDetailsForm"
@@ -306,7 +306,7 @@
                                 <strong class="required">{{'REQUIRED' |translate}}</strong>
                                 <span class="rep-margin-top">
                                 <sup id="tr12_ref">
-                                    <a class="fn-lnk" href="#tr12"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>12</a>
+                                    <a class="fn-lnk" href="#tr12"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::lifecycleCtrl.htIndxList.reqSoliInx}}</a>
                                     </sup>
                                 <cmp-error-message field-name="lifecycleCtrl.requesterNameId" form-ref="lifecycleCtrl.lifecycleDetailsForm"
                                                    show-error="lifecycleCtrl.showError(lifecycleCtrl.lifecycleDetailsForm[lifecycleCtrl.requesterNameId])"
