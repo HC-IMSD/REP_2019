@@ -15,7 +15,7 @@
     <span id="instructions"></span>
     <div class="wb-fnote" role="note">
         <h2>{{::'FOOTNOTE_INSTRUCTION'|translate}}</h2>
-        <cmp-product-info-help-text ht-indx-list="drugProdCtrl.htIndxList">
+        <cmp-product-info-help-text ht-indx-list="drugProdCtrl.htIndxList" is-for-prod="drugProdCtrl.isForProd">
         </cmp-product-info-help-text>
     </div>
     <span id="main"></span>
@@ -169,8 +169,8 @@
                         <header class="panel-heading clearfix">
                             <strong><span class="field-name">6. {{'CLINICAL_TRIAL'|translate}}
                             </span>
-                            <sup id="dr4a_ref">
-                                <a class="fn-lnk" href="#dr4a"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::drugProdCtrl.htIndxList.clinicalIndx}}</a>
+                            <sup id="dr12_ref">
+                                <a class="fn-lnk" href="#dr12"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::drugProdCtrl.htIndxList.clinicalIndx}}</a>
                             </sup></strong>
                         </header>
                         <div class="panel-body">
@@ -179,6 +179,7 @@
                                                   update-error-summary="drugProdCtrl.updateErrorSummary()"
                                                   show-errors="drugProdCtrl.showSummary"
                                                   is-file-loaded="drugProdCtrl.isFileLoaded"
+                                                    ht-indx-list="drugProdCtrl.htIndxList"
                                                   on-update="drugProdCtrl.updateCTAInfo(record)">
                                 </cmp-clinical-trial>
                             </div>
@@ -186,7 +187,7 @@
                     </section>
                 </div>
             </div>
-            <div class="row" data-ng-if="!drugProdCtrl.isCTA()">
+            <div class="row">
                 <div class="col-xs-12 form-group">
                     <fieldset id="fs_addrMissing_{{::$id}}">
                 <legend><strong>
@@ -252,8 +253,8 @@
                 <div class="col-md-12 form-group">
                     <label class="full-width">
                         <span class="field-name">8. {{::'ARE_CTA_IMPORTED' |translate}}</span>
-                        <sup id="dr5a_ref">
-                            <a class="fn-lnk" href="#dr5a"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::drugProdCtrl.htIndxList.dnfNocAddrIndx}}</a>
+                        <sup id="dr14_ref">
+                            <a class="fn-lnk" href="#dr14"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::drugProdCtrl.htIndxList.ctDrugImpIndx}}</a>
                         </sup>
                     </label>
                     <label class="col-xs-2" for="areDrugsImportedId">
@@ -354,7 +355,7 @@
                 <fieldset id="{{::drugProdCtrl.scheduleSelectedId}}">
                 <legend>
                     <strong>
-                        <span class="label-pi" data-ng-class="{required:drugProdCtrl.isVet()}">9.&nbsp;{{::'SCHEDULE_PRESC_STATUS'|translate}}</span>
+                        <span class="label-pi" data-ng-class="{required:drugProdCtrl.isVet()}"><span data-ng-if="! drugProdCtrl.isCTA()">9</span><span data-ng-if="drugProdCtrl.isCTA()">10</span>.&nbsp;{{::'SCHEDULE_PRESC_STATUS'|translate}}</span>
                     </strong>
                     <strong class="required label-pi" data-ng-if="drugProdCtrl.isVet()">{{::"REQUIRED" |translate}}
                         <cmp-error-message field-name="drugProdCtrl.scheduleSelectedId"
@@ -572,7 +573,7 @@
                                            update-error-summary="drugProdCtrl.updateErrorSummary()"
                                            error-summary-update="drugProdCtrl.updateSummary"
                                            show-error-summary="drugProdCtrl.showSummary"
-                                           is-file-loaded="drugProdCtrl.isFileLoaded"
+                                           is-file-loaded="drugProdCtrl.isFileLoaded" human-animal-ingredient-name-list="drugProdCtrl.humanAnimalIngredientNameList()"
                                            record-changed="drugProdCtrl.recordsChanged()"></cmp-appendix-four>
                     </div>
                 </div>

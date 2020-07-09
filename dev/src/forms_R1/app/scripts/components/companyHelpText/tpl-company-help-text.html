@@ -1,7 +1,7 @@
 <div>
     <ng-form  name="help.companyHelpTextForm">
         <dl>
-    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>1</dt>
+    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::help.htIndxList.loadFileInx}}</dt>
     <dd id="co1">
         <p>{{::'LOAD_COMPANY_FILE'| translate}}</p>
         <ul>
@@ -57,7 +57,7 @@
             </a>
         </p>
     </dd>
-    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::help.htIndxList.roleIdx}}</dt>
+    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::help.htIndxList.addRoleIdx}}</dt>
     <dd id="co4">
         <p>{{::'ROLEMISSING'|translate}}</p>
         <ul>
@@ -71,7 +71,7 @@
         </ul>
         <p class="fn-rtn">
             <a href="#co4_ref">
-                <span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::help.htIndxList.roleIdx}}
+                <span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::help.htIndxList.addRoleIdx}}
                 <span class="wb-inv"> {{::'REFERRER'|translate}}</span>
             </a>
         </p>
@@ -117,7 +117,7 @@
             </a>
         </p>
     </dd>
-    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::help.htIndxList.companyRoleIdx}}</dt>
+    <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::help.htIndxList.contactRoleIdx}}</dt>
     <dd id="co6">
         <p>{{::'CONTACTROLEMISSING'|translate}}</p>
         <ul>
@@ -125,7 +125,7 @@
         </ul>
         <p class="fn-rtn">
             <a href="#co6_ref">
-                <span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::help.htIndxList.companyRoleIdx}}
+                <span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::help.htIndxList.contactRoleIdx}}
                 <span class="wb-inv"> {{::'REFERRER'|translate}}</span>
             </a>
         </p>

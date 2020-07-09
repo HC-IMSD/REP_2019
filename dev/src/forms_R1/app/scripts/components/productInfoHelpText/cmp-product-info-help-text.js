@@ -18,7 +18,8 @@
             controller: ProductInfoHelpTextCtrl,
             controllerAs: 'helpCtrl',
             bindings: {
-                htIndxList: '<'
+                htIndxList: '<',
+                isForProd: '<'
             }
         });
 

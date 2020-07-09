@@ -10,7 +10,7 @@
                                        show-error="contCtrl.showErrors()"
                                        error-types="contCtrl.requiredOnly"></cmp-error-message>
                     <input type="text" id="{{::contCtrl.firstNameId}}"
-                           data-ng-model="contCtrl.contactModel.givenName"
+                           data-ng-model="contCtrl.contactModel.givenName" data-focus-if="contCtrl.contactModel.focusOnFirstName"
                            class="form-control full-width" name="{{::contCtrl.firstNameId}}" maxlength="60"
                            size="60" data-ng-readonly="!contCtrl.isEditable" required/>
 
@@ -99,10 +99,10 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 form-group"
-                 data-ng-class="{'has-error':contCtrl.contactForm[contCtrl.faxId].$invalid}">
+            <div class="form-group"
+                 data-ng-class="{'has-error':contCtrl.contactForm[contCtrl.faxId].$invalid, 'col-md-6':!contCtrl.faxMandatory, 'col-md-12':contCtrl.faxMandatory}">
                 <label for="{{::contCtrl.faxId}}" data-ng-class="{'required':contCtrl.faxMandatory}">
-                    <span class="field-name">{{::'FAX_NUMBER'|translate}}{{::'INCLUDE_AREA_CODE'|translate}}</span>
+                    <span class="field-name">{{::'FAX_NUMBER'|translate}}{{::'INCLUDE_AREA_CODE'|translate}} </span><span data-ng-if="contCtrl.faxMandatory">{{::'FAX_NOT_AVAILABLE'|translate}} </span>
                     <strong data-ng-if="contCtrl.faxMandatory" class="required">{{::'REQUIRED'|translate}}</strong>
                     <!--<sup id="5a_ref" data-ng-if="contCtrl.faxMandatory">
                          <a class="fn-lnk" href="#5a"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>4.a</a>
@@ -116,7 +116,6 @@
                            data-ng-model="contCtrl.contactModel.fax" data-ng-readonly="!contCtrl.isEditable"
                            data-ng-required="contCtrl.faxMandatory" class="form-control full-width" data-ng-pattern="contCtrl.phoneReg"
                            name="{{::contCtrl.faxId}}" data-only-digits maxlength="25"/>
-                    <span data-ng-if="contCtrl.faxMandatory">{{::'FAX_NOT_AVAILABLE'|translate}} </span>
                 </label>
             </div>
             <div class="col-md-6 form-group"
@@ -144,6 +143,7 @@
                 <span class="field-name">{{::'ROUTING_ID'|translate}}</span>
                     <sup id="co5a_ref">
                         <a class="fn-lnk" href="#co5a"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::contCtrl.routingIdIndex}}</a>
+
                     </sup>
                     <!--<cmp-error-message field-name="contCtrl.routingIdentifierId" form-ref="contCtrl.contactForm" data-ng-if="contCtrl.showRoutingIdErr()"-->
                                        <!--show-error="contCtrl.showErrors()" error-types="contCtrl.routingIdError">-->

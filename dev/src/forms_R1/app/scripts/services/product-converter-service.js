@@ -6,7 +6,7 @@
     'use strict';
 
     angular
-        .module('drugProductService', [
+        .module('piConverterService', [
             'dossierDataLists',
             'hpfbConstants',
             'dataLists'
@@ -17,96 +17,28 @@
 (function () {
     'use strict';
     angular
-        .module('drugProductService')
-        .factory('DrugProductService', DrugProductService);
-    DrugProductService.$inject = ['DossierLists', '$translate', '$filter', 'getCountryAndProvinces', 'OTHER', 'UNKNOWN', 'YES', 'NO', 'XSL_PREFIX', 'PROD'];
+        .module('piConverterService')
+        .factory('PiConverterService', PiConverterService);
+    PiConverterService.$inject = ['DossierLists', '$translate', '$filter', 'getCountryAndProvinces', 'OTHER', 'UNKNOWN', 'YES', 'NO', 'XSL_PREFIX', 'CANADA'];
 
-    function DrugProductService(DossierLists, $translate, $filter, getCountryAndProvinces, OTHER, UNKNOWN, YES, NO, XSL_PREFIX, PROD) {
+    function PiConverterService(DossierLists, $translate, $filter, getCountryAndProvinces, OTHER, UNKNOWN, YES, NO, XSL_PREFIX, CANADA) {
         var yesValue = YES;
         var noValue = NO;
         // var xslName = XSL_PREFIX + "REP_PI_2_2.xsl";
-        var xslName = "REP_PI_3_1.xsl";
-        var isForProd = PROD === DossierLists.getEnv();
-        // Define the DrugProductService object
-        function DrugProductService() {
+        var xslName = "REP_PI_3_0.xsl";
+
+        // Define the PiConverterService object
+        function PiConverterService() {
         }
 
-        function DrugProductService(formData) {
+        function PiConverterService(formData) {
             //construction logic
-            this.helpTextSequences = isForProd ?
-                {
-                    loadFileIndx: 0,
-                    prodInfoIndx: 0,
-                    compIdIndx: 0,
-                    dossiTypeIndx: 0,
-                    prodNameIndx: 0,
-                    proComNameIndx: 0,
-                    dnfNocAddrIndx: 0,
-                    importerIndx: 0,
-                    routingIdIndx: 0,
-                    drugUseIndx: 0,
-                    dinIndx: 0,
-                    pudIndx: 0,
-                    formuIndx: 0,
-                    formuDetailIndx: 0,
-                    ingredIndx: 0,
-                    ingNameIndx: 0,
-                    variaNameIndx: 0,
-                    purposeIndx: 0,
-                    standardIndx: 0,
-                    isNanoIndx: 0,
-                    ahSourcedIndx: 0,
-                    isMaterialIndx: 0,
-                    contaTypeIndx: 0,
-                    packSizeIndx: 0,
-                    shelfLifeIndx: 0,
-                    manuCntryIndx: 0,
-                    haSIMIndx: 0,
-                    genXmlIndx: 0
-                } : {
-                loadFileIndx: 0,
-                prodInfoIndx: 0,
-                compIdIndx: 0,
-                dossiTypeIndx: 0,
-                prodNameIndx: 0,
-                proComNameIndx: 0,
-                clinicalIndx: 0,
-                protocolNoIndx: 0,
-                dnfNocAddrIndx: 0,
-                ctDrugImpIndx: 0,
-                importerIndx: 0,
-                routingIdIndx: 0,
-                drugUseIndx: 0,
-                dinIndx: 0,
-                pudIndx: 0,
-                formuIndx: 0,
-                formuDetailIndx: 0,
-                ingredIndx: 0,
-                ingNameIndx: 0,
-                variaNameIndx: 0,
-                purposeIndx: 0,
-                standardIndx: 0,
-                isNanoIndx: 0,
-                ahSourcedIndx: 0,
-                isMaterialIndx: 0,
-                contaTypeIndx: 0,
-                packSizeIndx: 0,
-                shelfLifeIndx: 0,
-                manuCntryIndx: 0,
-                haSIMIndx: 0,
-                genXmlIndx: 0
-            };
-
-            var keys = Object.keys(this.helpTextSequences);
-            for (var i = 0; i < keys.length; i++) {
-                this.helpTextSequences[keys[i]] = i + 1;
-            }
 
             angular.extend(this._default, formData);
         }
 
 
-        DrugProductService.prototype = {
+        PiConverterService.prototype = {
 
             _default: {
                 dossierID: "",
@@ -118,20 +50,18 @@
                 mailling: false,
                 thisActivity: false,
                 importer: false,
-                areDrugsImported: "",
                 importerRecord: [],
                 //relatedDossierID: "",
                 enrolmentVersion: "0.00",
                 dateSaved: "",
                 //applicationType: "NEW",
-                softwareVersion: "4.0.1",
+                softwareVersion: "3.0.1",
                 xslFileName: xslName,
                 dataChecksum: "",
                 privacyStat:"",
                 drugProduct: {
                     //thirdPartySigned: "",
                     drugUse: "",
-                    speciesRecord: [],
                     disinfectantType: {
                         hospital: false,
                         foodProcessing: false,
@@ -140,14 +70,12 @@
                         barn: false,
                         institutionalIndustrial: false
                     },
-                    scheduleSelected:"",
                     isScheduleC: false,
                     isScheduleD: false,
                     isPrescriptionDrugList: false,
                     isRegulatedCDSA: false,
                     isNonPrescriptionDrug: false,
                     isScheduleA: false,
-                    isDrugAdmin: false,
                     scheduleAGroup: getDefaultSchedA(),
                    // therapeutic: [],
                   //  canRefProducts: [],//grid
@@ -157,29 +85,6 @@
                      ingredientList:[]
                      }//tab + grid +*/
 
-                },
-                clinicalTrial: {
-                    protocolNum: "",
-                    protocolTitle:"",
-                    composition: {
-                        fmpp: false,
-                        mpp: false,
-                        fmap: false,
-                        map: false
-                    },
-                    phase: {
-                         phase1Bio: false,
-                         phase1Study: false,
-                         phase1Other: false,
-                         phase2: false,
-                         phase3: false,
-                         phaseOther: false,
-                        ctaPhaseOtherDetails:""
-                    },
-                    isRefuseInfo:""
-                    // hasDinNoc:"",
-                    // isCanMarket:"",
-                    // ctaSrcCountryList: []
                 }
                 //contactList: []
 
@@ -204,42 +109,18 @@
                 info = info[rootTag];
                 var drugUseValue ="";
                 if(info.drug_use) {
-                    drugUseValue = info.drug_use._id;
+                    drugUseValue = info.drug_use.__text;
                 }
                 var formModel = {
                     companyID: info.company_id,
                     dossierID: info.dossier_id, //.substring(8,15),
-                    dossierType: info.dossier_type._id,
+                    dossierType: '',
                     productName: info.product_name,
                     properName: info.proper_name,
-                    clinicalTrial: {
-                        protocolNum: info.protocol_number,
-                        protocolTitle:info.protocol_title,
-                        composition: {
-                            fmpp: info.composition ? info.composition.female_paediatric === 'Y' : false,
-                            mpp: info.composition ? info.composition.male_paediatric === 'Y' : false,
-                            fmap: info.composition ? info.composition.female_adult === 'Y' : false,
-                            map: info.composition ? info.composition.male_adult === 'Y' : false
-                        },
-                        phase: {
-                            phase1Bio: info.phase ? info.phase.phase_1_bioequivalence === 'Y' : false,
-                            phase1Study:  info.phase ? info.phase.phase_1_healthy === 'Y' : false,
-                            phase1Other: info.phase ? info.phase.phase_1_other === 'Y' : false,
-                            phase2: info.phase ? info.phase.phase_2 === 'Y' : false,
-                            phase3: info.phase ? info.phase.phase_3 === 'Y' : false,
-                            phaseOther: info.phase ? info.phase.other === 'Y' : false,
-                            ctaPhaseOtherDetails: info.phase ? info.phase.other_details : ''
-                        },
-                        isRefuseInfo: info.is_reb_info_refused,
-                        hasDinNoc: info.has_din_noc,
-                        isCanMarket: info.is_canadian_market,
-                        ctaSrcCountryList: transformCtaCountryFromFile(info.cta_source_countries)
-                    },
                     manu: info.manufacturer === 'Y',
                     mailling: info.mailing === 'Y',
                     thisActivity: info.this_activity === 'Y',
                     importer: info.importer === 'Y',
-                    areDrugsImported: info.are_drugs_imported,
                     importerRecord: transformImpFromFile(info.importer_record),
                     enrolmentVersion: info.enrolment_version,
                     dateSaved: info.date_saved,
@@ -247,7 +128,6 @@
                     dataChecksum: info.data_checksum,
                     drugProduct: {
                         drugUse: $filter('findListItemById')(DossierLists.getDrugUseList(), {id: drugUseValue}),
-                        speciesRecord: transformSpeciesFromFile(info.species_record),
                         disinfectantType: {
                             hospital: info.disinfectant_type.hospital === 'Y',
                             foodProcessing: info.disinfectant_type.food_processing === 'Y',
@@ -262,12 +142,13 @@
                         isRegulatedCDSA: info.is_regulated_cdsa === 'Y',
                         isNonPrescriptionDrug: info.is_non_prescription_drug === 'Y',
                         isScheduleA: info.is_sched_a === 'Y',
-                        isDrugAdmin: info.is_drug_admin === 'Y',
                        // therapeutic: [],
                        // canRefProducts: getCanRefProductList(info.ref_product_list.cdn_ref_product),//grid
                         propIndication: info.proposed_indication,
                         formulations: getFormulationList(info.formulation_group.formulation_details),//tab + grid +
                         appendixFourList: getAppendix4IngredientList(info.appendix4_group)
+
+
                     }
                     //contactList: getContactList(info.contact_record)
 
@@ -309,7 +190,7 @@
          * @param jsonObj
          * @returns {*}
          */
-        DrugProductService.prototype.formDataToOutput = function (jsonObj) {
+        PiConverterService.prototype.formDataToOutput = function (jsonObj) {
             if (!jsonObj) return null;
             var rootTag=this.getRootTagName();
             var baseModel = {};
@@ -317,7 +198,7 @@
             baseModel.enrolment_version = jsonObj.enrolmentVersion;
             baseModel.date_saved = jsonObj.dateSaved;
             // baseModel.application_type = jsonObj.applicationType;
-            baseModel.software_version = "4.0.1"; //TODO: hard code or make a function, should be centrally available
+            baseModel.software_version = "3.0.1"; //TODO: hard code or make a function, should be centrally available
             baseModel.data_checksum = "";
 
             baseModel.company_id = jsonObj.companyID;
@@ -330,39 +211,10 @@
             };
             baseModel.product_name = jsonObj.productName;
             baseModel.proper_name = jsonObj.properName;
-
-            if(jsonObj.dossierType && jsonObj.dossierType === 'D26') {
-                baseModel.protocol_number = jsonObj.clinicalTrial.protocolNum;
-                baseModel.protocol_title = jsonObj.clinicalTrial.protocolTitle;
-
-                baseModel.composition = {
-                    female_paediatric: jsonObj.clinicalTrial.composition.fmpp === true ? 'Y' : 'N',
-                    male_paediatric: jsonObj.clinicalTrial.composition.mpp === true ? 'Y' : 'N',
-                    female_adult: jsonObj.clinicalTrial.composition.fmap === true ? 'Y' : 'N',
-                    male_adult: jsonObj.clinicalTrial.composition.map === true ? 'Y' : 'N'
-                };
-                baseModel.phase = {
-                    phase_1_bioequivalence: jsonObj.clinicalTrial.phase.phase1Bio === true ? 'Y' : 'N',
-                    phase_1_healthy: jsonObj.clinicalTrial.phase.phase1Study === true ? 'Y' : 'N',
-                    phase_1_other: jsonObj.clinicalTrial.phase.phase1Other === true ? 'Y' : 'N',
-                    phase_2: jsonObj.clinicalTrial.phase.phase2 === true ? 'Y' : 'N',
-                    phase_3: jsonObj.clinicalTrial.phase.phase3 === true ? 'Y' : 'N',
-                    other: jsonObj.clinicalTrial.phase.phaseOther === true ? 'Y' : 'N',
-                    other_details: jsonObj.clinicalTrial.phase.ctaPhaseOtherDetails
-                };
-                baseModel.is_reb_info_refused = jsonObj.clinicalTrial.isRefuseInfo;
-                baseModel.has_din_noc = jsonObj.clinicalTrial.hasDinNoc;
-                baseModel.is_canadian_market = jsonObj.clinicalTrial.isCanMarket;
-                if (jsonObj.clinicalTrial.ctaSrcCountryList && jsonObj.clinicalTrial.ctaSrcCountryList.length > 0) {
-                    baseModel.cta_source_countries = countryListToOutput(jsonObj.clinicalTrial.ctaSrcCountryList, currentLang);
-                }
-            }
-
             baseModel.manufacturer = jsonObj.manu === true ? 'Y' : 'N';
             baseModel.mailing = jsonObj.mailling === true ? 'Y' : 'N';
             baseModel.this_activity = jsonObj.thisActivity === true ? 'Y' : 'N';
             baseModel.importer = jsonObj.importer === true ? 'Y' : 'N';
-            baseModel.are_drugs_imported = jsonObj.areDrugsImported;
             baseModel.importer_record =
                 transformImpToFile(jsonObj.importerRecord);
 
@@ -376,7 +228,6 @@
             }else{
                 baseModel.drug_use="";
             }
-            baseModel.species_record = transformSpeciesToFile(jsonObj.drugProduct.speciesRecord);
             baseModel.disinfectant_type = {
                 hospital: jsonObj.drugProduct.disinfectantType.hospital === true ? 'Y' : 'N',
                 food_processing: jsonObj.drugProduct.disinfectantType.foodProcessing === true ? 'Y' : 'N',
@@ -391,7 +242,6 @@
             baseModel.is_regulated_cdsa = jsonObj.drugProduct.isRegulatedCDSA === true ? 'Y' : 'N';
             baseModel.is_non_prescription_drug = jsonObj.drugProduct.isNonPrescriptionDrug === true ? 'Y' : 'N';
             baseModel.is_sched_a = jsonObj.drugProduct.isScheduleA === true ? 'Y' : 'N';
-            baseModel.is_drug_admin = jsonObj.drugProduct.isDrugAdmin === true ? 'Y' : 'N';
 
             baseModel.proposed_indication = jsonObj.drugProduct.propIndication;
 
@@ -416,7 +266,7 @@
         };
 
 
-        DrugProductService.prototype.getMissingAppendix4 = function (dossierModel) {
+        PiConverterService.prototype.getMissingAppendix4 = function (dossierModel) {
             var missingAppendices = [];
             var extraAppendices = [];
             var results = {};
@@ -442,40 +292,40 @@
          * Gets an empty disease disorder list with values set to No
          * @returns {*[]}
          */
-        DrugProductService.prototype.getDefaultDiseaseDisorderList = function () {
+        PiConverterService.prototype.getDefaultDiseaseDisorderList = function () {
             return getDefaultDiseaseDisorderList();
 
         };
 
-        DrugProductService.prototype.getDefaultNervousSystem = function () {
+        PiConverterService.prototype.getDefaultNervousSystem = function () {
             return _createEmptyNervousSystemModel();
 
         };
-        DrugProductService.prototype.getDefaultImmuneSystem = function () {
+        PiConverterService.prototype.getDefaultImmuneSystem = function () {
             return _createEmptyImmuneSystemModel();
 
         };
-        DrugProductService.prototype.getDefaultDigestiveSystem = function () {
+        PiConverterService.prototype.getDefaultDigestiveSystem = function () {
             return _createEmptyDigestiveSystemModel();
 
         };
-        DrugProductService.prototype.getDefaultMuscleSystem = function () {
+        PiConverterService.prototype.getDefaultMuscleSystem = function () {
             return _createEmptyMuscleSystemModel();
 
         };
-        DrugProductService.prototype.getDefaultOtherSystem = function () {
+        PiConverterService.prototype.getDefaultOtherSystem = function () {
             return _createEmptyOtherSystemModel();
 
         };
-        DrugProductService.prototype.getDefaultReproductiveSystem = function () {
+        PiConverterService.prototype.getDefaultReproductiveSystem = function () {
             return _createEmptyReproductiveSystemModel();
 
         };
-        DrugProductService.prototype.getDefaultCardioSystem = function () {
+        PiConverterService.prototype.getDefaultCardioSystem = function () {
             return _createEmptyCardioSystemModel();
 
         };
-        DrugProductService.prototype.getDefaultSkinSystem = function () {
+        PiConverterService.prototype.getDefaultSkinSystem = function () {
             return _createEmptySkinSystemModel();
 
         };
@@ -484,43 +334,16 @@
          * Gets an empty Schedule A Object
          * @returns {*}
          */
-        DrugProductService.prototype.getDefaultScheduleA = function () {
+        PiConverterService.prototype.getDefaultScheduleA = function () {
             return (getDefaultSchedA());
         };
 
-        DrugProductService.prototype.getRootTagName = function () {
+        PiConverterService.prototype.getRootTagName = function () {
             return ("DRUG_PRODUCT_ENROL");
         };
 
-        DrugProductService.prototype.getEmptyCtaModel = function () {
-            var emptyCtaModel = {
-                protocolNum: "",
-                protocolTitle:"",
-                composition: {
-                    fmpp: false,
-                    mpp: false,
-                    fmap: false,
-                    map: false
-                },
-                phase: {
-                    phase1Bio: false,
-                    phase1Study: false,
-                    phase1Other: false,
-                    phase2: false,
-                    phase3: false,
-                    phaseOther: false,
-                    ctaPhaseOtherDetails:""
-                },
-                isRefuseInfo:"",
-                hasDinNoc:"",
-                isCanMarket:"",
-                ctaSrcCountryList: []
-            };
-            return emptyCtaModel;
-        };
-
         //return the Dossier Service object
-        return DrugProductService;
+        return PiConverterService;
 
 
         //###############INTERNAL FUNCTIONS start here##################################
@@ -564,10 +387,10 @@
                         "display": "",
                         "unknownCountryDetails": ""
                     };
-                    if (input[i].country_with_unknown._id === UNKNOWN) {
+                    if (input[i].country_with_unknown.__text === UNKNOWN) {
                         obj.country = getCountryAndProvinces.getUnknownCountryRecord();
                     } else {
-                        obj.country = $filter('filter')(getCountryAndProvinces.getCountries(), {id: input[i].country_with_unknown._id})[0];
+                        obj.country = $filter('filter')(getCountryAndProvinces.getCountries(), {id: input[i].country_with_unknown.__text})[0];
                     }
                     if (obj.country) {
                         obj.display = obj.country[$translate.proposedLanguage() || $translate.use()]
@@ -585,7 +408,7 @@
                 }
                 for (var i = 0; i < info.length; i++) {
                     var ing = {};
-                    ing.id = Number(info[i].ingredient_id);
+                    ing.id = info[i].ingredient_id;
                     ing.ingredientName = info[i].ingredient_name;
                     ing.humanSourced = info[i].human_sourced === 'Y';
                     ing.animalSourced = info[i].animal_sourced === 'Y';
@@ -610,11 +433,7 @@
                         for (var srcCount = 0; srcCount < animalTypeList.length; srcCount++) { //TODO function?
                             var oneRec = animalTypeList[srcCount];
                             var animalRecord = {};
-                            if (oneRec.animal_type) {
-                                animalRecord.animalType = oneRec.animal_type._id;
-                            } else {
-                                animalRecord.animalType = "";
-                            }
+                            animalRecord.animalType = oneRec.animal_type;
                             animalRecord.animalDetail = oneRec.animal_detail;
                             ing.sourceAnimalDetails.animalSrcList.push(animalRecord);
                         }
@@ -662,8 +481,10 @@
                 if (!item.dosage_form_group.dosage_form) {
                     obj.dosageForm = item.dosage_form_group.dosage_form;
                 } else {
+                    // var dosageFormObj = $filter('findListItemById')(DossierLists.getDosageFormList(), {id: DossierLists.getDosageFormPrefix() + item.dosage_form_group.dosage_form.__text});
+
                     var dflist = DossierLists.getDosageFormList();
-                    var dfid = item.dosage_form_group.dosage_form._id;
+                    var dfid = item.dosage_form_group.dosage_form.__text;
                     if (dfid !== 'OTHER') {
                         dfid = DossierLists.getDosageFormPrefix() + dfid;
                     }
@@ -705,36 +526,18 @@
                     obj.routeAdmins = [];
                 }
                 if (item.country_group && item.country_group.country_manufacturer) {
+                    obj.countryList = getFormulationCountryList(item.country_group.country_manufacturer);
 
-                    var countryArray = [];
-                    if (!(item.country_group.country_manufacturer instanceof Array)) {
-                        //make it an array, case there is only one
-                        countryArray = [item.country_group.country_manufacturer];
-                    } else {
-                        countryArray = item.country_group.country_manufacturer;
-                    }
-                    obj.countryList = getFormulationCountryList(countryArray);
-                    obj.noCountries = obj.countryList.length;
+                    // var countryArray = [];
+                    // if (!(item.country_group.country_manufacturer instanceof Array)) {
+                    //     //make it an array, case there is only one
+                    //     countryArray = [item.country_group.country_manufacturer];
+                    // } else {
+                    //     countryArray = item.country_group.country_manufacturer;
+                    // }
+                    // obj.countryList = getFormulationCountryList(countryArray);
                 } else {
                     obj.countryList = [];
-                }
-                if(item.drug_market){
-                    obj.drugMarket = item.drug_market;
-                    obj.din = "";
-                    obj.dinCountryList = [];
-                    if(item.din){
-                        obj.din = item.din;
-                    } else if(item.din_country_list && item.din_country_list.length >0) {
-                        var countryArray = [];
-                        if (!(item.din_country_list instanceof Array)) {
-                            countryArray = [item.din_country_list];
-                        } else {
-                            countryArray = item.din_country_list;
-                        }
-                        obj.dinCountryList = getFormulationCountryList(countryArray);
-                        obj.noDinCountries = obj.dinCountryList.length;
-                    }
-
                 }
                 formulationList.push(obj);
             });
@@ -758,7 +561,7 @@
             angular.forEach(list, function (item) {
 
                 var obj = {
-                    "ingRole": "",
+                    "ingRole": item.ingredient_role,
                     "ingId": item.ingredient_id,
                     "variant": item.variant_name,
                     "purpose": item.purpose,
@@ -773,7 +576,7 @@
                     "units": "",
                     "unitsHtml": "",
                     "otherUnits": item.units_other,
-                    "per": "",
+                    "per": item.per,
                     "perPresentationValue": Number(1),
                     "perMeasureValue": null,
                     "perPresUnits": "",
@@ -781,53 +584,53 @@
                     "perMeasUnits": "",
                     "perMeasUnitsHtml": "",
                     "perMeasOtherUnits": "",
-                    "calcAsBase": item.is_base_calc._id,
+                    "calcAsBase": item.is_base_calc,
                     "isNano": item.is_nanomaterial,
                     "nanoMaterial": "",
                     "nanoMaterialOther": item.nanomaterial_details
                 };
 
-                if (item.ingredient_role) {
-                    obj.ingRole = item.ingredient_role._id;
-                }
+                // if (item.ingredient_role) {
+                //     obj.ingRole = item.ingredient_role._id;
+                // }
 
                 if (item.strength) {
-                    var opValue = item.strength.operator._id;
+                    var opValue = item.strength.operator.__text;
                     obj.strength.operator = $filter('findListItemById')(DossierLists.getStrengthList(), {id: opValue});
                 }
 
                 if (item.units) {
-                    var unitsValue = DossierLists.getUnitsPrefix() + item.units._id; //add the prefix
+                    var unitsValue = DossierLists.getUnitsPrefix() + item.units.__text; //add the prefix
                     //if other revert the value. OTHER value never has a prefix
-                    if (item.units._id === OTHER) {
-                        unitsValue = item.units._id;
+                    if (item.units.__text === OTHER) {
+                        unitsValue = item.units.__text;
                     }
                     obj.units = $filter('findListItemById')(DossierLists.getUnitsList(), {id: unitsValue});
                     obj.unitsHtml = obj.units[$translate.proposedLanguage() || $translate.use()];
                 }
 
                 if (item.per) {
-                    var perId = item.per._id;
+                    var perId = item.per.__text;
                     obj.per = $filter('findListItemById')(DossierLists.getPerList(), {id: perId});
                 }
 
-                if (item.per._id=== 'UP') {
+                if (item.per.__text=== 'UP') {
                     obj.perPresentationValue = Number(item.per_value);
-                    var upValue = DossierLists.getUnitsPrefix() + item.per_units._id; //add the prefix
+                    var upValue = DossierLists.getUnitsPrefix() + item.per_units.__text; //add the prefix
                     //if other revert the value. OTHER value never has a prefix
-                    if (item.per_units._id === OTHER) {
-                        upValue = item.per_units._id;
+                    if (item.per_units.__text === OTHER) {
+                        upValue = item.per_units.__text;
                     }
                     obj.perPresUnits = $filter('findListItemById')(DossierLists.getUnitsPresentationList(), {id: upValue});
                     obj.perPresOtherUnits = item.per_units_other_details;
                 }
 
-                if (item.per._id === 'UM') {
+                if (item.per.__text === 'UM') {
                     obj.perMeasureValue = Number(item.per_value);
-                    var unitsValue = DossierLists.getUnitsPrefix() + item.per_units._id; //add the prefix
+                    var unitsValue = DossierLists.getUnitsPrefix() + item.per_units.__text; //add the prefix
                     //if other revert the value. OTHER value never has a prefix
-                    if (item.per_units._id === OTHER) {
-                        unitsValue = item.per_units._id;
+                    if (item.per_units.__text === OTHER) {
+                        unitsValue = item.per_units.__text;
                     }
                     obj.perMeasUnits = $filter('findListItemById')(DossierLists.getUnitsMeasureList(), {id: unitsValue});
                     obj.perMeasUnitsHtml = obj.perMeasUnits == null ? "" : obj.perMeasUnits[$translate.proposedLanguage() || $translate.use()];
@@ -836,9 +639,9 @@
 
                 if (item.is_nanomaterial === YES) {
                     //prefixed so need to do things differently than units
-                    var nanoValue = DossierLists.getNanoPrefix() + item.nanomaterial._id;
-                    if (item.nanomaterial._id === OTHER) {
-                        nanoValue = item.nanomaterial._id;
+                    var nanoValue = DossierLists.getNanoPrefix() + item.nanomaterial.__text;
+                    if (item.nanomaterial.__text === OTHER) {
+                        nanoValue = item.nanomaterial.__text;
                     }
                     obj.nanoMaterial = $filter('findListItemById')(DossierLists.getNanoMaterials(), {id: nanoValue});
                 }
@@ -869,15 +672,15 @@
                 var obj = {
                     "containerType": item.container_type,
                     "packageSize": item.package_size,
-                    "shelfLifeUnit": "",
-                    "shelfLifeNumber": (item.shelf_life_number) ? Number(item.shelf_life_number): '',
-                    "tempMin": (item.temperature_min) ? Number(item.temperature_min): '',
-                    "tempMax": (item.temperature_max) ? Number(item.temperature_max): '',
+                    "shelfLifeUnit": item.shelf_life_unit,
+                    "shelfLifeNumber": Number(item.shelf_life_number),
+                    "tempMin": Number(item.temperature_min),
+                    "tempMax": Number(item.temperature_max),
                     "otherShelflifeConsider": item.other_shelf_life_considerations
                 };
 
                 if (item.shelf_life_unit) {
-                    var slUnitValue = item.shelf_life_unit._id;
+                    var slUnitValue = item.shelf_life_unit.__text;
                     obj.shelfLifeUnit = $filter('findListItemById')(DossierLists.getShelfLifeUnitsList(), {id: slUnitValue});
                 }
 
@@ -921,9 +724,9 @@
             var _id = 0;
 
             angular.forEach(list, function (item) {
-                var roaValue = DossierLists.getRoaPrefix() + item.roa._id;
-                if (item.roa._id === OTHER) {
-                    roaValue = item.roa._id;
+                var roaValue = DossierLists.getRoaPrefix() + item.roa.__text;
+                if (item.roa.__text === OTHER) {
+                    roaValue = item.roa.__text;
                 }
                 var roaObj = $filter('findListItemById')(DossierLists.getRoa(), {id: roaValue});
                 _id = _id + 1;
@@ -962,10 +765,10 @@
                     "display": "",
                     "unknownCountryDetails": ""
                 };
-                if (item._id === UNKNOWN) {
+                if (item.__text === UNKNOWN) {
                     obj.country = getCountryAndProvinces.getUnknownCountryRecord();
                 } else {
-                    obj.country = $filter('filter')(getCountryAndProvinces.getCountries(), {id: item._id})[0];
+                    obj.country = $filter('filter')(getCountryAndProvinces.getCountries(), {id: item.__text})[0];
                 }
                 if (obj.country) {
                     obj.display = obj.country[$translate.proposedLanguage() || $translate.use()]
@@ -981,22 +784,6 @@
             return this.charAt(0).toUpperCase() + this.slice(1).toLowerCase();
             //return this.replace( /(^|\s)([a-z])/g , function(m,p1,p2){ return p1+p2.toUpperCase(); } );
         };
-
-        function transformCtaCountryFromFile(countries) {
-            if (countries) {
-
-                var countryArray = [];
-                if (!(countries instanceof Array)) {
-                    //make it an array, case there is only one
-                    countryArray = [countries];
-                } else {
-                    countryArray = countries;
-                }
-                return getFormulationCountryList(countryArray);
-            } else {
-                return [];
-            }
-        }
 
         /**
          *
@@ -1033,27 +820,22 @@
                 var record = {};
                 record.importerId = jsonObj[i].importer_company_id;
                 record.importerName = jsonObj[i].importer_company_name;
-                record.street = jsonObj[i].street_address;
-                record.city = jsonObj[i].city;
-                // record.stateList = jsonObj[i].province_lov;
-                if (jsonObj[i].province_lov) {
-                    record.stateList = jsonObj[i].province_lov._id;
-                } else {
-                    record.stateList = "";
-                }
-                record.stateText = jsonObj[i].province_text;
-                record.country = "";
-                if (jsonObj[i].country._id) {
-                    record.country = $filter('filter')(getCountryAndProvinces.getCountries(), {id: jsonObj[i].country._id})[0];
-                    record.countryHtml = record.country[$translate.proposedLanguage() || $translate.use()];
-                    record.countryDisplay = record.country.id;
-                }
-                record.postalCode = jsonObj[i].postal_code;
-                record.phone = jsonObj[i].phone_num;
-                record.phoneExt = jsonObj[i].phone_ext;
-                record.fax = jsonObj[i].fax_num;
-                record.email = jsonObj[i].email;
-                record.routingId = jsonObj[i].RoutingID;
+                // record.street = jsonObj[i].street_address;
+                // record.city = jsonObj[i].city;
+                // // record.stateList = jsonObj[i].province_lov;
+                // if (jsonObj[i].province_lov) {
+                //     record.stateList = jsonObj[i].province_lov._id;
+                // } else {
+                //     record.stateList = "";
+                // }
+                // record.stateText = jsonObj[i].province_text;
+                // record.country = "";
+                // if (jsonObj[i].country._id) {
+                //     record.country = $filter('filter')(getCountryAndProvinces.getCountries(), {id: jsonObj[i].country._id})[0];
+                //     record.countryHtml = record.country[$translate.proposedLanguage() || $translate.use()];
+                //     record.countryDisplay = record.country.id;
+                // }
+                // record.postalCode = jsonObj[i].postal_code;
                 importerRecord.push(record);
             }
             return importerRecord;
@@ -1077,100 +859,16 @@
                     importerRec.province_lov = "";
                 }
                 importerRec.province_text = importerObj.stateText;
-                importerRec.country = "";
-                if (importerObj.country) {
-                    importerRec.country = {
-                        _label_en: importerObj.country.en,
-                        _label_fr: importerObj.country.fr,
-                        _id: importerObj.country.id,
-                        __text: importerObj.country[currentLang]
+                // importerRec.country = "";
+                importerRec.country = {
+                        _label_en: 'Canada',
+                        _label_fr: 'Canada',
+                        _id: CANADA,
+                        __text: 'Canada'
                     };
-                }
                 importerRec.postal_code = importerObj.postalCode;
-                importerRec.phone_num = importerObj.phone;
-                importerRec.phone_ext = importerObj.phoneExt;
-                importerRec.fax_num = importerObj.fax;
-                importerRec.email = importerObj.email;
-                importerRec.RoutingID = importerObj.routingId; //use RoutingID to meet docbridge automation requirement
             }
             return (importerRec);
-        }
-
-        function transformSpeciesFromFile(jsonObj) {
-            var speciesRecords = [];
-            var currentLang = $translate.proposedLanguage() || $translate.use();
-            if (!jsonObj) return speciesRecords;
-            if (!(jsonObj instanceof Array)) {
-                //make it an array, case there is only one record
-                jsonObj = [jsonObj];
-            }
-            for (var i = 0; i < jsonObj.length; i++) {
-                var record = {};
-                if (jsonObj[i].species && jsonObj[i].species._id) {
-                    record.species = $filter('filter')(DossierLists.getSpeciesList(), {id: jsonObj[i].species._id})[0];
-                }
-                if (jsonObj[i].subtypes && jsonObj[i].subtypes._id) {
-                    record.subtypes = $filter('filter')(DossierLists.getSubTypesList(), {id: jsonObj[i].subtypes._id})[0];
-                }
-                if (record.species && record.subtypes) {
-                    record.specSubt = record.species[currentLang] + ', ' + record.subtypes[currentLang];
-                } else {
-                    record.specSubt = '';
-                }
-                record.isTreatFPA = jsonObj[i].is_treat_food_prod_animal;
-                record.withdrawalDays = Number(jsonObj[i].withdrawal_days);
-                record.withdrawalHours = Number(jsonObj[i].withdrawal_hours);
-                record.timeCombined = jsonObj[i].withdrawal_days + ' days and ' + jsonObj[i].withdrawal_hours + ' hours';
-                speciesRecords.push(record);
-            }
-            return speciesRecords;
-        }
-
-        /**
-         *
-         * @param jsonObj the json object to convert
-         * @returns {Array}
-         * @private
-         */
-        function transformSpeciesToFile(jsonObj) {
-            var importers = [];
-            var currentLang = $translate.proposedLanguage() || $translate.use();
-            if (!jsonObj) return importers;
-            if (!(jsonObj instanceof Array)) {
-                //make it an array, case there is only one record
-                jsonObj = [jsonObj]
-            }
-
-            for (var i = 0; i < jsonObj.length; i++) {
-                var record = {};
-                record.species = "";
-                if (jsonObj[i].species) {
-                    record.species = {
-                        _label_en: jsonObj[i].species.en,
-                        _label_fr: jsonObj[i].species.fr,
-                        _id: jsonObj[i].species.id,
-                        __text: jsonObj[i].species[currentLang]
-                    };
-                }
-                record.subtypes = "";
-                if (jsonObj[i].subtypes) {
-                    record.subtypes = {
-                        _label_en: jsonObj[i].subtypes.en,
-                        _label_fr: jsonObj[i].subtypes.fr,
-                        _id: jsonObj[i].subtypes.id,
-                        __text: jsonObj[i].subtypes[currentLang]
-                    };
-                }
-                record.is_treat_food_prod_animal = jsonObj[i].isTreatFPA;
-                record.withdrawal_days = jsonObj[i].withdrawalDays;
-                record.withdrawal_hours = jsonObj[i].withdrawalHours;
-
-                if (jsonObj.length === 1) {
-                    return ([record]);
-                }
-                importers.push(record);
-            }
-            return (importers);
         }
 
 
@@ -1302,7 +1000,6 @@
                 if (item.dosageForm) {
                     var splitArray = (item.dosageForm.id).split(DossierLists.getDosageFormPrefix()); //needed to remove the internal uniqueness
                     var newDosage = splitArray[splitArray.length - 1];
-                    // var newDosage = item.dosageForm.id.substring(DossierLists.getDosageFormPrefix().length);
                     obj.dosage_form_group.dosage_form = {
                         _id: newDosage,
                         _label_en: item.dosageForm.en,
@@ -1339,15 +1036,6 @@
                 }
                 if (item.animalHumanMaterials && item.animalHumanMaterials.length > 0) {
                     obj.material_ingredient = materialListToOutput(item.animalHumanMaterials);
-                }
-                if(item.drugMarket){
-                    obj.drug_market = item.drugMarket;
-                    if(item.din && item.din != ''){
-                        obj.din = item.din;
-                    }
-                    if(item.dinCountryList.length > 0){
-                        obj.din_country_list = formulationCountryListToOutput(item.dinCountryList, currentLang);;
-                    }
                 }
                 formulationList.push(obj);
             });
@@ -1465,7 +1153,6 @@
             }
             var splitArray = (unitsObj.id).split(prefix); //needed to remove the internal uniqueness
             var newUnits = splitArray[splitArray.length - 1];
-            // var newUnits = unitsObj.id.substring(prefix.length);
             newObj._id = newUnits;
             newObj._label_en = unitsObj.en;
             newObj._label_fr = unitsObj.fr;
@@ -1540,7 +1227,6 @@
                 if (angular.isObject(item.roa)) {
                     var splitArray = (item.roa.id).split(DossierLists.getRoaPrefix()); //needed to remove the internal uniqueness
                     var newRoa = splitArray[splitArray.length - 1];
-                    // var newRoa = item.roa.id.substring(DossierLists.getRoaPrefix().length);
                     //roa is a field with 2 attributes
                     var obj = {
                         "roa": {
@@ -1566,15 +1252,13 @@
 
             var resultList = [];
             angular.forEach(list, function (item) {
-                if(item.country.id){
-                    var country = {
-                        _id: item.country.id,
-                        _label_en: item.country.en,
-                        _label_fr: item.country.fr,
-                        __text: item.country[lang]
-                    };
-                    resultList.push(country);
-                }
+                var country = {
+                    _id: item.country.id,
+                    _label_en: item.country.en,
+                    _label_fr: item.country.fr,
+                    __text: item.country[lang]
+                };
+                resultList.push(country);
             });
             return resultList;
         }

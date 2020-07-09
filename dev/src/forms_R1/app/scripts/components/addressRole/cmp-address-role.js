@@ -26,6 +26,7 @@
                 isContact: '<',
                 alreadySelected: '&',
                 isAmend: '<',
+                htIndxList: '<',
                 legendText: '@',
                 importerUpdated: '&',
                 deselectImporter: '&',

@@ -39,7 +39,8 @@
                     showErrorSummary: '<', //flag to show or hide the error summary
                     updateErrorSummary: '&', //function to update the list of error summmaries
                     isFocus: '<',
-                    cancelFocus: '&'
+                    cancelFocus: '&',
+                    humanAnimalIngredientNameList: '&'
                 }
 
             });

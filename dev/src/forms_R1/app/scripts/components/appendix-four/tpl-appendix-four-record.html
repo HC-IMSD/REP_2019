@@ -20,8 +20,11 @@
                                            error-types="ap4RecCtrl.requiredOnly"></cmp-error-message>
                     </label>
                         <input type="text" class="form-control full-width" id="{{::ap4RecCtrl.ingredNameId}}" ng-change="ap4RecCtrl.recordChanged()"
-                               data-ng-model="ap4RecCtrl.model.ingredientName" name="{{::ap4RecCtrl.ingredNameId}}" required data-focus-if="ap4RecCtrl.isFocus"
-                               data-ng-model-options="{updateOn: 'blur'}" maxlength="100"/>
+                               data-ng-model="ap4RecCtrl.model.ingredientName" name="{{::ap4RecCtrl.ingredNameId}}" required
+                               data-ng-model-options="{updateOn: 'blur'}" maxlength="100" list="humanAnimalList"/>
+                    <datalist id="humanAnimalList" class="rep-selectize-dropdown rep-selectize-font" >
+                        <option data-ng-repeat="item in ap4RecCtrl.humanAnimalIngredientNameList()" value="{{item}}" label="{{item}}"/>
+                    </datalist>
 
                 </div>
             </div>

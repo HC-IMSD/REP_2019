@@ -30,13 +30,14 @@
                 errorSummaryUpdate:'<',
                 showErrorSummary:'<',
                 isFileLoaded: '<',
-                updateErrorSummary:'&'
+                updateErrorSummary:'&',
+                humanAnimalIngredientNameList: '&'
             }
         });
 
-    appendixFourCtrl.$inject=['$scope'];
+    appendixFourCtrl.$inject=['$scope','$anchorScroll','$location'];
 
-    function appendixFourCtrl($scope) {
+    function appendixFourCtrl($scope, $anchorScroll, $location) {
         var vm = this;
         vm.selectRecord = -1; //the record to select, initially select non
         //vm.resetToCollapsed = true;
@@ -103,8 +104,16 @@
            // vm.resetToCollapsed = !vm.resetToCollapsed;
             //vm.selectRecord = ( vm.ingredientList.length - 1);
             vm.setRecord(vm.ingredientList.length - 1);
-
+            goToAppendx4Summary();
         };
+
+        function goToAppendx4Summary() {
+            var appendix4Section = angular.element(document.querySelector('#appendix4-section'));
+            if (appendix4Section) {
+                $location.hash('appendix4-section');
+                $anchorScroll();
+            }
+        }
 
         function getListMaxID() {
             var out = 0;

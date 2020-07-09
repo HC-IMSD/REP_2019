@@ -34,7 +34,7 @@
             <header class="panel-heading clearfix">
                 <h2 class="panel-title col-md-12">{{::'LOAD_COMPANY_FILE'| translate}}
                 <sup id="co1_ref">
-                    <a class="fn-lnk" href="#co1"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>1</a>
+                    <a class="fn-lnk" href="#co1"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::main.indexList.loadFileInx}}</a>
                 </sup>
                 </h2>
             </header>
@@ -60,7 +60,7 @@
                 <header class="panel-heading clearfix">
                     <h2 class="panel-title col-md-12">{{::'REG_COMPANY_ENROL'|translate}}
                         <sup id="co2_ref">
-                            <a class="fn-lnk" href="#co2"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>2</a>
+                            <a class="fn-lnk" href="#co2"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::main.indexList.enrolIdx}}</a>
                         </sup>
                     </h2>
                 </header>
@@ -74,7 +74,7 @@
                             <header class="panel-heading clearfix">
                                 <h3 class="panel-title col-md-12">{{::'ADDR_INFO'|translate}}
                                     <sup id="co3_ref">
-                                        <a class="fn-lnk" href="#co3"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>3</a>
+                                        <a class="fn-lnk" href="#co3"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::main.indexList.addressIdx}}</a>
                                     </sup>
                                 </h3>
                             </header>
@@ -95,7 +95,7 @@
                             <header class="panel-heading clearfix">
                                 <h3 class="panel-title col-md-8">{{::'CONTACT_INFO'|translate}}
                                     <sup id="co5_ref">
-                                        <a class="fn-lnk" href="#co5"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>6</a>
+                                        <a class="fn-lnk" href="#co5"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::main.indexList.companyRepIdx}}</a>
                                     </sup>
                                 </h3>
                             </header>
@@ -146,7 +146,7 @@
                             data-ng-click="main.saveXML()">{{::main.saveXMLLabel |translate}}
                     </button>
                         <sup id="co7_ref">
-                        <a class="fn-lnk" href="#co7"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>9</a>
+                        <a class="fn-lnk" href="#co7"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::main.indexList.genXmlIdx}}</a>
                         </sup>
                 </div>
             </div>

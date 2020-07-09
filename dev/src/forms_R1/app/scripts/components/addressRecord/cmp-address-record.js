@@ -1,7 +1,6 @@
 /**
  * Created by dkilty on 8/5/2016.
  */
-
 (function () {
     'use strict';
 
@@ -38,11 +37,13 @@
                 isDetailValid: '&',
                 isRoleSelected: '&',
                 recordIndex: '<',
+                htIndxList: '<',
                 errorSummaryUpdate: '&', /* used to message that errorSummary needs updating */
                 showErrorSummary:'<',
                 updateErrorSummary:'&', //update the parent error summary
-                isIn:'<'
-
+                isIn:'<',
+                isFocus: '<',
+                cancelFocus: '&'
             }
         });
     addressRecCtrl.$inject = ['$scope', 'CANADA', '$filter', 'getCountryAndProvinces','$translate', 'INTERNAL_TYPE', 'EXTERNAL_TYPE'];
@@ -205,6 +206,9 @@
             vm.setEditable(); //case of amend
             vm.addressRecForm.$setPristine();
             vm.isDetailValid({state: vm.addressRecForm.$valid});
+            if (vm.addressModel) {
+                vm.onUpdate({rec: vm.addressModel});
+            }
             vm.errorSummaryUpdate();
             vm.importerProductState(vm.addressModel.addressRole.importer)
         };
@@ -286,17 +290,20 @@
             if (vm.addressRecForm.$valid) {
                 vm.isDetailValid({state: true});
                 vm.addressRecForm.$setPristine();
+                vm.addressModel.focusCompanyName = false;
                 vm.onUpdate({rec: vm.addressModel});
                 vm.showSummary=false;
                 vm.errorSummaryUpdate(); //updating parent
+                vm.cancelFocus();
             } else {
                 vm.showSummary = true;
                 vm.updateErrorSummaryState(); //updating current
                 vm.focusOnSummary()
             }
-
-
         };
+        vm.getInvalid = function(){
+            return vm.addressRecForm.$valid;
+        }
         /**
          * @ngdoc method toggles error state to make errors visible
          * @returns {boolean}

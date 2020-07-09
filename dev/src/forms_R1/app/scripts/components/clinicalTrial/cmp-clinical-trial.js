@@ -23,7 +23,8 @@
                 onUpdate: '&',
                 updateErrorSummary: '&',
                 isFileLoaded: '<',
-                showErrors: '<'
+                showErrors: '<',
+                htIndxList: '<'
             }
         });
 

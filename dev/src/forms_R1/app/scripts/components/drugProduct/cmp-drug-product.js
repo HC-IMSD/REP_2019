@@ -614,6 +614,47 @@
             vm.setVisibleTabIndex=temp;
         };
 
+        vm.humanAnimalIngredientNameList = function () {
+            return getAnimalIngredients(vm.model.drugProduct.formulations);
+        };
+        function getAnimalIngredients(formulations) {
+            var yesValue = 'Y';
+            var allAnimalSourcedNames = [];
+            if( formulations === undefined){
+                return allAnimalSourcedNames;
+            }
+            for (var i = 0; i < formulations.length; i++) {
+                //Step 1 get active ingredients
+                var oneFormulation = formulations[i];
+                if (oneFormulation.activeIngList) {
+                    for (var j = 0; j < (oneFormulation.activeIngList.length); j++) {
+                        var oneActive = oneFormulation.activeIngList[j];
+                        if (oneActive && oneActive.humanAnimalSourced === yesValue && allAnimalSourcedNames.indexOf(oneActive.ingLabel) < 0 ) {
+                            allAnimalSourcedNames.push(oneActive.ingLabel);
+                        }
+                    }
+                }
+                //step 2 get nmi flagged
+                if (oneFormulation.nMedIngList) {
+                    for (var j = 0; j < (oneFormulation.nMedIngList.length); j++) {
+                        var oneActive = oneFormulation.nMedIngList[j];
+                        if (oneActive.humanAnimalSourced === yesValue && allAnimalSourcedNames.indexOf(oneActive.ingName) < 0 ) {
+                            allAnimalSourcedNames.push(oneActive.ingName);
+                        }
+                    }
+                }
+                //step 3  all materials
+                if (oneFormulation.animalHumanMaterials) {
+                    for (var j = 0; j < (oneFormulation.animalHumanMaterials.length); j++) {
+                        var oneActive = oneFormulation.animalHumanMaterials[j];
+                        if(allAnimalSourcedNames.indexOf(oneActive.ingredientName) < 0){
+                            allAnimalSourcedNames.push(oneActive.ingredientName);
+                        }
+                    }
+                }
+            }
+            return allAnimalSourcedNames;
+        }
 
         function _setIdNames() {
             var scopeId = "_" + $scope.$id;
