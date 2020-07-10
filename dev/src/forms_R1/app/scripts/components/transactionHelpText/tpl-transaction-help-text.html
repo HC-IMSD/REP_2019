@@ -4,8 +4,8 @@
     <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::help.htIndxList.loadFileInx}}</dt>
     <dd id="tr1">
         <p>{{'LOAD_TRANSACTION'|translate}}</p>
+        <p> {{::'HT_LOAD_FILE_1'|translate}}</p>
         <ul>
-            <li> {{::'HT_LOAD_FILE_1'|translate}}</li>
             <li> {{::'HT_LOAD_FILE_2'|translate}}</li>
             <li> {{::'HT_LOAD_FILE_3'|translate}}</li>
         </ul>
@@ -22,8 +22,8 @@
         <ul>
             <li>{{::'HT_DOSSIER_TYPE_1'|translate}}</li>
             <li>{{::'HT_DOSSIER_TYPE_2'|translate}}</li>
-            <li>{{::'HT_DOSSIER_TYPE_3' |translate}}</li>
-            <li>{{::'HT_DOSSIER_TYPE_4' |translate}}</li>
+            <li data-ng-if="! help.isForProd">{{::'HT_DOSSIER_TYPE_3' |translate}}</li>
+            <li data-ng-if="! help.isForProd">{{::'HT_DOSSIER_TYPE_4' |translate}}</li>
         </ul>
         <p class="fn-rtn">
             <a href="#tr2_ref">
@@ -64,14 +64,18 @@
     <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::help.htIndxList.prodNameInx}}</dt>
     <dd id="tr5">
         <p>{{::"PROD_NAME" |translate}}</p>
-        <p> {{::"HT_PROD_NAME_1" |translate}}
-            <br><br>
-            {{::"HT_PROD_NAME_2" |translate}}
-            <br><br>
-            {{::"HT_PROD_NAME_3" |translate}}
-            <br><br>
-            {{::"HT_PROD_NAME_4" |translate}}
-        </p>
+        <!--<ul>-->
+            <!--<li>{{::"HT_PROD_NAME_1" |translate}}</li>-->
+            <!--<li>{{::"HT_PROD_NAME_2" |translate}}</li>-->
+            <!--<li>{{::"HT_PROD_NAME_3" |translate}}</li>-->
+            <!--<li data-ng-if="! help.isForProd">{{::"HT_PROD_NAME_4" |translate}}</li>-->
+        <!--</ul>-->
+
+            <p>{{::"HT_PROD_NAME_1" |translate}}</p>
+            <p>{{::"HT_PROD_NAME_2" |translate}}</p>
+            <p>{{::"HT_PROD_NAME_3" |translate}}</p>
+            <p data-ng-if="! help.isForProd">{{::"HT_PROD_NAME_4" |translate}}</p>
+
         <p class="fn-rtn">
             <a href="#tr5_ref">
                 <span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::help.htIndxList.prodNameInx}}
@@ -136,9 +140,12 @@
     <dd id="tr9">
         <p>{{::'ACTIVITY_LEAD' |translate}}</p>
         <ul><li> {{::'HT_ACT_LEAD_1' |translate}}</li>
-            <li> {{::'HT_ACT_LEAD_2' |translate}}</li>
-            <li> {{::'HT_ACT_LEAD_3' |translate}}</li>
+            <li data-ng-if="! help.isForProd"> {{::'HT_ACT_LEAD_2' |translate}}</li>
+            <li data-ng-if="! help.isForProd"> {{::'HT_ACT_LEAD_3' |translate}}</li>
             <li> {{::'HT_ACT_LEAD_4' |translate}}</li>
+            <li> {{::'HT_ACT_LEAD_5' |translate}}</li>
+            <li> {{::'HT_ACT_LEAD_6' |translate}}</li>
+            <li data-ng-if="! help.isForProd"> {{::'HT_ACT_LEAD_7' |translate}}</li>
         </ul>
         <p class="fn-rtn">
             <a href="#tr9_ref">
@@ -150,25 +157,23 @@
     <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::help.htIndxList.yearChgInx}}</dt>
     <dd id="tr10">
         <p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{::'YEAR_CHANGE' |translate}}</p>
-        <p> {{::'HT_YEAR_CHANGE_1' |translate}}</p>
+        <p data-ng-if="help.isForProd"> {{::'HT_YEAR_CHANGE_12' |translate}}</p>
+        <p data-ng-if="! help.isForProd"> {{::'HT_YEAR_CHANGE_1' |translate}}</p>
         <ul>
             <li>{{::'HT_YEAR_CHANGE_2' |translate}}<a href="{{::'HT_YEAR_CHANGE_URL_1' |translate}}" target="_blank">{{::'HT_YEAR_CHANGE_3' |translate}}</a></li>
             <li>{{::'HT_YEAR_CHANGE_2' |translate}}<a href="{{::'HT_YEAR_CHANGE_URL_2' |translate}}" target="_blank">{{::'HT_YEAR_CHANGE_4' |translate}}</a></li>
         </ul>
-        <p> {{::'HT_YEAR_CHANGE_5' |translate}}</p>
+        <p data-ng-if="! help.isForProd"> {{::'HT_YEAR_CHANGE_5' |translate}}</p>
         <ul>
-            <li><a href="{{::'HT_YEAR_CHANGE_URL_3' |translate}}" target="_blank">{{::'HT_YEAR_CHANGE_6' |translate}}</a></li>
-            <li><a href="{{::'HT_YEAR_CHANGE_URL_4' |translate}}" target="_blank">{{::'HT_YEAR_CHANGE_7' |translate}}</a></li>
+            <li data-ng-if="! help.isForProd"><a href="{{::'HT_YEAR_CHANGE_URL_3' |translate}}" target="_blank">{{::'HT_YEAR_CHANGE_6' |translate}}</a></li>
+            <li data-ng-if="! help.isForProd"><a href="{{::'HT_YEAR_CHANGE_URL_4' |translate}}" target="_blank">{{::'HT_YEAR_CHANGE_7' |translate}}</a></li>
         </ul>
-        <p>
-            {{::'HT_YEAR_CHANGE_8' |translate}}
-            <br>
-            {{::'HT_YEAR_CHANGE_9' |translate}}
-            <br>
-            {{::'HT_YEAR_CHANGE_10' |translate}}
-            <br>
-            {{::'HT_YEAR_CHANGE_11' |translate}}
-        </p>
+        <p>{{::'HT_YEAR_CHANGE_8' |translate}}</p>
+        <ul>
+            <li>{{::'HT_YEAR_CHANGE_9' |translate}}</li>
+            <li data-ng-if="! help.isForProd">{{::'HT_YEAR_CHANGE_10' |translate}}</li>
+            <li data-ng-if="! help.isForProd">{{::'HT_YEAR_CHANGE_11' |translate}}</li>
+        </ul>
         <p class="fn-rtn">
             <a href="#tr10_ref">
                 <span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::help.htIndxList.yearChgInx}}
@@ -221,14 +226,13 @@
     <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::help.htIndxList.contactInx}}</dt>
     <dd id="tr14">
         <p>{{::'REG_CONTACT_THIS' |translate}}</p>
-        <ul>
-            <li>{{::'HT_CONTACT_1' |translate}}
-            </li>
-            <li>{{::'HT_CONTACT_4' |translate}}</li>
-            <li>{{::'HT_CONTACT_5' |translate}}</li>
-            <li>{{::'HT_CONTACT_6' |translate}}</li>
-            <li>{{::'HT_CONTACT_7' |translate}}</li>
-        </ul>
+
+            <p>{{::'HT_CONTACT_1' |translate}}</p>
+            <p>{{::'HT_CONTACT_4' |translate}}</p>
+            <p>{{::'HT_CONTACT_5' |translate}}</p>
+            <p>{{::'HT_CONTACT_6' |translate}}</p>
+            <p>{{::'HT_CONTACT_7' |translate}}</p>
+
         <p class="fn-rtn">
             <a href="#tr14_ref">
                 <span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::help.htIndxList.contactInx}}
@@ -267,10 +271,8 @@
     <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::help.htIndxList.genXmlInx}}</dt>
     <dd id="tr17">
         <p>{{::'GENERATE_FINAL'|translate}}</p>
-        <ul>
-            <li>{{::'HT_XML_1'|translate}}</li>
-            <li>{{::'HT_XML_2'|translate}}</li>
-        </ul>
+            <p>{{::'HT_XML_1'|translate}}</p>
+            <p>{{::'HT_XML_2'|translate}}</p>
         <p class="fn-rtn">
             <a href="#tr17_ref">
                 <span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::help.htIndxList.genXmlInx}}

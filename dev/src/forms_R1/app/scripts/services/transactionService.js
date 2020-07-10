@@ -17,14 +17,14 @@
         .factory('TransactionService', TransactionService);
 
     TransactionService.$inject = ['$filter', '$translate', 'getCountryAndProvinces', 'getContactLists',
-        'TransactionLists', 'YES', 'NO', 'HCSC', 'ENGLISH', 'FRENCH', 'XSL_PREFIX'];
+        'TransactionLists', 'YES', 'NO', 'HCSC', 'ENGLISH', 'FRENCH', 'XSL_PREFIX', 'PROD'];
 
     //version 1.1 bug fix?
     //version 1.2 added Submission package/rq to MPNC, MPDNS
     //version 1.3 Chnage Lifecycle Rec associations of Sequence Clean-up and Notification of interruption of sale
 
     function TransactionService($filter, $translate, getCountryAndProvinces, getContactLists, TransactionLists,
-                                YES, NO, HCSC, ENGLISH, FRENCH, XSL_PREFIX) {
+                                YES, NO, HCSC, ENGLISH, FRENCH, XSL_PREFIX, PROD) {
         //var vm = this;
         this.baseRequesters = [];
         this.userList =[];
@@ -33,6 +33,8 @@
             // loadContactData();
             loadUserListData();
         };
+        var isForProd = PROD === TransactionLists.getEnv();
+
 
         function TransactionService() {
             //construction logic
@@ -42,7 +44,26 @@
             this.currSequence = 0;
             // this.xslFileName = XSL_PREFIX + "REP_RT_2_2.xsl";
             this.xslFileName = "REP_RT_3_1.xsl";
-            this.helpTextSequences = {
+            this.helpTextSequences = isForProd ?
+                {
+                    loadFileInx: 0,
+                    dossierTypeInx: 0,
+                    compIdInx: 0,
+                    dossiIdInx: 0,
+                    prodNameInx: 0,
+                    protoNumInx: 0,
+                    adminSubInx: 0,
+                    ctrlNumInx: 0,
+                    actLeadInx: 0,
+                    yearChgInx: 0,
+                    descChgInx: 0,
+                    reqSoliInx: 0,
+                    feesInx: 0,
+                    contactInx: 0,
+                    compNameInx: 0,
+                    routingIdInx: 0,
+                    genXmlInx: 0
+                }:{
                 loadFileInx: 0,
                 dossierTypeInx: 0,
                 compIdInx: 0,

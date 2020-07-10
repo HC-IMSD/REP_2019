@@ -17,15 +17,15 @@
   "ADDR_ROLES":"Rôles",
   "PHONENUMBER": "Numéro de téléphone",
   "CONTACT_INFO": "Information sur les représentants de la compagnie",
-  "REP_CONTACT":  "fr_REP Contact",
-  "ONE_ROLE": "fr_Role",
+  "REP_CONTACT":  "Personne-ressource pour le PIR",
+  "ONE_ROLE": "Rôle",
   "CONTACT_DETAILS": "Détails du représentant de l'entreprise",
-  "ADD_CONTACT": "fr_Add REP Contact",
+  "ADD_CONTACT": "Ajouter la personne-ressource pour le PIR",
   "CONTACT_ROLE_LEGEND": "Sélectionner un ou plusieurs rôles pour ce représentant de l'entreprise",
-  "CONTACT_ROLE_INSTRUCT":"fr_Company Representative Role Instructions",
-  "ADD_REPRES": "fr_Add Company Representative",
-  "DELETE_REPRES": "fr_Delete Company Rep.",
-  "SAVE_REPRES": "fr_Save Company Rep.",
+//  "CONTACT_ROLE_INSTRUCT":"fr_Company Representative Role Instructions",
+  "ADD_REPRES": "Ajouter un représentant de la compagnie",
+  "DELETE_REPRES": "Supprimer le représentant de la compagnie",
+  "SAVE_REPRES": "Enregistrer le représentant de la compagnie",
   "ROLES": "Rôles"
 
 }
