@@ -476,7 +476,7 @@
                             data-ng-click="ingRecCtrl.copy()" data-ng-disabled="ingRecCtrl.activeIngForm.$dirty">
                         {{'COPY_RECORD'|translate}}
                     </button>
-                    <button class="btn btn-default" name="discardMI" data-ng-click="ingRecCtrl.discardChanges()">
+                    <button class="btn btn-default" name="discardMI" data-ng-click="ingRecCtrl.discardChanges(); ingRecCtrl.setFocus();">
                         {{'DISCARD_CHANGES'|translate}}
                     </button>
                 </div>

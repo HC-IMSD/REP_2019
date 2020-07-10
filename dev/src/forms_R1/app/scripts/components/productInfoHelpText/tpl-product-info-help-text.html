@@ -77,14 +77,16 @@
                 </dd>
                 <dt data-ng-if="! helpCtrl.isForProd"><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::helpCtrl.htIndxList.clinicalIndx}}</dt>
                 <dd id="dr12" data-ng-if="! helpCtrl.isForProd">
-                    <p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{::'HT_CLINICAL_TRIAL'|translate}}</p>
+                    <p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{'CLINICAL_TRIAL'|translate}}</p>
+                    <p>{{::'HT_CLINICAL_TRIAL'|translate}}</p>
                     <p class="fn-rtn"><a href="#dr12_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::helpCtrl.htIndxList.clinicalIndx}}
                         <span class="wb-inv"> referrer</span></a>
                     </p>
                 </dd>
                 <dt data-ng-if="! helpCtrl.isForProd"><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::helpCtrl.htIndxList.protocolNoIndx}}</dt>
                 <dd id="dr13" data-ng-if="! helpCtrl.isForProd">
-                    <p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{::'HT_PROTOCOL_NUM'|translate}}</p>
+                    <p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{::'PROTOCOL_NUMBER'|translate}}</p>
+                    <p>{{::'HT_PROTOCOL_NUM'|translate}}</p>
                     <p class="fn-rtn"><a href="#dr13_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::helpCtrl.htIndxList.protocolNoIndx}}
                         <span class="wb-inv"> referrer</span></a>
                     </p>

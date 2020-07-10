@@ -294,6 +294,11 @@
             vm.frmModel.dinCountryList = list;
             vm.noDinCountry();
         };
+
+        vm.deleteMaterialList = function(){
+            vm.frmModel.animalHumanMaterials = [];
+            vm.recordChanged();
+        };
         /**
          * @ngDoc determines if dosage Other should be shown
          * @returns {boolean}
