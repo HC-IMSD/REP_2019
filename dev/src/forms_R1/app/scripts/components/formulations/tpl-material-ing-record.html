@@ -39,7 +39,7 @@
                 </div>
                 <div class="form-group col-md-6"
                      data-ng-class="{'has-error':mirCtrl.materialIngRecordForm[mirCtrl.inFinalId].$invalid}">
-                    <h4 class="full-width required">
+                    <p class="full-width required radioButtonTitle" >
                         <span class="field-name">{{'IN_FINAL_CONTAINER'|translate}}</span>
                         <strong class="required">{{"REQUIRED" |translate}}</strong>
                         <cmp-error-message field-name="mirCtrl.inFinalId"
@@ -51,9 +51,11 @@
                                 <!--data-ng-options="val |translate for val in  mirCtrl.yesNoList">-->
                         <!--</select>-->
 
-                    </h4>
+                    </p>
+                    <div class="checkbox">
                     <label class="col-xs-2" for="{{::mirCtrl.inFinalId}}"><input type="radio" id="{{::mirCtrl.inFinalId}}" name="{{::mirCtrl.inFinalId}}" value="Y" data-ng-model="mirCtrl.mirModel.inFinalContainer" required/>&nbsp;{{::'Y'|translate}}</label>
                     <label class="col-xs-2" for="{{::mirCtrl.inFinalId}}_1"><input type="radio" id="{{::mirCtrl.inFinalId}}_1" name="{{::mirCtrl.inFinalId}}" value="N" data-ng-model="mirCtrl.mirModel.inFinalContainer" required />&nbsp;{{::'N'|translate}}</label>
+                    </div>
                 </div>
             </div>
             <div class="row">

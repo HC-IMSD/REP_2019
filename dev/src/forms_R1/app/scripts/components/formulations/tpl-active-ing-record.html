@@ -343,7 +343,7 @@
                         <div class="row col-md-12" data-ng-if="ingRecCtrl.isMedIng()">
                             <div class="form-group  col-sm-8"
                                  data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.asBaseId].$invalid}">
-                                <h4 for="{{::ingRecCtrl.asBaseId}}" class="required">
+                                <p for="{{::ingRecCtrl.asBaseId}}" class="required radioButtonTitle">
                                     <span class="field-name">{{'CALCULATED_AS_BASE'|translate}}</span>
                                     <strong class="required">{{"REQUIRED" |translate}}</strong>
                                     <cmp-error-message field-name="ingRecCtrl.asBaseId"
@@ -355,9 +355,11 @@
                                             <!--data-ng-options="val |translate for val in  ingRecCtrl.calAsBaseYesNoList">-->
                                     <!--</select>-->
 
-                                </h4>
+                                </p>
+                                <div class="checkbox">
                                 <label class="col-xs-2" for="{{::ingRecCtrl.asBaseId}}"><input type="radio" id="{{::ingRecCtrl.asBaseId}}" name="{{::ingRecCtrl.asBaseId}}" value="Y" data-ng-model="ingRecCtrl.ingModel.calcAsBase" required/>&nbsp;{{::'Y'|translate}}</label>
                                 <label class="col-xs-2" for="{{::ingRecCtrl.asBaseId}}_1"><input type="radio" id="{{::ingRecCtrl.asBaseId}}_1" name="{{::ingRecCtrl.asBaseId}}" value="N" data-ng-model="ingRecCtrl.ingModel.calcAsBase" required/>&nbsp;{{::'N'|translate}}</label>
+                                </div>
                             </div>
                         </div>
                     </fieldset>
@@ -367,7 +369,7 @@
                 <div class="row">
                     <div class="form-group col-xs-12"
                          data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.isNanoMaterialId].$invalid}">
-                        <h4 for="{{::ingRecCtrl.isNanoMaterialId}}" class="full-width required">
+                        <p for="{{::ingRecCtrl.isNanoMaterialId}}" class="full-width required radioButtonTitle">
                             <span class="field-name">{{'IS_NANO_MATERIAL'|translate}}</span>
                             <strong class="required">{{"REQUIRED" |translate}}</strong>
                             <sup id="dr9c5_ref">
@@ -382,9 +384,11 @@
                                     <!--class="form-control" name="{{::ingRecCtrl.isNanoMaterialId}}"-->
                                     <!--data-ng-options="val |translate for val in  ingRecCtrl.yesNoList">-->
                             <!--</select>-->
-                        </h4>
+                        </p>
+                        <div class="checkbox">
                         <label class="col-xs-2" for="{{::ingRecCtrl.isNanoMaterialId}}"><input type="radio" id="{{::ingRecCtrl.isNanoMaterialId}}" name="{{::ingRecCtrl.isNanoMaterialId}}" value="Y" data-ng-model="ingRecCtrl.ingModel.isNano" required/>&nbsp;{{::'Y'|translate}}</label>
                         <label class="col-xs-2" for="{{::ingRecCtrl.isNanoMaterialId}}_1"><input type="radio" id="{{::ingRecCtrl.isNanoMaterialId}}_1" name="{{::ingRecCtrl.isNanoMaterialId}}" value="N" data-ng-model="ingRecCtrl.ingModel.isNano" required/>&nbsp;{{::'N'|translate}}</label>
+                        </div>
                     </div>
                     <div data-ng-if="ingRecCtrl.isNanoMaterial()">
                         <div class="form-group col-md-3" data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.nanoId].$invalid}">
@@ -423,14 +427,14 @@
                 <div class="row">
                     <div class="form-group col-xs-12"
                          data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.animalHumanSrcId].$invalid}">
-                        <h4 class="full-width required">
+                        <p class="full-width required radioButtonTitle">
                             <span class="field-name">{{'ANIMAL_HUMAN_SOURCED'|translate}}</span>
                             <strong class="required">{{"REQUIRED" |translate}}</strong>
                             <sup id="dr9c6_ref">
                                 <a class="fn-lnk" href="#dr9c6"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::ingRecCtrl.htIndxList.ahSourcedIndx}}</a>
                             </sup>
 
-                        </h4>
+                        </p>
                         <cmp-error-message field-name="ingRecCtrl.animalHumanSrcId"
                                            form-ref="ingRecCtrl.activeIngForm"
                                            show-error="ingRecCtrl.showError(ingRecCtrl.activeIngForm[ingRecCtrl.animalHumanSrcId])"
@@ -439,8 +443,10 @@
                                 <!--data-ng-required="true" class="form-control" name="{{::ingRecCtrl.animalHumanSrcId}}"-->
                                 <!--data-ng-options="val |translate for val in  ingRecCtrl.yesNoList">-->
                         <!--</select>-->
+                        <div class="checkbox">
                         <label class="col-xs-2" for="{{::ingRecCtrl.animalHumanSrcId}}"><input type="radio" id="{{::ingRecCtrl.animalHumanSrcId}}" name="{{::ingRecCtrl.animalHumanSrcId}}" value="Y" data-ng-model="ingRecCtrl.ingModel.humanAnimalSourced" required/>&nbsp;{{::'Y'|translate}}</label>
                         <label class="col-xs-2" for="{{::ingRecCtrl.animalHumanSrcId}}_1"><input type="radio" id="{{::ingRecCtrl.animalHumanSrcId}}_1" name="{{::ingRecCtrl.animalHumanSrcId}}" value="N" data-ng-model="ingRecCtrl.ingModel.humanAnimalSourced" required/>&nbsp;{{::'N'|translate}}</label>
+                        </div>
                     </div>
                 </div>
                 <div class="row">

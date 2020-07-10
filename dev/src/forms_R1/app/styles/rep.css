@@ -264,3 +264,7 @@ div .module-attention {
 .fa-info-circle:before {
     color: white;
 }
+.radioButtonTitle {
+    font-size:16px;
+    font-weight:700;
+}
