@@ -266,7 +266,7 @@
         vm.disableAddContact = function () {
             //TODO don't hard code length?
             if(!vm.contactList) return false; //should never happen
-            return (!(vm.contactList.length < 5 && vm.isDetailValid))
+            return (!vm.isDetailValid) // remove record limit - vm.contactList.length < 5 &&
 
         };
 

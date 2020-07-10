@@ -135,7 +135,7 @@
                 <button data-ng-if="ctrCtrl.deleteBtn === true" class="btn btn-danger" name="deleteContainer" onclick="focusOnRow(this, 'addContainer_')"
                         data-ng-click="ctrCtrl.delete()">{{'DELETE_RECORD'|translate}}</button>
                 <button  class="btn btn-default" name="discardContainer"
-                         data-ng-click="ctrCtrl.discardChanges()">{{'DISCARD_CHANGES'|translate}}</button>
+                         data-ng-click="ctrCtrl.discardChanges(); ctrCtrl.setFocus();">{{'DISCARD_CHANGES'|translate}}</button>
             </div>
         </div>
     </div>

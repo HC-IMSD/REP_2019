@@ -83,8 +83,7 @@
                     // } else {
                         vm.isSelected = "selected";
                         return;
-                    // }
-                }
+                    }
             }
             vm.isSelected = "";
         };

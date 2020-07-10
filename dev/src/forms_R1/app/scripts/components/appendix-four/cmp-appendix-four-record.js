@@ -211,7 +211,7 @@
 
             };
             vm.showAnimalSources = function () {
-                vm.showTissuesFluids();
+                var human = vm.showTissuesFluids();
                 if (vm.model.animalSourced) {
                     if (!vm.model.sourceAnimalDetails) {
                         vm.model.sourceAnimalDetails = angular.copy(emptyAnimalSource);

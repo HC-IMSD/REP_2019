@@ -531,7 +531,7 @@
         function _createFilename() {
 
             var date = new Date();
-            var filename = "HCREPPI";
+            var filename = "pi-" + vm.model.dossierID ;
             var month = date.getMonth() + 1;
             var day = date.getDate();
             var hours = date.getHours();
