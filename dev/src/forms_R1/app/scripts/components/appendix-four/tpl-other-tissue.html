@@ -147,7 +147,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="form-group" ng-if="sysCtrl.model.otherFluids">
+                    <div class="form-group" ng-if="sysCtrl.otherChanged()">
                         <label class="required" for="{{::sysCtrl.otherDetailsId}}">
                             {{::'OTHERTISS_DETAILS'|translate}}
                             <strong class="required">{{::"REQUIRED" |translate}}</strong>
@@ -156,7 +156,7 @@
                                                show-error="sysCtrl.showErrorMessage(sysCtrl.otherForm[sysCtrl.otherDetailsId].$invalid)"
                                                error-types="sysCtrl.requiredOnly"></cmp-error-message>
                             <input type="text" size="40" maxlength="40" name="{{::sysCtrl.otherDetailsId}}" id="{{::sysCtrl.otherDetailsId}}"
-                                   data-ng-model-options="{ debounce: '$inherit'}" required data-ng-blur="sysCtrl.otherChanged()"
+                                   data-ng-model-options="{ debounce: '$inherit'}" data-ng-required="{{sysCtrl.model.otherFluids}}"
                                    data-ng-model="sysCtrl.model.otherDetails"/>
                         </label>
                     </div>

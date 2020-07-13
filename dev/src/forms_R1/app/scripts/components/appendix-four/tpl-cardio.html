@@ -65,7 +65,7 @@
                         </label>
                     </div>
                 </div>
-                <div ng-if="sysCtrl.model.otherCardio" class="col-md-12">
+                <div ng-if="sysCtrl.otherChanged()" class="col-md-12">
                     <div class="form-group ">
                         <label class="required" for="{{::sysCtrl.otherDetailsId}}">{{::'CARDIO_DETAILS'|translate}}
                             <strong class="required">{{::"REQUIRED" |translate}}</strong>
@@ -75,7 +75,7 @@
                                                error-types="sysCtrl.requiredOnly">
                             </cmp-error-message>
                             <input type="text" size="40" maxlength="40" name="{{::sysCtrl.otherDetailsId}}" id="{{::sysCtrl.otherDetailsId}}"
-                                   required  data-ng-blur="sysCtrl.otherChanged()" data-ng-model-options="{ debounce: '$inherit'}"
+                                   data-ng-required="{{sysCtrl.model.otherCardio}}"  data-ng-model-options="{ debounce: '$inherit'}"
                                    data-ng-model="sysCtrl.model.otherDetails"/>
                         </label>
                     </div>

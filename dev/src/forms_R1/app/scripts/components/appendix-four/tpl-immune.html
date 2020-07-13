@@ -65,7 +65,7 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <div class="form-group" data-ng-if="sysCtrl.model.otherImmune">
+                    <div class="form-group" data-ng-if="sysCtrl.otherChanged()">
                         <label class="required" for="{{::sysCtrl.otherDetailsId}}">{{::'IMMUNE_DETAILS'|translate}}
                             <strong class="required">{{::"REQUIRED" |translate}}</strong>
                             <cmp-error-message field-name="sysCtrl.otherDetailsId"
@@ -73,7 +73,7 @@
                                                show-error="sysCtrl.showErrorMessage(sysCtrl.immuneForm[sysCtrl.otherDetailsId].$invalid)"
                                                error-types="sysCtrl.requiredOnly"></cmp-error-message>
                             <input type="text" size="40" maxlength="40" name="{{::sysCtrl.otherDetailsId}}" id="{{::sysCtrl.otherDetailsId}}"
-                                   data-ng-model-options="{ debounce: '$inherit'}" required data-ng-blur="sysCtrl.otherChanged()"
+                                   data-ng-model-options="{ debounce: '$inherit'}" data-ng-required="{{sysCtrl.model.otherImmune}}"
                                    data-ng-model="sysCtrl.model.otherDetails"/>
                         </label>
                     </div>
