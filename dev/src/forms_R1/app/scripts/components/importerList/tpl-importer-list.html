@@ -3,7 +3,8 @@
                          list-items="importerListCtrl.model.list"
                          column-def="importerListCtrl.columnDef"
                          select-record="importerListCtrl.selectRecord"
-                         disable-selection="false">
+                         is-required-record="! importerListCtrl.isDetailValid"
+                         disable-selection="!importerListCtrl.isDetailValid">
 
         <cmp-importer-record record="$parent.record"
                              fieldset-label="{{importerListCtrl.fieldLabel}}"
@@ -11,7 +12,9 @@
                              on-delete="importerListCtrl.deleteRecord(id)"
                              ht-indx-list="importerListCtrl.htIndxList"
                              update-error-summary="importerListCtrl.updateErrorSummary()"
-                             show-errors="importerListCtrl.showDetailErrors" is-focus="importerListCtrl.isFocus">
+                             show-errors="importerListCtrl.showDetailErrors"
+                             is-detail-valid="importerListCtrl.setValid(state)"
+                             is-focus="importerListCtrl.isFocus">
         </cmp-importer-record>
     </cmp-expanding-table>
     <div class="mrgn-tp-md mrgn-bttm-lg">

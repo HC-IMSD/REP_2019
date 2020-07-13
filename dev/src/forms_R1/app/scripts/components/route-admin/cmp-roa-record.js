@@ -116,7 +116,7 @@
                     break;
                 }
             }
-            $scope.$apply();
+            // $scope.$apply();
         }
 
         vm.clearFilter = function($scope){

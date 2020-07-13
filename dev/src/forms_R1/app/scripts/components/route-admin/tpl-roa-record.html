@@ -11,7 +11,7 @@
                                            form-ref="roaRecCtrl.roaRecForm"
                                            show-error="roaRecCtrl.showError(roaRecCtrl.roaRecForm[roaRecCtrl.roaId])"
                                            error-types="roaRecCtrl.requiredOnly"></cmp-error-message>
-                        <input type="list" id="{{::roaRecCtrl.roaId}}" name="{{::roaRecCtrl.roaId}}"
+                        <input type="text" id="{{::roaRecCtrl.roaId}}" name="{{::roaRecCtrl.roaId}}"
                                data-ng-model="roaRecCtrl.model.display"
                                oninput="angular.element($(this)).scope().roaRecCtrl.roaChange(this.value)" autocomplete="off"
                                list="roaFormList" required class="form-control full-width"/>

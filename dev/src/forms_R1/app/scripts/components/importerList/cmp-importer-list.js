@@ -32,7 +32,7 @@
     function importerListController($filter, $scope) {
         var vm = this;
         vm.model = {};
-        vm.isDetailValid = true;
+        vm.isDetailValid = false;
         vm.resetToCollapsed = true;
         vm.showDetailErrors=false;
         vm.selectRecord = -1;
@@ -123,6 +123,7 @@
             vm.selectRecord = -1;
             vm.requiredFlag = false;
             vm.resetCollapsed = !vm.resetCollapsed;
+            vm.isDetailValid = true;
             vm.model.list[idx] = importer;
             vm.onUpdate({list:vm.model.list});
         };
@@ -158,6 +159,9 @@
             vm.isFocus = false;
         }
 
+        vm.setValid = function (detailValid) {
+            vm.isDetailValid = detailValid;
+        };
 
         /*  $scope.$watch('countryListCtrl.countryListForm.$error', function () {
                     vm.updateErrorSummary();
