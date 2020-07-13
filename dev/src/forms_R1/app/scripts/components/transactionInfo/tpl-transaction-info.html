@@ -348,23 +348,23 @@
                         </cmp-lifecycle-details>
                     </div>
                 </section>
-                <div class="row">
-                    <div class="form-group col-md-6">
-                        <label for="projectManager1" class="full-width">
-                            <span class="field-name">1.&nbsp;{{::"PROJ_MANAGER_NAME" |translate}}</span>
-                        </label>
-                        <input type="text" id="projectManager1" name="projectManager1" data-ng-model="transInfoCtrl.transactionModel.projectManager1"
-                               value="transInfoCtrl.transactionModel.projectManager1"
-                               class="form-control full-width" />
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="projectManager2" class="full-width">
-                            <span class="field-name">2.&nbsp;{{::"PROJ_MANAGER_NAME" |translate}}</span>
-                        </label>
-                        <input type="text" id="projectManager2" name="projectManager2" data-ng-model="transInfoCtrl.transactionModel.projectManager2" value="transInfoCtrl.transactionModel.projectManager1"
-                               class="form-control full-width" />
-                    </div>
-                </div>
+                <!--<div class="row">-->
+                    <!--<div class="form-group col-md-6">-->
+                        <!--<label for="projectManager1" class="full-width">-->
+                            <!--<span class="field-name">1.&nbsp;{{::"PROJ_MANAGER_NAME" |translate}}</span>-->
+                        <!--</label>-->
+                        <!--<input type="text" id="projectManager1" name="projectManager1" data-ng-model="transInfoCtrl.transactionModel.projectManager1"-->
+                               <!--value="transInfoCtrl.transactionModel.projectManager1"-->
+                               <!--class="form-control full-width" />-->
+                    <!--</div>-->
+                    <!--<div class="form-group col-md-6">-->
+                        <!--<label for="projectManager2" class="full-width">-->
+                            <!--<span class="field-name">2.&nbsp;{{::"PROJ_MANAGER_NAME" |translate}}</span>-->
+                        <!--</label>-->
+                        <!--<input type="text" id="projectManager2" name="projectManager2" data-ng-model="transInfoCtrl.transactionModel.projectManager2" value="transInfoCtrl.transactionModel.projectManager1"-->
+                               <!--class="form-control full-width" />-->
+                    <!--</div>-->
+                <!--</div>-->
                 <div class="row" data-ng-if="transInfoCtrl.transactionModel.ectd.dossierType == 'D21' || transInfoCtrl.transactionModel.ectd.dossierType == 'D22'">
                     <fieldset class="col-md-12 chkbxrdio-grp" data-ng-class="{'has-error':transInfoCtrl.transInfoForm[transInfoCtrl.isFeesId].$invalid}">
                         <legend>
@@ -396,7 +396,7 @@
                 <header class="panel-heading clearfix">
                     <h2 class="panel-title col-md-8">{{::'REGULATORY_FEES' |translate}}
                         <sup id="tr13_ref">
-                            <a class="fn-lnk" href="#tr13"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::lifecycleCtrl.htIndxList.feesInx}}</a>
+                            <a class="fn-lnk" href="#tr13"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::transInfoCtrl.htIndxList.feesInx}}</a>
                         </sup>
                     </h2>
                 </header>
