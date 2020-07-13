@@ -334,7 +334,7 @@
          * determin to display Address to sent fieldset
          */
         vm.isNotCTA = function () {
-            if (!vm.model || !vm.model.dossierType) return true;
+            if (!vm.model || !vm.model.dossierType) return false;
             return (vm.model.dossierType !== "D26");
         };
 
