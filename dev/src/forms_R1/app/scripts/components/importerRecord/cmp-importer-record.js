@@ -32,7 +32,8 @@
                 isFocus: '<',
                 cancelFocus: '&',
                 htIndxList:'<',
-                updateErrorSummary:'&'
+                updateErrorSummary:'&',
+                isDetailValid: '&'
             }
         });
 
@@ -267,7 +268,7 @@
             vm.isDetailValid({state: (vm.importerForm.$valid && !vm.importerForm.$dirty)});
         };
 
-        $scope.$watch('addressRec.importerForm.$dirty', function () {
+        $scope.$watch('importerRecCtrl.importerForm.$dirty', function () {
             if (vm.importerForm.$dirty) {
                 vm.isDetailValid({state: false})
             }

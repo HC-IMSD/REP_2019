@@ -32,7 +32,7 @@
     function importerListController($filter, $scope) {
         var vm = this;
         vm.model = {};
-        vm.isDetailValid = false;
+        vm.isDetailValid = true;
         vm.resetToCollapsed = true;
         vm.showDetailErrors=false;
         vm.selectRecord = -1;

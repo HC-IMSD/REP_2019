@@ -123,6 +123,7 @@
             //         break;
             //     }
             // }
+            vm.roaRecForm.$setDirty(true);
             $scope.$apply();
         }
 
