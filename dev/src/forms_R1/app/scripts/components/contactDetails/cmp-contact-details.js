@@ -30,8 +30,8 @@
                 faxMandatory:'@',
                 updateErrorSummary:'&',
                 fieldSuffix:'<',
-                showRoutingId: '&',
-                routingIdIndex: '<'
+                routingIdIndex:'<',
+                showRoutingId: '&'
             }
     });
 

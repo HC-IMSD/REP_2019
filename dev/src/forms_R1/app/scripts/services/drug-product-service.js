@@ -1261,21 +1261,20 @@
                     var countries = info[i].sourceAnimalDetails.countryList;
                     for (var v = 0; v < countries.length; v++) {
                         var countryRecord = {};
-                        countryRecord.country_with_unknown = {
-                            _id: "",
-                            _label_en: "",
-                            _label_fr: "",
-                            __text: ""
-                        };
                         if (countries[v].country) {
+                            countryRecord.country_with_unknown = {
+                                _id: "",
+                                _label_en: "",
+                                _label_fr: "",
+                                __text: ""
+                            };
                             countryRecord.country_with_unknown._id = countries[v].country.id;
                             countryRecord.country_with_unknown._label_en = countries[v].country.en;
                             countryRecord.country_with_unknown._label_fr = countries[v].country.fr;
                             countryRecord.country_with_unknown.__text = countries[v].country[currentLang];
+                            countryRecord.unknown_country_details = countries[v].unknownCountryDetails;
+                            ing.animal_sourced_section.country_origin_list.country_origin.push(countryRecord);
                         }
-
-                        countryRecord.unknown_country_details = countries[v].unknownCountryDetails;
-                        ing.animal_sourced_section.country_origin_list.country_origin.push(countryRecord);
                     }
                 }
                 appendices.push(ing);

@@ -128,7 +128,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12" ng-if="sysCtrl.model.otherReproductive">
+                <div class="col-md-12" ng-if="sysCtrl.otherChanged()">
                     <div class="form-group">
                         <label class="required" for="{{::sysCtrl.otherDetailsId}}">
                             {{::'REPRODUCTIVE_DETAILS'|translate}}
@@ -138,7 +138,7 @@
                                                show-error="sysCtrl.showErrorMessage(sysCtrl.reprodForm[sysCtrl.otherDetailsId].$invalid)"
                                                error-types="sysCtrl.requiredOnly"></cmp-error-message>
                             <input type="text" size="40" maxlength="40" name="{{::sysCtrl.otherDetailsId}}" id="{{::sysCtrl.otherDetailsId}}"
-                                   required data-ng-blur="sysCtrl.otherChanged()"  data-ng-model-options="{ debounce: '$inherit'}" required
+                                   data-ng-required="{{sysCtrl.model.otherReproductive}}"  data-ng-model-options="{ debounce: '$inherit'}"
                                    data-ng-model="sysCtrl.model.otherDetails"/>
                         </label>
                     </div>

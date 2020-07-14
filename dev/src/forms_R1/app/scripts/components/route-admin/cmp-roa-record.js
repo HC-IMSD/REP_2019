@@ -76,6 +76,13 @@
          * @param model
          */
         vm.saveRecord = function(){
+            for(var i = 0; i < vm.roaList.length; i++) {
+                var option =vm.roaList[i];
+                if(option[vm.lang] === vm.model.display) {
+                    vm.model.roa = option;
+                    break;
+                }
+            }
             if(vm.model.roa.id){
                 vm.clearFilter($scope);
                 vm.updateRecord();
@@ -109,13 +116,14 @@
         vm.roaChange = function (e) {
             vm.model.roa = "";
             vm.model.display = e;
-            for(var i = 0; i < vm.roaList.length; i++) {
-                var option =vm.roaList[i];
-                if(option[vm.lang] === vm.model.display) {
-                    vm.model.roa = option;
-                    break;
-                }
-            }
+            // for(var i = 0; i < vm.roaList.length; i++) {
+            //     var option =vm.roaList[i];
+            //     if(option[vm.lang] === vm.model.display) {
+            //         vm.model.roa = option;
+            //         break;
+            //     }
+            // }
+            vm.roaRecForm.$setDirty(true);
             $scope.$apply();
         }
 

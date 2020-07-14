@@ -128,7 +128,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12" ng-if="sysCtrl.model.otherNervous">
+                <div class="col-md-12" ng-if="sysCtrl.otherChanged()">
                     <div class="form-group">
                         <label class="required" for="{{::sysCtrl.otherDetailsId}}">
                             {{::'NERVOUS_DETAILS'|translate}}
@@ -138,7 +138,7 @@
                                                show-error="sysCtrl.showErrorMessage(sysCtrl.nervForm[sysCtrl.otherDetailsId].$invalid)"
                                                error-types="sysCtrl.requiredOnly"></cmp-error-message>
                             <input type="text" size="40" maxlength="40" name="{{::sysCtrl.otherDetailsId}}" id="{{::sysCtrl.otherDetailsId}}"
-                                   required data-ng-blur="sysCtrl.otherChanged()" data-ng-model-options="{ debounce: '$inherit'}"
+                                   data-ng-required="{{sysCtrl.model.otherNervous}}" data-ng-model-options="{ debounce: '$inherit'}"
                                    data-ng-model="sysCtrl.model.otherDetails"/>
                         </label>
                     </div>
