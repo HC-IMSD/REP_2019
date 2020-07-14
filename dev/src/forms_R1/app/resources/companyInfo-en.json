@@ -32,7 +32,7 @@
   "COMPANY_REP_2": "There must be a company representative associated with each of the following roles: “Manufacturer / Sponsor Mailing Address”, “Billing Address”, “Regulatory Mailing / Annual Contact” and “Primary REP contact”.",
   "COMPANY_REP_3": "A single contact may be associated with multiple roles, however, each role may only have one contact.",
   "COMPANY_REP_4": "The Primary REP contact is the person to be contacted by Health Canada if there are any issues or clarifications required for this template when it is submitted for enrolment or amendment.",
-  "COMPANY_REP_5": "Sponsors may choose to provide an Alternate REP contact, however this is not a requirement.",
+//  "COMPANY_REP_5": "Sponsors may choose to provide an Alternate REP contact, however this is not a requirement.",
   "COMPANY_REP_6": "Description of Roles",
   "COMPANY_REP_7": "“Manufacturer / Sponsor Information”: Refers to the name under which the drug submission is filed, where a Drug Identification Number (DIN) / Notice of Compliance (NOC) is to be issued, the company in whose name the DIN / NOC will be registered, and the name to be included on the product label and Product Monograph / Package Insert.",
   "COMPANY_REP_8": "For clinical trials: “Sponsor”: Defined by Division 5, Part C of the Food and Drug Regulations as the individual, corporate body, institution or organization that conducts a clinical trial. The sponsor is not necessarily the company that fabricates the drug product. For Investigator-initiated clinical trials: if the sponsor is defined as an individual, please also indicate the name of the affiliated institution/organization.",
