@@ -53,7 +53,7 @@
         };
 
         vm.getExpandedState = function (row) {
-            if (row === vm.tableRowIndexCurrExpanded) {
+            if (row === vm.tableRowIndexCurrExpanded || !(vm.dayDataCollapse[row] && (! vm.transcludeForm[row] || vm.transcludeForm[row].$valid))) {
                 return true;
             }
             return false
