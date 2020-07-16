@@ -4,7 +4,7 @@
     <cmp-expanding-table  pre-id="container_type_list_" reset-to-collapsed="ctlCtrl.resetToCollapsed"
                          list-items="ctlCtrl.containerList" id="list_container_{{::$id}}"
                          column-def="ctlCtrl.colNames" select-record="ctlCtrl.selectRecord"
-                         disable-selection="!ctlCtrl.isDetailValid">
+                         >
 
         <cmp-container-type-record record="$parent.record" on-update="ctlCtrl.updateRec($parent.$index,cType)"
                                    is-detail-valid="ctlCtrl.setValid(state)" is-focus="ctlCtrl.isFocus" cancel-focus="ctlCtrl.cancelFocus"

@@ -93,7 +93,9 @@
 
         vm.updateRec = function (idx, ing) {
             vm.containerList[idx] = angular.copy(ing);
+            vm.resetToCollapsed = !vm.resetToCollapsed;
             vm.onUpdate({list:vm.containerList});
+            setRecord(-1);
             vm.setValid(true);
         };
 
