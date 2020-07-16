@@ -2,9 +2,7 @@
     <cmp-expanding-table pre-id="import_expnd_" reset-to-collapsed="importerListCtrl.resetToCollapsed"
                          list-items="importerListCtrl.model.list"
                          column-def="importerListCtrl.columnDef"
-                         select-record="importerListCtrl.selectRecord"
-                         is-required-record="! importerListCtrl.isDetailValid" >
-<!--                         disable-selection="!importerListCtrl.isDetailValid">-->
+                         select-record="importerListCtrl.selectRecord">
 
         <cmp-importer-record record="$parent.record"
                              fieldset-label="{{importerListCtrl.fieldLabel}}"

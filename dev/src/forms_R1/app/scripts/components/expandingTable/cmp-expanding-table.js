@@ -273,6 +273,9 @@
             if (vm.isInternal) {
                 return !vm.dayDataCollapse[row];
             } else {
+                if(vm.transcludeForm[row] && vm.transcludeForm[row].$invalid) {
+                    vm.dayDataCollapse[row] = false;
+                }
                 return (!(vm.dayDataCollapse[row] && (! vm.transcludeForm[row] || vm.transcludeForm[row].$valid)) ||
                     vm.isRequiredRecordSet());
             }

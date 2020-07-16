@@ -32,7 +32,6 @@
     function importerListController($filter, $scope) {
         var vm = this;
         vm.model = {};
-        vm.isDetailValid = true;
         vm.resetToCollapsed = true;
         vm.showDetailErrors=false;
         vm.selectRecord = -1;
@@ -121,9 +120,7 @@
             if (idx < 0) return;
 
             vm.selectRecord = -1;
-            // vm.requiredFlag = false;
             vm.resetToCollapsed = !vm.resetToCollapsed;
-            vm.isDetailValid = true;
             vm.model.list[idx] = importer;
             vm.onUpdate({list:vm.model.list});
         };
@@ -159,12 +156,5 @@
             vm.isFocus = false;
         }
 
-        vm.setValid = function (detailValid) {
-            vm.isDetailValid = detailValid;
-        };
-
-        /*  $scope.$watch('countryListCtrl.countryListForm.$error', function () {
-                    vm.updateErrorSummary();
-                }, true);*/
     }
 })();

@@ -32,8 +32,7 @@
                 isFocus: '<',
                 cancelFocus: '&',
                 htIndxList:'<',
-                updateErrorSummary:'&',
-                isDetailValid: '&'
+                updateErrorSummary:'&'
             }
         });
 
@@ -231,7 +230,7 @@
             }
             if( ! found ){
                 vm.model.countryHtml = "";
-                if(vm.model.country != "" && vm.model.country.id != ""){
+                if(vm.model.country !== undefined && vm.model.country.id !== ""){
                     vm.model.country = {};
                 }
                 vm.model.countryDisplay = "";
@@ -248,7 +247,6 @@
                 vm.showDetailErrors=false;
                 vm.updateErrorSummaryState();
                 vm.model.focusImporterId = false;
-                vm.isDetailValid({state: true});
             } else {
                 vm.showDetailErrors=true;
                 //vm.makeFocused();
@@ -264,15 +262,6 @@
             if(!ctrl) return false;
             return ((ctrl.$invalid && ctrl.$touched) || (ctrl.$invalid && vm.showDetailErrors) )
         };
-        vm.updateValid = function () {
-            vm.isDetailValid({state: (vm.importerForm.$valid && !vm.importerForm.$dirty)});
-        };
-
-        $scope.$watch('importerRecCtrl.importerForm.$dirty', function () {
-            if (vm.importerForm.$dirty) {
-                vm.isDetailValid({state: false})
-            }
-        }, true);
 
         function _setIdNames() {
             var scopeId = "_" + $scope.$id;
