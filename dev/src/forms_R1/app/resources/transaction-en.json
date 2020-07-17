@@ -81,7 +81,7 @@
   "RECON_DECIS_OTHER_INFO": "Reconsideration of Decision - Other Information",
   "LABEL_PREAPPROVAL_2LANG":"Second Language Label - Pre-Approval",
   "LIFECYCLE_TITLE": "Transaction Details",
-  "REG_CONTACT_THIS": "Regulatory Activity Contact for THIS transaction",
+  "REG_CONTACT_THIS": "Contact for THIS Regulatory Activity",
   "REG_ACT_CONTACT": "Regulatory Activity Contact",
   "TRANSACTION_HDING": "Regulatory Information",
   "LOAD_TRANSACTION": "Load a Regulatory Transaction File",
