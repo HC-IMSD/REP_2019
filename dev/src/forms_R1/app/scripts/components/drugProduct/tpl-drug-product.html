@@ -443,6 +443,7 @@
                 </div>
                 </fieldset>
             </div>
+            </div>
             <div class="row" data-ng-if="drugProdCtrl.isSchedA()">
                 <div class="col-xs-12 form-group">
                     <cmp-schedule-a schedule-group="drugProdCtrl.model.drugProduct.scheduleAGroup"
@@ -451,7 +452,7 @@
                     ></cmp-schedule-a>
                 </div>
             </div>
-            <div class="row col-xs-12">
+            <div class="row">
                 <div class="form-group col-xs-12"
                      data-ng-class="{'has-error':drugProdCtrl.drugProdForm[drugProdCtrl.propIndicationId].$invalid}">
                     <label class="required" for="{{::drugProdCtrl.propIndicationId}}">
@@ -520,7 +521,7 @@
                       <!--is-file-loaded="drugProdCtrl.isFileLoaded" dossier-type="drugProdCtrl.model.dossierType"-->
                       <!--appendix4-list="drugProdCtrl.model.drugProduct.appendixFourList">-->
             <!--</cmp-tabs>-->
-                <div class="row col-xs-12">
+                <div class="row">
                     <div class="col-xs-12 form-group">
                         <strong>
                             <span class="field-name"><span data-ng-if="! drugProdCtrl.isCTA()">11</span><span data-ng-if="drugProdCtrl.isCTA()">12</span>. {{::'FORMULATION'|translate}}</span>
