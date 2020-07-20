@@ -128,9 +128,9 @@
             }
         };
 
-        vm.showErrors=function(){
-            return vm.showSummary;
-        };
+        // vm.showErrors=function(){
+        //     return vm.showSummary;
+        // };
 
         vm.setValid = function (value) {
             vm.isDetailValid = value;

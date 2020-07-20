@@ -37,13 +37,13 @@
                         <strong class="required">{{"REQUIRED" |translate}}</strong>
                         <cmp-error-message field-name="formulRecCtrl.dosageId"
                                            form-ref="formulRecCtrl.formulationForm"
-                                           show-error="formulRecCtrl.showErrors()"
+                                           show-error="formulRecCtrl.showError(formulRecCtrl.formulationForm[formulRecCtrl.dosageId])"
                                            error-types="formulRecCtrl.requiredOnly"></cmp-error-message>
                     </label>
-                    <input type="list" id="{{::formulRecCtrl.dosageId}}" name="{{::formulRecCtrl.dosageId}}" data-ng-model="formulRecCtrl.frmModel.dosageFormHtml"
+                    <input type="text" id="{{::formulRecCtrl.dosageId}}" name="{{::formulRecCtrl.dosageId}}" data-ng-model="formulRecCtrl.frmModel.dosageFormHtml"
                            oninput="angular.element($(this)).scope().formulRecCtrl.dosageFormChange(this.value)" autocomplete="off"
                            data-ng-blur="formulRecCtrl.dosageFormBlur()"
-                           list="dosageFormList" required="required" class="form-control full-width"/>
+                           list="dosageFormList" required class="form-control full-width"/>
                     <datalist id="dosageFormList" class="rep-selectize-dropdown rep-selectize-font">
                         <option data-ng-repeat="formType in formulRecCtrl.dosageFormList" value="{{formType[formulRecCtrl.lang]}}"/>
                     </datalist>
@@ -57,7 +57,7 @@
                         <strong class="required">{{"REQUIRED" |translate}}</strong>
                         <cmp-error-message field-name="formulRecCtrl.dosageOtherId"
                                            form-ref="formulRecCtrl.formulationForm"
-                                           show-error="formulRecCtrl.showErrors()"
+                                           show-error="formulRecCtrl.showError(formulRecCtrl.formulationForm[formulRecCtrl.dosageOtherId])"
                                            error-types="formulRecCtrl.requiredOnly"></cmp-error-message>
                         <input type="text" id="{{::formulRecCtrl.dosageOtherId}}"
                                data-ng-model="formulRecCtrl.frmModel.dosageFormOther"

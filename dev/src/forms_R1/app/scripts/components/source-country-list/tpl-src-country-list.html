@@ -8,7 +8,7 @@
                          disable-selection="srcCountryListCtrl.disableAddButton()">
 
         <cmp-src-country-record record="$parent.record" fieldset-label="{{srcCountryListCtrl.fieldLabel}}" is-focus="srcCountryListCtrl.isFocus" cancel-focus="srcCountryListCtrl.cancelFocus"
-                            on-delete="srcCountryListCtrl.deleteRecord(id)" show-errors="srcCountryListCtrl.showDetailErrors"
+                            on-delete="srcCountryListCtrl.deleteRecord(id)" show-errors="srcCountryListCtrl.showErrors()"
                             country-list="srcCountryListCtrl.countryList" update-record="srcCountryListCtrl.updateRecord()" update-country-list="srcCountryListCtrl.updateCountryList"></cmp-src-country-record>
     </cmp-expanding-table>
     <div class="mrgn-tp-md mrgn-bttm-lg">

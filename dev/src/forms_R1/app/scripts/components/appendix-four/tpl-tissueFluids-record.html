@@ -11,7 +11,7 @@
                     <strong class="required">{{::"REQUIRED" |translate}}</strong>
                     <cmp-error-message field-name="tissuesSrcCtrl.systemTypeId"
                                        form-ref="tissuesSrcCtrl.tissuesRecForm"
-                                       show-error="tissuesSrcCtrl.showErrors()"
+                                       show-error="tissuesSrcCtrl.showError(tissuesSrcCtrl.tissuesRecForm[tissuesSrcCtrl.systemTypeId])"
                                        error-types="tissuesSrcCtrl.requiredOnly"></cmp-error-message>
                 </label>
             </div>

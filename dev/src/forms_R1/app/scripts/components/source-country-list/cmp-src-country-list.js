@@ -22,7 +22,7 @@
                 listItems: '<',
                 onUpdate: '&', //seems redundant, but used as a messaging mech. when something changes
                 onDelete: '&',
-                showErrors:'<',
+                showErrors:'&',
                 isFileLoaded: '<',
                 fieldLabel: '@',
                 updateErrorSummary:'&'
@@ -80,10 +80,10 @@
                 vm.model.list = changes.listItems.currentValue;
                 //vm.updateCountryList();
             }
-            if(changes.showErrors){
-
-                vm.showDetailErrors=changes.showErrors.currentValue;
-            }
+            // if(changes.showErrors){
+            //
+            //     vm.showDetailErrors=changes.showErrors.currentValue;
+            // }
             if (changes.isFileLoaded) {
                 if (changes.isFileLoaded.currentValue) {
                     vm.requiredFlag = false;
