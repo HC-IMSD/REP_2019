@@ -99,7 +99,7 @@
         vm.saveJson = function () {
             var writeResult = _transformFile();
             vm.rootTag = vm.transactionService.getRootTag();
-            hpfbFileProcessing.writeAsJson(writeResult, _getFileName(), vm.rootTag);
+            hpfbFileProcessing.writeAsJson(writeResult, _getFileName(writeResult), vm.rootTag);
             vm.savePressed = true;
         };
         /**
@@ -116,7 +116,7 @@
             }else {
 
                 var writeResult = _transformFile();
-                hpfbFileProcessing.writeAsXml(writeResult, _getFileName(), vm.rootTag,
+                hpfbFileProcessing.writeAsXml(writeResult, _getFileName(writeResult), vm.rootTag,
                     vm.transactionService.getXSLFileName());
                 vm.savePressed = false;
             }
@@ -127,9 +127,10 @@
         };
 
 
-        function _getFileName() {
+        function _getFileName(rtObj) {
             var date = new Date();
-            var filename = "HCREPRT";
+            var filename = "RT";
+            var dossierId = rtObj.TRANSACTION_ENROL.ectd.dossier_id;
             var month = date.getMonth() + 1;
             var day = date.getDate();
             var hours = date.getHours();
@@ -150,7 +151,7 @@
             }
 
 
-            filename = filename + separator + date.getFullYear() + separator + month + separator + day + separator + hours + minutes;
+            filename = filename + separator + dossierId + separator + date.getFullYear() + separator + month + separator + day + separator + hours + minutes;
             return (filename.toLowerCase());
         }
 

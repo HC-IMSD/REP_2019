@@ -51,11 +51,11 @@
   "PRISTINE_PM_2LANG": "Second Language PM and Final Package Insert",
   "ADVISEMENT_LETTER_RESPONSE": "Response to Advisement Letter",
   "CLIN_CLARIF_RESPONSE": "Response to Clinical Clarification Request",
-  "EMAIL_RQ_RESPONSE": "Response to e-mail Request ",
-  "HSC_RQ_RESPONSE": "Réponse à la demande de clarification de la sécurité humaine",
-  "QHSC_RQ_RESPONSE": "Réponse à la demande de clarification de la qualité et de la sécurité humaine",
-  "CHSC_RQ_RESPONSE": "Réponse à la demande de clarification de clinique et la sécurité humaine",
-  "QCHSC_RQ_RESPONSE": "Réponse à la demande de clarification de la qualité, clinique et de la sécuritéhumaine",
+  "EMAIL_RQ_RESPONSE": "Response to E-mail Request",
+  "HSC_RQ_RESPONSE": "Response to Human Safety Clarification Request",
+  "QHSC_RQ_RESPONSE": "Response to Quality & Human Safety Clarification Request",
+  "CHSC_RQ_RESPONSE": "Response to Clinical & Human Safety Clarification Request",
+  "QCHSC_RQ_RESPONSE": "Response to Quality, Clinical and Human Safety Clarification Request",
   "LABEL_CLARIF_RESPONSE": "Response to Labeling Clarification Request",
   "MHPD_RQ_RESPONSE": "Response to MHPD Request",
   "NOC_RESPONSE": "Response to NOC/c-QN",
@@ -330,5 +330,9 @@
   "HT_XML_1": "Chaque transaction du PIR doit contenir une version finale du fichier de transaction réglementaire (en format XML) dans la section 1.2.1.",
   "HT_XML_2": "Consultez les lignes directrices du PIR pour obtenir des renseignements détaillés.",
   "NOTICE_APR_2020":"Remarque importante: Ce modèle comprend les frais révisés à partir du 1er avril 2020 et devrait être utilisé pour les transactions réglementaires prévues à être déposées le 1er avril 2020 ou APRÈS.",
-  "PROD_PROTOCOL": "Numéro de protocol"
+  "PROD_PROTOCOL": "Numéro de protocol",
+  "CTA_FROM": "fr_From [time]",
+  "CTA_TO": "fr_To [time]",
+  "COVIR-19": "Demande d'ordonnance provisoire COVID-19",
+  "COVIR-19AMD": "Demande d'ordonnance provisoire COVID-19 - Modification"
 }

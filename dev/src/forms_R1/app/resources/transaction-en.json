@@ -254,6 +254,11 @@
   "TYPE_MIN": "End Date should not be earlier than Start Date.",
   "FEE_PAY_NOTICE": "Do not send fee payment with your submission, supplement or application. Health Canada will verify the fee and issue an invoice accordingly.",
   "MITIGATION_MEASURES": "Mitigation Measures",
+  "PROD_PROTOCOL": "Protocol Number",
+  "CTA_FROM": "From [time]",
+  "CTA_TO": "To [time]",
+  "COVIR-19": "COVID-19 Interim Order Application",
+  "COVIR-19AMD": "COVID-19 Interim Order Ap - Amendment",
   "HT_LOAD_FILE_1": "A file should not be loaded if it is the first REP transaction for this dossier.",
   "HT_LOAD_FILE_2": "When continuing with a working copy, the format of the file to load should be .hcsc.",
   "HT_LOAD_FILE_3": "When viewing/updating a final XML file, the format of the file to load should be .xml.",
@@ -329,6 +334,5 @@
   "ROUTING_ID_4": "The routing identifier could be the same for the manufacturer / sponsor contact and regulatory / annual contact. The Canadian importer would have a separate routing identifier.",
   "HT_XML_1": "A final regulatory transaction XML file must be included in section 1.2.1 for each of your REP transactions.",
   "HT_XML_2": "Refer to the REP guidance document for detailed information.",
-  "NOTICE_APR_2020":"Important Note: This template includes the revised Fees effective April 1, 2020 and should be used for regulatory transactions intended for filing on or AFTER April 1, 2020.",
-  "PROD_PROTOCOL": "Protocol Number"
+  "NOTICE_APR_2020":"Important Note: This template includes the revised Fees effective April 1, 2020 and should be used for regulatory transactions intended for filing on or AFTER April 1, 2020."
 }

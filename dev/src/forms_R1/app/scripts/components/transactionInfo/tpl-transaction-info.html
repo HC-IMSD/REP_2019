@@ -4,11 +4,11 @@
             <header class="panel-heading clearfix">
                 <h2 class="panel-title col-md-4">{{::'TRANSACTION_HDING'|translate}}
                 </h2>
-                <button class="btn  btn-primary btn-sm active"
-                        id="btn_reset"
-                        data-ng-show ="transInfoCtrl.finalState"
-                        data-ng-click="transInfoCtrl.resetSpecificValues()">{{::'RESET'|translate}}
-                </button>
+                <!--<button class="btn  btn-primary btn-sm active"-->
+                        <!--id="btn_reset"-->
+                        <!--data-ng-show ="transInfoCtrl.finalState"-->
+                        <!--data-ng-click="transInfoCtrl.resetSpecificValues()">{{::'RESET'|translate}}-->
+                <!--</button>-->
                 <!--<sup id="tr2_ref" data-ng-show ="transInfoCtrl.finalState">-->
                     <!--<a class="fn-lnk" href="#tr2"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>2</a>-->
                 <!--</sup>-->
@@ -126,6 +126,7 @@
                                name="{{::transInfoCtrl.productProtocolId}}"
                                data-ng-model="transInfoCtrl.transactionModel.ectd.productProtocol"
                                class="form-control full-width" maxlength="30"
+                               data-ng-readonly="transInfoCtrl.disablePtclNum"
                                data-ng-change="transInfoCtrl.transactionModel.ectd.productProtocol=transInfoCtrl.transactionModel.ectd.productProtocol.toUpperCase()"
                                required>
                         </input>
@@ -249,7 +250,7 @@
 
                             </label>
 
-                            <h3 data-ng-if="transInfoCtrl.transactionModel.subType">{{::'ADMIN_DESCRIPT'|translate}}</h3>
+                            <h4 data-ng-if="transInfoCtrl.transactionModel.subType">{{::'ADMIN_DESCRIPT'|translate}}</h4>
                             <div data-ng-if="!transInfoCtrl.isFrench()" data-ng-switch="transInfoCtrl.transactionModel.subType.id">
                                 <div data-ng-switch-when="MANUFACT_NAME_CHGE">
                                     <div aria-live="assertive"
@@ -365,7 +366,7 @@
                                <!--class="form-control full-width" />-->
                     <!--</div>-->
                 <!--</div>-->
-                <div class="row" data-ng-if="transInfoCtrl.transactionModel.ectd.dossierType == 'D21' || transInfoCtrl.transactionModel.ectd.dossierType == 'D22'">
+                <div class="row" data-ng-if="transInfoCtrl.isForProd || transInfoCtrl.transactionModel.ectd.dossierType == 'D21' || transInfoCtrl.transactionModel.ectd.dossierType == 'D22'">
                     <fieldset class="col-md-12 chkbxrdio-grp" data-ng-class="{'has-error':transInfoCtrl.transInfoForm[transInfoCtrl.isFeesId].$invalid}">
                         <legend>
                             {{::'IS_FEE_TRANSACTION' |translate}}
@@ -391,7 +392,7 @@
                 </div>
             </div>
         </section>
-        <div data-ng-if="transInfoCtrl.isFeesIndicated() && (transInfoCtrl.transactionModel.ectd.dossierType == 'D21' || transInfoCtrl.transactionModel.ectd.dossierType == 'D22')">
+        <div data-ng-if="transInfoCtrl.isFeesIndicated() && (transInfoCtrl.isForProd || transInfoCtrl.transactionModel.ectd.dossierType == 'D21' || transInfoCtrl.transactionModel.ectd.dossierType == 'D22')">
             <section class="panel  panel-primary">
                 <header class="panel-heading clearfix">
                     <h2 class="panel-title col-md-8">{{::'REGULATORY_FEES' |translate}}
@@ -419,7 +420,7 @@
                 </header>
                 <div class="panel-body">
                     <div>
-                        <h3 class="mrgn-tp-sm">{{::'COMPANY_INFO'|translate}}</h3>
+                        <h4 class="mrgn-tp-sm">{{::'COMPANY_INFO'|translate}}</h4>
                         <div class="row">
                             <div class="form-group col-md-12"
                                  data-ng-class="{'has-error':transInfoCtrl.transInfoForm[transInfoCtrl.companyNameId].$invalid}">
@@ -443,7 +444,7 @@
 
                     </div>
                     <div>
-                        <h3 class="mrgn-tp-sm">{{::'ADDRESS_INFO'|translate}}</h3>
+                        <h4 class="mrgn-tp-sm">{{::'ADDRESS_INFO'|translate}}</h4>
                         <div class="row">
                             <cmp-address-details address-record="transInfoCtrl.transactionModel.activityAddress"
                                                  is-amend="true" show-errors="transInfoCtrl.showErrors()"
@@ -452,7 +453,7 @@
                         </div>
                     </div>
                     <div>
-                        <h3 class="mrgn-tp-sm">{{::'COMPANY_REP_THIS'|translate}}</h3>
+                        <h4 class="mrgn-tp-sm">{{::'COMPANY_REP_THIS'|translate}}</h4>
                         <div class="row">
                             <cmp-contact-details contact-record="transInfoCtrl.transactionModel.activityContact"
                                                  update-error-summary="transInfoCtrl.updateErrorSummary()" show-routing-id="transInfoCtrl.showRoutingId()"

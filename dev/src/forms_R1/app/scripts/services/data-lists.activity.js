@@ -279,8 +279,12 @@
             ]);
         }
 
-        function _getEnvString(value) {
-            return vm.env;
+        function _getEnvString() {
+            if (vm.env) {
+                return vm.env;
+            } else {
+                return 'PROD';
+            }
         }
 
         function _setEnvString(value) {

@@ -296,6 +296,7 @@
         vm.selectActivityList = function(){
             if(!vm.lifecycleModel.activityLead ){
                 vm.activityTypeList=[];
+                vm.updateProductProtocol({value: false});
                 return;
             }
             if(! vm.activityList || vm.activityList.length < 1){

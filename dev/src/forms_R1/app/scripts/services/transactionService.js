@@ -236,6 +236,7 @@
                     __text: dt_text
                 };
                 ectd.product_name = jsonObj.productName;
+                ectd.product_protocol = jsonObj.productProtocol;
                 ectd.lifecycle_record = this._mapLifecycleListToOutput(jsonObj.lifecycleRecord);
                 return (ectd);
             },
@@ -246,6 +247,7 @@
                 model.ectd.dossierId = jsonObj.dossier_id;
                 model.ectd.dossierType = jsonObj.dossier_type._id;
                 model.ectd.productName = jsonObj.product_name;
+                model.ectd.productProtocol = jsonObj.product_protocol;
                 model.ectd.lifecycleRecord = this._mapLifecycleList(jsonObj.lifecycle_record);
             },
 
@@ -644,6 +646,10 @@
         lifecycleRec.requesterName3Txt = lifecycleObj.requester_name3 ? lifecycleObj.requester_name3.__text : '';
        // lifecycleRec.solicitedRequester = lifecycleObj.requester_of_solicited_information;
         lifecycleRec.isSaved = true;
+        lifecycleRec.fromValue = lifecycleObj.from_time;
+        // lifecycleRec.fromUnit = lifecycleObj.fromUnit ? $filter('filter')(TransactionLists.getShelfLifeUnitsList(), {id: lifecycleObj.fromUnit._id})[0] : '';
+        lifecycleRec.toValue = lifecycleObj.to_time;
+        // lifecycleRec.toUnit = lifecycleObj.toUnit ? $filter('filter')(TransactionLists.getShelfLifeUnitsList(), {id: lifecycleObj.toUnit._id})[0] : '';
         return (lifecycleRec);
     }
 
@@ -741,6 +747,10 @@
             }
         }
         lifecycleRec.requester_of_solicited_information = tempRequesterName;
+        lifecycleRec.from_time = lifecycleObj.fromValue;
+        // lifecycleRec.fromUnit = _toOutputObj(lifecycleObj.fromUnit,currentLang, ENGLISH, FRENCH);
+        lifecycleRec.to_time = lifecycleObj.toValue;
+        // lifecycleRec.toUnit = _toOutputObj(lifecycleObj.toUnit,currentLang, ENGLISH, FRENCH);
 
         return (lifecycleRec);
     }
@@ -956,7 +966,11 @@
             "requesterNameTxt":"",
             "requesterName2Txt":"",
             "requesterName3Txt":"",
-            "isSaved": true
+            "isSaved": true,
+            "fromValue":"",
+            // "fromUnit":"",
+            "toValue":""
+            // "toUnit":""
         };
         //TODO get next sequence number
         return defaultRecord;
@@ -1030,6 +1044,7 @@
                 dossierId: "",
                 dossierType: "",
                 productName: "",
+                productProtocol: "",
                 lifecycleRecord: _createLifeCycleModel()
             },
           //  isSolicited: "",
