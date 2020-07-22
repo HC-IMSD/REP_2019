@@ -3,7 +3,9 @@
     angular
         .module('companyHelpText', [
             'services',
-            'filterLists'
+            'filterLists',
+            'hpfbConstants',
+            'dataLists'
         ])
 
 })();
@@ -24,12 +26,15 @@
 
     CompanyHelpTextCtrl.$inject = [
         '$translate',
-        '$scope'];
+        '$scope',
+        'getCountryAndProvinces',
+        'PROD'];
 
-    function CompanyHelpTextCtrl( $translate, $scope) {
+    function CompanyHelpTextCtrl( $translate, $scope, getCountryAndProvinces, PROD) {
 
         var vm = this;
         vm.lang = $translate.proposedLanguage() || $translate.use();
+        vm.isForProd = PROD === getCountryAndProvinces.getEnv();
 
         vm.$onInit = function () {
         };
