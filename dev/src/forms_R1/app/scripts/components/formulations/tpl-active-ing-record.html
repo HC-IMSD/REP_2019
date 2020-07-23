@@ -343,23 +343,19 @@
                         <div class="row col-md-12" data-ng-if="ingRecCtrl.isMedIng()">
                             <div class="form-group  col-sm-8"
                                  data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.asBaseId].$invalid}">
-                                <p for="{{::ingRecCtrl.asBaseId}}" class="required radioButtonTitle">
+                                <label for="{{::ingRecCtrl.asBaseId}}" class="required radioButtonTitle">
                                     <span class="field-name">{{'CALCULATED_AS_BASE'|translate}}</span>
                                     <strong class="required">{{"REQUIRED" |translate}}</strong>
                                     <cmp-error-message field-name="ingRecCtrl.asBaseId"
                                                        form-ref="ingRecCtrl.activeIngForm"
                                                        show-error="ingRecCtrl.showError(ingRecCtrl.activeIngForm[ingRecCtrl.asBaseId])"
                                                        error-types="ingRecCtrl.requiredOnly"></cmp-error-message>
-                                    <!--<select id="{{::ingRecCtrl.asBaseId}}" data-ng-model="ingRecCtrl.ingModel.calcAsBase" data-ng-required="true"-->
-                                            <!--class="form-control" name="{{::ingRecCtrl.asBaseId}}"-->
-                                            <!--data-ng-options="val |translate for val in  ingRecCtrl.calAsBaseYesNoList">-->
-                                    <!--</select>-->
+                                    <select id="{{::ingRecCtrl.asBaseId}}" data-ng-model="ingRecCtrl.ingModel.calcAsBase" data-ng-required="true"
+                                            class="form-control" name="{{::ingRecCtrl.asBaseId}}"
+                                            data-ng-options="val |translate for val in  ingRecCtrl.calAsBaseYesNoList">
+                                    </select>
 
-                                </p>
-                                <div class="checkbox">
-                                <label class="col-xs-2" for="{{::ingRecCtrl.asBaseId}}"><input type="radio" id="{{::ingRecCtrl.asBaseId}}" name="{{::ingRecCtrl.asBaseId}}" value="Y" data-ng-model="ingRecCtrl.ingModel.calcAsBase" required/>&nbsp;{{::'Y'|translate}}</label>
-                                <label class="col-xs-2" for="{{::ingRecCtrl.asBaseId}}_1"><input type="radio" id="{{::ingRecCtrl.asBaseId}}_1" name="{{::ingRecCtrl.asBaseId}}" value="N" data-ng-model="ingRecCtrl.ingModel.calcAsBase" required/>&nbsp;{{::'N'|translate}}</label>
-                                </div>
+                                </label>
                             </div>
                         </div>
                     </fieldset>
