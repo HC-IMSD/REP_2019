@@ -201,7 +201,7 @@
                 <div data-ng-if="transInfoCtrl.isPBV()">
                     <div class="row form-group">
                         <fieldset class="col-md-12 chkbxrdio-grp" data-ng-class="{'has-error':transInfoCtrl.transInfoForm[transInfoCtrl.isAdminSubId].$invalid}">
-                            <legend>
+                            <legend class="required">
                                 {{::"IS_ADMIN_SUBMISSION" |translate}}
                                 <strong class="required"> {{::"REQUIRED" |translate}}</strong>
                                 <sup id="tr7_ref">
@@ -368,7 +368,7 @@
                 <!--</div>-->
                 <div class="row" data-ng-if="transInfoCtrl.isForProd || transInfoCtrl.transactionModel.ectd.dossierType == 'D21' || transInfoCtrl.transactionModel.ectd.dossierType == 'D22'">
                     <fieldset class="col-md-12 chkbxrdio-grp" data-ng-class="{'has-error':transInfoCtrl.transInfoForm[transInfoCtrl.isFeesId].$invalid}">
-                        <legend>
+                        <legend class="required">
                             {{::'IS_FEE_TRANSACTION' |translate}}
                             <strong class="required">{{::"REQUIRED" |translate}}</strong>
                             <strong id="isfee-error" class="error"

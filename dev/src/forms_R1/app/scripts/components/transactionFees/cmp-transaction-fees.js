@@ -47,6 +47,7 @@
         vm.oneFeeDocSelected = "";
         vm.yesNoList = [YES, NO];
         vm.feeDocKeys = ['estMarketShare', 'comparison', 'salesHistory', 'marketPlan', 'avgSalePrice', 'other'];
+        vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
         vm.requiredOnlyError = [{type: "required", displayAlias: "MSG_ERR_MAND"},
                                 {type: "number", displayAlias: "TYPE_NUMBER"}
                                 ];
@@ -347,7 +348,7 @@
             vm.mitigationTypeId = "mitigation_type" + scopeId;
             vm.certifyOrganizationId = "certify_organization" + scopeId;
             vm.smallBusinessFeeApplicationId = "small_business_fee_application" + scopeId;
-            vm.firstSubmissionId = "first_submission" + scopeId;
+            // vm.firstSubmissionId = "first_submission" + scopeId;
             vm.certifyFundedHealthInstitutionId = "certify_funded_health_institution" + scopeId;
             vm.certifyUrgentHealthNeedId = "certify_urgent_health_need" + scopeId;
             vm.certifyGovermentOrganizationId = "certify_goverment_organization" + scopeId;
@@ -378,7 +379,7 @@
             } else {
                 vm.model.mitigation.certifyOrganization = false;
                 vm.model.mitigation.smallBusinessFeeApplication = "";
-                vm.model.mitigation.firstSubmission = null;
+                // vm.model.mitigation.firstSubmission = null;
 
                 return false;
             }
@@ -409,6 +410,11 @@
                 vm.model.mitigation.certifyGovermentOrganization = false;
                 return false;
             }
+        };
+
+        vm.setTouch = function (ctrl) {
+            if (!ctrl) return;
+            ctrl.$setTouched();
         };
 
     }

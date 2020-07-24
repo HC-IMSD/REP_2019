@@ -136,7 +136,7 @@
                 var today = _getToday();
                 var subt = "";
                 var currentLang = $translate.proposedLanguage() || $translate.use();
-                if (jsonObj.isAdminSub) {
+                if (jsonObj.isAdminSub && jsonObj.subType) {
                     subt = {};
                     _setAdminSubTypeForOutput(jsonObj.subType, subt,
                         currentLang, ENGLISH, FRENCH);
@@ -485,7 +485,7 @@
             // result.mitigation.mitigation_type = feeObj.mitigation.mitigationType;
             result.mitigation.certify_organization = feeObj.mitigation.certifyOrganization   === true ? 'Y' : 'N';
             result.mitigation.small_business_fee_application = feeObj.mitigation.smallBusinessFeeApplication;
-            result.mitigation.first_submission = feeObj.mitigation.firstSubmission;
+            // result.mitigation.first_submission = feeObj.mitigation.firstSubmission;
             result.mitigation.certify_goverment_organization = feeObj.mitigation.certifyGovermentOrganization  === true ? 'Y' : 'N';
             result.mitigation.certify_urgent_health_need = feeObj.mitigation.certifyUrgentHealthNeed   === true ? 'Y' : 'N';
             result.mitigation.certify_funded_health_institution = feeObj.mitigation.certifyFundedHealthInstitution   === true ? 'Y' : 'N';
@@ -544,7 +544,7 @@
                 }
                 result.mitigation.certifyOrganization = feeObj.mitigation.certify_organization === YES;
                 result.mitigation.smallBusinessFeeApplication = feeObj.mitigation.small_business_fee_application;
-                result.mitigation.firstSubmission = feeObj.mitigation.first_submission;
+                // result.mitigation.firstSubmission = feeObj.mitigation.first_submission;
                 result.mitigation.certifyGovermentOrganization = feeObj.mitigation.certify_goverment_organization === YES;
                 result.mitigation.certifyUrgentHealthNeed = feeObj.mitigation.certify_urgent_health_need === YES;
                 result.mitigation.certifyFundedHealthInstitution  = feeObj.mitigation.certify_funded_health_institution ===  YES;
@@ -1144,7 +1144,7 @@
                 mitigation_type : "",// mitigation measures
                 certify_organization : NO, //number of employees less than 100 people
                 small_business_fee_application : NO, //completed the Small Business Fee Mitigation Application and attached it
-                first_submission : NO, //This is my first submission/application
+                // first_submission : NO, //This is my first submission/application
                 certify_goverment_organization : NO, // certify that our organization is a branch or agency of the Government of Canada or of a province or territory.
                 certify_urgent_health_need: NO,
                 certify_funded_health_institution: NO
