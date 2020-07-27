@@ -95,11 +95,12 @@
                     <header/>
                     <div class="col-md-12 form-group rep-pad-top-10">
                         <fieldset>
-                        <legend class="required radioButtonTitle">{{formulRecCtrl.getFirstOrder(4)}}. {{'DRUGMARKETID_'|translate}} <strong class="required">{{"REQUIRED" |translate}}</strong></legend>
-                        <cmp-error-message field-name="formulRecCtrl.drugMarketId"
+                        <legend class="required radioButtonTitle">{{formulRecCtrl.getFirstOrder(4)}}. {{'DRUGMARKETID_'|translate}} <strong class="required">{{"REQUIRED" |translate}}</strong>
+                            <cmp-error-message field-name="formulRecCtrl.drugMarketId"
                                            form-ref="formulRecCtrl.formulationForm"
                                            show-error="formulRecCtrl.showError(formulRecCtrl.formulationForm[formulRecCtrl.drugMarketId])"
                                            error-types="formulRecCtrl.requiredOnly"></cmp-error-message>
+                        </legend>
                         <div>
                             <label class="col-xs-3 rep-pad-top-10 rep-normal-font" for="{{::formulRecCtrl.drugMarketId}}"><input type="radio" id="{{::formulRecCtrl.drugMarketId}}" name="{{::formulRecCtrl.drugMarketId}}" value="CANADIAN" data-ng-model="formulRecCtrl.frmModel.drugMarket" ng-required="!formulRecCtrl.frmModel.drugMarket" data-ng-click="formulRecCtrl.clickDrugMarket();"/>&nbsp;{{::'CANADIAN'|translate}}</label>
                             <label class="col-xs-3 rep-pad-top-10 rep-normal-font" for="{{::formulRecCtrl.drugMarketId}}_1"><input type="radio" id="{{::formulRecCtrl.drugMarketId}}_1" name="{{::formulRecCtrl.drugMarketId}}" value="FOREIGN" data-ng-model="formulRecCtrl.frmModel.drugMarket" ng-required="!formulRecCtrl.frmModel.drugMarket" data-ng-click="formulRecCtrl.clickDrugMarket();"/>&nbsp;{{::'FOREIGN'|translate}}</label>
@@ -150,19 +151,19 @@
                         <sup id="dr9d_ref">
                             <a class="fn-lnk" href="#dr9d"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::formulRecCtrl.htIndxList.isMaterialIndx}}</a>
                         </sup>
-                    </legend>
 
-                    <div  class="col-md-12">
-                    <cmp-error-message field-name="formulRecCtrl.isAnimalHumanMaterialId"
+                    <!--<div  class="col-md-12">-->
+                        <cmp-error-message field-name="formulRecCtrl.isAnimalHumanMaterialId"
                                        form-ref="formulRecCtrl.formulationForm"
                                        show-error="formulRecCtrl.showError(formulRecCtrl.formulationForm[formulRecCtrl.isAnimalHumanMaterialId])"
                                        error-types="formulRecCtrl.requiredOnly"></cmp-error-message>
+                    </legend>
                         <!--<select id="{{::formulRecCtrl.isAnimalHumanMaterialId}}" data-ng-model="formulRecCtrl.frmModel.isAnimalHumanMaterial" data-ng-required="true"-->
                                 <!--class="form-control" name="{{::formulRecCtrl.isAnimalHumanMaterialId}}"-->
                                 <!--data-ng-options="val |translate for val in  formulRecCtrl.yesNoList">-->
                             <!--<option value="" label=" " />-->
                         <!--</select>-->
-                    </div>
+                    <!--</div>-->
                     <div>
                     <label class="col-xs-2 rep-normal-font" for="{{::formulRecCtrl.isAnimalHumanMaterialId}}">
                         <input type="radio" id="{{::formulRecCtrl.isAnimalHumanMaterialId}}" name="{{::formulRecCtrl.isAnimalHumanMaterialId}}" value="Y" data-ng-model="formulRecCtrl.frmModel.isAnimalHumanMaterial" required/>&nbsp;{{::'Y'|translate}}</label>
