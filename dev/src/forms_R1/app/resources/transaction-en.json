@@ -316,6 +316,7 @@
   "HT_DESC_CHANGE_3": "i.e. Quality Document - 3.2.S Drug Substance (Kits/radiopharmaceuticals containing drug substance of chemical origin) - #3, 9, 10c",
   "HT_DESC_CHANGE_4": "i.e.  Safety and Efficacy Document -  Supplements - a, d.",
   "HT_REQ_SOL": "If the name of the requester is unknown, enter the generic email the request was sent from.",
+  "HT_FROM": "Time should be entered in this format: number, followed by one of the words hours, days or months.",
   "HT_FEES_1": "For more information related to fees, refer to the",
   "HT_FEES_2": "Guidance Document - Fees for the Review of Drug Submissions and Applications",
   "HT_FEES_URL": "https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/fees/fees-review-drug-submissions-applications.html",

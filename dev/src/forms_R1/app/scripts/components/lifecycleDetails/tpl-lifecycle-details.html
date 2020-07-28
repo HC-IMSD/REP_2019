@@ -265,7 +265,7 @@
                                 <span class="field-name">{{::"CTA_FROM" |translate}}</span>
                                 <strong class="required">{{::"REQUIRED" |translate}}</strong>
                                 <sup id="tr12a_ref">
-                                    <a class="fn-lnk" href="#tr12a"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>13</a>
+                                    <a class="fn-lnk" href="#tr12a"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::lifecycleCtrl.htIndxList.fromInx}}</a>
                                 </sup>
                                 <cmp-error-message field-name="lifecycleCtrl.fromValueId" form-ref="lifecycleCtrl.lifecycleDetailsForm"
                                                    show-error="lifecycleCtrl.showError(lifecycleCtrl.lifecycleDetailsForm[lifecycleCtrl.fromValueId])"

@@ -76,6 +76,7 @@
                 yearChgInx: 0,
                 descChgInx: 0,
                 reqSoliInx: 0,
+                fromInx: 0,
                 feesInx: 0,
                 contactInx: 0,
                 compNameInx: 0,

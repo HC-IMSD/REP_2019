@@ -207,6 +207,17 @@
             </a>
         </p>
     </dd>
+    <dt data-ng-if="! help.isForProd"><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::help.htIndxList.fromInx}}</dt>
+    <dd id="tr12a" data-ng-if="! help.isForProd">
+        <p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{::'CTA_FROM' |translate}}</p>
+        <p> {{::'HT_FROM' |translate}}</p>
+        <p class="fn-rtn">
+            <a href="#tr12a_ref">
+                <span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::help.htIndxList.fromInx}}
+                <span class="wb-inv"> referrer</span>
+            </a>
+        </p>
+    </dd>
 
     <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::help.htIndxList.feesInx}}</dt>
     <dd id="tr13">
