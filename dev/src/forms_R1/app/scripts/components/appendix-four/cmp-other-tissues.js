@@ -64,7 +64,7 @@
             if(value) {
                 vm.showError = false;
             }
-            // vm.updateErrorState();
+            vm.updateErrorState();
         };
 
 
