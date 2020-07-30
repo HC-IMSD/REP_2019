@@ -206,7 +206,7 @@
         };
 
         function _setIdNames() {
-            var scopeId="_"+  $scope.$id;
+            var scopeId= "-" + vm.legendText + "_"+  $scope.$id;
             vm.fieldsetId = "fs_roleMissing" +scopeId;
             vm.roleMissingId = "roleMissing" +scopeId;
             vm.contactRoleMissingId = "contactRoleMissing" +scopeId;
@@ -216,7 +216,7 @@
             vm.chkManuContactId = "contactManufacturer" + scopeId;
             vm.chkMailContactId = "contactMailing" + scopeId;
             vm.chkBillContactId = "contactBilling" + scopeId;
-            vm.chkImpId = vm.legendText + "-" + "chk-importer" +scopeId;
+            vm.chkImpId = "chk-importer" +scopeId;
             vm.chkRePrimId = "repPrimary" +scopeId;
             vm.chkRepSecId = "repSecondary" +scopeId;
         }
