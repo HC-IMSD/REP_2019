@@ -216,7 +216,7 @@
             vm.chkManuContactId = "contactManufacturer" + scopeId;
             vm.chkMailContactId = "contactMailing" + scopeId;
             vm.chkBillContactId = "contactBilling" + scopeId;
-            vm.chkImpId = "chk-importer" +scopeId;
+            vm.chkImpId = vm.legendText + "-" + "chk-importer" +scopeId;
             vm.chkRePrimId = "repPrimary" +scopeId;
             vm.chkRepSecId = "repSecondary" +scopeId;
         }
