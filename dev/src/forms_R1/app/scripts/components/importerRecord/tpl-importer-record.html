@@ -158,7 +158,7 @@
         <div class="row">
             <div class="col-md-6 form-group"
                  data-ng-class="{'has-error':importerRecCtrl.importerForm[importerRecCtrl.faxId].$invalid}">
-                <label for="{{::importerRecCtrl.faxId}}" data-ng-class="required">
+                <label for="{{::importerRecCtrl.faxId}}" class="required">
                     <span class="field-name">{{::'FAX_NUMBER'|translate}}{{::'INCLUDE_AREA_CODE'|translate}}</span>
                     <strong class="required">{{::'REQUIRED'|translate}}</strong>
                     <cmp-error-message field-name="importerRecCtrl.faxId"
@@ -168,7 +168,7 @@
                     </cmp-error-message>
                     <input type="tel" id="{{::importerRecCtrl.faxId}}"
                            data-ng-model="importerRecCtrl.model.fax" maxlength="25"
-                           data-ng-required="true" class="form-control full-width" data-ng-pattern="importerRecCtrl.faxReg"
+                           required class="form-control full-width" data-ng-pattern="importerRecCtrl.faxReg"
                            name="{{::importerRecCtrl.faxId}}" data-only-digits/>
                     <span>{{::'FAX_NOT_AVAILABLE'|translate}} </span>
                 </label>
