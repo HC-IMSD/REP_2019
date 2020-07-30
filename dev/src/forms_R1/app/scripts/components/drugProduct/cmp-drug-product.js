@@ -385,10 +385,11 @@
         vm.dossierTypeChange = function () {
             if (vm.model && vm.model.dossierType && vm.model.dossierType === "D26") {
                 vm.drugUseList = vm.ctaDrugUseList;
-                vm.model.manu = false;
-                vm.model.mailling = false;
-                vm.model.thisActivity = false;
-                vm.model.importer = false;
+                // PI matrix 4.1 need keep these values. 4.0 these fields were hidden
+                // vm.model.manu = false;
+                // vm.model.mailling = false;
+                // vm.model.thisActivity = false;
+                // vm.model.importer = false;
                 vm.model.importerRecord = [];
             } else if (vm.model && vm.model.dossierType && vm.model.dossierType === "D24"){
                 vm.drugUseList = vm.vetDrugUseList;
