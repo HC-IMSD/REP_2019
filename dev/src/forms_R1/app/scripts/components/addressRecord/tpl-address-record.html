@@ -22,7 +22,7 @@
                                            error-types="addressRec.requiredOnly">
                         </cmp-error-message>
                         <input type="text" id="{{::addressRec.companyNameId}}" name="{{::addressRec.companyNameId}}"
-                               data-ng-model="addressRec.addressModel.companyName" data-focus-if= "addressRec.addressModel.focusCompanyName"
+                               data-ng-model="addressRec.addressModel.companyName" data-focus-if= "addressRec.isFocus"
                                class="form-control full-width" maxlength="80" size="60"
                                data-ng-blur="addressRec.updateErrorSummaryState();addressRec.cancelFocus()" data-ng-readonly="!addressRec.isEditable"
                                required/>

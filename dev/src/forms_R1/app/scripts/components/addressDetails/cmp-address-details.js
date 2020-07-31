@@ -73,9 +73,9 @@
         vm.fdId="";
        // vm.postalError="MSG_ERR_POSTAL";
         vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
-        vm.postalErrorList = [{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "TYPE_PATTERN"}];
+        vm.postalErrorList = [{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "POSTAL_FORMAT"}];
         vm.provStateErrorName = "PROVSTATE";
-
+        vm.focusOnProvinceState = false;
         vm.$onInit = function () {
 
             if (vm.addressRecord) {
@@ -155,10 +155,10 @@
               return false;
           }
            else if(vm.addressModel.country.id===CANADA){
-              vm.postalErrorList = [{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "TYPE_PATTERN"}];
+              vm.postalErrorList = [{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "POSTAL_FORMAT"}];
                 return true;
             }else{
-              vm.postalErrorList = [{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "TYPE_PATTERN"}];
+              vm.postalErrorList = [{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "POSTAL_FORMAT"}];
             }
             return false
         };
@@ -290,6 +290,12 @@
                 vm.addressModel.countryDisplay = "";
             }
             vm.countryChanged();
+        }
+        vm.countryTabKey = function(){
+            vm.focusOnProvinceState = true;
+        }
+        vm.leaveProvinceState = function(){
+            vm.focusOnProvinceState = false;
         }
         // component only has one field, just watch this field for changes to update error summary
         $scope.$watch('adr.addressForm.$error', function () {
