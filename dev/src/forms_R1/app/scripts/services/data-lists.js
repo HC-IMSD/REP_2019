@@ -47,7 +47,7 @@
             if (vm.env) {
                 return vm.env;
             } else {
-                return 'PROD';
+                return '@@envValue';
             }
         }
 
