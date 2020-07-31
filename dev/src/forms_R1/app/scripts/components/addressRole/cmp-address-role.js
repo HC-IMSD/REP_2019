@@ -208,8 +208,8 @@
         function _setIdNames() {
             var scopeId= "-" + vm.legendText + "_"+  $scope.$id;
             vm.fieldsetId = "fs_roleMissing" +scopeId;
-            vm.roleMissingId = "roleMissing" +scopeId;
-            vm.contactRoleMissingId = "contactRoleMissing" +scopeId;
+            vm.roleMissingId = "roleMissing" + "_"+  $scope.$id;
+            vm.contactRoleMissingId = "contactRoleMissing" + "_"+  $scope.$id;
             vm.chkManuId = "manufacturer" +scopeId;
             vm.chkMailId = "mailing" +scopeId;
             vm.chkBillId = "billing" +scopeId;
