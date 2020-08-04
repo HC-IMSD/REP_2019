@@ -465,7 +465,7 @@
                             id="medSave_{{::$id}}" name="saveMI"  onclick="focusOnTable(this, 'active_ing_list_')">{{'SAVE_RECORD'|translate}}
                     </button>
                     <button class="btn btn-primary" data-ng-click="ingRecCtrl.saveIng()" data-ng-if="! ctrCtrl.cancelFocus()"
-                            id="medSave_{{::$id}}" onclick="focusOnRow(this, 'addAI_')"
+                            id="medSave_{{::$id}}" onclick="focusOnTable(this, 'active_ing_list_')"
                             name="saveMI">{{'SAVE_RECORD'|translate}}
                     </button>
                     <button data-ng-if="ingRecCtrl.deleteBtn === true" class="btn btn-danger" id="medDelete_{{::$id}}" onclick="focusOnRow(this, 'addAI_')"
