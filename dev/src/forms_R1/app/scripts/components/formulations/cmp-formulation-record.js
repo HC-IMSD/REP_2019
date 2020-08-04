@@ -400,18 +400,20 @@
          * @private
          */
         function _setIdNames() {
-            vm.scopeId = "_" + $scope.$id;
-            vm.formulationFormRecordId="formulationRecord" + vm.scopeId;
-            vm.dosageId = "dosage_form" + vm.scopeId;
-            vm.dosageOtherId = "dosage_form_other" + vm.scopeId;
-            vm.noActiveId="no_active"+vm.scopeId; //Todo: can remove?
-            vm.noContainerId="no_container"+vm.scopeId;
-            vm.noRoaId="no_roa"+vm.scopeId;
-            vm.noCountryId="no_country"+vm.scopeId;
-            vm.isAnimalHumanMaterialId="is_animal_human_material"+vm.scopeId;
-            vm.dinId = "dinId_" + vm.scopeId;
-            vm.noDinCountryId = "no_din_country" + vm.scopeId;
-            vm.drugMarketId = 'drugMarketId_' + vm.scopeId;
+            var scopeId = "_" + $scope.$id;
+            vm.formulationFormRecordId="formulationRecord" + scopeId;
+            vm.formulNameId = "formul_name" + scopeId;
+            vm.dosageId = "dosage_form" + scopeId;
+            vm.dosageOtherId = "dosage_form_other" + scopeId;
+            vm.noActiveId = "no_active" + scopeId; //Todo: can remove?
+            vm.noContainerId="no_container" + scopeId;
+            vm.noRoaId = "no_roa" + scopeId;
+            vm.noCountryId = "no_country" + scopeId;
+            vm.isAnimalHumanMaterialId = "is_animal_human_material" + scopeId;
+            vm.dinId = "dinId" + scopeId;
+            vm.listDinCtryId = "list_din_country" + scopeId;
+            vm.noDinCountryId = "no_din_country" + scopeId;
+            vm.drugMarketId = 'drugMarketId' + scopeId;
         }
 
         $scope.$watch('formulRecCtrl.formulationForm.$error', function () {
