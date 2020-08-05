@@ -9,8 +9,8 @@
     <span id="security"></span>
     <div class="module-attention">
         <h2 class="panel-title mrgn-tp-sm mrgn-bttm-sm">{{::'SECURITY_DISCLAIMER'|translate}}</h2><br>
-        <section data-ng-if="!main.isFrench()" data-ng-include="'app/scripts/templates/common/tpl-security-disclaimer-en.html'"></section>
-        <section data-ng-if="main.isFrench()" data-ng-include="'app/scripts/templates/common/tpl-security-disclaimer-fr.html'"></section>
+        <section data-ng-if="!drugProdCtrl.isFrench()" data-ng-include="'app/scripts/templates/common/tpl-security-disclaimer-en.html'"></section>
+        <section data-ng-if="drugProdCtrl.isFrench()" data-ng-include="'app/scripts/templates/common/tpl-security-disclaimer-fr.html'"></section>
     </div>
     <span id="instructions"></span>
     <div class="wb-fnote" role="note">
