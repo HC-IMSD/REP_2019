@@ -216,7 +216,7 @@
                 <dd id="dr9c1">
                     <p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{'ING_NAME'|translate}}</p>
                     <p>{{::'HT_ING_NAME' |translate}}</p>
-                    <p>{{::'HT_ING_NAME_1' |translate}}</p>
+                    <p data-ng-if="! helpCtrl.isForProd">{{::'HT_ING_NAME_1' |translate}}</p>
                     <p class="fn-rtn" style="width:4.5em;"><a href="#dr9c1_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::helpCtrl.htIndxList.ingNameIndx}}
                         <span class="wb-inv"> referrer</span></a>
                     </p>
