@@ -461,7 +461,7 @@
             vm.disablePtclNum = value;
             if (value) {
                 vm.transactionModel.ectd.productProtocol = "UNASSIGNED";
-            } else {
+            } else if (vm.transactionModel.ectd.productProtocol === 'UNASSIGNED') {
                 vm.transactionModel.ectd.productProtocol = "";
             }
         }
