@@ -440,7 +440,7 @@
                                                        form-ref="transInfoCtrl.transInfoForm"
                                                        show-error="transInfoCtrl.showError(transInfoCtrl.transInfoForm[transInfoCtrl.companyNameId])"
                                                        error-types="transInfoCtrl.requiredOnly"></cmp-error-message>
-                                    <input type="text" maxlength="80" id="{{::transInfoCtrl.companyNameId}}"
+                                    <input type="text" maxlength="100" id="{{::transInfoCtrl.companyNameId}}"
                                            name="{{::transInfoCtrl.companyNameId}}"
                                            data-ng-model="transInfoCtrl.transactionModel.companyName"
                                            class="form-control full-width" required/>
