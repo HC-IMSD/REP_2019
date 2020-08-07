@@ -465,6 +465,8 @@
                 case ("B02-20160301-050"): //NC (Notifiable Change)
                     if(vm.lifecycleModel.activityLead === "B14-20160301-11") {
                         vm.descriptionList = TransactionLists.getV_NcType();
+                    } else if(vm.lifecycleModel.activityLead === "B14-20160301-02") {
+                        vm.descriptionList = TransactionLists.getB_NcType();
                     } else {
                         vm.descriptionList = TransactionLists.getNcType();
                     }

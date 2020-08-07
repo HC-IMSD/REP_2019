@@ -204,8 +204,9 @@
             getV_Level3Type: getV_Level3Array,
             getMPDINType: getMPDINArray,
             getV_MpdinType: getV_MpdinArray,
-            getNcType: getNCArray,
+            getNcType: getNcArray,
             getV_NcType: getV_NcArray,
+            getB_NcType: getB_NcArray,
             getNdsType: getNDSArray,
             getV_NdsType: getV_NdsArray,
             getPdcType: getPDCArray,
@@ -484,40 +485,40 @@
             ]);
         }
 
-        function getNCArray() {
-            return ([
-                vm.allActivities.ADMINISTRATIVE, //administrative
-                vm.allActivities.CANCEL_LETTER, //cancellation letter
-                vm.allActivities.COMMENTS_SUMMARY_BASIS, //commments on summary basis
-                // vm.allActivities.DRUG_NOTIF_FORM, // drug notification form
-                vm.allActivities.MEETING_MINUTES, //minutes of meeting dated
-                vm.allActivities.POST_CLEARANCE_DATA, //post clearance data
-                vm.allActivities.POST_NOC_CHANGE, //Post NOC change
-                vm.allActivities.PRESUB_MEETING_PKG, // presubmission meeting package
-                vm.allActivities.PRESUB_MEETING_RQ,   //submission Meeting Request -used to be presub
-                // vm.allActivities.PRISTINE_PM, // Pristine PM
-                vm.allActivities.SECOND_LANG_PM, // Second Language PM
-                vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
-                vm.allActivities.CLIN_CLARIF_RESPONSE, //Response to clinical clarifiaction request
-                vm.allActivities.EMAIL_RQ_RESPONSE,// response to email request
-                vm.allActivities.LABEL_CLARIF_RESPONSE, //Response to labelling clarification request
-                vm.allActivities.LABEL_PREAPPROVAL_2LANG, //Second Language Label - Pre-Approval
-                vm.allActivities.NOL_RESPONSE, //Response to NOL dated
-                //vm.allActivities.NOTIFICATION_INTERRUPT_SALE,//Notification Interruption of Sale
-                vm.allActivities.PROCESSING_CLARIF_RESPONSE, //Response to processing Clarification Request
-                vm.allActivities.QUAL_CLIN_CLARIF_RESPONSE, //Response to quality and Clinical clarification REquest
-                vm.allActivities.QUAL_CLARIF_RESPONSE, //Response to Quality Clarification request
-                vm.allActivities.RECON_DECIS_LTR_INTENT,// Reconsideration of Decision - Letter of Intent
-                vm.allActivities.RECON_DECIS_RQ_RECON, //Reconsideration of Decision - Request for Reconsideration
-                vm.allActivities.RECON_DECIS_OTHER_INFO,// Reconsideration of Decision - Other Information
-                vm.allActivities.SCREENING_ACCEPT_RESPONSE, //response to screening acceptance letter
-                vm.allActivities.SCREENING_CLARIF_RESPONSE, // response to screening clarification request
-                vm.allActivities.SDN_RESPONSE, //response to SDN
-                vm.allActivities.PHONE_RQ_RESPONSE, //Response to telephone Request
-                vm.allActivities.UNSOLICITED_DATA //Unsolicited Data
-                //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
-            ]);
-        }
+        // function getNCArray() {
+        //     return ([
+        //         vm.allActivities.ADMINISTRATIVE, //administrative
+        //         vm.allActivities.CANCEL_LETTER, //cancellation letter
+        //         vm.allActivities.COMMENTS_SUMMARY_BASIS, //commments on summary basis
+        //         // vm.allActivities.DRUG_NOTIF_FORM, // drug notification form
+        //         vm.allActivities.MEETING_MINUTES, //minutes of meeting dated
+        //         vm.allActivities.POST_CLEARANCE_DATA, //post clearance data
+        //         vm.allActivities.POST_NOC_CHANGE, //Post NOC change
+        //         vm.allActivities.PRESUB_MEETING_PKG, // presubmission meeting package
+        //         vm.allActivities.PRESUB_MEETING_RQ,   //submission Meeting Request -used to be presub
+        //         // vm.allActivities.PRISTINE_PM, // Pristine PM
+        //         vm.allActivities.SECOND_LANG_PM, // Second Language PM
+        //         vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
+        //         vm.allActivities.CLIN_CLARIF_RESPONSE, //Response to clinical clarifiaction request
+        //         vm.allActivities.EMAIL_RQ_RESPONSE,// response to email request
+        //         vm.allActivities.LABEL_CLARIF_RESPONSE, //Response to labelling clarification request
+        //         vm.allActivities.LABEL_PREAPPROVAL_2LANG, //Second Language Label - Pre-Approval
+        //         vm.allActivities.NOL_RESPONSE, //Response to NOL dated
+        //         //vm.allActivities.NOTIFICATION_INTERRUPT_SALE,//Notification Interruption of Sale
+        //         vm.allActivities.PROCESSING_CLARIF_RESPONSE, //Response to processing Clarification Request
+        //         vm.allActivities.QUAL_CLIN_CLARIF_RESPONSE, //Response to quality and Clinical clarification REquest
+        //         vm.allActivities.QUAL_CLARIF_RESPONSE, //Response to Quality Clarification request
+        //         vm.allActivities.RECON_DECIS_LTR_INTENT,// Reconsideration of Decision - Letter of Intent
+        //         vm.allActivities.RECON_DECIS_RQ_RECON, //Reconsideration of Decision - Request for Reconsideration
+        //         vm.allActivities.RECON_DECIS_OTHER_INFO,// Reconsideration of Decision - Other Information
+        //         vm.allActivities.SCREENING_ACCEPT_RESPONSE, //response to screening acceptance letter
+        //         vm.allActivities.SCREENING_CLARIF_RESPONSE, // response to screening clarification request
+        //         vm.allActivities.SDN_RESPONSE, //response to SDN
+        //         vm.allActivities.PHONE_RQ_RESPONSE, //Response to telephone Request
+        //         vm.allActivities.UNSOLICITED_DATA //Unsolicited Data
+        //         //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
+        //     ]);
+        // }
 
         function getNDSArray() {
             return ([
@@ -804,7 +805,8 @@
                 vm.allActivities.PROCESSING_CLARIF_RESPONSE, //Response to processing Clarification Request
                 vm.allActivities.PHONE_RQ_RESPONSE, //Response to telephone Request,
                 vm.allActivities.PRESUB_MEETING_PKG, //submission Meeting Package
-                vm.allActivities.PRESUB_MEETING_RQ   //Pre-submission Meeting Request
+                vm.allActivities.PRESUB_MEETING_RQ,   //Pre-submission Meeting Request
+                vm.allActivities.UNSOLICITED_DATA //Unsolicited Information
             ]);
         }
 
@@ -1593,6 +1595,64 @@
                 vm.allActivities.UNSOLICITED_DATA
             ]);
         }
+
+        function getB_NcArray() {
+            return ([
+                vm.allActivities.ADMINISTRATIVE,
+                vm.allActivities.CANCEL_LETTER,
+                vm.allActivities.COMMENTS_SUMMARY_BASIS,
+                vm.allActivities.MEETING_MINUTES,
+                vm.allActivities.POST_CLEARANCE_DATA,
+                vm.allActivities.POST_NOC_CHANGE,
+                vm.allActivities.PRISTINE_PM_2LANG,
+                vm.allActivities.RECON_DECIS_LTR_INTENT,
+                vm.allActivities.RECON_DECIS_RQ_RECON,
+                vm.allActivities.RECON_DECIS_OTHER_INFO,
+                vm.allActivities.CLIN_CLARIF_RESPONSE,
+                vm.allActivities.EMAIL_RQ_RESPONSE,
+                vm.allActivities.LABEL_CLARIF_RESPONSE,
+                vm.allActivities.NOL_RESPONSE,
+                vm.allActivities.PROCESSING_CLARIF_RESPONSE,
+                vm.allActivities.QUAL_CLIN_CLARIF_RESPONSE,
+                vm.allActivities.QUAL_CLARIF_RESPONSE,
+                vm.allActivities.SCREENING_ACCEPT_RESPONSE,
+                vm.allActivities.SCREENING_CLARIF_RESPONSE,
+                vm.allActivities.SDN_RESPONSE,
+                vm.allActivities.PHONE_RQ_RESPONSE,
+                vm.allActivities.LABEL_PREAPPROVAL_2LANG,
+                vm.allActivities.PRESUB_MEETING_PKG,
+                vm.allActivities.PRESUB_MEETING_RQ,
+                vm.allActivities.UNSOLICITED_DATA,
+                vm.allActivities.SECOND_LANG_PM
+                ]);
+         }
+
+        function getNcArray() {
+            return ([
+                vm.allActivities.CANCEL_LETTER,
+                vm.allActivities.MEETING_MINUTES,
+                vm.allActivities.POST_CLEARANCE_DATA,
+                vm.allActivities.PRISTINE_PM_2LANG,
+                vm.allActivities.RECON_DECIS_LTR_INTENT,
+                vm.allActivities.RECON_DECIS_RQ_RECON,
+                vm.allActivities.RECON_DECIS_OTHER_INFO,
+                vm.allActivities.CLIN_CLARIF_RESPONSE,
+                vm.allActivities.NOL_RESPONSE,
+                vm.allActivities.PROCESSING_CLARIF_RESPONSE,
+                vm.allActivities.QUAL_CLIN_CLARIF_RESPONSE,
+                vm.allActivities.QUAL_CLARIF_RESPONSE,
+                vm.allActivities.SCREENING_ACCEPT_RESPONSE,
+                vm.allActivities.SCREENING_CLARIF_RESPONSE,
+                vm.allActivities.SDN_RESPONSE,
+                vm.allActivities.PHONE_RQ_RESPONSE,
+                vm.allActivities.LABEL_PREAPPROVAL_2LANG,
+                vm.allActivities.PRESUB_MEETING_PKG,
+                vm.allActivities.PRESUB_MEETING_RQ,
+                vm.allActivities.UNSOLICITED_DATA,
+                vm.allActivities.SECOND_LANG_PM
+            ]);
+        }
+
         function getV_NdsArray() {
             return ([
                 vm.allActivities.ADMINISTRATIVE,
