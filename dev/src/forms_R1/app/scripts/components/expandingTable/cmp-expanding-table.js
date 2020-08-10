@@ -53,7 +53,7 @@
         };
 
         vm.getExpandedState = function (row) {
-            if (row === vm.tableRowIndexCurrExpanded) {
+            if (row === vm.tableRowIndexCurrExpanded || !(vm.dayDataCollapse[row] && (! vm.transcludeForm[row] || vm.transcludeForm[row].$valid))) {
                 return true;
             }
             return false
@@ -197,15 +197,16 @@
          */
          function _createArray(arraySize,initialVal){
          var anArray = [];
-         for (var i = 0; i < arraySize; i++) {
-             // fix record window auto close error
-             if (vm.transcludeForm && vm.transcludeForm[i] && vm.transcludeForm[i].$invalid) {
-                 anArray.push (false);
-             } else {
-                 anArray.push(initialVal);
-             }
-         }
-         return anArray;
+         for (var i = 0; i < arraySize; i++) anArray.push (initialVal);
+         // to fix tissueFluids didn't reocrd didn't close properly, rollback previous bug fix chnges
+         // {
+         //     if (vm.transcludeForm && vm.transcludeForm[i] && vm.transcludeForm[i].$invalid) {
+         //         anArray.push (false);
+         //     } else {
+         //         anArray.push(initialVal);
+         //     }
+         // }
+         return anArray
          }
 
         vm.deletedRow=function(){
@@ -272,6 +273,9 @@
             if (vm.isInternal) {
                 return !vm.dayDataCollapse[row];
             } else {
+                if(vm.transcludeForm[row] && vm.transcludeForm[row].$invalid) {
+                    vm.dayDataCollapse[row] = false;
+                }
                 return (!(vm.dayDataCollapse[row] && (! vm.transcludeForm[row] || vm.transcludeForm[row].$valid)) ||
                     vm.isRequiredRecordSet());
             }
