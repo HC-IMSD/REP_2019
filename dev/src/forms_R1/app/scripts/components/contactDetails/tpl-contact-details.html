@@ -127,7 +127,7 @@
                                        show-error="contCtrl.showErrors()" error-types="contCtrl.emailError">
                     </cmp-error-message>
                     <input type="email" id="{{::contCtrl.contactEmailId}}"
-                           data-ng-model="contCtrl.contactModel.email"
+                           data-ng-model="contCtrl.contactModel.email" data-ng-pattern="contCtrl.emailReg"
                            data-ng-readonly="!contCtrl.isEditable" maxlength="50" size="60"
                            class="form-control full-width" name="{{::contCtrl.contactEmailId}}" required/>
 

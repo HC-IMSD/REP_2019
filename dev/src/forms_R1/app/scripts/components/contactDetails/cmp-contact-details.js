@@ -44,7 +44,7 @@
         vm.langCorresppond=[ENGLISH,FRENCH];
         vm.faxRequired=false; //default to false for backwards compatibility
        vm.phoneReg=/^([0-9]*$)/;
-        //vm.phoneReg=/^\+?\d{*}$/;
+        vm.emailReg = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
         vm.contactModel = {
             givenName: "",
             surname: "",
@@ -60,7 +60,7 @@
         vm.inputModelOptions={updateOn: 'blur'};
         vm.fldId=""; //used to dynamically distinguish fields default to empty for backwards compat
         vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
-        vm.emailError=[{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "email", displayAlias: "MSG_ERR_EMAIL_FORMAT"}];
+        vm.emailError=[{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "MSG_ERR_EMAIL_FORMAT"}];
         vm.phoneError=[{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "MSG_ERR_PHONE_FORMAT"}];
         vm.faxError=[{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "MSG_ERR_FAX_FORMAT"}];
         vm.routingIdError=[{type: "required", displayAlias: "MSG_ERR_MAND"}, {type: "pattern", displayAlias: "TYPE_PATTERN"}];

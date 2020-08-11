@@ -184,7 +184,7 @@
                     </cmp-error-message>
                     <input type="email" id="{{::importerRecCtrl.contactEmailId}}"
                            data-ng-model="importerRecCtrl.model.email"
-                           maxlength="50" size="50"
+                           maxlength="50" size="50" data-ng-pattern="importerRecCtrl.emailReg"
                            class="form-control full-width" name="{{::importerRecCtrl.contactEmailId}}" required/>
 
                 </label>

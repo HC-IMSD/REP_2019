@@ -72,6 +72,7 @@
         vm.phoneReg=/^([0-9]{10,25}$)/;
         vm.faxReg=/^([0-9]{10,25}$)/;
         vm.routingIdReg=/^([0-9A-Za-z-]*$)/;
+        vm.emailReg = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
         vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
         vm.postalErrorList = [{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "TYPE_PATTERN"}];
 
@@ -80,7 +81,7 @@
             {type: "required", displayAlias: "MSG_ERR_MAND"},
             {type: "minlength", displayAlias: "MSG_LENGTH_MIN5"}
         ];
-        vm.emailError=[{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "email", displayAlias: "MSG_ERR_EMAIL_FORMAT"}];
+        vm.emailError=[{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "MSG_ERR_EMAIL_FORMAT"}];
         vm.phoneError=[{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "MSG_ERR_PHONE_FORMAT"}];
         vm.faxError=[{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "MSG_ERR_FAX_FORMAT"}];
         vm.routingIdError=[{type: "pattern", displayAlias: "MSG_ERR_PHONE_FORMAT"}];
