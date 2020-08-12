@@ -102,7 +102,7 @@
             <div class="form-group"
                  data-ng-class="{'has-error':contCtrl.contactForm[contCtrl.faxId].$invalid, 'col-md-6':!contCtrl.faxMandatory, 'col-md-12':contCtrl.faxMandatory}">
                 <label for="{{::contCtrl.faxId}}" data-ng-class="{'required':contCtrl.faxMandatory}">
-                    <span class="field-name">{{::'FAX_NUMBER'|translate}}{{::'INCLUDE_AREA_CODE'|translate}} </span><span data-ng-if="contCtrl.faxMandatory">{{::'FAX_NOT_AVAILABLE'|translate}} </span>
+                    <span class="field-name">{{::'FAX_NUMBER'|translate}}{{::'INCLUDE_AREA_CODE'|translate}} </span>
                     <strong data-ng-if="contCtrl.faxMandatory" class="required">{{::'REQUIRED'|translate}}</strong>
                     <!--<sup id="5a_ref" data-ng-if="contCtrl.faxMandatory">
                          <a class="fn-lnk" href="#5a"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>4.a</a>
@@ -116,6 +116,7 @@
                            data-ng-model="contCtrl.contactModel.fax" data-ng-readonly="!contCtrl.isEditable"
                            data-ng-required="contCtrl.faxMandatory" class="form-control full-width" data-ng-pattern="contCtrl.phoneReg"
                            name="{{::contCtrl.faxId}}" data-only-digits maxlength="25"/>
+                    <span data-ng-if="contCtrl.faxMandatory">{{::'FAX_NOT_AVAILABLE'|translate}} </span>
                 </label>
             </div>
             <div class="col-md-6 form-group"

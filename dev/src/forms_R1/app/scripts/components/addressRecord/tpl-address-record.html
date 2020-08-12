@@ -16,6 +16,7 @@
                      data-ng-class="{'has-error':addressRec.addressRecForm[addressRec.companyNameId].$invalid}">
                     <label for="{{::addressRec.companyNameId}}" class="required full-width">
                         <span class="field-name">{{::"COMPANYNAME" |translate}}</span>
+                        <span class="field-name">{{::"FULLLEGALNAME" |translate}}</span>
                         <strong class="required"> {{::"REQUIRED" |translate}}</strong>
                         <cmp-error-message field-name="addressRec.companyNameId" form-ref="addressRec.addressRecForm"
                                            show-error="addressRec.showErrors()"

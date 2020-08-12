@@ -50,7 +50,6 @@
                 addRoleIdx: 0,
                 companyRepIdx: 0,
                 routingIdIdx: 0,
-                contactRoleIdx: 0,
                 genXmlIdx: 0
             };
 
