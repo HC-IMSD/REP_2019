@@ -66,7 +66,7 @@
   "COPY":"fr_Copy",
   "DELETE":"Supprimer",
   "SAVE_WORKING":"Enregistrer une copie de travail",
-  "COMPANY_NOABBREV": "Nom de l'entreprise (nom légal complet, sans abbréviation)",
+  "COMPANY_NOABBREV": "Nom de l'entreprise (nom légal complet)",
   "CLOSE_ALERT":"Minimiser les instructions",
   "COLLAPSE":"Minimiser les",
   "CONTROL_NUM": "Numéro de contrôle",
