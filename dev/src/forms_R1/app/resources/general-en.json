@@ -68,7 +68,7 @@
   "COPY":"Copy",
   "DELETE":"Delete",
   "SAVE_WORKING":"Save Working Copy",
-  "COMPANY_NOABBREV": "Company Name (Full legal Name - no abbreviations)",
+  "COMPANY_NOABBREV": "Company Name (Full legal Name)",
   "CLOSE_ALERT":"Collapse instructions",
   "COLLAPSE":"Collapse",
   "CONTROL_NUM": "Control Number",

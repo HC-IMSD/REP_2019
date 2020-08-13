@@ -51,7 +51,7 @@
                     compIdInx: 0,
                     dossiIdInx: 0,
                     prodNameInx: 0,
-                    protoNumInx: 0,
+                    // protoNumInx: 0,
                     adminSubInx: 0,
                     ctrlNumInx: 0,
                     actLeadInx: 0,
