@@ -55,6 +55,7 @@
                         <li>{{::'HT_PROD_NAME_1' |translate}}</li>
                         <li>{{::'HT_PROD_NAME_2' |translate}}</li>
                         <li data-ng-if="! helpCtrl.isForProd">{{::'HT_PROD_NAME_3' |translate}}</li>
+                        <li>{{::'HT_PROD_NAME_4' |translate}}</li>
                     </ul>
                     <p class="fn-rtn"><a href="#dr3_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::helpCtrl.htIndxList.prodNameIndx}}
                         <span class="wb-inv"> referrer</span></a>
@@ -358,7 +359,12 @@
                 <dd id="dr11">
                     <p>{{::'APPROVE_FINAL' |translate}}</p>
                     <ul>
-                        <li>{{::'HT_GEN_XML_1' |translate}}</li>
+                        <li data-ng-if="helpCtrl.isForProd">{{::'HT_GEN_XML_1' |translate}}</li>
+                        <li data-ng-if="! helpCtrl.isForProd">{{::'HT_GEN_XML_3' |translate}}</li>
+                        <ul data-ng-if="! helpCtrl.isForProd">
+                            <li>{{::'HT_GEN_XML_4' |translate}}</li>
+                            <li>{{::'HT_GEN_XML_5' |translate}}</li>
+                        </ul>
                         <li>{{::'HT_GEN_XML_2' |translate}}</li>
                     </ul>
                     <p class="fn-rtn"><a href="#dr11_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::helpCtrl.htIndxList.genXmlIndx}}
