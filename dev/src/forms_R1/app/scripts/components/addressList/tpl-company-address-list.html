@@ -23,7 +23,8 @@
                                 is-detail-valid="addressListCtrl.setValid(state)"
                                 is-in="addressListCtrl.isIn"
                                 is-focus="addressListCtrl.isFocus"
-                                cancel-focus="addressListCtrl.cancelFocus">
+                                cancel-focus="addressListCtrl.cancelFocus"
+                                in-use-flag="addressListCtrl.addressList[$parent.$index].inUse">
             </cmp-address-record>
         </cmp-expanding-table>
     </div>

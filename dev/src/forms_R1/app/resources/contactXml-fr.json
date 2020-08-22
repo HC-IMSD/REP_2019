@@ -10,5 +10,6 @@
   "phone_num": "No. de téléphone",
   "phone_ext": "Extension de téléphone",
   "fax_num": "No. de fax",
-  "email": "Courriel"
+  "email": "Courriel",
+  "imp_company_name": "Nom de la compagnie de l'importateur canadien"
 }

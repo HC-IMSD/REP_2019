@@ -43,7 +43,8 @@
                 updateErrorSummary:'&', //update the parent error summary
                 isIn:'<',
                 isFocus: '<',
-                cancelFocus: '&'
+                cancelFocus: '&',
+                inUseFlag:'<'
             }
         });
     addressRecCtrl.$inject = ['$scope', 'CANADA', '$filter', 'getCountryAndProvinces','$translate', 'INTERNAL_TYPE', 'EXTERNAL_TYPE'];

@@ -1,13 +1,13 @@
 {
   "ADDRESSLISTCTRL.ADDRESSLISTFORM": "dans la section Information d'addresse",
   "CONTACTLISTCTRL.CONTACTLISTFORM": "dans la section Information ser les représentants de la compagnie",
-  "CONTACTROLESVALID": "Pour le représentant de l'entreprise, sélection des rôles: fabricant, de l'envoi, de la facturation et principale du PIR ",
+  "CONTACTROLESVALID": "Pour le représentant de la compagnie, sélection des rôles: fabricant, de l'envoi, de la facturation et principale du PIR ",
   "ADDRESSROLESVALID": "Pour l'information d'adresse, sélection des rôles: fabricant, de l'envoi et de la facturation ",
   "CONTACTREC.CONTACTRECFORM":"dans les détails du représentant de l'entreprise",
   "ADDRESSREC.ADDRESSRECFORM":"dans les détails de l'adresse",
   "COMPANY_FORM":"Inscription D'une Entreprise Réglementaire",
-  "ROLEMISSING": "Sélectionner un ou plusieurs rôles pour ce représentant de l'entreprise",
-  "CONTACTROLEMISSING": "Sélectionner un ou plusieurs rôles pour ce représentant de l'entreprise",
+  "ROLEMISSING": "Sélectionner un ou plusieurs rôles pour ce représentant de la compagnie",
+  "CONTACTROLEMISSING": "Sélectionner un ou plusieurs rôles pour ce représentant de la compagnie",
   "ROLEREPMISSING": "fr_Roles for this company representative ",
   "IMPORTERIDVALID": "SVP entrez l’ID de l’importateur pour chaque produit",
   "ADDRESS_EXPND": "SVP entrez l’ID de l’importateur pour chaque produit"

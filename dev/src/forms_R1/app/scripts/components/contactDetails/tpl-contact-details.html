@@ -157,6 +157,40 @@
                 </label>
             </div>
         </div>
+
+        <div class="row" data-ng-if="contCtrl.showAddrImpCompanyName() > -1" >
+            <div class="col-md-6 form-group" data-ng-if="contCtrl.hasAddrImpCompany()">
+                <label for="{{::contCtrl.impCompanyNameId}}" class="full-width" >
+                    <span class="field-name">{{::'IMP_COMPANY_NAME'|translate}}</span>
+                <strong class="required">{{::'REQUIRED' |translate}}</strong>
+                <cmp-error-message field-name="contCtrl.impCompanyNameId" form-ref="contCtrl.contactForm"
+                                   show-error="contCtrl.showErrors()"
+                                   error-types="contCtrl.requiredOnly"></cmp-error-message>
+                <select id="{{::contCtrl.impCompanyNameId}}" name="{{::contCtrl.impCompanyNameId}}"
+                        data-ng-model="contCtrl.contactModel.impCompanyName"
+                    data-ng-options="addrImpCompanyNameIdCorr |translate for addrImpCompanyNameIdCorr in contCtrl.addrImpCompanyName"
+                        class="form-control" required>
+                    <option value="" label=" " />
+                </select>
+                </label>
+            </div>
+
+            <div class="col-md-6 form-group" data-ng-if="! contCtrl.hasAddrImpCompany()">
+                <label for="{{::contCtrl.impCompanyNameId}}" class="full-width" >
+                    <span class="field-name">{{::'IMP_COMPANY_NAME'|translate}}</span>
+                    <cmp-error-message field-name="contCtrl.impCompanyNameId" form-ref="contCtrl.contactForm"
+                                       show-error="contCtrl.showErrors()"
+                                       error-types="contCtrl.requiredOnly"></cmp-error-message>
+                    <select id="{{::contCtrl.impCompanyNameId}}" name="{{::contCtrl.impCompanyNameId}}"
+                            data-ng-model="contCtrl.contactModel.impCompanyName"
+                            data-ng-options="addrImpCompanyNameIdCorr |translate for addrImpCompanyNameIdCorr in contCtrl.addrImpCompanyName"
+                            class="form-control" >
+                        <option value="" label=" " />
+                    </select>
+                </label>
+            </div>
+
+        </div>
         <!--<pre>contact model: {{contCtrl.contactRecord | json : spacing}}</pre>-->
     </ng-form>
 </div>

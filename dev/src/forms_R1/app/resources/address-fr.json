@@ -14,7 +14,7 @@
   "DELETE_ADDR": "Supprimer Addresse",
   "ADDR_INFO": "Information d'adresse",
   "ADDR_DETAILS": "Détails de l'adresse",
-  "ADDR_ROLE_LEGEND": "Sélectionner un ou plusieurs rôles pour cette entreprise",
+  "ADDR_ROLE_LEGEND": "Sélectionner un ou plusieurs rôles pour cette compagnie",
   "ADDR_REP_ROLE_LEGEND": "Sélectionner un ou plusieurs rôles pour ce représentant de la compagnie",
   "PRODUCTS_IMPORTED": "Produits importé",
   "PRODUCT_TYPES":"Produits importé par cette compagnie",

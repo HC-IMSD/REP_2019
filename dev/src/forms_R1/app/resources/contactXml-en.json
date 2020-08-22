@@ -10,5 +10,6 @@
   "phone_num": "Phone Number",
   "phone_ext": "Phone Extension",
   "fax_num": "Fax Number",
-  "email": "Email"
+  "email": "Email",
+  "imp_company_name": "Canadian Importer Company Name"
 }

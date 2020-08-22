@@ -9,6 +9,7 @@
 
             <cmp-contact-record on-delete="contactListCtrl.deleteContact(contactId)"
                                 on-update="contactListCtrl.onUpdateContactRecord(contact)"
+                                addr-imp-company-name="contactListCtrl.addrImpCompanyName"
                                 contact-record="$parent.record" record-index="$parent.$index"
                                 is-amend="contactListCtrl.formAmend"
                                 error-summary-update="contactListCtrl.updateErrorSummaryState()"

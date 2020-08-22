@@ -154,7 +154,8 @@
                     phoneExt: "",
                     fax: "",
                     email: "",
-                    routingId: ""
+                    routingId: "",
+                    impCompanyName: ""
                 };
                 defaultContact.contactId = this.getNextContactID();
                 return (defaultContact);
@@ -353,6 +354,7 @@
                     contact.fax = contacts[i].company_contact_details.fax_num;
                     contact.email = contacts[i].company_contact_details.email;
                     contact.routingId = contacts[i].company_contact_details.RoutingID;
+                    contact.impCompanyName = contacts[i].company_contact_details.imp_company_name;
                     list.push(contact);
                 }
                 return list;
@@ -446,6 +448,7 @@
                 contact.company_contact_details.fax_num = contacts[i].fax;
                 contact.company_contact_details.email = contacts[i].email;
                 contact.company_contact_details.RoutingID = contacts[i].routingId;
+                contact.company_contact_details.imp_company_name = contacts[i].impCompanyName;
                 contactList.push(contact);
             }
         }

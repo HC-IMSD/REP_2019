@@ -25,5 +25,6 @@
   "CONTACT_ROLE_INSTRUCT":"Company Representative Role Instructions",
   "ADD_REPRES": "Add Company Representative",
   "DELETE_REPRES": "Delete Company Rep.",
-  "SAVE_REPRES": "Save Company Rep."
+  "SAVE_REPRES": "Save Company Rep.",
+  "IMP_COMPANY_NAME": "Canadian Importer Company Name"
 }

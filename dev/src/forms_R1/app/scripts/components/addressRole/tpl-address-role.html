@@ -179,10 +179,11 @@
                           <span data-ng-if="ar.isContact">{{::"CONTACT_IMPORTER"|translate}}</span> -->
                         <span data-ng-if="ar.isContact">{{::"CAN_IMP"|translate}}</span>
                         <span data-ng-if="!ar.isContact">{{::"IMPORTER_ADDRESS"|translate}}</span>
-                        <strong id="importer-rolec-error" class="error" data-ng-if="ar.roleForm.importer.$invalid">
-                         <span class="label label-danger" data-ng-messages="ar.roleForm.importer.$error">
-                                    <span data-ng-message="duplicateRole">{{::"TYPE_DUPLICATEROLE"|translate}}</span>
-                                </span>
+                        <strong id="importer-rolec-error" class="error" data-ng-show="ar.inUseFlag"
+                                data-focus-if="ar.inUseFlag" data-focus-delay="500" >
+                            <span class="label label-danger" data-ng-messages="impCompanyInUse">
+                                {{::"COMPANY_IN_USE"|translate}}
+                            </span>
                         </strong>
                     </label>
                 </div>
