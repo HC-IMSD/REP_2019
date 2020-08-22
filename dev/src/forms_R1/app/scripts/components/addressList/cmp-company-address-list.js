@@ -26,7 +26,11 @@
                 showErrorSummary:'<',
                 errorSummaryUpdate:'<',
                 updateErrorSummary:'&', //update the parent error summary
-                userType:'<'
+                userType:'<',
+                hasAddrImpCompanyName: '&',
+                isImpCompanyNameUsed:'&',
+                inUseFlag: '<',
+                checkImpCompanyInUsed:'&'
             },
             controller: addressListCtrl,
             controllerAs: 'addressListCtrl'
@@ -164,8 +168,19 @@
             vm.deleteAddress = function (aID) {
                 var idx = vm.addressList.indexOf(
                     $filter('filter')(vm.addressList, {addressID: aID}, true)[0]);
+
+                if (vm.isImpCompanyNameUsed({companyName: vm.addressList[idx].companyName}))
+                {
+                    vm.addressList[idx].inUse = true;
+                    // vm.inUseFlag = true;
+                    return;
+                }
+                // vm.inUseFlag = false;
+                vm.addressList[idx].inUse = false;
+
                 vm.addressList.splice(idx, 1);
                 vm.onUpdate({newList: vm.addressList});
+                vm.hasAddrImpCompanyName({addressList: vm.addressList});
                 vm.selectRecord = 0;
                 vm.isDetailsValid = true; //case that incomplete record is deleted
                 vm.allRolesSelected = vm.isAllRolesSelected();
@@ -179,6 +194,7 @@
             vm.addAddress = function () {
                 var defaultAddress = vm.getNewAddress();
                 defaultAddress.focusCompanyName = vm.isFocus;
+                defaultAddress.inUse = false;
                 vm.addressList.push(defaultAddress);
                 vm.isDetailsValid = true; //set to true to exapnd?
                 vm.selectRecord = (vm.addressList.length - 1);
@@ -212,6 +228,7 @@
                 }
                 vm.requiredFlag = false;
                 vm.resetCollapsed = !vm.resetCollapsed;
+                vm.hasAddrImpCompanyName({addressList:vm.addressList});
                 vm.addressListForm.$setPristine();
             };
 
