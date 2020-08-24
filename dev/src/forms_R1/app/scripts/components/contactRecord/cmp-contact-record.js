@@ -212,6 +212,9 @@
             vm.contactModel.roleConcat = _getRolesConcat();
             if (vm.contactRecForm.$valid) {
                 // vm.contactModel.isDetailValid=true;
+                if(! vm.contactModel.addressRole.importer){
+                    vm.contactModel.impCompanyName = '';
+                }
                 vm.isDetailValid({state: true});
                 vm.contactRecForm.$setPristine();
                 vm.onUpdate({contact: vm.contactModel});
