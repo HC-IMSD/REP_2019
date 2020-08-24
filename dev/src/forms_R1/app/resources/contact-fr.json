@@ -19,13 +19,13 @@
   "CONTACT_INFO": "Renseignements sur le représentant de la copmpagnie",
   "REP_CONTACT":  "Personne-ressource pour le PIR",
   "ONE_ROLE": "Rôle",
-  "CONTACT_DETAILS": "Détails du représentant de l'entreprise",
+  "CONTACT_DETAILS": "Détails du représentant de la compagnie",
   "ADD_CONTACT": "Ajouter la personne-ressource pour le PIR",
-  "CONTACT_ROLE_LEGEND": "Sélectionner un ou plusieurs rôles pour ce représentant de l'entreprise",
+  "CONTACT_ROLE_LEGEND": "Sélectionner un ou plusieurs rôles pour ce représentant de la compagnie",
 //  "CONTACT_ROLE_INSTRUCT":"fr_Company Representative Role Instructions",
   "ADD_REPRES": "Ajouter un représentant de la compagnie",
   "DELETE_REPRES": "Supprimer le représentant de la compagnie",
   "SAVE_REPRES": "Enregistrer le représentant de la compagnie",
-  "ROLES": "Rôles"
-
+  "ROLES": "Rôles",
+  "IMP_COMPANY_NAME": "Nom de la compagnie de l'importateur canadien"
 }

@@ -15,5 +15,6 @@
 "TYPE_DATE":"Veuillez fournir une une date valide.",
 "TYPE_NUMBER":"Veuillez fournir un numéro valide.",
 "TYPE_PATTERN": "Format incorrecte",
-  "MSG_VALUE_MAX": "La valeur n'est pas dans les limites valides"
+  "MSG_VALUE_MAX": "La valeur n'est pas dans les limites valides",
+  "COMPANY_IN_USE": "fr_The importer is in use for Company Representative Details, delete that record first."
 }

@@ -85,6 +85,7 @@
         contact.phoneExt = "";
         contact.fax = "";
         contact.email = "";
+        contact.addrImpCompanyName = "";
         return contact;
     }
 

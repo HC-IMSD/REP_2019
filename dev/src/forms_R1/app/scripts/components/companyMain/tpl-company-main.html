@@ -81,6 +81,8 @@
                             <div class="panel-body">
                                 <cmp-company-address-list addresses="main.company.addressList"
                                                           get-new-address="main.getNewAddress()"
+                                                          has-addr-imp-company-name="main.hasAddrImpCompanyName(addressList)"
+                                                          is-imp-company-name-used="main.isImpCompanyNameUsed(companyName)"
                                                           is-amend="main.formAmendType"
                                                           is-file-loaded="main.isFileLoaded"
                                                           user-type="main.userType"
@@ -102,6 +104,7 @@
                             <div class="panel-body">
                                 <cmp-company-contact-list contacts="main.company.contactList"
                                                           get-new-contact="main.getNewContact()"
+                                                          addr-imp-company-name="main.addrImpCompanyName"
                                                           is-amend="main.formAmendType"
                                                           is-file-loaded="main.isFileLoaded"
                                                           user-type="main.userType"

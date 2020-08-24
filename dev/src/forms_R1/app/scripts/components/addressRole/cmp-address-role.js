@@ -30,8 +30,8 @@
                 legendText: '@',
                 importerUpdated: '&',
                 deselectImporter: '&',
-                updateErrorSummary: '&'
-
+                updateErrorSummary: '&',
+                inUseFlag:'<'
             }
         });
 
@@ -48,6 +48,9 @@
         vm.showCMError = false;
         vm.duplicateRole=[
             {type: "duplicateRole", displayAlias: "TYPE_DUPLICATEROLE"}
+        ];
+        vm.impCompanyInUse=[
+            {type: "impCompanyInUse", displayAlias: "COMPANY_IN_USE"}
         ];
 
         vm.roleModel = {

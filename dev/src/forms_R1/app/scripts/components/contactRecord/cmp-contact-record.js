@@ -33,7 +33,8 @@
                 updateErrorSummary:'&', //update the parent error summary
                 htIndxList: '<',
                 isFocus: '<',
-                cancelFocus: '&'
+                cancelFocus: '&',
+                addrImpCompanyName: '<'
             }
         });
     contactRecCtrl.$inject = ['$scope'];
@@ -68,7 +69,8 @@
             title: "",
             phone: "",
             PhoneExt: "",
-            fax: ""
+            fax: "",
+            addrImpCompanyName: ""
         };
         vm.alias={
             "contactRoleMissing": {
@@ -180,6 +182,7 @@
             vm.updateContactModel2();
             vm.showRoutingId();
             vm.setEditable();
+            vm.showAddrImpCompanyName();
         };
         /**
          * @ngdoc method -Updates the parent on whether this record is valid or not
@@ -262,6 +265,17 @@
                 return 0;
             } else {
                 vm.contactModel.routingId = '';
+                return -1;
+            }
+        }
+
+        vm.showAddrImpCompanyName = function () {
+            //TODO
+            vm.contactModel.roleConcat = _getRolesConcat();
+            if (vm.contactModel.roleConcat.indexOf(' IMP') > -1) {
+                return 0;
+            } else {
+                vm.contactModel.addrImpCompanyName = '';
                 return -1;
             }
         }

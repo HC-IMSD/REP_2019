@@ -15,5 +15,6 @@
   "TYPE_DATE":"Please enter a valid date",
   "TYPE_NUMBER":"Please enter a valid number",
   "TYPE_PATTERN": "Incorrect format",
-  "MSG_VALUE_MAX": "Value is not within valid limits"
+  "MSG_VALUE_MAX": "Value is not within valid limits",
+  "COMPANY_IN_USE": "The importer is in use for Company Representative Details, delete that record first."
 }

@@ -65,6 +65,8 @@
         vm.applTypes = vm.companyService.getApplicationTypes();
         vm.formTypeList = getRoleLists.getFormTypes();
         vm.company = vm.companyService.getModelInfo();
+        vm.addressList = [];
+        vm.addrImpCompanyName =[];
         vm.indexList = vm.companyService.helpTextSequences;
         vm.alerts = [false, false, false, false, false, false];
         /**vm.alertAnchors = ["load-instructions-toggle",
@@ -258,6 +260,7 @@
                 vm.companyService.transformFromFileObj(resultJson);
                 vm.company = {};
                 angular.extend(vm.company, vm.companyService.getModelInfo());
+                vm.hasAddrImpCompanyName(vm.company.addressList);
                 _setComplete();
                 vm.setAmend();
                 vm.isFileLoaded = true;
@@ -305,6 +308,27 @@
             var temp = vm.company.addressList;
             vm.company.addressList = [];
             vm.company.addressList = temp;
+         };
+
+        vm.hasAddrImpCompanyName = function (addressList) {
+            vm.addrImpCompanyName = [];
+            for (var i =0; i< addressList.length; i++){
+                if(addressList[i].addressRole.importer){
+                    vm.addrImpCompanyName.push(addressList[i].companyName);
+                }
+            }
+            return vm.addrImpCompanyName;
+        };
+
+
+        vm.isImpCompanyNameUsed = function (companyName) {
+
+           for (var i=0; i< vm.company.contactList.length; i++){
+                if(companyName !=="" && companyName === vm.company.contactList[i].impCompanyName){
+                    return true;
+                }
+            }
+            return false;
         };
 
         //TODO remove?
