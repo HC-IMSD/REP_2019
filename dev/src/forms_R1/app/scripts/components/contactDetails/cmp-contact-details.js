@@ -125,7 +125,7 @@
             vm.phoneExtId="phoneExt" + scopeId;
             vm.contactEmailId="contactEmail" + scopeId;
             vm.routingIdentifierId="routing_id" + scopeId;
-            vm.impCompanyNameId="impCompanyName" + scopeId;
+            vm.impCompanyNameId="imp_company_name" + scopeId;
         }
         $scope.$watch('contCtrl.contactForm.$error', function () {
             vm.updateErrorSummary();
