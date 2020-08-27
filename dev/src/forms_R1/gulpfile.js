@@ -136,8 +136,8 @@ var companyRootTitles_en = {
 
 };
 var companyRootTitles_fr = {
-    mainHeading: "Modèle de l'entreprise: Processus d'Inscription Réglementaire (Version 4.1.0)",
-    title: "Modèle de l'entreprise: Processus d'Inscription Réglementaire - Canada.ca"
+    mainHeading: "'Modèle de compagnie': Processus d'Inscription Réglementaire (Version 4.1.0)",
+    title: "'Modèle de compagnie': Processus d'Inscription Réglementaire - Canada.ca"
 
 };
 
