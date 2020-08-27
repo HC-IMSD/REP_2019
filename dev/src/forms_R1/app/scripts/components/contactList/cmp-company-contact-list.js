@@ -39,6 +39,7 @@
         vm.selectRecord = -1; //the record to select
         vm.isDetailValid=true; //used to track if details valid. If they are  not do not allow expander collapse
         vm.allRolesSelected=false;
+        vm.impCompanySelected=true;
         vm.contactList = [];
         vm.formAmend = false;
         vm.isInternal = false;
@@ -99,6 +100,7 @@
                 vm.contactList = changes.contacts.currentValue;
                 updateRolesConcat();
                 vm.allRolesSelected = vm.isAllContactRolesSelected();
+                vm.impCompanySelected = vm.isImpCompanySelected();
                 vm.isDetailValid=true;
                 vm.updateErrorSummaryState()
             }
@@ -186,11 +188,13 @@
 
         vm.showError = function () {
             // !vm.contactListForm.$pristine
-            return(!vm.isAllContactRolesSelected());
+            // return(!vm.isAllContactRolesSelected());
            /* if ((!vm.isAllContactRolesSelected() )) {
                 return true
             }
             return false*/
+
+            return !vm.isAllContactRolesSelected() || !vm.isImpCompanySelected();
         };
 
         vm.onUpdateContactRecord = function (record) {
@@ -200,6 +204,7 @@
              ); //TODO fix filter
              vm.contactList[idx] = angular.copy(record);
             vm.allRolesSelected= vm.isAllContactRolesSelected();
+            vm.impCompanySelected = vm.isImpCompanySelected();
             vm.requiredFlag = false;
             vm.resetCollapsed = !vm.resetCollapsed;
             vm.contactListForm.$setPristine();
@@ -214,6 +219,7 @@
             vm.onUpdate({newList: vm.contactList});
             vm.isDetailValid = true; //case that incomplete record
             vm.allRolesSelected= vm.isAllContactRolesSelected();
+            vm.impCompanySelected = vm.isImpCompanySelected();
             vm.requiredFlag = false;
             vm.resetCollapsed = !vm.resetCollapsed;
             vm.updateErrorSummaryState();
@@ -308,6 +314,27 @@
             }
 
             return false;
+        };
+
+        vm.isImpCompanySelected = function () {
+            var i = 0;
+            var j = 0;
+            if (Array.isArray(vm.addrImpCompanyName) && vm.addrImpCompanyName.length > 0) {
+                for (i = 0; i < vm.addrImpCompanyName.length; i++) {
+                    for (j = 0; j < vm.contactList.length; j++) {
+                        if(vm.addrImpCompanyName[i] === vm.contactList[j].impCompanyName){
+                            break;
+                        }
+                    }
+
+                    if (j >= vm.contactList.length)
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
         }
     }
 

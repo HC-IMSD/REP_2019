@@ -100,9 +100,11 @@
             "importerIdValid": {
                 "type": "element",
                 "target": "addressList"
+            },
+            "contactImporterVaild":{
+                "type": "element",
+                "target": "contactList"
             }
-
-
         };
 
         vm.initUser = function (id) {

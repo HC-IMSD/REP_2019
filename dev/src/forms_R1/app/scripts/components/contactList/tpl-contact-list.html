@@ -2,6 +2,8 @@
     <div id="contactList_{{::$id}}">
         <input type="checkbox" id="contactRolesValid_{{::$id}}" name="contactRolesValid_{{::$id}}" data-ng-show="false"
                data-ng-model="contactListCtrl.allRolesSelected" required/>
+        <input type="checkbox" id="contactImporterVaild_{{::$id}}" name="contactImporterVaild_{{::$id}}" data-ng-show="false"
+               data-ng-model="contactListCtrl.impCompanySelected" required/>
         <cmp-expanding-table pre-id="contact_expnd_" list-items="contactListCtrl.contactList" transclude-name="companyContact"
                              reset-to-collapsed="contactListCtrl.resetCollapsed" is-required-record="contactListCtrl.requiredFlag"
                              column-def="contactListCtrl.columnDef" select-record="contactListCtrl.selectRecord"

@@ -10,5 +10,6 @@
   "CONTACTROLEMISSING": "Select one or more roles for this company representative",
   "ROLEREPMISSING": "Roles for this company representative ",
   "IMPORTERIDVALID": "Please input importer ID for each importer",
-  "ADDRESS_EXPND": "Please input importer ID for each importer"
+  "ADDRESS_EXPND": "Please input importer ID for each importer",
+  "CONTACTIMPORTERVAILD": "Each Importer Company needs at least one representative"
 }

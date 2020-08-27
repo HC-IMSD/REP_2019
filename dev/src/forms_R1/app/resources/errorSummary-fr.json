@@ -16,5 +16,5 @@
 "TYPE_NUMBER":"Veuillez fournir un numéro valide.",
 "TYPE_PATTERN": "Format incorrecte",
   "MSG_VALUE_MAX": "La valeur n'est pas dans les limites valides",
-  "COMPANY_IN_USE": "fr_The importer is in use for Company Representative Details, delete that record first."
+  "COMPANY_IN_USE": "L'importateur est en cours d'utilisation pour les Détails du représentant de la compagnie, supprimez ce premier enregistrement."
 }
