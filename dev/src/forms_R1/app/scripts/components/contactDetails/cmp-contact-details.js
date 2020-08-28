@@ -34,11 +34,11 @@
                 showRoutingId: '&',
                 showAddrImpCompanyName: '&',
                 addrImpCompanyName:'<',
-                contactImpCompanyName:'&'
+                isContact:'<'
             }
     });
 
-    contactCtrl.$inject = ['getContactLists','ENGLISH','FRENCH','$scope', 'CompanyService'];
+    contactCtrl.$inject = ['getContactLists','ENGLISH','FRENCH','$scope'];
     function contactCtrl( getContactLists,ENGLISH,FRENCH,$scope) {
         var vm = this;
         vm.isEditable = true;

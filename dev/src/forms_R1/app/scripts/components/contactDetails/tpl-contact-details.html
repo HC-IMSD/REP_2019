@@ -158,7 +158,7 @@
             </div>
         </div>
 
-        <div class="row" data-ng-if="contCtrl.showAddrImpCompanyName() > -1" >
+        <div class="row" data-ng-if="contCtrl.isContact && contCtrl.showAddrImpCompanyName() > -1" >
             <div class="col-md-6 form-group" data-ng-if="contCtrl.hasAddrImpCompany()">
                 <label for="{{::contCtrl.impCompanyNameId}}" class="full-width" >
                     <span class="field-name">{{::'IMP_COMPANY_NAME'|translate}}</span>
