@@ -96,11 +96,11 @@
             //vm.allRolesSelected = vm.isAllContactRolesSelected();
         };
         vm.$onChanges = function (changes) {
+            vm.impCompanySelected = vm.isImpCompanySelected();
             if (changes.contacts) {
                 vm.contactList = changes.contacts.currentValue;
                 updateRolesConcat();
                 vm.allRolesSelected = vm.isAllContactRolesSelected();
-                vm.impCompanySelected = vm.isImpCompanySelected();
                 vm.isDetailValid=true;
                 vm.updateErrorSummaryState()
             }
