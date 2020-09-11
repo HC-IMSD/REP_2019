@@ -162,9 +162,9 @@
             REQ_ACCEPTED:"REQ_ACCEPTED",                       //Request Accepted
             CTN_FORM_BROC_UPDATES:"CTN_FORM_BROC_UPDATES",     //  CTN- Informed Consent Form and Investigator’s Brochure Updates
             CTN_IMPD_UPDATE:"CTN_IMPD_UPDATE",                 // CTN-IMPD Update
-            CTN_NEW_SUMM_ADF:"CTN_NEW_SUMM_ADF",                // CTN- New Summary of Additional Drugs Form
-            COVIR_19: 'COVIR-19',
-            COVIR_19AMD: 'COVIR-19AMD'
+            CTN_NEW_SUMM_ADF:"CTN_NEW_SUMM_ADF"                // CTN- New Summary of Additional Drugs Form
+            // COVIR_19: 'COVIR-19',          //commented out for release to prod on 2020-09-10
+            // COVIR_19AMD: 'COVIR-19AMD'          //commented out for release to prod on 2020-09-10
 
         };
 
@@ -261,14 +261,12 @@
             getActivityLeadListByD21: _getActivityLeadD21Array,
             getActivityLeadListByD24: _getActivityLeadD24Array,
             getActivityLeadListByD26: _getActivityLeadD26Array,
-            getShelfLifeUnitsList:_getShelfLifeUnitsArray,
+            getShelfLifeUnitsList:_getShelfLifeUnitsArray
 
-            getCOVIR19Type: _getCoVir19Array,
-            getCOVID19AMDType: _getCoVir19AmdArray
+            // getCOVIR19Type: _getCoVir19Array, //--remove temporary for the release 2020-09-10, will add them back after
+            // getCOVID19AMDType: _getCoVir19AmdArray  //--remove temporary for the release 2020-09-10, will add them back after
         };
         return service;
-
-        ////////////////
 
         //TODO make lists be activity.. yikes!
 
