@@ -600,12 +600,12 @@
                 case ("B02-20180912-01"): //	RCC (Regulatory Cooperation Council)
                     vm.descriptionList = TransactionLists.getV_RccType();
                     break;
-                // case ("B02-20200417-01"): //	COVIR-19 //commented out for before release to prod on 2020-09-10
-                //     vm.descriptionList = TransactionLists.getCOVIR19Type();
-                //     break;
-                // case ("B02-20200417-02"): //	COVID-19 AMENDMENT //commented out for before release to prod on 2020-09-10
-                //     vm.descriptionList = TransactionLists.getCOVID19AMDType();
-                //     break;
+                case ("B02-20200417-01"): //	COVIR-19 //commented out for before release to prod on 2020-09-10
+                    vm.descriptionList = TransactionLists.getCOVIR19Type();
+                    break;
+                case ("B02-20200417-02"): //	COVID-19 AMENDMENT //commented out for before release to prod on 2020-09-10
+                    vm.descriptionList = TransactionLists.getCOVID19AMDType();
+                    break;
 
                 default:
                     try {
