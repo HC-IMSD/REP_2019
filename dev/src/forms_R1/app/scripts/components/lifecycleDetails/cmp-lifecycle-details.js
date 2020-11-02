@@ -454,6 +454,7 @@
                         vm.descriptionList = TransactionLists.getMPNDSType();
                     }
                     break;
+
                 case ("B02-20160301-049"): //	MPSNDS (Pre-SNDS Meeting)
                     if(vm.lifecycleModel.activityLead === "B14-20160301-11") {
                         vm.descriptionList = TransactionLists.getV_MpsndsType();
@@ -605,6 +606,9 @@
                     break;
                 case ("B02-20200417-02"): //	COVID-19 AMENDMENT //commented out for before release to prod on 2020-09-10
                     vm.descriptionList = TransactionLists.getCOVID19AMDType();
+                    break;
+                case ("B02-20201028-01"): // MPCOV (Same Transaction Description list as MPNDS)
+                    vm.descriptionList = TransactionLists.getMPNDSType();
                     break;
 
                 default:

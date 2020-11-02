@@ -136,6 +136,9 @@
                     case 'B02-20200417-02': //COVIR-19AMD
                         newList.push(raList[i]);
                         break;
+                    case 'B02-20201028-01': //MPCOV
+                        newList.push(raList[i]);
+                        break;
                 }
             }//for
             return newList;
@@ -233,6 +236,9 @@
                         newList.push(raList[i]);
                         break;
                     case 'B02-20200417-02': //COVIR-19AMD
+                        newList.push(raList[i]);
+                        break;
+                    case 'B02-20201028-01': //MPCOV
                         newList.push(raList[i]);
                         break;
 
