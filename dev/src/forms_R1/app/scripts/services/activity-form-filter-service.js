@@ -389,12 +389,12 @@
                     case 'B02-20190627-06': //SANDS-C
                         newList.push(raList[i]);
                         break;
-                    case 'B02-20200417-01': //COVIR-19
-                        newList.push(raList[i]);
-                        break;
-                    case 'B02-20200417-02': //COVIR-19AMD
-                        newList.push(raList[i]);
-                        break;
+                    // case 'B02-20200417-01': //COVIR-19
+                    //     newList.push(raList[i]);
+                    //     break;
+                    // case 'B02-20200417-02': //COVIR-19AMD
+                    //     newList.push(raList[i]);
+                    //     break;
                 }
             }//for
             return newList;
