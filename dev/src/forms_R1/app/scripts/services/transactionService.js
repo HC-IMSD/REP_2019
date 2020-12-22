@@ -572,7 +572,8 @@
         var lifecycleRec = {};
        /**
         lifecycleRec.sequence_number = lifecycleObj.sequence;
-        lifecycleRec.date_filed = lifecycleObj.dateFiled; **/
+        lifecycleRec.date_filed = lifecycleObj.dateFiled;
+        **/
         lifecycleRec.control_number = lifecycleObj.controlNumber;
         var currentLang = $translate.proposedLanguage() || $translate.use();
         lifecycleRec.regulatory_activity_lead = "";
