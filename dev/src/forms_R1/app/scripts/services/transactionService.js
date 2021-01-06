@@ -60,7 +60,7 @@
                     reqSoliInx: 0,
                     feesInx: 0,
                     contactInx: 0,
-                    compNameInx: 0,
+                    // compNameInx: 0,
                     routingIdInx: 0,
                     genXmlInx: 0
                 }:{
@@ -79,7 +79,7 @@
                 fromInx: 0,
                 feesInx: 0,
                 contactInx: 0,
-                compNameInx: 0,
+                // compNameInx: 0,
                 routingIdInx: 0,
                 genXmlInx: 0
             };
@@ -149,7 +149,7 @@
                         software_version: "4.1.0",
                         data_checksum: jsonObj.dataChecksum,
                        // transaction_type: jsonObj.transactionType,
-                        is_third_party: jsonObj.isThirdParty,
+                       //  is_third_party: jsonObj.isThirdParty,
                         is_priority: jsonObj.isPriority,
                         is_noc: jsonObj.isNoc,
                         is_admin_sub: jsonObj.isAdminSub,
@@ -270,7 +270,7 @@
               //  model.isEctd = jsonObj.is_ectd;
 
               //  model.transactionType = jsonObj.transaction_type;
-                model.isThirdParty = jsonObj.is_third_party;
+              //   model.isThirdParty = jsonObj.is_third_party;
                 model.isPriority = jsonObj.is_priority;
                 model.isNoc = jsonObj.is_noc;
                 model.isAdminSub = jsonObj.is_admin_sub;
@@ -1035,7 +1035,7 @@
             dateSaved: "",
             softwareVersion: "4.1",
            // transactionType: "",
-            isThirdParty: "",
+           //  isThirdParty: "",
             isPriority: "",
             isNoc: "",
             isAdminSub: "",

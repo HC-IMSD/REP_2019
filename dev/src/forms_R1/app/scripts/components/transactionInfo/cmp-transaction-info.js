@@ -66,7 +66,7 @@
         vm.yesNoList = [YES, NO];
         // vm.newExistingList = [NEW, EXISTING];
         // vm.showNewActivityFields = false;
-        vm.showThirdPartyNote = false;
+        // vm.showThirdPartyNote = false;
         vm.showAdminSub = false;
         vm.showEctdSection = true;
         vm.showSolicitedDetail = false;
@@ -97,7 +97,7 @@
         vm.$onInit = function () {
             _setIdNames();
             // vm.updateActivityType();
-            vm.setThirdParty();
+            // vm.setThirdParty();
             vm.setAdminSubmission();
             vm.updateEctdState();
             vm.updateDossierTypeState();
@@ -114,7 +114,7 @@
             if (changes.transactionRoot) {
                 vm.transactionModel = changes.transactionRoot.currentValue;
                 //   vm.updateActivityType();
-                vm.setThirdParty();
+                // vm.setThirdParty();
                 vm.setAdminSubmission();
                 vm.updateEctdState();
                 //   vm.setSolicitedState();
@@ -216,20 +216,20 @@
         vm.updateActivityType = function () {
             //  vm.showNewActivityFields = isNewActivity();
             //if(!vm.showNewActivityFields){
-            vm.transactionModel.isThirdParty = "";
+            // vm.transactionModel.isThirdParty = "";
             vm.transactionModel.isPriority = "";
             vm.transactionModel.isNoc = "";
             vm.transactionModel.isAdminSub = "";
             vm.transactionModel.subType = "";
-            vm.showThirdPartyNote = false;
+            // vm.showThirdPartyNote = false;
             vm.showAdminSub = false;
 
             // }
         };
 
-        vm.setThirdParty = function () {
-            vm.showThirdPartyNote = (vm.transactionModel.isThirdParty === YES);
-        };
+        // vm.setThirdParty = function () {
+        //     vm.showThirdPartyNote = (vm.transactionModel.isThirdParty === YES);
+        // };
 
         vm.updateEctdState = function () {
             if (isEctdValue()) {
@@ -403,7 +403,7 @@
                 // vm.transactionModel.transactionType = ""; //12 - new or exsiting
                 // vm.updateDossierTypeState();
                 vm.updateActivityType();
-                vm.setThirdParty();
+                // vm.setThirdParty();
                 vm.setAdminSubmission();
                 // vm.transactionModel.isSolicited = "";
                 // vm.setSolicitedState();
@@ -450,7 +450,7 @@
             vm.isFeesId="is_fee_transaction"+scopeId;
             vm.typeId="dossier_type"+ scopeId;
             // vm.isNewActivityId="is_new_activity"+ scopeId;
-            vm.thirdPartyId = "is_signed_3rd_party" + scopeId;
+            // vm.thirdPartyId = "is_signed_3rd_party" + scopeId;
             vm.isAdminSubId = "is_admin_submission" + scopeId;
             vm.adminSubTypeId = "admin_sub_type" + scopeId;
             vm.isPriorityId = "is_priority" + scopeId;
