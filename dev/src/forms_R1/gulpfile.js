@@ -41,6 +41,7 @@ var paths = {
     translations: 'app/resources/',
     helpTemplates: 'app/help/',
     buildProd: buildProd,
+    buildProdPilot: buildProdPilot,
     buildDev: buildDev,
     buildDevPilot: buildDevPilot,
     buildDevDiff: buildDev + '/repDiff/',
@@ -1778,6 +1779,13 @@ gulp.task('dev-drugProduct-pilot-clean', function () {
 //
 // }));
 
+/******* Common Tasks ****/
+gulp.task('dev-copyData-pilot', function () {
+    var copySources = gulp.src([paths.data + '**/*'],
+        {read: true, base: 'app'});
+    return (copySources.pipe(gulp.dest(paths.buildDevPilot)));
+});
+
 /******* Company Tasks ****/
 
 //copy all the needed files for company
@@ -1854,7 +1862,7 @@ gulp.task('dev-company-htmlCreate', function () {
 
 });
 
-gulp.task('dev-company-htmlBuild', gulp.series('dev-company-pilot-clean', 'dev-company-clean', 'dev-global-create-src-template', 'dev-company-copyData', 'dev-company-copySrc', 'dev-company-copyLib', 'dev-company-setProdEnvJS', 'dev-company-createRootJS', 'dev-company-createResources', 'dev-company-htmlCreate', function () {
+gulp.task('dev-company-htmlBuild', gulp.series('dev-company-pilot-clean', 'dev-company-clean', 'dev-global-create-src-template', 'dev-company-copyData',  'dev-copyData-pilot', 'dev-company-copySrc', 'dev-company-copyLib', 'dev-company-setProdEnvJS', 'dev-company-createRootJS', 'dev-company-createResources', 'dev-company-htmlCreate', function () {
     setTimeout(() => {
         // console.log("pilot!");
         var copySources = gulp.src([paths.buildDevCompany + '**/*'],
@@ -1947,7 +1955,7 @@ gulp.task('dev-transaction-htmlCreate', function () {
 
 });
 
-gulp.task('dev-transaction-htmlBuild', gulp.series('dev-transaction-pilot-clean', 'dev-transaction-clean', 'dev-global-create-src-template', 'dev-transaction-copyData', 'dev-transaction-copySrc', 'dev-transaction-copyLib', 'dev-transaction-setProdEnvJS', 'dev-transaction-createRootJs', 'dev-transaction-createResources', 'dev-transaction-htmlCreate', function () {
+gulp.task('dev-transaction-htmlBuild', gulp.series('dev-transaction-pilot-clean', 'dev-transaction-clean', 'dev-global-create-src-template', 'dev-transaction-copyData', 'dev-copyData-pilot', 'dev-transaction-copySrc', 'dev-transaction-copyLib', 'dev-transaction-setProdEnvJS', 'dev-transaction-createRootJs', 'dev-transaction-createResources', 'dev-transaction-htmlCreate', function () {
     setTimeout(() => {
         // console.log("pilot!");
         var copySources = gulp.src([paths.buildDevTransaction + '**/*'],
@@ -2126,7 +2134,7 @@ gulp.task('dev-drugProduct-htmlCreate', function () {
     );
 });
 
-gulp.task('dev-drugProduct-htmlBuild', gulp.series('dev-drugProduct-pilot-clean', 'dev-drugProduct-clean', 'dev-global-create-src-template', 'dev-drugProduct-copyData', 'dev-drugProduct-copySrc', 'dev-drugProduct-copyLib', 'dev-drugProduct-setProdEnvJS', 'dev-drugProduct-createRootJS', 'dev-drugProduct-createResources', 'dev-drugProduct-htmlCreate', function () {
+gulp.task('dev-drugProduct-htmlBuild', gulp.series('dev-drugProduct-pilot-clean', 'dev-drugProduct-clean', 'dev-global-create-src-template', 'dev-drugProduct-copyData', 'dev-copyData-pilot', 'dev-drugProduct-copySrc', 'dev-drugProduct-copyLib', 'dev-drugProduct-setProdEnvJS', 'dev-drugProduct-createRootJS', 'dev-drugProduct-createResources', 'dev-drugProduct-htmlCreate', function () {
     setTimeout(() => {
         // console.log("pilot!");
         var copySources = gulp.src([paths.buildDevDrugProduct + '**/*'],
@@ -2454,9 +2462,15 @@ gulp.task('prod-global-copyDataFolder', function () {
     return (copySources.pipe(gulp.dest(paths.buildProd)));
 });
 
-gulp.task('prod-global-copyWetDependencies', function () {
-    return (pipes.copyWet(paths.buildProd))
+gulp.task('prod-global-copyDataFolder-pilot', function () {
+    var copySources = gulp.src([paths.data + '**/*'],
+        {read: true, base: 'app'});
+    return (copySources.pipe(gulp.dest(paths.buildProdPilot)));
 });
+
+// gulp.task('prod-global-copyWetDependencies', function () {
+//     return (pipes.copyWet(paths.buildProd))
+// });
 
 gulp.task('prod-global-create-src-template', function () {
 
@@ -2721,7 +2735,7 @@ gulp.task('prod-company-allFormsCreate', gulp.series('prod-company-clean', 'prod
 
 }));
 
-gulp.task('prod-company-allFormsCreate-pilot', gulp.series('prod-company-pilot-clean', 'prod-global-create-src-template', 'prod-global-copyDataFolder', 'prod-company-compileTranslateFile', 'prod-company-createRootJsFiles', 'prod-company-copySourceFiles', 'prod-company-setPilotEnvJS', 'prod-company-compileSrcJs', 'prod-company-copyLib', 'prod-company-pilot-compileHtml', function () {
+gulp.task('prod-company-allFormsCreate-pilot', gulp.series('prod-company-pilot-clean', 'prod-global-create-src-template', 'prod-global-copyDataFolder-pilot', 'prod-company-compileTranslateFile', 'prod-company-createRootJsFiles', 'prod-company-copySourceFiles', 'prod-company-setPilotEnvJS', 'prod-company-compileSrcJs', 'prod-company-copyLib', 'prod-company-pilot-compileHtml', function () {
 
     return pipes.deleteResourcesNonMinFiles(paths.buildProdCompany);
 
@@ -2969,7 +2983,7 @@ gulp.task('prod-transaction-allFormsCreate', gulp.series('prod-transaction-clean
 
 }));
 
-gulp.task('prod-transaction-allFormsCreate-pilot', gulp.series('prod-transaction-pilot-clean', 'prod-global-create-src-template', 'prod-global-copyDataFolder', 'prod-transaction-compileTranslateFile', 'prod-transaction-createRootJsFiles', 'prod-transaction-copySourceFiles', 'prod-transaction-setPilotEnvJS', 'prod-transaction-compileSrcJs', 'prod-transaction-copyLib', 'prod-transaction-pilot-compileHtml', function () {
+gulp.task('prod-transaction-allFormsCreate-pilot', gulp.series('prod-transaction-pilot-clean', 'prod-global-create-src-template', 'prod-global-copyDataFolder-pilot', 'prod-transaction-compileTranslateFile', 'prod-transaction-createRootJsFiles', 'prod-transaction-copySourceFiles', 'prod-transaction-setPilotEnvJS', 'prod-transaction-compileSrcJs', 'prod-transaction-copyLib', 'prod-transaction-pilot-compileHtml', function () {
 
     return pipes.deleteResourcesNonMinFiles(paths.buildProdTransaction);
 
@@ -3420,7 +3434,7 @@ gulp.task('prod-drugProduct-allFormsCreate', gulp.series('prod-drugProduct-clean
 
 }));
 
-gulp.task('prod-drugProduct-allFormsCreate-pilot', gulp.series('prod-drugProduct-pilot-clean', 'prod-global-create-src-template', 'prod-global-copyDataFolder', 'prod-drugProduct-compileTranslateFile', 'prod-drugProduct-createRootJsFiles', 'prod-drugProduct-copySourceFiles', 'prod-drugProduct-setPilotEnvJS', 'prod-drugProduct-compileSrcJs', 'prod-drugProduct-copyLib', 'prod-drugProduct-pilot-compileHtml', function () {
+gulp.task('prod-drugProduct-allFormsCreate-pilot', gulp.series('prod-drugProduct-pilot-clean', 'prod-global-create-src-template', 'prod-global-copyDataFolder-pilot', 'prod-drugProduct-compileTranslateFile', 'prod-drugProduct-createRootJsFiles', 'prod-drugProduct-copySourceFiles', 'prod-drugProduct-setPilotEnvJS', 'prod-drugProduct-compileSrcJs', 'prod-drugProduct-copyLib', 'prod-drugProduct-pilot-compileHtml', function () {
 
     return pipes.deleteResourcesNonMinFiles(paths.buildProdDrugProduct);
 
