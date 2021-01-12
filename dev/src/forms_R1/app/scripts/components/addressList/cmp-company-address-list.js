@@ -58,28 +58,28 @@
             {
                 label: "COMPANY_NAME",
                 binding: "companyName",
-                width: "20"
+                width: "25"
             },
             {
                 label: "CITY",
                 binding: "city",
-                width: "20"
+                width: "25"
             },
             {
                 label: "COUNTRY",
                 binding: "countryDisplay",
-                width: "20"
+                width: "25"
             },
             {
                 label: "ROLES",
                 binding: "roleConcat",
-                width: "20"
-            },
-            {
-                label: "IMPORTERID",
-                binding: "importerID",
-                width: "20"
+                width: "25"
             }
+            // {
+            //     label: "IMPORTERID",
+            //     binding: "importerID",
+            //     width: "20"
+            // }
         ];
 
 
