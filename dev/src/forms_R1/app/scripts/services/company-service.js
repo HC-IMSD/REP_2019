@@ -45,6 +45,7 @@
             this.helpTextSequences = {
                 loadFileInx: 0,
                 enrolIdx: 0,
+                fillingIdx: 0,
                 addressIdx: 0,
                 businessIdx: 0,
                 addRoleIdx: 0,
