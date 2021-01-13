@@ -22,7 +22,8 @@
                 isIncomplete: '<',
                 isHide: '<',
                 configureIdField: '<',
-                setType: '&'
+                setType: '&',
+                htIndxList: '<'
             }
         });
 
@@ -49,7 +50,7 @@
         vm.maxErrorMsg = "";
         vm.isDossier = false;
         vm.isNumber=false;
-        vm.isAmend = false;
+        // vm.isAmend = false;
         vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
         vm.min6Error = [
             {type: "required", displayAlias: "MSG_ERR_MAND"},
@@ -60,6 +61,7 @@
             {type: "minlength", displayAlias: "MSG_LENGTH_MIN5"},
             {type: "pattern", displayAlias: "MSG_FORMAT_CHAR_6DIGITS"}
         ];
+
         vm.$onInit = function () {
             ///do init
             vm.infoModel.applicationTypeText = $translate.instant(vm.infoModel.applicationType);
@@ -69,18 +71,18 @@
             if (changes.userType) {
                 vm.formType = changes.userType.currentValue;
             }
-            if (changes.record) {
-                vm.infoModel = changes.record.currentValue;
-                if(vm.infoModel.applicationType===AMEND_TYPE) {
-                    vm.isAmend = true;
-                }
-                else if(vm.infoModel.applicationType===APPROVED_TYPE && !vm.isEmpty(vm.infoModel.reasonAmend)){
-                    vm.isAmend = true;
-                }
-                else{
-                    vm.isAmend = false;
-                }
-            }
+            // if (changes.record) {
+            //     vm.infoModel = changes.record.currentValue;
+            //     if(vm.infoModel.applicationType===AMEND_TYPE) {
+            //         vm.isAmend = true;
+            //     }
+            //     else if(vm.infoModel.applicationType===APPROVED_TYPE && !vm.isEmpty(vm.infoModel.reasonAmend)){
+            //         vm.isAmend = true;
+            //     }
+            //     else{
+            //         vm.isAmend = false;
+            //     }
+            // }
             if (changes.isIncomplete) {
                 vm.setAsIncomplete = changes.isIncomplete.currentValue;
             }
@@ -92,6 +94,7 @@
                 vm.updateErrorSummaryState();
             }
         };
+
         function _setConfigItems(configJson) {
             vm.fieldIdLabel = configJson.label;
             vm.fieldLength = configJson.fieldLength; //this is the max
@@ -134,7 +137,7 @@
         vm.setAmendState = function () {
             //TODO hardcode should be service
             vm.setType({type: AMEND_TYPE});
-            vm.isAmend = true;
+            // vm.isAmend = true;
         };
 
         function _setIdNames() {

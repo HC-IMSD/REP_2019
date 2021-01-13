@@ -78,7 +78,7 @@
   "HT_LOAD_FILE_2": "Lors de la consultation ou de la mise à jour d’une version finale du fichier XML, le fichier doit être chargé en format .xml.",
   "HT_PROD_INFO_1": "Veuillez inclure seulement les renseignements pertinents à cette activité de réglementation (c.-à-d., si le dossier comporte cinq formes posologiques, mais que cette activité de réglementation ne s’applique qu’à l’une d’entre elles, indiquez seulement la formulation correspondante à cette forme posologique dans cette version du fichier d’information sur le produit en format XML).",
   "HT_PROD_INFO_1A": "Pour obtenir le numéro de la compagnie, consultez la version finale du fichier de compagnie (en format XML) délivré par Santé Canada.",
-  "HT_PROD_INFO_2": "Pour « obtenir le numéro du dossier », consultez les documents délivré par Santé Canada. Le numéro du dossier est composé d’une lettre suivie de six chiffres. (p. ex., HC6-024-x######).",
+  "HT_PROD_INFO_2": "Pour « obtenir le numéro du dossier », consultez les documents délivré par Santé Canada. Le numéro du dossier est composé d’une lettre suivie de six chiffres. (p. ex., x######).",
   "HT_PROD_INFO_3": "Remarque : Toute section comportant un bouton « Enregistrer » doit être sauvegardée individuellement. Autrement, l’information incomplète sera perdue.",
   "HT_COMP_ID_1": "Pour « obtenir le numéro de la compagnie », consultez la version finale du fichier de compagnie (en format XML) délivré par Santé Canada.",
   "HT_COMP_ID_2": "Le numéro de la compagnie doit être composé de 5 chiffres -  ajouter un zéro à la place, si nécessaire.",
