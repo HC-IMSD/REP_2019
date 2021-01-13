@@ -334,12 +334,12 @@
                 (
                     [
                         _biologic,
-                        _pharma
+                        _pharma,
+                        _veterinary
                     ]) :
                 ([
                     _biologic,
                     _pharma,
-                    _veterinary,
                     _clinical
                 ]);
         }
