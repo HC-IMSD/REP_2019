@@ -169,25 +169,25 @@
                     </label>
                 </div>
             </div>
-            <div class="col-sm-7">
-                <div class="checkbox">
-                    <label for="{{::ar.chkImpId}}">
-                        <input type="checkbox" name="importer" data-ng-model="ar.roleModel.importer"
-                               data-ng-disabled="!ar.isEditable"
-                               data-ng-change="ar.updateImporterState(ar.roleForm.importer,'importer')" id="{{::ar.chkImpId}}"/>
-                        <!--  <span data-ng-if="!ar.isContact">{{::"IMPORTER_ADDRESS"|translate}}</span>
-                          <span data-ng-if="ar.isContact">{{::"CONTACT_IMPORTER"|translate}}</span> -->
-                        <span data-ng-if="ar.isContact">{{::"CAN_IMP"|translate}}</span>
-                        <span data-ng-if="!ar.isContact">{{::"IMPORTER_ADDRESS"|translate}}</span>
-                        <strong id="importer-rolec-error" class="error" data-ng-show="ar.inUseFlag" >
-                            <span class="label label-danger" data-ng-messages="impCompanyInUse">
-                                {{::"COMPANY_IN_USE"|translate}}
-                            </span>
-                        </strong>
-                    </label>
-                </div>
-            </div>
-        </div>
+            <!--<div class="col-sm-7">-->
+                <!--<div class="checkbox">-->
+                    <!--<label for="{{::ar.chkImpId}}">-->
+                        <!--<input type="checkbox" name="importer" data-ng-model="ar.roleModel.importer"-->
+                               <!--data-ng-disabled="!ar.isEditable"-->
+                               <!--data-ng-change="ar.updateImporterState(ar.roleForm.importer,'importer')" id="{{::ar.chkImpId}}"/>-->
+                        <!--&lt;!&ndash;  <span data-ng-if="!ar.isContact">{{::"IMPORTER_ADDRESS"|translate}}</span>-->
+                          <!--<span data-ng-if="ar.isContact">{{::"CONTACT_IMPORTER"|translate}}</span> &ndash;&gt;-->
+                        <!--<span data-ng-if="ar.isContact">{{::"CAN_IMP"|translate}}</span>-->
+                        <!--<span data-ng-if="!ar.isContact">{{::"IMPORTER_ADDRESS"|translate}}</span>-->
+                        <!--<strong id="importer-rolec-error" class="error" data-ng-show="ar.inUseFlag" >-->
+                            <!--<span class="label label-danger" data-ng-messages="impCompanyInUse">-->
+                                <!--{{::"COMPANY_IN_USE"|translate}}-->
+                            <!--</span>-->
+                        <!--</strong>-->
+                    <!--</label>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
         <div class="row">
             <!--   <div class="col-sm-4" data-ng-show="ar.isContact">
                    <div class="checkbox">

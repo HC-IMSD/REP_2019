@@ -227,7 +227,7 @@
                 vm.addressModel.addressRole.manufacturer = false;
                 // vm.addressModel.addressRole.mailing = false;
                 // vm.addressModel.addressRole.billing = false;
-                vm.addressModel.country=$filter('filter')(getCountryAndProvinces.getCountries(),{id: CANADA})[0];
+              //  vm.addressModel.country=$filter('filter')(getCountryAndProvinces.getCountries(),{id: CANADA})[0];
                 vm.addressModel.countryHtml = vm.addressModel.country[vm.lang];
                 vm.updateCountry++;
 
