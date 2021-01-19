@@ -109,6 +109,48 @@
                                    size="100"/>
                         </label>
                     </div>
+                    <div class="form-group col-md-12" 
+                    	 data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.proprietaryAttestationCheckBox].$invalid}">
+                        <label for="{{ingRecCtrl.proprietaryAttestationCheckBox}}">
+                        	<input type="checkbox" 
+                        		id="{{::ingRecCtrl.proprietaryAttestationCheckBox}}" 
+                        		name="{{::ingRecCtrl.proprietaryAttestationCheckBox}}"
+                                data-ng-model="ingRecCtrl.ingModel.proprietaryAttestation.attested"
+                                ng-true-value="'Y'" 
+                                ng-false-value="'N'"
+                                data-ng-model-options="{ debounce: $inherit}"
+                                />
+                            <span class="field-name">{{'NMI_PROPRIETARY_INFO_CHKBX'|translate}}</span>
+                            <sup id="dr9c7_ref">
+                                <a class="fn-lnk" href="#dr9c7"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::ingRecCtrl.htIndxList.nmiProprietaryInfoIndx}}</a>
+                            </sup>
+                        </label>
+                    </div>
+                    <div data-ng-if="ingRecCtrl.isNMIProprietaryInfoChecked()">
+	                    <div class="form-group col-md-12"
+	                         data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.proprietaryAttestationInfo].$invalid}">
+	                        <article>
+		                        <label for="{{::ingRecCtrl.proprietaryAttestationInfo}}" class="required">
+		                        	<span class="field-name">{{'NMI_PROPRIETARY_INFO_LBL'|translate}}</span>
+		                            <strong class="required">{{"REQUIRED" |translate}}</strong>
+		                            <sup id="dr9c8_ref">
+	                                	<a class="fn-lnk" href="#dr9c8"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::ingRecCtrl.htIndxList.nmiProprietaryInfoFieldIndx}}</a>
+	                            	</sup>
+		                            <cmp-error-message field-name="ingRecCtrl.proprietaryAttestationInfo"
+		                                               form-ref="ingRecCtrl.activeIngForm"
+		                                               show-error="ingRecCtrl.showError(ingRecCtrl.activeIngForm[ingRecCtrl.proprietaryAttestationInfo])"
+		                                               error-types="ingRecCtrl.requiredOnly"></cmp-error-message>
+		                            <input type="text" id="{{::ingRecCtrl.proprietaryAttestationInfo}}" 
+		                            	   data-ng-model="ingRecCtrl.ingModel.proprietaryAttestation.info"
+		                                   data-ng-model-options="{ debounce: $inherit}"  
+		                                   name="{{::ingRecCtrl.proprietaryAttestationInfo}}"
+		                                   class="form-control full-width" name="nonmedName" data-ng-required="true" maxlength="100"
+		                                   size="100"/>
+		                        </label>
+		                        <p><span class="field-name">{{'NMI_PROPRIETARY_INFO_FLD_NOTE'|translate}}</span></p>
+	                        </article>
+	                    </div>
+					</div>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-4">
