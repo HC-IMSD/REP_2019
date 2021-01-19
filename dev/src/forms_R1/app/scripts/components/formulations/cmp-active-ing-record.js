@@ -78,6 +78,9 @@
             variant: "",
             purpose: "",
             ingLabel: "",
+            proprietaryAttestation: {
+            	attested: 'N',
+            	info:""},
             cas: "",
             standard: "",
             strength: {operator: "",
@@ -121,7 +124,6 @@
         };
 
         vm.$onChanges = function (changes) {
-
             //TODO: move init code to changes event where it belongs
             if (changes.record && changes.record.currentValue) {
                 vm.ingModel = angular.copy(changes.record.currentValue);
@@ -206,6 +208,10 @@
          */
         vm.isRoleChosen = function () {
             return (vm.ingModel.ingRole === 'MED' || vm.ingModel.ingRole === 'NONMED');
+        };
+        
+        vm.isNMIProprietaryInfoChecked = function () {
+			return vm.ingModel.proprietaryAttestation.attested ==='Y';
         };
 
         /**
@@ -462,6 +468,10 @@
             vm.ingredRoleId="ing_role"+scopeId;
             vm.ingredName="ing_name"+scopeId;
             vm.nIngredName="n_ing_name"+scopeId;
+            
+            vm.proprietaryAttestationCheckBox="proprietary_attestation_checkbox"+scopeId;
+            vm.proprietaryAttestationInfo="proprietary_attestation_info"+scopeId;
+            
             vm.casId="cas"+scopeId;
             vm.standardId="standard"+scopeId;
             vm.strengthId="strength_operator"+scopeId;
