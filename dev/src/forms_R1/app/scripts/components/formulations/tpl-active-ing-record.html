@@ -79,9 +79,10 @@
                     </div>
                     <div class="form-group col-md-12"
                          data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.purposeId].$invalid}">
-                        <label for="{{::ingRecCtrl.purposeId}}" class="required">
+                        <label for="{{::ingRecCtrl.purposeId}}" 
+                        	   data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked()}">
                             <span class="field-name">{{'PURPOSE'|translate}}</span>
-                            <strong class="required">{{"REQUIRED" |translate}}</strong>
+                            <strong data-ng-if="!ingRecCtrl.isNMIProprietaryInfoChecked()" class="required">{{"REQUIRED" |translate}}</strong>
                             <sup id="dr9c3_ref">
                                 <a class="fn-lnk" href="#dr9c3"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::ingRecCtrl.htIndxList.purposeIndx}}</a>
                             </sup>
@@ -89,9 +90,11 @@
                                                form-ref="ingRecCtrl.activeIngForm"
                                                show-error="ingRecCtrl.showError(ingRecCtrl.activeIngForm[ingRecCtrl.purposeId])"
                                                error-types="ingRecCtrl.requiredOnly"></cmp-error-message>
-                            <input type="text" id="{{::ingRecCtrl.purposeId}}" data-ng-model="ingRecCtrl.ingModel.purpose" maxlength="60"
+                            <input type="text" id="{{::ingRecCtrl.purposeId}}" 
+                            	   data-ng-model="ingRecCtrl.ingModel.purpose" maxlength="60"
                                    data-ng-model-options="{ debounce: '$inherit'}" size="60" name="{{::ingRecCtrl.purposeId}}"
-                                   class="form-control full-width" data-ng-required="true"/>
+                                   class="form-control full-width" 
+                                   data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked()"/>
 
                         </label>
                     </div>
@@ -183,16 +186,19 @@
 
                         <div class="row col-md-12">
                             <div class="form-group col-md-3" data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.strengthId].$invalid}">
-                                <label for="{{::ingRecCtrl.strengthId}}" class="required">
+                                <label for="{{::ingRecCtrl.strengthId}}" 
+                                	data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()}">
                                     <span class="field-name">{{'OPERATOR'|translate}}</span>
-                                    <strong class="required">{{"REQUIRED" |translate}}</strong></label>
+                                    <strong data-ng-if="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()" class="required">{{"REQUIRED" |translate}}</strong></label>
                                 <cmp-error-message field-name="ingRecCtrl.strengthId"
                                                    form-ref="ingRecCtrl.activeIngForm"
                                                    show-error="ingRecCtrl.showError(ingRecCtrl.activeIngForm[ingRecCtrl.strengthId])"
                                                    error-types="ingRecCtrl.requiredOnly"></cmp-error-message>
-                                <select id="{{::ingRecCtrl.strengthId}}" data-ng-model="ingRecCtrl.ingModel.strength.operator"
+                                <select id="{{::ingRecCtrl.strengthId}}" 
+                                		data-ng-model="ingRecCtrl.ingModel.strength.operator" 
+                                		data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"
                                         data-ng-model-options="{ debounce: '$inherit'}"
-                                        class="form-control" name="{{::ingRecCtrl.strengthId}}" required
+                                        class="form-control" name="{{::ingRecCtrl.strengthId}}" 
                                         data-ng-options="op[ingRecCtrl.lang] for op in  ingRecCtrl.strengthList track by op.id">
                                 </select>
 
@@ -200,57 +206,75 @@
                         </div>
                         <div class="row col-md-12">
                             <div class="form-group col-md-5" data-ng-if="ingRecCtrl.isStrengthSet()">
-                                <label for="{{ingRecCtrl.strengthData1Id}}" class="required"
+                                <label for="{{ingRecCtrl.strengthData1Id}}" 
+                                	   data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()}"
                                        data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.strengthData1Id].$invalid}">
                                     <span class="field-name">{{ingRecCtrl.strengthData1Title|translate}}</span>
-                                    <strong class="required">{{"REQUIRED" |translate}}</strong>
+                                    <strong data-ng-if="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()" class="required">{{"REQUIRED" |translate}}</strong>
                                     <cmp-error-message field-name="ingRecCtrl.strengthData1Id"
                                                        form-ref="ingRecCtrl.activeIngForm"
                                                        show-error="ingRecCtrl.showError(ingRecCtrl.activeIngForm[ingRecCtrl.strengthData1Id])"
                                                        error-types="ingRecCtrl.numberMinError"></cmp-error-message>
                                     <input type="number" id="{{ingRecCtrl.strengthData1Id}}" data-ng-model="ingRecCtrl.ingModel.strength.data1"
                                            data-ng-model-options="{ debounce: '$inherit'}"
-                                           class="form-control full-width" name="{{ingRecCtrl.strengthData1Id}}" min="0.000000000000000001" data-ng-required="true"/>
+                                           class="form-control full-width" 
+                                           name="{{ingRecCtrl.strengthData1Id}}" 
+                                           min="0.000000000000000001" 
+                                           data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked()  || ingRecCtrl.isMedIng()"/>
 
                                 </label>
                             </div>
-                            <div class="form-group col-md-5" data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.strengthData2Id].$invalid}"
+                            <div class="form-group col-md-5" 
+                            	 data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.strengthData2Id].$invalid}"
                                  data-ng-if="ingRecCtrl.isRange()">
-                                <label for="{{::ingRecCtrl.strengthData2Id}}" class="required">
+                                <label for="{{::ingRecCtrl.strengthData2Id}}" 
+                                	   data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()}">
                                     <span class="field-name">{{'RANGE_UPPER_LIMIT'|translate}}</span>
-                                    <strong class="required">{{"REQUIRED" |translate}}</strong>
+                                    <strong data-ng-if="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()" class="required">{{"REQUIRED" |translate}}</strong>
                                     <cmp-error-message field-name="ingRecCtrl.strengthData2Id"
                                                        form-ref="ingRecCtrl.activeIngForm"
                                                        show-error="ingRecCtrl.showError(ingRecCtrl.activeIngForm[ingRecCtrl.strengthData2Id])"
                                                        error-types="ingRecCtrl.numberMinLowerError"></cmp-error-message>
-                                    <input type="number" id="{{::ingRecCtrl.strengthData2Id}}" data-ng-model="ingRecCtrl.ingModel.strength.data2"
+                                    <input type="number" id="{{::ingRecCtrl.strengthData2Id}}" 
+                                    	   data-ng-model="ingRecCtrl.ingModel.strength.data2"
                                            data-ng-model-options="{ debounce: '$inherit'}"
-                                           class="form-control full-width" name="{{::ingRecCtrl.strengthData2Id}}" data-ng-min="ingRecCtrl.ingModel.strength.data1" data-ng-required="true"/>
+                                           class="form-control full-width" 
+                                           name="{{::ingRecCtrl.strengthData2Id}}" 
+                                           data-ng-min="ingRecCtrl.ingModel.strength.data1" 
+                                           data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"/>
 
                                 </label>
                             </div>
                         </div>
                         <div class="row col-md-12">
                             <div class="form-group col-md-4">
-                                <label for="{{::ingRecCtrl.unitsId}}" class="required full-width">
+                                <label for="{{::ingRecCtrl.unitsId}}" 
+                                	   class="full-width"
+                                	   data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()}">
                                     <span class="field-name">{{'UNITS'|translate}}</span>
-                                    <strong class="required">{{"REQUIRED" |translate}}</strong>
+                                    <strong data-ng-if="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()" class="required">{{"REQUIRED" |translate}}</strong>
                                     <cmp-error-message field-name="ingRecCtrl.unitsId"
                                                        form-ref="ingRecCtrl.activeIngForm"
                                                        show-error="ingRecCtrl.showError(ingRecCtrl.activeIngForm[ingRecCtrl.unitsId])"
                                                        error-types="ingRecCtrl.requiredOnly"></cmp-error-message>
                                     <input type="text" id="{{::ingRecCtrl.unitsId}}" name="{{::ingRecCtrl.unitsId}}" data-ng-model="ingRecCtrl.ingModel.unitsHtml"
                                            oninput="angular.element($(this)).scope().ingRecCtrl.unitsChange(this.value)" autocomplete="off"
-                                           data-ng-blur="ingRecCtrl.unitsBlur()" list="unitsList" required="required" class="form-control"/>
+                                           data-ng-blur="ingRecCtrl.unitsBlur()" list="unitsList" 
+                                           data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()" 
+                                           class="form-control"/>
                                     <datalist id="unitsList" class="rep-selectize-dropdown rep-selectize-font">
                                         <option data-ng-repeat="unit in ingRecCtrl.unitsList" value="{{unit[ingRecCtrl.lang]}}" >
                                     </datalist>
 
                                 </label>
                             </div>
-                            <div class="form-group col-md-5" data-ng-if="ingRecCtrl.isUnitsOther()" data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.otherUnitsId].$invalid}">
-                                <label for="{{::ingRecCtrl.otherUnitsId}}" class="required"><span class="field-name">{{'OTHER_UNITS'|translate}}</span>
-                                    <strong class="required">{{"REQUIRED" |translate}}</strong>
+                            <div class="form-group col-md-5" 
+                            	 data-ng-if="ingRecCtrl.isUnitsOther()" 
+                            	 data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.otherUnitsId].$invalid}">
+                                <label for="{{::ingRecCtrl.otherUnitsId}}" 
+                                	   data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()}">
+                                	<span class="field-name">{{'OTHER_UNITS'|translate}}</span>
+                                    <strong data-ng-if="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()" class="required">{{"REQUIRED" |translate}}</strong>
                                     <cmp-error-message field-name="ingRecCtrl.otherUnitsId"
                                                        form-ref="ingRecCtrl.activeIngForm"
                                                        show-error="ingRecCtrl.showError(ingRecCtrl.activeIngForm[ingRecCtrl.otherUnitsId])"
@@ -258,16 +282,18 @@
                                     <input type="text" id="{{::ingRecCtrl.otherUnitsId}}" data-ng-model="ingRecCtrl.ingModel.otherUnits"
                                            data-ng-model-options="{ updateOn: 'blur'}"
                                            size="55" class="form-control" name="{{::ingRecCtrl.otherUnitsId}}"
-                                           maxlength="55" data-ng-required="ingRecCtrl.isUnitsOther()"/>
+                                           maxlength="55" 
+                                           data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"/>
 
                                 </label>
                             </div>
                         </div>
                         <div class="row col-md-12">
                             <div class="form-group col-md-3" data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.perId].$invalid}">
-                                <label for="{{::ingRecCtrl.perId}}" class="required">
+                                <label for="{{::ingRecCtrl.perId}}" 
+                                	   data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()}">
                                     <span class="field-name">{{'PER_STRENGTH'|translate}}</span>
-                                    <strong class="required">{{"REQUIRED" |translate}}</strong>
+                                    <strong data-ng-if="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()" class="required">{{"REQUIRED" |translate}}</strong>
                                 </label>
                                 <cmp-error-message field-name="ingRecCtrl.perId"
                                                    form-ref="ingRecCtrl.activeIngForm"
@@ -275,7 +301,8 @@
                                                    error-types="ingRecCtrl.requiredOnly"></cmp-error-message>
                                 <select id="{{::ingRecCtrl.perId}}" data-ng-model="ingRecCtrl.ingModel.per"
                                         data-ng-model-options="{ debounce: '$inherit'}"
-                                        class="form-control full-width" name="{{::ingRecCtrl.perId}}" required
+                                        class="form-control full-width" name="{{::ingRecCtrl.perId}}" 
+										data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"
                                         data-ng-options="per[ingRecCtrl.lang] for per in  ingRecCtrl.perList track by per.id">
                                 </select>
 
@@ -284,13 +311,15 @@
                         <div class="row col-md-12">
                             <div data-ng-if="ingRecCtrl.isPerPresentation()">
                                 <div class="form-group col-md-3">
-                                    <label for="{{ingRecCtrl.perPreValueId}}" class="required"
+                                    <label for="{{ingRecCtrl.perPreValueId}}" 
+                                    	   data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()}"
                                            data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.perPreValueId].$invalid}">
                                         <span class="field-name">{{"VALUE"|translate}}</span>
-                                        <strong class="required">{{"REQUIRED" |translate}}</strong>
+                                        <strong data-ng-if="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()" class="required">{{"REQUIRED" |translate}}</strong>
                                         <input type="number" id="{{ingRecCtrl.perPreValueId}}" data-ng-model="ingRecCtrl.ingModel.perPresentationValue"
                                                data-ng-model-options="{ debounce: '$inherit'}" data-ng-readonly="true"
-                                               class="form-control full-width" name="{{ingRecCtrl.perPreValueId}}" data-ng-min="0" data-ng-required="true"/>
+                                               class="form-control full-width" name="{{ingRecCtrl.perPreValueId}}" data-ng-min="0" 
+                                               data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"/>
                                         <!--cmp-error-message field-name="ingRecCtrl.perPreValueId"
                                                            form-ref="ingRecCtrl.activeIngForm"
                                                            show-error="ingRecCtrl.showError(ingRecCtrl.activeIngForm[ingRecCtrl.perPreValueId])"
@@ -299,9 +328,10 @@
                                 </div>
                                 <div class="form-group col-md-4" data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.presentationId].$invalid}"
                                      data-ng-if="ingRecCtrl.isPerPresentation()">
-                                    <label for="{{::ingRecCtrl.presentationId}}">
+                                    <label for="{{::ingRecCtrl.presentationId}}" 
+                                    	   data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()}">
                                         <span class="field-name">{{'UNIT_PRESENTATION'|translate}}</span>
-                                        <strong class="required">{{"REQUIRED" |translate}}</strong>
+                                        <strong data-ng-if="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()" class="required">{{"REQUIRED" |translate}}</strong>
                                     </label>
                                     <cmp-error-message field-name="ingRecCtrl.presentationId"
                                                        form-ref="ingRecCtrl.activeIngForm"
@@ -309,15 +339,18 @@
                                                        error-types="ingRecCtrl.requiredOnly"></cmp-error-message>
                                     <select id="{{::ingRecCtrl.presentationId}}" data-ng-model="ingRecCtrl.ingModel.perPresUnits"
                                             data-ng-model-options="{ debounce: '$inherit'}"
-                                            class="form-control full-width" name="{{::ingRecCtrl.presentationId}}" required
+                                            class="form-control full-width" name="{{::ingRecCtrl.presentationId}}"
+                                            data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"
                                             data-ng-options="presentation[ingRecCtrl.lang] for presentation in  ingRecCtrl.presentationList track by presentation.id">
                                     </select>
 
                                 </div>
-                                <div class="form-group col-md-5" data-ng-if="ingRecCtrl.isPerPresUnitsOther()" data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.perPresOtherUnitId].$invalid}">
-                                    <label for="{{::ingRecCtrl.perPresOtherUnitId}}" class="required">
+                                <div class="form-group col-md-5" data-ng-if="ingRecCtrl.isPerPresUnitsOther()" 
+                                	 data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.perPresOtherUnitId].$invalid}">
+                                    <label for="{{::ingRecCtrl.perPresOtherUnitId}}" 
+                                    	   data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()}">
                                         <span class="field-name">{{'OTHER_UNIT_PRESENTATION'|translate}}</span>
-                                        <strong class="required">{{"REQUIRED" |translate}}</strong>
+                                        <strong data-ng-if="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()" class="required">{{"REQUIRED" |translate}}</strong>
                                         <cmp-error-message field-name="ingRecCtrl.perPresOtherUnitId"
                                                            form-ref="ingRecCtrl.activeIngForm"
                                                            show-error="ingRecCtrl.showError(ingRecCtrl.activeIngForm[ingRecCtrl.perPresOtherUnitId])"
@@ -325,31 +358,36 @@
                                         <input type="text" id="{{::ingRecCtrl.perPresOtherUnitId}}" data-ng-model="ingRecCtrl.ingModel.perPresOtherUnits"
                                                data-ng-model-options="{ updateOn: 'blur'}" data-focus-if="true"
                                                size="40" class="form-control" name="{{::ingRecCtrl.perPresOtherUnitId}}"
-                                               maxlength="40" data-ng-required="ingRecCtrl.isPerPresUnitsOther()"/>
+                                               maxlength="40" 
+                                               data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"/>
 
                                     </label>
                                 </div>
                             </div>
                             <div data-ng-if="ingRecCtrl.isPerMeasure()">
                                 <div class="form-group col-md-4">
-                                    <label for="{{ingRecCtrl.perMeaValueId}}" class="required"
+                                    <label for="{{ingRecCtrl.perMeaValueId}}" 
+                                    	   data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()}"
                                            data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.perMeaValueId].$invalid}">
                                         <span class="field-name">{{"VALUE"|translate}}</span>
-                                        <strong class="required">{{"REQUIRED" |translate}}</strong>
+                                        <strong data-ng-if="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()" class="required">{{"REQUIRED" |translate}}</strong>
                                         <cmp-error-message field-name="ingRecCtrl.perMeaValueId"
                                                            form-ref="ingRecCtrl.activeIngForm"
                                                            show-error="ingRecCtrl.showError(ingRecCtrl.activeIngForm[ingRecCtrl.perMeaValueId])"
                                                            error-types="ingRecCtrl.numberMinError"></cmp-error-message>
                                         <input type="number" id="{{ingRecCtrl.perMeaValueId}}" data-ng-model="ingRecCtrl.ingModel.perMeasureValue"
                                                data-ng-model-options="{ debounce: '$inherit'}"
-                                               class="form-control full-width" name="{{ingRecCtrl.perMeaValueId}}" data-ng-min="0" data-ng-required="true"/>
+                                               class="form-control full-width" name="{{ingRecCtrl.perMeaValueId}}" data-ng-min="0" 
+                                               data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"/>
 
                                     </label>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="{{::ingRecCtrl.perMeasureUnitId}}" class="required full-width">
+                                    <label for="{{::ingRecCtrl.perMeasureUnitId}}" 
+                                    	   class="full-width"
+                                    	   data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()}">
                                         <span class="field-name">{{'UNIT_MEASURE'|translate}}</span>
-                                        <strong class="required">{{"REQUIRED" |translate}}</strong>
+                                        <strong data-ng-if="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()" class="required">{{"REQUIRED" |translate}}</strong>
                                         <cmp-error-message field-name="ingRecCtrl.perMeasureUnitId"
                                                            form-ref="ingRecCtrl.activeIngForm"
                                                            show-error="ingRecCtrl.showError(ingRecCtrl.activeIngForm[ingRecCtrl.perMeasureUnitId])"
@@ -358,17 +396,22 @@
                                         <input type="list" id="{{::ingRecCtrl.perMeasureUnitId}}" name="{{::ingRecCtrl.perMeasureUnitId}}" data-ng-model="ingRecCtrl.ingModel.perMeasUnitsHtml"
                                                oninput="angular.element($(this)).scope().ingRecCtrl.perMeasUnitsChange(this.value)" autocomplete="off"
                                                data-ng-blur="ingRecCtrl.perMeasUnitsBlur()"
-                                               list="unitsList2" required="required" class="form-control full-width"/>
+                                               list="unitsList2" 
+                                               data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"
+                                               class="form-control full-width"/>
                                         <datalist id="unitsList2" class="rep-selectize-dropdown rep-selectize-font">
                                             <option data-ng-repeat="unit in ingRecCtrl.measureList" value="{{unit[ingRecCtrl.lang]}}" label="{{unit[ingRecCtrl.lang]}}"/>
                                         </datalist>
 
                                     </label>
                                 </div>
-                                <div class="form-group col-md-4" data-ng-if="ingRecCtrl.isPerMeasUnitsOther()" data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.perMeasureOtherUnitId].$invalid}">
-                                    <label for="{{::ingRecCtrl.perMeasureOtherUnitId}}" class="required">
+                                <div class="form-group col-md-4" 
+                                	 data-ng-if="ingRecCtrl.isPerMeasUnitsOther()" 
+                                	 data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.perMeasureOtherUnitId].$invalid}">
+                                    <label for="{{::ingRecCtrl.perMeasureOtherUnitId}}" 
+                                    	   data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()}">
                                         <span class="field-name">{{'OTHER_UNIT_MEASURE'|translate}}</span>
-                                        <strong class="required">{{"REQUIRED" |translate}}</strong>
+                                        <strong data-ng-if="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()" class="required">{{"REQUIRED" |translate}}</strong>
                                         <cmp-error-message field-name="ingRecCtrl.perMeasureOtherUnitId"
                                                            form-ref="ingRecCtrl.activeIngForm"
                                                            show-error="ingRecCtrl.showError(ingRecCtrl.activeIngForm[ingRecCtrl.perMeasureOtherUnitId])"
@@ -376,7 +419,8 @@
                                         <input type="text" id="{{::ingRecCtrl.perMeasureOtherUnitId}}" data-ng-model="ingRecCtrl.ingModel.perMeasOtherUnits"
                                                data-ng-model-options="{updateOn: 'blur'}"
                                                size="40" class="form-control" name="{{::ingRecCtrl.perMeasureOtherUnitId}}"
-                                               maxlength="40" data-ng-required="ingRecCtrl.isPerMeasUnitsOther()"/>
+                                               maxlength="40" 
+                                               data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"/>
 
                                     </label>
                                 </div>
@@ -408,9 +452,11 @@
                     <div class="form-group col-xs-12"
                          data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.isNanoMaterialId].$invalid}">
                         <fieldset>
-                        <legend class="full-width required radioButtonTitle">
+                        <legend class="full-width radioButtonTitle" 
+                        		data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()}"
+                        		>
                             <span class="field-name">{{'IS_NANO_MATERIAL'|translate}}</span>
-                            <strong class="required">{{"REQUIRED" |translate}}</strong>
+                            <strong data-ng-if="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()" class="required">{{"REQUIRED" |translate}}</strong>
                             <sup id="dr9c5_ref">
                                 <a class="fn-lnk" href="#dr9c5"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::ingRecCtrl.htIndxList.isNanoIndx}}</a>
                             </sup>
@@ -425,23 +471,38 @@
                             <!--</select>-->
                         </legend>
                         <div>
-                        <label class="col-xs-2 rep-normal-font" for="{{::ingRecCtrl.isNanoMaterialId}}"><input type="radio" id="{{::ingRecCtrl.isNanoMaterialId}}" name="{{::ingRecCtrl.isNanoMaterialId}}" value="Y" data-ng-model="ingRecCtrl.ingModel.isNano" required/>&nbsp;{{::'Y'|translate}}</label>
-                        <label class="col-xs-2 rep-normal-font" for="{{::ingRecCtrl.isNanoMaterialId}}_1"><input type="radio" id="{{::ingRecCtrl.isNanoMaterialId}}_1" name="{{::ingRecCtrl.isNanoMaterialId}}" value="N" data-ng-model="ingRecCtrl.ingModel.isNano" required/>&nbsp;{{::'N'|translate}}</label>
+	                        <label class="col-xs-2 rep-normal-font" for="{{::ingRecCtrl.isNanoMaterialId}}">
+	                          	<input type="radio" 
+	                          		 id="{{::ingRecCtrl.isNanoMaterialId}}" name="{{::ingRecCtrl.isNanoMaterialId}}" 
+	                        		 value="Y" 
+	                        		 data-ng-model="ingRecCtrl.ingModel.isNano" 
+	                        		 data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"/>&nbsp;{{::'Y'|translate}}
+	                        </label>
+	                        <label class="col-xs-2 rep-normal-font" for="{{::ingRecCtrl.isNanoMaterialId}}_1">
+	                        	<input type="radio" 
+	                        		   id="{{::ingRecCtrl.isNanoMaterialId}}_1" 
+	                        		   name="{{::ingRecCtrl.isNanoMaterialId}}" 
+	                        		   value="N" 
+	                        		   data-ng-model="ingRecCtrl.ingModel.isNano" 
+	                        		   data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"/>&nbsp;{{::'N'|translate}}
+	                        </label>
                         </div>
                         </fieldset>
                     </div>
                     <div data-ng-if="ingRecCtrl.isNanoMaterial()">
                         <div class="form-group col-md-3" data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.nanoId].$invalid}">
-                            <label for="{{::ingRecCtrl.nanoId}}" class="required">
+                            <label for="{{::ingRecCtrl.nanoId}}" 
+                            	   data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()}">
                                 <span class="field-name">{{'NANO_MATERIAL'|translate}}</span>
-                                <strong class="required">{{"REQUIRED" |translate}}</strong></label>
+                                <strong data-ng-if="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()" class="required">{{"REQUIRED" |translate}}</strong></label>
                             <cmp-error-message field-name="ingRecCtrl.nanoId"
                                                form-ref="ingRecCtrl.activeIngForm"
                                                show-error="ingRecCtrl.showError(ingRecCtrl.activeIngForm[ingRecCtrl.nanoId])"
                                                error-types="ingRecCtrl.requiredOnly"></cmp-error-message>
                             <select id="{{::ingRecCtrl.nanoId}}" data-ng-model="ingRecCtrl.ingModel.nanoMaterial"
                                     data-ng-model-options="{ debounce: '$inherit'}"
-                                    class="form-control full-width" name="{{::ingRecCtrl.nanoId}}" required
+                                    class="form-control full-width" name="{{::ingRecCtrl.nanoId}}" 
+                                    data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"
                                     data-ng-options="nano[ingRecCtrl.lang] for nano in  ingRecCtrl.nanoMaterialList track by nano.id">
 
                             </select>
@@ -449,9 +510,10 @@
                         </div>
                         <div class="form-group col-md-5" data-ng-if="ingRecCtrl.isNanoOther()"
                              data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.nanoOtherId].$invalid}">
-                            <label for="{{::ingRecCtrl.nanoOtherId}}" class="required">
+                            <label for="{{::ingRecCtrl.nanoOtherId}}" 
+                            	   data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()}">
                                 <span class="field-name">{{'NANO_MATERIAL_OTHER'|translate}}</span>
-                                <strong class="required">{{"REQUIRED" |translate}}</strong></label>
+                                <strong data-ng-if="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()" class="required">{{"REQUIRED" |translate}}</strong></label>
                             <cmp-error-message field-name="ingRecCtrl.nanoOtherId"
                                                form-ref="ingRecCtrl.activeIngForm"
                                                show-error="ingRecCtrl.showError(ingRecCtrl.activeIngForm[ingRecCtrl.nanoOtherId])"
@@ -459,7 +521,9 @@
                             <input type="text" id="{{::ingRecCtrl.nanoOtherId}}"
                                    data-ng-model="ingRecCtrl.ingModel.nanoMaterialOther"
                                    data-ng-model-options="{ debounce: '$inherit'}"
-                                   class="form-control full-width" name="{{::ingRecCtrl.nanoOtherId}}" data-ng-required="true" maxlength="40"/>
+                                   class="form-control full-width" name="{{::ingRecCtrl.nanoOtherId}}" 
+                                   data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()" 
+                                   maxlength="40"/>
 
                         </div>
                     </div>
@@ -468,9 +532,10 @@
                     <div class="form-group col-xs-12"
                          data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.animalHumanSrcId].$invalid}">
                         <fieldset>
-                        <legend class="full-width required radioButtonTitle">
+                        <legend class="full-width radioButtonTitle" 
+                        		data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()}">
                             <span class="field-name">{{'ANIMAL_HUMAN_SOURCED'|translate}}</span>
-                            <strong class="required">{{"REQUIRED" |translate}}</strong>
+                            <strong data-ng-if="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()" class="required">{{"REQUIRED" |translate}}</strong>
                             <sup id="dr9c6_ref">
                                 <a class="fn-lnk" href="#dr9c6"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::ingRecCtrl.htIndxList.ahSourcedIndx}}</a>
                             </sup>
@@ -485,8 +550,17 @@
                                 <!--data-ng-options="val |translate for val in  ingRecCtrl.yesNoList">-->
                         <!--</select>-->
                         <div>
-                        <label class="col-xs-2 rep-normal-font" for="{{::ingRecCtrl.animalHumanSrcId}}"><input type="radio" id="{{::ingRecCtrl.animalHumanSrcId}}" name="{{::ingRecCtrl.animalHumanSrcId}}" value="Y" data-ng-model="ingRecCtrl.ingModel.humanAnimalSourced" required/>&nbsp;{{::'Y'|translate}}</label>
-                        <label class="col-xs-2 rep-normal-font" for="{{::ingRecCtrl.animalHumanSrcId}}_1"><input type="radio" id="{{::ingRecCtrl.animalHumanSrcId}}_1" name="{{::ingRecCtrl.animalHumanSrcId}}" value="N" data-ng-model="ingRecCtrl.ingModel.humanAnimalSourced" required/>&nbsp;{{::'N'|translate}}</label>
+                        <label class="col-xs-2 rep-normal-font" for="{{::ingRecCtrl.animalHumanSrcId}}">
+                        	<input type="radio" id="{{::ingRecCtrl.animalHumanSrcId}}" name="{{::ingRecCtrl.animalHumanSrcId}}" 
+                        		value="Y" 
+                        		data-ng-model="ingRecCtrl.ingModel.humanAnimalSourced" 
+                        		data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"/>&nbsp;{{::'Y'|translate}}
+                        </label>
+                        <label class="col-xs-2 rep-normal-font" for="{{::ingRecCtrl.animalHumanSrcId}}_1">
+                        	<input type="radio" id="{{::ingRecCtrl.animalHumanSrcId}}_1" name="{{::ingRecCtrl.animalHumanSrcId}}" 
+                        		value="N" 
+                        		data-ng-model="ingRecCtrl.ingModel.humanAnimalSourced" 
+                        		data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"/>&nbsp;{{::'N'|translate}}</label>
                         </div>
                         </fieldset>
                     </div>
