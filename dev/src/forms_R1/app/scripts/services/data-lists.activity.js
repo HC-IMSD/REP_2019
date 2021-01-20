@@ -46,7 +46,7 @@
             BENEFIT_RISK_ASSESS: "BENEFIT_RISK_ASSESS", //benefit risk assessment
             CANCEL_LETTER: "CANCEL_LETTER", //cancellation letter
             CHANGE_TO_DIN: "CHANGE_TO_DIN", //changes to din
-            //CLARIF_RESPONSE: "CLARIF_RESPONSE", //Response to clarification request
+            CLARIF_RESPONSE: "CLARIF_RESPONSE", //Response to clarification request
             COMMENTS_NOC: "COMMENTS_NOC", // comments on notice of decision
             COMMENTS_SUMMARY_BASIS: "COMMENTS_SUMMARY_BASIS", //commments on summary basis of decision (SBD),
             COMMENTS_REGULARTORY_DECISION: "COMMENTS_REGULARTORY_DECISION", //Comments on Regulatory Decision Summary,
@@ -164,7 +164,12 @@
             CTN_IMPD_UPDATE:"CTN_IMPD_UPDATE",                 // CTN-IMPD Update
             CTN_NEW_SUMM_ADF:"CTN_NEW_SUMM_ADF",                // CTN- New Summary of Additional Drugs Form
             COVIR_19: 'COVIR-19',
-            COVIR_19AMD: 'COVIR-19AMD'
+            COVIR_19AMD: 'COVIR-19AMD',
+            NOC_COMPLIANCE_CFM:"NOC_COMPLIANCE_CFM",    // Notice of Compliance - Confirmatory (NOC/c) commitment
+            NOF_DRUG_SHORT:"NOF_DRUG_SHORT",            // Notification of Drug Shortage
+            POST_ANTH_CHANGE:"POST_ANTH_CHANGE",        // Post Authorization Change
+            ROLLING_INFO:"ROLLING_INFO",                // Rolling Information
+            WITHDRAWAL_NOF_FORM:"WITHDRAWAL_NOF_FORM"   // Withdrawal of Drug Notification Form
 
         };
 
@@ -229,6 +234,7 @@
             getMPNCType: _getMPNCArray,
             getV_MpncType: getV_MpncArray,
             getMPNDSType: _getMPNDSArray,
+            getMPCOVType: _getMPCOVArray,
             getV_MpndsType: getV_MpndsArray,
             getV_MpandsType: getV_MpandsArray,
             getV_MpsandsType: getV_MpsandsArray,
@@ -368,7 +374,8 @@
                 vm.allActivities.FORM_IV, //Form IV
                 vm.allActivities.FORM_V, //Form V
                 vm.allActivities.CONSENT_LTR, //Consent Letter
-                vm.allActivities.DATA_PROTECT_CORRESP //Correspondence - Data Protection
+                vm.allActivities.WITHDRAWAL_NOF_FORM, //Correspondence - Data Protection
+                vm.allActivities.WITHDRAWAL_NOF_FORM //Withdrawal of Drug Notification Form
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
             ]);
         }
@@ -561,6 +568,7 @@
                 vm.allActivities.FORM_V, //Form V
                 vm.allActivities.CONSENT_LTR, //Consent Letter
                 vm.allActivities.DATA_PROTECT_CORRESP, //Correspondence - Data Protection
+                vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
                 vm.allActivities.NONCLIN_CLARIF_RESPONSE //response to Non-clinical clarification request
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
             ])
@@ -653,6 +661,7 @@
                 vm.allActivities.FORM_IV, //Form IV
                 vm.allActivities.FORM_V, //Form V
                 vm.allActivities.CONSENT_LTR, //Consent Letter
+                vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
                 vm.allActivities.DATA_PROTECT_CORRESP //Correspondence - Data Protection
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
             ]);
@@ -702,6 +711,8 @@
                 vm.allActivities.FORM_V, //Form V
                 vm.allActivities.CONSENT_LTR, //Consent Letter
                 vm.allActivities.DATA_PROTECT_CORRESP, //Correspondence - Data Protection
+                vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
+                vm.allActivities.PANDEMIC_APPL, //Pandemic application
                 vm.allActivities.NONCLIN_CLARIF_RESPONSE //response to Nonclinical clarification request
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
             ]);
@@ -740,6 +751,7 @@
                 vm.allActivities.FORM_V, //Form V
                 vm.allActivities.CONSENT_LTR, //Consent Letter
                 vm.allActivities.UNSOLICITED_DATA, //Unsolicited Data
+                vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
                 vm.allActivities.DATA_PROTECT_CORRESP //Correspondence - Data Protection
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
             ]);
@@ -781,6 +793,8 @@
                 vm.allActivities.PROCESSING_CLARIF_RESPONSE, //Response to processing Clarification Request
                 vm.allActivities.PHONE_RQ_RESPONSE, //Response to telephone Request
                 vm.allActivities.NOTIFICATION_INTERRUPT_SALE, //Notification of interruputions of sale,
+                vm.allActivities.NOC_COMPLIANCE_CFM, //Notice of Compliance - Confirmatory (NOC/c) commitment,
+                vm.allActivities.NOF_DRUG_SHORT,            // Notification of Drug Shortage
                 vm.allActivities.UNSOLICITED_DATA, //Unsolicited Data
                 vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
             ])
@@ -815,6 +829,17 @@
                 vm.allActivities.WRITTEN_CONSULT_REQ, //Request for Written Consultation,
                 vm.allActivities.EMAIL_RQ_RESPONSE,// response to email request
                 vm.allActivities.PROCESSING_CLARIF_RESPONSE, //Response to processing Clarification Request
+                vm.allActivities.PHONE_RQ_RESPONSE, //Response to telephone Request,
+                vm.allActivities.PRESUB_MEETING_PKG, //ubmission Meeting Package
+                vm.allActivities.PRESUB_MEETING_RQ   //Pre-submission Meeting Request
+            ]);
+        }
+
+        function _getMPCOVArray() {
+            return ([
+                vm.allActivities.CANCEL_LETTER, //cancellation letter
+                vm.allActivities.MEETING_MINUTES,
+                vm.allActivities.EMAIL_RQ_RESPONSE,// response to email request
                 vm.allActivities.PHONE_RQ_RESPONSE, //Response to telephone Request,
                 vm.allActivities.PRESUB_MEETING_PKG, //ubmission Meeting Package
                 vm.allActivities.PRESUB_MEETING_RQ   //Pre-submission Meeting Request
@@ -1255,6 +1280,7 @@
                 vm.allActivities.SCREENING_CLARIF_RESPONSE, // response to screening clarification request
                 vm.allActivities.SDN_RESPONSE, //response to SDN
                 vm.allActivities.PHONE_RQ_RESPONSE, //Response to telephone Request
+                vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
                 vm.allActivities.UNSOLICITED_DATA //Unsolicited Data
             ]);
         }
@@ -1512,8 +1538,8 @@
                 vm.allActivities.PROCESSING_CLARIF_RESPONSE,
                 vm.allActivities.PHONE_RQ_RESPONSE,
                 vm.allActivities.PRESUB_MEETING_PKG,
-                vm.allActivities.PRESUB_MEETING_RQ,
-                vm.allActivities.UNSOLICITED_DATA
+                vm.allActivities.PRESUB_MEETING_RQ
+                // vm.allActivities.UNSOLICITED_DATA
             ]);
         }
         function getV_MpndsArray() {
@@ -1787,17 +1813,18 @@
         }
         function _getCoVir19Array() {
             return ([
-                vm.allActivities.ADMINISTRATIVE, //administrative
+                // vm.allActivities.ADMINISTRATIVE, //administrative
                 vm.allActivities.CANCEL_LETTER, //cancellation letter
-                vm.allActivities.COMMENTS_NOC, // comments on notice of decision
-                vm.allActivities.COMMENTS_SUMMARY_BASIS, //commments on summary basis,
-                vm.allActivities.COMMENTS_REGULARTORY_DECISION, //commments on COMMENTS_REGULARTORY_DECISION basis
+                // vm.allActivities.COMMENTS_NOC, // comments on notice of decision
+                // vm.allActivities.COMMENTS_SUMMARY_BASIS, //commments on summary basis,
+                // vm.allActivities.COMMENTS_REGULARTORY_DECISION, //commments on COMMENTS_REGULARTORY_DECISION basis
                 vm.allActivities.DRUG_NOTIF_FORM, // drug notification form
-                vm.allActivities.INITIAL, //Initial
+                // vm.allActivities.INITIAL, //Initial
                 vm.allActivities.MEETING_MINUTES, //minutes of meeting dated
                 vm.allActivities.POST_CLEARANCE_DATA, //post clearance data
                 vm.allActivities.PRESUB_MEETING_PKG, // presubmission meeting package
                 vm.allActivities.PRESUB_MEETING_RQ,   //submission Meeting Request -used to be presub
+                vm.allActivities.CLARIF_RESPONSE, //Response to clarification request
                 vm.allActivities.SECOND_LANG_PM, // Second Language PM
                 vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
                 vm.allActivities.PUB_RELEASE_INFO, //Public Release of Clinical Information
@@ -1806,42 +1833,47 @@
                 vm.allActivities.EMAIL_RQ_RESPONSE,// Response to E-mail Request
                 vm.allActivities.LABEL_CLARIF_RESPONSE, //Response to labelling clarification request
                 vm.allActivities.LABEL_PREAPPROVAL_2LANG, //Second Language Label - Pre-Approval
-                vm.allActivities.NOC_RESPONSE, //response to NOC/ c-Qn
-                vm.allActivities.NOD_RESPONSE, //Response to NOD
-                vm.allActivities.NON_RESPONSE, //Response to NON
+                // vm.allActivities.NOC_RESPONSE, //response to NOC/ c-Qn
+                // vm.allActivities.NOD_RESPONSE, //Response to NOD
+                // vm.allActivities.NON_RESPONSE, //Response to NON
                 vm.allActivities.PROCESSING_CLARIF_RESPONSE, //Response to processing Clarification Request
                 vm.allActivities.QUAL_CLIN_CLARIF_RESPONSE, //Response to quality and Clinical clarification REquest
                 vm.allActivities.QUAL_CLARIF_RESPONSE, //Response to Quality Clarification request
-                vm.allActivities.RECON_DECIS_LTR_INTENT,// Reconsideration of Decision - Letter of Intent
-                vm.allActivities.RECON_DECIS_RQ_RECON, //Reconsideration of Decision - Request for Reconsideration
-                vm.allActivities.RECON_DECIS_OTHER_INFO,// Reconsideration of Decision - Other Information
-                vm.allActivities.SCREENING_ACCEPT_RESPONSE, //response to screening acceptance letter
+                // vm.allActivities.RECON_DECIS_LTR_INTENT,// Reconsideration of Decision - Letter of Intent
+                // vm.allActivities.RECON_DECIS_RQ_RECON, //Reconsideration of Decision - Request for Reconsideration
+                // vm.allActivities.RECON_DECIS_OTHER_INFO,// Reconsideration of Decision - Other Information
+                // vm.allActivities.SCREENING_ACCEPT_RESPONSE, //response to screening acceptance letter
                 vm.allActivities.SCREENING_CLARIF_RESPONSE, // response to screening clarification request
-                vm.allActivities.SDN_RESPONSE, //response to SDN
+                // vm.allActivities.SDN_RESPONSE, //response to SDN
                 vm.allActivities.PHONE_RQ_RESPONSE, //Response to telephone Request
                 vm.allActivities.UNSOLICITED_DATA, //Unsolicited Data
-                vm.allActivities.CORR_PATENT_MED, //Correspondence - Patented Medicines
-                vm.allActivities.ALLEGATION_NOTICE, //Notice of allegation
-                vm.allActivities.FORM_IV, //Form IV
-                vm.allActivities.FORM_V, //Form V
-                vm.allActivities.CONSENT_LTR, //Consent Letter
-                vm.allActivities.DATA_PROTECT_CORRESP, //Correspondence - Data Protection
+                // vm.allActivities.CORR_PATENT_MED, //Correspondence - Patented Medicines
+                // vm.allActivities.ALLEGATION_NOTICE, //Notice of allegation
+                // vm.allActivities.FORM_IV, //Form IV
+                // vm.allActivities.FORM_V, //Form V
+                // vm.allActivities.CONSENT_LTR, //Consent Letter
+                // vm.allActivities.DATA_PROTECT_CORRESP, //Correspondence - Data Protection
+                vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
+                vm.allActivities.PANDEMIC_APPL, //Pandemic application
+                vm.allActivities.TERM_COND_COMM, //Terms and Conditions Commitment
                 vm.allActivities.NONCLIN_CLARIF_RESPONSE //response to Non-clinical clarification request
             ])
         }
         function _getCoVir19AmdArray() {
             return ([
-                vm.allActivities.ADMINISTRATIVE, //administrative
+                // vm.allActivities.ADMINISTRATIVE, //administrative
                 vm.allActivities.CANCEL_LETTER, //cancellation letter
-                vm.allActivities.COMMENTS_NOC, // comments on notice of decision
-                vm.allActivities.COMMENTS_SUMMARY_BASIS, //commments on summary basis,
-                vm.allActivities.COMMENTS_REGULARTORY_DECISION, //commments on COMMENTS_REGULARTORY_DECISION basis
+                // vm.allActivities.COMMENTS_NOC, // comments on notice of decision
+                // vm.allActivities.COMMENTS_SUMMARY_BASIS, //commments on summary basis,
+                // vm.allActivities.COMMENTS_REGULARTORY_DECISION, //commments on COMMENTS_REGULARTORY_DECISION basis
                 vm.allActivities.DRUG_NOTIF_FORM, // drug notification form
-                vm.allActivities.INITIAL, //Initial
+                // vm.allActivities.INITIAL, //Initial
                 vm.allActivities.MEETING_MINUTES, //minutes of meeting dated
+                vm.allActivities.POST_ANTH_CHANGE,        // Post Authorization Change
                 vm.allActivities.POST_CLEARANCE_DATA, //post clearance data
                 vm.allActivities.PRESUB_MEETING_PKG, // presubmission meeting package
                 vm.allActivities.PRESUB_MEETING_RQ,   //submission Meeting Request -used to be presub
+                vm.allActivities.CLARIF_RESPONSE, //Response to clarification request
                 vm.allActivities.SECOND_LANG_PM, // Second Language PM
                 vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
                 vm.allActivities.PUB_RELEASE_INFO, //Public Release of Clinical Information
@@ -1850,26 +1882,28 @@
                 vm.allActivities.EMAIL_RQ_RESPONSE,// Response to E-mail Request
                 vm.allActivities.LABEL_CLARIF_RESPONSE, //Response to labelling clarification request
                 vm.allActivities.LABEL_PREAPPROVAL_2LANG, //Second Language Label - Pre-Approval
-                vm.allActivities.NOC_RESPONSE, //response to NOC/ c-Qn
-                vm.allActivities.NOD_RESPONSE, //Response to NOD
-                vm.allActivities.NON_RESPONSE, //Response to NON
+                // vm.allActivities.NOC_RESPONSE, //response to NOC/ c-Qn
+                // vm.allActivities.NOD_RESPONSE, //Response to NOD
+                // vm.allActivities.NON_RESPONSE, //Response to NON
                 vm.allActivities.PROCESSING_CLARIF_RESPONSE, //Response to processing Clarification Request
                 vm.allActivities.QUAL_CLIN_CLARIF_RESPONSE, //Response to quality and Clinical clarification REquest
                 vm.allActivities.QUAL_CLARIF_RESPONSE, //Response to Quality Clarification request
-                vm.allActivities.RECON_DECIS_LTR_INTENT,// Reconsideration of Decision - Letter of Intent
-                vm.allActivities.RECON_DECIS_RQ_RECON, //Reconsideration of Decision - Request for Reconsideration
-                vm.allActivities.RECON_DECIS_OTHER_INFO,// Reconsideration of Decision - Other Information
-                vm.allActivities.SCREENING_ACCEPT_RESPONSE, //response to screening acceptance letter
+                // vm.allActivities.RECON_DECIS_LTR_INTENT,// Reconsideration of Decision - Letter of Intent
+                // vm.allActivities.RECON_DECIS_RQ_RECON, //Reconsideration of Decision - Request for Reconsideration
+                // vm.allActivities.RECON_DECIS_OTHER_INFO,// Reconsideration of Decision - Other Information
+                // vm.allActivities.SCREENING_ACCEPT_RESPONSE, //response to screening acceptance letter
                 vm.allActivities.SCREENING_CLARIF_RESPONSE, // response to screening clarification request
-                vm.allActivities.SDN_RESPONSE, //response to SDN
+                // vm.allActivities.SDN_RESPONSE, //response to SDN
                 vm.allActivities.PHONE_RQ_RESPONSE, //Response to telephone Request
                 vm.allActivities.UNSOLICITED_DATA, //Unsolicited Data
-                vm.allActivities.CORR_PATENT_MED, //Correspondence - Patented Medicines
-                vm.allActivities.ALLEGATION_NOTICE, //Notice of allegation
-                vm.allActivities.FORM_IV, //Form IV
-                vm.allActivities.FORM_V, //Form V
-                vm.allActivities.CONSENT_LTR, //Consent Letter
-                vm.allActivities.DATA_PROTECT_CORRESP, //Correspondence - Data Protection
+                // vm.allActivities.CORR_PATENT_MED, //Correspondence - Patented Medicines
+                // vm.allActivities.ALLEGATION_NOTICE, //Notice of allegation
+                // vm.allActivities.FORM_IV, //Form IV
+                // vm.allActivities.FORM_V, //Form V
+                // vm.allActivities.CONSENT_LTR, //Consent Letter
+                // vm.allActivities.DATA_PROTECT_CORRESP, //Correspondence - Data Protection
+                vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
+                vm.allActivities.TERM_COND_COMM, //Terms and Conditions Commitment
                 vm.allActivities.NONCLIN_CLARIF_RESPONSE //response to Non-clinical clarification request
             ])
         }

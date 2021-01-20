@@ -58,6 +58,7 @@
                     yearChgInx: 0,
                     descChgInx: 0,
                     reqSoliInx: 0,
+                    areFeesInx: 0,
                     feesInx: 0,
                     contactInx: 0,
                     // compNameInx: 0,
@@ -1052,7 +1053,7 @@
           //  solicitedRequesterReord: [],
           //   projectManager1: "",
           //   projectManager2: "",
-            isFees: "",
+            isFees: "Y",
             resetBtnClicked : false,
             feeDetails: null,
             isActivityChanges: "Y", //deprecated

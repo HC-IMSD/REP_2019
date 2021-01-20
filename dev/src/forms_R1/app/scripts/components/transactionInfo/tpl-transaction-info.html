@@ -377,6 +377,9 @@
                         <legend class="required">
                             {{::'IS_FEE_TRANSACTION' |translate}}
                             <strong class="required">{{::"REQUIRED" |translate}}</strong>
+                            <sup id="tr12b_ref">
+                                <a class="fn-lnk" href="#tr12b"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::transInfoCtrl.htIndxList.areFeesInx}}</a>
+                            </sup>
                             <strong id="isfee-error" class="error"
                                     data-ng-if="transInfoCtrl.showError(transInfoCtrl.transInfoForm[transInfoCtrl.isFeesId])">
                                  <span class="label label-danger"

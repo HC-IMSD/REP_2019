@@ -5,10 +5,10 @@
         <!--name-suffix="lifecycleCtrl.lifecycleDetailsForm" set-heading-level="h3" form-id="lifecycleCtrl.lifecycleDetailsFormId"-->
         <!--make-focused="lifecycleCtrl.focusSummary" show-errors="lifecycleCtrl.showSummary"-->
         <!--update-errors="lifecycleCtrl.updateSummary"></cmp-error-summary>-->
-        <div>
-            <div>
-                <fieldset>
-                    <legend class="legend-rep">{{::'LIFE_REC' | translate}}&nbsp;</legend>
+        <!--<div>-->
+            <!--<div>-->
+                <!--<fieldset>-->
+                    <!--<legend class="legend-rep">{{::'' | translate}}&nbsp;</legend>-->
                     <div class="row">
                         <div class="form-group col-md-6"
                              data-ng-class="{'has-error':lifecycleCtrl.lifecycleDetailsForm[lifecycleCtrl.controlNumId].$invalid}">
@@ -30,7 +30,8 @@
 
                             </label>
                         </div>
-
+                    </div>
+                    <div class="row">
                         <div class="form-group col-md-6"
                              data-ng-class="{'has-error':lifecycleCtrl.lifecycleDetailsForm[lifecycleCtrl.activityLeadId].$invalid}">
                             <div class="form-group">
@@ -52,6 +53,18 @@
                                     </select>
 
                                 </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" data-ng-show="lifecycleCtrl.isActivityLeadSet">
+                        <div class="col-xs-12 form-group">
+                            <label>
+                                <span class="field-name">{{::'REG_ACTIVITY_LEAD_DESC' |translate}}</span>
+                            </label>
+                            <div data-ng-if="!transFeeCtrl.isFrench()">
+                                <textarea class="form-control full-width" id="activityLeadNoteId" readonly rows="4"
+                                          name="activityLeadNote">{{lifecycleCtrl.activityLeadNote|translate}}
+                                </textarea>
                             </div>
                         </div>
                     </div>
@@ -347,9 +360,9 @@
                             </label>
                         </div>
                     </div>
-                </fieldset>
-            </div>
-        </div>
+                <!--</fieldset>-->
+            <!--</div>-->
+        <!--</div>-->
     </ng-form>
     <!--<pre>lifecycle record model: {{lifecycleCtrl.lifecycleModel | json : spacing}}</pre>-->
 </div>

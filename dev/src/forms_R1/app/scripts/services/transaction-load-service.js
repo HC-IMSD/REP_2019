@@ -50,9 +50,9 @@
                         var translateList = _createTranslateList(newList, options.key);
                         TransactionLists.createFeeTypes(newList);
                         angular.extend(resultTranslateList, translateList);
-                        return $http.get(mitigationUrl);
-                    })
-                    .then(function (response) {
+                        // return $http.get(mitigationUrl);
+                    });
+                $http.get(mitigationUrl).then(function (response) {
                         //PROCESS mitigation url list data
                         var newList = _createSortedArray(response.data, options.key);
                         TransactionLists.createMitigationList(newList);
