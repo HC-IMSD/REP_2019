@@ -38,7 +38,7 @@
   "COMPANY_REP_2": " Le représentant de la compagnie doit être associé à chacun des rôles suivants : « Fabricant ou promoteur », « Facturation », « Personne-ressource pour le courrier réglementaire et pour les annuels » et « Personne-ressource du PIR ».",
   "COMPANY_REP_3": "Une même personne-ressource peut être associée à plusieurs rôles, mais un rôle ne peut être associé qu’à une seule personne-ressource.",
   "COMPANY_REP_4": "La personne-ressource du PIR est la personne que Santé Canada doit contacter s’il y a des questions à régler ou des précisions à apporter au modèle lorsqu’il fait l’objet d’une demande d’inscription ou de modification.",
-  "COMPANY_REP_5": "Un représentant de la compagnie est requis pour chaque adresse postale d'importateur canadien qui a été fournie.",
+//  "COMPANY_REP_5": "Un représentant de la compagnie est requis pour chaque adresse postale d'importateur canadien qui a été fournie.",
 //  "COMPANY_REP_5": "fr_Sponsors may choose to provide an Alternate REP contact, however this is not a requirement.",
 //  "COMPANY_REP_6": "Description des rôles",
 //  "COMPANY_REP_7": "Désigne le nom sous lequel la présentation de médicament est déposée, lorsqu’un numéro d’identification du médicament (DIN) ou un avis de conformité (AC) doit être délivré, il s’agit du nom de l’entreprise qui enregistrera le DIN ou l’AC (c.-à-d. le détenteur du DIN ou de l’AC), ainsi que le nom qui doit figurer sur l’étiquette du produit et dans la monographie ou la notice du produit.",

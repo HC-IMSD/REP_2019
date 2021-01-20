@@ -132,12 +132,12 @@ var activityRootTitles_fr = {
 };
 
 var companyRootTitles_en = {
-    mainHeading: "Company Template: Regulatory Enrolment Process (REP)<br>(Version 4.1.0)",
+    mainHeading: "Company Template: Regulatory Enrolment Process (REP)<br>(Version 4.2.0)",
     title: 'Company Template: Regulatory Enrolment Process - Canada.ca'
 
 };
 var companyRootTitles_fr = {
-    mainHeading: "'Modèle de compagnie': Processus d'Inscription Réglementaire (Version 4.1.0)",
+    mainHeading: "'Modèle de compagnie': Processus d'Inscription Réglementaire (Version 4.2.0)",
     title: "'Modèle de compagnie': Processus d'Inscription Réglementaire - Canada.ca"
 
 };

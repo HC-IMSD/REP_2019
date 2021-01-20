@@ -25,7 +25,7 @@
                 enrolmentVersion: "0.0",
                 dateSaved: "",
                 applicationType: "NEW",
-                softwareVersion: "4.1.0",
+                softwareVersion: "4.2.0",
                 companyId: "",
                 reasonAmend:"",
                 addressList: [],
@@ -41,7 +41,7 @@
             this.addressID = 0;
             this.contactId = 0;
             // this.xslFileName = XSL_PREFIX + "REP_CO_2_2.xsl";
-            this.xslFileName = "REP_CO_4_1.xsl";
+            this.xslFileName = "REP_CO_4_2.xsl";
             this.helpTextSequences = {
                 loadFileInx: 0,
                 enrolIdx: 0,

@@ -43,8 +43,8 @@
                 updateErrorSummary:'&', //update the parent error summary
                 isIn:'<',
                 isFocus: '<',
-                cancelFocus: '&',
-                inUseFlag:'<'
+                cancelFocus: '&'
+                // inUseFlag:'<'
             }
         });
     addressRecCtrl.$inject = ['$scope', 'CANADA', '$filter', 'getCountryAndProvinces','$translate', 'INTERNAL_TYPE', 'EXTERNAL_TYPE'];
@@ -56,7 +56,7 @@
         vm.isContact = false;
         vm.isEditable = true;
         vm.formAmend = false;
-        vm.isImporter = false;
+        // vm.isImporter = false;
         vm.updateCountry = 0;
         vm.updateSummary=0; //triggers and error summary update
         vm.setSummaryFocus=0; //sets the summary focus
@@ -68,13 +68,13 @@
             addressID: 1,
             companyName: "",
             businessNumber: "",
-            importerID:"",
+            // importerID:"",
             amendRecord: false,
             addressRole: {
                 manufacturer: false,
                 mailing: false,
-                billing: false,
-                importer: false
+                billing: false
+                // importer: false
             },
             street: "",
             city: "",
@@ -115,7 +115,7 @@
         vm.$onInit = function () {
             _setIdNames();
             vm.updateErrorSummaryState();
-            vm.importerProductState(vm.addressModel.addressRole.importer);
+            // vm.importerProductState(vm.addressModel.addressRole.importer);
         };
         //TODO move to service
         function _getRolesConcat() {
@@ -131,9 +131,9 @@
             if (addressRoles.mailing) {
                 result = result + " MAIL,"
             }
-            if (addressRoles.importer) {
-                result = result + " IMP,"
-            }
+            // if (addressRoles.importer) {
+            //     result = result + " IMP,"
+            // }
             result = result.substring(0, result.length - 1);
             return result
         }
@@ -142,11 +142,11 @@
          * Determines if a canadian importer role has been selected
          * @returns {boolean} true -if importer
          */
-        vm.notCanadianManufact = function () {
-            if (!vm.addressModel) return false;
-            return (vm.addressModel.addressRole.manufacturer === true && vm.addressModel.country.id !== CANADA);
-
-        };
+        // vm.notCanadianManufact = function () {
+        //     if (!vm.addressModel) return false;
+        //     return (vm.addressModel.addressRole.manufacturer === true && vm.addressModel.country.id !== CANADA);
+        //
+        // };
         vm.focusOnSummary = function () {
             vm.setSummaryFocus = vm.setSummaryFocus + 1;
         };
@@ -211,7 +211,7 @@
                 vm.onUpdate({rec: vm.addressModel});
             }
             vm.errorSummaryUpdate();
-            vm.importerProductState(vm.addressModel.addressRole.importer)
+            // vm.importerProductState(vm.addressModel.addressRole.importer)
         };
         //TODO obsolete?
         vm.onAddressRoleUpdate = function (newRole) {
@@ -220,48 +220,48 @@
             vm.addressModel.addressRole = aRole;
             vm.updateAddressModel2();
         };
-        vm.importerProductState = function (state) {
-            var isImporterPre = vm.isImporter;
-            vm.isImporter = state;
-            if (vm.isImporter) {
-                vm.addressModel.addressRole.manufacturer = false;
-                // vm.addressModel.addressRole.mailing = false;
-                // vm.addressModel.addressRole.billing = false;
-              //  vm.addressModel.country=$filter('filter')(getCountryAndProvinces.getCountries(),{id: CANADA})[0];
-                vm.addressModel.countryHtml = vm.addressModel.country[vm.lang];
-                vm.updateCountry++;
+        // vm.importerProductState = function (state) {
+        //     var isImporterPre = vm.isImporter;
+        //     vm.isImporter = state;
+        //     if (vm.isImporter) {
+        //         vm.addressModel.addressRole.manufacturer = false;
+        //         // vm.addressModel.addressRole.mailing = false;
+        //         // vm.addressModel.addressRole.billing = false;
+        //       //  vm.addressModel.country=$filter('filter')(getCountryAndProvinces.getCountries(),{id: CANADA})[0];
+        //         vm.addressModel.countryHtml = vm.addressModel.country[vm.lang];
+        //         vm.updateCountry++;
+        //
+        //     }
+        //     if (!vm.isImporter) {
+        //         /**vm.addressModel.importerProducts = {
+        //             "selectedProducts": "",
+        //             "dossierIdLislamt": []
+        //         };*/
+        //         vm.addressModel.importerID = "";
+        //     }
+        //     if(isImporterPre && ! vm.isImporter){
+        //         vm.deselectImporter(!vm.isImporter);
+        //     }
+        //     /**else if (vm.addressModel.importerProducts.dossierIdList.length === 0) {
+        //         vm.addressModel.importerProducts.dossierIdList.push({dossierId: ""})
+        //     }*/
+        // };
 
-            }
-            if (!vm.isImporter) {
-                /**vm.addressModel.importerProducts = {
-                    "selectedProducts": "",
-                    "dossierIdLislamt": []
-                };*/
-                vm.addressModel.importerID = "";
-            }
-            if(isImporterPre && ! vm.isImporter){
-                vm.deselectImporter(!vm.isImporter);
-            }
-            /**else if (vm.addressModel.importerProducts.dossierIdList.length === 0) {
-                vm.addressModel.importerProducts.dossierIdList.push({dossierId: ""})
-            }*/
-        };
-
-        vm.deselectImporter = function (state){
-          vm.des = state;
-          if(vm.des){
-              vm.addressModel.addressRole.importer = false;
-              vm.addressModel.importerID = "";
-          }
-          if(vm.isImporter && vm.des){
-              vm.isImporter = false;
-              vm.addressModel.country = '';
-              vm.addressModel.countryHtml = '';
-              vm.updateCountry++;
-          }
-
-
-        };
+        // vm.deselectImporter = function (state){
+        //   vm.des = state;
+        //   if(vm.des){
+        //       vm.addressModel.addressRole.importer = false;
+        //       vm.addressModel.importerID = "";
+        //   }
+        //   if(vm.isImporter && vm.des){
+        //       vm.isImporter = false;
+        //       vm.addressModel.country = '';
+        //       vm.addressModel.countryHtml = '';
+        //       vm.updateCountry++;
+        //   }
+        //
+        //
+        // };
 
         /**
          * @ngdoc method -Updates the parent on whether this record is valid or not
@@ -325,7 +325,7 @@
         function _setIdNames() {
             var scopeId="_"+  $scope.$id;
             vm.companyNameId = "COMPANYNAME" +scopeId;
-            vm.importerID = "importerID" + scopeId;
+            // vm.importerID = "importerID" + scopeId;
             vm.formNameId="company-address-record-form"+scopeId;
             vm.businessNumberId = "businessNumberId" + scopeId;
         }

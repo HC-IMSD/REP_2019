@@ -59,21 +59,19 @@
                                   in-use-flag="addressRec.inUseFlag"
                                   show-errors="addressRec.showErrors()"
                                   ht-indx-list="addressRec.htIndxList"
-                                  importer-updated="addressRec.importerProductState(state)"
-                                  deselect-importer="addressRec.deselectImporter(state)"
                                   update-error-summary="addressRec.updateErrorSummaryState()"
                                   already-selected="addressRec.isOneSelected(roleName)"></cmp-address-role>
 
             </div>
 
-            <div class="row">
-                <div class="col-xs-7">
-                    <div data-ng-if="addressRec.notCanadianManufact()" class="alert alert-info" role="alert"
-                         aria-live="polite">
-                        <span>{{::'IMPORTER_NONCDN'|translate}}</span>
-                    </div>
-                </div>
-            </div>
+            <!--<div class="row">-->
+                <!--<div class="col-xs-7">-->
+                    <!--<div data-ng-if="addressRec.notCanadianManufact()" class="alert alert-info" role="alert"-->
+                         <!--aria-live="polite">-->
+                        <!--<span>{{::'IMPORTER_NONCDN'|translate}}</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
             <!--<div ng-if="addressRec.isImporter">
                 <cmp-importer-products importer-record="addressRec.addressModel.importerProducts"
                                        is-amend="addressRec.isEditable"

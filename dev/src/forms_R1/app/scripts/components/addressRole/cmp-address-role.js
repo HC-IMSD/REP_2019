@@ -28,10 +28,10 @@
                 isAmend: '<',
                 htIndxList: '<',
                 legendText: '@',
-                importerUpdated: '&',
-                deselectImporter: '&',
-                updateErrorSummary: '&',
-                inUseFlag:'<'
+                // importerUpdated: '&',
+                // deselectImporter: '&',
+                updateErrorSummary: '&'
+                // inUseFlag:'<'
             }
         });
 
@@ -49,15 +49,15 @@
         vm.duplicateRole=[
             {type: "duplicateRole", displayAlias: "TYPE_DUPLICATEROLE"}
         ];
-        vm.impCompanyInUse=[
-            {type: "impCompanyInUse", displayAlias: "COMPANY_IN_USE"}
-        ];
+        // vm.impCompanyInUse=[
+        //     {type: "impCompanyInUse", displayAlias: "COMPANY_IN_USE"}
+        // ];
 
         vm.roleModel = {
             manufacturer: false,
             mailing: false,
             billing: false,
-            importer: false,
+         //   importer: false,
             repPrimary: false,
             repSecondary: false
         };
@@ -97,16 +97,16 @@
         }
 
 
-        vm.updateImporterState = function (ctrl, toCheck) {
-            vm.oneSelected(ctrl, toCheck);
-            vm.importerUpdated({state: vm.roleModel.importer});
-            // todo: set manu role input untouch ??
-            checkAllControlsForDuplicates();
-        };
+        // vm.updateImporterState = function (ctrl, toCheck) {
+        //     vm.oneSelected(ctrl, toCheck);
+        //     vm.importerUpdated({state: vm.roleModel.importer});
+        //     // todo: set manu role input untouch ??
+        //     checkAllControlsForDuplicates();
+        // };
 
         vm.updateOtherState = function (ctrl, toCheck) {
             var result = vm.oneSelected(ctrl, toCheck);
-            vm.deselectImporter({state: vm.roleModel.manufacturer});
+            // vm.deselectImporter({state: vm.roleModel.manufacturer});
             //vm.deselectImporter({state: vm.roleModel.manufacturer || vm.roleModel.mailing || vm.roleModel.billing})
         };
 
@@ -120,9 +120,9 @@
         vm.oneSelected = function (ctrl, toCheck) {
             var obj = vm.roleModel;
 
-                if(toCheck !== 'importer') {
-                    vm.checkForDuplicates(ctrl, toCheck);
-                }
+                // if(toCheck !== 'importer') {
+                //     vm.checkForDuplicates(ctrl, toCheck);
+                // }
 
             for (var key in obj) {
                 var attrName = key;
@@ -220,7 +220,7 @@
             vm.chkManuContactId = "contactManufacturer" + scopeId;
             vm.chkMailContactId = "contactMailing" + scopeId;
             vm.chkBillContactId = "contactBilling" + scopeId;
-            vm.chkImpId = "chk-importer" +scopeId;
+            // vm.chkImpId = "chk-importer" +scopeId;
             vm.chkRePrimId = "repPrimary" +scopeId;
             vm.chkRepSecId = "repSecondary" +scopeId;
         }
