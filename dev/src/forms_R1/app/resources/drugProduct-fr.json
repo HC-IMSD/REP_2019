@@ -80,7 +80,7 @@
   "HT_PROD_INFO_1A": "Pour obtenir le numéro de la compagnie, consultez la version finale du fichier de compagnie (en format XML) délivré par Santé Canada.",
   "HT_PROD_INFO_2": "Pour « obtenir le numéro du dossier », consultez les documents délivré par Santé Canada. Le numéro du dossier est composé d’une lettre suivie de six chiffres. (p. ex., x######).",
   "HT_PROD_INFO_3": "Remarque : Toute section comportant un bouton « Enregistrer » doit être sauvegardée individuellement. Autrement, l’information incomplète sera perdue.",
-  "HT_COMP_ID_1": "Pour « obtenir le numéro de la compagnie », consultez la version finale du fichier de compagnie (en format XML) délivré par Santé Canada.",
+  "HT_COMP_ID_1": "L’identificateur de la compagnie peut être obtenu à partir du dernier fichier XML de compagnie émis par Santé Canada, ou du « code de compagnie » figurant dans le formulaire annuel de notification des médicaments (FADN).",
   "HT_COMP_ID_2": "Le numéro de la compagnie doit être composé de 5 chiffres -  ajouter un zéro à la place, si nécessaire.",
   "HT_DOSSIER_TYPE_1": "Le dossier biologique s’applique à tous les produits biologiques et radiopharmaceutiques.",
   "HT_DOSSIER_TYPE_2": "Le dossier pharmaceutique s’applique à tous les produits pharmaceutiques avec ou sans ordonnance, les produits éthiques  et les désinfectants.",
