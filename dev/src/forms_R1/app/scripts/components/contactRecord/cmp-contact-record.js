@@ -34,7 +34,7 @@
                 htIndxList: '<',
                 isFocus: '<',
                 cancelFocus: '&',
-                addrImpCompanyName: '<'
+                // addrImpCompanyName: '<'
             }
         });
     contactRecCtrl.$inject = ['$scope'];
@@ -57,7 +57,7 @@
                 manufacturer: false,
                 mailing: false,
                 billing: false,
-                importer: false,
+                // importer: false,
                 repPrimary: false,
                 repSecondary: false
             },
@@ -69,8 +69,8 @@
             title: "",
             phone: "",
             PhoneExt: "",
-            fax: "",
-            addrImpCompanyName: ""
+            fax: ""
+            // addrImpCompanyName: ""
         };
         vm.alias={
             "contactRoleMissing": {
@@ -137,9 +137,9 @@
             if (addressRoles.mailing) {
                 result = result + " MAIL"
             }
-           if (addressRoles.importer) {
-            result = result + " IMP"
-           }
+           // if (addressRoles.importer) {
+           //  result = result + " IMP"
+           // }
             if (addressRoles.repPrimary) {
                 result = result + " REP1"
             }
@@ -182,7 +182,7 @@
             vm.updateContactModel2();
             vm.showRoutingId();
             vm.setEditable();
-            vm.showAddrImpCompanyName();
+            // vm.showAddrImpCompanyName();
         };
         /**
          * @ngdoc method -Updates the parent on whether this record is valid or not
@@ -212,9 +212,9 @@
             vm.contactModel.roleConcat = _getRolesConcat();
             if (vm.contactRecForm.$valid) {
                 // vm.contactModel.isDetailValid=true;
-                if(! vm.contactModel.addressRole.importer){
-                    vm.contactModel.impCompanyName = '';
-                }
+                // if(! vm.contactModel.addressRole.importer){
+                //     vm.contactModel.impCompanyName = '';
+                // }
                 vm.isDetailValid({state: true});
                 vm.contactRecForm.$setPristine();
                 vm.onUpdate({contact: vm.contactModel});
@@ -262,8 +262,9 @@
         };
         vm.showRoutingId = function () {
             vm.contactModel.roleConcat = _getRolesConcat();
+            // if (vm.contactModel.roleConcat.indexOf(' MFR') > -1 || vm.contactModel.roleConcat.indexOf(' MAIL') > -1
+            //     || vm.contactModel.roleConcat.indexOf(' IMP') > -1
             if (vm.contactModel.roleConcat.indexOf(' MFR') > -1 || vm.contactModel.roleConcat.indexOf(' MAIL') > -1
-                || vm.contactModel.roleConcat.indexOf(' IMP') > -1
             ) {
                 return 0;
             } else {
@@ -272,16 +273,16 @@
             }
         }
 
-        vm.showAddrImpCompanyName = function () {
-            //TODO
-            vm.contactModel.roleConcat = _getRolesConcat();
-            if (vm.contactModel.roleConcat.indexOf(' IMP') > -1) {
-                return 0;
-            } else {
-                vm.contactModel.addrImpCompanyName = '';
-                return -1;
-            }
-        }
+        // vm.showAddrImpCompanyName = function () {
+        //     //TODO
+        //     vm.contactModel.roleConcat = _getRolesConcat();
+        //     if (vm.contactModel.roleConcat.indexOf(' IMP') > -1) {
+        //         return 0;
+        //     } else {
+        //         vm.contactModel.addrImpCompanyName = '';
+        //         return -1;
+        //     }
+        // }
 
     }
 

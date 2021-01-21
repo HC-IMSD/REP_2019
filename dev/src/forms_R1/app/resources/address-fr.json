@@ -22,7 +22,7 @@
   "SELECTED_PRODUCTS":"Certain produits",
   "IDENTIFY_PRODUCTS": "Fournir les numéros de dossier pour les produits importés par cette compagnie",
   "ADD_DOSSIER_ID":"Ajouter un numéro de dossier",
-  "IMPORTER_NONCDN":"Veuillez vous assurer d'indiquer un importateur canadien.",
+//  "IMPORTER_NONCDN":"Veuillez vous assurer d'indiquer un importateur canadien.",
   "COUNTRY_CHOOSE":"Choisir un pays",
   "COUNTRY_SEARCH":"Selectionner ou rechercher le pays",
   "PROVINCELIST":"Province or State"
