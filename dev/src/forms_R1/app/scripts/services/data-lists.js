@@ -340,7 +340,8 @@
                 ([
                     _biologic,
                     _pharma,
-                    _clinical
+                    _clinical,
+                    _veterinary
                 ]);
         }
 
