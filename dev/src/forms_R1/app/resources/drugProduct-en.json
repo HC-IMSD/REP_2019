@@ -90,7 +90,7 @@
   "HT_PROD_INFO_1A":"The company identifier must be obtained from the final company XML file, issued by Health Canada.",
   "HT_PROD_INFO_2":"The  dossier identifier can be obtained from Health Canada issued document. The format of a dossier identifier is a letter followed by six digits. (e.g. x######). ",
   "HT_PROD_INFO_3":"Note: Each section with a SAVE button must be saved individually; otherwise incomplete information will be lost.",
-  "HT_COMP_ID_1":"The company identifier must be obtained from the final company XML file, issued by Health Canada.",
+  "HT_COMP_ID_1":"The Company Identifier can be obtained from the latest Health Canada issued final company XML file, or the 'company code' found on the Annual Drug Notification Form (ADNF).",
   "HT_COMP_ID_2":"Company identifier must be 5 digits, add leading zero when required.",
   "HT_DOSSIER_TYPE_1":"Biologic dossier applies to all biologic products and radiopharmaceuticals.",
   "HT_DOSSIER_TYPE_3": "Clinical Trial dossier applies to all pharmaceutical products for human use, biologic products and radiopharmaceuticals, non-prescription and ethical products, and disinfectants",
