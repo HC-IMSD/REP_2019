@@ -77,26 +77,26 @@
                                        is-amend="addressRec.isEditable"
                                        show-errors="addressRec.showErrors()"></cmp-importer-products>
             </div>-->
-            <div class="row">
-                <div class="form-group col-md-12"
-                     data-ng-show="addressRec.isImporter">
-                    <div data-ng-class="{'has-error':addressRec.addressRecForm[addressRec.importerID].$invalid}">
-                    <label for="{{::addressRec.importerID}}" class=" full-width"
-                           data-ng-class="{'required':addressRec.isInternal}">
-                        <span class="field-name">{{::"IMPORTERID" |translate}} {{::'LEAST_5_DIGIT' |translate}}</span>
-                        <strong class="required" data-ng-show ="addressRec.isInternal"> {{::"REQUIRED" |translate}}</strong>
-                        <cmp-error-message field-name="addressRec.importerID" form-ref="addressRec.addressRecForm"
-                                           show-error="addressRec.showErrors()"
-                                           error-types="addressRec.length6Error"></cmp-error-message>
-                        <input type="text" id="{{::addressRec.importerID}}" name="{{::addressRec.importerID}}"
-                               data-ng-model="addressRec.addressModel.importerID"
-                               class="form-control" maxlength="5" minlength="5" size="6" data-only-digits=""
-                               data-ng-blur="addressRec.updateErrorSummaryState()" data-ng-readonly="!addressRec.isInternal"
-                               data-ng-required="addressRec.isInternal && addressRec.isImporter" />
-                    </label>
-                    </div>
-                </div>
-            </div>
+            <!--<div class="row">-->
+                <!--<div class="form-group col-md-12"-->
+                     <!--data-ng-show="addressRec.isImporter">-->
+                    <!--<div data-ng-class="{'has-error':addressRec.addressRecForm[addressRec.importerID].$invalid}">-->
+                    <!--<label for="{{::addressRec.importerID}}" class=" full-width"-->
+                           <!--data-ng-class="{'required':addressRec.isInternal}">-->
+                        <!--<span class="field-name">{{::"IMPORTERID" |translate}} {{::'LEAST_5_DIGIT' |translate}}</span>-->
+                        <!--<strong class="required" data-ng-show ="addressRec.isInternal"> {{::"REQUIRED" |translate}}</strong>-->
+                        <!--<cmp-error-message field-name="addressRec.importerID" form-ref="addressRec.addressRecForm"-->
+                                           <!--show-error="addressRec.showErrors()"-->
+                                           <!--error-types="addressRec.length6Error"></cmp-error-message>-->
+                        <!--<input type="text" id="{{::addressRec.importerID}}" name="{{::addressRec.importerID}}"-->
+                               <!--data-ng-model="addressRec.addressModel.importerID"-->
+                               <!--class="form-control" maxlength="5" minlength="5" size="6" data-only-digits=""-->
+                               <!--data-ng-blur="addressRec.updateErrorSummaryState()" data-ng-readonly="!addressRec.isInternal"-->
+                               <!--data-ng-required="addressRec.isInternal && addressRec.isImporter" />-->
+                    <!--</label>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
             <div class="row">
                 <div class="btn-group-sm col-md-12">
                     <button class="btn btn-primary mrgn-rght-sm" name="saveAddress"
