@@ -1781,7 +1781,7 @@ gulp.task('dev-drugProduct-pilot-clean', function () {
 
 /******* Common Tasks ****/
 gulp.task('dev-copyData-pilot', function () {
-    var copySources = gulp.src([paths.data + '**/*'],
+    var copySources = gulp.src([paths.data + '**/*', '!' + paths.data + '**/env.json'],
         {read: true, base: 'app'});
     return (copySources.pipe(gulp.dest(paths.buildDevPilot)));
 });
