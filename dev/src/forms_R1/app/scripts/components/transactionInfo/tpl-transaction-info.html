@@ -430,7 +430,44 @@
                 <div class="panel-body">
                     <div>
                         <h4 class="mrgn-tp-sm">{{::'COMPANY_INFO'|translate}}</h4>
+                        <div class="row form-group">
+                            <fieldset class="col-md-12 chkbxrdio-grp" data-ng-class="{'has-error':transInfoCtrl.transInfoForm[transInfoCtrl.thirdPartyId].$invalid}">
+                                <legend class="required">
+                                    {{::"IS_SIGNED_3RD_PARTY" |translate}}
+                                    <strong class="required"> {{::"REQUIRED" |translate}}</strong>
+                                    <cmp-error-message field-name="transInfoCtrl.thirdPartyId"
+                                                       form-ref="transInfoCtrl.transInfoForm"
+                                                       show-error="transInfoCtrl.showError(transInfoCtrl.transInfoForm[transInfoCtrl.thirdPartyId])"
+                                                       error-types="transInfoCtrl.requiredOnly">
+                                    </cmp-error-message>
+                                </legend>
+                                <label class="col-xs-2 rep-normal-font" for="{{::transInfoCtrl.thirdPartyId}}">
+                                    <input type="radio" id="{{::transInfoCtrl.thirdPartyId}}"
+                                           name="{{::transInfoCtrl.thirdPartyId}}" value="Y"
+                                           data-ng-model="transInfoCtrl.transactionModel.isThirdParty" required
+                                           data-ng-change="transInfoCtrl.setThirdParty()"
+                                           data-ng-blur="transInfoCtrl.setTouch(transInfoCtrl.transInfoForm[transInfoCtrl.thirdPartyId])"/>
+                                    &nbsp;{{::'Y'|translate}}</label>
+                                <label class="col-xs-2 rep-normal-font" for="{{::transInfoCtrl.thirdPartyId}}_1">
+                                    <input type="radio" id="{{::transInfoCtrl.thirdPartyId}}_1"
+                                           name="{{::transInfoCtrl.thirdPartyId}}" value="N"
+                                           data-ng-model="transInfoCtrl.transactionModel.isThirdParty"
+                                           required
+                                           data-ng-change="transInfoCtrl.setThirdParty()"/>&nbsp;
+                                    {{::'N'|translate}}</label>
+                            </fieldset>
+                        </div>
                         <div class="row">
+                            <div data-ng-show="transInfoCtrl.showThirdPartyNote" class="alert alert-info" role="alert" aria-live="polite">
+                                <p/>
+                                <ul>
+                                    <li> {{::"AUT_LETTER_NOTE1" |translate}}</li>
+                                    <li> {{::"AUT_LETTER_NOTE2" |translate}}</li>
+                                    <li> {{::"AUT_LETTER_NOTE3" |translate}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div  data-ng-show="transInfoCtrl.transactionModel.isThirdParty != 'N'" class="row">
                             <div class="form-group col-md-12"
                                  data-ng-class="{'has-error':transInfoCtrl.transInfoForm[transInfoCtrl.companyNameId].$invalid}">
                                 <label for="{{::transInfoCtrl.companyNameId}}" class="required full-width">
@@ -452,7 +489,7 @@
                         </div>
 
                     </div>
-                    <div>
+                    <div data-ng-show="transInfoCtrl.transactionModel.isThirdParty != 'N'">
                         <h4 class="mrgn-tp-sm">{{::'ADDRESS_INFO'|translate}}</h4>
                         <div class="row">
                             <cmp-address-details address-record="transInfoCtrl.transactionModel.activityAddress"
@@ -462,7 +499,14 @@
                         </div>
                     </div>
                     <div>
-                        <h4 class="mrgn-tp-sm">{{::'COMPANY_REP_THIS'|translate}}</h4>
+                        <div  class="mrgn-tp-sm">
+                            <div data-ng-if="!(transInfoCtrl.transactionModel.isThirdParty != 'N')">
+                                <h4>B. {{::'COMPANY_REP_THIS'|translate}}</h4>
+                            </div>
+                            <div data-ng-if="transInfoCtrl.transactionModel.isThirdParty != 'N'">
+                                <h4>C. {{::'COMPANY_REP_THIS'|translate}}</h4>
+                            </div>
+                        </div>
                         <div class="row">
                             <cmp-contact-details contact-record="transInfoCtrl.transactionModel.activityContact"
                                                  update-error-summary="transInfoCtrl.updateErrorSummary()" show-routing-id="transInfoCtrl.showRoutingId()"

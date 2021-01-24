@@ -97,7 +97,7 @@
         vm.$onInit = function () {
             _setIdNames();
             // vm.updateActivityType();
-            // vm.setThirdParty();
+            vm.setThirdParty();
             vm.setAdminSubmission();
             vm.updateEctdState();
             vm.updateDossierTypeState();
@@ -114,7 +114,7 @@
             if (changes.transactionRoot) {
                 vm.transactionModel = changes.transactionRoot.currentValue;
                 //   vm.updateActivityType();
-                // vm.setThirdParty();
+                vm.setThirdParty();
                 vm.setAdminSubmission();
                 vm.updateEctdState();
                 //   vm.setSolicitedState();
@@ -227,9 +227,9 @@
             // }
         };
 
-        // vm.setThirdParty = function () {
-        //     vm.showThirdPartyNote = (vm.transactionModel.isThirdParty === YES);
-        // };
+        vm.setThirdParty = function () {
+            vm.showThirdPartyNote = (vm.transactionModel.isThirdParty === YES);
+        };
 
         vm.updateEctdState = function () {
             if (isEctdValue()) {
@@ -247,14 +247,14 @@
                    vm.transactionModel.isAdminSub = '';
                    vm.transactionModel.subType = '';
                    vm.showAdminSub = false;
-                   vm.transactionModel.isFees = '';
+                   vm.transactionModel.isFees = YES;
                } else {
                    vm.transactionModel.ectd.productProtocol = '';
                    vm.disablePtclNum = false;
                    if(vm.selectedDossierType === 'D24') {
                        vm.transactionModel.isPriority = '';
                        vm.transactionModel.isNoc = '';
-                       vm.transactionModel.isFees = '';
+                       vm.transactionModel.isFees = YES;
                    }
                }
         };
@@ -403,7 +403,7 @@
                 // vm.transactionModel.transactionType = ""; //12 - new or exsiting
                 // vm.updateDossierTypeState();
                 vm.updateActivityType();
-                // vm.setThirdParty();
+                vm.setThirdParty();
                 vm.setAdminSubmission();
                 // vm.transactionModel.isSolicited = "";
                 // vm.setSolicitedState();
@@ -411,7 +411,7 @@
                 vm.transactionModel.ectd.lifecycleRecord = angular.copy(vm.transactionModel.ectd.lifecycleModel);
                 // vm.transactionModel.projectManager1 = ""; //43 - projectManager1
                 // vm.transactionModel.projectManager2 = ""; // 44 -projectManager2
-                vm.transactionModel.isFees = ""; // 46 - fee
+                vm.transactionModel.isFees = YES; // 46 - fee
                 vm.transactionModel.feeDetails = null;
                 vm.transactionModel.confirmContactValid = false; //93 confirmation
                 vm.transactionModel.resetBtnClicked = true;
