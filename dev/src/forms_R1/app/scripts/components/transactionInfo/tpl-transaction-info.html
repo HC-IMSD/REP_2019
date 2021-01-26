@@ -467,7 +467,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div  data-ng-show="transInfoCtrl.transactionModel.isThirdParty != 'N'" class="row">
+                        <div  data-ng-if="transInfoCtrl.transactionModel.isThirdParty != 'N'" class="row">
                             <div class="form-group col-md-12"
                                  data-ng-class="{'has-error':transInfoCtrl.transInfoForm[transInfoCtrl.companyNameId].$invalid}">
                                 <label for="{{::transInfoCtrl.companyNameId}}" class="required full-width">
@@ -489,7 +489,7 @@
                         </div>
 
                     </div>
-                    <div data-ng-show="transInfoCtrl.transactionModel.isThirdParty != 'N'">
+                    <div data-ng-if="transInfoCtrl.transactionModel.isThirdParty != 'N'">
                         <h4 class="mrgn-tp-sm">{{::'ADDRESS_INFO'|translate}}</h4>
                         <div class="row">
                             <cmp-address-details address-record="transInfoCtrl.transactionModel.activityAddress"

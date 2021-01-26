@@ -25,7 +25,7 @@
                 enrolmentVersion: "0.0",
                 dateSaved: "",
                 applicationType: "NEW",
-                softwareVersion: "4.1.0",
+                softwareVersion: "4.2.0",
                 companyId: "",
                 reasonAmend:"",
                 addressList: [],
@@ -41,10 +41,11 @@
             this.addressID = 0;
             this.contactId = 0;
             // this.xslFileName = XSL_PREFIX + "REP_CO_2_2.xsl";
-            this.xslFileName = "REP_CO_4_1.xsl";
+            this.xslFileName = "REP_CO_4_2.xsl";
             this.helpTextSequences = {
                 loadFileInx: 0,
                 enrolIdx: 0,
+                fillingIdx:0,
                 addressIdx: 0,
                 businessIdx: 0,
                 addRoleIdx: 0,
@@ -88,8 +89,8 @@
                 var defaultAddressRole = {
                     manufacturer: false,
                     mailing: false,
-                    billing: false,
-                    importer: false
+                    billing: false
+                    // importer: false
                 };
                 return (defaultAddressRole);
             },
@@ -109,12 +110,12 @@
                     addressID: 1,
                     companyName: "",
                     businessNumber: "",
-                    importerID: "",
+                    // importerID: "",
                     addressRole: {
                         manufacturer: false,
                         mailing: false,
-                        billing: false,
-                        importer: false
+                        billing: false
+                        // importer: false
                     },
                     street: "",
                     city: "",
@@ -154,8 +155,8 @@
                     phoneExt: "",
                     fax: "",
                     email: "",
-                    routingId: "",
-                    impCompanyName: ""
+                    routingId: ""
+                    // impCompanyName: ""
                 };
                 defaultContact.contactId = this.getNextContactID();
                 return (defaultContact);
@@ -272,12 +273,12 @@
                     address.addressID = adrList[i].address_id;
                     address.companyName = adrList[i].company_name;
                     address.businessNumber = adrList[i].business_number;
-                    address.importerID = adrList[i].importer_id;
+                    // address.importerID = adrList[i].importer_id;
                     address.addressRole = {};
                     address.addressRole.manufacturer = adrList[i].manufacturer === 'Y';
                     address.addressRole.mailing = adrList[i].mailing === 'Y';
                     address.addressRole.billing = adrList[i].billing === 'Y';
-                    address.addressRole.importer = adrList[i].importer === 'Y';
+                    // address.addressRole.importer = adrList[i].importer === 'Y';
                     address.street = adrList[i].company_address_details.street_address;
                     address.city = adrList[i].company_address_details.city;
                     // address.stateList = adrList[i].company_address_details.province_lov;
@@ -339,7 +340,7 @@
                     contact.addressRole.manufacturer = contacts[i].manufacturer === 'Y';
                     contact.addressRole.mailing = contacts[i].mailing === 'Y';
                     contact.addressRole.billing = contacts[i].billing === 'Y';
-                    contact.addressRole.importer = contacts[i].importer === 'Y';
+                    // contact.addressRole.importer = contacts[i].importer === 'Y';
                     contact.addressRole.repPrimary = contacts[i].rep_primary === 'Y';
                     contact.addressRole.repSecondary = contacts[i].rep_secondary === 'Y';
                     //contact.contactRole = contacts[i].company_contact_details.rep_contact_role;
@@ -354,7 +355,7 @@
                     contact.fax = contacts[i].company_contact_details.fax_num;
                     contact.email = contacts[i].company_contact_details.email;
                     contact.routingId = contacts[i].company_contact_details.RoutingID;
-                    contact.impCompanyName = contacts[i].company_contact_details.imp_company_name;
+                    // contact.impCompanyName = contacts[i].company_contact_details.imp_company_name;
                     list.push(contact);
                 }
                 return list;
@@ -379,10 +380,10 @@
                 address.manufacturer = adrList[i].addressRole.manufacturer === true ? 'Y' : 'N';
                 address.mailing = adrList[i].addressRole.mailing === true ? 'Y' : 'N';
                 address.billing = adrList[i].addressRole.billing === true ? 'Y' : 'N';
-                address.importer = adrList[i].addressRole.importer === true ? 'Y' : 'N';
+                // address.importer = adrList[i].addressRole.importer === true ? 'Y' : 'N';
                 address.company_name = adrList[i].companyName;
                 address.business_number = adrList[i].businessNumber;
-                address.importer_id = adrList[i].importerID;
+                // address.importer_id = adrList[i].importerID;
                 address.company_address_details = {};
                 address.company_address_details.street_address = adrList[i].street;
                 address.company_address_details.city = adrList[i].city;
@@ -429,7 +430,7 @@
                 contact.manufacturer = contacts[i].addressRole.manufacturer === true ? 'Y' : 'N';
                 contact.mailing = contacts[i].addressRole.mailing === true ? 'Y' : 'N';
                 contact.billing = contacts[i].addressRole.billing === true ? 'Y' : 'N';
-               contact.importer = contacts[i].addressRole.importer === true ? 'Y' : 'N';
+               // contact.importer = contacts[i].addressRole.importer === true ? 'Y' : 'N';
                 contact.rep_primary = contacts[i].addressRole.repPrimary === true ? 'Y' : 'N';
                 // contact.rep_secondary = contacts[i].addressRole.repSecondary === true ? 'Y' : 'N';
                 //contact.rep_contact_role = contacts[i].addressRole.contactRole === true ? 'Y' : 'N';
@@ -448,7 +449,7 @@
                 contact.company_contact_details.fax_num = contacts[i].fax;
                 contact.company_contact_details.email = contacts[i].email;
                 contact.company_contact_details.RoutingID = contacts[i].routingId;
-                contact.company_contact_details.imp_company_name = contacts[i].impCompanyName;
+                // contact.company_contact_details.imp_company_name = contacts[i].impCompanyName;
                 contactList.push(contact);
             }
         }

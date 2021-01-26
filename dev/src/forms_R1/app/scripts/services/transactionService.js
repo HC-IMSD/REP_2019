@@ -443,7 +443,7 @@
              */
                 ///function _mapFeeDetailsToOutput(feeObj, YES, NO,$filter) {
             var result = _createEmptyFeeDetailsForOutput(NO);
-            if (angular.isUndefined(feeObj)) return null;
+            if (angular.isUndefined(feeObj) || !feeObj) return null;
             result.submission_class = "";
 
             if (feeObj.submissionClass && feeObj.submissionClass.id) {
@@ -504,7 +504,7 @@
              * @private
              */
             var result = _createFeeDetails(NO);
-            if (angular.isUndefined(feeObj)) return null;
+            if (angular.isUndefined(feeObj) || !feeObj) return null;
             // result.submission_class = feeObj.submissionClass;
 
             if (feeObj.submission_class && feeObj.submission_class._id) {

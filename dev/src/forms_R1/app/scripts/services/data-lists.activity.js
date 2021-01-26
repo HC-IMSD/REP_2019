@@ -422,6 +422,7 @@
                 vm.allActivities.FORM_V, //Form V
                 vm.allActivities.CONSENT_LTR, //Consent Letter
                 vm.allActivities.DATA_PROTECT_CORRESP, //Correspondence - Data Protection
+                vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
                 vm.allActivities.NONCLIN_CLARIF_RESPONSE //response to Nonclinical clarification request
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
             ]);
@@ -471,6 +472,7 @@
                 vm.allActivities.FORM_V, //Form V
                 vm.allActivities.CONSENT_LTR, //Consent Letter
                 vm.allActivities.DATA_PROTECT_CORRESP, //Correspondence - Data Protection
+                vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
                 vm.allActivities.NONCLIN_CLARIF_RESPONSE //response to Nonclinical clarification request
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
             ]);
@@ -818,7 +820,7 @@
                 vm.allActivities.PHONE_RQ_RESPONSE, //Response to telephone Request,
                 vm.allActivities.PRESUB_MEETING_PKG, //submission Meeting Package
                 vm.allActivities.PRESUB_MEETING_RQ,   //Pre-submission Meeting Request
-                vm.allActivities.UNSOLICITED_DATA //Unsolicited Information
+                // vm.allActivities.UNSOLICITED_DATA //Unsolicited Information
             ]);
         }
 
@@ -1021,6 +1023,7 @@
                 vm.allActivities.UNSOLICITED_DATA,
                 vm.allActivities.LABEL_PREAPPROVAL_2LANG,
                 vm.allActivities.NON_RESPONSE, //Response to NON
+                vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
                 vm.allActivities.NOD_RESPONSE //Response to NOD
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
             ]);
@@ -1083,6 +1086,7 @@
                 vm.allActivities.LABEL_PREAPPROVAL_2LANG,
                 // vm.allActivities.YEAR_LIST_OF_CHANGE,
                 vm.allActivities.NON_RESPONSE, //Response to NON
+                vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
                 vm.allActivities.NOD_RESPONSE //Response to NOD
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
             ]);
@@ -1110,6 +1114,7 @@
                 vm.allActivities.UNSOLICITED_DATA,
                 vm.allActivities.LABEL_PREAPPROVAL_2LANG,
                 vm.allActivities.NON_RESPONSE, //Response to NON
+                vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
                 vm.allActivities.NOD_RESPONSE //Response to NOD
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
             ]);
@@ -1135,6 +1140,7 @@
                 vm.allActivities.SDN_RESPONSE,
                 vm.allActivities.PHONE_RQ_RESPONSE,
                 vm.allActivities.UNSOLICITED_DATA,
+                vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
                 vm.allActivities.LABEL_PREAPPROVAL_2LANG
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
             ]);
@@ -1333,6 +1339,7 @@
                 vm.allActivities.FORM_V, //Form V
                 vm.allActivities.CONSENT_LTR, //Consent Letter
                 vm.allActivities.DATA_PROTECT_CORRESP, //Correspondence - Data Protection
+                vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
                 vm.allActivities.NONCLIN_CLARIF_RESPONSE //response to Nonclinical clarification request
             ]);
 
@@ -1380,6 +1387,7 @@
                 vm.allActivities.FORM_V, //Form V
                 vm.allActivities.CONSENT_LTR, //Consent Letter
                 vm.allActivities.DATA_PROTECT_CORRESP, //Correspondence - Data Protection
+                vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
                 vm.allActivities.NONCLIN_CLARIF_RESPONSE //response to Nonclinical clarification request
             ]);
         }

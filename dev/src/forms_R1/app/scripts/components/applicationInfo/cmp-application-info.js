@@ -22,7 +22,9 @@
                 isIncomplete: '<',
                 isHide: '<',
                 configureIdField: '<',
-                setType: '&'
+                setType: '&',
+                indexList:'<'
+
             }
         });
 

@@ -5,7 +5,7 @@
         <input type="checkbox" id="addressValid_{{::$id}}" name="addressRolesValid_{{::$id}}"
                data-ng-model="addressListCtrl.allRolesSelected" hidden required/>
 
-        <input type="text" id="importerIdValidHidden_{{::$id}}" name="importerIdValid_{{::$id}}"  data-ng-model="addressListCtrl.importerhasID" hidden data-ng-required="addressListCtrl.isInternal && ! addressListCtrl.importerhasID"/>
+        <!--<input type="text" id="importerIdValidHidden_{{::$id}}" name="importerIdValid_{{::$id}}"  data-ng-model="addressListCtrl.importerhasID" hidden data-ng-required="addressListCtrl.isInternal && ! addressListCtrl.importerhasID"/>-->
              <cmp-expanding-table pre-id="address_expnd_" list-items="addressListCtrl.addressList"
                              reset-to-collapsed="addressListCtrl.resetCollapsed"
                              column-def="addressListCtrl.columnDef" is-required-record="addressListCtrl.requiredFlag"
@@ -23,8 +23,7 @@
                                 is-detail-valid="addressListCtrl.setValid(state)"
                                 is-in="addressListCtrl.isIn"
                                 is-focus="addressListCtrl.isFocus"
-                                cancel-focus="addressListCtrl.cancelFocus"
-                                in-use-flag="addressListCtrl.addressList[$parent.$index].inUse">
+                                cancel-focus="addressListCtrl.cancelFocus">
             </cmp-address-record>
         </cmp-expanding-table>
     </div>

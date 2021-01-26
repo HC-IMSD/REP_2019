@@ -26,11 +26,11 @@
                 showErrorSummary:'<',
                 errorSummaryUpdate:'<',
                 updateErrorSummary:'&', //update the parent error summary
-                userType:'<',
-                hasAddrImpCompanyName: '&',
-                isImpCompanyNameUsed:'&',
-                inUseFlag: '<',
-                checkImpCompanyInUsed:'&'
+                userType:'<'
+                // hasAddrImpCompanyName: '&',
+                // isImpCompanyNameUsed:'&',
+                // inUseFlag: '<'
+                // checkImpCompanyInUsed:'&'
             },
             controller: addressListCtrl,
             controllerAs: 'addressListCtrl'
@@ -44,7 +44,7 @@
         vm.selectRecord = -1; //the record to select, initially select non
         vm.isDetailsValid = true; //used to track if details valid. If they are  not do not allow expander collapse
         vm.allRolesSelected = "";
-        vm.importerhasID = "";
+        // vm.importerhasID = "";
         vm.resetCollapsed = false;
         vm.updateSummary=0; //sends signal to update error summary object
         vm.showSummary=false;
@@ -58,28 +58,28 @@
             {
                 label: "COMPANY_NAME",
                 binding: "companyName",
-                width: "20"
+                width: "25"
             },
             {
                 label: "CITY",
                 binding: "city",
-                width: "20"
+                width: "25"
             },
             {
                 label: "COUNTRY",
                 binding: "countryDisplay",
-                width: "20"
+                width: "25"
             },
             {
                 label: "ROLES",
                 binding: "roleConcat",
-                width: "20"
-            },
-            {
-                label: "IMPORTERID",
-                binding: "importerID",
-                width: "20"
+                width: "25"
             }
+            // {
+            //     label: "IMPORTERID",
+            //     binding: "importerID",
+            //     width: "20"
+            // }
         ];
 
 
@@ -88,7 +88,7 @@
             //local var from binding
             vm.addressList = vm.addresses;
             vm.allRolesSelected = vm.isAllRolesSelected();
-            vm.importerhasID = vm.isImporterHasID();
+            // vm.importerhasID = vm.isDetailsValid();
             updateRolesConcat();
         };
 
@@ -96,11 +96,11 @@
             if (changes.addresses && changes.addresses.currentValue) {
                 vm.addressList = changes.addresses.currentValue;
                 vm.allRolesSelected = vm.isAllRolesSelected();
-                vm.importerhasID = vm.isImporterHasID();
+                // vm.importerhasID = vm.isImporterHasID();
                 updateRolesConcat();
-                if(! vm.importerhasID || vm.importerhasID == " "){
-                    vm.isDetailsValid = true;
-                }
+                // if(! vm.importerhasID || vm.importerhasID == " "){
+                //     vm.isDetailsValid = true;
+                // }
                 vm.updateErrorSummaryState();
             }
 
@@ -158,9 +158,9 @@
                 if (addressRoles.mailing) {
                     result = result + " MAIL"
                 }
-                if (addressRoles.importer) {
-                    result = result + " IMP"
-                }
+                // if (addressRoles.importer) {
+                //     result = result + " IMP"
+                // }
                 addressModel.roleConcat = result;
             };
 
@@ -169,22 +169,21 @@
                 var idx = vm.addressList.indexOf(
                     $filter('filter')(vm.addressList, {addressID: aID}, true)[0]);
 
-                if (vm.isImpCompanyNameUsed({companyName: vm.addressList[idx].companyName}))
-                {
-                    vm.addressList[idx].inUse = true;
-                    // vm.inUseFlag = true;
-                    return;
-                }
-                // vm.inUseFlag = false;
+                // if (vm.isImpCompanyNameUsed({companyName: vm.addressList[idx].companyName}))
+                // {
+                //     vm.addressList[idx].inUse = true;
+                //     // vm.inUseFlag = true;
+                //     return;
+                // }
                 vm.addressList[idx].inUse = false;
 
                 vm.addressList.splice(idx, 1);
                 vm.onUpdate({newList: vm.addressList});
-                vm.hasAddrImpCompanyName({addressList: vm.addressList});
+                // vm.hasAddrImpCompanyName({addressList: vm.addressList});
                 vm.selectRecord = 0;
                 vm.isDetailsValid = true; //case that incomplete record is deleted
                 vm.allRolesSelected = vm.isAllRolesSelected();
-                vm.importerhasID = vm.isImporterHasID();
+                // vm.importerhasID = vm.isImporterHasID();
                 vm.requiredFlag = false;
                 vm.resetCollapsed = !vm.resetCollapsed;
                 vm.updateErrorSummaryState();
@@ -222,13 +221,13 @@
                 );
                 vm.addressList[idx] = angular.copy(address);
                 vm.allRolesSelected = vm.isAllRolesSelected();
-                vm.importerhasID = vm.isImporterHasID();
-                if(! vm.importerhasID || vm.importerhasID == " "){
-                    vm.isDetailsValid = ! vm.isDetailsValid;
-                }
+                // vm.importerhasID = vm.isImporterHasID();
+                // if(! vm.importerhasID || vm.importerhasID == " "){
+                //     vm.isDetailsValid = ! vm.isDetailsValid;
+                // }
                 vm.requiredFlag = false;
                 vm.resetCollapsed = !vm.resetCollapsed;
-                vm.hasAddrImpCompanyName({addressList:vm.addressList});
+                // vm.hasAddrImpCompanyName({addressList:vm.addressList});
                 vm.addressListForm.$setPristine();
             };
 
@@ -297,38 +296,38 @@
                 }
             }
 
-        vm.isImporterHasID = function () {
-
-            if (!vm.addressList) return false;
-            if (!vm.isInternal) return  true;
-            for (var i = 0; i < vm.addressList.length; i++) {
-                if (vm.addressList[i].addressRole.importer) {
-                    if (!vm.addressList[i].importerID) {
-                        vm.importerhasID=" ";
-                        vm.selectRecord = i;
-                        vm.isDetailsValid = false;
-                        return " ";
-                    }
-                }
-            }
-
-                /*for (var key in obj) {
-                    var attrName = key;
-                    var attrValue = obj[key];
-                    if (attrValue) {
-                        if (attrName === "importer") {
-                            if (vm.addressList[i].importerID !== null) {
-                                hasID = true;
-                            }
-                            else {
-                                return false;
-                            }
-                        }
-                    }
-                }*/
-            vm.importerhasID=true;
-          return true;
-        }
+        // vm.isImporterHasID = function () {
+        //
+        //     if (!vm.addressList) return false;
+        //     if (!vm.isInternal) return  true;
+        //     for (var i = 0; i < vm.addressList.length; i++) {
+        //         if (vm.addressList[i].addressRole.importer) {
+        //             if (!vm.addressList[i].importerID) {
+        //                 vm.importerhasID=" ";
+        //                 vm.selectRecord = i;
+        //                 vm.isDetailsValid = false;
+        //                 return " ";
+        //             }
+        //         }
+        //     }
+        //
+        //         /*for (var key in obj) {
+        //             var attrName = key;
+        //             var attrValue = obj[key];
+        //             if (attrValue) {
+        //                 if (attrName === "importer") {
+        //                     if (vm.addressList[i].importerID !== null) {
+        //                         hasID = true;
+        //                     }
+        //                     else {
+        //                         return false;
+        //                     }
+        //                 }
+        //             }
+        //         }*/
+        //     vm.importerhasID=true;
+        //   return true;
+        // }
 
 
         }

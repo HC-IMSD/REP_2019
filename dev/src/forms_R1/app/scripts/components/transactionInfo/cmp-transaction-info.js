@@ -229,6 +229,19 @@
 
         vm.setThirdParty = function () {
             vm.showThirdPartyNote = (vm.transactionModel.isThirdParty === YES);
+            if (vm.transactionModel.isThirdParty === NO) {
+                vm.transactionModel.companyName = "";
+                vm.transactionModel.activityAddress =
+                    {
+                        street: "",
+                        city: "",
+                        stateList: "",
+                        stateText: "",
+                        country: "",
+                        countryDisplay: "",
+                        postalCode: ""
+                    };
+            }
         };
 
         vm.updateEctdState = function () {
@@ -450,7 +463,7 @@
             vm.isFeesId="is_fee_transaction"+scopeId;
             vm.typeId="dossier_type"+ scopeId;
             // vm.isNewActivityId="is_new_activity"+ scopeId;
-            // vm.thirdPartyId = "is_signed_3rd_party" + scopeId;
+            vm.thirdPartyId = "is_signed_3rd_party" + scopeId;
             vm.isAdminSubId = "is_admin_submission" + scopeId;
             vm.adminSubTypeId = "admin_sub_type" + scopeId;
             vm.isPriorityId = "is_priority" + scopeId;
