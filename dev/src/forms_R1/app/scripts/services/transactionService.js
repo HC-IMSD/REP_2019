@@ -427,7 +427,7 @@
                 }
             },
             createFeeDetails: function () {
-                return _createFeeDetails(NO);
+                return _createFeeDetails();
             },
             getDefaultLifecycleRecord: function () {
                 return _createLifeCycleModel();
@@ -504,7 +504,7 @@
              * @returns {json object}
              * @private
              */
-            var result = _createFeeDetails(NO);
+            var result = _createFeeDetails();
             if (angular.isUndefined(feeObj) || !feeObj) return null;
             // result.submission_class = feeObj.submissionClass;
 
@@ -1056,7 +1056,7 @@
           //   projectManager2: "",
             isFees: "Y",
             resetBtnClicked : false,
-            feeDetails: null,
+            feeDetails: _createFeeDetails(),
             isActivityChanges: "Y", //deprecated
             companyName: "",
             activityAddress: _createAddressModel(),
@@ -1072,7 +1072,7 @@
      * @returns {{feeType: string, deferralStatemnet: string}}
      * @private
      */
-    function _createFeeDetails(NO) {
+    function _createFeeDetails() {
         var feeObj = {
 
             submissionClass: null,

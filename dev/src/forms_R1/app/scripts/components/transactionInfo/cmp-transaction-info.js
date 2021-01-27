@@ -106,6 +106,7 @@
             // loadUserListData();
             vm.finalState=false;
             vm.displayResetBtn = false;
+            vm.getFee();
 
         };
 
