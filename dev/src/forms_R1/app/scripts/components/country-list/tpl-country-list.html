@@ -5,7 +5,8 @@
                          list-items="countryListCtrl.model.list" id="country_table_{{::$id}}"
                          column-def="countryListCtrl.columnDef" select-record="countryListCtrl.selectRecord"
                          is-required-record="countryListCtrl.requiredFlag"
-                         disable-selection="countryListCtrl.disableAddButton()">
+                         disable-selection="countryListCtrl.disableAddButton()"
+                         enable-expand-all-and-collapse-all="true">
 
         <cmp-country-record record="$parent.record" fieldset-label="{{countryListCtrl.fieldLabel}}" is-focus="countryListCtrl.isFocus" cancel-focus="countryListCtrl.cancelFocus();"
                             on-delete="countryListCtrl.deleteRecord(id)" show-errors="countryListCtrl.showDetailErrors"

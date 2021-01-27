@@ -28,6 +28,7 @@
                 isInternal:'<',
                 selectRecord: '<',
                 resetToCollapsed: '<',
+                enableExpandAllAndCollapseAll:'<',
                 disableErrColumn:'@',
                 tname:'@'
             }
@@ -104,7 +105,6 @@
             if(changes.disableSelection){
                 vm.disableExpand=changes.disableSelection.currentValue;
             }
-
             if(changes.columnDef) {
                 vm.numberCols=changes.columnDef.currentValue.length;
                 vm.columnDefinitions = _recalculateColumnDefs(changes.columnDef.currentValue, (vm.numberCols));
@@ -261,6 +261,24 @@
                 }
             }
         };
+
+        vm.expandAll = function () {
+        	vm.tableRowExpanded = true;
+        	vm.tableRowIndexPrevExpanded="";
+        	vm.tableRowIndexCurrExpanded="";
+        	for(var i=0;i<vm.listItems.length;i++){
+        		 vm.dayDataCollapse[i] = false;
+            }
+        }
+        
+        vm.collapseAll = function () {
+        	vm.tableRowExpanded = false;
+        	vm.tableRowIndexPrevExpanded="";
+        	vm.tableRowIndexCurrExpanded="";
+        	for(var i=0;i<vm.listItems.length;i++){
+        		 vm.dayDataCollapse[i] = true;
+            }
+        }
 
         vm.isRequiredRecordSet = function () {
             if (vm.isRequiredRecord && !vm.isInternal) {

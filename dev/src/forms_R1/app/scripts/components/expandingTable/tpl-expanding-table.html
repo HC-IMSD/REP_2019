@@ -1,4 +1,12 @@
 <div>
+    <div class="pull-right btn-group-sm rep-margin-right" data-ng-if="expandTblCtrl.enableExpandAllAndCollapseAll && (expandTblCtrl.listItems.length > 0)">
+         <button class="btn btn-info btn-sm active " id="btn_expandAll_{{::expandTblCtrl.preId}}{{::$id}}" data-ng-click="expandTblCtrl.expandAll()">
+         	{{::'EXPAND_ALL' |translate}}
+         </button>
+         <button class="btn btn-info btn-sm active " id="btn_collapseAll_{{::expandTblCtrl.preId}}{{::$id}}" data-ng-click="expandTblCtrl.collapseAll()">
+         	{{::'COLLAPSE_ALL' |translate}}
+         </button>
+    </div>
     <table class="table dataTable table-bordered table-hover table-condensed table-striped" id="{{::expandTblCtrl.preId}}{{::$id}}" tabindex="-1">
         <thead>
         <tr tabindex="0">

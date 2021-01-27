@@ -11,7 +11,8 @@
         <cmp-expanding-table pre-id="appendix_four_" title=""  tname="cmp-appendix-four-record" reset-to-collapsed="ap4Ctrl.resetToCollapsed"
                              list-items="ap4Ctrl.ingredientList" id="srcIngredList"
                              column-def="ap4Ctrl.colNames" select-record="ap4Ctrl.selectRecord"
-                             disable-selection="!ap4Ctrl.isDetailValid">
+                             disable-selection="!ap4Ctrl.isDetailValid"
+                             enable-expand-all-and-collapse-all="true">
 
             <cmp-appendix-four-record record="$parent.record" on-update="ap4Ctrl.update($parent.$index,record)"
                                       service="ap4Ctrl.service"

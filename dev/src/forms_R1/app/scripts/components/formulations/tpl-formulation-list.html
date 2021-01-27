@@ -14,7 +14,8 @@
                          reset-to-collapsed="formulCtrl.resetToCollapsed" list-items="formulCtrl.formulationList"
                          column-def="formulCtrl.colNames" select-record="formulCtrl.selectRecord" disable-err-column="true"
                          is-required-record="formulCtrl.requiredFlag"
-                         disable-selection="!formulCtrl.isDetailValid">
+                         disable-selection="!formulCtrl.isDetailValid"
+                         enable-expand-all-and-collapse-all="true">
 
         <cmp-formulation-record record="$parent.record" on-update="formulCtrl.update($parent.$index,record)"
                                 on-delete="formulCtrl.delete($parent.$index)" add-copy="formulCtrl.addCopy(record)"
