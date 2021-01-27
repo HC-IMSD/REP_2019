@@ -25,7 +25,7 @@
         var yesValue = YES;
         var noValue = NO;
         // var xslName = XSL_PREFIX + "REP_PI_2_2.xsl";
-        var xslName = "REP_PI_4_1.xsl";
+        var xslName = "REP_PI_4_2.xsl";
         var isForProd = PROD === DossierLists.getEnv();
         // Define the DrugProductService object
         function DrugProductService() {
