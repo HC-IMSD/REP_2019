@@ -457,14 +457,19 @@
                                     {{::'N'|translate}}</label>
                             </fieldset>
                         </div>
-                        <div class="row">
-                            <div data-ng-show="transInfoCtrl.showThirdPartyNote" class="alert alert-info" role="alert" aria-live="polite">
+                        <div data-ng-show="transInfoCtrl.showThirdPartyNote" class="row">
+                            <div class="alert alert-info col-md-11" role="alert" aria-live="polite">
                                 <p/>
                                 <ul>
                                     <li> {{::"AUT_LETTER_NOTE1" |translate}}</li>
                                     <li> {{::"AUT_LETTER_NOTE2" |translate}}</li>
                                     <li> {{::"AUT_LETTER_NOTE3" |translate}}</li>
                                 </ul>
+                            </div>
+                            <div class="ol-md-1">
+                                <sup id="tr15_ref">
+                                <a class="fn-lnk" href="#tr15"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::transInfoCtrl.htIndxList.thirdPtyNoteInx}}</a>
+                                </sup>
                             </div>
                         </div>
                         <div  data-ng-if="transInfoCtrl.transactionModel.isThirdParty != 'N'" class="row">
@@ -473,9 +478,6 @@
                                 <label for="{{::transInfoCtrl.companyNameId}}" class="required full-width">
                                     <span class="field-name">{{::"COMPANY_NOABBREV" |translate}}</span>
                                     <strong class="required"> {{::"REQUIRED" |translate}}</strong>
-                                    <!--<sup id="tr15_ref">-->
-                                        <!--<a class="fn-lnk" href="#tr15"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::transInfoCtrl.htIndxList.compNameInx}}</a>-->
-                                    <!--</sup>-->
                                     <cmp-error-message field-name="transInfoCtrl.companyNameId"
                                                        form-ref="transInfoCtrl.transInfoForm"
                                                        show-error="transInfoCtrl.showError(transInfoCtrl.transInfoForm[transInfoCtrl.companyNameId])"

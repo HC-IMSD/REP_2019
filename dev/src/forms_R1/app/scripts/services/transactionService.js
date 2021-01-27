@@ -61,6 +61,7 @@
                     areFeesInx: 0,
                     feesInx: 0,
                     contactInx: 0,
+                    thirdPtyNoteInx: 0,
                     // compNameInx: 0,
                     routingIdInx: 0,
                     genXmlInx: 0
@@ -80,7 +81,7 @@
                 fromInx: 0,
                 feesInx: 0,
                 contactInx: 0,
-                // compNameInx: 0,
+                thirdPtyNoteInx: 0,
                 routingIdInx: 0,
                 genXmlInx: 0
             };
