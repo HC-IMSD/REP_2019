@@ -1,7 +1,6 @@
 /**
  * Created by Abdessamad on 7/6/2016.
  */
-
 (function () {
     'use strict';
 
@@ -24,8 +23,8 @@
     function DrugProductService(DossierLists, $translate, $filter, getCountryAndProvinces, OTHER, UNKNOWN, YES, NO, XSL_PREFIX, PROD) {
         var yesValue = YES;
         var noValue = NO;
-        // var xslName = XSL_PREFIX + "REP_PI_2_2.xsl";
-        var xslName = "REP_PI_4_1.xsl";
+        var versions = DossierLists.getVer();
+        var xslName = "REP_PI_" + versions.PI.major + "_" + versions.PI.minor + ".xsl";
         var isForProd = PROD === DossierLists.getEnv();
         // Define the DrugProductService object
         function DrugProductService() {
@@ -126,7 +125,7 @@
                 enrolmentVersion: "0.00",
                 dateSaved: "",
                 //applicationType: "NEW",
-                softwareVersion: "4.1.0",
+                softwareVersion: versions.PI.major + "." + versions.PI.minor + "." + versions.PI.patch,
                 xslFileName: xslName,
                 dataChecksum: "",
                 privacyStat:"",
@@ -319,7 +318,7 @@
             baseModel.enrolment_version = jsonObj.enrolmentVersion;
             baseModel.date_saved = jsonObj.dateSaved;
             // baseModel.application_type = jsonObj.applicationType;
-            baseModel.software_version = "4.1.0"; //TODO: hard code or make a function, should be centrally available
+            baseModel.software_version = versions.PI.major + "." + versions.PI.minor + ".0"; //TODO: hard code or make a function, should be centrally available
             baseModel.data_checksum = "";
 
             baseModel.company_id = jsonObj.companyID;
