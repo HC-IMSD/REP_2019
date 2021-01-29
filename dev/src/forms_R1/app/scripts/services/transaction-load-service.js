@@ -26,40 +26,42 @@
                     .then(function (response) {
                         //PROCESS env data
                         TransactionLists.setEnv(response.data);
-                        return $http.get(countryUrl);
-                    })
-                    .then(function (response) {
+                        // return $http.get(countryUrl);
+                    });
+                $http.get(countryUrl).then(function (response) {
                         //PROCESS country list data
                         var newList = _createSortedArrayNAFirst(response.data, options.key);
                         var translateList = _createTranslateList(newList, options.key);
                         getCountryAndProvinces.createCountryList(newList);
                         angular.extend(resultTranslateList, translateList);
-                        return $http.get(raTypeUrl);
-                    })
-                  .then(function (response) {
+                        // return $http.get(raTypeUrl);
+                    });
+                $http.get(raTypeUrl).then(function (response) {
                         //PROCESS raType list data
                         var newList = _createSortedArray(response.data, options.key);
                         var translateList = _createTranslateList(newList, options.key);
                         TransactionLists.createRaTypes(newList);
                         angular.extend(resultTranslateList, translateList);
-                      return $http.get(feeUrl);
-                    })
-                    .then(function (response) {
+                      // return $http.get(feeUrl);
+                    });
+                $http.get(feeUrl)
+                .then(function (response) {
                         //PROCESS fee  list data
                         var newList = _createSortedArray(response.data, options.key);
                         var translateList = _createTranslateList(newList, options.key);
                         TransactionLists.createFeeTypes(newList);
                         angular.extend(resultTranslateList, translateList);
-                        return $http.get(mitigationUrl);
-                    })
+                        // return $http.get(mitigationUrl);
+                    });
+                $http.get(mitigationUrl)
                     .then(function (response) {
                         //PROCESS mitigation url list data
                         var newList = _createSortedArray(response.data, options.key);
+                        var translateList = _createTranslateList(newList, options.key);
                         TransactionLists.createMitigationList(newList);
-                        //angular.extend(resultTranslateList, translateList);
-                        return response.data;
+                        angular.extend(resultTranslateList, translateList);
+                        // return response.data;
                     })
-
 
                     .catch(function (error) {
                         // this catches errors from the $http calls as well as from the explicit throw

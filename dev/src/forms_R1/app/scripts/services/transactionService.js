@@ -43,7 +43,7 @@
             this.rootTag = "TRANSACTION_ENROL";
             this.currSequence = 0;
             // this.xslFileName = XSL_PREFIX + "REP_RT_2_2.xsl";
-            this.xslFileName = "REP_RT_4_1.xsl";
+            this.xslFileName = "REP_RT_4_2.xsl";
             this.helpTextSequences = isForProd ?
                 {
                     loadFileInx: 0,
@@ -58,9 +58,11 @@
                     yearChgInx: 0,
                     descChgInx: 0,
                     reqSoliInx: 0,
+                    areFeesInx: 0,
                     feesInx: 0,
                     contactInx: 0,
-                    compNameInx: 0,
+                    thirdPtyNoteInx: 0,
+                    // compNameInx: 0,
                     routingIdInx: 0,
                     genXmlInx: 0
                 }:{
@@ -79,7 +81,7 @@
                 fromInx: 0,
                 feesInx: 0,
                 contactInx: 0,
-                compNameInx: 0,
+                thirdPtyNoteInx: 0,
                 routingIdInx: 0,
                 genXmlInx: 0
             };
@@ -425,7 +427,7 @@
                 }
             },
             createFeeDetails: function () {
-                return _createFeeDetails(NO);
+                return _createFeeDetails();
             },
             getDefaultLifecycleRecord: function () {
                 return _createLifeCycleModel();
@@ -442,7 +444,7 @@
              */
                 ///function _mapFeeDetailsToOutput(feeObj, YES, NO,$filter) {
             var result = _createEmptyFeeDetailsForOutput(NO);
-            if (angular.isUndefined(feeObj)) return null;
+            if (angular.isUndefined(feeObj) || !feeObj) return null;
             result.submission_class = "";
 
             if (feeObj.submissionClass && feeObj.submissionClass.id) {
@@ -502,8 +504,8 @@
              * @returns {json object}
              * @private
              */
-            var result = _createFeeDetails(NO);
-            if (angular.isUndefined(feeObj)) return null;
+            var result = _createFeeDetails();
+            if (angular.isUndefined(feeObj) || !feeObj) return null;
             // result.submission_class = feeObj.submissionClass;
 
             if (feeObj.submission_class && feeObj.submission_class._id) {
@@ -1052,9 +1054,9 @@
           //  solicitedRequesterReord: [],
           //   projectManager1: "",
           //   projectManager2: "",
-            isFees: "",
+            isFees: "Y",
             resetBtnClicked : false,
-            feeDetails: null,
+            feeDetails: _createFeeDetails(),
             isActivityChanges: "Y", //deprecated
             companyName: "",
             activityAddress: _createAddressModel(),
@@ -1070,7 +1072,7 @@
      * @returns {{feeType: string, deferralStatemnet: string}}
      * @private
      */
-    function _createFeeDetails(NO) {
+    function _createFeeDetails() {
         var feeObj = {
 
             submissionClass: null,
