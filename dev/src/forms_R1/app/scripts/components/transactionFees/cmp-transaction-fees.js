@@ -291,7 +291,7 @@
             return false
         };
         vm.getFee = function() {
-            if(! vm.model.submissionClass || ! vm.model.submissionClass.fee){
+            if(! vm.model || ! vm.model.submissionClass || ! vm.model.submissionClass.fee){
                 return '';
             }
             return vm.getCurrency(vm.model.submissionClass.fee);
@@ -374,40 +374,56 @@
         };
 
         vm.isSmallBusiness = function () {
-            if (vm.model.mitigation.mitigationType && vm.model.mitigation.mitigationType.id === 'SMALL_BUSINESS') {
-                return true;
-            } else {
-                vm.model.mitigation.certifyOrganization = false;
-                vm.model.mitigation.smallBusinessFeeApplication = "";
-                // vm.model.mitigation.firstSubmission = null;
+            if (vm.model) {
+                if (vm.model.mitigation.mitigationType && vm.model.mitigation.mitigationType.id === 'SMALL_BUSINESS') {
+                    return true;
+                } else {
+                    vm.model.mitigation.certifyOrganization = false;
+                    vm.model.mitigation.smallBusinessFeeApplication = "";
+                    // vm.model.mitigation.firstSubmission = null;
 
+                    return false;
+                }
+            } else {
                 return false;
             }
         };
 
         vm.isUrgentHealthNeed = function () {
-           if (vm.model.mitigation.mitigationType && vm.model.mitigation.mitigationType.id === 'URGENT_HEALTH_NEED') {
-               return true;
-           } else {
-               vm.model.mitigation.certifyUrgentHealthNeed = false;
-               return false;
-           }
+            if (vm.model) {
+               if (vm.model.mitigation.mitigationType && vm.model.mitigation.mitigationType.id === 'URGENT_HEALTH_NEED') {
+                   return true;
+               } else {
+                   vm.model.mitigation.certifyUrgentHealthNeed = false;
+                   return false;
+               }
+            } else {
+                return false;
+            }
         };
 
         vm.isFundedHealthInstitution = function () {
-            if (vm.model.mitigation.mitigationType && vm.model.mitigation.mitigationType.id === 'FUNDED_INSTITUTION') {
-                return true;
+            if (vm.model) {
+                if (vm.model.mitigation.mitigationType && vm.model.mitigation.mitigationType.id === 'FUNDED_INSTITUTION') {
+                    return true;
+                } else {
+                    vm.model.mitigation.certifyFundedHealthInstitution = false;
+                    return false;
+                }
             } else {
-                vm.model.mitigation.certifyFundedHealthInstitution = false;
                 return false;
             }
         };
 
         vm.isGovermentOrganization = function () {
-            if (vm.model.mitigation.mitigationType && vm.model.mitigation.mitigationType.id === 'GOVERMENT_ORGANIZATION') {
-                return true;
+            if (vm.model) {
+                if (vm.model.mitigation.mitigationType && vm.model.mitigation.mitigationType.id === 'GOVERMENT_ORGANIZATION') {
+                    return true;
+                } else {
+                    vm.model.mitigation.certifyGovermentOrganization = false;
+                    return false;
+                }
             } else {
-                vm.model.mitigation.certifyGovermentOrganization = false;
                 return false;
             }
         };
