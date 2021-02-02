@@ -66,7 +66,7 @@
         vm.yesNoList = [YES, NO];
         // vm.newExistingList = [NEW, EXISTING];
         // vm.showNewActivityFields = false;
-        vm.showThirdPartyNote = false;
+        // vm.showThirdPartyNote = false;
         vm.showAdminSub = false;
         vm.showEctdSection = true;
         vm.showSolicitedDetail = false;
@@ -106,6 +106,7 @@
             // loadUserListData();
             vm.finalState=false;
             vm.displayResetBtn = false;
+            vm.getFee();
 
         };
 
@@ -216,12 +217,12 @@
         vm.updateActivityType = function () {
             //  vm.showNewActivityFields = isNewActivity();
             //if(!vm.showNewActivityFields){
-            vm.transactionModel.isThirdParty = "";
+            // vm.transactionModel.isThirdParty = "";
             vm.transactionModel.isPriority = "";
             vm.transactionModel.isNoc = "";
             vm.transactionModel.isAdminSub = "";
             vm.transactionModel.subType = "";
-            vm.showThirdPartyNote = false;
+            // vm.showThirdPartyNote = false;
             vm.showAdminSub = false;
 
             // }
@@ -229,6 +230,19 @@
 
         vm.setThirdParty = function () {
             vm.showThirdPartyNote = (vm.transactionModel.isThirdParty === YES);
+            if (vm.transactionModel.isThirdParty === NO) {
+                vm.transactionModel.companyName = "";
+                vm.transactionModel.activityAddress =
+                    {
+                        street: "",
+                        city: "",
+                        stateList: "",
+                        stateText: "",
+                        country: "",
+                        countryDisplay: "",
+                        postalCode: ""
+                    };
+            }
         };
 
         vm.updateEctdState = function () {
@@ -247,14 +261,14 @@
                    vm.transactionModel.isAdminSub = '';
                    vm.transactionModel.subType = '';
                    vm.showAdminSub = false;
-                   vm.transactionModel.isFees = '';
+                   vm.transactionModel.isFees = YES;
                } else {
                    vm.transactionModel.ectd.productProtocol = '';
                    vm.disablePtclNum = false;
                    if(vm.selectedDossierType === 'D24') {
                        vm.transactionModel.isPriority = '';
                        vm.transactionModel.isNoc = '';
-                       vm.transactionModel.isFees = '';
+                       vm.transactionModel.isFees = YES;
                    }
                }
         };
@@ -411,7 +425,7 @@
                 vm.transactionModel.ectd.lifecycleRecord = angular.copy(vm.transactionModel.ectd.lifecycleModel);
                 // vm.transactionModel.projectManager1 = ""; //43 - projectManager1
                 // vm.transactionModel.projectManager2 = ""; // 44 -projectManager2
-                vm.transactionModel.isFees = ""; // 46 - fee
+                vm.transactionModel.isFees = YES; // 46 - fee
                 vm.transactionModel.feeDetails = null;
                 vm.transactionModel.confirmContactValid = false; //93 confirmation
                 vm.transactionModel.resetBtnClicked = true;

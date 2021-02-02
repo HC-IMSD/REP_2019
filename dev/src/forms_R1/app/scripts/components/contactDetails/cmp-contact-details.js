@@ -32,8 +32,8 @@
                 fieldSuffix:'<',
                 routingIdIndex:'<',
                 showRoutingId: '&',
-                showAddrImpCompanyName: '&',
-                addrImpCompanyName:'<',
+                // showAddrImpCompanyName: '&',
+                // addrImpCompanyName:'<',
                 isContact:'<'
             }
     });
@@ -58,8 +58,8 @@
             phoneExt: "",
             fax: "",
             email: "",
-            routingId: "",
-            impCompanyName:""
+            routingId: ""
+            // impCompanyName:""
         };
         vm.inputModelOptions={updateOn: 'blur'};
         vm.fldId=""; //used to dynamically distinguish fields default to empty for backwards compat
@@ -68,7 +68,7 @@
         vm.phoneError=[{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "MSG_ERR_PHONE_FORMAT"}];
         vm.faxError=[{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "MSG_ERR_FAX_FORMAT"}];
         vm.routingIdError=[{type: "required", displayAlias: "MSG_ERR_MAND"}, {type: "pattern", displayAlias: "TYPE_PATTERN"}];
-        vm.addrImpCompanyNameError=[{typs: "required", displayAlias: "MSG_ERR_MAND"}];
+        // vm.addrImpCompanyNameError=[{typs: "required", displayAlias: "MSG_ERR_MAND"}];
         vm.$onInit = function () {
            vm.langList=[ENGLISH,FRENCH];
             _setIdNames();
@@ -106,12 +106,12 @@
             return  vm.contactForm[vm.routingIdentifierId].$invalid;
         }
 
-        vm.hasAddrImpCompany = function () {
-            if (vm.addrImpCompanyName.length > 0){
-                return true;
-            }
-            return false;
-        };
+        // vm.hasAddrImpCompany = function () {
+        //     if (vm.addrImpCompanyName.length > 0){
+        //         return true;
+        //     }
+        //     return false;
+        // };
 
 
         function _setIdNames() {
@@ -125,7 +125,7 @@
             vm.phoneExtId="phoneExt" + scopeId;
             vm.contactEmailId="contactEmail" + scopeId;
             vm.routingIdentifierId="routing_id" + scopeId;
-            vm.impCompanyNameId="imp_company_name" + scopeId;
+            // vm.impCompanyNameId="imp_company_name" + scopeId;
         }
         $scope.$watch('contCtrl.contactForm.$error', function () {
             vm.updateErrorSummary();

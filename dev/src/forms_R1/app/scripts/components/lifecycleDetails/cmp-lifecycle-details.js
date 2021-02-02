@@ -80,6 +80,8 @@
         // vm.yearList = _createYearList();
         vm.descriptionObj=TransactionLists.getTransactionDescriptions();
         vm.leadList = [] ;
+        vm.isActivityLeadSet = false;
+        vm.activityLeadNote = "";
         vm.activityTypeMapping = {
             "B02-20160301-014": TransactionLists.getCtaType(),
             "B02-20160301-015": TransactionLists.getCta_aType(),
@@ -146,6 +148,8 @@
                 vm.lifecycleModel.activityType = "";
                 vm.lifecycleModel.descriptionValue = "";
                 setDetailsAsNone();
+                vm.isActivityLeadSet = false;
+                vm.activityLeadNote = "";
             }
             if (changes.lifecycleRecord) {
                 _updateLocalModel(changes.lifecycleRecord.currentValue);
@@ -297,7 +301,11 @@
             if(!vm.lifecycleModel.activityLead ){
                 vm.activityTypeList=[];
                 vm.updateProductProtocol({value: false});
+                vm.isActivityLeadSet = false;
+                vm.activityLeadNote = "";
                 return;
+            } else {
+                vm.isActivityLeadSet = true;
             }
             if(! vm.activityList || vm.activityList.length < 1){
                 vm.activityList= TransactionLists.getActivityTypes();
@@ -316,6 +324,7 @@
                     } else {
                         vm.activityTypeList = vm.clinicalBioList;
                     }
+                    vm.activityLeadNote = "ACTIVITY_LEAD_BIO";
                     break;
                 case  TransactionLists.getPharmaLeadValue():
                     if(vm.pharmaList.length == 0){
@@ -329,24 +338,28 @@
                     } else {
                         vm.activityTypeList = vm.clinicalPhaList;
                     }
+                    vm.activityLeadNote = "ACTIVITY_LEAD_PHA";
                     break;
                 case  TransactionLists.getPostMarketLeadValue():
                     if(vm.postMarketList.length == 0){
                         vm.postMarketList = ActivityFormFilterService.getPostMarketRAList(vm.activityList);
                     }
                     vm.activityTypeList= vm.postMarketList;
+                    vm.activityLeadNote = "ACTIVITY_LEAD_PMV";
                     break;
                 case  TransactionLists.getConsumHealthLeadValue():
                     if(vm.consumHealthList.length == 0){
                         vm.consumHealthList = ActivityFormFilterService.getConsumHealthList(vm.activityList);
                     }
                     vm.activityTypeList= vm.consumHealthList;
+                    vm.activityLeadNote = "ACTIVITY_LEAD_CHP";
                     break;
                 case  TransactionLists.getVeterinaryLeadValue():
                     if(vm.veterinaryList.length == 0){
                         vm.veterinaryList = ActivityFormFilterService.getVeterinaryList(vm.activityList);
                     }
                     vm.activityTypeList= vm.veterinaryList;
+                    vm.activityLeadNote = "ACTIVITY_LEAD_VET";
                     break;
                 // case  TransactionLists.getClinicalBioLeadValue():
                 //     if(vm.clinicalList.length == 0){
@@ -363,6 +376,7 @@
                 default:
                     if(vm.lifecycleModel.activityLead) console.warn("Not a valid lead choice");
                     vm.activityTypeList=[];
+                    vm.isActivityLeadSet = false;
                     break;
 
             }
@@ -607,8 +621,11 @@
                 case ("B02-20200417-02"): //	COVID-19 AMENDMENT //commented out for before release to prod on 2020-09-10
                     vm.descriptionList = TransactionLists.getCOVID19AMDType();
                     break;
-                case ("B02-20201028-01"): // MPCOV (Same Transaction Description list as MPNDS)
-                    vm.descriptionList = TransactionLists.getMPNDSType();
+                case ("B02-20201028-01"): // MPCOV
+                    vm.descriptionList = TransactionLists.getMPCOVType();
+                    break;
+                case ("B02-20201214-01"): // MPCOVA (Pre-COVID-19 For IO Application Amendment Meeting) - same as MPCOV
+                    vm.descriptionList = TransactionLists.getMPCOVType();
                     break;
 
                 default:

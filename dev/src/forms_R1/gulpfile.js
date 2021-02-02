@@ -134,23 +134,23 @@ var activityRootTitles_fr = {
 };
 
 var companyRootTitles_en = {
-    mainHeading: "Company Template: Regulatory Enrolment Process (REP)<br>(Version 4.1.0)",
+    mainHeading: "Company Template: Regulatory Enrolment Process (REP)<br>(Version 4.2.0)",
     title: 'Company Template: Regulatory Enrolment Process - Canada.ca'
 
 };
 var companyRootTitles_fr = {
-    mainHeading: "'Modèle de compagnie': Processus d'Inscription Réglementaire (Version 4.1.0)",
+    mainHeading: "'Modèle de compagnie': Processus d'Inscription Réglementaire (Version 4.2.0)",
     title: "'Modèle de compagnie': Processus d'Inscription Réglementaire - Canada.ca"
 
 };
 
 var transactionRootTitles_en = {
-    mainHeading: "Regulatory Transaction Template: Regulatory Enrolment Process (REP) (Version 4.1.0)",
+    mainHeading: "Regulatory Transaction Template: Regulatory Enrolment Process (REP) (Version 4.2.0)",
     title: 'Regulatory Transaction Template: Regulatory Enrolment Process - Canada.ca'
 
 };
 var transactionRootTitles_fr = {
-    mainHeading: "Modèle de transaction réglementaire: Processus d'inscription réglementaire (Version 4.1.0)",
+    mainHeading: "Modèle de transaction réglementaire: Processus d'inscription réglementaire (Version 4.2.0)",
     title: 'Modèle de transaction réglementaire: Processus d\'inscription réglementaire - Canada.ca'
 
 };
@@ -1789,8 +1789,7 @@ gulp.task('dev-drugProduct-pilot-clean', function () {
 
 /******* Common Tasks ****/
 gulp.task('dev-copyData-pilot', function () {
-    var copySources = gulp.src([paths.data + '**/*', '!'
-    + paths.data + '**/env.json'],
+    var copySources = gulp.src([paths.data + '**/*', '!' + paths.data + '**/env.json'],
         {read: true, base: 'app'});
     return (copySources.pipe(gulp.dest(paths.buildDevPilot)));
 });
@@ -2472,7 +2471,7 @@ gulp.task('prod-global-copyDataFolder', function () {
 });
 
 gulp.task('prod-global-copyDataFolder-pilot', function () {
-    var copySources = gulp.src([paths.data + '**/*'],
+    var copySources = gulp.src([paths.data + '**/*', '!' + paths.data + '**/env.json'],
         {read: true, base: 'app'});
     return (copySources.pipe(gulp.dest(paths.buildProdPilot)));
 });
@@ -2738,13 +2737,13 @@ gulp.task('prod-company-pilot-compileHtml', function () {
 
 });
 
-gulp.task('prod-company-allFormsCreate', gulp.series('prod-company-clean', 'prod-global-create-src-template', 'prod-global-copyDataFolder', 'prod-company-compileTranslateFile', 'prod-company-createRootJsFiles', 'prod-company-copySourceFiles', 'prod-company-setProdEnvJS', 'prod-company-compileSrcJs', 'prod-company-copyLib', 'prod-company-compileHtml', function () {
+gulp.task('prod-company-allFormsCreate-pilot', gulp.series('prod-company-pilot-clean', 'prod-global-create-src-template', 'prod-global-copyDataFolder-pilot', 'prod-company-compileTranslateFile', 'prod-company-createRootJsFiles', 'prod-company-copySourceFiles', 'prod-company-setPilotEnvJS', 'prod-company-compileSrcJs', 'prod-company-copyLib', 'prod-company-pilot-compileHtml', function () {
 
     return pipes.deleteResourcesNonMinFiles(paths.buildProdCompany);
 
 }));
 
-gulp.task('prod-company-allFormsCreate-pilot', gulp.series('prod-company-pilot-clean', 'prod-global-create-src-template', 'prod-global-copyDataFolder-pilot', 'prod-company-compileTranslateFile', 'prod-company-createRootJsFiles', 'prod-company-copySourceFiles', 'prod-company-setPilotEnvJS', 'prod-company-compileSrcJs', 'prod-company-copyLib', 'prod-company-pilot-compileHtml', function () {
+gulp.task('prod-company-allFormsCreate', gulp.series('prod-company-clean', 'prod-global-create-src-template', 'prod-global-copyDataFolder', 'prod-company-compileTranslateFile', 'prod-company-createRootJsFiles', 'prod-company-copySourceFiles', 'prod-company-setProdEnvJS', 'prod-company-compileSrcJs', 'prod-company-copyLib', 'prod-company-compileHtml', function () {
 
     return pipes.deleteResourcesNonMinFiles(paths.buildProdCompany);
 
