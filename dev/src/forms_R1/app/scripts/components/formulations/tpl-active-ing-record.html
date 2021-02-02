@@ -66,38 +66,7 @@
                     </div>
                 </div>
                 <div class="row" data-ng-if="!ingRecCtrl.isMedIng()">
-                    <div class="form-group col-md-12">
-                        <label for="variant_{{::$id}}">
-                            <span class="field-name">{{'VARIANT_NAME'|translate}}</span>
-                            <sup id="dr9c2_ref">
-                                <a class="fn-lnk" href="#dr9c2"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::ingRecCtrl.htIndxList.variaNameIndx}}</a>
-                            </sup>
-                            <input type="text" id="variant_{{::$id}}" data-ng-model="ingRecCtrl.ingModel.variant" maxlength="60"
-                                   data-ng-model-options="{ debounce: '$inherit'}" size="60"
-                                   class="form-control full-width" name="variant"/>
-                        </label>
-                    </div>
-                    <div class="form-group col-md-12"
-                         data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.purposeId].$invalid}">
-                        <label for="{{::ingRecCtrl.purposeId}}" 
-                        	   data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked()}">
-                            <span class="field-name">{{'PURPOSE'|translate}}</span>
-                            <strong data-ng-if="!ingRecCtrl.isNMIProprietaryInfoChecked()" class="required">{{"REQUIRED" |translate}}</strong>
-                            <sup id="dr9c3_ref">
-                                <a class="fn-lnk" href="#dr9c3"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::ingRecCtrl.htIndxList.purposeIndx}}</a>
-                            </sup>
-                            <cmp-error-message field-name="ingRecCtrl.purposeId"
-                                               form-ref="ingRecCtrl.activeIngForm"
-                                               show-error="ingRecCtrl.showError(ingRecCtrl.activeIngForm[ingRecCtrl.purposeId])"
-                                               error-types="ingRecCtrl.requiredOnly"></cmp-error-message>
-                            <input type="text" id="{{::ingRecCtrl.purposeId}}" 
-                            	   data-ng-model="ingRecCtrl.ingModel.purpose" maxlength="60"
-                                   data-ng-model-options="{ debounce: '$inherit'}" size="60" name="{{::ingRecCtrl.purposeId}}"
-                                   class="form-control full-width" 
-                                   data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked()"/>
-
-                        </label>
-                    </div>
+                    
                     <div class="form-group col-md-12"
                          data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.nIngredName].$invalid}">
                         <label for="{{::ingRecCtrl.nIngredName}}" class="required"><span class="field-name">{{'ING_NAME'|translate}}</span>
@@ -150,10 +119,44 @@
 		                                   class="form-control full-width" name="nonmedName" data-ng-required="true" maxlength="100"
 		                                   size="100"/>
 		                        </label>
-		                        <p><span class="field-name">{{'NMI_PROPRIETARY_INFO_FLD_NOTE'|translate}}</span></p>
+		                        <div class="alert alert-info"><span>{{'NMI_PROPRIETARY_INFO_FLD_NOTE'|translate}}</span></div>
 	                        </article>
 	                    </div>
 					</div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-12">
+                        <label for="variant_{{::$id}}">
+                            <span class="field-name">{{'VARIANT_NAME'|translate}}</span>
+                            <sup id="dr9c2_ref">
+                                <a class="fn-lnk" href="#dr9c2"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::ingRecCtrl.htIndxList.variaNameIndx}}</a>
+                            </sup>
+                            <input type="text" id="variant_{{::$id}}" data-ng-model="ingRecCtrl.ingModel.variant" maxlength="60"
+                                   data-ng-model-options="{ debounce: '$inherit'}" size="60"
+                                   class="form-control full-width" name="variant"/>
+                        </label>
+                  </div>
+                  <div class="form-group col-md-12"
+                         data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.purposeId].$invalid}">
+                        <label for="{{::ingRecCtrl.purposeId}}" 
+                        	   data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked()}">
+                            <span class="field-name">{{'PURPOSE'|translate}}</span>
+                            <strong data-ng-if="!ingRecCtrl.isNMIProprietaryInfoChecked()" class="required">{{"REQUIRED" |translate}}</strong>
+                            <sup id="dr9c3_ref">
+                                <a class="fn-lnk" href="#dr9c3"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::ingRecCtrl.htIndxList.purposeIndx}}</a>
+                            </sup>
+                            <cmp-error-message field-name="ingRecCtrl.purposeId"
+                                               form-ref="ingRecCtrl.activeIngForm"
+                                               show-error="ingRecCtrl.showError(ingRecCtrl.activeIngForm[ingRecCtrl.purposeId])"
+                                               error-types="ingRecCtrl.requiredOnly"></cmp-error-message>
+                            <input type="text" id="{{::ingRecCtrl.purposeId}}" 
+                            	   data-ng-model="ingRecCtrl.ingModel.purpose" maxlength="60"
+                                   data-ng-model-options="{ debounce: '$inherit'}" size="60" name="{{::ingRecCtrl.purposeId}}"
+                                   class="form-control full-width" 
+                                   data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked()"/>
+
+                        </label>
+                  </div>                
                 </div>
                 <div class="row">
                     <div class="form-group col-md-4">
