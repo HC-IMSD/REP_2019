@@ -368,7 +368,8 @@
                 "CAB_YES1",
                 "CAB_YES2",
                 "CAB_NO",
-                "CAB_NO2"
+                "CAB_NO2",
+                "CAB_NO3"
             ]);
         }
         function animalSourcesArray() {
