@@ -19,6 +19,8 @@ var connect = require('gulp-connect');
 var cleanCSS = require('gulp-clean-css');
 var protractor = require("gulp-protractor").protractor;
 
+var env = require('./app/data/versions.json');
+
 // == PATH STRINGS ========
 var baseScript = './app/scripts';
 var wetBase = './wet_4_0_27';
@@ -166,13 +168,19 @@ var dossierRootTitles_fr = {
 };
 
 var drugProductRootTitles_en = {
-    mainHeading: "Product Information Template: Regulatory Enrolment Process (REP) (Version 4.2.0)",
+    mainHeading: "Product Information Template: Regulatory Enrolment Process (REP) (Version " 
+    	+ env.ver.PI.major 
+		+ "." + env.ver.PI.minor
+		+ "." + env.ver.PI.patch + ")",
     title: 'Product Information Template: Regulatory Enrolment Process - Canada.ca'
 
 };
 
 var drugProductRootTitles_fr = {
-    mainHeading: "Modèle d'information sur le produit: Processus d'inscription réglementaire (Version 4.2.0)",
+    mainHeading: "Modèle d'information sur le produit: Processus d'inscription réglementaire (Version " 
+    	+ env.ver.PI.major 
+		+ "." + env.ver.PI.minor
+		+ "." + env.ver.PI.patch + ")",
     title: "Modèle d'information sur le produit: Processus d'inscription réglementaire - Canada.ca"
 
 };

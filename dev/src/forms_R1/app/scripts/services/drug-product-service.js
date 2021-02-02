@@ -1,7 +1,6 @@
 /**
  * Created by Abdessamad on 7/6/2016.
  */
-
 (function () {
     'use strict';
 
@@ -24,8 +23,8 @@
     function DrugProductService(DossierLists, $translate, $filter, getCountryAndProvinces, OTHER, UNKNOWN, YES, NO, XSL_PREFIX, PROD) {
         var yesValue = YES;
         var noValue = NO;
-        // var xslName = XSL_PREFIX + "REP_PI_2_2.xsl";
-        var xslName = "REP_PI_4_2.xsl";
+        var versions = DossierLists.getVer();
+        var xslName = "REP_PI_" + versions.PI.major + "_" + versions.PI.minor + ".xsl";
         var isForProd = PROD === DossierLists.getEnv();
         // Define the DrugProductService object
         function DrugProductService() {
@@ -53,6 +52,8 @@
                     ingNameIndx: 0,
                     variaNameIndx: 0,
                     purposeIndx: 0,
+                    nmiProprietaryInfoIndx: 0,
+                    nmiProprietaryInfoFieldIndx: 0,
                     standardIndx: 0,
                     isNanoIndx: 0,
                     ahSourcedIndx: 0,
@@ -124,7 +125,7 @@
                 enrolmentVersion: "0.00",
                 dateSaved: "",
                 //applicationType: "NEW",
-                softwareVersion: "4.2.0",
+                softwareVersion: versions.PI.major + "." + versions.PI.minor + "." + versions.PI.patch,
                 xslFileName: xslName,
                 dataChecksum: "",
                 privacyStat:"",
@@ -317,7 +318,7 @@
             baseModel.enrolment_version = jsonObj.enrolmentVersion;
             baseModel.date_saved = jsonObj.dateSaved;
             // baseModel.application_type = jsonObj.applicationType;
-            baseModel.software_version = "4.2.0"; //TODO: hard code or make a function, should be centrally available
+            baseModel.software_version = versions.PI.major + "." + versions.PI.minor + ".0"; //TODO: hard code or make a function, should be centrally available
             baseModel.data_checksum = "";
 
             baseModel.company_id = jsonObj.companyID;
@@ -763,6 +764,10 @@
                     "variant": item.variant_name,
                     "purpose": item.purpose,
                     "ingLabel": item.ingredient_name,
+                    "proprietaryAttestation": {
+                    	attested: null,
+                    	info: null                    	
+                    },
                     "autoIngred": YES,
                     "cas": item.cas_number,
                     "humanAnimalSourced": item.is_human_animal_src,
@@ -789,7 +794,12 @@
 
                 if (item.ingredient_role) {
                     obj.ingRole = item.ingredient_role._id;
+                    if(obj.ingRole === "NONMED") {
+                      obj.proprietaryAttestation.attested = item.proprietary_attestation._attested;
+                      obj.proprietaryAttestation.info = item.proprietary_attestation.__text;
+                    }
                 }
+                
 
                 if (item.strength) {
                     var opValue = item.strength.operator._id;
@@ -1370,6 +1380,7 @@
                     "variant_name": item.variant,
                     "purpose": item.purpose,
                     "ingredient_name": item.ingLabel,
+                    "proprietary_attestation": "",
                     "cas_number": item.cas,
                     "ingred_standard": item.standard,
                     "is_human_animal_src": item.humanAnimalSourced,
@@ -1396,8 +1407,15 @@
                             _id: ingr.id,
                             __text: ingr[currentLang]
                         };
+                        if(ingr.id === "NONMED") {
+                        	obj.proprietary_attestation = {
+                            	_attested: item.proprietaryAttestation.attested,
+                            	__text: item.proprietaryAttestation.info
+                        	};
+                        }
                     }
                 }
+                
 
                 if(item.strength) {
                     var data2Value = "";

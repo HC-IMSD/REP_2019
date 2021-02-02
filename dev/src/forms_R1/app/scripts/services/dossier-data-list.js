@@ -31,6 +31,7 @@
         var YES = 'Y';
         var vm = this;
         vm.env = '';
+        vm.ver = [];
         vm.roaList = [];
         vm.nanoList = [];
         vm.dosageFormList = [];
@@ -42,6 +43,8 @@
         vm.unitsList = [];
         //TODO create getters/setters? safer as is
         var service = {
+            getVer: _getVerString,
+            setVer: _setVerString,
             getEnv: _getEnvString,
             setEnv: _setEnvString,
             setActiveList: _setActiveArray,
@@ -104,6 +107,18 @@
         };
         return service;
 
+        function _getVerString() {
+            if (vm.ver) {
+                return vm.ver;
+            } else {
+                return '@@verValue';
+            }
+        }
+
+        function _setVerString(value) {
+            vm.ver = value.ver;
+        }
+        
         function _getEnvString() {
             if (vm.env) {
                 return vm.env;
@@ -353,7 +368,8 @@
                 "CAB_YES1",
                 "CAB_YES2",
                 "CAB_NO",
-                "CAB_NO2"
+                "CAB_NO2",
+                "CAB_NO3"
             ]);
         }
         function animalSourcesArray() {
