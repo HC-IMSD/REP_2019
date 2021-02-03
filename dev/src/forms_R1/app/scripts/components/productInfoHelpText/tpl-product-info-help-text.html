@@ -42,7 +42,7 @@
                         <li>{{::'HT_DOSSIER_TYPE_1' |translate}}</li>
                         <li data-ng-if="! helpCtrl.isForProd">{{::'HT_DOSSIER_TYPE_3' |translate}}</li>
                         <li>{{::'HT_DOSSIER_TYPE_2' |translate}}</li>
-                        <li data-ng-if="! helpCtrl.isForProd">{{::'HT_DOSSIER_TYPE_4' |translate}}</li>
+                        <li>{{::'HT_DOSSIER_TYPE_4' |translate}}</li>
                     </ul>
                     <p class="fn-rtn"><a href="#dr2b_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::helpCtrl.htIndxList.dossiTypeIndx}}
                         <span class="wb-inv"> referrer</span></a>
@@ -119,9 +119,8 @@
                 <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::helpCtrl.htIndxList.importerIndx}}</dt>
                 <dd id="dr6">
                     <p>{{'IMPORTER'|translate}}</p>
+                    <p>{{::'HT_IMPORTER_1' |translate}}</p>
                     <ul>
-                        <li>{{::'HT_IMPORTER_1' |translate}}</li>
-                        <li>{{::'HT_IMPORTER_2' |translate}}</li>
                         <li>{{::'HT_IMPORTER_3' |translate}}</li>
                     </ul>
                     <p class="fn-rtn"><a href="#dr6_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::helpCtrl.htIndxList.importerIndx}}
@@ -208,6 +207,7 @@
                         <li>{{::'HT_INGREDIENTS_2' |translate}}</li>
                         <li>{{::'HT_INGREDIENTS_3' |translate}}</li>
                         <li>{{::'HT_INGREDIENTS_4' |translate}}</li>
+                        <li>{{::'HT_INGREDIENTS_5' |translate}}</li>
                     </ul>
                     <p class="fn-rtn" style="width:4.5em;"><a href="#dr9c_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::helpCtrl.htIndxList.ingredIndx}}
                         <span class="wb-inv"> referrer</span></a>
@@ -243,6 +243,25 @@
                         <span class="wb-inv"> referrer</span></a>
                     </p>
                 </dd>
+                
+                <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::helpCtrl.htIndxList.nmiProprietaryInfoIndx}}</dt>
+                <dd id="dr9c7">
+                    <p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{'NMI_PROPRIETARY_INFO_CHKBX'|translate}}</p>
+                    <p style="white-space: pre-wrap">{{::'HT_NMI_PROPRIETARY_INFO' |translate}}</p>
+                    <p class="fn-rtn" style="width:4.5em;"><a href="#dr9c7_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::helpCtrl.htIndxList.nmiProprietaryInfoIndx}}
+                        <span class="wb-inv"> referrer</span></a>
+                    </p>
+                </dd>
+                
+                <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::helpCtrl.htIndxList.nmiProprietaryInfoFieldIndx}}</dt>
+                <dd id="dr9c8">
+                    <p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{'NMI_PROPRIETARY_INFO_LBL'|translate}}</p>
+                    <p style="white-space: pre-wrap">{{::'HT_NMI_PROPRIETARY_INFO_FIELD' |translate}}</p>
+                    <p class="fn-rtn" style="width:4.5em;"><a href="#dr9c8_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::helpCtrl.htIndxList.nmiProprietaryInfoFieldIndx}}
+                        <span class="wb-inv"> referrer</span></a>
+                    </p>
+                </dd>
+                
                 <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::helpCtrl.htIndxList.standardIndx}}</dt>
                 <dd id="dr9c4">
                     <p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{'STANDARD'|translate}}</p>
@@ -359,9 +378,8 @@
                 <dd id="dr11">
                     <p>{{::'APPROVE_FINAL' |translate}}</p>
                     <ul>
-                        <li data-ng-if="helpCtrl.isForProd">{{::'HT_GEN_XML_1' |translate}}</li>
-                        <li data-ng-if="! helpCtrl.isForProd">{{::'HT_GEN_XML_3' |translate}}</li>
-                        <ul data-ng-if="! helpCtrl.isForProd">
+                        <li>{{::'HT_GEN_XML_3' |translate}}</li>
+                        <ul>
                             <li>{{::'HT_GEN_XML_4' |translate}}</li>
                             <li>{{::'HT_GEN_XML_5' |translate}}</li>
                         </ul>

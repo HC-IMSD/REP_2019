@@ -18,6 +18,7 @@
             return function (options) {
                 var deferred = $q.defer();
                 //var dataFolder = "data/"; //relative forlder to the data
+                var versionsUrl = RELATIVE_FOLDER_DATA + "versions.json";
                 var envUrl = RELATIVE_FOLDER_DATA + "env.json";
                 var roaUrl = RELATIVE_FOLDER_DATA + "roa.json";
                 var countryUrl = RELATIVE_FOLDER_DATA + "countries.json";
@@ -30,6 +31,10 @@
                 var speciesUrl = RELATIVE_FOLDER_DATA + "species.json";
                 var subtypesUrl= RELATIVE_FOLDER_DATA +"subTypes.json";
                 var resultTranslateList = {};
+                $http.get(versionsUrl)
+                	.then(function (response) {
+                    DossierLists.setVer(response.data);
+                });
                 $http.get(envUrl)
                     .then(function (response) {
                         //PROCESS env data

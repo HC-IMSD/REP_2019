@@ -38,11 +38,6 @@
         vm.isFocus = false;
         vm.columnDef = [
             {
-                label: "IMPORTERID",
-                binding: "importerId",
-                width: "10"
-            },
-            {
                 label: "IMPORTER_COMPANY_NAME",
                 binding: "importerName",
                 width: "40",
