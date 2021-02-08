@@ -225,14 +225,14 @@
          * Fires on selection OR when the value has changed
          */
         vm.isPerPresentation = function () {
-            return (vm.ingModel.per.id === 'UP');
+            return (typeof vm.ingModel.per != "undefined" && vm.ingModel.per.id === 'UP');
         };
 
         /**
          * Fires on selection OR when the value has changed
          */
         vm.isPerMeasure = function () {
-            return (vm.ingModel.per.id === 'UM');
+            return (typeof vm.ingModel.per != "undefined" && vm.ingModel.per.id === 'UM');
         };
 
         /**
@@ -240,7 +240,9 @@
          */
         vm.isStrengthSet = function () {
             var isSet = false;
-            if (vm.ingModel.strength.operator.id !== undefined
+            if (typeof vm.ingModel.strength != "undefined" 
+            	&& typeof vm.ingModel.strength.operator != "undefined"
+            	&& vm.ingModel.strength.operator.id !== undefined
                 && vm.ingModel.strength.operator.id !== "") {
                 isSet = true;
                 if (vm.ingModel.strength.operator.id === "RA")
@@ -258,7 +260,9 @@
          * check update when the value has changed
          */
         vm.isRange = function () {
-            return (vm.ingModel.strength.operator.id === "RA");
+            return (typeof vm.ingModel.strength != "undefined" 
+            	&& typeof vm.ingModel.strength.operator != "undefined"
+            	&& vm.ingModel.strength.operator.id === "RA");
         };
 
         /**
