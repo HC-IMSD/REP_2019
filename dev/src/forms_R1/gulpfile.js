@@ -23,7 +23,7 @@ var env = require('./app/data/versions.json');
 
 // == PATH STRINGS ========
 var baseScript = './app/scripts';
-var wetBase = './wet_4_0_27';
+var wetBase = './imsd/hc-sc';
 var buildDev = './build/dev';
 var buildDevPilot = './build/dev-pilot';
 var buildProd = './build/prod/';
@@ -998,6 +998,7 @@ pipes.insertDateStamp = function (template, valsObj, lang, type, langHtmlName) {
     var now = new Date();
     var utc = dateFormat(now, "isoDate");
     var anchor = pipes.getHomeAnchor(type, lang);
+    var wbVersion = env.ver.WET.major+"."+env.ver.WET.minor+"."+env.ver.WET.patch;
     var langSwitch = "";
     if (langHtmlName) langSwitch = langHtmlName;
     return (gulp.src(template)
@@ -1006,6 +1007,7 @@ pipes.insertDateStamp = function (template, valsObj, lang, type, langHtmlName) {
                 mainHeading: valsObj.mainHeading,
                 formTitle: valsObj.title,
                 homeAnchor: anchor,
+                wetVersion: wbVersion,
                 langHtml: langSwitch
             }))
     );
