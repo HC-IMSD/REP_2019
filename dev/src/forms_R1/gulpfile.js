@@ -20,7 +20,8 @@ var cleanCSS = require('gulp-clean-css');
 var protractor = require("gulp-protractor").protractor;
 
 var env = require('./app/data/versions.json');
-
+var wbVersion = env.ver.WET.major+"."+env.ver.WET.minor+"."+env.ver.WET.patch;
+var fs = require('fs');
 // == PATH STRINGS ========
 var baseScript = './app/scripts';
 var wetBase = './imsd/hc-sc';
@@ -998,7 +999,6 @@ pipes.insertDateStamp = function (template, valsObj, lang, type, langHtmlName) {
     var now = new Date();
     var utc = dateFormat(now, "isoDate");
     var anchor = pipes.getHomeAnchor(type, lang);
-    var wbVersion = env.ver.WET.major+"."+env.ver.WET.minor+"."+env.ver.WET.patch;
     var langSwitch = "";
     if (langHtmlName) langSwitch = langHtmlName;
     return (gulp.src(template)
@@ -3570,3 +3570,40 @@ gulp.task('prod-build-allForms', gulp.series(
     'prod-piConverter-allFormsCreate', function (done) {
         done();
     }));
+    
+
+gulp.task('apply-gcweb-theme', done => {
+	fs.readdirSync('./build/').forEach(app => {
+	  if(!fs.existsSync("./build/"+app+"/GCWeb"))
+	    fs.mkdirSync("./build/"+app+"/GCWeb");
+	  
+	  if(!fs.existsSync("./build/"+app+"/GCWeb/wet-boew"))
+		fs.mkdirSync("./build/"+app+"/GCWeb/wet-boew");
+	  else
+		del(['./build/"+app+"/GCWeb/wet-boew/**', '!wet-boew'], {force:true});
+	  
+	  if(!fs.existsSync("./build/"+app+"/GCWeb/"+wbVersion))
+		fs.mkdirSync("./build/"+app+"/GCWeb/"+wbVersion);
+	  else
+		del(['./build/"+app+"/GCWeb/"+wbVersion+"/**', '!'+wbVersion]);
+	  
+	  if(!fs.existsSync("./build/"+app+"/GCWeb/ajax"))
+		  fs.mkdirSync("./build/"+app+"/GCWeb/ajax");
+	  else
+		  del(['./build/"+app+"/GCWeb/ajax/**', '!ajax']);
+	  
+	  gulp.src(wetBase + '/v9.1.0/GCWeb/**/*', {
+	        base: wetBase + '/v9.1.0/GCWeb/'
+	    }).pipe(gulp.dest('./build/' + app + '/GCWeb/' + wbVersion + '/'));
+	  
+	  gulp.src(wetBase + '/v9.1.0/ajax/**/*', {
+	        base: wetBase + '/v9.1.0/ajax/'
+	    }).pipe(gulp.dest('./build/'+app+'/GCWeb/ajax/'));
+	  
+	  gulp.src(wetBase + '/v9.1.0/wet-boew/'+wbVersion+'/**/*', {
+	        base: wetBase + '/v9.1.0/wet-boew/'+wbVersion+'/'
+	    }).pipe(gulp.dest('./build/' + app + '/GCWeb/wet-boew/'));
+	});
+	
+	done();
+});    
