@@ -3591,6 +3591,11 @@ gulp.task('apply-gcweb-theme', done => {
 		  fs.mkdirSync("./build/"+app+"/GCWeb/ajax");
 	  else
 		  del(['./build/"+app+"/GCWeb/ajax/**', '!ajax']);
+
+	  if(!fs.existsSync("./build/"+app+"/GCWeb/fontawesome"))
+		  fs.mkdirSync("./build/"+app+"/GCWeb/fontawesome");
+	  else
+		  del(['./build/"+app+"/GCWeb/fontawesome/**', '!fontawesome']);		  
 	  
 	  gulp.src(wetBase + '/v9.1.0/GCWeb/**/*', {
 	        base: wetBase + '/v9.1.0/GCWeb/'
