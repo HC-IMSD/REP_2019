@@ -88,6 +88,25 @@
             }
             angular.element(fileLoad).trigger('focus');
         };
+        angular.element(hpfbFileProcessingZone).on('dragover', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+        });
+
+        angular.element(hpfbFileProcessingZone).on('dragenter', function(e) {
+            e.stopPropagation();
+        	e.preventDefault();
+        	e.originalEvent.dataTransfer.dropEffect = "link";
+        });
+        
+        angular.element(hpfbFileProcessingZone).on('drop', function(e) {
+        	e.stopPropagation()
+        	e.preventDefault();
+        	$('document').ready(function () {
+	        	($("#fileLoad"))[0].files = e.originalEvent.dataTransfer.files;
+	        	$("#fileLoad").trigger('change');
+        	});
+        });
     }
 })();
 

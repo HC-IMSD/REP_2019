@@ -3604,6 +3604,10 @@ gulp.task('apply-gcweb-theme', done => {
 	  gulp.src(wetBase + '/v9.1.0/ajax/**/*', {
 	        base: wetBase + '/v9.1.0/ajax/'
 	    }).pipe(gulp.dest('./build/'+app+'/GCWeb/ajax/'));
+	    
+	  gulp.src(wetBase + '/v9.1.0/fontawesome/**/*', {
+	        base: wetBase + '/v9.1.0/fontawesome/'
+	    }).pipe(gulp.dest('./build/'+app+'/GCWeb/fontawesome/'));	    
 	  
 	  gulp.src(wetBase + '/v9.1.0/wet-boew/'+wbVersion+'/**/*', {
 	        base: wetBase + '/v9.1.0/wet-boew/'+wbVersion+'/'
