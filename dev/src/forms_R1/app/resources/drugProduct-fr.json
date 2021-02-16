@@ -166,9 +166,10 @@
   "HT_CNTRY_MAN": "Inscrivez le nom du ou des pays où la forme posologique finale du médicament est fabriquée. Par exemple, si la forme posologique du produit pharmaceutique est un comprimé ou une solution, indiquez le ou les pays où le comprimé ou la solution ont été fabriqués. Cela n’est pas nécessairement le ou les pays où le produit a été emballé ou étiqueté.",
   "HT_APPENDIX4_1": "Énumérez le matériel d’origine animale ou humaine pour chaque ingrédient médicinal ou pour chaque matériel utilisé à une étape ou une autre de la fabrication du produit y compris l’excipient ou l’additif provenant de tissus d’origine humaine ou animale.",
   "HT_APPENDIX4_2": "Dans cette section, le champ « Nom de l’ingrédient ou matériel » est sensible à la case et doit correspondre exactement au nom de l’ingrédient ou du matériel figurant à l’onglet « Formulation ». Dans le cas contraire, les messages d’erreur suivants peuvent s’afficher : « Les dossiers d’origine humaine ou animale comportent des erreurs. Source manquante. » ou « Les dossiers d’origine humaine ou animale comportent des erreurs. Source supplémentaire. » ",
-  "HT_GEN_XML_1": "Vous pouvez inclure une version finale du fichier d’information sur le produit (en format XML) dans le dossier 1.2.1 de votre transaction du PIR.",
-  "HT_GEN_XML_2": "Consultez les lignes directrices du PIR pour obtenir des renseignements détaillés sur son implantation.",
-  "HT_GEN_XML_3":"fr_A final product information XML file can be included in:",
-  "HT_GEN_XML_4":"fr_For Human Drugs - section 1.2.1 of your transaction using REP.",
-  "HT_GEN_XML_5":"fr_For Veterinary Drugs - section 1.5 of your transaction using REP"
+//  "HT_GEN_XML_1": "Vous pouvez inclure une version finale du fichier d’information sur le produit (en format XML) dans le dossier 1.2.1 de votre transaction du PIR.",
+//  "HT_GEN_XML_2": "Consultez les lignes directrices du PIR pour obtenir des renseignements détaillés sur son implantation.",
+  "HT_GEN_XML_3":"Un fichier XML d'informations sur le produit final peut être inclus dans :",
+  "HT_GEN_XML_4":"Pour les drogues humaines - section 1.2.1 de votre transaction utilisant le PIR.",
+  "HT_GEN_XML_5":"Pour les médicaments vétérinaires - section 1.5 de votre transaction en utilisant le PIR.",
+  "HT_GEN_XML_6":"Reportez-vous au document d'orientation du PIR pour des informations détaillées sur le moment où cela est nécessaire."
 }
