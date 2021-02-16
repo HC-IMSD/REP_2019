@@ -18,7 +18,7 @@
                                            show-error="mirCtrl.showError(mirCtrl.materialIngRecordForm[mirCtrl.nameId])"
                                            error-types="mirCtrl.requiredOnly"></cmp-error-message>
                         <input type="text" id="{{::mirCtrl.nameId}}" data-ng-model="mirCtrl.mirModel.ingredientName"
-                               data-ng-model-options="{ debounce: $inherit}" maxlength="100" size="100" required data-focus-if="mirCtrl.isFocus" data-ng-blur="mirCtrl.cancelFocus()"
+                               data-ng-model-options="{ debounce: $inherit}" maxlength="100" size="50" required data-focus-if="mirCtrl.isFocus" data-ng-blur="mirCtrl.cancelFocus()"
                                class="form-control" name="{{::mirCtrl.nameId}}"/>
 
                     </label>
