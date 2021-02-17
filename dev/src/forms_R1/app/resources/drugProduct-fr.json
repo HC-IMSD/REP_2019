@@ -152,7 +152,7 @@
   "HT_IS_NANO_7": "le terme « phénomène à l’échelle nanométrique » signifie des propriétés du produit, du matériau, de la substance, de l’ingrédient, du dispositif, du système ou de la structure qui sont attribuables à sa taille et qui sont faciles à distinguer des propriétés chimiques ou physiques des atomes, molécules et matériaux particuliers;",
   "HT_IS_NANO_8": "le terme « fabriqué » comprend les processus techniques et les contrôles de la matière et des processus à l’échelle nanométrique.",
   "HT_AH_SOURCED": "Sélectionnez l’option « Oui » si l’ingrédient ou le matériel a été d’origine humaine ou animale à une étape ou une autre de la fabrication du produit, y compris l’excipient ou l’additif provenant de tissus d’origine humaine ou animale.",
-  "HT_AH_SOURCED_1": "Si l’option « Oui » est sélectionner, cette section doit être complété.",
+  "HT_AH_SOURCED_1": "Si «Oui» est sélectionné, veuillez-vous assurer que vous êtes tenu de participer à la section 12 de ce modèle.",
   "HT_IS_AH_MAT_1": "Indiquez le Chemical Abstracts Service (CAS) (le cas échéant), le nom du matériel et la norme pour le matériel d’origine humaine ou animale (autre que l’ingrédient figurant dans la formulation ci-dessus) utilisé dans la fabrication du produit.",
   "HT_IS_AH_MAT_2": "Sélectionnez l’option « Oui » pour la question « Présence dans le contenant final » si l’ingrédient est présent dans le contenant final (selon la norme de qualité applicable au produit).",
   "HT_CONT_TYPE_1": "Exemples :",
