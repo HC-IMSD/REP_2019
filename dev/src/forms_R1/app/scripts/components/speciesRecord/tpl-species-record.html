@@ -47,8 +47,8 @@
                            form-ref="speciesRecCtrl.speciesForm"
                            show-error="speciesRecCtrl.showError(speciesRecCtrl.speciesForm[speciesRecCtrl.isTreatFPAId])"
                            error-types="speciesRecCtrl.requiredOnly"></cmp-error-message>
-                    <label class="col-xs-1" for="{{::speciesRecCtrl.isTreatFPAId}}"><input type="radio" id="{{::speciesRecCtrl.isTreatFPAId}}" name="{{::speciesRecCtrl.isTreatFPAId}}" value="Y" data-ng-model="speciesRecCtrl.model.isTreatFPA" required/>&nbsp;{{::'Y'|translate}}</label>
-                    <label class="col-xs-1" for="{{::speciesRecCtrl.isTreatFPAId}}_1"><input type="radio" id="{{::speciesRecCtrl.isTreatFPAId}}_1" name="{{::speciesRecCtrl.isTreatFPAId}}" value="N" data-ng-model="speciesRecCtrl.model.isTreatFPA" required/>&nbsp;{{::'N'|translate}}</label>
+                    <label class="col-xs-2" for="{{::speciesRecCtrl.isTreatFPAId}}"><input type="radio" id="{{::speciesRecCtrl.isTreatFPAId}}" name="{{::speciesRecCtrl.isTreatFPAId}}" value="Y" data-ng-model="speciesRecCtrl.model.isTreatFPA" required/>&nbsp;{{::'Y'|translate}}</label>
+                    <label class="col-xs-2" for="{{::speciesRecCtrl.isTreatFPAId}}_1"><input type="radio" id="{{::speciesRecCtrl.isTreatFPAId}}_1" name="{{::speciesRecCtrl.isTreatFPAId}}" value="N" data-ng-model="speciesRecCtrl.model.isTreatFPA" required/>&nbsp;{{::'N'|translate}}</label>
                 </div>
             </div>
             <div class="row" data-ng-if="speciesRecCtrl.model.isTreatFPA && speciesRecCtrl.model.isTreatFPA === 'Y'">
