@@ -627,6 +627,9 @@
                 case ("B02-20201214-01"): // MPCOVA (Pre-COVID-19 For IO Application Amendment Meeting) - same as MPCOV
                     vm.descriptionList = TransactionLists.getMPCOVType();
                     break;
+                case ("B02-20210108-01"): // NDS CV (New Drug Submission with flexibilities for Designated COVID-19 drug)
+                    vm.descriptionList = TransactionLists.getNDSCVType();
+                    break;
 
                 default:
                     try {
@@ -724,7 +727,6 @@
                 case(vm.descriptionObj.SCREENING_ACCEPT_RESPONSE):        /*FALLTHROUGH*/
                 // case(vm.descriptionObj.SCREENING_CLARIF_RESPONSE):        /*FALLTHROUGH*/
                 case(vm.descriptionObj.NOL_RESPONSE):        /*FALLTHROUGH*/
-                case(vm.descriptionObj.CLARIF_RESPONSE):        /*FALLTHROUGH July 17,2017*/
                 case(vm.descriptionObj.CTN_ETHICS):        /*FALLTHROUGH */
                 case(vm.descriptionObj.CTN_RESPONSE):
                     setAsStartDate();
@@ -760,6 +762,7 @@
                 case(vm.descriptionObj.CTN_SAFETY):
                 case(vm.descriptionObj.CTN_SOURCE):
                 case(vm.descriptionObj.CTN_STUDY_DISC):
+                case(vm.descriptionObj.ROLLING_INFO):
                     setAsDescription();
                     vm.setConcatDetails();
                     break;
@@ -779,6 +782,7 @@
                 case(vm.descriptionObj.QUAL_CLARIF_RESPONSE):
                 case(vm.descriptionObj.SCREENING_CLARIF_RESPONSE):
                 case(vm.descriptionObj.PHONE_RQ_RESPONSE):
+                case(vm.descriptionObj.CLARIF_RESPONSE):        /*FALLTHROUGH July 17,2017*/
                     setAsRequesterwithDate();
                     vm.setConcatDetails();
                     break;
