@@ -20,7 +20,7 @@
   "COPY_RECORD" :"Copier",
   "DISCARD_CHANGES": "Éliminer les modifications",
   "REPSECONDARY": "Personne-resource supplémentaire pour le processus d'inscription réglemetaire",
-  "REPPRIMARY": "Personne-resource pour le processus d'inscription réglemetaire",
+  "REPPRIMARY": "Personne-ressource pour le processus d'inscription réglementaire",
   "MAILING": "Contact pour le l'address courrier réglementaire / adresse pour l'annuelle",
   "BILLING": "Adresse de facturation",
   "MANUFACTURER": "Adresse postale du fabricant / promoteur",
