@@ -222,7 +222,7 @@
                                            data-ng-model-options="{ debounce: '$inherit'}"
                                            class="form-control full-width" 
                                            name="{{ingRecCtrl.strengthData1Id}}" 
-                                           min="0" 
+                                           min="0"
                                            data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked()  || ingRecCtrl.isMedIng()"/>
 
                                 </label>
@@ -238,12 +238,12 @@
                                                        form-ref="ingRecCtrl.activeIngForm"
                                                        show-error="ingRecCtrl.showError(ingRecCtrl.activeIngForm[ingRecCtrl.strengthData2Id])"
                                                        error-types="ingRecCtrl.numberMinLowerError"></cmp-error-message>
-                                    <input type="number" id="{{::ingRecCtrl.strengthData2Id}}" 
+                                    <input type="number" id="{{::ingRecCtrl.strengthData2Id}}"
                                     	   data-ng-model="ingRecCtrl.ingModel.strength.data2"
                                            data-ng-model-options="{ debounce: '$inherit'}"
-                                           class="form-control full-width" 
-                                           name="{{::ingRecCtrl.strengthData2Id}}" 
-                                           data-ng-min="ingRecCtrl.ingModel.strength.data1" 
+                                           class="form-control full-width"
+                                           name="{{::ingRecCtrl.strengthData2Id}}"
+                                           data-ng-min="ingRecCtrl.ingModel.strength.data1 + 1"
                                            data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"/>
 
                                 </label>
