@@ -189,7 +189,7 @@
             <div class="row" data-ng-if="!drugProdCtrl.isCTA()">
                 <div class="col-xs-12 form-group">
                     <fieldset id="fs_addrMissing_{{::$id}}">
-                <legend><strong>
+                <legend class="a"><strong>
                     <span class="label-pi">6. {{::'ADDRESS_NOC'|translate}}
                     <sup id="dr5_ref">
                         <a class="fn-lnk" href="#dr5"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::drugProdCtrl.htIndxList.dnfNocAddrIndx}}</a>
@@ -198,7 +198,7 @@
                 <div>
                     <div class="row">
                         <div class="col-sm-4">
-                            <div class="checkbox checkbox-pi">
+                            <div class="checkbox">
                                 <label for="manuid">
                                     <input type="checkbox" id="manuid" name="manuid"
                                            data-ng-model="drugProdCtrl.model.manu"
@@ -222,7 +222,7 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-4">
-                            <div class="checkbox checkbox-pi">
+                            <div class="checkbox">
                                 <label for="thisActivity">
                                         <input type="checkbox" id="thisActivity" name="thisActivity"
                                                data-ng-model="drugProdCtrl.model.thisActivity"
@@ -530,7 +530,7 @@
                         </strong>
                     </div>
                 </div>
-                <div id="formulations-panel" role="tabpanel">
+                <div id="formulations-panel" class="row" role="tabpanel">
                     <div class="form-group">
                         <cmp-formulations formulations="drugProdCtrl.model.drugProduct.formulations"
                                           error-summary-update="drugProdCtrl.updateSummary"
