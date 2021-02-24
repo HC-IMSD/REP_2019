@@ -1,0 +1,8 @@
+.wb-fnote dd > ul,.wb-fnote dd > ol {
+     list-style-position: inside;
+     padding-left: 0;
+}
+
+.wb-fnote dd p:first-child {
+	padding-left: 0;
+}
