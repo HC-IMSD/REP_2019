@@ -3601,7 +3601,7 @@ gulp.task('apply-gcweb-theme', done => {
 	        base: wetBase + '/v9.1.0/GCWeb/'
 	    }).pipe(gulp.dest('./build/' + app + '/GCWeb/' + wbVersion + '/'));
 	  
-	  gulp.src(wetBase + '/v9.1.0/ajax/**/*', {
+	  gulp.src([wetBase + '/v9.1.0/ajax/**/*', '!'+ wetBase + '/v9.1.0/ajax/prefooter-v2-*.html'], {
 	        base: wetBase + '/v9.1.0/ajax/'
 	    }).pipe(gulp.dest('./build/'+app+'/GCWeb/ajax/'));
 	    
@@ -3612,7 +3612,21 @@ gulp.task('apply-gcweb-theme', done => {
 	  gulp.src(wetBase + '/v9.1.0/wet-boew/'+wbVersion+'/**/*', {
 	        base: wetBase + '/v9.1.0/wet-boew/'+wbVersion+'/'
 	    }).pipe(gulp.dest('./build/' + app + '/GCWeb/wet-boew/'));
+	    
+	  pipes.processPages(app, 'en', 'fr');
 	});
 	
 	done();
-});    
+});
+
+pipes.processPages = function(app, ...args) {
+	var now = new Date();
+    var utc = dateFormat(now, "isoDate");
+	args.forEach(lang => {
+	  gulp.src(wetBase + '/v9.1.0/ajax/prefooter-v2-'+lang+'.html')
+		    .pipe(htmlreplace({
+		        builtDate: utc
+		      	})).pipe(gulp.dest('./build/' + app + '/GCWeb/ajax/'));	  
+	});
+	return;
+};    
