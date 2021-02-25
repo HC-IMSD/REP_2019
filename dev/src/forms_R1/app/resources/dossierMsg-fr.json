@@ -23,6 +23,6 @@
   "MSG_ERR_INVALID_NUM_MIN": "La valeur doit être supérieure à -273",
   "MSG_ERR_INVALID_NUM_MAX": "La valeur doit être inférieure à 999",
   "MSG_ERR_INVALID_NUM_MIN0": "La valeur doit être supérieure ou égale à 0",
-  "MSG_ERR_INVALID_NUM_MIN_LOWER": "La valeur doit être égale ou supérieure à la limite inférieure",
+  "MSG_ERR_INVALID_NUM_MIN_LOWER": "La valeur doit être supérieure à la limite inférieure",
   "MSG_TISSUE_SYS_USED": "Ce système a déjà été sélectionné, veuillez en sélectionner un autre"
 }
