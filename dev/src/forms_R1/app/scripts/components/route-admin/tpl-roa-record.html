@@ -1,11 +1,11 @@
 <ng-form name="roaRecCtrl.roaRecForm">
     <div class="container-fluid">
         <fieldset>
-            <legend class="legend-rep">{{'ROA_LBL' | translate}}&nbsp;{{roaRecCtrl.model.id}}</legend>
+            <legend class="legend-rep">{{'ROA_LBL_ROA' | translate}}&nbsp;{{roaRecCtrl.model.id}}</legend>
             <div class="row" data-ng-class="{'has-error':roaRecCtrl.roaRecForm[roaRecCtrl.roaId].$invalid}">
                 <div class="col-md-6 form-group">
                     <label for="{{::roaRecCtrl.roaId}}" class="required">
-                        <span class="field-name">{{'ROA_LBL'|translate}}</span>
+                        <span class="field-name">{{'ROA_LBL_ROA'|translate}}</span>
                         <strong class="required">{{"REQUIRED" |translate}}</strong>
                         <cmp-error-message field-name="roaRecCtrl.roaId"
                                            form-ref="roaRecCtrl.roaRecForm"
@@ -25,7 +25,7 @@
                 <div class="col-md-5" ng-if="roaRecCtrl.isRoaOther()"
                      data-ng-class="{'has-error':roaRecCtrl.roaRecForm.otherRoa.$invalid}">
                     <label for="{{::roaRecCtrl.unknownRoaId}}" class="required">
-                        <span class="field-name">{{::'OTHER_ROA_DETAILS'|translate}}</span>
+                        <span class="field-name">{{::'OTHER_ROA'|translate}}</span>
                         <strong class="required">{{::"REQUIRED" |translate}}</strong>
                         <cmp-error-message field-name="roaRecCtrl.unknownRoaId"
                                            form-ref="roaRecCtrl.roaRecForm"

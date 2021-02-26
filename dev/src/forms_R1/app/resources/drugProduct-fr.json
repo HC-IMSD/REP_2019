@@ -119,7 +119,7 @@
   "HT_PROP_INDI_1": "Précisez l’indication et l’utilisation proposées du médicament; p. ex., pour le traitement de l’angine de poitrine et de l’hypertension, pour traiter les symptômes du rhume des foins, pour la prophylaxie de l’infection par le virus de la rougeole.",
   "HT_PROP_INDI_2": "Pour un nouveau médicament, l’indication et l’utilisation proposées doivent résumer l’indication décrite dans la monographie de produit. L’utilisation d’une terminologie scientifique clé est nécessaire pour cette section.",
   "HT_PROP_INDI_3": "Une référence à la monographie de produit ne sera accepté que s’il n’y a pas de modification de l’indication.",
-  "HT_PROP_INDI_4": "Pour un produit désinfectant, les propositions d’indications telles que « désinfectant/assainisseur » ou « nettoyant pour cuvette » ne sont pas permises.",
+  "HT_PROP_INDI_4": "Pour un produit désinfectant, les propositions d’indications telles que « désinfectant /assainisseur » ou « nettoyant pour cuvette » ne sont pas permises.",
   "HT_PROP_INDI_5": "Précisez la posologie proposée - (par âge – y compris la dose quotidienne maximale).",
   "HT_FORMULATION_1": "Si la soumission ou l'application inclut différentes formulations (p.ex. plusieurs concentrations), veuillez ajouter le nom du produit, si celui-ci est unique, ou sa concentration afin d'identifier chaque formulation.",
   "HT_FORMULATION_2": "En ce qui concerne les produits de santé destinés aux consommateurs, si la soumission ou l'application en contient plusieurs, veuillez les inclure séparément dans le même ordre dans lequel ils sont énumérés dans le champs 4. Nom du produit.",

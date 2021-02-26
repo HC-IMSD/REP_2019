@@ -48,10 +48,10 @@
         vm.colNames = [
             {label: "ROLE", binding: "ingRole", width: "19"},
             {label: "INGREDIENT", binding: "ingLabel", width: "40"},
-            {label: "VARIANT_NAME", binding: "variant", width: "25"},
+            //{label: "VARIANT_NAME", binding: "variant", width: "25"},
             {label: "IN_LIST", binding: "autoIngred", width: "4"},
-            {label: "CAS_NUM", "binding": "cas", width: "9", isHtml: "true"},
-            {label: "HUMAN_ANIMAL_SOURCE", binding: "humanAnimalSourced", width: "4"}
+            //{label: "CAS_NUM", "binding": "cas", width: "9", isHtml: "true"},
+            //{label: "HUMAN_ANIMAL_SOURCE", binding: "humanAnimalSourced", width: "4"}
         ];
         vm.ingList = [];
         vm.$onInit = function () {
