@@ -122,6 +122,7 @@
             vm.isTreatFPAId = "IS_TREAT_FP" + scopeId;
             vm.daysId = "VET_DAYS" + scopeId;
             vm.hoursId = "VET_HOURS" + scopeId;
+            vm.withdrawalid = "WITHDRAWAL" + scopeId;
         }
     }
 })();

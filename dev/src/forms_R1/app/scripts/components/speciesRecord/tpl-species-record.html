@@ -36,13 +36,17 @@
                     </label>
                 </div>
             </div>
-            <div class="row">
-                <div class="form-group col-xs-12"
-                     data-ng-class="{'has-error':speciesRecCtrl.speciesForm[speciesRecCtrl.isTreatFPAId].$invalid}">
-                    <label for="{{::speciesRecCtrl.isTreatFPAId}}" class="full-width required">
-                        <span class="field-name">{{'IS_TREAT_FP'|translate}}</span>
-                        <strong class="required">{{"REQUIRED" |translate}}</strong>
-                    </label>
+            <fieldset>
+                <legend class="legend-rep"
+                        data-ng-class="{'has-error':speciesRecCtrl.speciesForm[speciesRecCtrl.isTreatFPAId].$invalid}">
+                    {{'IS_TREAT_FP'|translate}}<strong class="required">{{"REQUIRED" |translate}}</strong>&nbsp;{{speciesRecCtrl.model.isTreatFPAId}}
+                </legend>
+                <div class="form-group col-xs-12">
+                     <!--data-ng-class="{'has-error':speciesRecCtrl.speciesForm[speciesRecCtrl.isTreatFPAId].$invalid}">-->
+                    <!--<label for="{{::speciesRecCtrl.isTreatFPAId}}" class="full-width required">-->
+                        <!--<span class="field-name">{{'IS_TREAT_FP'|translate}}</span>-->
+                        <!--<strong class="required">{{"REQUIRED" |translate}}</strong>-->
+                    <!--</label>-->
                     <cmp-error-message field-name="speciesRecCtrl.isTreatFPAId"
                            form-ref="speciesRecCtrl.speciesForm"
                            show-error="speciesRecCtrl.showError(speciesRecCtrl.speciesForm[speciesRecCtrl.isTreatFPAId])"
@@ -50,12 +54,16 @@
                     <label class="col-xs-2" for="{{::speciesRecCtrl.isTreatFPAId}}"><input type="radio" id="{{::speciesRecCtrl.isTreatFPAId}}" name="{{::speciesRecCtrl.isTreatFPAId}}" value="Y" data-ng-model="speciesRecCtrl.model.isTreatFPA" required/>&nbsp;{{::'Y'|translate}}</label>
                     <label class="col-xs-2" for="{{::speciesRecCtrl.isTreatFPAId}}_1"><input type="radio" id="{{::speciesRecCtrl.isTreatFPAId}}_1" name="{{::speciesRecCtrl.isTreatFPAId}}" value="N" data-ng-model="speciesRecCtrl.model.isTreatFPA" required/>&nbsp;{{::'N'|translate}}</label>
                 </div>
-            </div>
-            <div class="row" data-ng-if="speciesRecCtrl.model.isTreatFPA && speciesRecCtrl.model.isTreatFPA === 'Y'">
-                <label class="full-width">
-                    <span class="field-name">{{'WITHDRAWAL'|translate}}</span>
-                </label>
-            </div>
+            </fieldset>
+
+            <fieldset data-ng-if="speciesRecCtrl.model.isTreatFPA && speciesRecCtrl.model.isTreatFPA === 'Y'">
+                <legend class="legend-rep">{{'WITHDRAWAL' | translate}}&nbsp;{{speciesRecCtrl.model.withdrawalid}}</legend>
+
+            <!--<div class="row" data-ng-if="speciesRecCtrl.model.isTreatFPA && speciesRecCtrl.model.isTreatFPA === 'Y'">-->
+                <!--<label class="full-width">-->
+                    <!--<span class="field-name">{{'WITHDRAWAL'|translate}}</span>-->
+                <!--</label>-->
+            <!--</div>-->
             <div class="row" data-ng-if="speciesRecCtrl.model.isTreatFPA && speciesRecCtrl.model.isTreatFPA === 'Y'">
                 <div class="form-group col-md-6"
                      data-ng-class="{'has-error':speciesRecCtrl.speciesForm[speciesRecCtrl.daysId].$invalid}">
@@ -92,6 +100,7 @@
                     </label>
                 </div>
             </div>
+            </fieldset>
             <div class="row">
                 <div class="form-group col-md-12">
                     <button data-ng-click="speciesRecCtrl.saveRecord()" name="saveSpecies" onclick="focusOnRow(this, 'addSpecies_')"
