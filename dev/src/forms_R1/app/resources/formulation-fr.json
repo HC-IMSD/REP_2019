@@ -35,7 +35,7 @@
   "NANO_MATERIAL": "Nanomatériau",
   "NANO_MATERIAL_OTHER": "Indiquer le type de nanomatériau",
   "ANIMAL_HUMAN_SOURCED": "Source d'animale ou humaine?",
-  "INGREDIENT_LIST":"fr_Ingredient List",
+  "INGREDIENT_LIST":"Lista de ingredientes",
   "ROLE": "Rôle",
   "INGREDIENT": "Ingrédient",
   "INGREDIENTS": "Ingrédients",
@@ -83,8 +83,8 @@
   "COUNTRIES_MANUFACT": "Pays de fabricatin pour ce produit",
   "IN_LIST": "Dans la liste",
   "UNITS_SRCH": "fr_Select or Search Units",
-  "SOURCED_INFO": "Veuillez fournir des détails supplémentaires lié à cet ingrédient dans la section « 12. Source animale / humaine »",
-  "SOURCED_INFO_MATERIAL":"Veuillez fournir des détails supplémentaires lié à cet matière dans la section « 12. Source animale / humaine »",
+  "SOURCED_INFO": "Veuillez fournir des détails supplémentaires lié à cet ingrédient dans la section « 12. L'ingrédient ou matériel source humaine ou d'animale »",
+  "SOURCED_INFO_MATERIAL":"Veuillez fournir des détails supplémentaires lié à cet matière dans la section « 12. L'ingrédient ou matériel source humaine ou d'animale »",
   "DELETE_FORMULATION": "Supprimer la formulation",
   "COPY_FORMULATION": "Copier la formulation",
   "ADD_FORMULATION":"Ajouter une formulation",
@@ -115,5 +115,7 @@
   "FORMULCTRL.FORMULATIONSFORM":"dans la section formulation",
   "INGREDIENT_INSTRUCT":"Ingredient Instructions",
   "CTRCTRL.CONTAINERTYPEFORM":"dans les détails du type de conteneur",
-  "SHELF_LIFE_NUMBER": "Valeur"
+  "SHELF_LIFE_NUMBER": "Valeur",
+  "MATERIAL_INGREDIENT_LIST": "Lista de ingredientes del material",
+  "ANIMAL_SOURCES":"Sources d'animales"
 }
