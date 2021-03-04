@@ -108,7 +108,7 @@
   "HT_DNF_NOC_2": "De plus, il faut s’assurer que les importateurs concernés sont nommés à la section 6 ci-dessous.",
   "HT_DNF_NOC_3": "Si les FDM et les AC doivent être envoyés à la personne-ressource associée à cette activité de réglementation, le nom indiqué dans le dernier fichier de transaction réglementaire (en format XML) pour cette activité sera utilisé.",
   "HT_IMPORTER_1": "Lorsque le fabricant ou le promoteur n’est pas situé au Canada, un importateur canadien doit être nommé",
-  "HT_IMPORTER_3": "Indiquez seulement les importateurs associés aux DIN indiqués dans la section ci-dessous.",
+  "HT_IMPORTER_3": "Indiquez seulement les importateurs associés aux Numéro d’ID du médicament (DIN) indiqués dans la section ci-dessous.",
   "HT_ROUTING_ID_1": "L'identificateur d'acheminement est un numéro unique à chaque compte créé sur le portail commun de demandes électroniques (PDE). Il est utilisé pour identifier le type de compte sur une des deux interfaces du portail soit l'",
   "HT_ROUTING_ID_1_a":"Applicability Statement 2 (AS2)",
   "HT_ROUTING_ID_1_b":"ou le ",
