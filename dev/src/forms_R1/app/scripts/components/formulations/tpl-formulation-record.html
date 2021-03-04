@@ -31,7 +31,8 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-5 form-group">&#160;&#160;&#160;
+                <div class="col-md-5 form-group" data-ng-class="{'has-error':formulRecCtrl.formulationForm[formulRecCtrl.dosageId].$invalid}"
+                >&#160;&#160;&#160;
                     <label for="{{::formulRecCtrl.dosageId}}" class="required">
                         <span class="field-name">{{::formulRecCtrl.getFirstOrder(2)}}. {{'DOSAGE_FORM'|translate}}</span>
                         <strong class="required">{{"REQUIRED" |translate}}</strong>
