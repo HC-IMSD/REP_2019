@@ -118,7 +118,7 @@
   "HT_DNF_NOC_2":"In addition for importers, please ensure the applicable importers are identified in section 7 below.",
   "HT_DNF_NOC_3":"If DNF/NOC are to be sent to the contact for this regulatory activity, the contact listed on the latest Regulatory Transaction XML file for this regulatory activity will used.",
   "HT_IMPORTER_1":"When the manufacturer /sponsor is not located in Canada, a Canadian Importer must be identified.",
-  "HT_IMPORTER_3":"Only list the Importers associated with DINs identified in the formulation section below.",
+  "HT_IMPORTER_3":"Only list the Importers associated with Drug Identification Numbers (DINs) identified in the formulation section below.",
   "HT_ROUTING_ID_1": "The routing identifier is a unique identifier within the Common Electronic Submissions Gateway (CESG) used to identify specific gateway account, whether it uses the ",
   "HT_ROUTING_ID_1_a":"Applicability Statement 2 (AS2)",
   "HT_ROUTING_ID_1_b":"or ",
