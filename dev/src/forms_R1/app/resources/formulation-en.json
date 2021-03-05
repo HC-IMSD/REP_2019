@@ -117,5 +117,7 @@
   "CTRCTRL.CONTAINERTYPEFORM":"in the container type details",
   "FORMULCTRL.FORMULATIONSFORM":"in the formulations section",
   "INGREDIENT_INSTRUCT":"Ingredient Instructions",
-  "SHELF_LIFE_NUMBER": "Value"
+  "SHELF_LIFE_NUMBER": "Value",
+  "MATERIAL_INGREDIENT_LIST": "Material Ingredient List",
+  "ANIMAL_SOURCES":"Animal Sources"
 }

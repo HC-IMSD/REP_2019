@@ -14,7 +14,7 @@
                         <input type="text" id="{{::roaRecCtrl.roaId}}" name="{{::roaRecCtrl.roaId}}"
                                data-ng-model="roaRecCtrl.model.display"
                                oninput="angular.element($(this)).scope().roaRecCtrl.roaChange(this.value)"
-                               autocomplete="off"
+                               autocomplete="off" data-focus-if="roaRecCtrl.isFocus"
                                list="roaFormList" required class="form-control full-width"/>
                         <datalist id="roaFormList" class="rep-selectize-dropdown rep-selectize-font">
                             <option data-ng-repeat="roa in roaRecCtrl.roaList  | filter: {[roaRecCtrl.lang]:roaFilter}" value="{{roa[roaRecCtrl.lang]}}" label="{{roa[roaRecCtrl.lang]}}"/>
