@@ -6,3 +6,7 @@
 .wb-fnote dd p:first-child {
 	padding-left: 0;
 }
+
+.container {
+	font-size: 15px;
+}
