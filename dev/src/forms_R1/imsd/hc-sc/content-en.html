@@ -219,17 +219,16 @@
     <!-- end main content -->
 
     <!--content ends here -->
-    <div id="def-preFooter" data-ajax-replace="../GCWeb/ajax/prefooter-v2-en.html">
-		<div class="pagedetails">
-		  <div class="row">
-		    <div class="col-sm-6 col-md-5 col-lg-4">
-			<a href="https://www.canada.ca/en/report-problem.html" class="btn btn-default btn-center">Report a problem on this page</a>
-		    </div>
-		    <div class="wb-share col-sm-4 col-md-3 col-sm-offset-2 col-md-offset-4 col-lg-offset-5" data-wb-share='{"lnkClass": "btn btn-default btn-block"}'></div>
-		  </div>
-		  <dl id="wb-dtmd"><dt>Date modified:&#32;</dt><dd><time property="dateModified">2021-02-15</time></dd></dl>
-		</div>    
-    </div>
+	<div id="repPreFooter" class="pagedetails container">
+	  <div class="row">
+	  	<div id="repProblemReport" class="col-sm-6 col-md-5 col-lg-4" data-ajax-replace="../GCWeb/ajax/prefooter-v2-en.html"></div>
+	  	<div id="repSocialShare" class="wb-share col-sm-4 col-md-3 col-sm-offset-2 col-md-offset-4 col-lg-offset-5" data-wb-share='{"lnkClass": "btn btn-default btn-block"}'></div>
+	  </div>
+	  <dl id="wb-dtmd">
+	    <dt>Date modified:&#32;</dt>
+	    <dd><time property="dateModified"><!--build:dateToday--><!--endbuild--></time></dd>
+	  </dl>
+	</div>
 
 </main>
 <div id="def-footer">
