@@ -10,3 +10,7 @@
 .container {
 	font-size: 15px;
 }
+
+.panel-title {
+    line-height: 200%;
+}
