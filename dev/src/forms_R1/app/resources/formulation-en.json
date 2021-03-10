@@ -42,6 +42,7 @@
   "MED": "Medicinal Ingredient",
   "NONMED": "Non-Medicinal Ingredient",
   "VARIANT_NAME": "Formulation Variant Name (if applicable)",
+  "VARIANT_NAME_HEADER": "Formulation Variant Name",
   "NMI_PROPRIETARY_INFO_CHKBX": "I attest that the details for this non-medicinal ingredient are unknown as they are proprietary information.",
   "NMI_PROPRIETARY_INFO_LBL": "The proprietary information can be found in the following:",
   "NMI_PROPRIETARY_INFO_FLD_NOTE": "Note: if the referenced information is unacceptable, further details will be requested.",
@@ -63,8 +64,10 @@
   "SHELF_LIFE": "Shelf Life",
   "OTHER_SHELF_LIFE_CONSIDER":"Other Shelf Life Considerations",
   "IN_FINAL_CONTAINER": "Present in Final Container?",
-  "OTHER_ROA_DETAILS": "Other Route of Administration",
-  "ROA_LBL": "Route of Administration",
+  "OTHER_ROA_DETAILS": "Other",
+  "OTHER_ROA": "Other Route of Administration",
+  "ROA_LBL": "Route of Admin",
+  "ROA_LBL_ROA": "Route of Administration",
   "ROA_ABREV": "ROA",
   "FORMULATION":"Formulation",
   "FORMULATIONS":"Formulations",
@@ -115,5 +118,7 @@
   "CTRCTRL.CONTAINERTYPEFORM":"in the container type details",
   "FORMULCTRL.FORMULATIONSFORM":"in the formulations section",
   "INGREDIENT_INSTRUCT":"Ingredient Instructions",
-  "SHELF_LIFE_NUMBER": "Value"
+  "SHELF_LIFE_NUMBER": "Value",
+  "MATERIAL_INGREDIENT_LIST": "Material Ingredient List",
+  "ANIMAL_SOURCES":"Animal Sources"
 }

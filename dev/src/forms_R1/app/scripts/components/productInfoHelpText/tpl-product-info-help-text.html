@@ -130,13 +130,23 @@
                 <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::helpCtrl.htIndxList.routingIdIndx}}</dt>
                 <dd id="co5a">
                     <p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{::"ROUTING_ID" |translate}}</p>
-                    <p lang="fr">{{::"HT_ROUTING_ID_1" |translate}}</p>
+                    <p>
+                        {{::"HT_ROUTING_ID_1" |translate}}
+                        <span lang="en">{{::"HT_ROUTING_ID_1_a" |translate}}</span>
+                        {{::"HT_ROUTING_ID_1_b" |translate}}
+                        <span lang="en">{{::"HT_ROUTING_ID_1_c" |translate}}</span>
+                    </p>
                     <ul>
                         <li>{{::'HT_ROUTING_ID_2' |translate}}</li>
                         <li>{{::'HT_ROUTING_ID_3' |translate}}</li>
                     </ul>
                     <P>{{::'HT_ROUTING_ID_4' |translate}}</P>
-                    <p lang="fr">{{::"HT_ROUTING_ID_5" |translate}}<a href="mailto:ESGHelpDesk@fda.hhs.gov">ESGHelpDesk@fda.hhs.gov</a></p>
+                    <p>
+                        {{::"HT_ROUTING_ID_5" |translate}}
+                        <span lang="en">{{::"HT_ROUTING_ID_5_a" |translate}}</span>
+                        {{::"HT_ROUTING_ID_5_b" |translate}}
+                        <a href="mailto:ESGHelpDesk@fda.hhs.gov" lang="en">ESGHelpDesk</a>
+                    </p>
                     <p class="fn-rtn">
                         <a href="#co5a_ref">
                             <span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::helpCtrl.htIndxList.routingIdIndx}}
@@ -217,7 +227,7 @@
                 <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::helpCtrl.htIndxList.nmiProprietaryInfoIndx}}</dt>
                 <dd id="dr9c7">
                     <p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{'NMI_PROPRIETARY_INFO_CHKBX'|translate}}</p>
-                    <p style="white-space: pre-wrap">{{::'HT_NMI_PROPRIETARY_INFO' |translate}}</p>
+                    <p style="white-space: pre-wrap">{{::'HT_NMI_PROPRIETARY_INFO' |translate}}<a href="{{::'HT_NMI_PROPRIETARY_INFO_b' |translate}}">{{::'HT_NMI_PROPRIETARY_INFO_a' |translate}}</a></p>
                     <p class="fn-rtn" style="width:4.5em;"><a href="#dr9c7_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::helpCtrl.htIndxList.nmiProprietaryInfoIndx}}
                         <span class="wb-inv"> referrer</span></a>
                     </p>
@@ -235,7 +245,19 @@
                 <dt><span class="wb-inv">{{::'INSTRUCTION'|translate}} </span>{{::helpCtrl.htIndxList.ingNameIndx}}</dt>
                 <dd id="dr9c1">
                     <p>{{'SECTION_IS_NOT_VISIBLE'|translate}} {{'ING_NAME'|translate}}</p>
-                    <p lang="fr">{{::'HT_ING_NAME' |translate}}</p>
+                    <p>
+                        {{::'HT_ING_NAME' |translate}}
+                        <span lang="en">{{::'HT_ING_NAME_a' |translate}}</span>
+                        {{::'HT_ING_NAME_b' |translate}}
+                        <span lang="en">{{::'HT_ING_NAME_c' |translate}}</span>
+                        {{::'HT_ING_NAME_d' |translate}}
+                        <span lang="en">{{::'HT_ING_NAME_e' |translate}}</span>
+                        {{::'HT_ING_NAME_f' |translate}}
+                         <span lang="en">{{::'HT_ING_NAME_g' |translate}}</span>
+                        {{::'HT_ING_NAME_h' |translate}}
+                         <span lang="en">{{::'HT_ING_NAME_i' |translate}}</span>
+                        {{::'HT_ING_NAME_j' |translate}}
+                    </p>
                     <p data-ng-if="! helpCtrl.isForProd">{{::'HT_ING_NAME_1' |translate}}</p>
                     <p class="fn-rtn" style="width:4.5em;"><a href="#dr9c1_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::helpCtrl.htIndxList.ingNameIndx}}
                         <span class="wb-inv"> referrer</span></a>
@@ -312,7 +334,11 @@
                     <p>{{'IS_ANIMAL_HUMAN_MATERIAL'|translate}}</p>
                     <ul>
                         <li>{{::'HT_AH_SOURCED_1' |translate}}</li>
-                        <li lang="fr">{{::'HT_IS_AH_MAT_1' |translate}}</li>
+                        <li>
+                            {{::'HT_IS_AH_MAT_1' |translate}}
+                            <span lang="en">{{::'HT_IS_AH_MAT_1_a' |translate}}</span>
+                            {{::'HT_IS_AH_MAT_1_b' |translate}}
+                        </li>
                         <li>{{::'HT_IS_AH_MAT_2' |translate}}</li>
                     </ul>
                     <p class="fn-rtn"><a href="#dr9d_ref"><span class="wb-inv">{{::'RETURN_INSTRUCTION'|translate}}</span>{{::helpCtrl.htIndxList.isMaterialIndx}}

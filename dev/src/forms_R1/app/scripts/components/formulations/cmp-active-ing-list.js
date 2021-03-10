@@ -45,17 +45,29 @@
         vm.noActiveValues=""; //used for error handling Business Rule: must be at least one medicinal
         vm.isFocus = false;
 
-        vm.colNames = [
-            {label: "ROLE", binding: "ingRole", width: "19"},
-            {label: "INGREDIENT", binding: "ingLabel", width: "40"},
-            {label: "VARIANT_NAME", binding: "variant", width: "25"},
-            {label: "IN_LIST", binding: "autoIngred", width: "4"},
-            {label: "CAS_NUM", "binding": "cas", width: "9", isHtml: "true"},
-            {label: "HUMAN_ANIMAL_SOURCE", binding: "humanAnimalSourced", width: "4"}
+        vm.colNames = [];
+        vm.miColNames = [
+            {label: "ROLE", binding: "ingRole", width: "1"},
+            {label: "INGREDIENT", binding: "ingLabel", width: "1"},
+            {label: "HUMAN_ANIMAL_SOURCE", binding: "humanAnimalSourced", width: "1"}
         ];
+        vm.nmiColNames = [
+            {label: "ROLE", binding: "ingRole", width: "1"},
+            {label: "INGREDIENT", binding: "ingLabel", width: "1"},
+            {label: "VARIANT_NAME_HEADER", binding: "variant", width: "1"},
+            //{label: "IN_LIST", binding: "autoIngred", width: "4"},
+            //{label: "CAS_NUM", "binding": "cas", width: "9", isHtml: "true"},
+            {label: "HUMAN_ANIMAL_SOURCE", binding: "humanAnimalSourced", width: "1"}
+        ];
+        
         vm.ingList = [];
         vm.$onInit = function () {
             _setIdNames();
+            if (vm.ingList === undefined || vm.ingList.length == 0) {
+            	vm.colNames = vm.miColNames;
+            } else {
+            	vm.colNames = vm.nmiColNames;
+            }
           /*  if (vm.ingredients) {
                 vm.ingList = vm.ingredients;
             }*/

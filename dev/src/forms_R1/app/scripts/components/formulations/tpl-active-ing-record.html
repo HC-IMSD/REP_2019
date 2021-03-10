@@ -9,7 +9,7 @@
         <fieldset>
             <legend class="legend-rep">{{'INGRED_DETAILS'|translate}}&nbsp;{{ingRecCtrl.recordIndex+1}}</legend>
             <div class="row">
-                <div class="form-group col-md-3" data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.ingredRoleId].$invalid}">
+                <div class="form-group col-md-4" data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.ingredRoleId].$invalid}">
                     <label for="{{::ingRecCtrl.ingredRoleId}}" class="required">
                         <span class="field-name">{{'ING_ROLE'|translate}}</span>
                         <strong class="required">{{"REQUIRED" |translate}}</strong>
@@ -160,8 +160,8 @@
                 </div>
                 <div class="row">
                     <div class="form-group col-md-4">
-                        <label for="{{::ingRecCtrl.casId}}" lang="fr">
-                            <span class="field-name">{{'CAS_NUM'|translate}}</span>
+                        <label for="{{::ingRecCtrl.casId}}">
+                            <span class="field-name" lang="en">{{'CAS_NUM'|translate}}</span>
                             <input type="text" id="{{::ingRecCtrl.casId}}" data-ng-model="ingRecCtrl.ingModel.cas" maxlength="12"
                                    data-ng-model-options="{ debounce: '$inherit'}"
                                    class="form-control full-width" name="casNum"/>
@@ -222,7 +222,7 @@
                                            data-ng-model-options="{ debounce: '$inherit'}"
                                            class="form-control full-width" 
                                            name="{{ingRecCtrl.strengthData1Id}}" 
-                                           min="0" 
+                                           min="0"
                                            data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked()  || ingRecCtrl.isMedIng()"/>
 
                                 </label>
@@ -238,18 +238,18 @@
                                                        form-ref="ingRecCtrl.activeIngForm"
                                                        show-error="ingRecCtrl.showError(ingRecCtrl.activeIngForm[ingRecCtrl.strengthData2Id])"
                                                        error-types="ingRecCtrl.numberMinLowerError"></cmp-error-message>
-                                    <input type="number" id="{{::ingRecCtrl.strengthData2Id}}" 
+                                    <input type="number" id="{{::ingRecCtrl.strengthData2Id}}"
                                     	   data-ng-model="ingRecCtrl.ingModel.strength.data2"
                                            data-ng-model-options="{ debounce: '$inherit'}"
-                                           class="form-control full-width" 
-                                           name="{{::ingRecCtrl.strengthData2Id}}" 
-                                           data-ng-min="ingRecCtrl.ingModel.strength.data1" 
+                                           class="form-control full-width"
+                                           name="{{::ingRecCtrl.strengthData2Id}}"
+                                           data-ng-min="ingRecCtrl.ingModel.strength.data1 + 1"
                                            data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"/>
 
                                 </label>
                             </div>
                         </div>
-                        <div class="row col-md-12">
+                        <div class="row col-md-12" data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.unitsId].$invalid}">
                             <div class="form-group col-md-4">
                                 <label for="{{::ingRecCtrl.unitsId}}" 
                                 	   class="full-width"
