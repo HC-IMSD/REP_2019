@@ -105,8 +105,8 @@
             return ((ctrl.$invalid && ctrl.$touched) || (ctrl.$invalid && vm.showDetailErrors) )
         };
         vm.isRoaOther = function () {
-            vm.model.display = vm.roaRecForm[vm.roaId].$viewValue;
-           if(vm.model.display === 'Other'){
+          vm.model.display = vm.roaRecForm[vm.roaId].$viewValue;
+          if(vm.model.display === 'Other' || vm.model.display === 'Autre'){
                return true;
            }else{
                vm.model.otherRoaDetails="";
