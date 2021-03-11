@@ -474,7 +474,7 @@
             vm.nIngredName="n_ing_name"+scopeId;
             
             vm.proprietaryAttestationCheckBox="proprietary_attestation_checkbox"+scopeId;
-            vm.proprietaryAttestationInfo="proprietary_attestation_info"+scopeId;
+            vm.proprietaryAttestationInfo="nmi_proprietary_info_lbl"+scopeId;
             
             vm.casId="cas"+scopeId;
             vm.standardId="standard"+scopeId;

@@ -40,8 +40,8 @@
                     <input id="{{::ap4RecCtrl.oneTypeId}}" name="{{::ap4RecCtrl.fsType}}" type="hidden"
                            data-ng-model="ap4RecCtrl.isSourced" required/>
                 </legend>
-                <div class="row">
-                    <div class="col-xs-2">
+                <div><div class="row">
+                    <div class="col-sm-2">
                         <div class="checkbox">
                             <label for="sourced-human_{{::$id}}">
                                 <input type="checkbox" name="sourced-human" data-ng-model="ap4RecCtrl.model.humanSourced"
@@ -49,6 +49,8 @@
                                        data-ng-change="ap4RecCtrl.showTissuesFluids()"> {{'HUMAN'|translate}}
                             </label>
                         </div>
+                    </div>
+                    <div class="col-sm-2">
                         <div class="checkbox">
                             <label for="sourced-animal_{{::$id}}">
                                 <input type="checkbox" name="sourced-animal" data-ng-model="ap4RecCtrl.model.animalSourced"
@@ -57,7 +59,7 @@
                             </label>
                         </div>
                     </div>
-                </div>
+                </div></div>
             </fieldset>
 
             <section class="section">
