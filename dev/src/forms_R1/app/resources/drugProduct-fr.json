@@ -23,6 +23,8 @@
   "MEDICAL_INST": "Instruments médicaux",
   "DOMESTIC": "Domestique",
   "BARN": "Grange",
+  "FAKE.APPENDIX_MISSING_ERROR":" avec les dossiers d'origine humaine / animale. Source manquante.",
+  "FAKE.APPENDIX_EXTRA_ERROR":" avec les dossiers d'origine humaine / animale. Source supplémentaire. ",
   "INS_INDUS": "institutionnel ou industriel",
   "CONTACT_LENS": "Contact Lens",
   "SAVE_INSTRUCT": "Product Information File Save Instructions",
