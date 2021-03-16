@@ -61,15 +61,13 @@
                             <label>
                                 <span class="field-name">{{::'REG_ACTIVITY_LEAD_DESC' |translate}}</span>
                             </label>
-                            <div data-ng-if="!transFeeCtrl.isFrench()">
-                                <textarea class="form-control full-width" id="activityLeadNoteId" readonly rows="4"
-                                          name="activityLeadNote">{{lifecycleCtrl.activityLeadNote|translate}}
-                                </textarea>
+                            <div class="form-control full-width well" id="activityLeadNoteId" readonly rows="4"
+                                 name="activityLeadNote"> <p>{{lifecycleCtrl.activityLeadNote|translate}}</p>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="form-group  col-md-6"
+                        <div class="form-group  col-md-12"
                              data-ng-class="{'has-error':lifecycleCtrl.lifecycleDetailsForm[lifecycleCtrl.regActivityId].$invalid}">
                             <label for="{{::lifecycleCtrl.regActivityId}}" class="required">
                                 <span class="field-name">{{::"REG_ACTIVITY_TYPE" |translate}}</span>
@@ -88,7 +86,14 @@
 
                             </label>
                         </div>
-                        <div class="form-group col-md-6"
+                    </div>
+                    <div class="row" data-ng-show="lifecycleCtrl.activityTypeNote">
+                        <div class="col-xs-12 form-group well">
+                            <p>{{lifecycleCtrl.activityTypeNote|translate}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12"
                              data-ng-class="{'has-error':lifecycleCtrl.lifecycleDetailsForm[lifecycleCtrl.seqDescriptId].$invalid}">
                             <label for="{{::lifecycleCtrl.seqDescriptId}}" class="required">
                                 <span class="field-name">{{::"SEQUENCE_TYPE" |translate}}</span>
@@ -106,6 +111,15 @@
                                 </select>
 
                             </label>
+                        </div>
+                    </div>
+                    <div class="row" data-ng-show="lifecycleCtrl.activityDescrNote">
+                        <div class="col-xs-12 form-group well">
+                               <p> {{lifecycleCtrl.activityDescrNote|translate}}
+                                <a data-ng-if="lifecycleCtrl.activityDescrNote == 'ADMIN_DESCR'" href="{{::'ADMIN_DESCR_URL' |translate}}" target="_blank">
+                                    {{::'ADMIN_DESCR_LINK_LABEL' |translate}}
+                                </a>
+                               </p>
                         </div>
                     </div>
                     <div class="row" data-ng-show="lifecycleCtrl.startDateVisible && !lifecycleCtrl.endDateVisible">

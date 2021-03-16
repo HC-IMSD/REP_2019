@@ -441,14 +441,14 @@
                                                        error-types="transInfoCtrl.requiredOnly">
                                     </cmp-error-message>
                                 </legend>
-                                <label class="col-xs-3 rep-normal-font" for="{{::transInfoCtrl.thirdPartyId}}">
+                                <label class="col-xs-2 rep-normal-font" for="{{::transInfoCtrl.thirdPartyId}}">
                                     <input type="radio" id="{{::transInfoCtrl.thirdPartyId}}"
                                            name="{{::transInfoCtrl.thirdPartyId}}" value="Y"
                                            data-ng-model="transInfoCtrl.transactionModel.isThirdParty" required
                                            data-ng-change="transInfoCtrl.setThirdParty()"
                                            data-ng-blur="transInfoCtrl.setTouch(transInfoCtrl.transInfoForm[transInfoCtrl.thirdPartyId])"/>
                                     &nbsp;{{::'Y'|translate}}</label>
-                                <label class="col-xs-3 rep-normal-font" for="{{::transInfoCtrl.thirdPartyId}}_1">
+                                <label class="col-xs-2 rep-normal-font" for="{{::transInfoCtrl.thirdPartyId}}_1">
                                     <input type="radio" id="{{::transInfoCtrl.thirdPartyId}}_1"
                                            name="{{::transInfoCtrl.thirdPartyId}}" value="N"
                                            data-ng-model="transInfoCtrl.transactionModel.isThirdParty"
@@ -458,19 +458,20 @@
                             </fieldset>
                         </div>
                         <div data-ng-show="transInfoCtrl.showThirdPartyNote" class="row">
-                            <div class="alert alert-info col-md-11" role="alert" aria-live="polite">
+                            <div class="alert alert-info col-md-12" role="alert" aria-live="polite">
                                 <p/>
                                 <ul>
                                     <li> {{::"AUT_LETTER_NOTE1" |translate}}</li>
                                     <li> {{::"AUT_LETTER_NOTE2" |translate}}</li>
                                     <li> {{::"AUT_LETTER_NOTE3" |translate}}</li>
+                                    <li> {{::"AUT_LETTER_NOTE4" |translate}}</li>
                                 </ul>
                             </div>
-                            <div class="ol-md-1">
-                                <sup id="tr15_ref">
-                                <a class="fn-lnk" href="#tr15"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::transInfoCtrl.htIndxList.thirdPtyNoteInx}}</a>
-                                </sup>
-                            </div>
+                            <!--<div class="ol-md-1">-->
+                                <!--<sup id="tr15_ref">-->
+                                <!--<a class="fn-lnk" href="#tr15"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::transInfoCtrl.htIndxList.thirdPtyNoteInx}}</a>-->
+                                <!--</sup>-->
+                            <!--</div>-->
                         </div>
                         <div  data-ng-if="transInfoCtrl.transactionModel.isThirdParty != 'N'" class="row">
                             <div class="form-group col-md-12"
