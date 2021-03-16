@@ -18,7 +18,7 @@
                                            show-error="mirCtrl.showError(mirCtrl.materialIngRecordForm[mirCtrl.nameId])"
                                            error-types="mirCtrl.requiredOnly"></cmp-error-message>
                         <input type="text" id="{{::mirCtrl.nameId}}" data-ng-model="mirCtrl.mirModel.ingredientName"
-                               data-ng-model-options="{ debounce: $inherit}" maxlength="100" size="100" required data-focus-if="mirCtrl.isFocus" data-ng-blur="mirCtrl.cancelFocus()"
+                               data-ng-model-options="{ debounce: $inherit}" maxlength="100" size="50" required data-focus-if="mirCtrl.isFocus" data-ng-blur="mirCtrl.cancelFocus()"
                                class="form-control" name="{{::mirCtrl.nameId}}"/>
 
                     </label>
@@ -26,7 +26,7 @@
             </div>
             <div class="row">
                 <div class="form-group col-md-6">
-                    <label for="{{::mirCtrl.casId}}"><span class="field-name">{{'CAS_NUM'|translate}}</span></label>
+                    <label lang="fr" for="{{::mirCtrl.casId}}"><span class="field-name">{{'CAS_NUM'|translate}}</span></label>
                     <input type="text" id="{{::mirCtrl.casId}}" data-ng-model="mirCtrl.mirModel.cas"
                            data-ng-model-options="{ debounce: $inherit}"
                            class="form-control" name="{{::mirCtrl.casId}}" maxlength="12" size="12"/>
@@ -53,8 +53,8 @@
                         <!--</select>-->
                     </legend>
                     <div>
-                    <label class="col-xs-2 rep-normal-font" for="{{::mirCtrl.inFinalId}}"><input type="radio" id="{{::mirCtrl.inFinalId}}" name="{{::mirCtrl.inFinalId}}" value="Y" data-ng-model="mirCtrl.mirModel.inFinalContainer" required/>&nbsp;{{::'Y'|translate}}</label>
-                    <label class="col-xs-2 rep-normal-font" for="{{::mirCtrl.inFinalId}}_1"><input type="radio" id="{{::mirCtrl.inFinalId}}_1" name="{{::mirCtrl.inFinalId}}" value="N" data-ng-model="mirCtrl.mirModel.inFinalContainer" required />&nbsp;{{::'N'|translate}}</label>
+                    <label class="col-xs-3 rep-normal-font" for="{{::mirCtrl.inFinalId}}"><input type="radio" id="{{::mirCtrl.inFinalId}}" name="{{::mirCtrl.inFinalId}}" value="Y" data-ng-model="mirCtrl.mirModel.inFinalContainer" required/>&nbsp;{{::'Y'|translate}}</label>
+                    <label class="col-xs-3 rep-normal-font" for="{{::mirCtrl.inFinalId}}_1"><input type="radio" id="{{::mirCtrl.inFinalId}}_1" name="{{::mirCtrl.inFinalId}}" value="N" data-ng-model="mirCtrl.mirModel.inFinalContainer" required />&nbsp;{{::'N'|translate}}</label>
                     </div>
                     </fieldset>
                 </div>

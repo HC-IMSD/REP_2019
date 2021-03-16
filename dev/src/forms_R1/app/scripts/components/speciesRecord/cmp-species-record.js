@@ -90,7 +90,12 @@
             if (vm.speciesForm.$valid) {
                 vm.model.specSubt = vm.model.species[vm.lang] + ', ' + vm.model.subtypes[vm.lang];
                 if (vm.model.withdrawalDays) {
-                    vm.model.timeCombined = vm.model.withdrawalDays + ' days and ' + vm.model.withdrawalHours + ' hours';
+                    if(vm.lang === "en"){
+                        vm.model.timeCombined = vm.model.withdrawalDays + ' days and ' + vm.model.withdrawalHours + ' hours';
+                    }else if(vm.lang === "fr"){
+                        vm.model.timeCombined = vm.model.withdrawalDays +' jours et ' + vm.model.withdrawalHours + ' heures';
+                    }
+
                 } else  {
                     vm.model.timeCombined = "";
                 }
@@ -122,6 +127,7 @@
             vm.isTreatFPAId = "IS_TREAT_FP" + scopeId;
             vm.daysId = "VET_DAYS" + scopeId;
             vm.hoursId = "VET_HOURS" + scopeId;
+            vm.withdrawalid = "WITHDRAWAL" + scopeId;
         }
     }
 })();

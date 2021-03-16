@@ -36,7 +36,7 @@
             </div>
             <div class="row">
                 <div class="form-group col-md-3">
-                    <label for="{{::nIngRecCtrl.casId}}"><span class="field-name">{{'CAS'|translate}}</span></label>
+                    <label for="{{::nIngRecCtrl.casId}}" lang="fr"><span class="field-name">{{'CAS'|translate}}</span></label>
                     <input type="text" id="{{::nIngRecCtrl.casId}}" name="{{::nIngRecCtrl.casId}}"
                            data-ng-model="nIngRecCtrl.ingModel.cas" maxlength="12" size="12"
                            data-ng-model-options="{ debounce: $inherit}" class="form-control full-width" name="casNum"/>
@@ -90,7 +90,8 @@
                                            error-types="nIngRecCtrl.numberMinLowerError"></cmp-error-message>
                         <input type="number" id="{{::nIngRecCtrl.strengthData2Id}}" data-ng-model="nIngRecCtrl.ingModel.strength.data2"
                                data-ng-model-options="{ debounce: '$inherit'}"
-                               class="form-control" name="{{::nIngRecCtrl.strengthData2Id}}" ng-min="nIngRecCtrl.ingModel.strength.data1" ng-required="true"/>
+                               class="form-control" name="{{::nIngRecCtrl.strengthData2Id}}"
+                               ng-min="nIngRecCtrl.ingModel.strength.data1 + 0.00000001" ng-required="true"/>
 
                     </label>
                 </div>

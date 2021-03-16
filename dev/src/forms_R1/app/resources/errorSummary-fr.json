@@ -10,11 +10,11 @@
 "TYPE_DUPLICATEROLE": "Ce rôle a déjà été sélectionné.",
 "TYPE_DUPLICATESYS": "Ce système a été déjà sélectionné.",
 "TYPE_MIN": "Moins que la valeur minimale.",
-"TYPE_MINLENGTH": "Moins que la longueur minimale.",
+"TYPE_MINLENGTH": "Veuillez fournir au moins 5 chiffres.",
 "POSTAL_FORMAT": "Entrez un format valide.",
 "TYPE_DATE":"Veuillez fournir une une date valide.",
 "TYPE_NUMBER":"Veuillez fournir un numéro valide.",
-"TYPE_PATTERN": "Format incorrecte",
+"TYPE_PATTERN": "Format incorrect",
   "MSG_VALUE_MAX": "La valeur n'est pas dans les limites valides",
   "COMPANY_IN_USE": "L'importateur est en cours d'utilisation pour les Détails du représentant de la compagnie, supprimez ce premier enregistrement."
 }

@@ -57,7 +57,6 @@
             manufacturer: false,
             mailing: false,
             billing: false,
-         //   importer: false,
             repPrimary: false,
             repSecondary: false
         };
@@ -120,9 +119,9 @@
         vm.oneSelected = function (ctrl, toCheck) {
             var obj = vm.roleModel;
 
-                // if(toCheck !== 'importer') {
-                //     vm.checkForDuplicates(ctrl, toCheck);
-                // }
+                if(toCheck !== 'importer') {
+                    vm.checkForDuplicates(ctrl, toCheck);
+                }
 
             for (var key in obj) {
                 var attrName = key;

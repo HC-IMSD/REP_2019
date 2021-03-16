@@ -22,7 +22,7 @@
   "MSG_LENGTH_6": "Veuillez fournir au moins 6 caractères.",
   "MSG_LENGTH_6NUM": "Veuillez fournir 6 chiffres.",
   "MSG_LENGTH_8NUM": "Veuillez fournir 8 chiffres.",
-  "MSG_LENGTH_7": "Format incorrecte - Veuillez fournir 7 caractères.",
+  "MSG_LENGTH_7": "Format incorrect - Veuillez fournir 7 caractères.",
   "MSG_LENGTH_7NUM": "Veuillez fournir  7 chiffres.",
   "ONE_REP": "Au moins un contact est requis",
   "MSG_ERR_NOTIF_SEL": "Sélectionnez au moins un changement de déclaration",
@@ -30,6 +30,6 @@
   "MSG_ERR_MAX": "Dépasse le maximum.",
   "MSG_FORMAT_CHAR_6DIGITS": "fr_ID should be a letter plus 6 digits.",
   "MSG_ERR_DUPLICATED_SYSTEM": "fr_Duplicated System.",
-  "MSG_FORMAT_ALPHA_NUMBERIC": "Format incorrecte - composé d’une lettre suivie de six chiffres",
+  "MSG_FORMAT_ALPHA_NUMBERIC": "Format incorrect - composé d’une lettre suivie de six chiffres",
   "MSG_ERR_INVALID_END_DATE": "La date de fin ne doit pas être antérieure à la date de début"
 }

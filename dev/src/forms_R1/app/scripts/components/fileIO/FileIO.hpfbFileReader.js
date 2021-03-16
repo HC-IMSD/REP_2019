@@ -39,7 +39,7 @@
 
                     hpfbFileReader.readAsDataText(scope.file, scope)
                         .then(function (result) {
-                            scope.hpfbFileSelect({fileContent: result});
+                            scope.hpfbFileSelect({fileContent: result, filename: scope.file.name});
                         })
 
             })
@@ -70,8 +70,9 @@
     function FileSelectController(hpfbFileProcessing) {
         var vm = this;
         vm.fileTypes = ".xml, .hcsc";
-        vm.modelCallback = function (fileContent) {
+        vm.modelCallback = function (fileContent, filename) {
             vm.status = "";
+            vm.uploadedFileName = filename;
             if (fileContent && fileContent.jsonResult) {
                 var versionArray = fileContent.jsonResult[vm.rootElem]['software_version'].split('.');
                 if (vm.versionExpected && vm.versionExpected !== versionArray[0]) {
@@ -87,6 +88,25 @@
             }
             angular.element(fileLoad).trigger('focus');
         };
+        angular.element(hpfbFileProcessingZone).on('dragover', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+        });
+
+        angular.element(hpfbFileProcessingZone).on('dragenter', function(e) {
+            e.stopPropagation();
+        	e.preventDefault();
+        	e.originalEvent.dataTransfer.dropEffect = "link";
+        });
+        
+        angular.element(hpfbFileProcessingZone).on('drop', function(e) {
+        	e.stopPropagation()
+        	e.preventDefault();
+        	$('document').ready(function () {
+	        	($("#fileLoad"))[0].files = e.originalEvent.dataTransfer.files;
+	        	$("#fileLoad").trigger('change');
+        	});
+        });
     }
 })();
 

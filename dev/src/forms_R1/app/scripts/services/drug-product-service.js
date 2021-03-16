@@ -49,11 +49,11 @@
                     formuIndx: 0,
                     formuDetailIndx: 0,
                     ingredIndx: 0,
+                    nmiProprietaryInfoIndx: 0,
+                    nmiProprietaryInfoFieldIndx: 0,
                     ingNameIndx: 0,
                     variaNameIndx: 0,
                     purposeIndx: 0,
-                    nmiProprietaryInfoIndx: 0,
-                    nmiProprietaryInfoFieldIndx: 0,
                     standardIndx: 0,
                     isNanoIndx: 0,
                     ahSourcedIndx: 0,
@@ -83,6 +83,8 @@
                 formuIndx: 0,
                 formuDetailIndx: 0,
                 ingredIndx: 0,
+                nmiProprietaryInfoIndx: 0,
+                nmiProprietaryInfoFieldIndx: 0,
                 ingNameIndx: 0,
                 variaNameIndx: 0,
                 purposeIndx: 0,
@@ -794,7 +796,7 @@
 
                 if (item.ingredient_role) {
                     obj.ingRole = item.ingredient_role._id;
-                    if(obj.ingRole === "NONMED") {
+                    if(obj.ingRole === "NONMED" && "proprietary_attestation" in item) {
                       obj.proprietaryAttestation.attested = item.proprietary_attestation._attested;
                       obj.proprietaryAttestation.info = item.proprietary_attestation.__text;
                     }
@@ -1407,7 +1409,7 @@
                             _id: ingr.id,
                             __text: ingr[currentLang]
                         };
-                        if(ingr.id === "NONMED") {
+                        if(ingr.id === "NONMED" && "proprietary_attestation" in item) {
                         	obj.proprietary_attestation = {
                             	_attested: item.proprietaryAttestation.attested,
                             	__text: item.proprietaryAttestation.info

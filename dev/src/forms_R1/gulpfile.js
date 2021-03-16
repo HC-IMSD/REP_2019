@@ -20,10 +20,11 @@ var cleanCSS = require('gulp-clean-css');
 var protractor = require("gulp-protractor").protractor;
 
 var env = require('./app/data/versions.json');
-
+var wbVersion = env.ver.WET.major+"."+env.ver.WET.minor+"."+env.ver.WET.patch;
+var fs = require('fs');
 // == PATH STRINGS ========
 var baseScript = './app/scripts';
-var wetBase = './wet_4_0_27';
+var wetBase = './imsd/hc-sc';
 var buildDev = './build/dev';
 var buildDevPilot = './build/dev-pilot';
 var buildProd = './build/prod/';
@@ -1006,6 +1007,7 @@ pipes.insertDateStamp = function (template, valsObj, lang, type, langHtmlName) {
                 mainHeading: valsObj.mainHeading,
                 formTitle: valsObj.title,
                 homeAnchor: anchor,
+                wetVersion: wbVersion,
                 langHtml: langSwitch
             }))
     );
@@ -3568,3 +3570,63 @@ gulp.task('prod-build-allForms', gulp.series(
     'prod-piConverter-allFormsCreate', function (done) {
         done();
     }));
+    
+
+gulp.task('apply-gcweb-theme', done => {
+	fs.readdirSync('./build/').forEach(app => {
+	  if(!fs.existsSync("./build/"+app+"/GCWeb"))
+	    fs.mkdirSync("./build/"+app+"/GCWeb");
+	  
+	  if(!fs.existsSync("./build/"+app+"/GCWeb/wet-boew"))
+		fs.mkdirSync("./build/"+app+"/GCWeb/wet-boew");
+	  else
+		del(['./build/"+app+"/GCWeb/wet-boew/**', '!wet-boew'], {force:true});
+	  
+	  if(!fs.existsSync("./build/"+app+"/GCWeb/"+wbVersion))
+		fs.mkdirSync("./build/"+app+"/GCWeb/"+wbVersion);
+	  else
+		del(['./build/"+app+"/GCWeb/"+wbVersion+"/**', '!'+wbVersion]);
+	  
+	  if(!fs.existsSync("./build/"+app+"/GCWeb/ajax"))
+		  fs.mkdirSync("./build/"+app+"/GCWeb/ajax");
+	  else
+		  del(['./build/"+app+"/GCWeb/ajax/**', '!ajax']);
+
+	  if(!fs.existsSync("./build/"+app+"/GCWeb/fontawesome"))
+		  fs.mkdirSync("./build/"+app+"/GCWeb/fontawesome");
+	  else
+		  del(['./build/"+app+"/GCWeb/fontawesome/**', '!fontawesome']);		  
+	  
+	  gulp.src(wetBase + '/v9.1.0/GCWeb/**/*', {
+	        base: wetBase + '/v9.1.0/GCWeb/'
+	    }).pipe(gulp.dest('./build/' + app + '/GCWeb/' + wbVersion + '/'));
+	  
+	  gulp.src([wetBase + '/v9.1.0/ajax/**/*', '!'+ wetBase + '/v9.1.0/ajax/prefooter-v2-*.html'], {
+	        base: wetBase + '/v9.1.0/ajax/'
+	    }).pipe(gulp.dest('./build/'+app+'/GCWeb/ajax/'));
+	    
+	  gulp.src(wetBase + '/v9.1.0/fontawesome/**/*', {
+	        base: wetBase + '/v9.1.0/fontawesome/'
+	    }).pipe(gulp.dest('./build/'+app+'/GCWeb/fontawesome/'));	    
+	  
+	  gulp.src(wetBase + '/v9.1.0/wet-boew/'+wbVersion+'/**/*', {
+	        base: wetBase + '/v9.1.0/wet-boew/'+wbVersion+'/'
+	    }).pipe(gulp.dest('./build/' + app + '/GCWeb/wet-boew/'));
+	    
+	  pipes.processPages(app, 'en', 'fr');
+	});
+	
+	done();
+});
+
+pipes.processPages = function(app, ...args) {
+	var now = new Date();
+    var utc = dateFormat(now, "isoDate");
+	args.forEach(lang => {
+	  gulp.src(wetBase + '/v9.1.0/ajax/prefooter-v2-'+lang+'.html')
+		    .pipe(htmlreplace({
+		        builtDate: utc
+		      	})).pipe(gulp.dest('./build/' + app + '/GCWeb/ajax/'));	  
+	});
+	return;
+};    
