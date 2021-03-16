@@ -90,7 +90,8 @@
                                            error-types="nIngRecCtrl.numberMinLowerError"></cmp-error-message>
                         <input type="number" id="{{::nIngRecCtrl.strengthData2Id}}" data-ng-model="nIngRecCtrl.ingModel.strength.data2"
                                data-ng-model-options="{ debounce: '$inherit'}"
-                               class="form-control" name="{{::nIngRecCtrl.strengthData2Id}}" ng-min="nIngRecCtrl.ingModel.strength.data1 + 1" ng-required="true"/>
+                               class="form-control" name="{{::nIngRecCtrl.strengthData2Id}}"
+                               ng-min="nIngRecCtrl.ingModel.strength.data1 + 0.00000001" ng-required="true"/>
 
                     </label>
                 </div>
