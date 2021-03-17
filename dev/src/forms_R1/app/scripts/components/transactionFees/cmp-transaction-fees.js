@@ -352,7 +352,6 @@
             vm.certifyFundedHealthInstitutionId = "certify_funded_health_institution" + scopeId;
             vm.certifyUrgentHealthNeedId = "certify_urgent_health_need" + scopeId;
             vm.certifyGovermentOrganizationId = "certify_goverment_organization" + scopeId;
-            vm.certifyIsadId = "certify_isad" + scopeId;
 
         }
         /**
@@ -422,19 +421,6 @@
                     return true;
                 } else {
                     vm.model.mitigation.certifyGovermentOrganization = false;
-                    return false;
-                }
-            } else {
-                return false;
-            }
-        };
-
-        vm.isISAD = function () {
-            if (vm.model) {
-                if (vm.model.mitigation.mitigationType && vm.model.mitigation.mitigationType.id === 'ISAD') {
-                    return true;
-                } else {
-                    vm.model.mitigation.certifyIsad = false;
                     return false;
                 }
             } else {

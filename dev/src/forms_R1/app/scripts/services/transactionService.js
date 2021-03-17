@@ -61,7 +61,7 @@
                     areFeesInx: 0,
                     feesInx: 0,
                     contactInx: 0,
-                    // thirdPtyNoteInx: 0,
+                    thirdPtyNoteInx: 0,
                     // compNameInx: 0,
                     routingIdInx: 0,
                     genXmlInx: 0
@@ -79,10 +79,9 @@
                 descChgInx: 0,
                 reqSoliInx: 0,
                 fromInx: 0,
-                areFeesInx: 0,
                 feesInx: 0,
                 contactInx: 0,
-                // thirdPtyNoteInx: 0,
+                thirdPtyNoteInx: 0,
                 routingIdInx: 0,
                 genXmlInx: 0
             };
@@ -168,7 +167,7 @@
                //  resultJson.TRANSACTION_ENROL.regulatory_project_manager1 = jsonObj.projectManager1;
                //  resultJson.TRANSACTION_ENROL.regulatory_project_manager2 = jsonObj.projectManager2;
                 resultJson.TRANSACTION_ENROL.is_fees = jsonObj.isFees;
-                if (jsonObj.isFees !== NO) {
+                if (jsonObj.isFees===YES) {
                     resultJson.TRANSACTION_ENROL.fee_details = this._mapFeeDetailsToOutput(jsonObj.feeDetails, YES, NO, $filter);
                 }
                 resultJson.TRANSACTION_ENROL.is_activity_changes = jsonObj.isActivityChanges;
@@ -287,7 +286,7 @@
                //  model.projectManager2 = jsonObj.regulatory_project_manager2;
                 model.isFees = jsonObj.is_fees;
                 model.feeDetails = null;
-                if (model.isFees !== NO) {
+                if (model.isFees) {
                     model.feeDetails = this._mapFeeDetailsFromOutput(jsonObj.fee_details);
                 }
 
@@ -493,7 +492,6 @@
             result.mitigation.certify_goverment_organization = feeObj.mitigation.certifyGovermentOrganization  === true ? 'Y' : 'N';
             result.mitigation.certify_urgent_health_need = feeObj.mitigation.certifyUrgentHealthNeed   === true ? 'Y' : 'N';
             result.mitigation.certify_funded_health_institution = feeObj.mitigation.certifyFundedHealthInstitution   === true ? 'Y' : 'N';
-            result.mitigation.certify_isad = feeObj.mitigation.certifyIsad   === true ? 'Y' : 'N';
 
             return result;
         };
@@ -553,7 +551,6 @@
                 result.mitigation.certifyGovermentOrganization = feeObj.mitigation.certify_goverment_organization === YES;
                 result.mitigation.certifyUrgentHealthNeed = feeObj.mitigation.certify_urgent_health_need === YES;
                 result.mitigation.certifyFundedHealthInstitution  = feeObj.mitigation.certify_funded_health_institution ===  YES;
-                result.mitigation.certifyIsad  = feeObj.mitigation.certify_isad ===  YES;
             }
             return result;
             //}
@@ -683,7 +680,7 @@
         }
         lifecycleRec.sequence_description_value = '';
         if (lifecycleObj.descriptionValue) {
-            var sdv_text = $translate.instant(lifecycleObj.descriptionValue, "", '', ENGLISH);
+            var sdv_text = $translate.instant(lifecycleObj.descriptionValue, "", '', currentLang);
             lifecycleRec.sequence_description_value = {
                 _id: lifecycleObj.descriptionValue,
                 __text: sdv_text
@@ -1057,7 +1054,7 @@
           //  solicitedRequesterReord: [],
           //   projectManager1: "",
           //   projectManager2: "",
-            isFees: "",
+            isFees: "Y",
             resetBtnClicked : false,
             feeDetails: _createFeeDetails(),
             isActivityChanges: "Y", //deprecated
@@ -1111,8 +1108,7 @@
                 firstSubmission: null,
                 certifyGovermentOrganization:false,
                 certifyUrgentHealthNeed: false,
-                certifyFundedHealthInstitution: false,
-                certifyIsad: false
+                certifyFundedHealthInstitution: false
             }
         };
         return feeObj;
@@ -1154,8 +1150,7 @@
                 // first_submission : NO, //This is my first submission/application
                 certify_goverment_organization : NO, // certify that our organization is a branch or agency of the Government of Canada or of a province or territory.
                 certify_urgent_health_need: NO,
-                certify_funded_health_institution: NO,
-                certify_isad: NO
+                certify_funded_health_institution: NO
             }
         };
         return feeObj;

@@ -3612,7 +3612,7 @@ gulp.task('apply-gcweb-theme', done => {
 	  gulp.src(wetBase + '/v9.1.0/wet-boew/'+wbVersion+'/**/*', {
 	        base: wetBase + '/v9.1.0/wet-boew/'+wbVersion+'/'
 	    }).pipe(gulp.dest('./build/' + app + '/GCWeb/wet-boew/'));
-
+	    
 	  pipes.processPages(app, 'en', 'fr');
 	});
 	
@@ -3626,7 +3626,7 @@ pipes.processPages = function(app, ...args) {
 	  gulp.src(wetBase + '/v9.1.0/ajax/prefooter-v2-'+lang+'.html')
 		    .pipe(htmlreplace({
 		        builtDate: utc
-		      	})).pipe(gulp.dest('./build/' + app + '/GCWeb/ajax/'));
+		      	})).pipe(gulp.dest('./build/' + app + '/GCWeb/ajax/'));	  
 	});
 	return;
-};
+};    
