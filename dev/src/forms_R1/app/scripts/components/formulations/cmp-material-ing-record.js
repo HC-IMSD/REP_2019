@@ -50,8 +50,8 @@
         vm.updateSummary=0; //message to update the summary component
         vm.showSummary=false; //show the errror summary object
         vm.focusSummary=0;
-
         vm.$onInit = function () {
+        	
             vm.mirModel = {};
             vm.showSummary=false;
             vm.summaryName="cmp-material-ing-record_"+(vm.recordIndex);
@@ -141,6 +141,6 @@
             vm.updateSummary = vm.updateSummary + 1;
 
         };
-
+        vm.isFocus = false;
     }
 })();

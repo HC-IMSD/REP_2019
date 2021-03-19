@@ -28,7 +28,7 @@
             </div>
             <div data-ng-if="ingRecCtrl.isRoleChosen()">
                 <div class="row" data-ng-if="ingRecCtrl.isMedIng()">
-                    <div class="form-group col-md-12 typeahead-demo"
+                    <div class="form-group col-md-12"
                          data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.ingredName].$invalid}">
                         <label for="{{::ingRecCtrl.ingredName}}" class="required full-width"><span
                                 class="field-name">{{'ING_NAME'|translate}}</span>
@@ -78,7 +78,7 @@
                             <input type="text" id="{{::ingRecCtrl.nIngredName}}" data-ng-model="ingRecCtrl.ingModel.ingLabel"
                                    data-ng-model-options="{ debounce: $inherit}"  name="{{::ingRecCtrl.nIngredName}}"
                                    class="form-control full-width" name="nonmedName" data-ng-required="true" maxlength="100"
-                                   size="100"/>
+                                   />
                         </label>
                     </div>
                     <div class="form-group col-md-12" 
@@ -117,7 +117,7 @@
 		                                   data-ng-model-options="{ debounce: $inherit}"  
 		                                   name="{{::ingRecCtrl.proprietaryAttestationInfo}}"
 		                                   class="form-control full-width" name="proprietaryAttestationInfo" data-ng-required="true" maxlength="100"
-		                                   size="100"/>
+		                                   />
 		                        </label>
 		                        <div class="alert alert-info"><span>{{'NMI_PROPRIETARY_INFO_FLD_NOTE'|translate}}</span></div>
 	                        </article>
@@ -132,7 +132,7 @@
                                 <a class="fn-lnk" href="#dr9c2"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::ingRecCtrl.htIndxList.variaNameIndx}}</a>
                             </sup>
                             <input type="text" id="variant_{{::$id}}" data-ng-model="ingRecCtrl.ingModel.variant" maxlength="60"
-                                   data-ng-model-options="{ debounce: '$inherit'}" size="60"
+                                   data-ng-model-options="{ debounce: '$inherit'}"
                                    class="form-control full-width" name="variant"/>
                         </label>
                   </div>
@@ -151,7 +151,7 @@
                                                error-types="ingRecCtrl.requiredOnly"></cmp-error-message>
                             <input type="text" id="{{::ingRecCtrl.purposeId}}" 
                             	   data-ng-model="ingRecCtrl.ingModel.purpose" maxlength="60"
-                                   data-ng-model-options="{ debounce: '$inherit'}" size="60" name="{{::ingRecCtrl.purposeId}}"
+                                   data-ng-model-options="{ debounce: '$inherit'}" name="{{::ingRecCtrl.purposeId}}"
                                    class="form-control full-width" 
                                    data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked()"/>
 
@@ -176,7 +176,7 @@
                             </sup>
                             <input type="text" id="{{::ingRecCtrl.standardId}}" data-ng-model="ingRecCtrl.ingModel.standard"
                                    data-ng-model-options="{ debounce: '$inherit'}"
-                                   class="form-control full-width" name="standardVal" size="40" maxlength="40"/>
+                                   class="form-control full-width" name="standardVal" maxlength="40"/>
                         </label>
                     </div>
                 </div>
@@ -202,7 +202,7 @@
                                 		data-ng-model="ingRecCtrl.ingModel.strength.operator" 
                                 		data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"
                                         data-ng-model-options="{ debounce: '$inherit'}"
-                                        class="form-control" name="{{::ingRecCtrl.strengthId}}" 
+                                        class="form-control full-width" name="{{::ingRecCtrl.strengthId}}" 
                                         data-ng-options="op[ingRecCtrl.lang] for op in  ingRecCtrl.strengthList track by op.id">
                                 </select>
 
@@ -265,7 +265,7 @@
                                            oninput="angular.element($(this)).scope().ingRecCtrl.unitsChange(this.value)" autocomplete="off"
                                            data-ng-blur="ingRecCtrl.unitsBlur()" list="unitsList" 
                                            data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()" 
-                                           class="form-control"/>
+                                           class="form-control full-width"/>
                                     <datalist id="unitsList" class="rep-selectize-dropdown rep-selectize-font">
                                         <option data-ng-repeat="unit in ingRecCtrl.unitsList" value="{{unit[ingRecCtrl.lang]}}" >
                                     </datalist>
@@ -285,7 +285,7 @@
                                                        error-types="ingRecCtrl.requiredOnly"></cmp-error-message>
                                     <input type="text" id="{{::ingRecCtrl.otherUnitsId}}" data-ng-model="ingRecCtrl.ingModel.otherUnits"
                                            data-ng-model-options="{ updateOn: 'blur'}"
-                                           size="55" class="form-control" name="{{::ingRecCtrl.otherUnitsId}}"
+                                           class="form-control" name="{{::ingRecCtrl.otherUnitsId}}"
                                            maxlength="55" 
                                            data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"/>
 
@@ -361,7 +361,7 @@
                                                            error-types="ingRecCtrl.requiredOnly"></cmp-error-message>
                                         <input type="text" id="{{::ingRecCtrl.perPresOtherUnitId}}" data-ng-model="ingRecCtrl.ingModel.perPresOtherUnits"
                                                data-ng-model-options="{ updateOn: 'blur'}"
-                                               size="40" class="form-control" name="{{::ingRecCtrl.perPresOtherUnitId}}"
+                                               class="form-control full-width" name="{{::ingRecCtrl.perPresOtherUnitId}}"
                                                maxlength="40" 
                                                data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"/>
 
@@ -422,7 +422,7 @@
                                                            error-types="ingRecCtrl.requiredOnly"></cmp-error-message>
                                         <input type="text" id="{{::ingRecCtrl.perMeasureOtherUnitId}}" data-ng-model="ingRecCtrl.ingModel.perMeasOtherUnits"
                                                data-ng-model-options="{updateOn: 'blur'}"
-                                               size="40" class="form-control" name="{{::ingRecCtrl.perMeasureOtherUnitId}}"
+                                               class="form-control" name="{{::ingRecCtrl.perMeasureOtherUnitId}}"
                                                maxlength="40" 
                                                data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"/>
 
@@ -431,7 +431,7 @@
                             </div>
                         </div>
                         <div class="row col-md-12" data-ng-if="ingRecCtrl.isMedIng()">
-                            <div class="form-group  col-sm-8"
+                            <div class="form-group col-md-4"
                                  data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.asBaseId].$invalid}">
                                 <label for="{{::ingRecCtrl.asBaseId}}" class="required">
                                     <span class="field-name">{{'CALCULATED_AS_BASE'|translate}}</span>
@@ -441,7 +441,7 @@
                                                        show-error="ingRecCtrl.showError(ingRecCtrl.activeIngForm[ingRecCtrl.asBaseId])"
                                                        error-types="ingRecCtrl.requiredOnly"></cmp-error-message>
                                     <select id="{{::ingRecCtrl.asBaseId}}" data-ng-model="ingRecCtrl.ingModel.calcAsBase" data-ng-required="true"
-                                            class="form-control" name="{{::ingRecCtrl.asBaseId}}"
+                                            class="form-control full-width" name="{{::ingRecCtrl.asBaseId}}"
                                             data-ng-options="val |translate for val in  ingRecCtrl.calAsBaseYesNoList">
                                     </select>
 
