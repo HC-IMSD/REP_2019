@@ -1,5 +1,8 @@
 <ng-form name="mirCtrl.materialIngRecordForm" id="{{::mirCtrl.materialFormId}}">
-    <div class="container-fluid" style="border-style: solid; border-width: thin; padding-bottom: 8px;">
+    <div class="container-fluid" style="border-style: solid; 
+    	border-width: thin; 
+    	padding-bottom: 8px;
+		">
         <cmp-error-summary form-ref="mirCtrl.materialIngRecordForm"
                            form-preamble="{{'MATERIAL_DETAILS'|translate}}&nbsp;{{mirCtrl.recordIndex+1}}" exclusion-list=mirCtrl.exclusions
                            name-suffix="mirCtrl.materialIngRecordForm" set-heading-level="h3" form-id="mirCtrl.materialFormId"
@@ -18,8 +21,8 @@
                                            show-error="mirCtrl.showError(mirCtrl.materialIngRecordForm[mirCtrl.nameId])"
                                            error-types="mirCtrl.requiredOnly"></cmp-error-message>
                         <input type="text" id="{{::mirCtrl.nameId}}" data-ng-model="mirCtrl.mirModel.ingredientName"
-                               data-ng-model-options="{ debounce: $inherit}" maxlength="100" size="50" required data-focus-if="mirCtrl.isFocus" data-ng-blur="mirCtrl.cancelFocus()"
-                               class="form-control" name="{{::mirCtrl.nameId}}"/>
+                               data-ng-model-options="{ debounce: $inherit}" maxlength="100" required data-focus-if="mirCtrl.isFocus" data-ng-blur="mirCtrl.cancelFocus()"
+                               class="form-control full-width" name="{{::mirCtrl.nameId}}"/>
 
                     </label>
                 </div>
@@ -29,13 +32,13 @@
                     <label lang="fr" for="{{::mirCtrl.casId}}"><span class="field-name">{{'CAS_NUM'|translate}}</span></label>
                     <input type="text" id="{{::mirCtrl.casId}}" data-ng-model="mirCtrl.mirModel.cas"
                            data-ng-model-options="{ debounce: $inherit}"
-                           class="form-control" name="{{::mirCtrl.casId}}" maxlength="12" size="12"/>
+                           class="form-control" name="{{::mirCtrl.casId}}" maxlength="12"/>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="{{::mirCtrl.standardId}}"><span class="field-name">{{'STANDARD'|translate}}</span></label>
                     <input type="text" id="{{::mirCtrl.standardId}}" data-ng-model="mirCtrl.mirModel.ingredientStandard"
                            data-ng-model-options="{ debounce: $inherit}"
-                           class="form-control" name="{{::mirCtrl.standardId}}" maxlength="40" size="40"/>
+                           class="form-control" name="{{::mirCtrl.standardId}}" maxlength="40"/>
                 </div>
                 <div class="form-group col-md-6"
                      data-ng-class="{'has-error':mirCtrl.materialIngRecordForm[mirCtrl.inFinalId].$invalid}">
