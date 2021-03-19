@@ -269,6 +269,9 @@
                        vm.transactionModel.isPriority = '';
                        vm.transactionModel.isNoc = '';
                        // vm.transactionModel.isFees = YES;
+                   } else {
+                       vm.transactionModel.isFees = '';
+                       vm.transactionModel.feeDetails = null;
                    }
                }
         };
