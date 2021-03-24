@@ -60,9 +60,10 @@
             {type: "required", displayAlias: "MSG_ERR_MAND"},
             {type: "minlength", displayAlias: "MSG_LENGTH_MIN5"}
         ];
-        vm.maxError = [
+        vm.numberError = [
             {type: "required", displayAlias: "MSG_ERR_MAND"},
-            {type: "max", displayAlias: "MSG_VALUE_MAX"}
+            {type: "max", displayAlias: "MSG_VALUE_MAX"},
+            {type: "number", displayAlias: "TYPE_NUMBER"}
         ];
 
         vm.$onInit = function(){
