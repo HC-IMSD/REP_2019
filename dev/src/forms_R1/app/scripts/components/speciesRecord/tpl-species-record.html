@@ -73,7 +73,7 @@
                         <cmp-error-message field-name="speciesRecCtrl.daysId"
                                            form-ref="speciesRecCtrl.speciesForm"
                                            show-error="speciesRecCtrl.showError(speciesRecCtrl.speciesForm[speciesRecCtrl.daysId])"
-                                           error-types="speciesRecCtrl.maxError"></cmp-error-message>
+                                           error-types="speciesRecCtrl.numberError"></cmp-error-message>
 
                     </label>
                         <div class="rep-margin-top">
@@ -92,7 +92,7 @@
                         <strong class="required"> {{::"REQUIRED" |translate}}</strong>
                         <cmp-error-message field-name="speciesRecCtrl.hoursId" form-ref="speciesRecCtrl.speciesForm"
                                            show-error="speciesRecCtrl.showError(speciesRecCtrl.speciesForm[speciesRecCtrl.hoursId])"
-                                           error-types="speciesRecCtrl.maxError">
+                                           error-types="speciesRecCtrl.numberError">
                         </cmp-error-message>
                         <input type="number" class="form-control full-width" min="0" max="99" id="{{::speciesRecCtrl.hoursId}}"
                                name="{{::speciesRecCtrl.hoursId}}" data-only-digits
