@@ -29,7 +29,7 @@
             bindings: {
                 record: '<',
                 onDelete: '&',
-                showErrors: '&',
+                showErrors: '<',
                 countryList:'<',
                 updateCountryList:'<',
                 updateRecord:'&',
@@ -91,13 +91,18 @@
             if (changes.record && changes.record.currentValue) {
                 vm.model = changes.record.currentValue;
             }
-            // if(changes.showErrors){
-            //     vm.showDetailErrors=changes.showErrors.currentValue;
-            // }
+            if(changes.showErrors){
+                 vm.showDetailErrors=changes.showErrors.currentValue;
+            }
 
         };
 
         vm.saveRecord = function () {
+			if(vm.model.country.length === 0 
+			        || vm.model.unknownCountryDetails.lengh === 0
+			        ) {
+			  vm.showDetailErrors = true;
+			}
             if(vm.countryChanged()){
                 vm.countryList = vm.updateCountryList();
                 vm.updateRecord();
@@ -116,7 +121,7 @@
             if(vm.model.country == "" && vm.model.display != ""){
                 return true;
             }
-            return ((ctrl.$invalid && ctrl.$touched) || (ctrl.$invalid && vm.showErrors()) )
+            return ((ctrl.$invalid && ctrl.$touched) || (ctrl.$invalid && vm.showDetailErrors) )
         };
 
         vm.isUnknown=function(){

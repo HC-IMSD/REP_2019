@@ -22,7 +22,7 @@
                 record: '<',
                 onUpdate: '&',
                 onDelete: '&',
-                showErrors: '&',
+                showErrors: '<',
                 isFocus: '<',
                 cancelFocus: '&'
             }
@@ -32,6 +32,7 @@
 
     function animalSourcedController(DossierLists,$scope){
         var vm = this;
+        vm.showDetailErrors=false;
         vm.updateRecord = 0; //triggers and error update
         vm.animalsList = DossierLists.getAnimalSources();
         vm.yesNoUnknownList = DossierLists.getYesNoUnknownList();
@@ -39,6 +40,7 @@
         vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
         vm.$onInit = function(){
             _setIdNames();
+            vm.showDetailErrors=false;
         };
 
         vm.$onChanges = function (changes) {
@@ -46,26 +48,34 @@
             if (changes.record) {
                 vm.model=changes.record.currentValue;
             }
-
-
+            if(changes.showErrors){
+                vm.showDetailErrors=changes.showErrors.currentValue;
+            }
         };
 
         vm.saveRecord = function () {
+        	if(vm.model.animalType.length === 0 
+                    || !vm.model.animalType.trim()
+                    || vm.model.animalDetail.length === 0 
+                    || !vm.model.animalDetail.trim()
+                    ) {
+        	  vm.showDetailErrors = true;
+        	}
             vm.updateRecord = vm.updateRecord + 1;
             vm.onUpdate({rec: vm.model});
+            
         };
 
         vm.deleteRecord = function()  {
             vm.onDelete({id: vm.model.id})
         };
 
-        /*vm.showError = function (ctrl) {
+        vm.showError = function (ctrl) {
             if(!ctrl){
-                console.warn("No control found in animalSourced-record");
                 return false;
             }
-            return ((ctrl.$invalid && ctrl.$touched) || (ctrl.$invalid && vm.showErrors()) )
-        }*/
+            return ((ctrl.$invalid && ctrl.$touched) || (ctrl.$invalid && vm.showDetailErrors) )
+        }
 
         function _setIdNames() {
             var scopeId = "_" + $scope.$id;

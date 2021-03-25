@@ -11,7 +11,7 @@
                         <strong class="required">{{::"REQUIRED" |translate}}</strong>
                         <cmp-error-message field-name="animalSrcCtrl.animalTypeId"
                                            form-ref="animalSrcCtrl.animalRecForm"
-                                           show-error="animalSrcCtrl.showErrors()"
+                                           show-error="animalSrcCtrl.showError(animalSrcCtrl.animalRecForm[animalSrcCtrl.animalTypeId])"
                                            error-types="animalSrcCtrl.requiredOnly"></cmp-error-message>
                         <select data-ng-model="animalSrcCtrl.model.animalType" class="form-control full-width" id="{{::animalSrcCtrl.animalTypeId}}" name="{{::animalSrcCtrl.animalTypeId}}"
                                 data-ng-required="true" data-focus-if="animalSrcCtrl.isFocus" data-ng-blur="animalSrcCtrl.cancelFocus()"
@@ -28,7 +28,7 @@
                         <strong class="required">{{::"REQUIRED" |translate}}</strong>
                         <cmp-error-message field-name="animalSrcCtrl.animalTypeDetailId"
                                            form-ref="animalSrcCtrl.animalRecForm"
-                                           show-error="animalSrcCtrl.showErrors()"
+                                           show-error="animalSrcCtrl.showError(animalSrcCtrl.animalRecForm[animalSrcCtrl.animalTypeDetailId])"
                                            error-types="animalSrcCtrl.requiredOnly">
                         </cmp-error-message>
                     </label>
