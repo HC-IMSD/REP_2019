@@ -71,6 +71,7 @@
             if( ! found) {
                     vm.model.display = "";
                     vm.model.country = {};
+                    vm.showDetailErrors = true;
             }
             return found;
             // if(vm.countryChanged()){
