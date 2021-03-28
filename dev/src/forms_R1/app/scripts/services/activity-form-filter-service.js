@@ -82,9 +82,9 @@
                     case 'B02-20160301-077': //PRSNDS
                         newList.push(raList[i]);
                         break;
-                    case 'B02-20160301-078': //PSUR-C
-                        newList.push(raList[i]);
-                        break;
+                    // case 'B02-20160301-078': //PSUR-C
+                    //     newList.push(raList[i]);
+                    //     break;
                     case 'B02-20160301-082': //SANDS
                         newList.push(raList[i]);
                         break;
@@ -199,9 +199,9 @@
                     case 'B02-20160301-077': //PRSNDS
                         newList.push(raList[i]);
                         break;
-                    case 'B02-20160301-078': //PSUR-C
-                        newList.push(raList[i]);
-                        break;
+                    // case 'B02-20160301-078': //PSUR-C
+                    //     newList.push(raList[i]);
+                    //     break;
                     case 'B02-20160301-082': //SANDS
                         newList.push(raList[i]);
                         break;
@@ -271,6 +271,9 @@
                 switch(raList[i].id) {
 
                     case 'B02-20160301-069': //PBRER-PV
+                        newList.push(raList[i]);
+                        break;
+                    case 'B02-20160301-078': //PSUR-C
                         newList.push(raList[i]);
                         break;
                     case 'B02-20160301-079': //PSUR-PV
@@ -353,9 +356,9 @@
                     case 'B02-20160301-077': //PRSNDS
                         newList.push(raList[i]);
                         break;
-                    case 'B02-20160301-078': //PSUR-C
-                        newList.push(raList[i]);
-                        break;
+                    // case 'B02-20160301-078': //PSUR-C
+                    //     newList.push(raList[i]);
+                    //     break;
                     case 'B02-20160301-082': //SANDS
                         newList.push(raList[i]);
                         break;

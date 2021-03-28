@@ -299,7 +299,7 @@
   "HT_PROTOCOL_NUM_SUB_URL":"https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/applications-submissions/forms/guidance-completing-drug-submission-application-form.html",
   "HT_REFER_TO": "Refer to the",
   "HT_ARE_FEES": "The fee section is required to be completed in order to properly apply for fee mitigation measures.",
-  "HT_ADMIN_SUB": "Guidance Administrative Processing of Submissions and Applications: Human or Disinfectant Drugs",
+  "HT_ADMIN_SUB": "Guidance Administrative Processing of Submissions and Applications Involving Human or Disinfectant Drugs",
   "HT_ADMIN_SUB_URL": "https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/applications-submissions/guidance-documents/administrative-processing-human-disinfectant-drugs-2019/document.html",
   "HT_ADMIN_SUB_1": "For instructions regarding administrative submission for veterinary drugs, please contact hc.vdd.skmd.so-dgps.dmv.cp.sc@canada.ca.",
   "HT_CTRL_NUM_1": "Enter the 6 digit control number associated with this regulatory activity (if known).",
@@ -380,6 +380,6 @@
   "CANCEL_LETTER_DESCR": "Transaction to officially withdraw the regulatory activity.",
   "ADMIN_DESCR": "First transaction of a new regulatory activity for a administrative change according to the Guidance Document: ",
   "ADMIN_DESCR_LINK_LABEL": "Administrative Processing of Submissions and Applications Involving Human or Disinfectant Drugs",
-  "ADMIN_DESCR_URL": "https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/applications-submissions/guidance-documents/administrative-processing-human-disinfectant-drugs-2019/document.html",
+  "ADMIN_DESCR_URL": "https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/applications-submissions/guidance-documents/administrative-processing-human-disinfectant-drugs-2019/document.html"
 
 }
