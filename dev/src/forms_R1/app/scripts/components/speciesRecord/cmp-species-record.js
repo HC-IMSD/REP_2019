@@ -46,6 +46,7 @@
             subtypes: "",
             specSubt: "",
             isTreatFPA: "",
+            isTreatFPACasted: "",
             withdrawalDays: "",
             withdrawalHours: "",
             timeCombined: ""
@@ -90,6 +91,21 @@
         vm.saveRecord = function()  {
             if (vm.speciesForm.$valid) {
                 vm.model.specSubt = vm.model.species[vm.lang] + ', ' + vm.model.subtypes[vm.lang];
+                if (vm.model.isTreatFPA){
+                        if(vm.model.isTreatFPA==="Y"){
+                            if(vm.lang === "en"){
+                                vm.model.isTreatFPACasted = "Yes";
+                            }else if(vm.lang === "fr"){
+                                vm.model.isTreatFPACasted = "Oui";
+                            }
+                        }else if(vm.model.isTreatFPA==="N"){
+                            if(vm.lang === "en"){
+                                vm.model.isTreatFPACasted = "No";
+                            }else if(vm.lang === "fr"){
+                                vm.model.isTreatFPACasted = "Non";
+                            }
+                        }
+                }
                 if (vm.model.withdrawalDays) {
                     if(vm.lang === "en"){
                         vm.model.timeCombined = vm.model.withdrawalDays + ' days and ' + vm.model.withdrawalHours + ' hours';

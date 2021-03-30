@@ -44,7 +44,7 @@
             },
             {
                 label: "IS_TREAT_FP",
-                binding: "isTreatFPA",
+                binding: "isTreatFPACasted",
                 width: "10",
                 isHtml: "true"
             },

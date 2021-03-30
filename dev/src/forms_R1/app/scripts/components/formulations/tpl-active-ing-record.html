@@ -318,7 +318,7 @@
                                     <label for="{{ingRecCtrl.perPreValueId}}" 
                                     	   data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()}"
                                            data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.perPreValueId].$invalid}">
-                                        <span class="field-name">{{"VALUE"|translate}}</span>
+                                        <span class="field-name">{{"PER_VALUE"|translate}}</span>
                                         <strong data-ng-if="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()" class="required">{{"REQUIRED" |translate}}</strong>
                                         <input type="number" id="{{ingRecCtrl.perPreValueId}}" data-ng-model="ingRecCtrl.ingModel.perPresentationValue"
                                                data-ng-model-options="{ debounce: '$inherit'}" data-ng-readonly="true"
@@ -373,7 +373,7 @@
                                     <label for="{{ingRecCtrl.perMeaValueId}}" 
                                     	   data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()}"
                                            data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.perMeaValueId].$invalid}">
-                                        <span class="field-name">{{"VALUE"|translate}}</span>
+                                        <span class="field-name">{{"PER_VALUE"|translate}}</span>
                                         <strong data-ng-if="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()" class="required">{{"REQUIRED" |translate}}</strong>
                                         <cmp-error-message field-name="ingRecCtrl.perMeaValueId"
                                                            form-ref="ingRecCtrl.activeIngForm"
@@ -477,8 +477,8 @@
                         <div>
 	                        <label class="col-xs-2 rep-normal-font" for="{{::ingRecCtrl.isNanoMaterialId}}">
 	                          	<input type="radio" 
-	                          		 id="{{::ingRecCtrl.isNanoMaterialId}}" name="{{::ingRecCtrl.isNanoMaterialId}}" 
-	                        		 value="Y" 
+	                          		 id="{{::ingRecCtrl.isNanoMaterialId}}" name="{{::ingRecCtrl.isNanoMaterialId}}"
+	                        		 value="Y"
 	                        		 data-ng-model="ingRecCtrl.ingModel.isNano" 
 	                        		 data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"/>&nbsp;{{::'Y'|translate}}
 	                        </label>
@@ -486,7 +486,7 @@
 	                        	<input type="radio" 
 	                        		   id="{{::ingRecCtrl.isNanoMaterialId}}_1" 
 	                        		   name="{{::ingRecCtrl.isNanoMaterialId}}" 
-	                        		   value="N" 
+	                        		   value="N"
 	                        		   data-ng-model="ingRecCtrl.ingModel.isNano" 
 	                        		   data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"/>&nbsp;{{::'N'|translate}}
 	                        </label>
@@ -558,14 +558,14 @@
                         <!--</select>-->
                         <div>
                         <label class="col-xs-2 rep-normal-font" for="{{::ingRecCtrl.animalHumanSrcId}}">
-                        	<input type="radio" id="{{::ingRecCtrl.animalHumanSrcId}}" name="{{::ingRecCtrl.animalHumanSrcId}}" 
-                        		value="Y" 
+                        	<input type="radio" id="{{::ingRecCtrl.animalHumanSrcId}}" name="{{::ingRecCtrl.animalHumanSrcId}}"
+                        		value="Y"
                         		data-ng-model="ingRecCtrl.ingModel.humanAnimalSourced" 
                         		data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"/>&nbsp;{{::'Y'|translate}}
                         </label>
                         <label class="col-xs-2 rep-normal-font" for="{{::ingRecCtrl.animalHumanSrcId}}_1">
                         	<input type="radio" id="{{::ingRecCtrl.animalHumanSrcId}}_1" name="{{::ingRecCtrl.animalHumanSrcId}}" 
-                        		value="N" 
+                        		value="N"
                         		data-ng-model="ingRecCtrl.ingModel.humanAnimalSourced" 
                         		data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"/>&nbsp;{{::'N'|translate}}</label>
                         </div>
