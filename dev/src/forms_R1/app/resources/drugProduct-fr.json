@@ -30,6 +30,7 @@
   "SAVE_INSTRUCT": "Product Information File Save Instructions",
   "ADD_IMPORTER": "Ajouter un importateur",
   "TYPE_MIN": "Doit être supérieur au minimum",
+  "TYPE_MAX":"La valeur doit être inférieure à 999",
   "CLINICAL_TRIAL": "Essai clinique",
   "PROTOCOL_NUMBER": "Numéro de protocole",
   "PROTOCOL_TITLE": "Titre du protocole",
