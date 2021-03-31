@@ -39,6 +39,7 @@
   "SAVE_INSTRUCT": "Product Information File Save Instructions",
   "ADD_IMPORTER" : "Add Importer",
   "TYPE_MIN": "Must be greater than the minimum",
+  "TYPE_MAX":"The value must be less than 999",
   "CLINICAL_TRIAL": "Clinical Trial",
   "PROTOCOL_NUMBER": "Protocol number",
   "PROTOCOL_TITLE": "Protocol Title",
