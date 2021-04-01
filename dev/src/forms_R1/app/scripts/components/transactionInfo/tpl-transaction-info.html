@@ -522,12 +522,13 @@
                                     <input type="checkbox" data-ng-model="transInfoCtrl.transactionModel.confirmContactValid"
                                            name="{{::transInfoCtrl.contactSameId}}" id="{{::transInfoCtrl.contactSameId}}" required/>
                                     {{::"CONFIRM_CONTACT_VALID"|translate}}<strong class="required"> {{::"REQUIRED" |translate}}</strong>
-                                </label>
+
                                 <cmp-error-message field-name="transInfoCtrl.contactSameId"
                                                    form-ref="transInfoCtrl.transInfoForm"
                                                    show-error="transInfoCtrl.showError(transInfoCtrl.transInfoForm[transInfoCtrl.contactSameId])"
                                                    error-types="transInfoCtrl.requiredOnly">
                                 </cmp-error-message>
+                                </label>
                             </div>
                         </div>
                     </div>

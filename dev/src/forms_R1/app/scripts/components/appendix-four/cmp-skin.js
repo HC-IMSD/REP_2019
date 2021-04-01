@@ -65,17 +65,8 @@
             for (var i = 0; i < keys.length; i++) {
                 var val = vm.model[keys[i]];
                 if (val) {
-                    if (keys[i] === 'otherSkin') {
-                        if (!vm.model.otherDetails) {
-                            vm.isSelected = "";
-                            return;
-                        }
                         vm.isSelected = "selected";
                         return;
-                    } else {
-                        vm.isSelected = "selected";
-                        return;
-                    }
                 }
             }
             vm.isSelected = "";
