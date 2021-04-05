@@ -20,7 +20,7 @@
             bindings: {
                 records: '<',
                 isFileLoaded: '<',
-                showErrors: '&',
+                showErrors: '<',
                 onUpdate: '&' //seems redundant, but used as a messaging mech. when something changes
             },
             controller: animalSourcedListController,
@@ -41,6 +41,7 @@
         vm.model={};
         vm.model.animalSrcList=[];
         vm.isFocus = false;
+        vm.showDetailErrors=false;
         vm.columnDef = [
             {
                 label: "ANIMAL_TYPE",
@@ -59,6 +60,7 @@
             //init code here
             vm.isDetailValid = true; //used to track if details valid. If they are  not do not allow expander collapse
             vm.resetToCollapsed = true;
+            vm.showDetailErrors=false;
             vm.oneRecord="";
         };
 
@@ -73,6 +75,9 @@
                     vm.requiredFlag = false;
                 }
             }
+            if(changes.showErrors){
+                vm.showDetailErrors=changes.showErrors.currentValue;
+            }
         };
 
         vm.$postLink = function () {
@@ -86,13 +91,13 @@
          *
          * @returns {boolean}
          */
-        vm.showError = function (isTouched, isInvalid) {
+        /*vm.showError = function (isTouched, isInvalid) {
 
             // if ((vm.isParentDirty && isInvalid) || (vm.showErrors() && isInvalid)) {
             return true;
             // }
             // return false
-        };
+        };*/
 
         vm.setValid=function(value){
             vm.isDetailValid = value;

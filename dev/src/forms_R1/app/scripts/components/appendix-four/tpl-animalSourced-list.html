@@ -6,7 +6,7 @@
                              is-required-record="animalListCtrl.requiredFlag"
                              disable-selection="animalListCtrl.animalListForm.$invalid">
 
-            <cmp-animal-sourced-record record="$parent.record" show-errors="animalListCtrl.showErrors()" is-focus="animalListCtrl.isFocus" cancel-focus="animalListCtrl.cancelFocus"
+            <cmp-animal-sourced-record record="$parent.record" show-errors="animalListCtrl.showDetailErrors" is-focus="animalListCtrl.isFocus" cancel-focus="animalListCtrl.cancelFocus"
                                        on-update="animalListCtrl.onUpdatesRecord()" on-delete="animalListCtrl.deleteRecord(id)"></cmp-animal-sourced-record>
         </cmp-expanding-table>
         <div class="mrgn-tp-md mrgn-bttm-lg">

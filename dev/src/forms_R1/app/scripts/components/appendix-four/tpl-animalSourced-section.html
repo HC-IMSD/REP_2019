@@ -6,7 +6,7 @@
                     <h3 class="panel-title">{{::'ANIMAL_SRCS'|translate}}</h3>
                 </header>
                 <input type="hidden" required name="{{::animalSectCtrl.oneAnimalId}}" data-ng-model="animalSectCtrl.oneAnimal" />
-                <div class="panel-body">
+                <div class="panel-body row">
                     <cmp-animal-sourced-list records="animalSectCtrl.model.animalSrcList"
                                              is-file-loaded="animalSectCtrl.isFileLoaded"
                                              on-update="animalSectCtrl.updateAnimalSourceList(list)"
