@@ -162,7 +162,7 @@
         };
 
         vm.isFeesIndicated=function() {
-            return vm.transactionModel.isFees === YES;
+            return vm.transactionModel.isFees !== NO;
         };
 
 
@@ -261,14 +261,17 @@
                    vm.transactionModel.isAdminSub = '';
                    vm.transactionModel.subType = '';
                    vm.showAdminSub = false;
-                   vm.transactionModel.isFees = YES;
+                   // vm.transactionModel.isFees = YES;
                } else {
                    vm.transactionModel.ectd.productProtocol = '';
                    vm.disablePtclNum = false;
                    if(vm.selectedDossierType === 'D24') {
                        vm.transactionModel.isPriority = '';
                        vm.transactionModel.isNoc = '';
-                       vm.transactionModel.isFees = YES;
+                       // vm.transactionModel.isFees = YES;
+                   } else {
+                       vm.transactionModel.isFees = '';
+                       vm.transactionModel.feeDetails = null;
                    }
                }
         };
@@ -288,12 +291,11 @@
         }
 
         vm.updateFeeState=function(){
-            if(vm.transactionModel.isFees === YES){
-                vm.transactionModel.feeDetails = vm.getFee();
-
-            }else{
+            if(vm.transactionModel.isFees === NO){
                 //clear out all the fee details
                 vm.transactionModel.feeDetails = null;
+            }else{
+                vm.transactionModel.feeDetails = vm.getFee();
             }
 
         };
@@ -425,7 +427,7 @@
                 vm.transactionModel.ectd.lifecycleRecord = angular.copy(vm.transactionModel.ectd.lifecycleModel);
                 // vm.transactionModel.projectManager1 = ""; //43 - projectManager1
                 // vm.transactionModel.projectManager2 = ""; // 44 -projectManager2
-                vm.transactionModel.isFees = YES; // 46 - fee
+                // vm.transactionModel.isFees = YES; // 46 - fee
                 vm.transactionModel.feeDetails = null;
                 vm.transactionModel.confirmContactValid = false; //93 confirmation
                 vm.transactionModel.resetBtnClicked = true;

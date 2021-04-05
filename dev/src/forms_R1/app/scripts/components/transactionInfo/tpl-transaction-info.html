@@ -372,7 +372,8 @@
                                <!--class="form-control full-width" />-->
                     <!--</div>-->
                 <!--</div>-->
-                <div class="row" data-ng-if="transInfoCtrl.isForProd || transInfoCtrl.transactionModel.ectd.dossierType == 'D21' || transInfoCtrl.transactionModel.ectd.dossierType == 'D22'">
+                <div class="row" data-ng-if="(transInfoCtrl.isForProd && transInfoCtrl.transactionModel.ectd.dossierType != 'D24') ||
+                        transInfoCtrl.transactionModel.ectd.dossierType == 'D21' || transInfoCtrl.transactionModel.ectd.dossierType == 'D22'">
                     <fieldset class="col-md-12 chkbxrdio-grp" data-ng-class="{'has-error':transInfoCtrl.transInfoForm[transInfoCtrl.isFeesId].$invalid}">
                         <legend class="required">
                             {{::'IS_FEE_TRANSACTION' |translate}}
@@ -401,7 +402,10 @@
                 </div>
             </div>
         </section>
-        <div data-ng-if="transInfoCtrl.isFeesIndicated() && (transInfoCtrl.isForProd || transInfoCtrl.transactionModel.ectd.dossierType == 'D21' || transInfoCtrl.transactionModel.ectd.dossierType == 'D22')">
+        <div data-ng-if="transInfoCtrl.isFeesIndicated() &&
+                            ((transInfoCtrl.isForProd && transInfoCtrl.transactionModel.ectd.dossierType != 'D24') ||
+                             transInfoCtrl.transactionModel.ectd.dossierType == 'D21' ||
+                             transInfoCtrl.transactionModel.ectd.dossierType == 'D22')">
             <section class="panel  panel-primary">
                 <header class="panel-heading clearfix">
                     <h2 class="panel-title col-md-8">{{::'REGULATORY_FEES' |translate}}
