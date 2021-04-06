@@ -148,7 +148,7 @@
                     TRANSACTION_ENROL: {
                         template_type: "PHARMA",
                         date_saved: today,
-                        software_version: "4.2.0",
+                        software_version: "4.2.4",
                         data_checksum: jsonObj.dataChecksum,
                        // transaction_type: jsonObj.transactionType,
                         is_third_party: jsonObj.isThirdParty,
@@ -278,7 +278,19 @@
                 model.isAdminSub = jsonObj.is_admin_sub;
                 model.subType = '';
                 if (jsonObj.sub_type) {
-                    model.subType = $filter('filter')(getContactLists.getAdminSubType(), {id: jsonObj.sub_type._id})[0];
+                    var subTypeSet = $filter('filter')(getContactLists.getAdminSubType(), {id: jsonObj.sub_type._id});
+                    // to fix the bug - filter might return multiple values and the first one is NOT the right one
+                    if (subTypeSet) {
+                        if (subTypeSet.length > 1) {
+                            angular.forEach(subTypeSet, function (subTypeObject) {
+                                if (subTypeObject.id === jsonObj.sub_type._id) {
+                                    model.subType = subTypeObject;
+                                }
+                            });
+                        } else {
+                            model.subType = subTypeSet[0];
+                        }
+                    }
                 }
                // model.isSolicited = jsonObj.is_solicited;
                // this._transformReqFromFile(model, jsonObj.solicited_requester_record);

@@ -73,18 +73,18 @@
                     // case 'B02-20160301-067': //PAND
                     //     newList.push(raList[i]);
                     //     break;
-                    case 'B02-20160301-068': //PBRER-CS
-                        newList.push(raList[i]);
-                        break;
+                    // case 'B02-20160301-068': //PBRER-C
+                    //     newList.push(raList[i]);
+                    //     break;
                     case 'B02-20160301-075': //PRNDS
                         newList.push(raList[i]);
                         break;
                     case 'B02-20160301-077': //PRSNDS
                         newList.push(raList[i]);
                         break;
-                    case 'B02-20160301-078': //PSUR-C
-                        newList.push(raList[i]);
-                        break;
+                    // case 'B02-20160301-078': //PSUR-C
+                    //     newList.push(raList[i]);
+                    //     break;
                     case 'B02-20160301-082': //SANDS
                         newList.push(raList[i]);
                         break;
@@ -187,18 +187,18 @@
                     // case 'B02-20160301-067': //PAND
                     //     newList.push(raList[i]);
                     //     break;
-                    case 'B02-20160301-068': //PBRER-CS
-                        newList.push(raList[i]);
-                        break;
+                    // case 'B02-20160301-068': //PBRER-C
+                    //     newList.push(raList[i]);
+                    //     break;
                     case 'B02-20160301-075': //PRNDS
                         newList.push(raList[i]);
                         break;
                     case 'B02-20160301-077': //PRSNDS
                         newList.push(raList[i]);
                         break;
-                    case 'B02-20160301-078': //PSUR-C
-                        newList.push(raList[i]);
-                        break;
+                    // case 'B02-20160301-078': //PSUR-C
+                    //     newList.push(raList[i]);
+                    //     break;
                     case 'B02-20160301-082': //SANDS
                         newList.push(raList[i]);
                         break;
@@ -267,6 +267,9 @@
                     case 'B02-20160301-069': //PBRER-PV
                         newList.push(raList[i]);
                         break;
+                    case 'B02-20160301-078': //PSUR-C
+                        newList.push(raList[i]);
+                        break;
                     case 'B02-20160301-079': //PSUR-PV
                         newList.push(raList[i]);
                         break;
@@ -286,6 +289,9 @@
                         newList.push(raList[i]);
                         break;
                     case 'B02-20190627-05': //REG-PV
+                        newList.push(raList[i]);
+                        break;
+                    case 'B02-20160301-068': //PBRER-C
                         newList.push(raList[i]);
                         break;
                     // case 'B02-20200417-01': //COVID-19
@@ -338,18 +344,18 @@
                     // case 'B02-20160301-067': //PAND
                     //     newList.push(raList[i]);
                     //     break;
-                    case 'B02-20160301-068': //PBRER-CS
-                        newList.push(raList[i]);
-                        break;
+                    // case 'B02-20160301-068': //PBRER-C
+                    //     newList.push(raList[i]);
+                    //     break;
                     case 'B02-20160301-075': //PRNDS
                         newList.push(raList[i]);
                         break;
                     case 'B02-20160301-077': //PRSNDS
                         newList.push(raList[i]);
                         break;
-                    case 'B02-20160301-078': //PSUR-C
-                        newList.push(raList[i]);
-                        break;
+                    // case 'B02-20160301-078': //PSUR-C
+                    //     newList.push(raList[i]);
+                    //     break;
                     case 'B02-20160301-082': //SANDS
                         newList.push(raList[i]);
                         break;
