@@ -108,7 +108,7 @@
   "HT_CT_DRUG_IMP_5": "https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/medicaments/demandes-presentations/lignes-directrices/essais-cliniques/ligne-directrice-intention-promoteurs-essais-cliniques-demandes-essais-cliniques.html",
   "HT_CT_DRUG_IMP_6": " pour plus de détails.",
   "HT_DNF_NOC_1": "Si les FDM et les AC doivent être envoyés au fabricant ou au promoteur, il faut s’assurer que les renseignements fournis dans la version finale du fichier de compagnie (en format XML) sont à jour.",
-  "HT_DNF_NOC_2": "De plus, il faut s’assurer que les importateurs concernés sont nommés à la section 6 ci-dessous.",
+  "HT_DNF_NOC_2": "De plus, il faut s’assurer que les importateurs concernés sont nommés à la section 7 ci-dessous.",
   "HT_DNF_NOC_3": "Si les FDM et les AC doivent être envoyés à la personne-ressource associée à cette activité de réglementation, le nom indiqué dans le dernier fichier de transaction réglementaire (en format XML) pour cette activité sera utilisé.",
   "HT_IMPORTER_1": "Lorsque le fabricant ou le promoteur n’est pas situé au Canada, un importateur canadien doit être nommé",
   "HT_IMPORTER_3": "Indiquez seulement les importateurs associés aux Numéro d’ID du médicament (DIN) indiqués dans la section ci-dessous.",

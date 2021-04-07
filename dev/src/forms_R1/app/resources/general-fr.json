@@ -84,7 +84,7 @@
   "LEAST_5_DIGIT":" (5 chiffres seulement)",
   "LEAST_9_CHAR":" (9 caractères)",
   "INSTRUCTION":"Instructions",
-  "RETURN_INSTRUCTION":"Retourne aux instructions ",
+  "RETURN_INSTRUCTION":"Revenir à la référence de l'instruction ",
   "PRIVACY_STATEMENT_HELP":"fr_View Privacy Notice Statement",
   "PRIVACY_NOTICE_STATEMENT":"Énoncé de confidentialité",
   "SECURITY_DISCLAIMER":"Avis de non-responsabilité concernant la sécurité",

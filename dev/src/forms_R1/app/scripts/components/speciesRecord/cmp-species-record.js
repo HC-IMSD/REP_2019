@@ -104,6 +104,8 @@
                             }else if(vm.lang === "fr"){
                                 vm.model.isTreatFPACasted = "Non";
                             }
+                            vm.model.withdrawalDays ="";
+                            vm.model.withdrawalHours = "";
                         }
                 }
                 if (vm.model.withdrawalDays) {

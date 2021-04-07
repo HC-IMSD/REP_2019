@@ -64,8 +64,8 @@
         };
 
         vm.canadianPostalCodePattern = '^(?!.*[DFIOQU])[A-VXYa-vxy][0-9][A-Za-z] ?[0-9][A-Za-z][0-9]$';
-        vm.usaZipCode = '^[0-9]{5}(?:-[0-9]{4})?$';
-        vm.hideProvinceText = true;
+        // vm.usaZipCode = '^[0-9]{5}(?:-[0-9]{4})?$';
+        // vm.hideProvinceText = true;
         vm.updateSummary=0; //triggers and error summary update
         vm.countryList= getCountryAndProvinces.getCountries();
         vm.fdId="";
@@ -74,7 +74,7 @@
         vm.routingIdReg=/^([0-9A-Za-z-]*$)/;
         vm.emailReg = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
         vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
-        vm.postalErrorList = [{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "TYPE_PATTERN"}];
+        vm.postalErrorList = [{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "MSG_ERR_POSTAL"}];
 
         vm.showDetailErrors=false;
         vm.min5Error = [
@@ -92,11 +92,11 @@
                 vm.model = vm.record;
                 vm.provListLabel = getProvinceListLabel();
                 vm.postalLabel = getPostalLabel();
-                vm.isPostalRequired = isPostalRequiredFn();
+                // vm.isPostalRequired = isPostalRequiredFn();
                 vm.provinces = getProvinceStateList();
                 // vm.hideProvinceText = getProvinceTextState();
-                vm.postalPattern = getPostalPattern();
-                vm.hideProvinceDdl = !vm.hideProvinceText;
+                // vm.postalPattern = getPostalPattern();
+                // vm.hideProvinceDdl = !vm.hideProvinceText;
             }
             _setIdNames();
         };
@@ -117,42 +117,42 @@
         /**
          * Updates the display value for the object for summary display
          */
-        vm.countryChanged=function(){
-            console.log("jang test:" + vm.model.country.id);
-            if( vm.model.country.id !== undefined ) {
-                vm.model.countryDisplay = vm.model.country.id;
-                vm.provListLabel = getProvinceListLabel();
-                vm.postalLabel = getPostalLabel();
-                vm.isPostalRequired = isPostalRequiredFn();
-                vm.provinces = getProvinceStateList();
-                vm.hideProvinceText = getProvinceTextState();
-                vm.postalPattern = getPostalPattern();
-                vm.hideProvinceDdl = !vm.hideProvinceText;
-                vm.isCountryCanada();
-            }
-            else {
-                vm.model.countryHtml = "";
-                vm.model.countryDisplay = "";
-                vm.isPostalRequired = false;
-                vm.hideProvinceText = false;
-                vm.hideProvinceDdl = !vm.hideProvinceText;
-            }
-            vm.updateErrorSummaryState();
-        };
-
-        vm.isCountryCanada=function(){
-            if(!vm.model || !vm.model.country){
-                vm.postalErrorList = [{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "MSG_ERR_POSTAL"}];
-                return false;
-            }
-            else if(vm.model.country.id===CANADA){
-                vm.postalErrorList = [{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "MSG_ERR_POSTAL"}];
-                return true;
-            }else{
-                vm.postalErrorList = [{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "MSG_ERR_ZIP"}];
-            }
-            return false
-        };
+        // vm.countryChanged=function(){
+        //     console.log("jang test:" + vm.model.country.id);
+        //     if( vm.model.country.id !== undefined ) {
+        //         vm.model.countryDisplay = vm.model.country.id;
+        //         vm.provListLabel = getProvinceListLabel();
+        //         vm.postalLabel = getPostalLabel();
+        //         // vm.isPostalRequired = isPostalRequiredFn();
+        //         vm.provinces = getProvinceStateList();
+        //         // vm.hideProvinceText = getProvinceTextState();
+        //         vm.postalPattern = getPostalPattern();
+        //         // vm.hideProvinceDdl = !vm.hideProvinceText;
+        //         vm.isCountryCanada();
+        //     }
+        //     else {
+        //         vm.model.countryHtml = "";
+        //         vm.model.countryDisplay = "";
+        //         // vm.isPostalRequired = false;
+        //         // vm.hideProvinceText = false;
+        //         // vm.hideProvinceDdl = !vm.hideProvinceText;
+        //     }
+        //     vm.updateErrorSummaryState();
+        // };
+        //
+        // vm.isCountryCanada=function(){
+        //     if(!vm.model || !vm.model.country){
+        //         vm.postalErrorList = [{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "MSG_ERR_POSTAL"}];
+        //         return false;
+        //     }
+        //     else if(vm.model.country.id===CANADA){
+        //         vm.postalErrorList = [{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "MSG_ERR_POSTAL"}];
+        //         return true;
+        //     }else{
+        //         vm.postalErrorList = [{type: "required", displayAlias: "MSG_ERR_MAND"},{type: "pattern", displayAlias: "MSG_ERR_ZIP"}];
+        //     }
+        //     return false
+        // };
 
 
         /**
@@ -162,39 +162,40 @@
             var postal=vm.model.postalCode;
             if(!postal) return;
             postal= postal.toUpperCase();
-            if(postal.length==6 && vm.model.country.id === CANADA){
+            // if(postal.length==6 && vm.model.country.id === CANADA){
+            if(postal.length==6){
                 postal=postal.substring(0,3)+" "+postal.substring(3,postal.length)
             }
             vm.model.postalCode=postal;
             vm.updateErrorSummaryState();
         };
-        var getProvinceTextState = function () {
+        // var getProvinceTextState = function () {
+        //
+        //     var isCanOrUsa = isPostalRequiredFn();
+        //
+        //     if (isCanOrUsa) {
+        //         vm.model.stateText = "";
+        //
+        //     } else {
+        //         vm.model.stateList = "";
+        //     }
+        //
+        //     return isCanOrUsa;
+        // };
 
-            var isCanOrUsa = isPostalRequiredFn();
-
-            if (isCanOrUsa) {
-                vm.model.stateText = "";
-
-            } else {
-                vm.model.stateList = "";
-            }
-
-            return isCanOrUsa;
-        };
-
-        var isPostalRequiredFn = function () {
-            return (vm.model.country.id === CANADA || vm.model.country.id === USA);
-        };
+        // var isPostalRequiredFn = function () {
+        //     return (vm.model.country.id === CANADA || vm.model.country.id === USA);
+        // };
 
         var getProvinceStateList = function () {
 
-            if (vm.model.country.id === CANADA) {
+            // if (vm.model.country.id === CANADA) {
                 return getCountryAndProvinces.getProvinces();
 
-            }
-            else if (vm.model.country.id === USA) {
-                return getCountryAndProvinces.getUSStates();
-            }
+            // }
+            // else if (vm.model.country.id === USA) {
+            //     return getCountryAndProvinces.getUSStates();
+            // }
         };
 
         var getProvinceListLabel = function () {
@@ -208,36 +209,36 @@
             return label;
         };
 
-        var getPostalPattern = function () {
-            var postalPtrn = null;
-            if (vm.model.country.id === USA) {
-                postalPtrn = /^[0-9]{5}(?:-[0-9]{4})?$/;
-            } else if (vm.model.country.id === CANADA) {
-                postalPtrn = /^(?!.*[DFIOQU])[A-VXYa-vxy][0-9][A-Za-z] ?[0-9][A-Za-z][0-9]$/;
-            }
+        // var getPostalPattern = function () {
+        //     var postalPtrn = null;
+        //     if (vm.model.country.id === USA) {
+        //         postalPtrn = /^[0-9]{5}(?:-[0-9]{4})?$/;
+        //     } else if (vm.model.country.id === CANADA) {
+        //         postalPtrn = /^(?!.*[DFIOQU])[A-VXYa-vxy][0-9][A-Za-z] ?[0-9][A-Za-z][0-9]$/;
+        //     }
+        //
+        //     return postalPtrn;
+        // };
 
-            return postalPtrn;
-        };
-
-        vm.countryChange = function() {
-            var found = false;
-            for(var i = 0; i < vm.countryList.length; i++) {
-                var option =vm.countryList[i];
-                if(option[vm.lang] === vm.model.countryHtml) {
-                    vm.model.country = option;
-                    found = true;
-                    break;
-                }
-            }
-            if( ! found ){
-                vm.model.countryHtml = "";
-                if(vm.model.country !== undefined && vm.model.country.id !== ""){
-                    vm.model.country = {};
-                }
-                vm.model.countryDisplay = "";
-            }
-            vm.countryChanged();
-        };
+        // vm.countryChange = function() {
+        //     var found = false;
+        //     for(var i = 0; i < vm.countryList.length; i++) {
+        //         var option =vm.countryList[i];
+        //         if(option[vm.lang] === vm.model.countryHtml) {
+        //             vm.model.country = option;
+        //             found = true;
+        //             break;
+        //         }
+        //     }
+        //     if( ! found ){
+        //         vm.model.countryHtml = "";
+        //         if(vm.model.country !== undefined && vm.model.country.id !== ""){
+        //             vm.model.country = {};
+        //         }
+        //         vm.model.countryDisplay = "";
+        //     }
+        //     vm.countryChanged();
+        // };
 
         vm.saveRecord = function()  {
             if (vm.importerForm.$valid) {
@@ -271,7 +272,7 @@
             vm.streetId = "STREET" + scopeId;
             vm.cityId = "CITY" + scopeId;
             vm.countryId = "COUNTRY" + scopeId;
-            vm.stateTextId = "proveState" + scopeId;
+            // vm.stateTextId = "proveState" + scopeId;
             vm.stateListId = "province" + scopeId;
             vm.postalId = "postal" + scopeId;
             vm.faxId="fax_number" + scopeId;
