@@ -21,7 +21,7 @@
   "MSG_ERR_ONE_TISSUE": "At least one Tissue or fluid source is required",
   "MSG_ERR_ONE_CNTRY_ORIGIN": "At least one Country of origin is required",
   "MSG_ERR_ONE_CDN_REF": "At least one Canadian Reference product is required",
-  "MSG_ERR_INVALID_NUM_MIN": "The value must be greater than -273",
+  "MSG_ERR_INVALID_NUM_MIN": "The value must be greater than or equal to -273",
   "MSG_ERR_INVALID_NUM_MAX": "The value must be less than 999",
   "MSG_ERR_INVALID_NUM_MIN0": "The value must be greater than or equal to 0",
   "MSG_ERR_INVALID_NUM_MIN_LOWER": "The value must be greater than Lower Limit",
