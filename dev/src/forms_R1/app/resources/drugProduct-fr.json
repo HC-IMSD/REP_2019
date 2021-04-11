@@ -29,7 +29,7 @@
   "CONTACT_LENS": "Contact Lens",
   "SAVE_INSTRUCT": "Product Information File Save Instructions",
   "ADD_IMPORTER": "Ajouter un importateur",
-  "TYPE_MIN": "Doit être supérieur au minimum",
+  "TYPE_MIN": "La valeur doit être supérieure ou égale à 0",
   "TYPE_MAX":"La valeur doit être inférieure à 999",
   "CLINICAL_TRIAL": "Essai clinique",
   "PROTOCOL_NUMBER": "Numéro de protocole",

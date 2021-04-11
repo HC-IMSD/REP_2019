@@ -123,7 +123,30 @@
             if (vm.env) {
                 return vm.env;
             } else {
-                return '@@envValue';
+                return {
+                    "ver": {
+                        "CO": {
+                            "major": "4",
+                            "minor": "2",
+                            "patch": "0"
+                        },
+                        "RT": {
+                            "major": "4",
+                            "minor": "2",
+                            "patch": "0"
+                        },
+                        "PI": {
+                            "major": "4",
+                            "minor": "2",
+                            "patch": "0"
+                        },
+                        "WET": {
+                            "major": "v4",
+                            "minor": "0",
+                            "patch": "41"
+                        }
+                    }
+                };
             }
         }
 
