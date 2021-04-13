@@ -3,22 +3,28 @@
              novalidate>
         <span id="privacy"></span>
         <div class="module-attention">
-            <h2 class="panel-title mrgn-tp-sm mrgn-bttm-sm">{{::'PRIVACY_NOTICE_STATEMENT'|translate}}</h2>
-            <section data-ng-if="!main.isFrench()" data-ng-include="'app/scripts/templates/common/tpl-privacy-statement-en.html'"></section>
-            <section data-ng-if="main.isFrench()" data-ng-include="'app/scripts/templates/common/tpl-privacy-statement-fr.html'"></section>
-        </div>
+            <details>
+                <summary><h2 class="panel-title mrgn-tp-sm mrgn-bttm-sm">{{::'PRIVACY_NOTICE_STATEMENT'|translate}}</h2></summary>
+                <section data-ng-if="!main.isFrench()" data-ng-include="'app/scripts/templates/common/tpl-privacy-statement-en.html'"></section>
+                <section data-ng-if="main.isFrench()" data-ng-include="'app/scripts/templates/common/tpl-privacy-statement-fr.html'"></section>
+            </details>
+       </div>
         <div><br></div>
         <span id="security"></span>
         <div class="module-attention">
-            <h2 class="panel-title mrgn-tp-sm mrgn-bttm-sm">{{::'SECURITY_DISCLAIMER'|translate}}</h2><br>
-            <section data-ng-if="!main.isFrench()" data-ng-include="'app/scripts/templates/common/tpl-security-disclaimer-en.html'"></section>
-            <section data-ng-if="main.isFrench()" data-ng-include="'app/scripts/templates/common/tpl-security-disclaimer-fr.html'"></section>
+            <details>
+                <summary><h2 class="panel-title mrgn-tp-sm mrgn-bttm-sm">{{::'SECURITY_DISCLAIMER'|translate}}</h2><br></summary>
+                <section data-ng-if="!main.isFrench()" data-ng-include="'app/scripts/templates/common/tpl-security-disclaimer-en.html'"></section>
+                <section data-ng-if="main.isFrench()" data-ng-include="'app/scripts/templates/common/tpl-security-disclaimer-fr.html'"></section>
+            </details>
         </div>
         <span id="instructions"></span>
         <aside class="wb-fnote" role="note">
-            <h2>{{::'FOOTNOTE_INSTRUCTION'|translate}}</h2>
-            <cmp-transaction-help-text ht-indx-list="main.indexList">
-            </cmp-transaction-help-text>
+            <details>
+                <summary><h2>{{::'FOOTNOTE_INSTRUCTION'|translate}}</h2></summary>
+                <cmp-transaction-help-text ht-indx-list="main.indexList">
+                </cmp-transaction-help-text>
+            </details>
             <!--<section data-ng-if="!main.isFrench()" data-ng-include="'app/scripts/templates/transaction/tpl-transaction-footnote-en.html'"></section>-->
             <!--<section data-ng-if="main.isFrench()" data-ng-include="'app/scripts/templates/transaction/tpl-transaction-footnote-fr.html'"></section>-->
         </aside>

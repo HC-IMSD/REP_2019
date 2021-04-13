@@ -80,9 +80,12 @@
             "phoneNumber": {
                 "type": "pattern",
                 "errorType": "MSG_ERR_PHONE_FORMAT"
+            },
+            "contactEmail":{
+                "type":"pattern",
+                "errorType": "MSG_ERR_EMAIL_FORMAT"
             }
-        }
-
+        };
 
 
 
