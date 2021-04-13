@@ -124,6 +124,22 @@
             "no_cta_country": {
                 "type": "element",
                 "target": "list_cta_country"
+            },
+            "postal": {
+                "type": "pattern",
+                "errorType": "MSG_ERR_POSTAL"
+            },
+            "contactEmail": {
+                "type": "pattern",
+                "errorType": "MSG_ERR_EMAIL_FORMAT"
+            },
+            "phoneNumber": {
+                "type": "pattern",
+                "errorType": "MSG_ERR_PHONE_FORMAT"
+            },
+            "fax_number": {
+                "type": "pattern",
+                "errorType": "MSG_ERR_FAX_FORMAT"
             }
         };
         vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];

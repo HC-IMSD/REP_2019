@@ -9,7 +9,7 @@
   "MSG_ERR_FAX_FORMAT":"Veuillez fournir un numéro de télécopieur valide.",
   "MSG_ERR_ALLROLE": "fr_Across the contact records, the roles of manufacturer, mailing, billing, and REP primary contact must be selected",
   "MSG_ERR_ADDRESSSROLE": "fr_The roles of manufacturer, mailing, and billing have not all been selected among the list of addresses",
-  "MSG_ERR_POSTAL": "Veuillez fournir un code postal valide.",
+  "MSG_ERR_POSTAL": "Veuillez fournir un code postal valide",
   "MSG_ERR_ZIP": "Veuillez fournir un code postal valide.",
   "MSG_ERR_DATE_FORMAT": "Veuillez fournir une une date valide.",
   "MANUFACT_SEL": "Rôle déjà sélectionné",
