@@ -70,10 +70,10 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <div class="form-group" data-ng-show="importerRecCtrl.hideProvinceText"
+                <div class="form-group"
                      data-ng-class="{'has-error':importerRecCtrl.importerForm[importerRecCtrl.stateListId].$invalid}">
                     <label for="{{::importerRecCtrl.stateListId}}" class="required">
-                        <span class="field-name">{{importerRecCtrl.provListLabel |translate}}</span>
+                        <span class="field-name">{{"PROVINCE" |translate}}</span>
                         <strong class="required"> {{::"REQUIRED" |translate}} </strong>
                         <cmp-error-message field-name="importerRecCtrl.stateListId" form-ref="importerRecCtrl.importerForm"
                                            show-error="importerRecCtrl.showError(importerRecCtrl.importerForm[importerRecCtrl.stateListId])"
@@ -81,33 +81,33 @@
                         </cmp-error-message>
                         <select class="form-control full-width" data-ng-model="importerRecCtrl.model.stateList"
                                 id="{{::importerRecCtrl.stateListId}}" name="{{::importerRecCtrl.stateListId}}"
-                                data-ng-options="province |translate for province in importerRecCtrl.provinces"
-                                data-ng-required="importerRecCtrl.hideProvinceText">
+                                data-ng-options="province |translate for province in importerRecCtrl.provinces">
                             <option label=" " value="" />
                         </select>
                     </label>
                 </div>
-                <div class="form-group " data-ng-show="importerRecCtrl.hideProvinceDdl"
-                     data-ng-class="{'has-error':importerRecCtrl.importerForm[importerRecCtrl.stateTextId].$invalid}">
-                    <label for="{{::importerRecCtrl.stateTextId}}">{{::"PROVSTATE" |translate}}</label>
-                    <input type="text" id="{{::importerRecCtrl.stateTextId}}" name="{{::importerRecCtrl.stateTextId}}"
-                           data-ng-model="importerRecCtrl.model.stateText" class="form-control full-width" maxlength="40"
-                           size="40"/>
-                </div>
+                <!--<div class="form-group " data-ng-show="importerRecCtrl.hideProvinceDdl"-->
+                     <!--data-ng-class="{'has-error':importerRecCtrl.importerForm[importerRecCtrl.stateTextId].$invalid}">-->
+                    <!--<label for="{{::importerRecCtrl.stateTextId}}">{{::"PROVSTATE" |translate}}</label>-->
+                    <!--<input type="text" id="{{::importerRecCtrl.stateTextId}}" name="{{::importerRecCtrl.stateTextId}}"-->
+                           <!--data-ng-model="importerRecCtrl.model.stateText" class="form-control full-width" maxlength="40"-->
+                           <!--size="40"/>-->
+                <!--</div>-->
             </div>
             <div class="form-group col-md-6" data-ng-class="{'has-error':importerRecCtrl.importerForm[importerRecCtrl.postalId].$invalid}">
-                <label for="{{::importerRecCtrl.postalId}}" data-ng-class="{required:importerRecCtrl.isPostalRequired}">
-                    <span class="field-name">{{importerRecCtrl.postalLabel |translate}}</span>
-                    <strong data-ng-show="importerRecCtrl.isPostalRequired" class="required">{{::"REQUIRED" |translate}} </strong>
+                <!--<label for="{{::importerRecCtrl.postalId}}" data-ng-class="{required:importerRecCtrl.isPostalRequired}">-->
+                    <label for="{{::importerRecCtrl.postalId}}" class="required">
+                    <span class="field-name">{{"POSTAL"|translate}}</span>
+                    <strong class="required">{{::"REQUIRED" |translate}} </strong>
                     <cmp-error-message field-name="importerRecCtrl.postalId" form-ref="importerRecCtrl.importerForm"
                                        show-error="importerRecCtrl.showError(importerRecCtrl.importerForm[importerRecCtrl.postalId])"
                                        error-types="importerRecCtrl.postalErrorList">
                     </cmp-error-message>
                     <input type="text" id="{{::importerRecCtrl.postalId}}" name="{{::importerRecCtrl.postalId}}"
                            data-ng-model="importerRecCtrl.model.postalCode"
-                           class="form-control" ng-maxlength="7" data-ng-required="importerRecCtrl.isPostalRequired"
+                           class="form-control" ng-maxlength="7"
                            data-ng-change="importerRecCtrl.postalCodeChanged()"
-                           maxlength="7" data-ng-pattern="importerRecCtrl.postalPattern"/>
+                           maxlength="7" data-ng-pattern="importerRecCtrl.canadianPostalCodePattern"/>
                 </label>
             </div>
         </div>
