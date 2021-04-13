@@ -78,8 +78,15 @@
             "one_fee_doc": {
                 "type": "element",
                 "target": "fs_fee_docs"
+            },
+            "postal": {
+                "type": "pattern",
+                "errorType": "POSTAL_FORMAT"
+            },
+            "contactEmail":{
+                "type":"pattern",
+                "errorType": "MSG_ERR_EMAIL_FORMAT"
             }
-
         };
         vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
         vm.privacyStat = false;
