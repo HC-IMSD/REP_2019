@@ -1,19 +1,22 @@
 <ng-form name="infoCtrl.applInfoForm">
     <div>
         <div class="row">
-            <div class=" form-group " data-ng-class="{'col-xs-3':infoCtrl.isExtern(),  'col-xs-6':!infoCtrl.isExtern()}">
+            <!--<div class="col-xs-3 form-group " data-ng-class="{'col-xs-3':infoCtrl.isExtern(),  'col-xs-6':!infoCtrl.isExtern()}">-->
+            <div class="col-xs-6 form-group">
                 <label for="application-type_{{$id}}" >{{::"APPL_STATUS"| translate}}</label>
                 <input type="text" class="form-control full-width" id="application-type_{{$id}}"
                        data-ng-model="infoCtrl.record.applicationTypeText" name="appl_status"
                        data-ng-class="{'rep-success':infoCtrl.showAmendMsg()}"
                        data-ng-readonly="true"/>
             </div>
-            <div class="form-group" data-ng-class="{'col-xs-3':infoCtrl.isExtern(),  'col-xs-6':!infoCtrl.isExtern()}">
+            <!--<div class="col-xs-3 form-group" data-ng-class="{'col-xs-3':infoCtrl.isExtern(),  'col-xs-6':!infoCtrl.isExtern()}">-->
+            <div class="col-xs-6 form-group">
                 <label for="enr-version-text_{{$id}}">{{::"ENROL_VERSION"| translate}}</label>
                 <input type="text" class="form-control full-width" id="enr-version-text_{{$id}}" data-ng-readonly="true" name="enrol_version"
                        data-ng-model="infoCtrl.infoModel.enrolmentVersion"/>
             </div>
-            <div class="form-group" data-ng-class="{'col-xs-3':infoCtrl.isExtern(),  'col-xs-6':!infoCtrl.isExtern()}">
+            <!--<div class="form-group" data-ng-class="{'col-xs-3':infoCtrl.isExtern(),  'col-xs-6':!infoCtrl.isExtern()}">-->
+            <div class="col-xs-6 form-group">
                 <label for="date-saved-text_{{$id}}">{{::"DATE_SAVED"| translate}}</label>
                 <input type="text" class="form-control full-width" id="date-saved-text_{{$id}}" name="date_saved"
                        data-ng-model="infoCtrl.infoModel.dateSaved"
