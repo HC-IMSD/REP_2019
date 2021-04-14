@@ -77,7 +77,7 @@
                                           configure-id-field="main.configCompany" index-list="main.indexList">
                     </cmp-application-info>
                     <div class="row">
-                        <section class="panel  panel-default rep-center">
+                        <section class="panel  panel-default">
                             <header class="panel-heading clearfix">
                                 <h3 class="panel-title col-md-12">{{::'ADDR_INFO'|translate}}
                                     <sup id="co3_ref">
@@ -85,7 +85,7 @@
                                     </sup>
                                 </h3>
                             </header>
-                            <div class="panel-body">
+                            <div class="panel-body row">
                                 <cmp-company-address-list addresses="main.company.addressList"
                                                           get-new-address="main.getNewAddress()"
                                                           is-amend="main.formAmendType"
@@ -98,7 +98,7 @@
                                 </cmp-company-address-list>
                             </div>
                         </section>
-                        <section class="panel  panel-default rep-center">
+                        <section class="panel  panel-default">
                             <header class="panel-heading clearfix">
                                 <h3 class="panel-title col-md-8">{{::'CONTACT_INFO'|translate}}
                                     <sup id="co5_ref">
@@ -106,7 +106,7 @@
                                     </sup>
                                 </h3>
                             </header>
-                            <div class="panel-body">
+                            <div class="panel-body row">
                                 <cmp-company-contact-list contacts="main.company.contactList"
                                                           get-new-contact="main.getNewContact()"
                                                           is-amend="main.formAmendType"

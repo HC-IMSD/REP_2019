@@ -8,7 +8,7 @@
 //  "SAVE_INSTRUCT": "Company File Save Instructions",
   "AMEND_NOTE": "The “Amend Enrolment” button must be selected when amending a Final Company XML.",
   "FIELDID": "Company Identifier",
-  "COMPANY_NAME": "Company Name",
+  "COMPANY_NAME": "Legal Name",
   "HT_LOAD_FILE_1": "A file should not be loaded if this is the first time enrolling the Company.",
   "HT_LOAD_FILE_2": "When continuing with a working copy, the format of the file to load should be .hcsc.",
   "HT_LOAD_FILE_3": "When viewing/updating a final XML file, the format of the file to load should be .xml.",
