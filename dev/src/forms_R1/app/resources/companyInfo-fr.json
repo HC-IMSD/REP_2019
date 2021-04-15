@@ -8,7 +8,7 @@
 //  "SAVE_INSTRUCT": "fr_Company File Save Instructions",
   "AMEND_NOTE": "Le bouton «Modifier l'inscription» doit être sélectionné lors de la modification d'un XML d'entreprise final.",
   "FIELDID": "Numéro d'entreprise",
-  "COMPANY_NAME": "Nom légal",
+  "COMPANY_NAME": "Nom Légal Complet",
   "HT_LOAD_FILE_1": "Il n’est pas nécessaire de charger un fichier de compagnie s’il s’agit de votre première inscription pour la compagnie.",
   "HT_LOAD_FILE_2": "Lors de la production d’une copie de travail, le fichier doit être chargé en format .hcsc.",
   "HT_LOAD_FILE_3": "Lors de la consultation ou de la mise à jour d’une version finale du fichier XML, le fichier doit être chargé en format .xml.",
