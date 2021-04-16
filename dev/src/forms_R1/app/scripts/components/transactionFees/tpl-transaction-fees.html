@@ -211,6 +211,26 @@
                                 </div>
                             </div>
                         </div>
+                        <div data-ng-if="transFeeCtrl.isISAD()">
+                            <div class="form-group col-xs-12">
+                                <div class="checkbox">
+                                    <label for="{{::transFeeCtrl.certifyIsadId}}">
+                                        <input type="checkbox"
+                                               data-ng-model="transFeeCtrl.model.mitigation.certifyIsad"
+                                               name="{{::transFeeCtrl.certifyIsadId}}"
+                                               id="{{::transFeeCtrl.certifyIsadId}}"
+                                               class="required" required />
+                                        <strong>{{::'CERTIFY_ISAD'|translate}}</strong>
+                                        <strong class="required"> {{::"REQUIRED" |translate}}</strong>
+                                        <cmp-error-message field-name="transFeeCtrl.certifyIsadId"
+                                                           form-ref="transFeeCtrl.transFeeForm"
+                                                           show-error="transFeeCtrl.showError(transFeeCtrl.transFeeForm[transFeeCtrl.certifyIsadId])"
+                                                           error-types="transFeeCtrl.requiredOnlyError">
+                                        </cmp-error-message>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
