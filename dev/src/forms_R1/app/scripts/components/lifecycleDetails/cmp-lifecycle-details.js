@@ -150,6 +150,8 @@
                 setDetailsAsNone();
                 vm.isActivityLeadSet = false;
                 vm.activityLeadNote = "";
+                vm.activityTypeNote = "";
+                vm.activityDescrNote = "";
             }
             if (changes.lifecycleRecord) {
                 _updateLocalModel(changes.lifecycleRecord.currentValue);
@@ -393,6 +395,8 @@
                 vm.lifecycleModel.descriptionValue = "";
                 vm.descriptionList = "";
                 setDetailsAsNone();
+                vm.activityTypeNote = "";
+                vm.activityDescrNote = "";
                 vm.setConcatDetails();
             }
             vm.updateErrorSummaryState(); // if error summary is visible update it
@@ -434,6 +438,9 @@
                     }else {
                         vm.descriptionList = TransactionLists.getDinaType();
                     }
+                    break;
+                case ("B02-20160301-022"): //DINV
+                        vm.descriptionList = TransactionLists.getV_DinvType();
                     break;
                 case ("B02-20160301-019"):
                     vm.descriptionList = TransactionLists.getDinbType();
@@ -616,16 +623,31 @@
                     vm.descriptionList = TransactionLists.getV_RccType();
                     break;
                 case ("B02-20200417-01"): //	COVIR-19 //commented out for before release to prod on 2020-09-10
-                    vm.descriptionList = TransactionLists.getCOVIR19Type();
+                    if(vm.lifecycleModel.activityLead === "B14-20160301-11") {
+                        vm.descriptionList = TransactionLists.getV_COV19Type();
+                    } else {
+                        vm.descriptionList = TransactionLists.getCOVIR19Type();
+                    }
                     break;
                 case ("B02-20200417-02"): //	COVID-19 AMENDMENT //commented out for before release to prod on 2020-09-10
-                    vm.descriptionList = TransactionLists.getCOVID19AMDType();
+                    if(vm.lifecycleModel.activityLead === "B14-20160301-11") {
+                        vm.descriptionList = TransactionLists.getV_COV19AMDType();
+                    } else {
+                        vm.descriptionList = TransactionLists.getCOVID19AMDType();
+                    }
                     break;
                 case ("B02-20201028-01"): // MPCOV
                     vm.descriptionList = TransactionLists.getMPCOVType();
                     break;
                 case ("B02-20201214-01"): // MPCOVA (Pre-COVID-19 For IO Application Amendment Meeting) - same as MPCOV
                     vm.descriptionList = TransactionLists.getMPCOVType();
+                    break;
+                case ("B02-20210108-01"): // NDS CV (New Drug Submission with flexibilities for Designated COVID-19 drug)
+                    if(vm.lifecycleModel.activityLead === "B14-20160301-11") {
+                        vm.descriptionList = TransactionLists.getVNDSCVType();
+                    } else {
+                        vm.descriptionList = TransactionLists.getNDSCVType();
+                    }
                     break;
 
                 default:
@@ -645,6 +667,11 @@
                 setDetailsAsNone();
             }
 
+            if (value === "B02-20160301-088") {
+                vm.activityTypeNote = "UDRA_RA_TYPE_NOTE";
+            } else {
+                vm.activityTypeNote = "";
+            }
         };
         /**
          * @ngdoc method sets the state of the details field based on
@@ -724,7 +751,6 @@
                 case(vm.descriptionObj.SCREENING_ACCEPT_RESPONSE):        /*FALLTHROUGH*/
                 // case(vm.descriptionObj.SCREENING_CLARIF_RESPONSE):        /*FALLTHROUGH*/
                 case(vm.descriptionObj.NOL_RESPONSE):        /*FALLTHROUGH*/
-                case(vm.descriptionObj.CLARIF_RESPONSE):        /*FALLTHROUGH July 17,2017*/
                 case(vm.descriptionObj.CTN_ETHICS):        /*FALLTHROUGH */
                 case(vm.descriptionObj.CTN_RESPONSE):
                     setAsStartDate();
@@ -760,6 +786,7 @@
                 case(vm.descriptionObj.CTN_SAFETY):
                 case(vm.descriptionObj.CTN_SOURCE):
                 case(vm.descriptionObj.CTN_STUDY_DISC):
+                case(vm.descriptionObj.ROLLING_INFO):
                     setAsDescription();
                     vm.setConcatDetails();
                     break;
@@ -779,6 +806,7 @@
                 case(vm.descriptionObj.QUAL_CLARIF_RESPONSE):
                 case(vm.descriptionObj.SCREENING_CLARIF_RESPONSE):
                 case(vm.descriptionObj.PHONE_RQ_RESPONSE):
+                case(vm.descriptionObj.CLARIF_RESPONSE):        /*FALLTHROUGH July 17,2017*/
                     setAsRequesterwithDate();
                     vm.setConcatDetails();
                     break;
@@ -804,6 +832,45 @@
                     setDetailsAsNone();
                     vm.setConcatDetails();
                     // console.warn("Lifecycle Details activity not found: " + value);
+                    break;
+            }
+
+            switch (value) {
+                case(vm.descriptionObj.ADMINISTRATIVE):         /*FALLTHROUGH*/
+                    vm.activityDescrNote = "ADMIN_DESCR";
+                    break;
+                case(vm.descriptionObj.CANCEL_LETTER):          /*FALLTHROUGH*/
+                    vm.activityDescrNote = "CANCEL_LETTER_DESCR";
+                    break;
+                case(vm.descriptionObj.CHANGE_TO_DIN):          /*FALLTHROUGH*/
+                    vm.activityDescrNote = "CHANGE_TO_DIN_DESCR";
+                    break;
+                case(vm.descriptionObj.ROLLING_INFO):
+                    vm.activityDescrNote = "ROLLING_INFO_DESCR";
+                    break;
+                case(vm.descriptionObj.PROCESSING_CLARIF_RESPONSE):
+                    vm.activityDescrNote = "PROCESSING_CLARIF_RESPONSE_DESCR";
+                    break;
+                case(vm.descriptionObj.POST_NOC_CHANGE):
+                    vm.activityDescrNote = "POST_NOC_CHANGE_DESCR";
+                    break;
+                case(vm.descriptionObj.POST_CLEARANCE_DATA):    /*FALLTHROUGH*/
+                    vm.activityDescrNote = "POST_CLEARANCE_DATA_DESCR";
+                    break;
+                case(vm.descriptionObj.POST_AUTH_DIV1_CHANGE):  /*FALLTHROUGH*/
+                    vm.activityDescrNote = "POST_NOC_DIV1_CHANGE_DESCR";
+                    break;
+                case(vm.descriptionObj.POST_ANTH_CHANGE):
+                    vm.activityDescrNote = "POST_ANTH_CHANGE_DESCR";
+                    break;
+                case(vm.descriptionObj.PANDEMIC_APPL):          /*FALLTHROUGH*/
+                    vm.activityDescrNote = "PANDEMIC_APPL_DESCR";
+                    break;
+                case(vm.descriptionObj.INITIAL):
+                    vm.activityDescrNote = "INITIAL_DESCR";
+                    break;
+                default:
+                    vm.activityDescrNote = "";
                     break;
             }
 

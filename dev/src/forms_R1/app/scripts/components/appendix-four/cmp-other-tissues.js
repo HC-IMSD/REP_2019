@@ -73,24 +73,15 @@
             for (var i = 0; i < keys.length; i++) {
                 var val = vm.model[keys[i]];
                 if (val) {
-                    if (keys[i] === 'otherFluids') {
-                        if (!vm.model.otherDetails) {
-                            vm.isSelected = "";
-                            return;
-                        }
-                        vm.isSelected = "selected";
-                        return;
-                    } else {
                         vm.isSelected = "selected";
                         return;
                     }
-                }
-            }
+             }
             vm.isSelected = "";
         };
 
         vm.showErrorMessage = function(isInvalid){
-            if ((isInvalid && vm.showError) || (vm.showErrors() && isInvalid )) {
+        	if (isInvalid && vm.showError) {
                 return true;
             }
             return false;

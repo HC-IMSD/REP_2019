@@ -1,22 +1,28 @@
 <ng-form id="{{::drugProdCtrl.formId}}" name="drugProdCtrl.drugProdForm" data-translate-cloak="cloak-class">
     <span id="privacy"></span>
     <div class="module-attention">
-        <h3 class="panel-title mrgn-tp-sm mrgn-bttm-sm">{{::'PRIVACY_NOTICE_STATEMENT'|translate}}</h3>
+      <details>
+        <summary><h3 class="panel-title mrgn-tp-sm mrgn-bttm-sm">{{::'PRIVACY_NOTICE_STATEMENT'|translate}}</h3></summary>
         <section data-ng-if="!drugProdCtrl.isFrench()" data-ng-include="'app/scripts/templates/common/tpl-privacy-statement-en.html'"></section>
         <section data-ng-if="drugProdCtrl.isFrench()" data-ng-include="'app/scripts/templates/common/tpl-privacy-statement-fr.html'"></section>
+      </details>
     </div>
     <div><br></div>
     <span id="security"></span>
     <div class="module-attention">
-        <h2 class="panel-title mrgn-tp-sm mrgn-bttm-sm">{{::'SECURITY_DISCLAIMER'|translate}}</h2><br>
+      <details>
+        <summary><h2 class="panel-title mrgn-tp-sm mrgn-bttm-sm">{{::'SECURITY_DISCLAIMER'|translate}}</h2></summary>
         <section data-ng-if="!drugProdCtrl.isFrench()" data-ng-include="'app/scripts/templates/common/tpl-security-disclaimer-en.html'"></section>
         <section data-ng-if="drugProdCtrl.isFrench()" data-ng-include="'app/scripts/templates/common/tpl-security-disclaimer-fr.html'"></section>
+      </details>
     </div>
     <span id="instructions"></span>
     <div class="wb-fnote" role="note">
-        <h2>{{::'FOOTNOTE_INSTRUCTION'|translate}}</h2>
+      <details>
+        <summary><h2>{{::'FOOTNOTE_INSTRUCTION'|translate}}</h2></summary>
         <cmp-product-info-help-text ht-indx-list="drugProdCtrl.htIndxList" is-for-prod="drugProdCtrl.isForProd">
         </cmp-product-info-help-text>
+      </details>
     </div>
     <span id="main"></span>
     <div class="row mrgn-tp-md">
@@ -530,7 +536,7 @@
                         </strong>
                     </div>
                 </div>
-                <div id="formulations-panel" class="row" role="tabpanel">
+                <div id="formulations-panel" role="tabpanel">
                     <div class="form-group">
                         <cmp-formulations formulations="drugProdCtrl.model.drugProduct.formulations"
                                           error-summary-update="drugProdCtrl.updateSummary"
@@ -567,7 +573,7 @@
                         </strong>
                     </div>
                 </div>
-                <div id="appendix4-panel" class="row" role="tabpanel">
+                <div id="appendix4-panel" role="tabpanel">
                     <div class="form-group">
                         <cmp-appendix-four ingredients="drugProdCtrl.model.drugProduct.appendixFourList" service="drugProdCtrl.drugProductService"
                                            update-error-summary="drugProdCtrl.updateErrorSummary()"

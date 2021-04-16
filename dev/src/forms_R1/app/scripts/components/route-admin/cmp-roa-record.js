@@ -89,6 +89,7 @@
             } else {
                 vm.model.display = "";
                 vm.model.roa = "";
+                vm.showDetailErrors=true;
             }
         };
 

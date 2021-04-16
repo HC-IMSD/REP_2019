@@ -46,6 +46,7 @@
             subtypes: "",
             specSubt: "",
             isTreatFPA: "",
+            isTreatFPACasted: "",
             withdrawalDays: "",
             withdrawalHours: "",
             timeCombined: ""
@@ -60,9 +61,10 @@
             {type: "required", displayAlias: "MSG_ERR_MAND"},
             {type: "minlength", displayAlias: "MSG_LENGTH_MIN5"}
         ];
-        vm.maxError = [
+        vm.numberError = [
             {type: "required", displayAlias: "MSG_ERR_MAND"},
-            {type: "max", displayAlias: "MSG_VALUE_MAX"}
+            {type: "max", displayAlias: "MSG_VALUE_MAX"},
+            {type: "number", displayAlias: "TYPE_NUMBER"}
         ];
 
         vm.$onInit = function(){
@@ -89,6 +91,23 @@
         vm.saveRecord = function()  {
             if (vm.speciesForm.$valid) {
                 vm.model.specSubt = vm.model.species[vm.lang] + ', ' + vm.model.subtypes[vm.lang];
+                if (vm.model.isTreatFPA){
+                        if(vm.model.isTreatFPA==="Y"){
+                            if(vm.lang === "en"){
+                                vm.model.isTreatFPACasted = "Yes";
+                            }else if(vm.lang === "fr"){
+                                vm.model.isTreatFPACasted = "Oui";
+                            }
+                        }else if(vm.model.isTreatFPA==="N"){
+                            if(vm.lang === "en"){
+                                vm.model.isTreatFPACasted = "No";
+                            }else if(vm.lang === "fr"){
+                                vm.model.isTreatFPACasted = "Non";
+                            }
+                            vm.model.withdrawalDays ="";
+                            vm.model.withdrawalHours = "";
+                        }
+                }
                 if (vm.model.withdrawalDays) {
                     if(vm.lang === "en"){
                         vm.model.timeCombined = vm.model.withdrawalDays + ' days and ' + vm.model.withdrawalHours + ' hours';

@@ -59,15 +59,17 @@
         vm.backup = angular.copy(vm.ctModel);
 
         vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
-        vm.numberError = [
-            {type: "minLength", displayAlias: "TYPE_MIN"},
-            {type: "number", displayAlias: "TYPE_NUMBER"}
-        ];
         vm.numberInvalidMinMax=[
             {type: "min", displayAlias: "MSG_ERR_INVALID_NUM_MIN"},
             {type: "number", displayAlias: "TYPE_NUMBER"},
             {type: "max", displayAlias: "MSG_ERR_INVALID_NUM_MAX"}
         ];
+        vm.alias={
+            "min_temp": {
+                "type": "min",
+                "errorType": "MSG_ERR_INVALID_NUM_MIN"
+            }
+        };
 
         vm.updateSummary=0; //message to update the summary component
         vm.showSummary=false; //show the error summary object

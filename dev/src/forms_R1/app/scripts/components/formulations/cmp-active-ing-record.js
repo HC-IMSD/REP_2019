@@ -70,6 +70,12 @@
             {type: "min", displayAlias: "MSG_ERR_INVALID_NUM_MIN_LOWER"},
             {type: "number", displayAlias: "TYPE_NUMBER"}
         ];
+        vm.alias={
+            "strength_data2": {
+                "type": "min",
+                "errorType": "MSG_ERR_INVALID_NUM_MIN_LOWER"
+            }
+        };
 
         vm.ingModel = {
             autoIngred: NO,
@@ -102,14 +108,13 @@
             nanoMaterialOther: "",
             calcAsBase: "",
             humanAnimalSourced: "",
-            focusOnIngRole: false,
+            focusOnIngRole: false
         };
 
         vm.strengthData1Title="";
 
         vm.exclusions={
         };
-        vm.alias={};
         vm.updateSummary=0; //message to update the summary component
         vm.showSummary=false; //show the errror summary object
         vm.focusSummary=0; //messaging to focus on the active ingredient summary

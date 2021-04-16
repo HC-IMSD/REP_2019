@@ -64,9 +64,9 @@
                     case 'B02-20160301-049': //MPSNDS
                         newList.push(raList[i]);
                         break;
-                    case 'B02-20160301-050': //NC
-                        newList.push(raList[i]);
-                        break;
+                    // case 'B02-20160301-050': //NC
+                    //     newList.push(raList[i]);
+                    //     break;
                     case 'B02-20160301-051': //NDS
                         newList.push(raList[i]);
                         break;
@@ -140,6 +140,9 @@
                         newList.push(raList[i]);
                         break;
                     case 'B02-20201214-01': //MPCOVA
+                        newList.push(raList[i]);
+                        break;
+                    case 'B02-20210108-01': //NDS CV
                         newList.push(raList[i]);
                         break;
                 }
@@ -247,6 +250,9 @@
                     case 'B02-20201214-01': //MPCOVA
                         newList.push(raList[i]);
                         break;
+                    case 'B02-20210108-01': //NDS CV
+                        newList.push(raList[i]);
+                        break;
 
                 }
             }//for
@@ -335,9 +341,9 @@
                     case 'B02-20160301-049': //MPSNDS
                         newList.push(raList[i]);
                         break;
-                    case 'B02-20160301-050': //NC
-                        newList.push(raList[i]);
-                        break;
+                    // case 'B02-20160301-050': //NC
+                    //     newList.push(raList[i]);
+                    //     break;
                     case 'B02-20160301-051': //NDS
                         newList.push(raList[i]);
                         break;
@@ -401,6 +407,9 @@
                     case 'B02-20190627-06': //SANDS-C
                         newList.push(raList[i]);
                         break;
+                    case 'B02-20210108-01': //NDS CV
+                        newList.push(raList[i]);
+                        break;
                     // case 'B02-20200417-01': //COVID-19
                     //     newList.push(raList[i]);
                     //     break;
@@ -418,9 +427,9 @@
 
         function _getVeterinaryList(raList){
             var newList=[];
-            var veterinaryArray = ['B02-20160301-001', 'B02-20200417-01', 'B02-20200417-02', 'B02-20160301-018','B02-20160301-038','B02-20160301-041','B02-20160301-043',
-                'B02-20160301-046','B02-20160301-047','B02-20160301-048','B02-20160301-049','B02-20160301-050','B02-20160301-051',
-                'B02-20180912-01','B02-20160301-079','B02-20160301-082','B02-20160301-084','B02-20160301-088','B02-20200417-01','B02-20200417-02'
+            var veterinaryArray = ['B02-20160301-001', 'B02-20200417-01', 'B02-20200417-02', 'B02-20160301-022','B02-20160301-038','B02-20160301-041','B02-20160301-043',
+                'B02-20160301-046','B02-20160301-047','B02-20160301-048','B02-20160301-049','B02-20160301-050','B02-20160301-051','B02-20210108-01',
+                'B02-20180912-01','B02-20160301-079','B02-20160301-082','B02-20160301-084','B02-20160301-088'
             ];
             for(var i=0; i<veterinaryArray.length; i++){
                 for(var j=0; j< raList.length; j++){

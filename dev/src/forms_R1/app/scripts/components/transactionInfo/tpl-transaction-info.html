@@ -462,19 +462,20 @@
                             </fieldset>
                         </div>
                         <div data-ng-show="transInfoCtrl.showThirdPartyNote" class="row">
-                            <div class="alert alert-info col-md-11" role="alert" aria-live="polite">
+                            <div class="alert alert-info col-md-12" role="alert" aria-live="polite">
                                 <p/>
                                 <ul>
                                     <li> {{::"AUT_LETTER_NOTE1" |translate}}</li>
                                     <li> {{::"AUT_LETTER_NOTE2" |translate}}</li>
                                     <li> {{::"AUT_LETTER_NOTE3" |translate}}</li>
+                                    <li> {{::"AUT_LETTER_NOTE4" |translate}}</li>
                                 </ul>
                             </div>
-                            <div class="ol-md-1">
-                                <sup id="tr15_ref">
-                                <a class="fn-lnk" href="#tr15"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::transInfoCtrl.htIndxList.thirdPtyNoteInx}}</a>
-                                </sup>
-                            </div>
+                            <!--<div class="ol-md-1">-->
+                                <!--<sup id="tr15_ref">-->
+                                <!--<a class="fn-lnk" href="#tr15"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::transInfoCtrl.htIndxList.thirdPtyNoteInx}}</a>-->
+                                <!--</sup>-->
+                            <!--</div>-->
                         </div>
                         <div  data-ng-if="transInfoCtrl.transactionModel.isThirdParty != 'N'" class="row">
                             <div class="form-group col-md-12"
@@ -526,12 +527,13 @@
                                     <input type="checkbox" data-ng-model="transInfoCtrl.transactionModel.confirmContactValid"
                                            name="{{::transInfoCtrl.contactSameId}}" id="{{::transInfoCtrl.contactSameId}}" required/>
                                     {{::"CONFIRM_CONTACT_VALID"|translate}}<strong class="required"> {{::"REQUIRED" |translate}}</strong>
-                                </label>
+
                                 <cmp-error-message field-name="transInfoCtrl.contactSameId"
                                                    form-ref="transInfoCtrl.transInfoForm"
                                                    show-error="transInfoCtrl.showError(transInfoCtrl.transInfoForm[transInfoCtrl.contactSameId])"
                                                    error-types="transInfoCtrl.requiredOnly">
                                 </cmp-error-message>
+                                </label>
                             </div>
                         </div>
                     </div>
