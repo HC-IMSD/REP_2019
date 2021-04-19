@@ -58,12 +58,12 @@
                     </div>
                     <div class="row" data-ng-show="lifecycleCtrl.isActivityLeadSet">
                         <div class="col-xs-12 form-group">
-                            <label>
+                            <label for="{{::lifecycleCtrl.activityLeadNoteId}}">
                                 <span class="field-name">{{::'REG_ACTIVITY_LEAD_DESC' |translate}}</span>
                             </label>
-                            <div class="form-control full-width well" id="activityLeadNoteId" readonly rows="4"
-                                 name="activityLeadNote"> <p>{{lifecycleCtrl.activityLeadNote|translate}}</p>
-                            </div>
+                            <textarea class="form-control full-width well" id="{{::lifecycleCtrl.activityLeadNoteId}}" readonly rows="4"
+                                 name="activityLeadNote">{{lifecycleCtrl.activityLeadNote|translate}}
+                            </textarea>
                         </div>
                     </div>
                     <div class="row">
