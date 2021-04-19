@@ -172,6 +172,9 @@
             vm.model = vm.drugProductService.getDefaultObject();
             vm.rootTag= vm.drugProductService.getRootTagName();
             vm.setVisibleTabIndex=-1;
+            $('#privacyNoticeStatement').trigger( "wb-init.wb-details" );
+            $('#securityDisclaimer').trigger( "wb-init.wb-details" );
+            $('#footnoteInstruction').trigger( "wb-init.wb-details" );
         };
         /**
          * @ngdoc captures any change events from variable bindings
