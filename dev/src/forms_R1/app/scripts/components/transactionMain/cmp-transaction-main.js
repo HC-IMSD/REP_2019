@@ -96,6 +96,10 @@
 
             vm.updateSummary=vm.updateSummary+1;
             _setIdNames();
+
+            $('#privacyNoticeStatement').trigger( "wb-init.wb-details" );
+            $('#securityDisclaimer').trigger( "wb-init.wb-details" );
+            $('#footnoteInstruction').trigger( "wb-init.wb-details" );
         };
 
 

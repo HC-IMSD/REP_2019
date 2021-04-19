@@ -4,7 +4,7 @@
 <span id="privacy"></span>
 <div class="module-attention">
     <details>
-        <summary><h2 class="panel-title mrgn-tp-sm mrgn-bttm-sm">{{::'PRIVACY_NOTICE_STATEMENT'|translate}}</h2></summary>
+        <summary class="wb-init" id="privacyNoticeStatement"><h2 class="panel-title mrgn-tp-sm mrgn-bttm-sm">{{::'PRIVACY_NOTICE_STATEMENT'|translate}}</h2></summary>
             <section data-ng-if="!main.isFrench()" data-ng-include="'app/scripts/templates/common/tpl-privacy-statement-en.html'"></section>
             <section data-ng-if="main.isFrench()" data-ng-include="'app/scripts/templates/common/tpl-privacy-statement-fr.html'"></section>
     </details>
@@ -13,7 +13,7 @@
 <span id="security"></span>
 <div class="module-attention">
     <details>
-        <summary><h2 class="panel-title mrgn-tp-sm mrgn-bttm-sm">{{::'SECURITY_DISCLAIMER'|translate}}</h2><br></summary>
+        <summary class="wb-init" id="securityDisclaimer"><h2 class="panel-title mrgn-tp-sm mrgn-bttm-sm">{{::'SECURITY_DISCLAIMER'|translate}}</h2><br></summary>
             <section data-ng-if="!main.isFrench()" data-ng-include="'app/scripts/templates/common/tpl-security-disclaimer-en.html'"></section>
             <section data-ng-if="main.isFrench()" data-ng-include="'app/scripts/templates/common/tpl-security-disclaimer-fr.html'"></section>
     </details>
@@ -21,7 +21,7 @@
 <span id="instructions"></span>
 <aside class="wb-fnote" role="note">
     <details>
-        <summary><h2>{{::'FOOTNOTE_INSTRUCTION'|translate}}</h2></summary>
+        <summary class="wb-init" id="footnoteInstruction"><h2>{{::'FOOTNOTE_INSTRUCTION'|translate}}</h2></summary>
     <!--<section data-ng-if="!main.isFrench()" data-ng-include="'app/scripts/templates/company/tpl-company-footnote-en.html'"></section>-->
     <!--<section data-ng-if="main.isFrench()" data-ng-include="'app/scripts/templates/company/tpl-company-footnote-fr.html'"></section>-->
     <cmp-company-help-text ht-indx-list="main.indexList">
