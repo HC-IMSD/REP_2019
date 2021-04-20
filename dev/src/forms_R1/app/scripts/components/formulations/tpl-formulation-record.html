@@ -148,7 +148,7 @@
             <div class="row">
                 <div class="form-group col-xs-12"
                      data-ng-class="{'has-error':formulRecCtrl.formulationForm[formulRecCtrl.isAnimalHumanMaterialId].$invalid}">
-                    <fieldset class=" col-xs-12">
+                    <fieldset class="col-xs-12 chkbxrdio-grp">
                     <legend class="required width90 radioButtonTitle">
                         <strong class="field-name">&#160;{{formulRecCtrl.getNextOrder(5)}}. {{'IS_ANIMAL_HUMAN_MATERIAL'|translate}}</strong>
                         <strong class="required">{{"REQUIRED" |translate}}</strong>
@@ -168,16 +168,14 @@
                             <!--<option value="" label=" " />-->
                         <!--</select>-->
                     <!--</div>-->
-                    <div>
-                    <label class="col-xs-2 rep-normal-font" for="{{::formulRecCtrl.isAnimalHumanMaterialId}}">
-                        <input type="radio" id="{{::formulRecCtrl.isAnimalHumanMaterialId}}" name="{{::formulRecCtrl.isAnimalHumanMaterialId}}" value="Y" data-ng-model="formulRecCtrl.frmModel.isAnimalHumanMaterial" required/>&nbsp;{{::'Y'|translate}}</label>
-                    <label class="col-xs-2 rep-normal-font" for="{{::formulRecCtrl.isAnimalHumanMaterialId}}_1">
-                        <input type="radio" id="{{::formulRecCtrl.isAnimalHumanMaterialId}}_1"
+                    <input type="radio" id="{{::formulRecCtrl.isAnimalHumanMaterialId}}" name="{{::formulRecCtrl.isAnimalHumanMaterialId}}" value="Y" data-ng-model="formulRecCtrl.frmModel.isAnimalHumanMaterial" required/>
+                    <label for="{{::formulRecCtrl.isAnimalHumanMaterialId}}">&nbsp;{{::'Y'|translate}}</label>
+                    <input type="radio" id="{{::formulRecCtrl.isAnimalHumanMaterialId}}_1"
                                name="{{::formulRecCtrl.isAnimalHumanMaterialId}}" value="N"
                                data-ng-model="formulRecCtrl.frmModel.isAnimalHumanMaterial"
                                data-ng-click="formulRecCtrl.deleteMaterialList();"
-                               required/>&nbsp;{{::'N'|translate}}</label>
-                    </div>
+                               required/>
+                    <label for="{{::formulRecCtrl.isAnimalHumanMaterialId}}_1">&nbsp;{{::'N'|translate}}</label>
                     </fieldset>
                 </div>
             </div>
