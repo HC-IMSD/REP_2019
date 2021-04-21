@@ -86,6 +86,10 @@
             "contactEmail":{
                 "type":"pattern",
                 "errorType": "MSG_ERR_EMAIL_FORMAT"
+            },
+            "control_num":{
+                "type":"minlength",
+                "errorType": "MSG_LENGTH_6NUM_CN"
             }
         };
         vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];

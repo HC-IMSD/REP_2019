@@ -21,6 +21,7 @@
   "MSG_LENGTH_MIN5": "Less than minimum length",
   "MSG_LENGTH_6": "Less than minimum length.",
   "MSG_LENGTH_6NUM": "Less than minimum length.",
+  "MSG_LENGTH_6NUM_CN": "Must be six numbers",
   "MSG_LENGTH_8NUM": "Less than minimum length.",
   "MSG_LENGTH_7": "Incorrect format - Less than minimum length.",
   "MSG_LENGTH_7NUM": "Less than minimum length.",
