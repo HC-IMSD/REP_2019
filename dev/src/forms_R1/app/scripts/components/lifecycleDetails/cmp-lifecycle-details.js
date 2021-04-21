@@ -98,7 +98,7 @@
         ];
         vm.minLength6Error=[
             {type: "required", displayAlias: "MSG_ERR_MAND"},
-            {type: "minlength", displayAlias: "MSG_LENGTH_6NUM"}
+            {type: "minlength", displayAlias: "MSG_LENGTH_6NUM_CN"}
         ];
         vm.requiredOnly=[
             {type: "required", displayAlias: "MSG_ERR_MAND"}

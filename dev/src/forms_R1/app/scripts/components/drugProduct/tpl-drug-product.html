@@ -2,7 +2,7 @@
     <span id="privacy"></span>
     <div class="module-attention">
       <details>
-        <summary><h3 class="panel-title mrgn-tp-sm mrgn-bttm-sm">{{::'PRIVACY_NOTICE_STATEMENT'|translate}}</h3></summary>
+        <summary class="wb-init" id="privacyNoticeStatement"><h3 class="panel-title mrgn-tp-sm mrgn-bttm-sm">{{::'PRIVACY_NOTICE_STATEMENT'|translate}}</h3></summary>
         <section data-ng-if="!drugProdCtrl.isFrench()" data-ng-include="'app/scripts/templates/common/tpl-privacy-statement-en.html'"></section>
         <section data-ng-if="drugProdCtrl.isFrench()" data-ng-include="'app/scripts/templates/common/tpl-privacy-statement-fr.html'"></section>
       </details>
@@ -11,7 +11,7 @@
     <span id="security"></span>
     <div class="module-attention">
       <details>
-        <summary><h2 class="panel-title mrgn-tp-sm mrgn-bttm-sm">{{::'SECURITY_DISCLAIMER'|translate}}</h2></summary>
+        <summary class="wb-init" id="securityDisclaimer"><h2 class="panel-title mrgn-tp-sm mrgn-bttm-sm">{{::'SECURITY_DISCLAIMER'|translate}}</h2></summary>
         <section data-ng-if="!drugProdCtrl.isFrench()" data-ng-include="'app/scripts/templates/common/tpl-security-disclaimer-en.html'"></section>
         <section data-ng-if="drugProdCtrl.isFrench()" data-ng-include="'app/scripts/templates/common/tpl-security-disclaimer-fr.html'"></section>
       </details>
@@ -19,7 +19,7 @@
     <span id="instructions"></span>
     <div class="wb-fnote" role="note">
       <details>
-        <summary><h2>{{::'FOOTNOTE_INSTRUCTION'|translate}}</h2></summary>
+        <summary class="wb-init" id="footnoteInstruction"><h2>{{::'FOOTNOTE_INSTRUCTION'|translate}}</h2></summary>
         <cmp-product-info-help-text ht-indx-list="drugProdCtrl.htIndxList" is-for-prod="drugProdCtrl.isForProd">
         </cmp-product-info-help-text>
       </details>
