@@ -120,6 +120,10 @@
             vm.updateSummary=false;
             vm.showErrorSummary=false;
             vm.savePressed=false;
+
+            $('#privacyNoticeStatement').trigger( "wb-init.wb-details" );
+            $('#securityDisclaimer').trigger( "wb-init.wb-details" );
+            $('#footnoteInstruction').trigger( "wb-init.wb-details" );
         };
 
         vm.$onChanges = function (changes) {

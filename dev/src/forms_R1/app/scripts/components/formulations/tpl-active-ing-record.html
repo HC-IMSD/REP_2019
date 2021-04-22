@@ -455,7 +455,7 @@
                 <div class="row">
                     <div class="form-group col-xs-12"
                          data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.isNanoMaterialId].$invalid}">
-                        <fieldset>
+                        <fieldset class="chkbxrdio-grp">
                         <legend class="full-width radioButtonTitle" 
                         		data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()}"
                         		>
@@ -474,23 +474,19 @@
                                     <!--data-ng-options="val |translate for val in  ingRecCtrl.yesNoList">-->
                             <!--</select>-->
                         </legend>
-                        <div>
-	                        <label class="col-xs-2 rep-normal-font" for="{{::ingRecCtrl.isNanoMaterialId}}">
-	                          	<input type="radio" 
+                        <input type="radio" 
 	                          		 id="{{::ingRecCtrl.isNanoMaterialId}}" name="{{::ingRecCtrl.isNanoMaterialId}}"
 	                        		 value="Y"
 	                        		 data-ng-model="ingRecCtrl.ingModel.isNano" 
-	                        		 data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"/>&nbsp;{{::'Y'|translate}}
-	                        </label>
-	                        <label class="col-xs-2 rep-normal-font" for="{{::ingRecCtrl.isNanoMaterialId}}_1">
-	                        	<input type="radio" 
+	                        		 data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"/>
+	                    <label for="{{::ingRecCtrl.isNanoMaterialId}}">&nbsp;{{::'Y'|translate}}</label>
+	                    <input type="radio" 
 	                        		   id="{{::ingRecCtrl.isNanoMaterialId}}_1" 
 	                        		   name="{{::ingRecCtrl.isNanoMaterialId}}" 
 	                        		   value="N"
 	                        		   data-ng-model="ingRecCtrl.ingModel.isNano" 
-	                        		   data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"/>&nbsp;{{::'N'|translate}}
-	                        </label>
-                        </div>
+	                        		   data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"/>
+	                    <label for="{{::ingRecCtrl.isNanoMaterialId}}_1">&nbsp;{{::'N'|translate}}</label>
                         </fieldset>
                     </div>
                     <div data-ng-if="ingRecCtrl.isNanoMaterial()">
@@ -537,7 +533,7 @@
                 <div class="row">
                     <div class="form-group col-xs-12"
                          data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.animalHumanSrcId].$invalid}">
-                        <fieldset>
+                        <fieldset class="chkbxrdio-grp">
                         <legend class="full-width radioButtonTitle" 
                         		data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()}">
                             <span class="field-name">{{'ANIMAL_HUMAN_SOURCED'|translate}}</span>
@@ -556,19 +552,16 @@
                                 <!--data-ng-required="true" class="form-control" name="{{::ingRecCtrl.animalHumanSrcId}}"-->
                                 <!--data-ng-options="val |translate for val in  ingRecCtrl.yesNoList">-->
                         <!--</select>-->
-                        <div>
-                        <label class="col-xs-2 rep-normal-font" for="{{::ingRecCtrl.animalHumanSrcId}}">
-                        	<input type="radio" id="{{::ingRecCtrl.animalHumanSrcId}}" name="{{::ingRecCtrl.animalHumanSrcId}}"
+                        <input type="radio" id="{{::ingRecCtrl.animalHumanSrcId}}" name="{{::ingRecCtrl.animalHumanSrcId}}"
                         		value="Y"
                         		data-ng-model="ingRecCtrl.ingModel.humanAnimalSourced" 
-                        		data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"/>&nbsp;{{::'Y'|translate}}
-                        </label>
-                        <label class="col-xs-2 rep-normal-font" for="{{::ingRecCtrl.animalHumanSrcId}}_1">
-                        	<input type="radio" id="{{::ingRecCtrl.animalHumanSrcId}}_1" name="{{::ingRecCtrl.animalHumanSrcId}}" 
+                        		data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"/>
+                        <label for="{{::ingRecCtrl.animalHumanSrcId}}">&nbsp;{{::'Y'|translate}}</label>
+                        <input type="radio" id="{{::ingRecCtrl.animalHumanSrcId}}_1" name="{{::ingRecCtrl.animalHumanSrcId}}" 
                         		value="N"
                         		data-ng-model="ingRecCtrl.ingModel.humanAnimalSourced" 
-                        		data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"/>&nbsp;{{::'N'|translate}}</label>
-                        </div>
+                        		data-ng-required="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()"/>
+                        <label for="{{::ingRecCtrl.animalHumanSrcId}}_1">&nbsp;{{::'N'|translate}}</label>
                         </fieldset>
                     </div>
                 </div>
@@ -585,10 +578,10 @@
             <div class="row">
                 <div class="col-xs-12 btn-group-sm align-bottom">
                     <button class="btn btn-primary" data-ng-click="ingRecCtrl.saveIng()" data-ng-if="ctrCtrl.cancelFocus()"
-                            id="medSave_{{::$id}}" name="saveMI"  onclick="focusOnTable(this, 'active_ing_list_')">{{'SAVE_RECORD'|translate}}
+                            id="medSave_{{::$id}}" name="saveMI">{{'SAVE_RECORD'|translate}}
                     </button>
                     <button class="btn btn-primary" data-ng-click="ingRecCtrl.saveIng()" data-ng-if="! ctrCtrl.cancelFocus()"
-                            id="medSave_{{::$id}}" onclick="focusOnTable(this, 'active_ing_list_')"
+                            id="medSave_{{::$id}}"
                             name="saveMI">{{'SAVE_RECORD'|translate}}
                     </button>
                     <button data-ng-if="ingRecCtrl.deleteBtn === true" class="btn btn-danger" id="medDelete_{{::$id}}" onclick="focusOnRow(this, 'addAI_')"

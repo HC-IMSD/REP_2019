@@ -86,6 +86,10 @@
             "contactEmail":{
                 "type":"pattern",
                 "errorType": "MSG_ERR_EMAIL_FORMAT"
+            },
+            "control_num":{
+                "type":"minlength",
+                "errorType": "MSG_LENGTH_6NUM_CN"
             }
         };
         vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
@@ -96,6 +100,10 @@
 
             vm.updateSummary=vm.updateSummary+1;
             _setIdNames();
+
+            $('#privacyNoticeStatement').trigger( "wb-init.wb-details" );
+            $('#securityDisclaimer').trigger( "wb-init.wb-details" );
+            $('#footnoteInstruction').trigger( "wb-init.wb-details" );
         };
 
 
