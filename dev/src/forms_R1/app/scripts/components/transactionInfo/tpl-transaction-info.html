@@ -434,7 +434,7 @@
                 </header>
                 <div class="panel-body">
                     <div>
-                        <h4 class="mrgn-tp-sm">{{::'COMPANY_INFO'|translate}}</h4>
+                        <h3 class="mrgn-tp-sm">{{::'COMPANY_INFO'|translate}}</h3>
                         <div class="row form-group">
                             <fieldset class="col-md-12 chkbxrdio-grp" data-ng-class="{'has-error':transInfoCtrl.transInfoForm[transInfoCtrl.thirdPartyId].$invalid}">
                                 <legend class="required">
@@ -496,7 +496,7 @@
 
                     </div>
                     <div data-ng-if="transInfoCtrl.transactionModel.isThirdParty != 'N'">
-                        <h4 class="mrgn-tp-sm">{{::'ADDRESS_INFO'|translate}}</h4>
+                        <h3 class="mrgn-tp-sm">{{::'ADDRESS_INFO'|translate}}</h3>
                         <div class="row">
                             <cmp-address-details address-record="transInfoCtrl.transactionModel.activityAddress"
                                                  is-amend="true" show-errors="transInfoCtrl.showErrors()"
@@ -507,10 +507,10 @@
                     <div>
                         <div  class="mrgn-tp-sm">
                             <div data-ng-if="!(transInfoCtrl.transactionModel.isThirdParty != 'N')">
-                                <h4>B. {{::'COMPANY_REP_THIS'|translate}}</h4>
+                                <h3>B. {{::'COMPANY_REP_THIS'|translate}}</h3>
                             </div>
                             <div data-ng-if="transInfoCtrl.transactionModel.isThirdParty != 'N'">
-                                <h4>C. {{::'COMPANY_REP_THIS'|translate}}</h4>
+                                <h3>C. {{::'COMPANY_REP_THIS'|translate}}</h3>
                             </div>
                         </div>
                         <div class="row">
