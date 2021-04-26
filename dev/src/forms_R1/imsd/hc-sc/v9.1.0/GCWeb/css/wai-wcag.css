@@ -19,6 +19,18 @@
     color: white !important;
 }
 
+fieldset.chkbxrdio-grp legend {
+	font-size: 15px !important;
+}
+
 fieldset.chkbxrdio-grp input[type="radio"] {
 	margin-left:15px;
+}
+
+fieldset.chkbxrdio-grp input[type="radio"] + label {
+	font-weight: normal;
+}
+
+strong.error span.label-danger span {
+	white-space: normal !important;
 }
