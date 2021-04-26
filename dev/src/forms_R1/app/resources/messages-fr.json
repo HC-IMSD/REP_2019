@@ -21,6 +21,7 @@
   "MSG_LENGTH_MIN5": "Veuillez fournir au moins 5 chiffres.",
   "MSG_LENGTH_6": "Veuillez fournir au moins 6 caractères.",
   "MSG_LENGTH_6NUM": "Veuillez fournir 6 chiffres.",
+  "MSG_LENGTH_6NUM_CN": "Veuillez fournir 6 chiffres.",
   "MSG_LENGTH_8NUM": "Veuillez fournir 8 chiffres.",
   "MSG_LENGTH_7": "Format incorrect - Veuillez fournir 7 caractères.",
   "MSG_LENGTH_7NUM": "Veuillez fournir  7 chiffres.",

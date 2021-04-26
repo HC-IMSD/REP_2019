@@ -86,6 +86,14 @@
             "contactEmail":{
                 "type":"pattern",
                 "errorType": "MSG_ERR_EMAIL_FORMAT"
+            },
+            "control_num":{
+                "type":"minlength",
+                "errorType": "MSG_LENGTH_6NUM_CN"
+            },
+            "dossier_id":{
+                "type":"pattern",
+                "errorType": "FORMAT_TYPE_PATTERN"
             }
         };
         vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];

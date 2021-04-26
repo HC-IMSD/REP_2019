@@ -76,7 +76,7 @@
                                         <!--<span class="input-group-addon">HC6-024-</span>-->
                                         <span data-ng-class="{'has-error':transInfoCtrl.transInfoForm[transInfoCtrl.dossierId].$invalid}">
                                             <input type="text" class="form-control" id="{{::transInfoCtrl.dossierId}}"
-                                                   size="7" maxlength="7" data-ng-minlength="7" name="{{::transInfoCtrl.dossierId}}" required
+                                                   size="7" maxlength="7" name="{{::transInfoCtrl.dossierId}}" required
                                                    data-ng-pattern="/^[a-z]{1}\d{6}/"
                                                    data-ng-model="transInfoCtrl.transactionModel.ectd.dossierId" />
                                         </span>
@@ -174,13 +174,14 @@
                                                show-error="transInfoCtrl.showError(transInfoCtrl.transInfoForm[transInfoCtrl.isPriorityId])"
                                                error-types="transInfoCtrl.requiredOnly"></cmp-error-message>
                         </legend>
-                        <label class="col-xs-2" for="{{::transInfoCtrl.isPriorityId}}">
-                            <input type="radio" id="{{::transInfoCtrl.isPriorityId}}"
+                        <input type="radio" id="{{::transInfoCtrl.isPriorityId}}"
                                    name="{{::transInfoCtrl.isPriorityId}}" value="Y"
                                    data-ng-model="transInfoCtrl.transactionModel.isPriority" required
                                    data-ng-blur="transInfoCtrl.setTouch(transInfoCtrl.transInfoForm[transInfoCtrl.isPriorityId])"/>
-                            &nbsp;{{::'Y'|translate}}</label>
-                        <label class="col-xs-2" for="{{::transInfoCtrl.isPriorityId}}_1"><input type="radio" id="{{::transInfoCtrl.isPriorityId}}_1" name="{{::transInfoCtrl.isPriorityId}}" value="N" data-ng-model="transInfoCtrl.transactionModel.isPriority" required />&nbsp;{{::'N'|translate}}</label>
+                        <label for="{{::transInfoCtrl.isPriorityId}}">&nbsp;{{::'Y'|translate}}</label>
+                        <input type="radio" id="{{::transInfoCtrl.isPriorityId}}_1" name="{{::transInfoCtrl.isPriorityId}}" value="N" data-ng-model="transInfoCtrl.transactionModel.isPriority" required />
+                        <label for="{{::transInfoCtrl.isPriorityId}}_1">&nbsp;{{::'N'|translate}}</label>
+                        <!-- /div -->
                     </fieldset>
                 </div>
                 <div class="row form-group" data-ng-if="transInfoCtrl.isPB()">
@@ -194,13 +195,13 @@
                                                error-types="transInfoCtrl.requiredOnly">
                             </cmp-error-message>
                         </legend>
-                        <label class="col-xs-2" for="{{::transInfoCtrl.isNocId}}">
-                            <input type="radio" id="{{::transInfoCtrl.isNocId}}"
+                        <input type="radio" id="{{::transInfoCtrl.isNocId}}"
                                    name="{{::transInfoCtrl.isNocId}}" value="Y"
                                    data-ng-model="transInfoCtrl.transactionModel.isNoc" required
                                    data-ng-blur="transInfoCtrl.setTouch(transInfoCtrl.transInfoForm[transInfoCtrl.isNocId])"/>
-                            &nbsp;{{::'Y'|translate}}</label>
-                        <label class="col-xs-2" for="{{::transInfoCtrl.isNocId}}_1"><input type="radio" id="{{::transInfoCtrl.isNocId}}_1" name="{{::transInfoCtrl.isNocId}}" value="N" data-ng-model="transInfoCtrl.transactionModel.isNoc" required />&nbsp;{{::'N'|translate}}</label>
+                        <label for="{{::transInfoCtrl.isNocId}}">&nbsp;{{::'Y'|translate}}</label>
+                        <input type="radio" id="{{::transInfoCtrl.isNocId}}_1" name="{{::transInfoCtrl.isNocId}}" value="N" data-ng-model="transInfoCtrl.transactionModel.isNoc" required />
+                        <label for="{{::transInfoCtrl.isNocId}}_1">&nbsp;{{::'N'|translate}}</label>
                     </fieldset>
                 </div>
 
@@ -218,14 +219,14 @@
                                                    show-error="transInfoCtrl.showError(transInfoCtrl.transInfoForm[transInfoCtrl.isAdminSubId])"
                                                    error-types="transInfoCtrl.requiredOnly"></cmp-error-message>
                             </legend>
-                            <label class="col-xs-2" for="{{::transInfoCtrl.isAdminSubId}}">
-                                <input type="radio" id="{{::transInfoCtrl.isAdminSubId}}"
+                            <input type="radio" id="{{::transInfoCtrl.isAdminSubId}}"
                                        name="{{::transInfoCtrl.isAdminSubId}}" value="Y"
                                        data-ng-model="transInfoCtrl.transactionModel.isAdminSub" required
                                        data-ng-change="transInfoCtrl.setAdminSubmission()"
                                        data-ng-blur="transInfoCtrl.setTouch(transInfoCtrl.transInfoForm[transInfoCtrl.isAdminSubId])"/>
-                                &nbsp;{{::'Y'|translate}}</label>
-                            <label class="col-xs-2" for="{{::transInfoCtrl.isAdminSubId}}_1"><input type="radio" id="{{::transInfoCtrl.isAdminSubId}}_1" name="{{::transInfoCtrl.isAdminSubId}}" value="N" data-ng-model="transInfoCtrl.transactionModel.isAdminSub" required data-ng-change="transInfoCtrl.setAdminSubmission()"/>&nbsp;{{::'N'|translate}}</label>
+                            <label for="{{::transInfoCtrl.isAdminSubId}}">&nbsp;{{::'Y'|translate}}</label>
+                            <input type="radio" id="{{::transInfoCtrl.isAdminSubId}}_1" name="{{::transInfoCtrl.isAdminSubId}}" value="N" data-ng-model="transInfoCtrl.transactionModel.isAdminSub" required data-ng-change="transInfoCtrl.setAdminSubmission()"/>                            
+                            <label for="{{::transInfoCtrl.isAdminSubId}}_1">&nbsp;{{::'N'|translate}}</label>
                         </fieldset>
                     </div>
                 </div>
@@ -389,15 +390,15 @@
                                  </span>
                             </strong>
                         </legend>
-                        <label class="col-xs-2" for="{{::transInfoCtrl.isFeesId}}">
-                            <input type="radio" id="{{::transInfoCtrl.isFeesId}}"
+                        <input type="radio" id="{{::transInfoCtrl.isFeesId}}"
                                    name="{{::transInfoCtrl.isFeesId}}" value="Y"
                                    data-ng-model="transInfoCtrl.transactionModel.isFees"
                                    required data-ng-change="transInfoCtrl.updateFeeState()"
                                    data-ng-blur="transInfoCtrl.setTouch(transInfoCtrl.transInfoForm[transInfoCtrl.isFeesId])"
                             />
-                            &nbsp;{{::'Y'|translate}}</label>
-                        <label class="col-xs-2" for="{{::transInfoCtrl.isFeesId}}_1"><input type="radio" id="{{::transInfoCtrl.isFeesId}}_1" name="{{::transInfoCtrl.isFeesId}}" value="N" data-ng-model="transInfoCtrl.transactionModel.isFees" required data-ng-change="transInfoCtrl.updateFeeState()"/>&nbsp;{{::'N'|translate}}</label>
+                        <label for="{{::transInfoCtrl.isFeesId}}">&nbsp;{{::'Y'|translate}}</label>
+                        <input type="radio" id="{{::transInfoCtrl.isFeesId}}_1" name="{{::transInfoCtrl.isFeesId}}" value="N" data-ng-model="transInfoCtrl.transactionModel.isFees" required data-ng-change="transInfoCtrl.updateFeeState()"/>
+                        <label for="{{::transInfoCtrl.isFeesId}}_1">&nbsp;{{::'N'|translate}}</label>
                     </fieldset>
                 </div>
             </div>
@@ -433,7 +434,7 @@
                 </header>
                 <div class="panel-body">
                     <div>
-                        <h4 class="mrgn-tp-sm">{{::'COMPANY_INFO'|translate}}</h4>
+                        <h3 class="mrgn-tp-sm">{{::'COMPANY_INFO'|translate}}</h3>
                         <div class="row form-group">
                             <fieldset class="col-md-12 chkbxrdio-grp" data-ng-class="{'has-error':transInfoCtrl.transInfoForm[transInfoCtrl.thirdPartyId].$invalid}">
                                 <legend class="required">
@@ -445,20 +446,18 @@
                                                        error-types="transInfoCtrl.requiredOnly">
                                     </cmp-error-message>
                                 </legend>
-                                <label class="col-xs-3 rep-normal-font" for="{{::transInfoCtrl.thirdPartyId}}">
-                                    <input type="radio" id="{{::transInfoCtrl.thirdPartyId}}"
+                                <input type="radio" id="{{::transInfoCtrl.thirdPartyId}}"
                                            name="{{::transInfoCtrl.thirdPartyId}}" value="Y"
                                            data-ng-model="transInfoCtrl.transactionModel.isThirdParty" required
                                            data-ng-change="transInfoCtrl.setThirdParty()"
                                            data-ng-blur="transInfoCtrl.setTouch(transInfoCtrl.transInfoForm[transInfoCtrl.thirdPartyId])"/>
-                                    &nbsp;{{::'Y'|translate}}</label>
-                                <label class="col-xs-3 rep-normal-font" for="{{::transInfoCtrl.thirdPartyId}}_1">
-                                    <input type="radio" id="{{::transInfoCtrl.thirdPartyId}}_1"
+                                <label for="{{::transInfoCtrl.thirdPartyId}}">&nbsp;{{::'Y'|translate}}</label>
+                                <input type="radio" id="{{::transInfoCtrl.thirdPartyId}}_1"
                                            name="{{::transInfoCtrl.thirdPartyId}}" value="N"
                                            data-ng-model="transInfoCtrl.transactionModel.isThirdParty"
                                            required
-                                           data-ng-change="transInfoCtrl.setThirdParty()"/>&nbsp;
-                                    {{::'N'|translate}}</label>
+                                           data-ng-change="transInfoCtrl.setThirdParty()"/>                                    
+                                <label for="{{::transInfoCtrl.thirdPartyId}}_1">&nbsp;{{::'N'|translate}}</label>
                             </fieldset>
                         </div>
                         <div data-ng-show="transInfoCtrl.showThirdPartyNote" class="row">
@@ -497,7 +496,7 @@
 
                     </div>
                     <div data-ng-if="transInfoCtrl.transactionModel.isThirdParty != 'N'">
-                        <h4 class="mrgn-tp-sm">{{::'ADDRESS_INFO'|translate}}</h4>
+                        <h3 class="mrgn-tp-sm">{{::'ADDRESS_INFO'|translate}}</h3>
                         <div class="row">
                             <cmp-address-details address-record="transInfoCtrl.transactionModel.activityAddress"
                                                  is-amend="true" show-errors="transInfoCtrl.showErrors()"
@@ -508,10 +507,10 @@
                     <div>
                         <div  class="mrgn-tp-sm">
                             <div data-ng-if="!(transInfoCtrl.transactionModel.isThirdParty != 'N')">
-                                <h4>B. {{::'COMPANY_REP_THIS'|translate}}</h4>
+                                <h3>B. {{::'COMPANY_REP_THIS'|translate}}</h3>
                             </div>
                             <div data-ng-if="transInfoCtrl.transactionModel.isThirdParty != 'N'">
-                                <h4>C. {{::'COMPANY_REP_THIS'|translate}}</h4>
+                                <h3>C. {{::'COMPANY_REP_THIS'|translate}}</h3>
                             </div>
                         </div>
                         <div class="row">

@@ -58,12 +58,12 @@
                     </div>
                     <div class="row" data-ng-show="lifecycleCtrl.isActivityLeadSet">
                         <div class="col-xs-12 form-group">
-                            <label>
+                            <label for="{{::lifecycleCtrl.activityLeadNoteId}}">
                                 <span class="field-name">{{::'REG_ACTIVITY_LEAD_DESC' |translate}}</span>
                             </label>
-                            <div class="form-control full-width well" id="activityLeadNoteId" readonly rows="4"
-                                 name="activityLeadNote"> <p>{{lifecycleCtrl.activityLeadNote|translate}}</p>
-                            </div>
+                            <textarea class="form-control full-width well" id="{{::lifecycleCtrl.activityLeadNoteId}}" readonly rows="4"
+                                 name="activityLeadNote">{{lifecycleCtrl.activityLeadNote|translate}}
+                            </textarea>
                         </div>
                     </div>
                     <div class="row">
@@ -122,7 +122,7 @@
                                </p>
                         </div>
                     </div>
-                    <div class="row" data-ng-show="lifecycleCtrl.startDateVisible && !lifecycleCtrl.endDateVisible">
+                    <div class="row" data-ng-if="lifecycleCtrl.startDateVisible && !lifecycleCtrl.endDateVisible">
                         <div class="form-group col-md-4"
                              data-ng-class="{'has-error':lifecycleCtrl.lifecycleDetailsForm[lifecycleCtrl.dateId].$invalid}">
                             <label for="{{::lifecycleCtrl.dateId}}" class="required">
@@ -141,7 +141,7 @@
                                    data-ng-change="lifecycleCtrl.setConcatDetails()"/>
                         </div>
                     </div>
-                    <div class="row" data-ng-show="lifecycleCtrl.endDateVisible">
+                    <div class="row" data-ng-if="lifecycleCtrl.endDateVisible">
                         <div class="form-group col-md-6"
                              data-ng-class="{'has-error':lifecycleCtrl.lifecycleDetailsForm[lifecycleCtrl.startDateId].$invalid}">
                             <label for="{{::lifecycleCtrl.startDateId}}" class="required">
@@ -321,58 +321,60 @@
                     </div>
 
                     <div class="row" data-ng-if="lifecycleCtrl.requesterVisible">
-                        <p class="mrgn-lft-md mrgn-tp-sm legend-rep">{{::'SOLICITED_RQ'|translate}}
-                            <!--<sup id="tr12_ref">-->
-                                <!--<a class="fn-lnk" href="#tr12"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>12</a>-->
-                            <!--</sup>-->
-                        </p>
-                        <div class="form-group col-md-4 typeahead-demo"
-                             data-ng-class="{'has-error':lifecycleCtrl.lifecycleDetailsForm[lifecycleCtrl.requesterNameId].$invalid}">
-                            <label for="{{::lifecycleCtrl.requesterNameId}}" class="required full-width">
-                                <span class="field-name">1. {{'REQUESTER_NAME'|translate}}</span>
-                                <strong class="required">{{'REQUIRED' |translate}}</strong>
-                                <span class="rep-margin-top">
-                                <sup id="tr12_ref">
-                                    <a class="fn-lnk" href="#tr12"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::lifecycleCtrl.htIndxList.reqSoliInx}}</a>
-                                    </sup>
-                                <cmp-error-message field-name="lifecycleCtrl.requesterNameId" form-ref="lifecycleCtrl.lifecycleDetailsForm"
-                                                   show-error="lifecycleCtrl.showError(lifecycleCtrl.lifecycleDetailsForm[lifecycleCtrl.requesterNameId])"
-                                                   error-types="lifecycleCtrl.requiredOnly"></cmp-error-message>
-                        <input type="text" id="{{::lifecycleCtrl.requesterNameId}}"
-                               name="{{::lifecycleCtrl.requesterNameId}}"
-                               size="30" maxlength="30" data-ng-required="true"
-                               data-ng-model="lifecycleCtrl.lifecycleModel.requesterNameTxt"
-                               value="lifecycleCtrl.lifecycleModel.requesterNameTxt"
-                               data-ng-blur="lifecycleCtrl.userChanged('requesterName')"
-                               class="form-control full-width" />
-                             </span>
-                            </label>
-                        </div>
-                        <div class="form-group col-md-4 typeahead-demo">
-                            <label for="{{::lifecycleCtrl.requesterNameId2}}" class="full-width">
-                                <span class="field-name">2. {{'REQUESTER_NAME'|translate}}</span>
-                                <span class="rep-margin-top">
-                        <input type="text" id="{{::lifecycleCtrl.requesterNameId2}}"
-                               name="{{::lifecycleCtrl.requesterNameId2}}" size="30" maxlength="30"
-                               data-ng-model="lifecycleCtrl.lifecycleModel.requesterName2Txt"
-                               value="lifecycleCtrl.lifecycleModel.requesterName2Txt" data-ng-blur="lifecycleCtrl.userChanged('requesterName2')"
-                               class="form-control full-width" />
-                             </span>
-                            </label>
-                        </div>
-                        <div class="form-group col-md-4 typeahead-demo">
-                            <label for="{{::lifecycleCtrl.requesterNameId3}}" class="full-width">
-                                <span class="field-name">3. {{'REQUESTER_NAME'|translate}}</span>
-                                <span class="rep-margin-top">
-                        <input type="text" id="{{::lifecycleCtrl.requesterNameId3}}"
-                               name="{{::lifecycleCtrl.requesterNameId3}}" size="30" maxlength="30"
-                               data-ng-model="lifecycleCtrl.lifecycleModel.requesterName3Txt"
-                               value="lifecycleCtrl.lifecycleModel.requesterName3Txt"
-                               data-ng-blur="lifecycleCtrl.userChanged('requesterName3')"
-                               class="form-control full-width" />
-                             </span>
-                            </label>
-                        </div>
+                        <fieldset class="col-md-12">
+                            <legend class="mrgn-lft-md mrgn-tp-sm legend-rep">{{::'SOLICITED_RQ'|translate}}
+                                <!--<sup id="tr12_ref">-->
+                                    <!--<a class="fn-lnk" href="#tr12"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>12</a>-->
+                                <!--</sup>-->
+                            </legend>
+                            <div class="form-group col-md-4 typeahead-demo"
+                                 data-ng-class="{'has-error':lifecycleCtrl.lifecycleDetailsForm[lifecycleCtrl.requesterNameId].$invalid}">
+                                <label for="{{::lifecycleCtrl.requesterNameId}}" class="required full-width">
+                                    <span class="field-name">1. {{'REQUESTER_NAME'|translate}}</span>
+                                    <strong class="required">{{'REQUIRED' |translate}}</strong>
+                                    <span class="rep-margin-top">
+                                    <sup id="tr12_ref">
+                                        <a class="fn-lnk" href="#tr12"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::lifecycleCtrl.htIndxList.reqSoliInx}}</a>
+                                        </sup>
+                                    <cmp-error-message field-name="lifecycleCtrl.requesterNameId" form-ref="lifecycleCtrl.lifecycleDetailsForm"
+                                                       show-error="lifecycleCtrl.showError(lifecycleCtrl.lifecycleDetailsForm[lifecycleCtrl.requesterNameId])"
+                                                       error-types="lifecycleCtrl.requiredOnly"></cmp-error-message>
+                                <input type="text" id="{{::lifecycleCtrl.requesterNameId}}"
+                                       name="{{::lifecycleCtrl.requesterNameId}}"
+                                       size="30" maxlength="30" data-ng-required="true"
+                                       data-ng-model="lifecycleCtrl.lifecycleModel.requesterNameTxt"
+                                       value="lifecycleCtrl.lifecycleModel.requesterNameTxt"
+                                       data-ng-blur="lifecycleCtrl.userChanged('requesterName')"
+                                       class="form-control full-width" />
+                                 </span>
+                                </label>
+                            </div>
+                            <div class="form-group col-md-4 typeahead-demo">
+                                <label for="{{::lifecycleCtrl.requesterNameId2}}" class="full-width">
+                                    <span class="field-name">2. {{'REQUESTER_NAME2'|translate}}</span>
+                                    <span class="rep-margin-top">
+                                <input type="text" id="{{::lifecycleCtrl.requesterNameId2}}"
+                                       name="{{::lifecycleCtrl.requesterNameId2}}" size="30" maxlength="30"
+                                       data-ng-model="lifecycleCtrl.lifecycleModel.requesterName2Txt"
+                                       value="lifecycleCtrl.lifecycleModel.requesterName2Txt" data-ng-blur="lifecycleCtrl.userChanged('requesterName2')"
+                                       class="form-control full-width" />
+                                 </span>
+                                </label>
+                            </div>
+                            <div class="form-group col-md-4 typeahead-demo">
+                                <label for="{{::lifecycleCtrl.requesterNameId3}}" class="full-width">
+                                    <span class="field-name">3. {{'REQUESTER_NAME3'|translate}}</span>
+                                    <span class="rep-margin-top">
+                                    <input type="text" id="{{::lifecycleCtrl.requesterNameId3}}"
+                                           name="{{::lifecycleCtrl.requesterNameId3}}" size="30" maxlength="30"
+                                           data-ng-model="lifecycleCtrl.lifecycleModel.requesterName3Txt"
+                                           value="lifecycleCtrl.lifecycleModel.requesterName3Txt"
+                                           data-ng-blur="lifecycleCtrl.userChanged('requesterName3')"
+                                           class="form-control full-width" />
+                                 </span>
+                                </label>
+                            </div>
+                        </fieldset>
                     </div>
                 <!--</fieldset>-->
             <!--</div>-->
