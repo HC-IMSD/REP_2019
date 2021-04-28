@@ -95,17 +95,18 @@
                                                            show-error="transFeeCtrl.showError(transFeeCtrl.transFeeForm[transFeeCtrl.smallBusinessFeeApplicationId])"
                                                            error-types="transFeeCtrl.requiredOnly"></cmp-error-message>
                                     </legend>
-                                    <label class="col-xs-2" for="{{::transFeeCtrl.smallBusinessFeeApplicationId}}">
-                                        <input type="radio" id="{{::transFeeCtrl.smallBusinessFeeApplicationId}}"
+                                    <input type="radio" id="{{::transFeeCtrl.smallBusinessFeeApplicationId}}"
                                                name="{{::transFeeCtrl.smallBusinessFeeApplicationId}}" value="Y"
                                                data-ng-model="transFeeCtrl.model.mitigation.smallBusinessFeeApplication" required
                                                data-ng-blur="transFeeCtrl.setTouch(transFeeCtrl.transFeeForm[transFeeCtrl.smallBusinessFeeApplicationId])"/>
+                                    <label for="{{::transFeeCtrl.smallBusinessFeeApplicationId}}">
                                         &nbsp;{{::'Y'|translate}}
                                     </label>
-                                    <label class="col-xs-2" for="{{::transFeeCtrl.smallBusinessFeeApplicationId}}_1">
-                                        <input type="radio" id="{{::transFeeCtrl.smallBusinessFeeApplicationId}}_1"
+                                    <input type="radio" id="{{::transFeeCtrl.smallBusinessFeeApplicationId}}_1"
                                                name="{{::transFeeCtrl.smallBusinessFeeApplicationId}}" value="N"
-                                               data-ng-model="transFeeCtrl.model.mitigation.smallBusinessFeeApplication" required />&nbsp;{{::'N'|translate}}
+                                               data-ng-model="transFeeCtrl.model.mitigation.smallBusinessFeeApplication" required />
+                                    <label for="{{::transFeeCtrl.smallBusinessFeeApplicationId}}_1">
+                                        &nbsp;{{::'N'|translate}}
                                     </label>
                                 </fieldset>
                             </div>
