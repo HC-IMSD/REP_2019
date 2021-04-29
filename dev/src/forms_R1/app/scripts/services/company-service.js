@@ -229,7 +229,7 @@
                         enrolment_version: jsonObj.enrolmentVersion,
                         date_saved: jsonObj.dateSaved,
                         application_type: jsonObj.applicationType,
-                        software_version: jsonObj.softwareVersion,
+                        software_version: "4.2.0",
                         company_id: jsonObj.companyId,
                         reason_amend: jsonObj.reasonAmend,
                         address_record: _mapAddressListToOutput(jsonObj.addressList, $translate), //TODOremoved zero index
