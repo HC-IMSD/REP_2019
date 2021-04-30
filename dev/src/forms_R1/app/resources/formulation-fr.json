@@ -35,7 +35,7 @@
   "NANO_MATERIAL": "Nanomatériau",
   "NANO_MATERIAL_OTHER": "Indiquer le type de nanomatériau",
   "ANIMAL_HUMAN_SOURCED": "Source d'animale ou humaine?",
-  "INGREDIENT_LIST":"Lista de ingredientes",
+  "INGREDIENT_LIST":"Liste d'ingrédients",
   "ROLE": "Rôle",
   "INGREDIENT": "Ingrédient",
   "INGREDIENTS": "Ingrédients",
@@ -119,6 +119,6 @@
   "INGREDIENT_INSTRUCT":"Ingredient Instructions",
   "CTRCTRL.CONTAINERTYPEFORM":"dans les détails du type de conteneur",
   "SHELF_LIFE_NUMBER": "Valeur",
-  "MATERIAL_INGREDIENT_LIST": "Lista de ingredientes del material",
+  "MATERIAL_INGREDIENT_LIST": "Liste des ingrédients matériels",
   "ANIMAL_SOURCES":"Sources d'animales"
 }
