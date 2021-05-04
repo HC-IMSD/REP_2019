@@ -73,6 +73,9 @@
                 vm.countryList = vm.updateCountryList();
                 vm.updateRecord();
                 vm.clearFilter($scope);
+                if(vm.isUnknown) {
+                	$("#"+vm.countryId).focus();
+                }
             } else {
                 vm.model.display = "";
                 if (vm.model.country) {
