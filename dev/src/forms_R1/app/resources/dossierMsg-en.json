@@ -22,7 +22,7 @@
   "MSG_ERR_ONE_CNTRY_ORIGIN": "At least one Country of origin is required",
   "MSG_ERR_ONE_CDN_REF": "At least one Canadian Reference product is required",
   "MSG_ERR_INVALID_NUM_MIN": "The value must be greater than or equal to -273",
-  "MSG_ERR_INVALID_NUM_MAX": "The value must be less than 999",
+  "MSG_ERR_INVALID_NUM_MAX": "The value must be less than or equal to 999",
   "MSG_ERR_INVALID_NUM_MIN0": "The value must be greater than or equal to 0",
   "MSG_ERR_INVALID_NUM_MIN_LOWER": "The value must be greater than Lower Limit",
   "MSG_TISSUE_SYS_USED": "This system has been already been selected, please select another."

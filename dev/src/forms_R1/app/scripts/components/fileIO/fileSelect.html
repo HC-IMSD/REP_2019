@@ -8,10 +8,7 @@
                     </label>
 
                     <div class="col-sm-8">
-                        <button id="fileLoadCusButton" onclick="document.getElementById('fileLoad').click();"
-                                >{{::'CHOOSE_FILE'|translate}}</button><span>{{$ctrl.uploadedFileName}}</span>
-
-                        <input id="fileLoad" type="file" accept=".xml, .hcsc" name="fileLoad" style="display:none"
+                        <input id="fileLoad" type="file" accept=".xml, .hcsc" name="fileLoad"
                                data-hpfb-file-select="$ctrl.modelCallback(fileContent, filename)"
                                data-root-tag="{{$ctrl.rootElem}}"/>
                     </div>
