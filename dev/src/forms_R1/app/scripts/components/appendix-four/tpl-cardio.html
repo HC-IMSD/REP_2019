@@ -65,6 +65,8 @@
                         </label>
                     </div>
                 </div>
+            </div>
+            <div class="row" data-ng-class="{'has-error':sysCtrl.cardioForm[sysCtrl.otherDetailsId].$invalid}">
                 <div ng-if="sysCtrl.otherChanged()" class="col-md-12">
                     <div class="form-group ">
                         <label class="required" for="{{::sysCtrl.otherDetailsId}}">{{::'CARDIO_DETAILS'|translate}}
