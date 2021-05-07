@@ -209,10 +209,10 @@
                             </div>
                         </div>
                         <div class="row col-md-12">
-                            <div class="form-group col-md-5" data-ng-if="ingRecCtrl.isStrengthSet()">
+                            <div class="form-group col-md-5" data-ng-if="ingRecCtrl.isStrengthSet()"
+                                 data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.strengthData1Id].$invalid}">
                                 <label for="{{ingRecCtrl.strengthData1Id}}" 
-                                	   data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()}"
-                                       data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.strengthData1Id].$invalid}">
+                                	   data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()}">
                                     <span class="field-name">{{ingRecCtrl.strengthData1Title|translate}}</span>
                                     <strong data-ng-if="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()" class="required">{{"REQUIRED" |translate}}</strong>
                                     <cmp-error-message field-name="ingRecCtrl.strengthData1Id"

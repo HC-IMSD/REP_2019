@@ -69,8 +69,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
-                <div class="form-group"
+            <div class="col-md-6 form-group"
                      data-ng-class="{'has-error':importerRecCtrl.importerForm[importerRecCtrl.stateListId].$invalid}">
                     <label for="{{::importerRecCtrl.stateListId}}" class="required">
                         <span class="field-name">{{"PROVINCE" |translate}}</span>
@@ -81,11 +80,12 @@
                         </cmp-error-message>
                         <select class="form-control full-width" data-ng-model="importerRecCtrl.model.stateList"
                                 id="{{::importerRecCtrl.stateListId}}" name="{{::importerRecCtrl.stateListId}}"
-                                data-ng-options="province |translate for province in importerRecCtrl.provinces">
+                                data-ng-options="province |translate for province in importerRecCtrl.provinces"
+                                data-required="true">
                             <option label=" " value="" />
                         </select>
                     </label>
-                </div>
+                <!--</div>-->
                 <!--<div class="form-group " data-ng-show="importerRecCtrl.hideProvinceDdl"-->
                      <!--data-ng-class="{'has-error':importerRecCtrl.importerForm[importerRecCtrl.stateTextId].$invalid}">-->
                     <!--<label for="{{::importerRecCtrl.stateTextId}}">{{::"PROVSTATE" |translate}}</label>-->
@@ -94,7 +94,7 @@
                            <!--size="40"/>-->
                 <!--</div>-->
             </div>
-            <div class="form-group col-md-6" data-ng-class="{'has-error':importerRecCtrl.importerForm[importerRecCtrl.postalId].$invalid}">
+            <div class="form-group col-md-6 has-error" data-ng-class="{'has-error':importerRecCtrl.importerForm[importerRecCtrl.postalId].$invalid}">
                 <!--<label for="{{::importerRecCtrl.postalId}}" data-ng-class="{required:importerRecCtrl.isPostalRequired}">-->
                     <label for="{{::importerRecCtrl.postalId}}" class="required">
                     <span class="field-name">{{"POSTAL"|translate}}</span>
