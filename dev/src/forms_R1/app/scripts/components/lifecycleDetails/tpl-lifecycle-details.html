@@ -56,7 +56,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row" data-ng-show="lifecycleCtrl.isActivityLeadSet">
+                    <div class="row" data-ng-if="lifecycleCtrl.isActivityLeadSet">
                         <div class="col-xs-12 form-group">
                             <label for="{{::lifecycleCtrl.activityLeadNoteId}}">
                                 <span class="field-name">{{::'REG_ACTIVITY_LEAD_DESC' |translate}}</span>
