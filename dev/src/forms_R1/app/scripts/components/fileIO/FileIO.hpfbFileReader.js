@@ -39,7 +39,7 @@
 
                     hpfbFileReader.readAsDataText(scope.file, scope)
                         .then(function (result) {
-                            scope.hpfbFileSelect({fileContent: result, filename: scope.file.name});
+                            scope.hpfbFileSelect({fileContent: result});
                         })
 
             })
@@ -70,9 +70,8 @@
     function FileSelectController(hpfbFileProcessing) {
         var vm = this;
         vm.fileTypes = ".xml, .hcsc";
-        vm.modelCallback = function (fileContent, filename) {
+        vm.modelCallback = function (fileContent) {
             vm.status = "";
-            vm.uploadedFileName = filename;
             if (fileContent && fileContent.jsonResult) {
                 var versionArray = fileContent.jsonResult[vm.rootElem]['software_version'].split('.');
                 if (vm.versionExpected && vm.versionExpected !== versionArray[0]) {

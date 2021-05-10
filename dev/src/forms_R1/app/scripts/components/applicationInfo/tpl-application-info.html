@@ -106,7 +106,7 @@
                     <span>{{::'AMEND_MSG'|translate}}</span>
                 </div>
             </div>
-            <div class="col-xs-12 form-group has-error">
+            <div class="col-xs-12 form-group" data-ng-class="{'has-error':infoCtrl.applInfoForm[infoCtrl.reasonAmend].$invalid}">
                 <label for="{{::infoCtrl.reasonAmend}}" class="required">{{::'REASON_AMEND'|translate}}<strong class="required"> {{::"REQUIRED" |translate}}</strong>
                     <sup id="co2a_ref">
                         <a class="fn-lnk" href="#co2a"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::infoCtrl.indexList.fillingIdx}}</a>

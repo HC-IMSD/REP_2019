@@ -1407,6 +1407,7 @@
             vm.descriptChangeId = "brief_desc_change" +  scopeId;
             vm.fromValueId = "fromValue" + scopeId;
             vm.toValueId = "toValue" +scopeId;
+            vm.activityLeadNoteId ="reg_activity_lead_desc" +scopeId;
         }
     }
 })();
