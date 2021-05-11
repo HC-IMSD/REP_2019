@@ -140,6 +140,10 @@
             "fax_number": {
                 "type": "pattern",
                 "errorType": "MSG_ERR_FAX_FORMAT"
+            },
+            "dossier_id":{
+                "type":"pattern",
+                "errorType": "FORMAT_TYPE_PATTERN"
             }
         };
         vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
