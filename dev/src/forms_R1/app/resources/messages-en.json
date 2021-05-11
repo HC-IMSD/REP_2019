@@ -18,7 +18,7 @@
   "IMPORTER_SEL": "Role already Selected",
   "REPPRIM_SEL": "Role already Selected",
   "REPALT_SEL": "Role already Selected",
-  "MSG_LENGTH_MIN5": "Less than minimum length",
+  "MSG_LENGTH_MIN5": "Must be five numbers.",
   "MSG_LENGTH_6": "Less than minimum length.",
   "MSG_LENGTH_6NUM": "Less than minimum length.",
   "MSG_LENGTH_6NUM_CN": "Must be six numbers",
