@@ -280,6 +280,7 @@
             vm.phoneExtId="phoneExt" + scopeId;
             vm.contactEmailId="contactEmail" + scopeId;
             vm.routingIdentifierId="routing_id" + scopeId;
+            vm.co5aRefid = 'co5a_ref' + scopeId;
         }
     }
 })();
