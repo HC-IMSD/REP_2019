@@ -68,7 +68,12 @@
             "min_temp": {
                 "type": "min",
                 "errorType": "MSG_ERR_INVALID_NUM_MIN"
+            },
+            "max_temp": {
+                "type": "min",
+                "errorType": "MSG_ERR_INVALID_NUM_MIN"
             }
+
         };
 
         vm.updateSummary=0; //message to update the summary component
