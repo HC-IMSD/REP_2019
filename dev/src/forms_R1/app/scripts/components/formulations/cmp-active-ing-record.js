@@ -501,6 +501,14 @@
             vm.asBaseId="calculated_as_base"+scopeId;
             vm.animalHumanSrcId="animal_human_sourced"+scopeId;
             vm.purposeId="purpose"+scopeId;
+            vm.dr9c1Ref = 'dr9c1_ref' + scopeId;
+            vm.dr9c2Ref = 'dr9c2_ref' + scopeId;
+            vm.dr9c3Ref = 'dr9c3_ref' + scopeId;
+            vm.dr9c4Ref = 'dr9c4_ref' + scopeId;
+            vm.dr9c5Ref = 'dr9c5_ref' + scopeId;
+            vm.dr9c6Ref = 'dr9c6_ref' + scopeId;
+            vm.dr9c7Ref = 'dr9c7_ref' + scopeId;
+            vm.dr9c8Ref = 'dr9c8_ref' + scopeId;
         }
 
         /**

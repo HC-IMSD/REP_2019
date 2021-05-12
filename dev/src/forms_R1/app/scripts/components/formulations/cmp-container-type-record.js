@@ -190,6 +190,9 @@
             vm.tempMinId="min_temp" +scopeId;
             vm.tempMaxId="max_temp" +scopeId;
             vm.otherShelflifeConsiderId="other_shelf_life_considerations" + scopeId;
+            vm.dr9e1Ref= 'dr9e1_ref' + scopeId;
+            vm.dr9e2Ref= 'dr9e2_ref' + scopeId;
+            vm.dr9e3Ref= 'dr9e3_ref' + scopeId;
         }
 
         /**
