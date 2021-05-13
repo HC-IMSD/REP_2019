@@ -32,5 +32,7 @@
   "MSG_FORMAT_CHAR_6DIGITS": "ID should be a letter plus 6 digits.",
   "MSG_ERR_DUPLICATED_SYSTEM": "Duplicated System.",
   "MSG_FORMAT_ALPHA_NUMBERIC": "Incorrect format - must be lowercase letter followed by six numbers",
-  "MSG_ERR_INVALID_END_DATE": "End Date should not be earlier than Start Date."
+  "MSG_ERR_INVALID_END_DATE": "End Date should not be earlier than Start Date.",
+  "MSG_DAY_MAX": "The value must be less than or equal to 999",
+  "MSG_HOUR_MAX": "The value must be less than or equal to 99"
 }

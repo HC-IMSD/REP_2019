@@ -144,6 +144,14 @@
             "dossier_id":{
                 "type":"pattern",
                 "errorType": "FORMAT_TYPE_PATTERN"
+            },
+            "VET_DAYS":{
+                "type":"max",
+                "errorType": "MSG_DAY_MAX"
+            },
+            "VET_HOURS":{
+                "type":"max",
+                "errorType": "MSG_HOUR_MAX"
             }
         };
         vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
