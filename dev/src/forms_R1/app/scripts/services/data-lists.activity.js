@@ -1966,8 +1966,8 @@
                 // vm.allActivities.DATA_PROTECT_CORRESP, //Correspondence - Data Protection
                 vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
                 vm.allActivities.PANDEMIC_APPL, //Pandemic application
-                vm.allActivities.ROLLING_INFO, //Rolling Information
-                vm.allActivities.TERM_COND_COMM //Terms and Conditions Commitment
+                vm.allActivities.ROLLING_INFO //Rolling Information
+                // vm.allActivities.TERM_COND_COMM //Terms and Conditions Commitment
                 // vm.allActivities.NONCLIN_CLARIF_RESPONSE //response to Non-clinical clarification request
             ])
         }
@@ -2015,8 +2015,8 @@
                 // vm.allActivities.CONSENT_LTR, //Consent Letter
                 // vm.allActivities.DATA_PROTECT_CORRESP, //Correspondence - Data Protection
                 vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
-                vm.allActivities.ROLLING_INFO, //Rolling Information
-                vm.allActivities.TERM_COND_COMM //Terms and Conditions Commitment
+                vm.allActivities.ROLLING_INFO //Rolling Information
+                // vm.allActivities.TERM_COND_COMM //Terms and Conditions Commitment
                 // vm.allActivities.NONCLIN_CLARIF_RESPONSE //response to Non-clinical clarification request
             ])
         }
@@ -2065,8 +2065,8 @@
                 // vm.allActivities.CONSENT_LTR, //Consent Letter
                 // vm.allActivities.DATA_PROTECT_CORRESP, //Correspondence - Data Protection
                 vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
-                vm.allActivities.ROLLING_INFO, //Rolling Information
-                vm.allActivities.TERM_COND_COMM //Terms and Conditions Commitment
+                vm.allActivities.ROLLING_INFO //Rolling Information
+                // vm.allActivities.TERM_COND_COMM //Terms and Conditions Commitment
                 // vm.allActivities.NONCLIN_CLARIF_RESPONSE //response to Non-clinical clarification request
             ])
         }
@@ -2114,8 +2114,8 @@
                 // vm.allActivities.CONSENT_LTR, //Consent Letter
                 // vm.allActivities.DATA_PROTECT_CORRESP, //Correspondence - Data Protection
                 vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
-                vm.allActivities.ROLLING_INFO, //Rolling Information
-                vm.allActivities.TERM_COND_COMM //Terms and Conditions Commitment
+                vm.allActivities.ROLLING_INFO //Rolling Information
+                // vm.allActivities.TERM_COND_COMM //Terms and Conditions Commitment
                 // vm.allActivities.NONCLIN_CLARIF_RESPONSE //response to Non-clinical clarification request
             ])
         }
