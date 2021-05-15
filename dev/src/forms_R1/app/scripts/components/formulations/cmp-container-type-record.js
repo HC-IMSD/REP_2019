@@ -68,7 +68,12 @@
             "min_temp": {
                 "type": "min",
                 "errorType": "MSG_ERR_INVALID_NUM_MIN"
+            },
+            "max_temp": {
+                "type": "min",
+                "errorType": "MSG_ERR_INVALID_NUM_MIN"
             }
+
         };
 
         vm.updateSummary=0; //message to update the summary component
@@ -190,6 +195,9 @@
             vm.tempMinId="min_temp" +scopeId;
             vm.tempMaxId="max_temp" +scopeId;
             vm.otherShelflifeConsiderId="other_shelf_life_considerations" + scopeId;
+            vm.dr9e1Ref= 'dr9e1_ref' + scopeId;
+            vm.dr9e2Ref= 'dr9e2_ref' + scopeId;
+            vm.dr9e3Ref= 'dr9e3_ref' + scopeId;
         }
 
         /**
