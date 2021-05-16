@@ -519,8 +519,7 @@
              * @private
              */
             var result = _createFeeDetails();
-            if (angular.isUndefined(feeObj) || !feeObj) return null;
-            // result.submission_class = feeObj.submissionClass;
+            if (angular.isUndefined(feeObj) || !feeObj) return result;
 
             if (feeObj.submission_class && feeObj.submission_class._id) {
                 result.submissionClass = $filter('findListItemById')(TransactionLists.getFeeList(), {id: feeObj.submission_class._id});
