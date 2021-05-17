@@ -60,7 +60,6 @@
         vm.headerLevel = "";
         vm.startFormId = "";
 
-        vm.firstRecordConcatFieldValueInErrorArray="";
         vm.$onInit = function () {
 
         };
@@ -250,9 +249,6 @@
                 if (!angular.equals(vm.errorArray, newErrors)) {
                     vm.errorArray = newErrors;
                 }
-            }
-            if(vm.errorArray.length >= 1) {
-            	vm.firstRecordConcatFieldValueInErrorArray = vm.errorArray[0].concat;
             }
         };
 
