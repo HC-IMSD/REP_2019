@@ -33,7 +33,7 @@
         </h6>
         <ul data-ng-repeat="errorRec in errSummaryCtrl.errorArray">
                 <li data-ng-if="!errSummaryCtrl.isList(errorRec) && !errorRec.isSummary && errorRec.type">
-                    <a  href="#{{errorRec.name}}" target="_self" data-focus-if="errSummaryCtrl.firstRecordConcatFieldValueInErrorArray == errorRec.concat">{{errorRec.translateKey|translate}}&nbsp;&#8208;&nbsp;{{errorRec.type |translate}}</a>
+                    <a  href="#{{errorRec.name}}" target="_self">{{errorRec.translateKey|translate}}&nbsp;&#8208;&nbsp;{{errorRec.type |translate}}</a>
                 </li>
                 <li data-ng-if="!errSummaryCtrl.isList(errorRec) && !errorRec.isSummary && !errorRec.type">
                     <a  href="#{{errorRec.name}}" target="_self">{{errorRec.translateKey|translate}}</a>
