@@ -9,6 +9,7 @@
         .module('materialIngRecordModule',
             [
                 'dossierDataLists',
+                'hpfbConstants',
                 'errorSummaryModule',
                 'errorMessageModule'
             ])
@@ -40,8 +41,8 @@
             }
 
         });
-    materialIngRecCtrl.$inject = ['DossierLists','$scope'];
-    function materialIngRecCtrl(DossierLists, $scope) {
+    materialIngRecCtrl.$inject = ['DossierLists','$scope','$translate','FRENCH'];
+    function materialIngRecCtrl(DossierLists, $scope, $translate, FRENCH) {
 
         var vm = this;
         vm.yesNoList = DossierLists.getYesNoList();
@@ -50,6 +51,7 @@
         vm.updateSummary=0; //message to update the summary component
         vm.showSummary=false; //show the errror summary object
         vm.focusSummary=0;
+        vm.lang = $translate.proposedLanguage() || $translate.use();
         vm.$onInit = function () {
         	
             vm.mirModel = {};
@@ -142,5 +144,13 @@
 
         };
         vm.isFocus = false;
+
+        /**
+         * Determines if form is in french
+         * @returns {boolean}
+         */
+        vm.isFrench = function(){
+            return(vm.lang === FRENCH);
+        };
     }
 })();
