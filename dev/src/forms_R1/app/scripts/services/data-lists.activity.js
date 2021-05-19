@@ -1308,6 +1308,7 @@
                 vm.allActivities.RESSESS_ORDER, //Reassessment Order
                 vm.allActivities.PRESUB_MEETING_RQ,   //submission Meeting Request -used to be presub
                 vm.allActivities.TEST_STUDIES_ORDER, //Test and Studies Order
+                vm.allActivities.MHPD_RQ_RESPONSE, //Response to MHPD requests
                 vm.allActivities.TERM_COND_COMM //Terms and Conditions Commitment
             ]);
         }
