@@ -292,6 +292,7 @@
                 vm.showSummary=true;
                 vm.makeFocused();
                 vm.updateErrorSummaryState();
+                window.location.hash = '#errors-summary-ingRecCtrl.activeIngForm';
             }
         };
 

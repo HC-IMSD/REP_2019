@@ -121,8 +121,8 @@
                 vm.showSummary=true;
                 vm.makeFocused();
                 vm.updateErrorSummaryState();
+                window.location.hash = '#errors-summary-ctrCtrl.containerTypeForm';
             }
-
         };
 
         vm.discardChanges = function(){
@@ -185,6 +185,7 @@
         $scope.$watch('ctrCtrl.containerTypeForm.$error', function () {
             vm.updateErrorSummaryState();
         }, true);
+        
         function _setIdNames() {
             var scopeId = "_" + $scope.$id;
             vm.containerFormId="containerRecordForm" + scopeId;
