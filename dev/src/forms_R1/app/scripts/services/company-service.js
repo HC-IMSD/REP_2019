@@ -284,7 +284,7 @@
                     // address.stateList = adrList[i].company_address_details.province_lov;
                     if (adrList[i].company_address_details.province_lov) {
                         address.stateList = adrList[i].company_address_details.province_lov._id;
-                        if(address.stateList = "MO"){
+                        if(address.stateList === "MO"){
                             address.stateList = "MOS";
                         }
                     } else {
@@ -392,7 +392,7 @@
                 address.company_address_details.city = adrList[i].city;
                 // address.company_address_details.province_lov = adrList[i].stateList;
                 if (adrList[i].stateList) {
-                    if (adrList[i].stateList = "MOS") {
+                    if (adrList[i].stateList === "MOS") {
                     address.company_address_details.province_lov = {
                             _id: "MO",
                             __text: "Missouri"
