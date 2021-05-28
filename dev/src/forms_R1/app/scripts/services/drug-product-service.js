@@ -1404,7 +1404,6 @@
 
                 if (item.ingRole) {
                     var ingr = $filter('findListItemById')(DossierLists.getIngRoleList(), {id: item.ingRole});
-                    console.log(ingr);
                     if (ingr) {
                         obj.ingredient_role = {
                             _id: ingr.id,
