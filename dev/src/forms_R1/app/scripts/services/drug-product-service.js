@@ -1404,12 +1404,13 @@
 
                 if (item.ingRole) {
                     var ingr = $filter('findListItemById')(DossierLists.getIngRoleList(), {id: item.ingRole});
+                    console.log(ingr);
                     if (ingr) {
                         obj.ingredient_role = {
                             _id: ingr.id,
                             __text: ingr[currentLang]
                         };
-                        if(ingr.id === "NONMED" && "proprietary_attestation" in item) {
+                        if(ingr.id === "NONMED") {
                         	obj.proprietary_attestation = {
                             	_attested: item.proprietaryAttestation.attested,
                             	__text: item.proprietaryAttestation.info
