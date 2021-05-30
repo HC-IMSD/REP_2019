@@ -32,8 +32,8 @@
                 tname:'@'
             }
         });
-    expandingTableCtrl.$inject = ['$filter','$scope'];
-    function expandingTableCtrl($filter,$scope) {
+    expandingTableCtrl.$inject = ['$filter','$scope','$translate'];
+    function expandingTableCtrl($filter,$scope,$translate) {
         var vm = this;
         vm.focused = false;
         vm.columnDefinitions={};
@@ -45,6 +45,7 @@
         vm.disableErrorCol=false;
         vm.dayDataCollapse = _createArray(0, true);
         vm.formName="expandTblCtrl.transcludeForm";
+        vm.lang = $translate.proposedLanguage() || $translate.use();
 
         vm.$onInit = function () {
             if(vm.listItems) {

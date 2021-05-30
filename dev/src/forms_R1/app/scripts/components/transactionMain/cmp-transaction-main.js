@@ -11,6 +11,7 @@
             'dataLists',
             'filterLists',
             'numberFormat',
+            'updateLang',
             'errorSummaryModule',
             'errorMessageModule'
         ])

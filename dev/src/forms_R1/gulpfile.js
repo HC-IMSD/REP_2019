@@ -694,7 +694,8 @@ var difServiceFileNames =
 
 var directiveFolders = {
     country: 'country/',
-    numberOnly: 'numberOnly/'
+    numberOnly: 'numberOnly/',
+    updateLanguage: 'updateLanguage/'
 };
 
 
@@ -706,7 +707,8 @@ var activityDirectiveFolders = [
 //Company Form Directives
 var companyDirectiveFolders =
     [
-        directiveFolders.numberOnly
+        directiveFolders.numberOnly,
+        directiveFolders.updateLanguage
     ];
 
 //Dossier Form Directives
@@ -716,7 +718,8 @@ var dossierDirectiveFolders =
     ];
 var drugProductDirectiveFolders =
     [
-        directiveFolders.numberOnly
+        directiveFolders.numberOnly,
+        directiveFolders.updateLanguage
     ];
 var piConverterDirectiveFolders = [];
 
@@ -724,7 +727,8 @@ var piConverterDirectiveFolders = [];
 //Transaction Form directives
 var transactionDirectiveFolders =
     [
-        directiveFolders.numberOnly
+        directiveFolders.numberOnly,
+        directiveFolders.updateLanguage
     ];
 
 //Complementary

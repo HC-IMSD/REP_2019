@@ -3,7 +3,8 @@
         <thead>
         <tr>
             <td aria-label="{{::'TABLE_EXPANDED_STATE' | translate}}" data-scope="col" style="color:transparent;width:2%;"></td>
-            <th scope="col" data-ng-repeat="heading in expandTblCtrl.columnDefinitions" style="{{::heading.width}}%">{{::heading.label |translate}}</th>
+            <th scope="col" data-ng-repeat="heading in expandTblCtrl.columnDefinitions"
+                style="{{::heading.width}}%" data-update-lang data-set-condition="{{::heading.label}}{{::expandTblCtrl.lang}}">{{::heading.label |translate}}</th>
             <!-- <th scope="col" ng-if="!expandTblCtrl.disableErrorCol">{{::'ERRORS'|translate}}</th>-->
         </tr>
         </thead>

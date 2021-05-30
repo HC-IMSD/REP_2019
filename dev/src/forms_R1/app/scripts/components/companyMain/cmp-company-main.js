@@ -17,6 +17,7 @@
             'ui.bootstrap',
             'errorSummaryModule',
             'alertModule',
+            'updateLang',
             'focus-if'
         ])
 })();

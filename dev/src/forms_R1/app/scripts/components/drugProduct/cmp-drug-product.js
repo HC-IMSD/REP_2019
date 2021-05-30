@@ -22,6 +22,7 @@
         'applicationInfo',
         'ui.bootstrap',
         'numberFormat',
+        'updateLang',
         'ngMessages',
         'ngAria',
         'drugProductService',
