@@ -1409,7 +1409,7 @@
                             _id: ingr.id,
                             __text: ingr[currentLang]
                         };
-                        if(ingr.id === "NONMED" && "proprietary_attestation" in item) {
+                        if(ingr.id === "NONMED") {
                         	obj.proprietary_attestation = {
                             	_attested: item.proprietaryAttestation.attested,
                             	__text: item.proprietaryAttestation.info

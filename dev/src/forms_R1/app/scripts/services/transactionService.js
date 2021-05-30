@@ -911,7 +911,7 @@
         address.city = addressObj.city;
         var currentLang = $translate.proposedLanguage() || $translate.use();
         if (addressObj.stateList) {
-            if (addressObj.stateList = "MOS") {
+            if (addressObj.stateList === "MOS") {
                 address.province_lov = {
                     _id: "MO",
                     __text: "Missouri"
@@ -946,7 +946,7 @@
         address.city = addressObj.city;
         if (addressObj.province_lov) {
             if(addressObj.province_lov._id){
-                if(addressObj.province_lov._id = "MO"){
+                if(addressObj.province_lov._id === "MO"){
                         address.stateList = "MOS";
                     }else{
                    address.stateList = addressObj.province_lov._id;
