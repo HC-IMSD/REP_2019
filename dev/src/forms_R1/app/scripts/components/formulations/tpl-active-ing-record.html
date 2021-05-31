@@ -33,7 +33,7 @@
                         <label for="{{::ingRecCtrl.ingredName}}" class="required full-width"><span
                                 class="field-name">{{'ING_NAME'|translate}}</span>
                             <strong class="required">{{'REQUIRED' |translate}}</strong>
-                            <sup id="dr9c1_ref">
+                            <sup id="{{ingRecCtrl.dr9c1Ref}}">
                                 <a class="fn-lnk" href="#dr9c1"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::ingRecCtrl.htIndxList.ingNameIndx}}</a>
                             </sup>
                             <cmp-error-message field-name="ingRecCtrl.ingredName"
@@ -93,7 +93,7 @@
                                 data-ng-model-options="{ debounce: $inherit}"
                                 />
                             <span class="field-name">{{'NMI_PROPRIETARY_INFO_CHKBX'|translate}}</span>
-                            <sup id="dr9c7_ref">
+                            <sup id="{{ingRecCtrl.dr9c7Ref}}">
                                 <a class="fn-lnk" href="#dr9c7"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::ingRecCtrl.htIndxList.nmiProprietaryInfoIndx}}</a>
                             </sup>
                         </label>
@@ -105,7 +105,7 @@
 		                        <label for="{{::ingRecCtrl.proprietaryAttestationInfo}}" class="required">
 		                        	<span class="field-name">{{'NMI_PROPRIETARY_INFO_LBL'|translate}}</span>
 		                            <strong class="required">{{"REQUIRED" |translate}}</strong>
-		                            <sup id="dr9c8_ref">
+		                            <sup id="{{ingRecCtrl.dr9c8Ref}}">
 	                                	<a class="fn-lnk" href="#dr9c8"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::ingRecCtrl.htIndxList.nmiProprietaryInfoFieldIndx}}</a>
 	                            	</sup>
 		                            <cmp-error-message field-name="ingRecCtrl.proprietaryAttestationInfo"
@@ -128,7 +128,7 @@
                   <div class="form-group col-md-12">
                         <label for="variant_{{::$id}}">
                             <span class="field-name">{{'VARIANT_NAME'|translate}}</span>
-                            <sup id="dr9c2_ref">
+                            <sup id="{{ingRecCtrl.dr9c2Ref}}">
                                 <a class="fn-lnk" href="#dr9c2"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::ingRecCtrl.htIndxList.variaNameIndx}}</a>
                             </sup>
                             <input type="text" id="variant_{{::$id}}" data-ng-model="ingRecCtrl.ingModel.variant" maxlength="60"
@@ -142,7 +142,7 @@
                         	   data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked()}">
                             <span class="field-name">{{'PURPOSE'|translate}}</span>
                             <strong data-ng-if="!ingRecCtrl.isNMIProprietaryInfoChecked()" class="required">{{"REQUIRED" |translate}}</strong>
-                            <sup id="dr9c3_ref">
+                            <sup id="{{ingRecCtrl.dr9c3Ref}}">
                                 <a class="fn-lnk" href="#dr9c3"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::ingRecCtrl.htIndxList.purposeIndx}}</a>
                             </sup>
                             <cmp-error-message field-name="ingRecCtrl.purposeId"
@@ -161,7 +161,8 @@
                 <div class="row">
                     <div class="form-group col-md-4">
                         <label for="{{::ingRecCtrl.casId}}">
-                            <span class="field-name" lang="en">{{'CAS_NUM'|translate}}</span>
+                            <span class="field-name" lang="en" data-ng-if="ingRecCtrl.isFrench()">{{'CAS_NUM'|translate}}</span>
+                            <span class="field-name" data-ng-if="!ingRecCtrl.isFrench()">{{'CAS_NUM'|translate}}</span>
                             <input type="text" id="{{::ingRecCtrl.casId}}" data-ng-model="ingRecCtrl.ingModel.cas" maxlength="12"
                                    data-ng-model-options="{ debounce: '$inherit'}"
                                    class="form-control full-width" name="casNum"/>
@@ -171,7 +172,7 @@
                     <div class="form-group col-md-4">
                         <label for="{{::ingRecCtrl.standardId}}">
                             <span class="field-name">{{'STANDARD'|translate}}</span>
-                            <sup id="dr9c4_ref">
+                            <sup id="{{ingRecCtrl.dr9c4Ref}}">
                                 <a class="fn-lnk" href="#dr9c4"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::ingRecCtrl.htIndxList.standardIndx}}</a>
                             </sup>
                             <input type="text" id="{{::ingRecCtrl.standardId}}" data-ng-model="ingRecCtrl.ingModel.standard"
@@ -209,10 +210,10 @@
                             </div>
                         </div>
                         <div class="row col-md-12">
-                            <div class="form-group col-md-5" data-ng-if="ingRecCtrl.isStrengthSet()">
+                            <div class="form-group col-md-5" data-ng-if="ingRecCtrl.isStrengthSet()"
+                                 data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.strengthData1Id].$invalid}">
                                 <label for="{{ingRecCtrl.strengthData1Id}}" 
-                                	   data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()}"
-                                       data-ng-class="{'has-error':ingRecCtrl.activeIngForm[ingRecCtrl.strengthData1Id].$invalid}">
+                                	   data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()}">
                                     <span class="field-name">{{ingRecCtrl.strengthData1Title|translate}}</span>
                                     <strong data-ng-if="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()" class="required">{{"REQUIRED" |translate}}</strong>
                                     <cmp-error-message field-name="ingRecCtrl.strengthData1Id"
@@ -461,7 +462,7 @@
                         		>
                             <span class="field-name">{{'IS_NANO_MATERIAL'|translate}}</span>
                             <strong data-ng-if="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()" class="required">{{"REQUIRED" |translate}}</strong>
-                            <sup id="dr9c5_ref">
+                            <sup id="{{ingRecCtrl.dr9c5Ref}}">
                                 <a class="fn-lnk" href="#dr9c5"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::ingRecCtrl.htIndxList.isNanoIndx}}</a>
                             </sup>
 
@@ -538,7 +539,7 @@
                         		data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()}">
                             <span class="field-name">{{'ANIMAL_HUMAN_SOURCED'|translate}}</span>
                             <strong data-ng-if="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()" class="required">{{"REQUIRED" |translate}}</strong>
-                            <sup id="dr9c6_ref">
+                            <sup id="{{ingRecCtrl.dr9c6Ref}}">
                                 <a class="fn-lnk" href="#dr9c6"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::ingRecCtrl.htIndxList.ahSourcedIndx}}</a>
                             </sup>
 

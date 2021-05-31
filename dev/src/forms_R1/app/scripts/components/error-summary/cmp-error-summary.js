@@ -69,7 +69,6 @@
          * @param changes
          */
         vm.$onChanges = function (changes) {
-
             if (changes.setHeadingLevel) {
 
                 if (angular.isDefined(changes.setHeadingLevel.currentValue)) {

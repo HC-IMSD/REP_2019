@@ -243,14 +243,14 @@
                                                    error-types="transInfoCtrl.requiredOnly"></cmp-error-message>
                                 <select id="{{::transInfoCtrl.adminSubTypeId}}" name="{{::transInfoCtrl.adminSubTypeId}}"
                                         data-ng-model="transInfoCtrl.transactionModel.subType" class="form-control" data-ng-if="transInfoCtrl.transactionModel.ectd.dossierType == 'D24'"
-                                        data-ng-options="choice[transInfoCtrl.lang] for choice in transInfoCtrl.adminSubTypeList | filter: {id:'!POSTAUTH_CHEMISTRY_CHGE'} track by choice.id"
+                                        data-ng-options="choice[transInfoCtrl.lang] for choice in transInfoCtrl.adminSubTypeList | filter: {id:'!POSTAUTH_CHEMISTRY_CHGE'}"
                                         data-ng-required="transInfoCtrl.showAdminSub">
                                     <option label=" " value="" data-ng-empty="transInfoCtrl.transactionModel.subType"/>
                                 </select>
 
                                 <select id="{{::transInfoCtrl.adminSubTypeId}}" name="{{::transInfoCtrl.adminSubTypeId}}" data-ng-if="transInfoCtrl.transactionModel.ectd.dossierType != 'D24'"
                                         data-ng-model="transInfoCtrl.transactionModel.subType" class="form-control"
-                                        data-ng-options="choice[transInfoCtrl.lang] for choice in transInfoCtrl.adminSubTypeList track by choice.id"
+                                        data-ng-options="choice[transInfoCtrl.lang] for choice in transInfoCtrl.adminSubTypeList"
                                         data-ng-required="transInfoCtrl.showAdminSub">
                                     <option label=" " value="" data-ng-empty="transInfoCtrl.transactionModel.subType"/>
                                 </select>

@@ -68,7 +68,12 @@
             "min_temp": {
                 "type": "min",
                 "errorType": "MSG_ERR_INVALID_NUM_MIN"
+            },
+            "max_temp": {
+                "type": "min",
+                "errorType": "MSG_ERR_INVALID_NUM_MIN"
             }
+
         };
 
         vm.updateSummary=0; //message to update the summary component
@@ -116,8 +121,8 @@
                 vm.showSummary=true;
                 vm.makeFocused();
                 vm.updateErrorSummaryState();
+                window.location.hash = '#errors-summary-ctrCtrl.containerTypeForm';
             }
-
         };
 
         vm.discardChanges = function(){
@@ -180,6 +185,7 @@
         $scope.$watch('ctrCtrl.containerTypeForm.$error', function () {
             vm.updateErrorSummaryState();
         }, true);
+        
         function _setIdNames() {
             var scopeId = "_" + $scope.$id;
             vm.containerFormId="containerRecordForm" + scopeId;
@@ -190,6 +196,9 @@
             vm.tempMinId="min_temp" +scopeId;
             vm.tempMaxId="max_temp" +scopeId;
             vm.otherShelflifeConsiderId="other_shelf_life_considerations" + scopeId;
+            vm.dr9e1Ref= 'dr9e1_ref' + scopeId;
+            vm.dr9e2Ref= 'dr9e2_ref' + scopeId;
+            vm.dr9e3Ref= 'dr9e3_ref' + scopeId;
         }
 
         /**

@@ -414,6 +414,10 @@
             vm.listDinCtryId = "list_din_country" + scopeId;
             vm.noDinCountryId = "no_din_country" + scopeId;
             vm.drugMarketId = 'drugMarketId' + scopeId;
+            vm.dr91Ref = 'dr91_ref' + scopeId;
+            vm.dr9cRef = 'dr9c_ref' + scopeId;
+            vm.dr9dRef = 'dr9d_ref' + scopeId;
+            vm.dr9gRef = 'dr9g_ref' + scopeId;
         }
 
         $scope.$watch('formulRecCtrl.formulationForm.$error', function () {

@@ -14,7 +14,7 @@
                     <label for="{{::ctrCtrl.containerTypeId}}" class="required">
                         <span class="field-name">{{'CONTAINER_TYPE'|translate}}</span>
                         <strong class="required">{{'REQUIRED' |translate}}</strong>
-                        <sup id="dr9e1_ref">
+                        <sup id="{{ctrCtrl.dr9e1Ref}}">
                             <a class="fn-lnk" href="#dr9e1"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::ctrCtrl.htIndxList.contaTypeIndx}}</a>
                         </sup>
                         <cmp-error-message field-name="ctrCtrl.containerTypeId"
@@ -34,7 +34,7 @@
                     <label for="{{::ctrCtrl.packageSizeId}}" class="required">
                         <span class="field-name">{{'PACKAGE_SIZE'|translate}}</span>
                         <strong class="required">{{'REQUIRED' |translate}}</strong>
-                        <sup id="dr9e2_ref">
+                        <sup id="{{ctrCtrl.dr9e2Ref}}">
                             <a class="fn-lnk" href="#dr9e2"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::ctrCtrl.htIndxList.packSizeIndx}}</a>
                         </sup>
                         <cmp-error-message field-name="ctrCtrl.packageSizeId"
@@ -51,7 +51,7 @@
                 <div class="col-md-6 form-group">
                     <fieldset>
                         <legend class="legend-rep"><span>{{'SHELF_LIFE'| translate}}</span>
-                            <sup id="dr9e3_ref">
+                            <sup id="{{ctrCtrl.dr9e3Ref}}">
                                 <a class="fn-lnk" href="#dr9e3"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::ctrCtrl.htIndxList.shelfLifeIndx}}</a>
                             </sup>
                         </legend>

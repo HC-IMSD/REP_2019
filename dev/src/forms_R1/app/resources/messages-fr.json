@@ -18,7 +18,7 @@
   "IMPORTER_SEL": "fr_Importer Role already Selected",
   "REPPRIM_SEL": "Rôle déjà sélectionné",
   "REPALT_SEL": "Rôle déjà sélectionné",
-  "MSG_LENGTH_MIN5": "Veuillez fournir au moins 5 chiffres.",
+  "MSG_LENGTH_MIN5": "Veuillez fournir 5 chiffres.",
   "MSG_LENGTH_6": "Veuillez fournir au moins 6 caractères.",
   "MSG_LENGTH_6NUM": "Veuillez fournir 6 chiffres.",
   "MSG_LENGTH_6NUM_CN": "Veuillez fournir 6 chiffres.",
@@ -32,5 +32,7 @@
   "MSG_FORMAT_CHAR_6DIGITS": "fr_ID should be a letter plus 6 digits.",
   "MSG_ERR_DUPLICATED_SYSTEM": "fr_Duplicated System.",
   "MSG_FORMAT_ALPHA_NUMBERIC": "Format incorrect - composé d’une lettre suivie de six chiffres",
-  "MSG_ERR_INVALID_END_DATE": "La date de fin ne doit pas être antérieure à la date de début"
+  "MSG_ERR_INVALID_END_DATE": "La date de fin ne doit pas être antérieure à la date de début",
+  "MSG_DAY_MAX": "La valeur doit être inférieure ou égale à 999",
+  "MSG_HOUR_MAX": "La valeur doit être inférieure ou égale à 99"
 }

@@ -519,8 +519,7 @@
              * @private
              */
             var result = _createFeeDetails();
-            if (angular.isUndefined(feeObj) || !feeObj) return null;
-            // result.submission_class = feeObj.submissionClass;
+            if (angular.isUndefined(feeObj) || !feeObj) return result;
 
             if (feeObj.submission_class && feeObj.submission_class._id) {
                 result.submissionClass = $filter('findListItemById')(TransactionLists.getFeeList(), {id: feeObj.submission_class._id});
@@ -912,10 +911,17 @@
         address.city = addressObj.city;
         var currentLang = $translate.proposedLanguage() || $translate.use();
         if (addressObj.stateList) {
+            if (addressObj.stateList === "MOS") {
+                address.province_lov = {
+                    _id: "MO",
+                    __text: "Missouri"
+                };
+            }else{
             address.province_lov = {
                 _id: addressObj.stateList,
                 __text: $translate.instant(addressObj.stateList, "", '', currentLang)
             };
+            }
         } else {
             address.province_lov = "";
         }
@@ -940,7 +946,11 @@
         address.city = addressObj.city;
         if (addressObj.province_lov) {
             if(addressObj.province_lov._id){
-                address.stateList = addressObj.province_lov._id;
+                if(addressObj.province_lov._id === "MO"){
+                        address.stateList = "MOS";
+                    }else{
+                   address.stateList = addressObj.province_lov._id;
+                }
             } else {
                 address.stateList = addressObj.province_lov;
             }
