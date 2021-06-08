@@ -745,6 +745,16 @@
             return formulationList;
 
         }
+        
+        
+        function stringToNumber(str) {
+          var n = null;
+          if(str && str.trim != '') {
+            n = Number(str);
+          }
+          return n;
+        }
+        
 
         /**
          * Loads all the active ingredient records into the internal Data model
@@ -775,8 +785,8 @@
                     "humanAnimalSourced": item.is_human_animal_src,
                     "standard": item.ingred_standard,
                     "strength": {operator: "",
-                        data1: Number(item.strength.data1),
-                        data2: Number(item.strength.data2) },
+                        data1: stringToNumber(item.strength.data1),
+                        data2: stringToNumber(item.strength.data2) },
                     "units": "",
                     "unitsHtml": "",
                     "otherUnits": item.units_other,
@@ -1421,19 +1431,27 @@
 
                 if(item.strength) {
                     var data2Value = "";
-                    if (item.strength.operator.id === 'RA') {
+                    if (item.strength.operator && item.strength.operator.id === 'RA') {
                         data2Value = item.strength.data2;
                     }
-                    obj.strength = {
-                        operator: {
-                            _id: item.strength.operator.id,
-                            _label_en: item.strength.operator.en,
-                            _label_fr: item.strength.operator.fr,
-                            __text: item.strength.operator[currentLang]
-                        },
-                        data1: item.strength.data1,
-                        data2: data2Value
-                    };
+                    if(item.strength.operator) {
+	                    obj.strength = {
+	                        operator: {
+	                            _id: item.strength.operator.id,
+	                            _label_en: item.strength.operator.en,
+	                            _label_fr: item.strength.operator.fr,
+	                            __text: item.strength.operator[currentLang]
+	                        },
+	                        data1: item.strength.data1,
+	                        data2: data2Value
+	                    };
+                    } else {
+                    	obj.strength = {
+	                        operator: {},
+	                        data1: item.strength.data1,
+	                        data2: data2Value
+	                    };
+                    }
                 }
 
                 if(item.per) {
