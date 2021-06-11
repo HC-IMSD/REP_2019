@@ -105,7 +105,7 @@
                     </cmp-error-message>
                     <input type="text" id="{{::importerRecCtrl.postalId}}" name="{{::importerRecCtrl.postalId}}"
                            data-ng-model="importerRecCtrl.model.postalCode"
-                           class="form-control" ng-maxlength="7"
+                           class="form-control" ng-maxlength="7" required
                            data-ng-change="importerRecCtrl.postalCodeChanged()"
                            maxlength="7" data-ng-pattern="importerRecCtrl.canadianPostalCodePattern"/>
                 </label>
