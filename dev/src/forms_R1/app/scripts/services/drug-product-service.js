@@ -745,6 +745,16 @@
             return formulationList;
 
         }
+        
+        
+        function stringToNumber(str) {
+          var n = null;
+          if(str && str.trim != '') {
+            n = Number(str);
+          }
+          return n;
+        }
+        
 
         /**
          * Loads all the active ingredient records into the internal Data model
@@ -775,8 +785,8 @@
                     "humanAnimalSourced": item.is_human_animal_src,
                     "standard": item.ingred_standard,
                     "strength": {operator: "",
-                        data1: Number(item.strength.data1),
-                        data2: Number(item.strength.data2) },
+                        data1: stringToNumber(item.strength.data1),
+                        data2: stringToNumber(item.strength.data2) },
                     "units": "",
                     "unitsHtml": "",
                     "otherUnits": item.units_other,
