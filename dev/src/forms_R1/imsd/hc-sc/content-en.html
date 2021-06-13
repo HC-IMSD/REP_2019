@@ -98,29 +98,35 @@
         }
         function focusOnRow(e, alter) {
             var myTable = $(e).closest('table');
+            var myForm = $(e).closest('ng-form');
             window.setTimeout(function(){
                 $('html, body').animate({
                     scrollTop: $(myTable).offset().top + 'px'
                 }, 'fast');
                 var myTr = $(myTable).find('tr').last();
-                if(! $(myTr).attr('id')){
-                    myTr = $(myTr).prev();
-                }
-                var td = $(myTr).find(' > td ').first();
-                if($(td).length < 1){
-                    if(alter != ''){
-                        var parent = $(myTable);
-                        var button = $(parent).find('button[id^=' + alter + ']');
-                        while ($(button).length < 1){
-                            parent = $(parent).parent();
-                            button = $(parent).find('button[id^=' + alter + ']');
-                        }
-                        $(button).focus();
-                    } else {
-                        $(myTable).focus();
-                    }
+                var errSum = $(myForm).find('div[id*="errors-summary"]:visible');
+                if ($(errSum).length > 0) {
+                    $(errSum).find('section').find('ul').find('li').first().find('a').focus();
                 } else {
-                    $(td).focus();
+                    if (!$(myTr).attr('id')) {
+                        myTr = $(myTr).prev();
+                    }
+                    var td = $(myTr).find(' > td ').first();
+                    if ($(td).length < 1) {
+                        if (alter != '') {
+                            var parent = $(myTable);
+                            var button = $(parent).find('button[id^=' + alter + ']');
+                            while ($(button).length < 1) {
+                                parent = $(parent).parent();
+                                button = $(parent).find('button[id^=' + alter + ']');
+                            }
+                            $(button).focus();
+                        } else {
+                            $(myTable).focus();
+                        }
+                    } else {
+                        $(td).focus();
+                    }
                 }
             }, 100);
         }
