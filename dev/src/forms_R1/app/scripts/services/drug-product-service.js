@@ -1431,19 +1431,27 @@
 
                 if(item.strength) {
                     var data2Value = "";
-                    if (item.strength.operator.id === 'RA') {
+                    if (item.strength.operator && item.strength.operator.id === 'RA') {
                         data2Value = item.strength.data2;
                     }
-                    obj.strength = {
-                        operator: {
-                            _id: item.strength.operator.id,
-                            _label_en: item.strength.operator.en,
-                            _label_fr: item.strength.operator.fr,
-                            __text: item.strength.operator[currentLang]
-                        },
-                        data1: item.strength.data1,
-                        data2: data2Value
-                    };
+                    if(item.strength.operator) {
+	                    obj.strength = {
+	                        operator: {
+	                            _id: item.strength.operator.id,
+	                            _label_en: item.strength.operator.en,
+	                            _label_fr: item.strength.operator.fr,
+	                            __text: item.strength.operator[currentLang]
+	                        },
+	                        data1: item.strength.data1,
+	                        data2: data2Value
+	                    };
+                    } else {
+                    	obj.strength = {
+	                        operator: {},
+	                        data1: item.strength.data1,
+	                        data2: data2Value
+	                    };
+                    }
                 }
 
                 if(item.per) {
