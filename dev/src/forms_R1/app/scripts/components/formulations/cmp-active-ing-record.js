@@ -245,8 +245,8 @@
          */
         vm.isStrengthSet = function () {
             var isSet = false;
-            if (typeof vm.ingModel.strength != "undefined" 
-            	&& typeof vm.ingModel.strength.operator != "undefined"
+            if (vm.ingModel.strength != null
+            	&& vm.ingModel.strength.operator != null
             	&& vm.ingModel.strength.operator.id !== undefined
                 && vm.ingModel.strength.operator.id !== "") {
                 isSet = true;
@@ -265,8 +265,8 @@
          * check update when the value has changed
          */
         vm.isRange = function () {
-            return (typeof vm.ingModel.strength != "undefined" 
-            	&& typeof vm.ingModel.strength.operator != "undefined"
+            return (vm.ingModel.strength != null 
+            	&& vm.ingModel.strength.operator != null
             	&& vm.ingModel.strength.operator.id === "RA");
         };
 
