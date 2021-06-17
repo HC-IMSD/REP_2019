@@ -33,7 +33,7 @@
                         <label for="{{::ingRecCtrl.ingredName}}" class="required full-width"><span
                                 class="field-name">{{'ING_NAME'|translate}}</span>
                             <strong class="required">{{'REQUIRED' |translate}}</strong>
-                            <sup id="{{ingRecCtrl.dr9c1Ref}}">
+                            <sup id="dr9c1_ref">
                                 <a class="fn-lnk" href="#dr9c1"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::ingRecCtrl.htIndxList.ingNameIndx}}</a>
                             </sup>
                             <cmp-error-message field-name="ingRecCtrl.ingredName"
@@ -93,7 +93,7 @@
                                 data-ng-model-options="{ debounce: $inherit}"
                                 />
                             <span class="field-name">{{'NMI_PROPRIETARY_INFO_CHKBX'|translate}}</span>
-                            <sup id="{{ingRecCtrl.dr9c7Ref}}">
+                            <sup id="dr9c7_ref">
                                 <a class="fn-lnk" href="#dr9c7"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::ingRecCtrl.htIndxList.nmiProprietaryInfoIndx}}</a>
                             </sup>
                         </label>
@@ -105,7 +105,7 @@
 		                        <label for="{{::ingRecCtrl.proprietaryAttestationInfo}}" class="required">
 		                        	<span class="field-name">{{'NMI_PROPRIETARY_INFO_LBL'|translate}}</span>
 		                            <strong class="required">{{"REQUIRED" |translate}}</strong>
-		                            <sup id="{{ingRecCtrl.dr9c8Ref}}">
+		                            <sup id="dr9c8_ref">
 	                                	<a class="fn-lnk" href="#dr9c8"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::ingRecCtrl.htIndxList.nmiProprietaryInfoFieldIndx}}</a>
 	                            	</sup>
 		                            <cmp-error-message field-name="ingRecCtrl.proprietaryAttestationInfo"
@@ -128,7 +128,7 @@
                   <div class="form-group col-md-12">
                         <label for="variant_{{::$id}}">
                             <span class="field-name">{{'VARIANT_NAME'|translate}}</span>
-                            <sup id="{{ingRecCtrl.dr9c2Ref}}">
+                            <sup id="dr9c2_ref">
                                 <a class="fn-lnk" href="#dr9c2"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::ingRecCtrl.htIndxList.variaNameIndx}}</a>
                             </sup>
                             <input type="text" id="variant_{{::$id}}" data-ng-model="ingRecCtrl.ingModel.variant" maxlength="60"
@@ -142,7 +142,7 @@
                         	   data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked()}">
                             <span class="field-name">{{'PURPOSE'|translate}}</span>
                             <strong data-ng-if="!ingRecCtrl.isNMIProprietaryInfoChecked()" class="required">{{"REQUIRED" |translate}}</strong>
-                            <sup id="{{ingRecCtrl.dr9c3Ref}}">
+                            <sup id="dr9c3_ref">
                                 <a class="fn-lnk" href="#dr9c3"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::ingRecCtrl.htIndxList.purposeIndx}}</a>
                             </sup>
                             <cmp-error-message field-name="ingRecCtrl.purposeId"
@@ -172,7 +172,7 @@
                     <div class="form-group col-md-4">
                         <label for="{{::ingRecCtrl.standardId}}">
                             <span class="field-name">{{'STANDARD'|translate}}</span>
-                            <sup id="{{ingRecCtrl.dr9c4Ref}}">
+                            <sup id="dr9c4_ref">
                                 <a class="fn-lnk" href="#dr9c4"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::ingRecCtrl.htIndxList.standardIndx}}</a>
                             </sup>
                             <input type="text" id="{{::ingRecCtrl.standardId}}" data-ng-model="ingRecCtrl.ingModel.standard"
@@ -462,7 +462,7 @@
                         		>
                             <span class="field-name">{{'IS_NANO_MATERIAL'|translate}}</span>
                             <strong data-ng-if="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()" class="required">{{"REQUIRED" |translate}}</strong>
-                            <sup id="{{ingRecCtrl.dr9c5Ref}}">
+                            <sup id="dr9c5_ref">
                                 <a class="fn-lnk" href="#dr9c5"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::ingRecCtrl.htIndxList.isNanoIndx}}</a>
                             </sup>
 
@@ -539,7 +539,7 @@
                         		data-ng-class="{'required': !ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()}">
                             <span class="field-name">{{'ANIMAL_HUMAN_SOURCED'|translate}}</span>
                             <strong data-ng-if="!ingRecCtrl.isNMIProprietaryInfoChecked() || ingRecCtrl.isMedIng()" class="required">{{"REQUIRED" |translate}}</strong>
-                            <sup id="{{ingRecCtrl.dr9c6Ref}}">
+                            <sup id="dr9c6_ref">
                                 <a class="fn-lnk" href="#dr9c6"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::ingRecCtrl.htIndxList.ahSourcedIndx}}</a>
                             </sup>
 
