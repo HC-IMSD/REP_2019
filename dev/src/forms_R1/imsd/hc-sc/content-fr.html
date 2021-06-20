@@ -106,7 +106,7 @@
                 var myTr = $(myTable).find('tr').last();
                 var errSum = $(myForm).find('div[id*="errors-summary"]:visible');
                 if ($(errSum).length > 0) {
-                    $(errSum).find('section').find('ul').find('li').first().find('a').focus();
+                    $(errSum).find('section').focus();
                 } else {
                     if (!$(myTr).attr('id')) {
                         myTr = $(myTr).prev();
