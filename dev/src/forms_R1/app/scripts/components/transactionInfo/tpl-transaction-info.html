@@ -257,82 +257,66 @@
 
                             </label>
 
-                            <h4 data-ng-if="transInfoCtrl.transactionModel.subType">{{::'ADMIN_DESCRIPT'|translate}}</h4>
-                            <div data-ng-if="!transInfoCtrl.isFrench()" data-ng-switch="transInfoCtrl.transactionModel.subType.id">
+                            <div data-ng-if="transInfoCtrl.transactionModel.subType" aria-live="polite" >
+                            <div data-ng-if="!transInfoCtrl.isFrench()" data-ng-switch="transInfoCtrl.transactionModel.subType.id" >
                                 <div data-ng-switch-when="MANUFACT_NAME_CHGE">
-                                    <div aria-live="assertive"
-                                         data-ng-include="'app/scripts/templates/transaction/tpl-activity-manu-name-change-en.html'"></div>
+                                    <div data-ng-include="'app/scripts/templates/transaction/tpl-activity-manu-name-change-en.html'"></div>
                                 </div>
                                 <div data-ng-switch-when="PRODUCT_NAME_CHGE">
-                                    <div aria-live="assertive"
-                                         data-ng-include="'app/scripts/templates/transaction/tpl-activity-product-name-change-en.html'"></div>
+                                    <div data-ng-include="'app/scripts/templates/transaction/tpl-activity-product-name-change-en.html'"></div>
                                 </div>
                                 <div data-ng-switch-when="PRODUCT_MANUFACT_NAME_CHGE">
-                                    <div aria-live="assertive"
-                                         data-ng-include="'app/scripts/templates/transaction/tpl-activity-manuorname-change-en.html'"></div>
+                                    <div data-ng-include="'app/scripts/templates/transaction/tpl-activity-manuorname-change-en.html'"></div>
                                 </div>
                                 <div data-ng-switch-when="OWNERSHIP_CHGE">
-                                    <div aria-live="assertive"
-                                         data-ng-include="'app/scripts/templates/transaction/tpl-activity-ownership-change-en.html'"></div>
+                                    <div data-ng-include="'app/scripts/templates/transaction/tpl-activity-ownership-change-en.html'"></div>
                                 </div>
                                 <div data-ng-switch-when="MERGER">
-                                    <div aria-live="assertive"
-                                         data-ng-include="'app/scripts/templates/transaction/tpl-activity-mab-en.html'"></div>
+                                    <div data-ng-include="'app/scripts/templates/transaction/tpl-activity-mab-en.html'"></div>
                                 </div>
                                 <div data-ng-switch-when="LICENGSING">
-                                    <div aria-live="assertive"
-                                         data-ng-include="'app/scripts/templates/transaction/tpl-activity-licensing-en.html'"></div>
+                                    <div data-ng-include="'app/scripts/templates/transaction/tpl-activity-licensing-en.html'"></div>
                                 </div>
                                 <div data-ng-switch-when="POSTAUTH_LABEL_CHGE">
-                                    <div aria-live="assertive"
-                                         data-ng-include="'app/scripts/templates/transaction/tpl-activity-labelling-change-en.html'"></div>
+                                    <div data-ng-include="'app/scripts/templates/transaction/tpl-activity-labelling-change-en.html'"></div>
                                 </div>
                                 <div data-ng-switch-when="POSTAUTH_CHEMISTRY_CHGE">
-                                    <div aria-live="assertive"
-                                         data-ng-include="'app/scripts/templates/transaction/tpl-activity-update-en.html'"></div>
+                                    <div data-ng-include="'app/scripts/templates/transaction/tpl-activity-update-en.html'"></div>
                                 </div>
                                 <div data-ng-switch-when="ADDITIONAL_PRODUCT_CHGE">
-                                    <div aria-live="assertive"
-                                         data-ng-include="'app/scripts/templates/transaction/tpl-activity-additional-en.html'"></div>
+                                    <div data-ng-include="'app/scripts/templates/transaction/tpl-activity-additional-en.html'"></div>
                                 </div>
                             </div>
+
                             <div data-ng-if="transInfoCtrl.isFrench()" data-ng-switch="transInfoCtrl.transactionModel.subType.id">
                                 <div data-ng-switch-when="MANUFACT_NAME_CHGE">
-                                    <div aria-live="assertive"
-                                         data-ng-include="'app/scripts/templates/transaction/tpl-activity-manu-name-change-fr.html'"></div>
+                                    <div data-ng-include="'app/scripts/templates/transaction/tpl-activity-manu-name-change-fr.html'"></div>
                                 </div>
                                 <div data-ng-switch-when="PRODUCT_NAME_CHGE">
-                                    <div aria-live="assertive"
-                                         data-ng-include="'app/scripts/templates/transaction/tpl-activity-product-name-change-fr.html'"></div>
+                                    <div data-ng-include="'app/scripts/templates/transaction/tpl-activity-product-name-change-fr.html'"></div>
                                 </div>
                                 <div data-ng-switch-when="PRODUCT_MANUFACT_NAME_CHGE">
-                                    <div aria-live="assertive"
-                                         data-ng-include="'app/scripts/templates/transaction/tpl-activity-manuorname-change-fr.html'"></div>
+                                    <div data-ng-include="'app/scripts/templates/transaction/tpl-activity-manuorname-change-fr.html'"></div>
                                 </div>
                                 <div data-ng-switch-when="OWNERSHIP_CHGE">
-                                    <div aria-live="assertive"
-                                         data-ng-include="'app/scripts/templates/transaction/tpl-activity-ownership-change-fr.html'"></div>
+                                    <div data-ng-include="'app/scripts/templates/transaction/tpl-activity-ownership-change-fr.html'"></div>
                                 </div>
                                 <div data-ng-switch-when="MERGER">
-                                    <div aria-live="assertive"
-                                         data-ng-include="'app/scripts/templates/transaction/tpl-activity-mab-fr.html'"></div>
+                                    <div data-ng-include="'app/scripts/templates/transaction/tpl-activity-mab-fr.html'"></div>
                                 </div>
                                 <div data-ng-switch-when="LICENGSING">
-                                    <div aria-live="assertive"
-                                         data-ng-include="'app/scripts/templates/transaction/tpl-activity-licensing-fr.html'"></div>
+                                    <div data-ng-include="'app/scripts/templates/transaction/tpl-activity-licensing-fr.html'"></div>
                                 </div>
                                 <div data-ng-switch-when="POSTAUTH_LABEL_CHGE">
-                                    <div aria-live="assertive"
-                                         data-ng-include="'app/scripts/templates/transaction/tpl-activity-labelling-change-fr.html'"></div>
+                                    <div data-ng-include="'app/scripts/templates/transaction/tpl-activity-labelling-change-fr.html'"></div>
                                 </div>
                                 <div data-ng-switch-when="POSTAUTH_CHEMISTRY_CHGE">
-                                    <div aria-live="assertive"
-                                         data-ng-include="'app/scripts/templates/transaction/tpl-activity-update-fr.html'"></div>
+                                    <div data-ng-include="'app/scripts/templates/transaction/tpl-activity-update-fr.html'"></div>
                                 </div>
                                 <div data-ng-switch-when="ADDITIONAL_PRODUCT_CHGE">
-                                    <div aria-live="assertive"
-                                         data-ng-include="'app/scripts/templates/transaction/tpl-activity-additional-fr.html'"></div>
+                                    <div data-ng-include="'app/scripts/templates/transaction/tpl-activity-additional-fr.html'"></div>
                                 </div>
+                            </div>
                             </div>
                         </div>
                     </div>
