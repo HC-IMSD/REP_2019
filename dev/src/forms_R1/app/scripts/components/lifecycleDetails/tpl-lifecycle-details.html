@@ -80,7 +80,7 @@
                                         data-ng-model="lifecycleCtrl.lifecycleModel.activityType"
                                         data-ng-change="lifecycleCtrl.setSequenceList()"
                                         class="form-control full-width" required
-                                        data-ng-options="activity[lifecycleCtrl.lang] for activity in lifecycleCtrl.activityTypeList track by activity.id">
+                                        data-ng-options="activity[lifecycleCtrl.lang] for activity in lifecycleCtrl.activityTypeList">
                                     <option value="" label=" " data-ng-empty="lifecycleCtrl.lifecycleModel.activityType" />
                                 </select>
 
