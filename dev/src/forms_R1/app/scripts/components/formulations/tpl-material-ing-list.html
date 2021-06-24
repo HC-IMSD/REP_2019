@@ -2,7 +2,7 @@
     <cmp-expanding-table pre-id="material_ing_list_" title="{{'MATERIAL_INGREDIENT_LIST'|translate}}" list-items="milCtrl.ingList"
                          reset-to-collapsed="milCtrl.resetToCollapsed"
                          column-def="milCtrl.colNames" select-record="milCtrl.selectRecord"
-                         disable-selection="!milCtrl.isDetailValid">
+                         new-record-shown="milCtrl.newIngFormShown" disable-selection="!milCtrl.isDetailValid">
 
         <cmp-material-ing-record record="$parent.record" on-update="milCtrl.updateIng($parent.$index,ing)"
                                  on-delete="milCtrl.deleteIng($parent.$index)" is-detail-valid="milCtrl.setValid(state)"

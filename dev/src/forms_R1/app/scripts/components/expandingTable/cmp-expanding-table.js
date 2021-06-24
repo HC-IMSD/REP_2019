@@ -28,6 +28,7 @@
                 isInternal:'<',
                 selectRecord: '<',
                 resetToCollapsed: '<',
+                newRecordShown: '<',
                 disableErrColumn:'@',
                 tname:'@'
             }

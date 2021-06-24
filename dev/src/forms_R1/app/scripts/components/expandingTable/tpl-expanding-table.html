@@ -1,7 +1,7 @@
 <div>
     <table class="table dataTable table-bordered table-hover table-condensed table-striped" id="{{::expandTblCtrl.preId}}{{::$id}}" tabindex="-1">
         <thead>
-        <tr>
+        <tr data-ng-show="expandTblCtrl.listItems.length > 0 || expandTblCtrl.newRecordShown">
             <td aria-label="{{::'TABLE_EXPANDED_STATE' | translate}}" data-scope="col" style="color:transparent;width:2%;"></td>
             <th scope="col" data-ng-repeat="heading in expandTblCtrl.columnDefinitions"
                 style="{{::heading.width}}%" data-update-lang data-set-condition="{{::heading.label}}{{::expandTblCtrl.lang}}">{{::heading.label |translate}}</th>

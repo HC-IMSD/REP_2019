@@ -4,7 +4,7 @@
     <cmp-expanding-table pre-id="active_ing_list_" title="{{'INGREDIENT_LIST'|translate}}" list-items="ailCtrl.ingList"
                          reset-to-collapsed="ailCtrl.resetToCollapsed" id="list_active_{{::$id}}"
                          column-def="ailCtrl.colNames" select-record="ailCtrl.selectRecord"
-                         disable-selection="!ailCtrl.isDetailValid">
+                         new-record-shown="ailCtrl.newIngFormShown" disable-selection="!ailCtrl.isDetailValid">
 
         <cmp-active-ing-record record="$parent.record" on-update="ailCtrl.updateIng($parent.$index,ing)"
                                on-add-ing="ailCtrl.addIng(ing)" record-index="$parent.$index"
