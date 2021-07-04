@@ -1053,7 +1053,7 @@
             }
             for (var i = 0; i < jsonObj.length; i++) {
                 var record = {};
-                record.importerId = jsonObj[i].importer_company_id;
+                record.importerId = jsonObj[i].importer_id;
                 record.importerName = jsonObj[i].importer_company_name;
                 record.street = jsonObj[i].street_address;
                 record.city = jsonObj[i].city;
@@ -1085,7 +1085,7 @@
             var importerRec = {};
             var currentLang = $translate.proposedLanguage() || $translate.use();
             if (importerObj) {
-                importerRec.importer_company_id = importerObj.importerId;
+                importerRec.importer_id = importerObj.importerId;
                 importerRec.importer_company_name = importerObj.importerName;
                 importerRec.street_address = importerObj.street;
                 importerRec.city = importerObj.city;

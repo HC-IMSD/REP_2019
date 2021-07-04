@@ -444,7 +444,7 @@
                                 <label for="{{::transInfoCtrl.thirdPartyId}}_1">&nbsp;{{::'N'|translate}}</label>
                             </fieldset>
                         </div>
-                        <div data-ng-show="transInfoCtrl.showThirdPartyNote" class="row">
+                        <div data-ng-show="transInfoCtrl.showThirdPartyNote" class="row" tabindex="-1" data-focus-if="transInfoCtrl.showThirdPartyNote">
                             <div class="alert alert-info col-md-12" role="alert" aria-live="polite">
                                 <p/>
                                 <ul>

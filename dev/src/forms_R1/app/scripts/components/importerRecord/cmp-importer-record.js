@@ -242,6 +242,7 @@
 
         vm.saveRecord = function()  {
             if (vm.importerForm.$valid) {
+                vm.model.importerId = "importerid_" + $scope.$id;
                 if (vm.record) {
                     vm.onUpdate({importer: vm.model});
                 }
