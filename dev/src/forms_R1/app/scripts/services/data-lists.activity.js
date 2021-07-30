@@ -624,7 +624,7 @@
                 vm.allActivities.CONSENT_LTR, //Consent Letter
                 vm.allActivities.DATA_PROTECT_CORRESP, //Correspondence - Data Protection
                 vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
-                // vm.allActivities.ROLLING_INFO, //Rolling Information
+                vm.allActivities.ROLLING_INFO, //Rolling Information
                 vm.allActivities.NONCLIN_CLARIF_RESPONSE //response to Non-clinical clarification request
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
             ])
