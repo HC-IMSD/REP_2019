@@ -202,6 +202,8 @@
                 //vm.transaction.isSolicited = "";
                 //vm.transaction.solicitedRequester = "";
                 //vm.transaction.confirmContactValid = false;
+
+                vm.privacyStat = false;
             }
         }
 
