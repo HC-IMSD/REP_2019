@@ -1282,7 +1282,8 @@
                 vm.allActivities.EMAIL_RQ_RESPONSE,
                 vm.allActivities.MHPD_RQ_RESPONSE, //Response to MHPD requests
                 vm.allActivities.NOTIFICATION_CHANGE, //notificaiton of change in benefit profile
-                vm.allActivities.PRESUB_MEETING_RQ   //submission Meeting Request -used to be presub
+                vm.allActivities.PRESUB_MEETING_RQ,   //submission Meeting Request -used to be presub
+                vm.allActivities.POST_MARKET_SURV // post marketing surveillance
             ]);
         }
         //add new RT description arrays - request v3.0.3
