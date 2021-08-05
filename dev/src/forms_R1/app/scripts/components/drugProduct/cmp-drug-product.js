@@ -250,7 +250,7 @@
                     vm.setSceduleFieldset();
                 }
                 vm.drugProdForm.$setDirty();
-                vm.model.privacyStat = false;
+                //vm.model.privacyStat = false;
             }
             //if content is attempted to be loaded show all the errors
             getAppendix4Errors();

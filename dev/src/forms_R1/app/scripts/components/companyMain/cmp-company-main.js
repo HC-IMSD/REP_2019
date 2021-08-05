@@ -275,7 +275,7 @@
                 vm.companyEnrolForm.$setDirty();
                 vm.showAmendNote = (vm.company.applicationType === vm.companyService.getApprovedType() && vm.isExtern());
                 vm.company.applicationTypeText = $translate.instant(vm.company.applicationType);
-                vm.privacyStat=false;
+                // vm.privacyStat=false;
             }
             disableXMLSave();
         }
@@ -291,6 +291,7 @@
             disableXMLSave();
             vm.setAmend();
             vm.company.reasonAmend="";
+            vm.privacyStat=false;
         };
 
         //used on update
