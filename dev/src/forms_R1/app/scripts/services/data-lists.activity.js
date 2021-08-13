@@ -603,7 +603,7 @@
                 vm.allActivities.EMAIL_RQ_RESPONSE,// Response to E-mail Request
                 vm.allActivities.LABEL_CLARIF_RESPONSE, //Response to labelling clarification request
                 vm.allActivities.LABEL_PREAPPROVAL_2LANG, //Second Language Label - Pre-Approval
-                // vm.allActivities.NOC_RESPONSE, //response to NOC/ c-Qn
+                vm.allActivities.NOC_RESPONSE, //response to NOC/ c-Qn
                 vm.allActivities.NOD_RESPONSE, //Response to NOD
                 vm.allActivities.NON_RESPONSE, //Response to NON
                 vm.allActivities.PROCESSING_CLARIF_RESPONSE, //Response to processing Clarification Request
