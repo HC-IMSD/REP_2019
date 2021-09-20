@@ -57,5 +57,13 @@
   "ROUTING_ID_5": "The routing identifier could be the same for the manufacturer / sponsor contact and regulatory / annual contact.",
 //  "COMPANY_ROLE_1": "The Primary Regulatory Enrolment Process (REP) contact is the person to be contacted by Health Canada if there are any issues or clarifications required for this template when it is submitted for enrolment or amendment.",
   "GEN_XML_1": "Submit the draft XML file to Health Canada using the Common Electronic Submission Gateway (CESG).",
-  "GEN_XML_2": "Refer to the Regulatory Enrolment Process (REP) guidance document for detailed information."
+  "GEN_XML_2": "Refer to the Regulatory Enrolment Process (REP) guidance document for detailed information.",
+  "MAILTO": "Submit to Health Canada",
+  "MAILTO_EXPLANATION1": "Click the 'Submit to Health Canada' button to create an email template with some pre-filled information.  Attach your draft CO XML file to the email prior to sending.",
+  "MAILTO_EXPLANATION2": "If an email template was not automatically created, create an email with the following details:",
+  "MAILTO_TO": "To: Client information (client.information@hc-sc.gc.ca)",
+  "MAILTO_SUBJECT_LABEL": "Subject: ",
+  "MAILTO_SUBJECT_TEXT": "Draft CO XML ",
+  "MAILTO_BODY": "Body: The draft CO XML file is attached.",
+  "MAILTO_ATTACHMENT": "Attachment: The draft CO XML."
 }

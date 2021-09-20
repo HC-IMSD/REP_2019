@@ -57,5 +57,13 @@
   "ROUTING_ID_5": "Il est possible que la personne-ressource du  fabricant ou promoteur et la personne-ressource recevant le courrier de nature réglementaire et la notification annuelle aient le même identificateur d'acheminement.",
 //  "COMPANY_ROLE_1": "La Personne-resource principale pour le processus d'inscription réglemetaire est la personne que Santé Canada doit contacter s’il y a des questions à régler ou des précisions à apporter au modèle lorsqu’il fait l’objet d’une demande d’inscription ou de modification.",
   "GEN_XML_1": "Déposez un brouillon du fichier XML auprès de Santé Canada au moyen du Portail commun des demandes électroniques (PCDE).",
-  "GEN_XML_2": "Consultez les lignes directrices du PIR pour obtenir des renseignements détaillés."
+  "GEN_XML_2": "Consultez les lignes directrices du PIR pour obtenir des renseignements détaillés.",
+  "MAILTO": "fr_Submit to Health Canada",
+  "MAILTO_EXPLANATION1": "fr_Click the 'Submit to Health Canada' button to create an email template with some pre-filled information.  Attach your draft CO XML file to the email prior to sending.",
+  "MAILTO_EXPLANATION2": "fr_If an email template was not automatically created, create an email with the following details:",
+  "MAILTO_TO": "fr_To: Client information (client.information@hc-sc.gc.ca)",
+  "MAILTO_SUBJECT_LABEL": "fr_Subject: ",
+  "MAILTO_SUBJECT_TEXT": "fr_Draft CO XML ",
+  "MAILTO_BODY": "fr_Body: The draft CO XML file is attached.",
+  "MAILTO_ATTACHMENT": "fr_Attachment: The draft CO XML."
 }

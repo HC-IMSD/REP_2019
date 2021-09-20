@@ -49,6 +49,11 @@
         vm.showContent = _loadFileContent;
         vm.disableXML = true;
         vm.disableDraftButton = false;
+        vm.mailtoLabel = "MAILTO";
+        vm.showMailToHelpText = false;
+        vm.disableMailtoLink = true;
+        vm.mailToSubjectManufacturerCompName = '';
+        vm.mailToSubjectCompId = '';
         vm.showAmendNote = false;
             vm.configCompany = {
             "label": "COMPANY_ID",
@@ -430,6 +435,32 @@
             return ((ctrl.$invalid && ctrl.$touched) || (vm.showErrorSummary && ctrl.$invalid));
         };
 
+        vm.mailto = function () {
+            var mailToSubjectManufacturerCompName = _getManufacturerCompanyName(vm.company.addressList) ;
+            var mailToSubjectCompId = vm.company.companyId === "" ? '' : ' - ' + vm.company.companyId;
+
+            vm.showMailToHelpText = true;
+            vm.emailSubject = $translate.instant("MAILTO_SUBJECT_TEXT") + mailToSubjectManufacturerCompName + mailToSubjectCompId;
+            var emailAddress = 'client.information@hc-sc.gc.ca';
+            var body = 'NOTE: THE CO IS NOT AUTOMATICALLY ATTACHED. ATTACH THE DRAFT COMPANY XML PRIOR TO SUBMITTING.';
+
+            vm.mailToLink = 'mailto:' + emailAddress + '?subject=' + vm.emailSubject + '&body=' + body;
+
+        }
+
+        function _getManufacturerCompanyName(addressList) {
+            var manufacturerAddress = $filter('filter')(addressList, {addressRole: {manufacturer: true}})[0];
+            if (angular.isUndefined(manufacturerAddress))
+                return '';
+            else
+                return " - " + manufacturerAddress.companyName;
+        }
+
+        vm.disableMailtoLink = function() {
+            // disable the mailto link for internal, or
+            // when there are errors for the external
+            return (!vm.isExtern() || vm.companyEnrolForm.$invalid);
+        }
     }
 
 })();
