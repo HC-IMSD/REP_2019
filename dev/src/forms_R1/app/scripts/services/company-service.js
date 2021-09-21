@@ -50,8 +50,7 @@
                 businessIdx: 0,
                 addRoleIdx: 0,
                 companyRepIdx: 0,
-                routingIdIdx: 0,
-                genXmlIdx: 0
+                routingIdIdx: 0
             };
 
             var keys = Object.keys(this.helpTextSequences);
