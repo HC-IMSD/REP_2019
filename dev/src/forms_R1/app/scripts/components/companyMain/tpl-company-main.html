@@ -150,11 +150,23 @@
                     <button class="btn btn-primary btn-lg active" id="btn_xmlSave" data-ng-disabled="main.disableDraftButton"
                             data-ng-click="main.saveXML()">{{::main.saveXMLLabel |translate}}
                     </button>
-                        <sup id="co7_ref">
-                        <a class="fn-lnk" href="#co7"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::main.indexList.genXmlIdx}}</a>
-                        </sup>
+                    <a class="btn btn-primary btn-lg active" ng-href="{{main.mailToLink}}" ng-class="{disabled: main.disableMailtoLink()}"
+                       data-ng-click="main.mailto()"> {{::main.mailtoLabel |translate}}
+                    </a>
                 </div>
             </div>
+            <div class="row" data-ng-if="main.showMailToHelpText">
+                <div class="col-xs-12 form-group well">
+                    <p>{{'MAILTO'|translate}}</p>
+                    <p>{{'MAILTO_EXPLANATION1'|translate}}</p>
+                    <p>{{'MAILTO_EXPLANATION2'|translate}}</p>
+                    <br>
+                    <p>{{'MAILTO_TO'|translate}}</p>
+                    <p>{{'MAILTO_SUBJECT_LABEL'|translate}}{{main.emailSubject}}</p>
+                    <p>{{'MAILTO_BODY'|translate}}</p>
+                    <p>{{'MAILTO_ATTACHMENT'|translate}}</p>
+                    </b>
+                </div>
         </div>
     </ng-form>
 
