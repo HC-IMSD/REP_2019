@@ -58,6 +58,7 @@
 //  "COMPANY_ROLE_1": "La Personne-resource principale pour le processus d'inscription réglemetaire est la personne que Santé Canada doit contacter s’il y a des questions à régler ou des précisions à apporter au modèle lorsqu’il fait l’objet d’une demande d’inscription ou de modification.",
   "GEN_XML_1": "Déposez un brouillon du fichier XML auprès de Santé Canada au moyen du Portail commun des demandes électroniques (PCDE).",
   "GEN_XML_2": "Consultez les lignes directrices du PIR pour obtenir des renseignements détaillés.",
+  "MAILTO_BODY_TEXT": "Le fichier CO XML n’est pas joint automatiquement. Joignez l’ébauche de fichier CO XML avant l’envoi.",
   "MAILTO": "Soumettre à Santé Canada",
   "MAILTO_EXPLANATION": "L’ébauche du fichier CO XML doit être envoyée par courriel. <br>Cliquez sur le bouton « Soumettre à Santé Canada » pour créer un modèle de courriel avec des renseignements préremplis.  Joignez votre ébauche de fichier CO XML au courriel avant l’envoi. <br>Si un modèle de courriel n’a pas été généré automatiquement, créez un courriel avec les détails suivants : ",
   "MAILTO_TO": "À : Unité des renseignements sur le client (client.information@hc-sc.gc.ca)",

@@ -150,12 +150,12 @@
                     <button class="btn btn-primary btn-lg active" id="btn_xmlSave" data-ng-disabled="main.disableDraftButton"
                             data-ng-click="main.saveXML()">{{::main.saveXMLLabel |translate}}
                     </button>
-                    <a class="btn btn-primary btn-lg active" ng-href="{{main.mailToLink}}" ng-class="{disabled: main.disableMailtoLink()}"
+                    <a class="btn btn-primary btn-lg active"  data-ng-if="main.isExtern()" ng-href="{{main.mailToLink}}" ng-class="{disabled: main.disableMailtoLink()}"
                        data-ng-click="main.mailto()"> {{::main.mailtoLabel |translate}}
                     </a>
                 </div>
             </div>
-            <div class="row" data-ng-if="main.showMailToHelpText">
+            <div class="row" data-ng-if="main.isExtern() && main.showMailToHelpText">
                 <div class="col-xs-12 form-group well">
                     <p>{{'MAILTO'|translate}}</p>
                     <p ng-bind-html="main.mailtoExplanation"></p>

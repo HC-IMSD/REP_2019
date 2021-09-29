@@ -25,7 +25,7 @@
                 enrolmentVersion: "0.0",
                 dateSaved: "",
                 applicationType: "NEW",
-                softwareVersion: "4.2.0",
+                softwareVersion: "4.2.2",
                 companyId: "",
                 reasonAmend:"",
                 addressList: [],
@@ -228,7 +228,7 @@
                         enrolment_version: jsonObj.enrolmentVersion,
                         date_saved: jsonObj.dateSaved,
                         application_type: jsonObj.applicationType,
-                        software_version: "4.2.0",
+                        software_version: "4.2.2",
                         company_id: jsonObj.companyId,
                         reason_amend: jsonObj.reasonAmend,
                         address_record: _mapAddressListToOutput(jsonObj.addressList, $translate), //TODOremoved zero index
