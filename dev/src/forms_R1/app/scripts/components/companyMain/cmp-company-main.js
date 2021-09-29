@@ -440,6 +440,7 @@
             var mailToSubjectCompId = vm.company.companyId === "" ? '' : ' - ' + vm.company.companyId;
 
             vm.showMailToHelpText = true;
+            vm.mailtoExplanation = $translate.instant("MAILTO_EXPLANATION");
             vm.emailSubject = $translate.instant("MAILTO_SUBJECT_TEXT") + mailToSubjectManufacturerCompName + mailToSubjectCompId;
             var emailAddress = 'client.information@hc-sc.gc.ca';
             var body = 'NOTE: THE CO IS NOT AUTOMATICALLY ATTACHED. ATTACH THE DRAFT COMPANY XML PRIOR TO SUBMITTING.';
