@@ -58,7 +58,7 @@
 //  "COMPANY_ROLE_1": "The Primary Regulatory Enrolment Process (REP) contact is the person to be contacted by Health Canada if there are any issues or clarifications required for this template when it is submitted for enrolment or amendment.",
   "GEN_XML_1": "Submit the draft XML file to Health Canada using the Common Electronic Submission Gateway (CESG).",
   "GEN_XML_2": "Refer to the Regulatory Enrolment Process (REP) guidance document for detailed information.",
-  "MAILTO_BODY_TEXT": "THE CO IS NOT AUTOMATICALLY ATTACHED. ATTACH THE DRAFT COMPANY XML PRIOR TO SUBMITTING.",
+  "MAILTO_BODY_TEXT": "The CO XML file is NOT automatically attached. Attach the draft CO XML file prior to sending.",
   "MAILTO": "Submit to Health Canada",
   "MAILTO_EXPLANATION": "The draft CO XML must be sent via email. <br>Click the 'Submit to Health Canada' button to create an email template with some pre-filled information.  Attach your draft CO XML file to the email prior to sending. <br>If an email template was not automatically generated, create an email with the following details:",
   "MAILTO_TO": "To: Client information (client.information@hc-sc.gc.ca)",
