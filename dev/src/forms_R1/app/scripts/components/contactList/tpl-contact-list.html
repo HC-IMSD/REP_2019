@@ -1,6 +1,6 @@
 <ng-form name="contactListCtrl.contactListForm">
     <div id="contactList_{{::$id}}">
-        <input type="checkbox" id="contactRolesValid_{{::$id}}" name="contactRolesValid_{{::$id}}" data-ng-show="false"
+        <input type="checkbox" id="contactRolesValid_{{::$id}}" name="contactRolesValid_{{::$id}}" data-ng-show="true"
                data-ng-model="contactListCtrl.allRolesSelected" required/>
         <!--<input type="checkbox" id="contactImporterVaild_{{::$id}}" name="contactImporterVaild_{{::$id}}" data-ng-show="false"-->
                <!--data-ng-model="contactListCtrl.impCompanySelected" required/>-->
@@ -19,7 +19,8 @@
                                 update-error-summary="contactListCtrl.updateErrorSummary()"
                                 is-detail-valid="contactListCtrl.setValid(state)"
                                 is-focus="contactListCtrl.isFocus"
-                                cancel-focus="contactListCtrl.cancelFocus">
+                                cancel-focus="contactListCtrl.cancelFocus"
+                                company-service="contactListCtrl.companyService">
             </cmp-contact-record>
 
         </cmp-expanding-table>

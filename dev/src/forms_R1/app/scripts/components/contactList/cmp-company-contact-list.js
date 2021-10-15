@@ -154,9 +154,9 @@
         }
 
         //this is needed on load. Bit of a hack
-        //TODO move to a service?
+        // moved to companyService
         function _setRolesConcat(contactModel) {
-            var roles = contactModel.addressRole;
+/*            var roles = contactModel.addressRole;
             var result = "";
 
             if (roles.manufacturer) {
@@ -178,6 +178,8 @@
             //     result = result + " REP2"
             // }
             contactModel.roleConcat = result;
+            */
+            contactModel.roleConcat = vm.companyService.concatenateContactRole(contactModel);
         }
 
 
@@ -284,7 +286,7 @@
             //TODDO move this to the service
         vm.isAllContactRolesSelected=function(){
             var rolesSelected = 0;
-            var repPrimarySelected=false;
+            // var repPrimarySelected=false;
             // var repSecondarySelected=false;
            var importerSelected=false;
 
@@ -309,9 +311,9 @@
             }
             //primary has to be selected at least
            // if ((rolesSelected === (numKeys - 1) || rolesSelected === (numKeys - 2)) && (repPrimarySelected && (!repSecondarySelected || !importerSelected))) {
-            if ((rolesSelected === (numKeys - 1) || rolesSelected === (numKeys - 2)) && (repPrimarySelected )) {
-                return true;
-            }
+           //  if ((rolesSelected === (numKeys - 1) || rolesSelected === (numKeys - 2)) && (repPrimarySelected )) {
+           //      return true;
+           //  }
 
             return false;
         };
