@@ -99,7 +99,7 @@
                     mailing: false,
                     billing: false,
                    // importer: false,
-                    repPrimary: false
+                   //  repPrimary: false
                     // repSecondary: false
                 };
                 return (defaultContactRole);
@@ -141,7 +141,7 @@
                         mailing: false,
                         billing: false,
                         // importer: false,
-                        repPrimary: false
+                        // repPrimary: false
                         // repSecondary: false
                     },
                     contactRole: "",
@@ -343,7 +343,7 @@
                     contact.addressRole.mailing = contacts[i].mailing === 'Y';
                     contact.addressRole.billing = contacts[i].billing === 'Y';
                     // contact.addressRole.importer = contacts[i].importer === 'Y';
-                    contact.addressRole.repPrimary = contacts[i].rep_primary === 'Y';
+                    // contact.addressRole.repPrimary = contacts[i].rep_primary === 'Y';
                     contact.addressRole.repSecondary = contacts[i].rep_secondary === 'Y';
                     //contact.contactRole = contacts[i].company_contact_details.rep_contact_role;
                    // contact.salutation = contacts[i].company_contact_details.salutation;
@@ -361,9 +361,25 @@
                     list.push(contact);
                 }
                 return list;
-            }
+            },
 
+            concatenateContactRole: function (contactModel) {
+                var roles = contactModel.addressRole;
+                var result = "";
+
+                if (roles.manufacturer) {
+                    result = result + " MFRxxxxxx"
+                }
+                if (roles.billing) {
+                    result = result + " BILL"
+                }
+                if (roles.mailing) {
+                    result = result + " MAIL"
+                }
+                return result;
+            }
         };
+
         // Return a reference to the object
         return CompanyService;
     }
@@ -440,7 +456,7 @@
                 contact.mailing = contacts[i].addressRole.mailing === true ? 'Y' : 'N';
                 contact.billing = contacts[i].addressRole.billing === true ? 'Y' : 'N';
                // contact.importer = contacts[i].addressRole.importer === true ? 'Y' : 'N';
-                contact.rep_primary = contacts[i].addressRole.repPrimary === true ? 'Y' : 'N';
+               //  contact.rep_primary = contacts[i].addressRole.repPrimary === true ? 'Y' : 'N';
                 // contact.rep_secondary = contacts[i].addressRole.repSecondary === true ? 'Y' : 'N';
                 //contact.rep_contact_role = contacts[i].addressRole.contactRole === true ? 'Y' : 'N';
                 contact.company_contact_details = {};
@@ -483,7 +499,5 @@
         }
         return importerInfo;
     }*/
-
-
 
 })();

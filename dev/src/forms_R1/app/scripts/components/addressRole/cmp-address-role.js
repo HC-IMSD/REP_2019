@@ -89,7 +89,7 @@
             if (!vm.roleForm) return;
             vm.checkForDuplicates(vm.roleForm.mailing, 'mailing');
             vm.checkForDuplicates(vm.roleForm.billing, 'billing');
-            vm.checkForDuplicates(vm.roleForm.repPrimary, 'repPrimary');
+            // vm.checkForDuplicates(vm.roleForm.repPrimary, 'repPrimary');
             // vm.checkForDuplicates(vm.roleForm.repSecondary, 'repSecondary');
             vm.checkForDuplicates(vm.roleForm.manufacturer, 'manufacturer');
             vm.updateErrorSummary();

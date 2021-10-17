@@ -34,10 +34,11 @@
                 htIndxList: '<',
                 isFocus: '<',
                 cancelFocus: '&',
+                companyService:'<'
                 // addrImpCompanyName: '<'
             }
         });
-    contactRecCtrl.$inject = ['$scope'];
+    contactRecCtrl.$inject = ['$scope','CompanyService'];
     function contactRecCtrl($scope) {
         var vm = this;
         vm.savePressed = false;
@@ -58,8 +59,8 @@
                 mailing: false,
                 billing: false,
                 // importer: false,
-                repPrimary: false,
-                repSecondary: false
+                // repPrimary: false,
+                // repSecondary: false
             },
             contactRole: "",
             salutation: "",
@@ -126,9 +127,9 @@
             vm.updateSummary = vm.updateSummary + 1;
         };
 
-        //todo move to service
+        // moved to companyService
         function _getRolesConcat() {
-            var addressRoles = vm.contactModel.addressRole;
+            /*var addressRoles = vm.contactModel.addressRole;
             var result = "";
 
             if (addressRoles.manufacturer) {
@@ -149,7 +150,8 @@
             // if (addressRoles.repSecondary) {
             //     result = result + " REP2"
             // }
-            return result;
+            return result;*/
+            return vm.companyService.concatenateContactRole(vm.contactModel);
         }
 
 

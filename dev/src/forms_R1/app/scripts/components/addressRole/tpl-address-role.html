@@ -150,25 +150,25 @@
                     </label>
                 </div>
             </div>
-            <div class="col-sm-7">
-                <div data-ng-show="ar.isContact" class="checkbox">
-                    <label for="{{::ar.chkRePrimId}}">
-                        <input type="checkbox" name="{{::ar.chkRePrimId}}" data-ng-model="ar.roleModel.repPrimary"
-                               data-ng-disabled="!ar.isEditable"
-                               data-ng-change="ar.oneSelected(ar.roleForm.{{::ar.chkRePrimId}},'repPrimary')"
-                               id="{{::ar.chkRePrimId}}"/> {{::'REPPRIMARY'|translate}}
-                        <cmp-error-message field-name="ar.chkRePrimId"
-                                           form-ref="ar.roleForm"
-                                           show-error="ar.showError(ar.roleForm[ar.chkRePrimId])"
-                                           error-types="ar.duplicateRole"></cmp-error-message>
-                        <!--<strong id="repPrimmary-role-error" class="error" data-ng-if="ar.roleForm.repPrimary.$invalid">-->
-                         <!--<span class="label label-danger" data-ng-messages="ar.roleForm.repPrimary.$error">-->
-                                    <!--<span data-ng-message="duplicateRole">{{::"TYPE_DUPLICATEROLE"|translate}}</span>-->
-                                <!--</span>-->
-                        <!--</strong>-->
-                    </label>
-                </div>
-            </div>
+            <!--<div class="col-sm-7">-->
+                <!--<div data-ng-show="ar.isContact" class="checkbox">-->
+                    <!--<label for="{{::ar.chkRePrimId}}">-->
+                        <!--<input type="checkbox" name="{{::ar.chkRePrimId}}" data-ng-model="ar.roleModel.repPrimary"-->
+                               <!--data-ng-disabled="!ar.isEditable"-->
+                               <!--data-ng-change="ar.oneSelected(ar.roleForm.{{::ar.chkRePrimId}},'repPrimary')"-->
+                               <!--id="{{::ar.chkRePrimId}}"/> {{::'REPPRIMARY'|translate}}-->
+                        <!--<cmp-error-message field-name="ar.chkRePrimId"-->
+                                           <!--form-ref="ar.roleForm"-->
+                                           <!--show-error="ar.showError(ar.roleForm[ar.chkRePrimId])"-->
+                                           <!--error-types="ar.duplicateRole"></cmp-error-message>-->
+                        <!--&lt;!&ndash;<strong id="repPrimmary-role-error" class="error" data-ng-if="ar.roleForm.repPrimary.$invalid">&ndash;&gt;-->
+                         <!--&lt;!&ndash;<span class="label label-danger" data-ng-messages="ar.roleForm.repPrimary.$error">&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<span data-ng-message="duplicateRole">{{::"TYPE_DUPLICATEROLE"|translate}}</span>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</span>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</strong>&ndash;&gt;-->
+                    <!--</label>-->
+                <!--</div>-->
+            <!--</div>-->
             <!--<div class="col-sm-7">-->
                 <!--<div class="checkbox">-->
                     <!--<label for="{{::ar.chkImpId}}">-->
