@@ -368,7 +368,7 @@
                 var result = "";
 
                 if (roles.manufacturer) {
-                    result = result + " MFRxxxxxx"
+                    result = result + " MFR"
                 }
                 if (roles.billing) {
                     result = result + " BILL"
