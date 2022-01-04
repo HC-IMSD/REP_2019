@@ -1132,6 +1132,26 @@
                     record.species = $filter('filter')(DossierLists.getSpeciesList(), {id: jsonObj[i].species._id})[0];
                 }
                 if (jsonObj[i].subtypes && jsonObj[i].subtypes._id) {
+                    // switch(jsonObj[i].subtypes._id) {
+                    //     case "BREEDER CHICKENS":
+                    //         jsonObj[i].subtypes._id = "BREEDER_CKN";
+                    //         break;
+                    //     case "BROILER CHICKENS":
+                    //         jsonObj[i].subtypes._id = "BROILER_CKN";
+                    //         break;
+                    //     case "REPLACEMENT CHICKENS":
+                    //         jsonObj[i].subtypes._id = "REPLACEMENT_CKN";
+                    //         break;
+                    //     case "BREEDER TURKEYS":
+                    //         jsonObj[i].subtypes._id = "BREEDER_TKY";
+                    //         break;
+                    //     case "BROILER TURKEYS":
+                    //         jsonObj[i].subtypes._id = "BROILER_TKY";
+                    //         break;
+                    //     case "GROWING TURKEYS":
+                    //         jsonObj[i].subtypes._id = "GROWING_TKY";
+                    //         break;
+                    // }
                     record.subtypes = $filter('filter')(DossierLists.getSubTypesList(), {id: jsonObj[i].subtypes._id})[0];
                 }
                 if (record.species && record.subtypes) {
@@ -1140,6 +1160,7 @@
                     record.specSubt = '';
                 }
                 record.isTreatFPA = jsonObj[i].is_treat_food_prod_animal;
+                record.isTreatFPACasted = $translate.instant(jsonObj[i].is_treat_food_prod_animal, "", '', currentLang);
                 record.withdrawalDays = Number(jsonObj[i].withdrawal_days);
                 record.withdrawalHours = Number(jsonObj[i].withdrawal_hours);
                 record.timeCombined = jsonObj[i].withdrawal_days + ' days and ' + jsonObj[i].withdrawal_hours + ' hours';
