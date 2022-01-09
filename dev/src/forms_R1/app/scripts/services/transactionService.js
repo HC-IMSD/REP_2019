@@ -149,7 +149,7 @@
                     TRANSACTION_ENROL: {
                         template_type: "PHARMA",
                         date_saved: today,
-                        software_version: "4.2.4",
+                        software_version: "4.2.5",
                         data_checksum: jsonObj.dataChecksum,
                        // transaction_type: jsonObj.transactionType,
                         is_third_party: jsonObj.isThirdParty,
@@ -1060,7 +1060,7 @@
         var defaultTransactionData = {
             dataChecksum: "",
             dateSaved: "",
-            softwareVersion: "4.2.4",
+            softwareVersion: "4.2.5",
            // transactionType: "",
             isThirdParty: "",
             isPriority: "",
