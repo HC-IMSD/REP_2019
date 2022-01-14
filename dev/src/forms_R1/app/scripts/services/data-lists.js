@@ -177,7 +177,7 @@
             // createInternalContacts: _createInternalContacts,
             // getInternalContacts: _getInternalContacts,
             // getInternalContactsWithoutOther: _getInternalContactsWithoutOther,
-            getAdminSubType: _getAdminSubType
+            // getAdminSubType: _getAdminSubType        // 2022/01/14 moved to dataListLoader factory
         };
         return service;
 
@@ -254,36 +254,36 @@
         //     return deferred.promise;
         // }
 
-        function _createSortedArray(jsonList, lang) {
-            var result = [];
-            angular.forEach($filter('orderByLocale')(jsonList, lang), function (sortedObject) {
-                result.push(sortedObject);
-            });
-            return result;
-        }
-
-        function _getAdminSubType() {
-
-            if (!vm.adminSubTypeArray || vm.adminSubTypeArray.length === 0) {
-                return _loadAdminType()
-            } else {
-                return (vm.adminSubTypeArray);
-            }
-        }
-
-        function _loadAdminType() {
-            var deferred = $q.defer();
-            var url = RELATIVE_FOLDER_DATA+"adminSubType.json";
-            $http.get(url).success(function (data, status, headers, config) {
-                var lang = $translate.proposedLanguage() || $translate.use();
-                var newList = _createSortedArray(data, lang);
-                vm.adminSubTypeArray = newList;
-                deferred.resolve(newList);
-            }).error(function (data, status, headers, config) {
-                deferred.reject(status);
-            });
-            return deferred.promise;
-        }
+        // function _createSortedArray(jsonList, lang) {
+        //     var result = [];
+        //     angular.forEach($filter('orderByLocale')(jsonList, lang), function (sortedObject) {
+        //         result.push(sortedObject);
+        //     });
+        //     return result;
+        // }
+        //
+        // function _getAdminSubType() {
+        //
+        //     if (!vm.adminSubTypeArray || vm.adminSubTypeArray.length === 0) {
+        //         return _loadAdminType()
+        //     } else {
+        //         return (vm.adminSubTypeArray);
+        //     }
+        // }
+        //
+        // function _loadAdminType() {
+        //     var deferred = $q.defer();
+        //     var url = RELATIVE_FOLDER_DATA+"adminSubType.json";
+        //     $http.get(url).success(function (data, status, headers, config) {
+        //         var lang = $translate.proposedLanguage() || $translate.use();
+        //         var newList = _createSortedArray(data, lang);
+        //         vm.adminSubTypeArray = newList;
+        //         deferred.resolve(newList);
+        //     }).error(function (data, status, headers, config) {
+        //         deferred.reject(status);
+        //     });
+        //     return deferred.promise;
+        // }
 
     }
 
@@ -367,3 +367,55 @@
     }
 
 })();
+
+(function () {
+    'use strict';
+
+    angular
+        .module('dataLists')
+        .factory('dataListLoader', getService);
+
+    /* @ngInject */
+    getService.$inject = [ '$filter', '$q', '$http', '$translate', 'OTHER', 'FRENCH','RELATIVE_FOLDER_DATA'];
+    function getService($filter, $q, $http,$translate, OTHER, FRENCH,RELATIVE_FOLDER_DATA) {
+        var vm = this;
+        vm.adminSubTypeArray = [];
+        var service = {
+            getAdminSubType: _getAdminSubType
+        };
+        return service;
+
+        function _createSortedArray(jsonList, lang) {
+            var result = [];
+            angular.forEach($filter('orderByLocale')(jsonList, lang), function (sortedObject) {
+                result.push(sortedObject);
+            });
+            return result;
+        }
+
+        function _getAdminSubType() {
+
+            if (!vm.adminSubTypeArray || vm.adminSubTypeArray.length === 0) {
+                return _loadAdminType()
+            } else {
+                return (vm.adminSubTypeArray);
+            }
+        }
+
+        function _loadAdminType() {
+            var deferred = $q.defer();
+            var url = RELATIVE_FOLDER_DATA+"adminSubType.json";
+            $http.get(url).success(function (data, status, headers, config) {
+                var lang = $translate.proposedLanguage() || $translate.use();
+                var newList = _createSortedArray(data, lang);
+                vm.adminSubTypeArray = newList;
+                deferred.resolve(newList);
+            }).error(function (data, status, headers, config) {
+                deferred.reject(status);
+            });
+            return deferred.promise;
+        }
+
+    }
+})();
+
