@@ -51,7 +51,8 @@
                     compIdInx: 0,
                     dossiIdInx: 0,
                     prodNameInx: 0,
-                    // protoNumInx: 0,
+                    prRevInx: 0,
+                    nocRevInx: 0,
                     adminSubInx: 0,
                     ctrlNumInx: 0,
                     actLeadInx: 0,
@@ -149,7 +150,7 @@
                     TRANSACTION_ENROL: {
                         template_type: "PHARMA",
                         date_saved: today,
-                        software_version: "4.2.5",
+                        software_version: "4.3.0",
                         data_checksum: jsonObj.dataChecksum,
                        // transaction_type: jsonObj.transactionType,
                         is_third_party: jsonObj.isThirdParty,
@@ -1060,7 +1061,7 @@
         var defaultTransactionData = {
             dataChecksum: "",
             dateSaved: "",
-            softwareVersion: "4.2.5",
+            softwareVersion: "4.3.0",
            // transactionType: "",
             isThirdParty: "",
             isPriority: "",
