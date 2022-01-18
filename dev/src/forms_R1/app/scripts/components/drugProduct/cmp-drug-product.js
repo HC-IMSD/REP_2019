@@ -13,6 +13,7 @@
         'importerListModule',
         'speciesListModule',
         'clinicalTrial',
+        'administrativeSubmission',
         'disinfectantTypeModule',
         'dossierDataLists',
         'dataLists',
@@ -254,6 +255,7 @@
             }
             //if content is attempted to be loaded show all the errors
             getAppendix4Errors();
+            vm.setAdminSubmission();
             _setComplete();
             vm.isFileLoaded = true;
            // vm.showAllErrors = true;
@@ -378,7 +380,7 @@
             if (vm.model && vm.model.dossierType && vm.model.dossierType === "D26") {
                 return true;
             } else if (vm.drugProductService) {
-                vm.model.clinicalTrial = vm.drugProductService.getEmptyCtaModel();
+            vm.model.clinicalTrial = vm.drugProductService.getEmptyCtaModel();
             }
             return false;
         };
@@ -706,6 +708,7 @@
             vm.scheduleSelectedId = "schedule_presc_status" + scopeId;
             vm.disiTypeId = "disinfectant_type" + scopeId;
             vm.privacyStatementID = "privacy_statement" + scopeId;
+            vm.isAdminSubId = "is_admin_submission" + scopeId;
         }
 
         function goToErrorSummary() {
@@ -716,6 +719,19 @@
             }
         }
 
+        vm.setAdminSubmission = function () {
+            if (vm.model.isAdminSub === YES) {
+                vm.showAdminSub = true;
+            } else {
+                vm.showAdminSub = false;
+                vm.model.subType = "";
+            }
+        };
+
+        vm.updateAdminSubType = function(newSubType){
+            //console.log("parent updateAdminSubType " + JSON.stringify(newSubType));
+            vm.model.subType = newSubType;
+        };
 
     }//endcontroller
 

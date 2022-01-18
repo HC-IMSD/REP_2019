@@ -30,12 +30,14 @@
     function ProductInfoHelpTextCtrl( $translate, $scope) {
 
         var vm = this;
-        var asdf = 'sdfsdfdsf';
         vm.lang = $translate.proposedLanguage() || $translate.use();
+
+        $scope.administrativeHtmlHelpText1 = $translate.instant("HT_ADMINITRATIVE_1");
+        $scope.administrativeHtmlHelpText2 = $translate.instant("HT_ADMINITRATIVE_2");
 
         vm.$onInit = function () {
             //vm.updateSummary=vm.updateSummary+1;
-            // console.log('indx list: ' + vm.htIndxList);
+            // console.log('indx list==: ' + JSON.stringify(vm.htIndxList) );
         };
 
     }

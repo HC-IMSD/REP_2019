@@ -170,18 +170,18 @@ var dossierRootTitles_fr = {
 
 var drugProductRootTitles_en = {
     mainHeading: "Product Information Template: Regulatory Enrolment Process (REP) (Version "
-    	+ env.ver.PI.major
-		+ "." + env.ver.PI.minor
-		+ "." + env.ver.PI.patch + ")",
+    + env.ver.PI.major
+    + "." + env.ver.PI.minor
+    + "." + env.ver.PI.patch + ")",
     title: 'Product Information Template: Regulatory Enrolment Process - Canada.ca'
 
 };
 
 var drugProductRootTitles_fr = {
     mainHeading: "Modèle d'information sur le produit: Processus d'inscription réglementaire (Version "
-    	+ env.ver.PI.major
-		+ "." + env.ver.PI.minor
-		+ "." + env.ver.PI.patch + ")",
+    + env.ver.PI.major
+    + "." + env.ver.PI.minor
+    + "." + env.ver.PI.patch + ")",
     title: "Modèle d'information sur le produit: Processus d'inscription réglementaire - Canada.ca"
 
 };
@@ -293,6 +293,7 @@ var componentFolders = {
     addressList: 'addressList/',
     addressRecord: 'addressRecord/',
     addressRole: 'addressRole/',
+    administrativeSubmission: "administrativeSubmission/",
     applicationInfo: 'applicationInfo/',
     importerProducts: 'companyImporterProducts/',
     companyMain: 'companyMain/',
@@ -470,6 +471,7 @@ var drugProductComponentFolders =
         componentFolders.srcCountryList,
         componentFolders.drugProduct,
         componentFolders.applicationInfo,
+        componentFolders.administrativeSubmission,
         componentFolders.importerList,
         componentFolders.importerRecord,
         componentFolders.clinicalTrial,
@@ -630,6 +632,7 @@ var drugProductServiceFileNames =
         serviceFileNames.dataLists,
         serviceFileNames.filterLists,
         serviceFileNames.hpfbConstants,
+        serviceFileNames.commonUtilService
     ];
 
 var piConverterServiceFileNames =
@@ -1881,17 +1884,17 @@ gulp.task('dev-company-htmlBuild', gulp.series('dev-company-pilot-clean', 'dev-c
         // console.log("pilot!");
         var copySources = gulp.src([paths.buildDevCompany + '**/*'],
             {read: true, base: paths.buildDevCompany});
-        copySources.pipe(gulp.dest(paths.buildDevPilotCompany));
-        setTimeout(() => {
-            var value = 'PILOT';
-            var dest = paths.buildDevPilotCompany;
-            var rootFile = paths.scripts + '/services/data-lists.js';
-            return (
-                pipes.replaceEnvJsFile(value, rootFile, dest)
-            );
-        }, 3000);
-        // return (copySources.pipe(gulp.dest(paths.buildDevPilotCompany)));
-    }, 3000);
+    copySources.pipe(gulp.dest(paths.buildDevPilotCompany));
+    setTimeout(() => {
+        var value = 'PILOT';
+    var dest = paths.buildDevPilotCompany;
+    var rootFile = paths.scripts + '/services/data-lists.js';
+    return (
+        pipes.replaceEnvJsFile(value, rootFile, dest)
+    );
+}, 3000);
+    // return (copySources.pipe(gulp.dest(paths.buildDevPilotCompany)));
+}, 3000);
 }));
 
 
@@ -1974,16 +1977,16 @@ gulp.task('dev-transaction-htmlBuild', gulp.series('dev-transaction-pilot-clean'
         // console.log("pilot!");
         var copySources = gulp.src([paths.buildDevTransaction + '**/*'],
             {read: true, base: paths.buildDevTransaction});
-        copySources.pipe(gulp.dest(paths.buildDevPilotTransaction));
-        setTimeout(() => {
-            var value = 'PILOT';
-            var dest = paths.buildDevPilotTransaction;
-            var rootFile = paths.scripts + '/services/data-lists.activity.js';
-            return (
-                pipes.replaceEnvJsFile(value, rootFile, dest)
-            );
-        }, 3000);
-    }, 3000);
+    copySources.pipe(gulp.dest(paths.buildDevPilotTransaction));
+    setTimeout(() => {
+        var value = 'PILOT';
+    var dest = paths.buildDevPilotTransaction;
+    var rootFile = paths.scripts + '/services/data-lists.activity.js';
+    return (
+        pipes.replaceEnvJsFile(value, rootFile, dest)
+    );
+}, 3000);
+}, 3000);
 }));
 
 /******** Dossier Related  tasks  *****************/
@@ -2156,12 +2159,12 @@ gulp.task('dev-drugProduct-htmlBuild', gulp.series('dev-drugProduct-pilot-clean'
     copySources.pipe(gulp.dest(paths.buildDevPilotDrugProduct));
     setTimeout(() => {
         var value = 'PILOT';
-        var dest = paths.buildDevPilotDrugProduct;
-        var rootFile = paths.scripts + '/services/dossier-data-list.js';
-        return (
-            pipes.replaceEnvJsFile(value, rootFile, dest)
-        );
-    }, 3000);
+    var dest = paths.buildDevPilotDrugProduct;
+    var rootFile = paths.scripts + '/services/dossier-data-list.js';
+    return (
+        pipes.replaceEnvJsFile(value, rootFile, dest)
+    );
+}, 3000);
 }, 3000);
 }));
 
@@ -3577,60 +3580,60 @@ gulp.task('prod-build-allForms', gulp.series(
 
 
 gulp.task('apply-gcweb-theme', done => {
-	fs.readdirSync('./build/').forEach(app => {
-	  if(!fs.existsSync("./build/"+app+"/GCWeb"))
-	    fs.mkdirSync("./build/"+app+"/GCWeb");
+    fs.readdirSync('./build/').forEach(app => {
+    if(!fs.existsSync("./build/"+app+"/GCWeb"))
+fs.mkdirSync("./build/"+app+"/GCWeb");
 
-	  if(!fs.existsSync("./build/"+app+"/GCWeb/wet-boew"))
-		fs.mkdirSync("./build/"+app+"/GCWeb/wet-boew");
-	  else
-		del(['./build/"+app+"/GCWeb/wet-boew/**', '!wet-boew'], {force:true});
+if(!fs.existsSync("./build/"+app+"/GCWeb/wet-boew"))
+    fs.mkdirSync("./build/"+app+"/GCWeb/wet-boew");
+else
+    del(['./build/"+app+"/GCWeb/wet-boew/**', '!wet-boew'], {force:true});
 
-	  if(!fs.existsSync("./build/"+app+"/GCWeb/"+wbVersion))
-		fs.mkdirSync("./build/"+app+"/GCWeb/"+wbVersion);
-	  else
-		del(['./build/"+app+"/GCWeb/"+wbVersion+"/**', '!'+wbVersion]);
+if(!fs.existsSync("./build/"+app+"/GCWeb/"+wbVersion))
+    fs.mkdirSync("./build/"+app+"/GCWeb/"+wbVersion);
+else
+    del(['./build/"+app+"/GCWeb/"+wbVersion+"/**', '!'+wbVersion]);
 
-	  if(!fs.existsSync("./build/"+app+"/GCWeb/ajax"))
-		  fs.mkdirSync("./build/"+app+"/GCWeb/ajax");
-	  else
-		  del(['./build/"+app+"/GCWeb/ajax/**', '!ajax']);
+if(!fs.existsSync("./build/"+app+"/GCWeb/ajax"))
+    fs.mkdirSync("./build/"+app+"/GCWeb/ajax");
+else
+    del(['./build/"+app+"/GCWeb/ajax/**', '!ajax']);
 
-	  if(!fs.existsSync("./build/"+app+"/GCWeb/fontawesome"))
-		  fs.mkdirSync("./build/"+app+"/GCWeb/fontawesome");
-	  else
-		  del(['./build/"+app+"/GCWeb/fontawesome/**', '!fontawesome']);
+if(!fs.existsSync("./build/"+app+"/GCWeb/fontawesome"))
+    fs.mkdirSync("./build/"+app+"/GCWeb/fontawesome");
+else
+    del(['./build/"+app+"/GCWeb/fontawesome/**', '!fontawesome']);
 
-	  gulp.src(wetBase + '/v9.1.0/GCWeb/**/*', {
-	        base: wetBase + '/v9.1.0/GCWeb/'
-	    }).pipe(gulp.dest('./build/' + app + '/GCWeb/' + wbVersion + '/'));
+gulp.src(wetBase + '/v9.1.0/GCWeb/**/*', {
+    base: wetBase + '/v9.1.0/GCWeb/'
+}).pipe(gulp.dest('./build/' + app + '/GCWeb/' + wbVersion + '/'));
 
-	  gulp.src([wetBase + '/v9.1.0/ajax/**/*', '!'+ wetBase + '/v9.1.0/ajax/prefooter-v2-*.html'], {
-	        base: wetBase + '/v9.1.0/ajax/'
-	    }).pipe(gulp.dest('./build/'+app+'/GCWeb/ajax/'));
+gulp.src([wetBase + '/v9.1.0/ajax/**/*', '!'+ wetBase + '/v9.1.0/ajax/prefooter-v2-*.html'], {
+    base: wetBase + '/v9.1.0/ajax/'
+}).pipe(gulp.dest('./build/'+app+'/GCWeb/ajax/'));
 
-	  gulp.src(wetBase + '/v9.1.0/fontawesome/**/*', {
-	        base: wetBase + '/v9.1.0/fontawesome/'
-	    }).pipe(gulp.dest('./build/'+app+'/GCWeb/fontawesome/'));
+gulp.src(wetBase + '/v9.1.0/fontawesome/**/*', {
+    base: wetBase + '/v9.1.0/fontawesome/'
+}).pipe(gulp.dest('./build/'+app+'/GCWeb/fontawesome/'));
 
-	  gulp.src(wetBase + '/v9.1.0/wet-boew/'+wbVersion+'/**/*', {
-	        base: wetBase + '/v9.1.0/wet-boew/'+wbVersion+'/'
-	    }).pipe(gulp.dest('./build/' + app + '/GCWeb/wet-boew/'));
+gulp.src(wetBase + '/v9.1.0/wet-boew/'+wbVersion+'/**/*', {
+    base: wetBase + '/v9.1.0/wet-boew/'+wbVersion+'/'
+}).pipe(gulp.dest('./build/' + app + '/GCWeb/wet-boew/'));
 
-	  pipes.processPages(app, 'en', 'fr');
-	});
+pipes.processPages(app, 'en', 'fr');
+});
 
-	done();
+done();
 });
 
 pipes.processPages = function(app, ...args) {
-	var now = new Date();
+    var now = new Date();
     var utc = dateFormat(now, "isoDate");
-	args.forEach(lang => {
-	  gulp.src(wetBase + '/v9.1.0/ajax/prefooter-v2-'+lang+'.html')
-		    .pipe(htmlreplace({
-		        builtDate: utc
-		      	})).pipe(gulp.dest('./build/' + app + '/GCWeb/ajax/'));
-	});
-	return;
+    args.forEach(lang => {
+        gulp.src(wetBase + '/v9.1.0/ajax/prefooter-v2-'+lang+'.html')
+        .pipe(htmlreplace({
+            builtDate: utc
+        })).pipe(gulp.dest('./build/' + app + '/GCWeb/ajax/'));
+});
+    return;
 };    
