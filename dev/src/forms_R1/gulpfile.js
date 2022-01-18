@@ -169,8 +169,8 @@ var dossierRootTitles_fr = {
 };
 
 var drugProductRootTitles_en = {
-    mainHeading: "Product Information Template: Regulatory Enrolment Process (REP) (Version " 
-    	+ env.ver.PI.major 
+    mainHeading: "Product Information Template: Regulatory Enrolment Process (REP) (Version "
+    	+ env.ver.PI.major
 		+ "." + env.ver.PI.minor
 		+ "." + env.ver.PI.patch + ")",
     title: 'Product Information Template: Regulatory Enrolment Process - Canada.ca'
@@ -178,8 +178,8 @@ var drugProductRootTitles_en = {
 };
 
 var drugProductRootTitles_fr = {
-    mainHeading: "Modèle d'information sur le produit: Processus d'inscription réglementaire (Version " 
-    	+ env.ver.PI.major 
+    mainHeading: "Modèle d'information sur le produit: Processus d'inscription réglementaire (Version "
+    	+ env.ver.PI.major
 		+ "." + env.ver.PI.minor
 		+ "." + env.ver.PI.patch + ")",
     title: "Modèle d'information sur le produit: Processus d'inscription réglementaire - Canada.ca"
@@ -568,6 +568,7 @@ var serviceFileNames = {
     transactionLoadService: 'transaction-load-service',
     repContactService: 'rep-contact-service',
     commonLists: 'common-lists',
+    commonUtilService: 'common-util-service',
     dossierService: "dossier-service",
     dossierDataList: "dossier-data-list",
     dossierLoadService: "dossier-load-service",
@@ -628,8 +629,7 @@ var drugProductServiceFileNames =
         serviceFileNames.applicationInfoService,
         serviceFileNames.dataLists,
         serviceFileNames.filterLists,
-        serviceFileNames.hpfbConstants
-
+        serviceFileNames.hpfbConstants,
     ];
 
 var piConverterServiceFileNames =
@@ -653,15 +653,15 @@ var transactionServiceFileNames = [
     serviceFileNames.dataListsActivity,
     serviceFileNames.filterLists,
     serviceFileNames.hpfbConstants,
-    serviceFileNames.activityFormFilterService
-
+    serviceFileNames.activityFormFilterService,
+    serviceFileNames.commonUtilService
 ];
 // Template folders
 var activityTemplates = ["activity/", "common/"];
-var transactionTemplates = ["transaction/", "common/"];
+var transactionTemplates = ["transaction/", "common/", "commonAdminSubTypeDesc"];
 var companyTemplates = ["company/", "common/"];
 var dossierTemplates = ["dossier/", "common/"];
-var drugProductTemplates = ["drugProduct/", "common/"];
+var drugProductTemplates = ["drugProduct/", "common/", "commonAdminSubTypeDesc"];
 var piConverterTemplates = ["common/"];
 var cspTemplates = ["csp/"];
 
@@ -3574,23 +3574,23 @@ gulp.task('prod-build-allForms', gulp.series(
     'prod-piConverter-allFormsCreate', function (done) {
         done();
     }));
-    
+
 
 gulp.task('apply-gcweb-theme', done => {
 	fs.readdirSync('./build/').forEach(app => {
 	  if(!fs.existsSync("./build/"+app+"/GCWeb"))
 	    fs.mkdirSync("./build/"+app+"/GCWeb");
-	  
+
 	  if(!fs.existsSync("./build/"+app+"/GCWeb/wet-boew"))
 		fs.mkdirSync("./build/"+app+"/GCWeb/wet-boew");
 	  else
 		del(['./build/"+app+"/GCWeb/wet-boew/**', '!wet-boew'], {force:true});
-	  
+
 	  if(!fs.existsSync("./build/"+app+"/GCWeb/"+wbVersion))
 		fs.mkdirSync("./build/"+app+"/GCWeb/"+wbVersion);
 	  else
 		del(['./build/"+app+"/GCWeb/"+wbVersion+"/**', '!'+wbVersion]);
-	  
+
 	  if(!fs.existsSync("./build/"+app+"/GCWeb/ajax"))
 		  fs.mkdirSync("./build/"+app+"/GCWeb/ajax");
 	  else
@@ -3599,27 +3599,27 @@ gulp.task('apply-gcweb-theme', done => {
 	  if(!fs.existsSync("./build/"+app+"/GCWeb/fontawesome"))
 		  fs.mkdirSync("./build/"+app+"/GCWeb/fontawesome");
 	  else
-		  del(['./build/"+app+"/GCWeb/fontawesome/**', '!fontawesome']);		  
-	  
+		  del(['./build/"+app+"/GCWeb/fontawesome/**', '!fontawesome']);
+
 	  gulp.src(wetBase + '/v9.1.0/GCWeb/**/*', {
 	        base: wetBase + '/v9.1.0/GCWeb/'
 	    }).pipe(gulp.dest('./build/' + app + '/GCWeb/' + wbVersion + '/'));
-	  
+
 	  gulp.src([wetBase + '/v9.1.0/ajax/**/*', '!'+ wetBase + '/v9.1.0/ajax/prefooter-v2-*.html'], {
 	        base: wetBase + '/v9.1.0/ajax/'
 	    }).pipe(gulp.dest('./build/'+app+'/GCWeb/ajax/'));
-	    
+
 	  gulp.src(wetBase + '/v9.1.0/fontawesome/**/*', {
 	        base: wetBase + '/v9.1.0/fontawesome/'
-	    }).pipe(gulp.dest('./build/'+app+'/GCWeb/fontawesome/'));	    
-	  
+	    }).pipe(gulp.dest('./build/'+app+'/GCWeb/fontawesome/'));
+
 	  gulp.src(wetBase + '/v9.1.0/wet-boew/'+wbVersion+'/**/*', {
 	        base: wetBase + '/v9.1.0/wet-boew/'+wbVersion+'/'
 	    }).pipe(gulp.dest('./build/' + app + '/GCWeb/wet-boew/'));
-	    
+
 	  pipes.processPages(app, 'en', 'fr');
 	});
-	
+
 	done();
 });
 
@@ -3630,7 +3630,7 @@ pipes.processPages = function(app, ...args) {
 	  gulp.src(wetBase + '/v9.1.0/ajax/prefooter-v2-'+lang+'.html')
 		    .pipe(htmlreplace({
 		        builtDate: utc
-		      	})).pipe(gulp.dest('./build/' + app + '/GCWeb/ajax/'));	  
+		      	})).pipe(gulp.dest('./build/' + app + '/GCWeb/ajax/'));
 	});
 	return;
 };    

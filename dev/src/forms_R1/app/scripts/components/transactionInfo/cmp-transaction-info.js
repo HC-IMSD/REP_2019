@@ -8,6 +8,7 @@
     angular
         .module('transactionInfo',
             ['lifecycleList',
+                'transactionService',
                 'services',
                 'filterLists',
                 'hpfbConstants',
@@ -57,9 +58,10 @@
             }
         });
 
-    transactionInfoCtrl.$inject = ['$scope', 'OTHER', 'YES', 'NO', 'PROD', 'TransactionLists', 'getContactLists', 'getRoleLists', 'ENGLISH', 'FRENCH'];
-    function transactionInfoCtrl($scope,OTHER,YES,NO,PROD,TransactionLists,getContactLists,getRoleLists, ENGLISH,FRENCH) {
+    transactionInfoCtrl.$inject = ['$scope', 'OTHER', 'YES', 'NO', 'PROD', 'TransactionLists', 'TransactionService', 'getRoleLists', 'ENGLISH', 'FRENCH'];
+    function transactionInfoCtrl($scope,OTHER,YES,NO,PROD,TransactionLists,TransactionService,getRoleLists, ENGLISH,FRENCH) {
         var vm = this;
+        vm.transactionService = new TransactionService();
         vm.ngModelOptSetting = {updateOn: 'blur'};
         vm.transactionModel = {
         };
@@ -317,7 +319,7 @@
         //    }
 
         function loadAdminSubData() {
-            getContactLists.getAdminSubType()
+            vm.transactionService.getAdminSubTypeList()
                 .then(function (data) {
                     vm.adminSubTypeList = data;
                     return true;

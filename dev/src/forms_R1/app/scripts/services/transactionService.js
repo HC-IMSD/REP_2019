@@ -6,7 +6,7 @@
     'use strict';
 
     angular
-        .module('transactionService', ['dataLists', 'services', 'hpfbConstants'])
+        .module('transactionService', ['dataLists', 'services', 'commonUtilsServiceModule', 'hpfbConstants'])
 })();
 
 
@@ -16,14 +16,14 @@
         .module('transactionService')
         .factory('TransactionService', TransactionService);
 
-    TransactionService.$inject = ['$filter', '$translate', 'getCountryAndProvinces', 'getContactLists',
+    TransactionService.$inject = ['$filter', '$translate', 'getCountryAndProvinces', 'getContactLists', 'dataListLoader', 'utils',
         'TransactionLists', 'YES', 'NO', 'HCSC', 'ENGLISH', 'FRENCH', 'XSL_PREFIX', 'PROD'];
 
     //version 1.1 bug fix?
     //version 1.2 added Submission package/rq to MPNC, MPDNS
     //version 1.3 Chnage Lifecycle Rec associations of Sequence Clean-up and Notification of interruption of sale
 
-    function TransactionService($filter, $translate, getCountryAndProvinces, getContactLists, TransactionLists,
+    function TransactionService($filter, $translate, getCountryAndProvinces, getContactLists, dataListLoader, utils, TransactionLists,
                                 YES, NO, HCSC, ENGLISH, FRENCH, XSL_PREFIX, PROD) {
         //var vm = this;
         this.baseRequesters = [];
@@ -140,12 +140,10 @@
                 //transform back to needed
                 var today = _getToday();
                 var subt = "";
-                var currentLang = $translate.proposedLanguage() || $translate.use();
                 if (jsonObj.isAdminSub && jsonObj.subType) {
-                    subt = {};
-                    _setAdminSubTypeForOutput(jsonObj.subType, subt,
-                        currentLang, ENGLISH, FRENCH);
+                    subt = utils.covertCodeDescriptionFromModelToJson(jsonObj.subType, utils.getCurrentLang());
                 }
+
                 var resultJson = {
                     TRANSACTION_ENROL: {
                         template_type: "PHARMA",
@@ -278,27 +276,27 @@
                 model.isPriority = jsonObj.is_priority;
                 model.isNoc = jsonObj.is_noc;
                 model.isAdminSub = jsonObj.is_admin_sub;
-                model.subType = '';
-                if (jsonObj.sub_type) {
-                    var subTypeSet = $filter('filter')(getContactLists.getAdminSubType(), {id: jsonObj.sub_type._id});
-                    // to fix the bug - filter might return multiple values and the first one is NOT the right one
-                    if (subTypeSet) {
-                        if (subTypeSet.length > 1) {
-                            angular.forEach(subTypeSet, function (subTypeObject) {
-                                if (subTypeObject.id === jsonObj.sub_type._id) {
-                                    model.subType = subTypeObject;
-                                }
-                            });
-                        } else {
-                            model.subType = subTypeSet[0];
-                        }
-                    }
-                }
-               // model.isSolicited = jsonObj.is_solicited;
-               // this._transformReqFromFile(model, jsonObj.solicited_requester_record);
-               //  model.projectManager1 = jsonObj.regulatory_project_manager1;
-               //  model.projectManager2 = jsonObj.regulatory_project_manager2;
-                model.isFees = jsonObj.is_fees;
+                model.subType = utils.covertCodeDescriptionFromJsonToModel(this.getAdminSubTypeList(), jsonObj.sub_type),
+                    // if (jsonObj.sub_type) {
+                    //     var subTypeSet = $filter('filter')(getContactLists.getAdminSubType(), {id: jsonObj.sub_type._id});
+                    //     // to fix the bug - filter might return multiple values and the first one is NOT the right one
+                    //     if (subTypeSet) {
+                    //         if (subTypeSet.length > 1) {
+                    //             angular.forEach(subTypeSet, function (subTypeObject) {
+                    //                 if (subTypeObject.id === jsonObj.sub_type._id) {
+                    //                     model.subType = subTypeObject;
+                    //                 }
+                    //             });
+                    //         } else {
+                    //             model.subType = subTypeSet[0];
+                    //         }
+                    //     }
+                    // }
+                    // model.isSolicited = jsonObj.is_solicited;
+                    // this._transformReqFromFile(model, jsonObj.solicited_requester_record);
+                    //  model.projectManager1 = jsonObj.regulatory_project_manager1;
+                    //  model.projectManager2 = jsonObj.regulatory_project_manager2;
+                    model.isFees = jsonObj.is_fees;
                 model.feeDetails = null;
                 if (model.isFees !== NO) {
                     model.feeDetails = this._mapFeeDetailsFromOutput(jsonObj.fee_details);
@@ -415,12 +413,12 @@
 
                 for (var i = 0; i < jsonObj.length; i++) {
                     // if (jsonObj[i].isSaved) {
-                        var record = _mapLifecycleRecToOutput($translate, jsonObj[i], ENGLISH, FRENCH);
-                        if (jsonObj.length === 1) {
-                            return (record);
-                        }
-                        result.push(record);
+                    var record = _mapLifecycleRecToOutput($translate, jsonObj[i], ENGLISH, FRENCH);
+                    if (jsonObj.length === 1) {
+                        return (record);
                     }
+                    result.push(record);
+                }
                 // }
                 return result;
             },
@@ -571,6 +569,10 @@
             //}
         };
 
+
+        TransactionService.prototype.getAdminSubTypeList = function () {
+            return dataListLoader.getAdminSubType();
+        }
 
         // Return a reference to the object
         return TransactionService;
