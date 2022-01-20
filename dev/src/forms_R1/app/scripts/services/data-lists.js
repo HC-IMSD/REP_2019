@@ -398,7 +398,7 @@
             if (!vm.adminSubTypeArray || vm.adminSubTypeArray.length === 0) {
                 return _loadAdminType()
             } else {
-                return (vm.adminSubTypeArray);
+                return $q.all(vm.adminSubTypeArray);
             }
         }
 
