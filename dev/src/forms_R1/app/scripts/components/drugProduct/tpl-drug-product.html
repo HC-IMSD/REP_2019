@@ -179,15 +179,18 @@
                     </legend>
                     <input type="radio" id="{{::drugProdCtrl.isAdminSubId}}"
                            name="{{::drugProdCtrl.isAdminSubId}}" value="Y"
-                           data-ng-model="drugProdCtrl.model.isAdminSub" required
+                           data-ng-model="drugProdCtrl.model.isAdminSub"
                            data-ng-change="drugProdCtrl.setAdminSubmission()"
                            data-ng-blur="drugProdCtrl.setTouch(drugProdCtrl.adminSubForm[drugProdCtrl.isAdminSubId])"/>
                     <label for="{{::drugProdCtrl.isAdminSubId}}">&nbsp;{{::'Y'|translate}}</label>
-                    <input type="radio" id="{{::drugProdCtrl.isAdminSubId}}_1" name="{{::drugProdCtrl.isAdminSubId}}" value="N" data-ng-model="drugProdCtrl.model.isAdminSub" required data-ng-change="drugProdCtrl.setAdminSubmission()"/>
+                    <input type="radio" id="{{::drugProdCtrl.isAdminSubId}}_1"
+                           name="{{::drugProdCtrl.isAdminSubId}}" value="N"
+                           data-ng-model="drugProdCtrl.model.isAdminSub"
+                           data-ng-change="drugProdCtrl.setAdminSubmission()"/>
                     <label for="{{::drugProdCtrl.isAdminSubId}}_1">&nbsp;{{::'N'|translate}}</label>
                 </fieldset>
             </div>
-            <div data-ng-show="drugProdCtrl.showAdminSub">
+            <div data-ng-if="drugProdCtrl.showAdminSub">
                 <cmp-administrative-submission record="drugProdCtrl.model.subType"
                                                show-errors="drugProdCtrl.showErrors()"
                                                update-error-summary="drugProdCtrl.updateErrorSummaryState()"
