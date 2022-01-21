@@ -194,7 +194,8 @@
                 <cmp-administrative-submission record="drugProdCtrl.model.subType"
                                                show-errors="drugProdCtrl.showErrors()"
                                                update-error-summary="drugProdCtrl.updateErrorSummaryState()"
-                                               on-update="drugProdCtrl.updateAdminSubType(record)">>
+                                               on-update="drugProdCtrl.updateAdminSubType(record)"
+                                               options="drugProdCtrl.adminSubTypeList">
                 </cmp-administrative-submission>
             </div>
             <div class="row" data-ng-if="! drugProdCtrl.isForProd && drugProdCtrl.isCTA()">

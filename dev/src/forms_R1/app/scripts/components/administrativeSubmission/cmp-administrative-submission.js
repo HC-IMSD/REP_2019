@@ -14,6 +14,7 @@
             controllerAs: 'adminSubCtrl',
             bindings: {
                 subType: '<record',
+                adminSubTypeList: '<options',
                 onUpdate: '&',
                 showErrors: '&',
                 updateErrorSummary: '&'
@@ -30,8 +31,8 @@
 
         vm.$onInit = function () {
             // console.log("$onInit record=" + JSON.stringify(vm.record) +" vm.subType=" + JSON.stringify(vm.subType));
+            // console.log("$onInit options=" + JSON.stringify(vm.options) +" vm.adminSubTypeList=" + JSON.stringify(vm.adminSubTypeList));
             _setIdNames();
-            loadAdminSubData();
         };
 
         vm.$onChanges = function (changes) {
@@ -43,14 +44,6 @@
         function _setIdNames() {
             var scopeId="_"+  $scope.$id;
             vm.adminSubTypeId = "admin_sub_type" + scopeId;
-        }
-
-        function loadAdminSubData() {
-            vm.drugProductService.getAdminSubTypeList()
-                .then(function (data) {
-                    vm.adminSubTypeList = data;
-                    return true;
-                });
         }
 
         vm.showErrorMissing = function () {

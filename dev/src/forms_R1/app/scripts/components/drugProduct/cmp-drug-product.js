@@ -189,6 +189,7 @@
             $('#privacyNoticeStatement').trigger( "wb-init.wb-details" );
             $('#securityDisclaimer').trigger( "wb-init.wb-details" );
             $('#footnoteInstruction').trigger( "wb-init.wb-details" );
+            loadAdminSubData();
         };
         /**
          * @ngdoc captures any change events from variable bindings
@@ -733,6 +734,11 @@
             vm.model.subType = newSubType;
         };
 
+        function loadAdminSubData() {
+            vm.drugProductService.getAdminSubTypeList().then(function (data) {
+                    vm.adminSubTypeList = data;
+                });
+        }
     }//endcontroller
 
 })();
