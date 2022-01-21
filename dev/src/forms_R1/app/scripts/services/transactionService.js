@@ -275,7 +275,7 @@
                 model.isPriority = jsonObj.is_priority;
                 model.isNoc = jsonObj.is_noc;
                 model.isAdminSub = jsonObj.is_admin_sub;
-                model.subType = utils.covertCodeDescriptionFromJsonToModel(this.getAdminSubTypeList(), jsonObj.sub_type),
+                model.subType = utils.filterByJsonId(this.getAdminSubTypeList(), jsonObj.sub_type),
                     // if (jsonObj.sub_type) {
                     //     var subTypeSet = $filter('filter')(getContactLists.getAdminSubType(), {id: jsonObj.sub_type._id});
                     //     // to fix the bug - filter might return multiple values and the first one is NOT the right one

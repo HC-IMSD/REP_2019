@@ -223,7 +223,7 @@
                     productName: info.product_name,
                     properName: info.proper_name,
 					isAdminSub: info.is_admin_sub,
-                    subType: utils.covertCodeDescriptionFromJsonToModel(this.getAdminSubTypeList(), info.sub_type),
+                    subType: utils.filterByJsonId(this.getAdminSubTypeList(), info.sub_type),
 
                     clinicalTrial: {
                         protocolNum: info.protocol_number,
