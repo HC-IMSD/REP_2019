@@ -49,6 +49,7 @@
         vm.miColNames = [
             {label: "ROLE", binding: "ingRole", width: "1"},
             {label: "INGREDIENT", binding: "ingLabel", width: "1"},
+            {label: "VARIANT_NAME_HEADER", binding: "variant", width: "1"},
             // {label: "HUMAN_ANIMAL_SOURCE", binding: "humanAnimalSourced", width: "1"}
         ];
         vm.nmiColNames = [
