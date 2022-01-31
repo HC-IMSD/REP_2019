@@ -38,6 +38,13 @@
                             </select>
                         </label>
                     </div>
+                </div>
+                <div class="row" data-ng-show="transInfoCtrl.transactionModel.ectd.dossierType">
+                    <div class="col-xs-12 form-group well">
+                        <p>{{transInfoCtrl.transactionModel.ectd.dossierType + '_DESCR'|translate}}</p>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="form-group col-md-6"
                          data-ng-class="{'has-error':transInfoCtrl.transInfoForm[transInfoCtrl.companyId].$invalid}">
                         <label for="{{::transInfoCtrl.companyId}}" class="required full-width">
@@ -234,6 +241,18 @@
                             <input type="radio" id="{{::transInfoCtrl.isAdminSubId}}_1" name="{{::transInfoCtrl.isAdminSubId}}" value="N" data-ng-model="transInfoCtrl.transactionModel.isAdminSub" required data-ng-change="transInfoCtrl.setAdminSubmission()"/>                            
                             <label for="{{::transInfoCtrl.isAdminSubId}}_1">&nbsp;{{::'N'|translate}}</label>
                         </fieldset>
+                    </div>
+                </div>
+                <div class="row" data-ng-if="transInfoCtrl.transactionModel.isAdminSub == 'Y'">
+                    <div class="col-xs-12 form-group well">
+                        <p>{{'REFER_TO_GUIDE_DOC'|translate}}
+                            <a target="_blank" href="{{::'ADMIN_GUIDE_DOC_URL' |translate}}">
+                                {{::"ADMIN_GUIDE_DOC" |translate}}
+                            </a>
+                        </p>
+                        <p>{{'ADMIN_GUIDE_DOC_NOTE'|translate}}</p>
+                        <p>{{'ADMIN_GUIDE_DOC_NOTE2'|translate}}{{main.emailSubject}}</p>
+                        </b>
                     </div>
                 </div>
                 <div data-ng-show="transInfoCtrl.showAdminSub">

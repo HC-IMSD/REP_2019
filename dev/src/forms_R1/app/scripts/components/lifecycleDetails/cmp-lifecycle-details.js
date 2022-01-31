@@ -90,6 +90,7 @@
         vm.updateSummary=0; //message to update the summary component
         vm.showSummary=false; //show the errror summary object
         vm.focusSummary=0; //messaging to focus on the active ingredient summary
+        vm.hideControlNumber = false;
 
         vm.dateFormatError=[
             {type: "required", displayAlias: "MSG_ERR_MAND"},
@@ -245,8 +246,6 @@
             vm.setDetailsState();
             vm.selectActivityList();
         }
-
-
 
         vm.disableDeleteState = function () {
             //this is noEctd case
@@ -555,6 +554,7 @@
                     vm.descriptionList = TransactionLists.getSndsCType();
                     break;
                 case ("B02-20160301-088"): //UDRA (Undefined Regulatory Activity)
+                    //vm.hideControlNumber = true; (if level3 can be decided by RA type)
                     if(vm.lifecycleModel.activityLead === "B14-20160301-11") {
                         vm.descriptionList = TransactionLists.getV_UdraType();
                     } else {
@@ -667,10 +667,34 @@
                 setDetailsAsNone();
             }
 
-            if (value === "B02-20160301-088") {
-                vm.activityTypeNote = "UDRA_RA_TYPE_NOTE";
-            } else {
-                vm.activityTypeNote = "";
+            // if (value === "B02-20160301-088") {
+            // } else {
+            //     vm.activityTypeNote = "";
+            // }
+            switch (value) {
+                case ("B02-20160301-088"): //UDRA
+                    vm.activityTypeNote = "RA_TYPE_NOTE_UDRA";
+                    break;
+                case ("B02-20160301-038"): //NOC
+                    vm.activityTypeNote = "RA_TYPE_NOTE_L3NOC";
+                    break;
+                case ("B02-20160301-050"): //UDRA
+                    vm.activityTypeNote = "RA_TYPE_NOTE_NC";
+                    break;
+                case ("B02-20160301-018"): //DINA
+                case ("B02-20160301-020"): //DIND
+                case ("B02-20160301-021"): //DINF
+                    vm.activityTypeNote = "RA_TYPE_NOTE_DIN";
+                    break;
+                case ("B02-20160301-070"): //PDC
+                    vm.activityTypeNote = "RA_TYPE_NOTE_PDC";
+                    break;
+                case ("B02-20160819-01"): //PDINN
+                    vm.activityTypeNote = "RA_TYPE_NOTE_PDINN";
+                    break;
+                default:
+                    vm.activityTypeNote = "";
+                    break;
             }
         };
         /**
@@ -869,6 +893,19 @@
                 case(vm.descriptionObj.INITIAL):
                     vm.activityDescrNote = "INITIAL_DESCR";
                     break;
+                case(vm.descriptionObj.MEETING_MINUTES):
+                    vm.activityDescrNote = "MEETING_MINUTES_DESCR";
+                    break;
+                case(vm.descriptionObj.SCREENING_CLARIF_RESPONSE):
+                    vm.activityDescrNote = "SCREENING_CLARIF_RESPONSE_DESCR";
+                    break;
+                case(vm.descriptionObj.PRESUB_MEETING_RQ):
+                    vm.activityDescrNote = "PRESUB_MEETING_RQ_DESCR";
+                    break;
+                case(vm.descriptionObj.UNSOLICITED_DATA):
+                    vm.activityDescrNote = "UNSOLICITED_DATA_DESCR";
+                    break;
+
                 default:
                     vm.activityDescrNote = "";
                     break;
