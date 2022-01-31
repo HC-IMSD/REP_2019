@@ -15,7 +15,7 @@
         };
 
         /**
-         * @ngdoc this is a mapper to map the app model object to the file json object
+         * @ngdoc this is a mapper to map the app codeDescription model object to the file json object
          * @param modelObj {id, en, fr}
          * @param lang
          * @returns jsonObj {_id, _label_en, _label_fr, __text}
@@ -33,24 +33,30 @@
             return jsonObj;
         }
 
-        factoryObj.covertCodeDescriptionFromJsonToModel = function (dList, jsonObj) {
-            var modelObj = '';
+        /**
+         * @ngdoc to filter out an object from an object array by json object's id
+         * @param dataArray [{id, ...}, {id, ...}...]
+         * @param jsonObj {_id, _label_en, _label_fr, __text}
+         * @returns obj {id, ...}
+         */
+        factoryObj.filterByJsonId = function (dataArray, jsonObj) {
+            var obj = '';
             if (jsonObj) {
-                var filteredJsonObj = $filter('filter')(dList, {id: jsonObj._id});
+                var filteredJsonObj = $filter('filter')(dataArray, {id: jsonObj._id});
                 // to fix the bug - filter might return multiple values and the first one is NOT the right one
                 if (filteredJsonObj) {
                     if (filteredJsonObj.length > 1) {
                         angular.forEach(filteredJsonObj, function (d) {
                             if (d.id === jsonObj._id) {
-                                modelObj = d;
+                                obj = d;
                             }
                         });
                     } else {
-                        modelObj = filteredJsonObj[0];
+                        obj = filteredJsonObj[0];
                     }
                 }
             }
-            return modelObj;
+            return obj;
         }
 
         return factoryObj;

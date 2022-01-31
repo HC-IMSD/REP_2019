@@ -8,7 +8,8 @@
         .module('drugProductService', [
             'dossierDataLists',
             'hpfbConstants',
-            'dataLists'
+            'dataLists',
+            'commonUtilsServiceModule'
         ]);
 })();
 
@@ -18,9 +19,11 @@
     angular
         .module('drugProductService')
         .factory('DrugProductService', DrugProductService);
-    DrugProductService.$inject = ['DossierLists', '$translate', '$filter', 'getCountryAndProvinces', 'OTHER', 'UNKNOWN', 'YES', 'NO', 'XSL_PREFIX', 'PROD'];
+    DrugProductService.$inject = ['DossierLists', '$translate', '$filter', 'getCountryAndProvinces',
+        'dataListLoader','utils', 'OTHER', 'UNKNOWN', 'YES', 'NO', 'XSL_PREFIX', 'PROD'];
 
-    function DrugProductService(DossierLists, $translate, $filter, getCountryAndProvinces, OTHER, UNKNOWN, YES, NO, XSL_PREFIX, PROD) {
+    function DrugProductService(DossierLists, $translate, $filter, getCountryAndProvinces,
+                                dataListLoader, utils, OTHER, UNKNOWN, YES, NO, XSL_PREFIX, PROD) {
         var yesValue = YES;
         var noValue = NO;
         var versions = DossierLists.getVer();
@@ -40,6 +43,7 @@
                     dossiTypeIndx: 0,
                     prodNameIndx: 0,
                     proComNameIndx: 0,
+                    administrativeIndex: 0,
                     dnfNocAddrIndx: 0,
                     importerIndx: 0,
                     routingIdIndx: 0,
@@ -117,6 +121,8 @@
                 dossierType: "",
                 productName: "",
                 properName: "",
+				isAdminSub: "",
+                subType:"",
                 manu: false,
                 mailling: false,
                 thisActivity: false,
@@ -189,13 +195,14 @@
             },
 
             getDefaultObject: function () {
-
                 return this._default;
-
             },
+			
             getXSLFileName: function () {
                 return this._default.xslFileName;
             },
+
+            //  transforms the file json to a model object
             loadFromFile: function (info) {
                 var rootTag=this.getRootTagName();
                 if (!info)
@@ -215,6 +222,9 @@
                     dossierType: info.dossier_type._id,
                     productName: info.product_name,
                     properName: info.proper_name,
+					isAdminSub: info.is_admin_sub,
+                    subType: utils.filterByJsonId(this.getAdminSubTypeList(), info.sub_type),
+
                     clinicalTrial: {
                         protocolNum: info.protocol_number,
                         protocolTitle:info.protocol_title,
@@ -333,6 +343,12 @@
             };
             baseModel.product_name = jsonObj.productName;
             baseModel.proper_name = jsonObj.properName;
+			baseModel.is_admin_sub = jsonObj.isAdminSub;
+            var subt = "";
+            if (jsonObj.isAdminSub && jsonObj.subType) {
+                subt = utils.covertCodeDescriptionFromModelToJson(jsonObj.subType, utils.getCurrentLang());
+            }
+            baseModel.sub_type = subt;
 
             if(jsonObj.dossierType && jsonObj.dossierType === 'D26') {
                 baseModel.protocol_number = jsonObj.clinicalTrial.protocolNum;
@@ -521,6 +537,18 @@
             };
             return emptyCtaModel;
         };
+		
+		DrugProductService.prototype.getAdminSubTypeList = function () {
+			 return dataListLoader.getAdminSubType();
+		}
+
+        DrugProductService.prototype.getCurrentLang = function () {
+            return utils.getCurrentLang();
+        }
+
+        DrugProductService.prototype.isFrench = function (lang) {
+            return utils.isFrench(lang);
+        }
 
         //return the Dossier Service object
         return DrugProductService;

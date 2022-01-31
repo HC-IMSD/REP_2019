@@ -49,7 +49,8 @@
         vm.miColNames = [
             {label: "ROLE", binding: "ingRole", width: "1"},
             {label: "INGREDIENT", binding: "ingLabel", width: "1"},
-            {label: "HUMAN_ANIMAL_SOURCE", binding: "humanAnimalSourced", width: "1"}
+            {label: "VARIANT_NAME_HEADER", binding: "variant", width: "1"},
+            // {label: "HUMAN_ANIMAL_SOURCE", binding: "humanAnimalSourced", width: "1"}
         ];
         vm.nmiColNames = [
             {label: "ROLE", binding: "ingRole", width: "1"},
@@ -57,7 +58,7 @@
             {label: "VARIANT_NAME_HEADER", binding: "variant", width: "1"},
             //{label: "IN_LIST", binding: "autoIngred", width: "4"},
             //{label: "CAS_NUM", "binding": "cas", width: "9", isHtml: "true"},
-            {label: "HUMAN_ANIMAL_SOURCE", binding: "humanAnimalSourced", width: "1"}
+            // {label: "HUMAN_ANIMAL_SOURCE", binding: "humanAnimalSourced", width: "1"}
         ];
         
         vm.ingList = [];

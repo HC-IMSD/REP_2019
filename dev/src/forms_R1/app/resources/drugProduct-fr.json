@@ -12,6 +12,8 @@
   "NON_PRESC_DRUG": "un médicament sans ordonnance",
   "NON_PRESC_SCHEDULE_A": "un médicament sans ordonnance auquel une ou plusieurs des réclamations de l'Annexe A s'appliquent",
   "DRUG_ADMIN": "un médicament qui peut être vendu sans ordonnance, mais doit être administré uniquement sous la surveillance d’un praticien",
+  "CONTAIN_ADMINITRATIVE":"Comprend-t-elle une composante administrative?",
+  "ADMIN_SUB_TYPE":"Raison justifiant la composante administrative",
   "ADDRESS_NOC": "Adresse où le formulaire de déclaration de médicament (FDM)/l’avis de conformité (AC) doivent être envoyés (lorsque nécessaire):",
   "ARE_CTA_IMPORTED": "Les médicaments pour essais cliniques sont-ils importés au Canada?",
   "MANU_SPON": "Fabricant ou promoteur",
@@ -193,5 +195,7 @@
   "HT_GEN_XML_3":"Un fichier XML d'informations sur le produit final peut être inclus dans :",
   "HT_GEN_XML_4":"Pour les drogues humaines - section 1.2.1 de votre transaction utilisant le PIR.",
   "HT_GEN_XML_5":"Pour les médicaments vétérinaires - section 1.5 de votre transaction en utilisant le PIR.",
-  "HT_GEN_XML_6":"Reportez-vous au document d'orientation du PIR pour des informations détaillées sur le moment où cela est nécessaire."
+  "HT_GEN_XML_6":"Reportez-vous au document d'orientation du PIR pour des informations détaillées sur le moment où cela est nécessaire.",
+  "HT_ADMINITRATIVE_1":"Veuillez consulter la Ligne directrice : <a href='https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/medicaments/demandes-presentations/lignes-directrices/traitement-administratif-humains-desinfectants-medicaments-2019/document.html'>Traitement administratif des présentations et des demandes concernant les médicaments destinés aux humains ou les désinfectants</a>. ",
+  "HT_ADMINITRATIVE_2":"Pour obtenir des instructions concernant la soumission administrative des médicaments vétérinaires, veuillez communiquer avec <a href='mailto:hc.vdd.skmd.so-dgps.dmv.cp.sc@canada.ca'>hc.vdd.skmd.so-dgps.dmv.cp.sc@canada.ca</a>."
 }

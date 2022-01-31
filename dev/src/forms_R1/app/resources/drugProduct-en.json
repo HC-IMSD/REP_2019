@@ -20,6 +20,8 @@
   "NON_PRESC_DRUG":"a non-prescription drug",
   "NON_PRESC_SCHEDULE_A":"a non-prescription drug to which one or more Schedule A claims apply",
   "DRUG_ADMIN":"a drug permitted to be sold without a prescription but administered only under the supervision of a practitioner",
+  "CONTAIN_ADMINITRATIVE":"Does this regulatory activity contain an administrative component",
+  "ADMIN_SUB_TYPE":"Reason for administrative component",
   "ADDRESS_NOC":"Address to which the Drug Notification Form (DNF)/Notice of Compliance (NOC) are to be sent (when required):",
   "ARE_CTA_IMPORTED":"Are clinical trial drugs imported into Canada?",
   "ADDR_INSTRUCT": "Activity Address Instructions",
@@ -201,5 +203,7 @@
   "HT_GEN_XML_3":"A final product information XML file can be included in:",
   "HT_GEN_XML_4":"For Human Drugs - section 1.2.1 of your transaction using REP.",
   "HT_GEN_XML_5":"For Veterinary Drugs - section 1.5 of your transaction using REP",
-  "HT_GEN_XML_6":"Refer to the REP guidance document for detailed information on when it is required."
+  "HT_GEN_XML_6":"Refer to the REP guidance document for detailed information on when it is required.",
+  "HT_ADMINITRATIVE_1":"Refer to the <a href='https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/applications-submissions/guidance-documents/administrative-processing-human-disinfectant-drugs-2019/document.html'>Guidance Administrative Processing of Submissions and Applications Involving Human or Disinfectant Drugs</a>. ",
+  "HT_ADMINITRATIVE_2":"For instructions regarding administrative submission for veterinary drugs, please contact <a href='mailto:hc.vdd.skmd.so-dgps.dmv.cp.sc@canada.ca'>hc.vdd.skmd.so-dgps.dmv.cp.sc@canada.ca</a>."
 }
