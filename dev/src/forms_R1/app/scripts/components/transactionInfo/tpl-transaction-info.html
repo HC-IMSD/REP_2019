@@ -82,9 +82,16 @@
                         <span class="rep-input-group">
                                         <!--<span class="input-group-addon">HC6-024-</span>-->
                                         <span data-ng-class="{'has-error':transInfoCtrl.transInfoForm[transInfoCtrl.dossierId].$invalid}">
-                                            <input type="text" class="form-control" id="{{::transInfoCtrl.dossierId}}"
+                                            <input data-ng-if="transInfoCtrl.transactionModel.ectd.dossierType === 'D24'"
+                                                   type="text" class="form-control" id="{{::transInfoCtrl.dossierId}}"
                                                    size="7" maxlength="7" name="{{::transInfoCtrl.dossierId}}" required
-                                                   data-ng-pattern="/^[a-z]{1}\d{6}/"
+                                                   data-ng-pattern="/^[v]{1}\d{6}/"
+                                                   data-ng-model="transInfoCtrl.transactionModel.ectd.dossierId" />
+
+                                            <input data-ng-if="transInfoCtrl.transactionModel.ectd.dossierType != 'D24'"
+                                                   type="text" class="form-control" id="{{::transInfoCtrl.dossierId}}"
+                                                   size="7" maxlength="7" name="{{::transInfoCtrl.dossierId}}" required
+                                                   data-ng-pattern="/^[epd]{1}\d{6}/"
                                                    data-ng-model="transInfoCtrl.transactionModel.ectd.dossierId" />
                                         </span>
                                     </span>

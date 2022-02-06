@@ -9,7 +9,7 @@
             <!--<div>-->
                 <!--<fieldset>-->
                     <!--<legend class="legend-rep">{{::'' | translate}}&nbsp;</legend>-->
-                    <div class="row">
+                    <div class="row" data-ng-show="lifecycleCtrl.lifecycleModel.activityType.id != 'B02-20160301-038'">
                         <div class="form-group col-md-6"
                              data-ng-class="{'has-error':lifecycleCtrl.lifecycleDetailsForm[lifecycleCtrl.controlNumId].$invalid}">
                             <label for="{{::lifecycleCtrl.controlNumId}}" class="required">

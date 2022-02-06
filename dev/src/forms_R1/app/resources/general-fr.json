@@ -107,5 +107,5 @@
   "REFERRER": " référent",
   "CHAR_6_DIGITS": " (composé d’une lettre minuscule suivie de six chiffres)",
   "FORMAT_TYPE_MINLENGTH": "Format incorrect - moins que la longueur minimale",
-  "FORMAT_TYPE_PATTERN": "Format incorrect - composé d’une lettre minuscule suivie de six chiffres"
+  "FORMAT_TYPE_PATTERN": "Format incorrect - le numéro de dossier est incorrect pour ce type de dossier. Veuillez vérifier le numéro de dossier et le type de dossier pour votre produit."
 }

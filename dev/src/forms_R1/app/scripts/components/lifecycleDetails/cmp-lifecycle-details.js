@@ -90,7 +90,6 @@
         vm.updateSummary=0; //message to update the summary component
         vm.showSummary=false; //show the errror summary object
         vm.focusSummary=0; //messaging to focus on the active ingredient summary
-        vm.hideControlNumber = false;
 
         vm.dateFormatError=[
             {type: "required", displayAlias: "MSG_ERR_MAND"},
@@ -554,7 +553,6 @@
                     vm.descriptionList = TransactionLists.getSndsCType();
                     break;
                 case ("B02-20160301-088"): //UDRA (Undefined Regulatory Activity)
-                    //vm.hideControlNumber = true; (if level3 can be decided by RA type)
                     if(vm.lifecycleModel.activityLead === "B14-20160301-11") {
                         vm.descriptionList = TransactionLists.getV_UdraType();
                     } else {
@@ -695,6 +693,11 @@
                 default:
                     vm.activityTypeNote = "";
                     break;
+            }
+            if (value === "B02-20160301-038") {
+                vm.lifecycleModel.controlNumber = "000000";
+            } else if (vm.lifecycleModel.controlNumber === "000000") {
+                vm.lifecycleModel.controlNumber = "";
             }
         };
         /**
