@@ -169,7 +169,8 @@
             NOF_DRUG_SHORT:"NOF_DRUG_SHORT",            // Notification of Drug Shortage
             POST_ANTH_CHANGE:"POST_ANTH_CHANGE",        // Post Authorization Change
             ROLLING_INFO:"ROLLING_INFO",                // Rolling Information
-            WITHDRAWAL_NOF_FORM:"WITHDRAWAL_NOF_FORM"   // Withdrawal of Drug Notification Form
+            WITHDRAWAL_NOF_FORM:"WITHDRAWAL_NOF_FORM",   // Withdrawal of Drug Notification Form
+            PROTOCOL_REVIEW:"PROTOCOL_REVIEW"              //Protocol Review
 
         };
 
@@ -274,7 +275,8 @@
             getV_COV19Type: _getV_CoV19Array,
             getCOVID19AMDType: _getCoVir19AmdArray,  //--remove temporary for the release 2020-09-10, will add them back after
             getV_COV19AMDType: _getV_CoV19AmdArray,
-            getVNDSCVType: _getV_NDSCVArray
+            getVNDSCVType: _getV_NDSCVArray,
+            getVPROREType: _getV_PROREArray
         };
         return service;
 
@@ -2121,6 +2123,26 @@
                 // vm.allActivities.NONCLIN_CLARIF_RESPONSE //response to Non-clinical clarification request
             ])
         }
+
+        function _getV_PROREArray() {
+            return ([
+                vm.allActivities.CANCEL_LETTER,
+                vm.allActivities.MEETING_MINUTES,
+                vm.allActivities.PROTOCOL_REVIEW,
+                vm.allActivities.CLIN_CLARIF_RESPONSE,
+                vm.allActivities.EMAIL_RQ_RESPONSE,
+                vm.allActivities.HSC_RQ_RESPONSE,
+                vm.allActivities.NOD_RESPONSE,
+                vm.allActivities.QHSC_RQ_RESPONSE, //Response to Quality & Human Safety Clarification Request
+                vm.allActivities.CHSC_RQ_RESPONSE, // Response to Clinical & Human Safety Clarification Request
+                vm.allActivities.QCHSC_RQ_RESPONSE, // Response to Quality, Clinical and Human Safety Clarification Request
+                vm.allActivities.QUAL_CLIN_CLARIF_RESPONSE,
+                vm.allActivities.QUAL_CLARIF_RESPONSE,
+                vm.allActivities.PHONE_RQ_RESPONSE,
+                vm.allActivities.UNSOLICITED_DATA
+            ])
+        }
+
         /**
          * Gets the activity lead array. Hard coded as the biological entry has business logic
          * @returns {string[]}

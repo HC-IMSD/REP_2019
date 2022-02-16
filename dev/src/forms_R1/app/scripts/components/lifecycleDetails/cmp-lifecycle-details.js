@@ -647,6 +647,9 @@
                         vm.descriptionList = TransactionLists.getNDSCVType();
                     }
                     break;
+                case ("B02-20160301-076"): // PRORE (Protocol Review)
+                    vm.descriptionList = TransactionLists.getVPROREType();
+                    break;
 
                 default:
                     try {
