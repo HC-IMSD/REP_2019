@@ -475,9 +475,10 @@
                 if (inputJson[i].craBusinessNumber) {
                     record.cra_business_number = inputJson[i].craBusinessNumber;
                 }
-                if (inputJson[i].contact.salutation) {
-                    record.contact.salutation = inputJson[i].contact.salutation;
-                }
+                // if (inputJson[i].contact.salutation) {
+                //     record.contact.salutation = inputJson[i].contact.salutation;
+                // }
+                record.contact.salutation = '';
                 if (inputJson[i].contact.givenName) {
                     record.contact.given_name = inputJson[i].contact.givenName;
                 }
@@ -569,7 +570,7 @@
                 record.applicantName = externalRecord.applicant_name;
                 record.agentName = externalRecord.agent_name;
                 record.craBusinessNumber = externalRecord.cra_business_number;
-                record.contact.salutation = externalRecord.contact.salutation;
+                // record.contact.salutation = externalRecord.contact.salutation;
                 record.contact.givenName = externalRecord.contact.given_name;
                 record.contact.surname = externalRecord.contact.surname;
                 record.contact.initials = externalRecord.contact.initials;
