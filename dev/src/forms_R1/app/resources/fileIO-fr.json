@@ -1,5 +1,5 @@
 {
-  "SELECT_LOAD": "Sélectionnez un fichier à charger",
+  "SELECT_LOAD": "Sélectionnez un fichier à télécharger",
   "MSG_SUCCESS_LOAD": "Le fichier a été chargé avec succès",
   "MSG_ERR_JSONPARSE": "Erreur: il y a eu une erreur en analysant le fichier de travail.",
   "MSG_ERR_XMLPARSE": "Erreur: il y avait une erreur d'analyse du projet de fichier XML,",

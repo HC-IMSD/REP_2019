@@ -325,7 +325,7 @@ var libCsp = [
     paths.lib + libFileNames.fileSaverMin,
     paths.lib + libFileNames.selectMin,
     /* paths.lib + libFileNames.sha256,*/
-     paths.lib + libFileNames.uiBootStrapMin,
+    paths.lib + libFileNames.uiBootStrapMin,
     paths.lib + libFileNames.xml2Json,
     paths.lib + libFileNames.messagesMin,
     paths.lib + libFileNames.ariaMin,
@@ -1186,42 +1186,42 @@ pipes.copyAndMinStyles = function (stylesArray, isTimeStamped, destPath) {
 pipes.createProdRootHtml2 = function (srcPath, templatePath, metaObj, htmlPartial, src, ignorePath, outName, destDir, lang, formType, htmlLangName) {
 
     return(
-    pipes.insertDateStamp(templatePath, metaObj, lang, formType, htmlLangName)
-        .pipe(inject(gulp.src([htmlPartial]), {
-            starttag: placeholders.mainContent,
-            transform: function (filePath, file) {
-                // return file contents as string
-                return file.contents.toString('utf8')
-            }
-        }))
-        .pipe(inject(gulp.src([
-                srcPath + 'app/lib/**/*.js',
-                '!' + srcPath + 'app/lib/**/angular*.js'
-            ]),
-            {
-                name: 'thirdParty',
-                ignorePath: ignorePath,
-                addRootSlash: false
+        pipes.insertDateStamp(templatePath, metaObj, lang, formType, htmlLangName)
+            .pipe(inject(gulp.src([htmlPartial]), {
+                starttag: placeholders.mainContent,
+                transform: function (filePath, file) {
+                    // return file contents as string
+                    return file.contents.toString('utf8')
+                }
             }))
-        .pipe(inject(gulp.src([
-                srcPath + paths.styles + "rep*.css",
-                srcPath + paths.styles + styleFilesNames.select,
-                srcPath + paths.styles + styleFilesNames.select2Style
-            ]),
-            {
-                ignorePath: ignorePath,
-                addRootSlash: false
-            }
-        ))
-        .pipe(inject(gulp.src(src)
-                .pipe(angularFilesort())
-            , {
-                ignorePath: ignorePath,
-                addRootSlash: false,
-                read: false
-            }))
-        .pipe(rename(outName))
-        .pipe(gulp.dest(destDir))
+            .pipe(inject(gulp.src([
+                    srcPath + 'app/lib/**/*.js',
+                    '!' + srcPath + 'app/lib/**/angular*.js'
+                ]),
+                {
+                    name: 'thirdParty',
+                    ignorePath: ignorePath,
+                    addRootSlash: false
+                }))
+            .pipe(inject(gulp.src([
+                    srcPath + paths.styles + "rep*.css",
+                    srcPath + paths.styles + styleFilesNames.select,
+                    srcPath + paths.styles + styleFilesNames.select2Style
+                ]),
+                {
+                    ignorePath: ignorePath,
+                    addRootSlash: false
+                }
+            ))
+            .pipe(inject(gulp.src(src)
+                    .pipe(angularFilesort())
+                , {
+                    ignorePath: ignorePath,
+                    addRootSlash: false,
+                    read: false
+                }))
+            .pipe(rename(outName))
+            .pipe(gulp.dest(destDir))
     )
 };
 
@@ -1829,8 +1829,8 @@ gulp.task('dev-csp-htmlBuild', gulp.series('dev-csp-clean', 'dev-global-create-s
     var today = createSuffixDate();
     today = ""; //remove if you want the timestamp!
     var deploy = deployType.dev;
-    var englishHtmlName="certificate-supplementary-protection-form-2021.html";
-    var frenchHtmlName="formulaire-certificat-protection-supplementaire-2021.html";
+    var englishHtmlName="certificate-supplementary-protection-form-2022.html";
+    var frenchHtmlName="formulaire-certificat-protection-supplementaire-2022.html";
     var englishInternalHtmlName="certificate-supplementary-protection-form-internal.html";
     var frenchInternalHtmlName="formulaire-certificat-protection-supplementaire-internal.html";
     pipes.createRootHtml(paths.devFrenchTemplate, cspRootTitles_fr, frenchInternalHtmlName, 'cspAppINT-fr' + today + '.js', htmlPartial, buildDir, ignoreDir, 'fr', deployType.devInt, null, englishInternalHtmlName);
@@ -1867,8 +1867,8 @@ gulp.task('dev-build-allForms', gulp.series(
     'dev-csp-htmlBuild',
     'dev-transaction-htmlBuild',
     'dev-dossier-htmlBuild', function(done) {
-    done();
-}));
+        done();
+    }));
 
 
 /*******************PRODUCTIION SCRIPTS START HERE **********************/
@@ -2403,8 +2403,8 @@ gulp.task('prod-csp-compileHtml', gulp.series('prod-global-create-src-template',
         paths.buildProdCsp + 'app/lib/**/angular*.js'
     ];
     var srcPath = paths.buildProdCsp;
-    var englishHtmlName="certificate-supplementary-protection-form-2021.html";
-    var frenchHtmlName="formulaire-certificat-protection-supplementaire-2021.html";
+    var englishHtmlName="certificate-supplementary-protection-form-2022.html";
+    var frenchHtmlName="formulaire-certificat-protection-supplementaire-2022.html";
     var englishInternalHtmlName="certificate-supplementary-protection-form-internal.html";
     var frenchInternalHtmlName="formulaire-certificat-protection-supplementaire-internal.html";
     return (
