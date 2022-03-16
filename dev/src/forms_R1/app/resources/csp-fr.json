@@ -6,6 +6,7 @@
   "HCONLY": "Á l'usage de Santé Canada",
   "DATE_APPL_REC": "Date de réception de la demande",
   "CSP_COMPANY_CODE": "Code de la société du CPS",
+  "CSPCOMPCODE_EXTERNAL": "Code de la société du CPS",
   "CSP_APPLICATION_CODE": "Numéro de demande de CPS",
   "NOTES": "Remarques",
   "APPLICANTNAME": "Nom du demandeur",

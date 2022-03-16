@@ -47,36 +47,55 @@
 
 
                 <div ng-if="cspApplCtrl.model.role.applicant">
-                    <div class="form-group col-xs-8"
-                     ng-class="{'has-error':cspApplCtrl.applForm[cspApplCtrl.applicantId].$invalid}">
-                    <label for="{{::cspApplCtrl.applicantId}}" class="required col-xs-12">
-                        <span class="field-name">{{cspApplCtrl.applicantTextAlias |translate}}</span>
-                        <strong class="required"> {{::"REQUIRED" |translate}} </strong>
-                        <input type="text" id="{{::cspApplCtrl.applicantId}}" name="{{::cspApplCtrl.applicantId}}"
-                               data-ng-model="cspApplCtrl.model.applicantName" class="form-control" maxlength="80"
-                               size="80" title="{{cspApplCtrl.applicantTextAlias|translate}}"
-                               required/>
+                    <div class="row">
+                        <div class="form-group col-xs-8"
+                         ng-class="{'has-error':cspApplCtrl.applForm[cspApplCtrl.applicantId].$invalid}">
+                            <label for="{{::cspApplCtrl.applicantId}}" class="required col-xs-12">
+                                <span class="field-name">{{cspApplCtrl.applicantTextAlias |translate}}</span>
+                                <strong class="required"> {{::"REQUIRED" |translate}} </strong>
+                                <input type="text" id="{{::cspApplCtrl.applicantId}}" name="{{::cspApplCtrl.applicantId}}"
+                                       data-ng-model="cspApplCtrl.model.applicantName" class="form-control" maxlength="80"
+                                       size="80" title="{{cspApplCtrl.applicantTextAlias|translate}}"
+                                       required/>
 
-                        <cmp-error-message field-name="cspApplCtrl.applicantId" form-ref="cspApplCtrl.applForm"
-                                           show-error="cspApplCtrl.showErrors()"
-                                           error-types="cspApplCtrl.requiredOnly"></cmp-error-message>
-                    </label>
+                                <cmp-error-message field-name="cspApplCtrl.applicantId" form-ref="cspApplCtrl.applForm"
+                                                   show-error="cspApplCtrl.showErrors()"
+                                                   error-types="cspApplCtrl.requiredOnly"></cmp-error-message>
+                            </label>
+                        </div>
+
+                        <div class="form-group col-xs-4"
+                             ng-class="{'has-error':cspApplCtrl.applForm[cspApplCtrl.craBusinessNumberId].$invalid}">
+                            <label for="{{::cspApplCtrl.craBusinessNumberId}}" class="col-xs-12">
+                                <span class="field-name">{{'CRA_BUSINESSNUMBER'|translate}}</span>
+                                <input type="text" id="{{::cspApplCtrl.craBusinessNumberId}}" only-digits
+                                       data-ng-model="cspApplCtrl.model.craBusinessNumber"
+                                       class="form-control full-width" name="{{::cspApplCtrl.craBusinessNumberId}}"
+                                       minlength="9" maxlength="9" title="{{::'CRA_BUSINESSNUMBER'|translate}}"/>
+                                <cmp-error-message field-name="cspApplCtrl.craBusinessNumberId" form-ref="cspApplCtrl.applForm"
+                                                   show-error="cspApplCtrl.showErrors()"
+                                                   error-types="cspApplCtrl.craBusinessNumberError"></cmp-error-message>
+
+                            </label>
+                        </div>
                     </div>
 
-                    <div class="form-group col-xs-4"
-                         ng-class="{'has-error':cspApplCtrl.applForm[cspApplCtrl.craBusinessNumberId].$invalid}">
-                        <label for="{{::cspApplCtrl.craBusinessNumberId}}" class="col-xs-12">
-                            <span class="field-name">{{'CRA_BUSINESSNUMBER'|translate}}</span>
-                            <input type="text" id="{{::cspApplCtrl.craBusinessNumberId}}" only-digits
-                                   data-ng-model="cspApplCtrl.model.craBusinessNumber"
-                                   class="form-control full-width" name="{{::cspApplCtrl.craBusinessNumberId}}"
-                                   minlength="9" maxlength="9" title="{{::'CRA_BUSINESSNUMBER'|translate}}"/>
-                            <cmp-error-message field-name="cspApplCtrl.craBusinessNumberId" form-ref="cspApplCtrl.applForm"
-                                               show-error="cspApplCtrl.showErrors()"
-                                               error-types="cspApplCtrl.craBusinessNumberError"></cmp-error-message>
-
-                        </label>
+                    <div class="row">
+                        <div class="form-group col-xs-8"
+                             ng-class="{'has-error':cspApplCtrl.applForm[cspApplCtrl.cspCompanyCodeId].$invalid}">
+                            <label for="{{::cspApplCtrl.cspCompanyCodeId}}" class="col-xs-12 required">
+                                <span class="field-name">{{::'CSPCOMPCODE_EXTERNAL' |translate}}</span>
+                                <strong class="required"> {{::"REQUIRED" |translate}} </strong>
+                                <input type="text" id="{{::cspApplCtrl.cspCompanyCodeId}}" name="{{::cspApplCtrl.cspCompanyCodeId}}"
+                                       data-ng-model="cspApplCtrl.model.cspCompanyCode" class="form-control" maxlength="5"
+                                       size="5" minlength="5" only-digits="" required/>
+                                <cmp-error-message field-name="cspApplCtrl.cspCompanyCodeId" form-ref="cspApplCtrl.applForm"
+                                                   show-error="cspApplCtrl.showErrors()"
+                                                   error-types="cspApplCtrl.min5Error"></cmp-error-message>
+                            </label>
+                        </div>
                     </div>
+
                     <div class="row">
                         <div class="form-group col-xs-8"
                              ng-class="{'has-error':cspApplCtrl.applForm[cspApplCtrl.agentNameId].$invalid}">

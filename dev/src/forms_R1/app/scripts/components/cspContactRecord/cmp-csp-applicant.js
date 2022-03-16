@@ -76,6 +76,8 @@
         vm.type = "_appl"; //sets the type of applicant either applicant or billing
         vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
         vm.craBusinessNumberError=[{type: "minlength", displayAlias: "MSG_BUSINESS_NUMBER"}];
+        vm.min5Error = [{type: "required", displayAlias: "MSG_ERR_MAND"},
+            {type: "minlength", displayAlias: "MSG_LENGTH_5NUM"}];
 
         vm.isCountryEditable=false;
         vm.alerts = [false,false];
@@ -134,6 +136,7 @@
             vm.applicantId = "applicant" + vm.type + scopeId;
             vm.craBusinessNumberId = "cra_BusinessNumber" + scopeId;
             vm.agentNameId = "agentName" + scopeId;
+            vm.cspCompanyCodeId = "cspCompCode_external" + scopeId;
         }
 
         /*
