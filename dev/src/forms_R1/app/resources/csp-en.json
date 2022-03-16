@@ -11,6 +11,8 @@
   "BILLING_DIFFERENT": "Select to enter a billing address that is different from the Applicant’s Contact Information",
   "ADVANCE_FEE_PAYMENT": "The fee has been paid in the amount of (please enter the fee amount) ",
   "PAYMENT_METHOD": "Method of Payment",
+  "PAYMENT_METHOD_INSTRUCT": "Expand Method of Payment Instructions",
+  "PAYMENT_METHOD_CLOSE":"Method of Payment Instructions",
   "FINANCIAL": "Payment through a Canadian Financial Institution",
   "CHEQUE": "Cheque / Bank Draft / Money Order",
   "CREDIT_CARD": "MasterCard / Visa / American Express (AMEX) / Visa Debit / JCB International",

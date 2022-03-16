@@ -6,7 +6,7 @@
     'use strict';
 
     angular
-        .module('cspService', ['hpfbConstants', 'dataLists', 'cspDataModule']);
+        .module('cspService', ['hpfbConstants', 'dataLists', 'cspDataModule','commonUtilsServiceModule']);
 })();
 
 (function () {
@@ -15,8 +15,8 @@
         .module('cspService')
         .factory('CspService', CspService);
 
-    CspService.$inject = ['$filter', 'CANADA', 'NO', 'YES', 'PHARMA_TYPE', 'getCountryAndProvinces', 'cspDataLists'];
-    function CspService($filter, CANADA, NO, YES, PHARMA_TYPE, getCountryAndProvinces, cspDataLists) {
+    CspService.$inject = ['$filter', 'CANADA', 'NO', 'YES', 'PHARMA_TYPE', 'getCountryAndProvinces', 'cspDataLists','utils'];
+    function CspService($filter, CANADA, NO, YES, PHARMA_TYPE, getCountryAndProvinces, cspDataLists, utils) {
 
         function CspService() {
 
@@ -133,12 +133,13 @@
             var extPayment = model[rootTag].advanced_payment;
             var intPayment = jsonObj.payment;
             if (intPayment.advancedPaymentType) {
-                extPayment.advanced_payment_type = intPayment.advancedPaymentType;
+                extPayment.advanced_payment_type = intPayment.advancedPaymentType.id;
             }
             if (intPayment.advancedPaymentFee) {
                 extPayment.advanced_payment_fee = intPayment.advancedPaymentFee;
             }
-            extPayment.advanced_payment_ack = intPayment.ackPaymentSubmit === true ? YES : NO;
+            // extPayment.advanced_payment_ack = intPayment.ackPaymentSubmit === true ? YES : NO;
+            extPayment.advanced_payment_ack = '';
             var extCertification = model[rootTag].certification;
             var intCertification = jsonObj.certification;
             if (intCertification.givenName) {
@@ -198,7 +199,7 @@
             if (jsonObj.advanced_payment.advanced_payment_fee) {
                 resultJson.payment.advancedPaymentFee = Number(jsonObj.advanced_payment.advanced_payment_fee);
             }
-            resultJson.payment.advancedPaymentType = jsonObj.advanced_payment.advanced_payment_type;
+            resultJson.payment.advancedPaymentType = utils.filterByJsonId(this.getAdvancedPaymentTypes(), jsonObj.advanced_payment.advanced_payment_type);
             resultJson.payment.ackPaymentSubmit = jsonObj.advanced_payment.advanced_payment_ack === YES;
             resultJson.certification.givenName = jsonObj.certification.given_name;
             resultJson.certification.initials = jsonObj.certification.initials;
@@ -304,13 +305,14 @@
             }
         };
         CspService.prototype.getAdvancedPaymentTypes = function () {
-            return ([
-                'FINANCIAL',
-                'CHEQUE',
-                'CREDIT_CARD',
-                'CREDIT',
-                'WIRE'
-            ]);
+            return cspDataLists.getMethodOfPaymentList();
+            // return ([
+            //     'FINANCIAL',
+            //     'CHEQUE',
+            //     'CREDIT_CARD',
+            //     'CREDIT',
+            //     'WIRE'
+            // ]);
         };
         CspService.prototype.getDrugUses = function () {
             return ([
@@ -570,7 +572,7 @@
                 record.applicantName = externalRecord.applicant_name;
                 record.agentName = externalRecord.agent_name;
                 record.craBusinessNumber = externalRecord.cra_business_number;
-                // record.contact.salutation = externalRecord.contact.salutation;
+                //record.contact.salutation = externalRecord.contact.salutation;
                 record.contact.givenName = externalRecord.contact.given_name;
                 record.contact.surname = externalRecord.contact.surname;
                 record.contact.initials = externalRecord.contact.initials;
@@ -591,7 +593,6 @@
             }
             return result;
         };
-
 
         return CspService;
     }

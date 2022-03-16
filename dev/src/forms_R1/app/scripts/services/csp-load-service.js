@@ -45,6 +45,7 @@
                 //var dataFolder = "data/"; //relative forlder to the data
                 var countryUrl = RELATIVE_FOLDER_DATA + "countries.json";
                 var euCountryUrl = RELATIVE_FOLDER_DATA + "csp_eucountries.json";
+                var methodOfPaymentUrl = RELATIVE_FOLDER_DATA + "methodOfPayment.json";
                 var resultTranslateList = {};
                 $http.get(countryUrl)
                     .then(function (response) {
@@ -70,6 +71,23 @@
                     .finally(function () {
                         deferred.resolve(resultTranslateList);
                     });
+
+                $http.get(methodOfPaymentUrl)
+                    .then(function (response) {
+                        var newList = _createSortedArray(response.data, options.key);
+                        // console.log("==>"+newList);
+                        cspDataLists.setMethodOfPaymentList(newList);
+                        return response.data;
+                    })
+                    .catch(function (error) {
+                        // this catches errors from the $http calls as well as from the explicit throw
+                        console.warn("An error occurred when loading the method of payment list: " + error.statusText);
+                        deferred.reject(resultTranslateList);
+                    })
+                    .finally(function () {
+                        deferred.resolve(resultTranslateList);
+                    });;
+
                 return deferred.promise;
             };
 

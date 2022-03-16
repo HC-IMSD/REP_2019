@@ -29,9 +29,12 @@
     function cspDataLists() {
         var vm=this;
         vm.euCountryList=[];
+        vm.medodOfPaymentList=[];
         var service = {
             getMarketingCountries: _getEuCountries,
-            loadEuCountries:_setEuCountries
+            loadEuCountries:_setEuCountries,
+            getMethodOfPaymentList: _getMethodsOfPayment,
+            setMethodOfPaymentList: _setMethodsOfPayment,
         };
         return service;
 
@@ -45,6 +48,17 @@
         function _setEuCountries(jsonList) {
             if(jsonList) {
                 vm.euCountryList=jsonList;
+            }
+        }
+
+        function _getMethodsOfPayment(){
+            return vm.medodOfPaymentList;
+        }
+
+        function _setMethodsOfPayment(jsonList) {
+            if(jsonList) {
+                vm.medodOfPaymentList=jsonList;
+                // console.log(vm.medodOfPaymentList);
             }
         }
 

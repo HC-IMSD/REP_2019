@@ -41,7 +41,7 @@
   "PRODUCTNAME":"Nom du produit",
   "APPLICANTSTATEMENT":"Attestation du demandeur",
   "FEE":"Paiement des frais",
-  "FEETYPE":"Méthode de paiement des frais",
+  "FEETYPE":"Mode de paiement",
   "TYPE_ZERO_MIN":"Doit être supérieur à zéro",
   "MSG_ERR_MAX":"Doit être inférieur à 10 000 000"
 

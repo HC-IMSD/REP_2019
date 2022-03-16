@@ -35,7 +35,7 @@
     function feePaymentController(FRENCH, $scope,$translate) {
         var vm = this;
         vm.model = null;
-        vm.lang = 'en';
+        vm.lang = $translate.proposedLanguage() || $translate.use();
         vm.paymentList = [];
         vm.url = "";
         vm.preamble = "";
@@ -47,7 +47,7 @@
             {type: "max", displayAlias: "MSG_ERR_MAX"},
             {type: "number", displayAlias: "TYPE_NUMBER"}
         ];
-
+        vm.alerts = [false];
 
         /**
          * Called after onChanges evnet, initializes
@@ -58,15 +58,16 @@
             $translate('FEE_PREAMBLE').then(function (data) {
                 vm.preamble = data;
             });
-            $translate('FEE_URL').then(function (data) {
-                vm.url = data;
-            });
-            $translate('FEE_URLTITLE').then(function (data) {
-                vm.urlTitle = data;
-            });
+            // $translate('FEE_URL').then(function (data) {
+            //     vm.url = data;
+            // });
+            // $translate('FEE_URLTITLE').then(function (data) {
+            //     vm.urlTitle = data;
+            // });
            // vm.preamble =  $translate.instant("FEE_PREAMBLE");
             //vm.url = $translate.instant("FEE_URL");
             //vm.urlTitle = $translate.instant("FEE_URLTITLE");
+            vm.alerts = [false];
         };
 
         vm.showError = function (ctrl) {
@@ -97,7 +98,7 @@
             var scopeId = "_" + $scope.$id;
             vm.feeId = "fee" + scopeId;
             vm.feeTypeId = "feeType" + scopeId;
-            vm.ackFeeSubmitId = "ack_fee_submit" + scopeId;
+            // vm.ackFeeSubmitId = "ack_fee_submit" + scopeId;
         }
 
         /**
@@ -107,5 +108,38 @@
             vm.updateErrorSummary();
         }, true);
 
+        /*
+         Makes an instruction visible baseed on an index passed in
+         Index sets the UI state in the alerts array
+         */
+        vm.addInstruct = function (value) {
+
+            if (angular.isUndefined(value)) return;
+            if (value < vm.alerts.length) {
+                vm.alerts[value] = true;
+            }
+        };
+
+        /**
+         * Closes the instruction alerts
+         * @param value
+         */
+        vm.closeAlert = function (value) {
+            if (angular.isUndefined(value)) return;
+            if (value < vm.alerts.length) {
+                vm.alerts[value] = false;
+            }
+        };
+
+        vm.toggleAlert = function (value) {
+            if (angular.isUndefined(value)) return;
+            if (value < vm.alerts.length) {
+                vm.alerts[value] = !vm.alerts[value];
+            }
+        };
+
+        vm.isFrench=function(){
+            return(vm.lang===FRENCH);
+        };
     }
 })();

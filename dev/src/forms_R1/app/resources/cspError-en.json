@@ -42,7 +42,7 @@
   "PRODUCTNAME":"Product Name",
   "APPLICANTSTATEMENT":"Statements as to Applicant",
   "FEE":"Advanced Payment Fee",
-  "FEETYPE":"Method of Advanced Payment",
+  "FEETYPE":"Method of Payment",
   "TYPE_ZERO_MIN":"Must be greater than zero",
   "MSG_ERR_MAX":"Must be less than 10,000,000"
 
