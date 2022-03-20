@@ -769,9 +769,9 @@
                 case(vm.descriptionObj.NOC_RESPONSE):                  /*FALLTHROUGH*/
                 case(vm.descriptionObj.NOD_RESPONSE):                  /*FALLTHROUGH*/
                 case(vm.descriptionObj.NON_RESPONSE):                 /*FALLTHROUGH*/
-                case(vm.descriptionObj.QHSC_RQ_RESPONSE):                  /*FALLTHROUGH*/
-                case(vm.descriptionObj.CHSC_RQ_RESPONSE):                  /*FALLTHROUGH*/
-                case(vm.descriptionObj.QCHSC_RQ_RESPONSE):           /*FALLTHROUGH*/
+                // case(vm.descriptionObj.QHSC_RQ_RESPONSE):                  /*FALLTHROUGH*/
+                // case(vm.descriptionObj.CHSC_RQ_RESPONSE):                  /*FALLTHROUGH*/
+                // case(vm.descriptionObj.QCHSC_RQ_RESPONSE):           /*FALLTHROUGH*/
                 case(vm.descriptionObj.PATIENT_SAFETY_INFO):   /*FALLTHROUGH*/
                 //  case(vm.descriptionObj.QUAL_CLIN_CLARIF_RESPONSE):   /*FALLTHROUGH*/
                 //  case(vm.descriptionObj.QUAL_CLARIF_RESPONSE):         /*FALLTHROUGH*/
@@ -837,6 +837,9 @@
                 case(vm.descriptionObj.SCREENING_CLARIF_RESPONSE):
                 case(vm.descriptionObj.PHONE_RQ_RESPONSE):
                 case(vm.descriptionObj.CLARIF_RESPONSE):        /*FALLTHROUGH July 17,2017*/
+                case(vm.descriptionObj.QHSC_RQ_RESPONSE):                  /*FALLTHROUGH*/
+                case(vm.descriptionObj.CHSC_RQ_RESPONSE):                  /*FALLTHROUGH*/
+                case(vm.descriptionObj.QCHSC_RQ_RESPONSE):           /*FALLTHROUGH*/
                     setAsRequesterwithDate();
                     vm.setConcatDetails();
                     break;
