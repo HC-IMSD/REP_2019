@@ -487,7 +487,8 @@
                 vm.model.drugProduct.isPrescriptionDrugList ||
                 vm.model.drugProduct.isRegulatedCDSA ||
                 vm.model.drugProduct.isNonPrescriptionDrug ||
-                vm.model.drugProduct.isScheduleA) {
+                vm.model.drugProduct.isScheduleA ||
+                vm.model.drugProduct.isDrugAdmin) {
                 vm.model.drugProduct.scheduleSelected = "scheduleSelected";
             } else {
                 vm.model.drugProduct.scheduleSelected = "";
@@ -505,7 +506,8 @@
                     !vm.model.drugProduct.isPrescriptionDrugList &&
                     !vm.model.drugProduct.isRegulatedCDSA &&
                     !vm.model.drugProduct.isNonPrescriptionDrug &&
-                    !vm.model.drugProduct.isScheduleA) {
+                    !vm.model.drugProduct.isScheduleA &&
+                    !vm.model.drugProduct.isDrugAdmin) {
                 vm.model.drugProduct.scheduleSelected = "";
             }
         };
