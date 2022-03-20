@@ -471,7 +471,8 @@
                     <div class="col-xs-12 checkbox">
                         <label for="is-drug-admin">
                             <input type="checkbox" name="is-drug-admin"
-                                   data-ng-model="drugProdCtrl.model.drugProduct.isDrugAdmin" id="is-drug-admin">
+                                   data-ng-model="drugProdCtrl.model.drugProduct.isDrugAdmin" id="is-drug-admin"
+                                   data-ng-change="drugProdCtrl.updateSceduleFieldset(drugProdCtrl.model.drugProduct.isDrugAdmin)"/>
                             {{::'DRUG_ADMIN'|translate}}
                         </label>
                     </div>
