@@ -17,14 +17,14 @@
         .factory('TransactionService', TransactionService);
 
     TransactionService.$inject = ['$filter', '$translate', 'getCountryAndProvinces', 'getContactLists', 'dataListLoader', 'utils',
-        'TransactionLists', 'YES', 'NO', 'HCSC', 'ENGLISH', 'FRENCH', 'XSL_PREFIX', 'PROD'];
+        'TransactionLists', 'YES', 'NO', 'HCSC', 'ENGLISH', 'FRENCH', 'SOFTWARE_VERSION', 'XSL_PREFIX', 'PROD'];
 
     //version 1.1 bug fix?
     //version 1.2 added Submission package/rq to MPNC, MPDNS
     //version 1.3 Chnage Lifecycle Rec associations of Sequence Clean-up and Notification of interruption of sale
 
     function TransactionService($filter, $translate, getCountryAndProvinces, getContactLists, dataListLoader, utils, TransactionLists,
-                                YES, NO, HCSC, ENGLISH, FRENCH, XSL_PREFIX, PROD) {
+                                YES, NO, HCSC, ENGLISH, FRENCH,SOFTWARE_VERSION, XSL_PREFIX, PROD) {
         //var vm = this;
         this.baseRequesters = [];
         this.userList =[];
@@ -276,7 +276,7 @@
                 model.isPriority = jsonObj.is_priority;
                 model.isNoc = jsonObj.is_noc;
                 model.isAdminSub = jsonObj.is_admin_sub;
-                model.subType = utils.filterByJsonId(this.getAdminSubTypeList(), jsonObj.sub_type),
+                model.subType = utils.filterByJsonId(this.getAdminSubTypeList(), jsonObj.sub_type);
                     // if (jsonObj.sub_type) {
                     //     var subTypeSet = $filter('filter')(getContactLists.getAdminSubType(), {id: jsonObj.sub_type._id});
                     //     // to fix the bug - filter might return multiple values and the first one is NOT the right one
@@ -296,10 +296,15 @@
                     // this._transformReqFromFile(model, jsonObj.solicited_requester_record);
                     //  model.projectManager1 = jsonObj.regulatory_project_manager1;
                     //  model.projectManager2 = jsonObj.regulatory_project_manager2;
+                if (jsonObj.software_version === SOFTWARE_VERSION) {
                     model.isFees = jsonObj.is_fees;
-                model.feeDetails = null;
-                if (model.isFees !== NO) {
-                    model.feeDetails = this._mapFeeDetailsFromOutput(jsonObj.fee_details);
+                    model.feeDetails = null;
+                    if (model.isFees !== NO) {
+                        model.feeDetails = this._mapFeeDetailsFromOutput(jsonObj.fee_details);
+                    }
+                } else {
+                    model.isFees = null;
+                    model.feeDetails = null;
                 }
 
                 if(jsonObj.importFileType === HCSC ) {

@@ -699,9 +699,10 @@
             }
             if (value === "B02-20160301-038") {
                 vm.lifecycleModel.controlNumber = "000000";
-            } else if (vm.lifecycleModel.controlNumber === "000000") {
-                vm.lifecycleModel.controlNumber = "";
             }
+            // else if (vm.lifecycleModel.controlNumber === "000000") {
+            //     vm.lifecycleModel.controlNumber = "";
+            // }
         };
         /**
          * @ngdoc method sets the state of the details field based on
