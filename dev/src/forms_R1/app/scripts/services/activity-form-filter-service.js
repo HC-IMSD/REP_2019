@@ -253,7 +253,9 @@
                     case 'B02-20210108-01': //NDS CV
                         newList.push(raList[i]);
                         break;
-
+                    case 'B02-20180522-01': //BE
+                        newList.push(raList[i]);
+                        break;
                 }
             }//for
             return newList;

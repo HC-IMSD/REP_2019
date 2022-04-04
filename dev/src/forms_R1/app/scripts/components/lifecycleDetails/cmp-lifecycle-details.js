@@ -651,6 +651,10 @@
                     vm.descriptionList = TransactionLists.getVPROREType();
                     break;
 
+                case ("B02-20180522-01"): // BE (Blood Establishment)
+                    vm.descriptionList = TransactionLists.getBEType();
+                    break;
+
                 default:
                     try {
                         vm.descriptionList = vm.activityTypeMapping[value];

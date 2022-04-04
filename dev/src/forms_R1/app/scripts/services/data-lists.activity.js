@@ -170,8 +170,8 @@
             POST_ANTH_CHANGE:"POST_ANTH_CHANGE",        // Post Authorization Change
             ROLLING_INFO:"ROLLING_INFO",                // Rolling Information
             WITHDRAWAL_NOF_FORM:"WITHDRAWAL_NOF_FORM",   // Withdrawal of Drug Notification Form
-            PROTOCOL_REVIEW:"PROTOCOL_REVIEW"              //Protocol Review
-
+            PROTOCOL_REVIEW:"PROTOCOL_REVIEW",              //Protocol Review
+            BLOOD_EST: "BLOOD_EST"                      // Blood Establishment
         };
 
 
@@ -276,7 +276,8 @@
             getCOVID19AMDType: _getCoVir19AmdArray,  //--remove temporary for the release 2020-09-10, will add them back after
             getV_COV19AMDType: _getV_CoV19AmdArray,
             getVNDSCVType: _getV_NDSCVArray,
-            getVPROREType: _getV_PROREArray
+            getVPROREType: _getV_PROREArray,
+            getBEType: _getBEArray
         };
         return service;
 
@@ -2141,6 +2142,12 @@
                 vm.allActivities.PHONE_RQ_RESPONSE,
                 vm.allActivities.UNSOLICITED_DATA
             ])
+        }
+
+        function  _getBEArray() {
+            return ([
+                vm.allActivities.BLOOD_EST
+            ]);
         }
 
         /**
