@@ -86,6 +86,8 @@
   "DINID_": "Drug Identification Number (DIN)",
   "NO_DIN_COUNTRY": "Require at least one country for investigation.",
   "ROUTING_ID": "Routing Identifier",
+  "ROASAVEREQUIRED": "Routes of Administration was not saved",
+  "COMSAVEREQUIRED": "Country of Manufacture was not saved",
   "HT_LOAD_FILE_1":"When continuing with a working copy, the format of the file to load should be .hcsc.",
   "HT_LOAD_FILE_2":"When viewing/updating a final XML file, the format of the file to load should be .xml.",
   "HT_PROD_INFO_1":"Please only include information that is pertinent to this regulatory activity (i.e. if the dossier has 5 dosage forms, but this regulatory activity only applies to 1, only list the formulation for that 1 dosage form in this version of the product information XML file).",

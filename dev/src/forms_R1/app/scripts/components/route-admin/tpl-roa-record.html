@@ -39,12 +39,23 @@
             </div></div>
             <div class="row">
                 <div class="btn-group-sm col-sm-12">
-                    <button data-ng-click="roaRecCtrl.saveRecord();roaRecCtrl.cancelFocus();" class="btn btn-primary btn-sm" name="roaSave" onclick="focusOnRow(this, 'addRoaRec_')">
+                    <input type="hidden"  data-ng-model="roaRecCtrl.model.saveButton"
+                           aria-hidden="true" id="roaSaveRequired_{{::$id}}" name="roaSaveRequired_{{::$id}}" required/>
+                    <button id="roaSaveButton_{{::$id}}" data-ng-click="roaRecCtrl.saveRecord();roaRecCtrl.cancelFocus();" class="btn btn-primary btn-sm" name="roaSave" onclick="focusOnRow(this, 'addRoaRec_')">
                         {{::'SAVE_RECORD'|translate}}
                     </button>
                     <button data-ng-click="roaRecCtrl.deleteRecord(item.id);roaRecCtrl.cancelFocus();" class="btn btn-danger btn-sm" name="roaDelete" onclick="focusOnRow(this, 'addRoaRec_')">
                         {{::'DELETE_RECORD'|translate}}
                     </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="btn-group-sm col-sm-12">
+                    <strong class="error" data-ng-show="!roaRecCtrl.model.saveButton">
+                        <span class="label label-danger">
+                            {{::"ROASAVEREQUIRED"|translate}}
+                        </span>
+                    </strong>
                 </div>
             </div>
         </fieldset>

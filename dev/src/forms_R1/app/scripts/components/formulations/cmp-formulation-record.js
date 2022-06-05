@@ -107,6 +107,10 @@
             "no_din_country": {
                 "type": "element",
                 "target": "list_din_country"
+            },
+            "roaSaveRequired": {
+                "type": "element",
+                "target": "roaSaveButton"
             }
         };
         vm.transcludeList={

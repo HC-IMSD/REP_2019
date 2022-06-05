@@ -91,7 +91,7 @@
         vm.addNew = function() {
             var maxID = getMaxID();
             //make roa field not an object to trigger validation!!
-            var item = {"id": maxID + 1, "roa": "", 'otherRoaDetails': "",display:""};
+            var item = {"id": maxID + 1, "roa": "", 'otherRoaDetails': "",display:"", saveButton:""};
             vm.model.roaList.push(item);
             vm.resetToCollapsed= !vm.resetToCollapsed;
             // vm.selectRecord=(0);

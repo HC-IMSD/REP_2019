@@ -49,6 +49,12 @@
         vm.showDetailErrors=false;
         vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
         vm.roaFilter = "roaRecCtrl.model.display";
+        vm.alias={
+            "roaSaveRequired": {
+                "type": "element",
+                "target": "roaSaveButton"
+            }
+        };
         vm.$onInit = function(){
             vm.lang = $translate.proposedLanguage() || $translate.use();
             if(!vm.lang){
@@ -62,6 +68,9 @@
 
             if (changes.record) {
                 vm.model=changes.record.currentValue;
+                if (vm.model.roa.id && vm.model.roa) {
+                    vm.model.saveButton = "saved";
+                }
                 // vm.updateRecord();
             }
             if(changes.showErrors){
@@ -86,9 +95,11 @@
             if(vm.model.roa.id){
                 vm.clearFilter($scope);
                 vm.updateRecord();
+                vm.model.saveButton = "saved";
             } else {
                 vm.model.display = "";
                 vm.model.roa = "";
+                vm.model.saveButton = "";
                 vm.showDetailErrors=true;
             }
         };
@@ -116,6 +127,7 @@
         };
         vm.roaChange = function (e) {
             vm.model.roa = "";
+            vm.model.saveButton = "";
             vm.model.display = e;
             // for(var i = 0; i < vm.roaList.length; i++) {
             //     var option =vm.roaList[i];
