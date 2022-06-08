@@ -28,7 +28,7 @@
                         <input type="text" id="{{::countryRecCtrl.countryId}}" name="{{::countryRecCtrl.countryId}}"
                                data-ng-model="countryRecCtrl.model.display" value="countryRecCtrl.model.display"
                                list="{{::countryRecCtrl.countryListId}}"  data-ng-model-options="{ updateOn: 'blur', debounce:0 }"
-                               data-ng-change="countryRecCtrl.cancelFocus();"
+                               data-ng-change="countryRecCtrl.countryChanged();"
                                required="required" class="form-control full-width" data-focus-if="countryRecCtrl.isFocus"/>
                         <datalist id="{{::countryRecCtrl.countryListId}}" class="rep-selectize-dropdown rep-selectize-font">
                             <option data-ng-repeat="countryRecord in countryRecCtrl.countryList | filter:{[countryRecCtrl.lang]: countryFilter} track by countryRecord.id" value="{{countryRecord[countryRecCtrl.lang]}}" label="{{countryRecord[countryRecCtrl.lang]}}"/>
@@ -58,12 +58,23 @@
             </div>
             <div class="row">
                 <div class="col-sm-12 btn-group-sm align-bottom">
-                    <button data-ng-click="countryRecCtrl.saveRecord();countryRecCtrl.cancelFocus();" name="saveCountry" onclick="focusOnRow(this, 'addCountry_')"
+                    <input type="hidden"  data-ng-model="countryRecCtrl.model.saveButton"
+                           aria-hidden="true" id="comSaveRequired_{{::$id}}" name="comSaveRequired_{{::$id}}" required/>
+                    <button data-ng-click="countryRecCtrl.saveRecord();countryRecCtrl.cancelFocus();" id="comSaveButton_{{::$id}}" name="saveCountry" onclick="focusOnRow(this, 'addCountry_')"
                             class="btn btn-primary btn-sm">{{'SAVE_RECORD'|translate}}
                     </button>
                     <button data-ng-click="countryRecCtrl.deleteRecord(countryRecCtrl.model.id);countryRecCtrl.cancelFocus();" name="deleteCountry" onclick="focusOnRow(this, 'addCountry_')"
                         class="btn btn-danger btn-sm">{{'DELETE_RECORD'|translate}}
                     </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="btn-group-sm col-sm-12">
+                    <strong class="error" data-ng-show="!countryRecCtrl.model.saveButton && countryRecCtrl.showDetailErrors">
+                        <span class="label label-danger">
+                            {{::"COMSAVEREQUIRED"|translate}}
+                        </span>
+                    </strong>
                 </div>
             </div>
         </fieldset>

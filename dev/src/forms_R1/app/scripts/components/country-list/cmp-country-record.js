@@ -44,7 +44,7 @@
     function countryRecordController($scope,$filter, $translate, UNKNOWN) {
         var vm = this;
 
-        vm.model = {"id": "", "country": "","unknownCountryDetails":"","display":""};
+        vm.model = {"id": "", "country": "","unknownCountryDetails":"","display":"", saveButton:""};
         vm.countries=[];
         vm.onChangeCount = 0;
         vm.lang = $translate.proposedLanguage() || $translate.use();
@@ -59,7 +59,7 @@
         /**
          * Updates the display value for the object for summary display
          */
-        vm.countryChanged = function() {
+        vm.countryFound = function() {
             var found = false;
             for(var i = 0; i < vm.countries.length; i++){
                 if(vm.countries[i][vm.lang] === vm.model.display){
@@ -71,6 +71,7 @@
             if( ! found) {
                     vm.model.display = "";
                     vm.model.country = {};
+                    vm.model.saveButton = "novalue";
                     vm.showDetailErrors = true;
             }
             return found;
@@ -84,6 +85,23 @@
 
         };
 
+        vm.countryChanged = function() {
+            var found = false;
+            for(var i = 0; i < vm.countries.length; i++){
+                if(vm.countries[i][vm.lang] === vm.model.display){
+                    found = true;
+                    vm.model.saveButton = "";
+                    break;
+                }
+            }
+            if( ! found) {
+                vm.model.display = "";
+                vm.model.country = {};
+                vm.model.saveButton = "novalue";
+                vm.showDetailErrors = true;
+            }
+            vm.cancelFocus();
+        };
 
         vm.$onChanges = function (changes) {
             if(changes.countryList){
@@ -91,6 +109,9 @@
             }
             if (changes.record && changes.record.currentValue) {
                 vm.model = changes.record.currentValue;
+               // if (vm.model.id && vm.model.country) {
+                    vm.model.saveButton = "loaded";
+                //}
             }
             if(changes.showErrors){
                 vm.showDetailErrors=changes.showErrors.currentValue;
@@ -99,10 +120,11 @@
         };
 
         vm.saveRecord = function () {
-            if(vm.countryChanged()){
+            if(vm.countryFound()){
                 vm.countryList = vm.updateCountryList();
                 vm.updateRecord();
                 vm.clearFilter($scope);
+                vm.model.saveButton = "saved";
                 // } else {
                 //     vm.onError();
             }

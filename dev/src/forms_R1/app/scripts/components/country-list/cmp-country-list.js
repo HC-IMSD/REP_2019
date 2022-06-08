@@ -55,7 +55,7 @@
         ];
 
         vm.hasUnknown = false;
-        vm.emptyModel = {"id": "", "country": "","unknownCountryDetails":"","display":""};
+        vm.emptyModel = {"id": "", "country": "","unknownCountryDetails":"","display":"", saveButton:""};
 
 
         vm.$onInit = function () {

@@ -111,6 +111,10 @@
             "roaSaveRequired": {
                 "type": "element",
                 "target": "roaSaveButton"
+            },
+            "comSaveRequired": {
+                "type": "element",
+                "target": "comSaveButton"
             }
         };
         vm.transcludeList={

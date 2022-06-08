@@ -51,7 +51,7 @@
             </div>
             <div class="row">
                 <div class="btn-group-sm col-sm-12">
-                    <strong class="error" data-ng-show="!roaRecCtrl.model.saveButton">
+                    <strong class="error" data-ng-show="!roaRecCtrl.model.saveButton && roaRecCtrl.showDetailErrors">
                         <span class="label label-danger">
                             {{::"ROASAVEREQUIRED"|translate}}
                         </span>

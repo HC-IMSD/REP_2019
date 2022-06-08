@@ -49,12 +49,6 @@
         vm.showDetailErrors=false;
         vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
         vm.roaFilter = "roaRecCtrl.model.display";
-        vm.alias={
-            "roaSaveRequired": {
-                "type": "element",
-                "target": "roaSaveButton"
-            }
-        };
         vm.$onInit = function(){
             vm.lang = $translate.proposedLanguage() || $translate.use();
             if(!vm.lang){
@@ -68,9 +62,9 @@
 
             if (changes.record) {
                 vm.model=changes.record.currentValue;
-                if (vm.model.roa.id && vm.model.roa) {
-                    vm.model.saveButton = "saved";
-                }
+               // if (vm.model.roa.id && vm.model.roa) {
+                    vm.model.saveButton = "loaded";
+               // }
                 // vm.updateRecord();
             }
             if(changes.showErrors){
@@ -99,7 +93,7 @@
             } else {
                 vm.model.display = "";
                 vm.model.roa = "";
-                vm.model.saveButton = "";
+                vm.model.saveButton = "novalue";
                 vm.showDetailErrors=true;
             }
         };
