@@ -98,7 +98,7 @@
   "D24": "Vétérinaire",
   "D26": "Essai clinique",
   "D21_DESCR": "Le dossier biologique s’applique à tous les produits biologiques et radiopharmaceutiques relevant du mandat de la Direction des médicaments biologiques et radiopharmaceutiques (DMBR) et de la Direction des produits de santé commercialisés (DPSC).",
-  "D22_DESCR": "Le dossier pharmaceutique s’applique à tous les produits pharmaceutiques, en sans ordonnance et désinfectants relevant du mandat de la Direction des produits thérapeutiques (DPT), de la Direction des produits de santé naturels et sans ordonnance (DPSNSO) et de la Direction des produits de santé commercialisés (DPSC).",
+  "D22_DESCR": "Le dossier pharmaceutique s’applique à tous les produits pharmaceutiques, en sans ordonnance et désinfectants relevant du mandat de la Direction des médicaments pharmaceutiques (DMP), de la Direction des produits de santé naturels et sans ordonnance (DPSNSO) et de la Direction des produits de santé commercialisés (DPSC).",
   "D24_DESCR": "Le dossier vétérinaire s'applique à tous les produits pharmaceutiques à usage vétérinaire, sans ordonnance et éthiques relevant du mandat de la Direction des médicaments vétérinaires (DMV)",
   "BROWSER": "Navigateur",
   "TABLE_EXPANDED_STATE": "État ouvert",
