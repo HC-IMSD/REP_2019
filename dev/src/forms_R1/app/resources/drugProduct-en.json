@@ -207,5 +207,19 @@
   "HT_GEN_XML_5":"For Veterinary Drugs - section 1.5 of your transaction using REP",
   "HT_GEN_XML_6":"Refer to the REP guidance document for detailed information on when it is required.",
   "HT_ADMINITRATIVE_1":"Refer to the <a href='https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/applications-submissions/guidance-documents/administrative-processing-human-disinfectant-drugs-2019/document.html'>Guidance Administrative Processing of Submissions and Applications Involving Human or Disinfectant Drugs</a>. ",
-  "HT_ADMINITRATIVE_2":"For instructions regarding administrative submission for veterinary drugs, please contact <a href='mailto:hc.vdd.skmd.so-dgps.dmv.cp.sc@canada.ca'>hc.vdd.skmd.so-dgps.dmv.cp.sc@canada.ca</a>."
+  "HT_ADMINITRATIVE_2":"For instructions regarding administrative submission for veterinary drugs, please contact <a href='mailto:hc.vdd.skmd.so-dgps.dmv.cp.sc@canada.ca'>hc.vdd.skmd.so-dgps.dmv.cp.sc@canada.ca</a>.",
+  "DATA_QUESTIONS": "Disaggregated Data Questions",
+  "DOES_INCLUDE_CT_DATA": "Does this submission include clinical trial data? ",
+  "ARE_RLTD_SEX": "Are the clinical trial data in your submission disaggregated by sex (male / female)? ",
+  "ARE_RLTD_AGE": "Are the clinical trial data in your submission disaggregated by age? ",
+  "ARE_RLTD_RACE": "Are the clinical trial data in your submission disaggregated by race / ethnicity? ",
+  "SAFETY": "By Safety: ",
+  "EFFICACY": "By Efficacy: ",
+  "EFFICACY_ARE_RLTD_SEX": "Are the clinical trial data in your submission disaggregated by sex (male / female)? By Efficacy",
+  "EFFICACY_ARE_RLTD_AGE": "Are the clinical trial data in your submission disaggregated by age? By Efficacy",
+  "EFFICACY_ARE_RLTD_RACE": "Are the clinical trial data in your submission disaggregated by race / ethnicity? By Efficacy",
+  "SAFETY_ARE_RLTD_SEX": "Are the clinical trial data in your submission disaggregated by sex (male / female)? By Safety",
+  "SAFETY_ARE_RLTD_AGE": "Are the clinical trial data in your submission disaggregated by age? By Safety",
+  "SAFETY_ARE_RLTD_RACE": "Are the clinical trial data in your submission disaggregated by race / ethnicity? By Safety",
+  "FROM_PEDIATRIC_POPULATIONS": "Does this submission include clinical trial data from pediatric populations (those under 17 years of age)? "
 }

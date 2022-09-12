@@ -614,7 +614,224 @@
                                            record-changed="drugProdCtrl.recordsChanged()"></cmp-appendix-four>
                     </div>
                 </div>
-            </div>
+
+
+                <div class="row">
+                    <section class="panel panel-default cd-data-pi" ng-if="drugProdCtrl.model.dossierType == 'D21' || drugProdCtrl.model.dossierType == 'D22'">
+
+                        <header class="panel-heading clearfix">
+                            <strong><span class="field-name">14. {{::'DATA_QUESTIONS' |translate}}</span></strong>
+                        </header>
+                        <div class="panel-body">
+                            <div class="row">
+                                <fieldset class="col-md-12 chkbxrdio-grp"
+                                    data-ng-class="{'has-error':drugProdCtrl.drugProdForm[drugProdCtrl.incCTDataId].$invalid}">
+                                    <legend class="required">
+                                        {{::'DOES_INCLUDE_CT_DATA' |translate}}
+                                        <strong class="required">{{::"REQUIRED" |translate}}</strong>
+                                        <cmp-error-message field-name="drugProdCtrl.incCTDataId"
+                                                           form-ref="drugProdCtrl.drugProdForm"
+                                                           show-error="drugProdCtrl.showError(drugProdCtrl.drugProdForm[drugProdCtrl.incCTDataId])"
+                                                           error-types="drugProdCtrl.requiredOnly">
+                                        </cmp-error-message>
+                                    </legend>
+                                    <input type="radio" id="{{::drugProdCtrl.incCTDataId}}"
+                                           name="{{::drugProdCtrl.incCTDataId}}" value="Y"
+                                           data-ng-model="drugProdCtrl.model.incCTData"
+                                            required
+                                            data-ng-blur="drugProdCtrl.setTouch(drugProdCtrl.drugProdForm[drugProdCtrl.incCTDataId])"
+                                    />
+                                    <label for="{{::drugProdCtrl.incCTDataId}}">&nbsp;{{::'Y'|translate}}</label>
+                                    <input type="radio" id="{{::drugProdCtrl.incCTDataId}}_1" name="{{::drugProdCtrl.incCTDataId}}"
+                                           value="N" data-ng-model="drugProdCtrl.model.incCTData" required
+                                           data-ng-change="drugProdCtrl.cleanupCTData()"/>
+                                    <label for="{{::drugProdCtrl.incCTDataId}}_1">&nbsp;{{::'N'|translate}}</label>
+                                </fieldset>
+                            </div>
+
+
+                            <div class="row rep-margin-top-12" ng-if="drugProdCtrl.model.incCTData == 'Y'">
+                                <fieldset class="col-md-12 chkbxrdio-grp"
+                                    data-ng-class="{'has-error':drugProdCtrl.drugProdForm[drugProdCtrl.effAreRltdSexId].$invalid}">
+                                    <legend class="required">
+                                        {{::'ARE_RLTD_SEX' |translate}}
+                                        <cmp-error-message field-name="drugProdCtrl.effAreRltdSexId"
+                                                           form-ref="drugProdCtrl.drugProdForm"
+                                                           show-error="drugProdCtrl.showError(drugProdCtrl.drugProdForm[drugProdCtrl.effAreRltdSexId])"
+                                                           error-types="drugProdCtrl.requiredOnly">
+                                        </cmp-error-message>
+                                    </legend>
+                                    <span translate="EFFICACY"></span>
+                                    <strong class="required">{{::"REQUIRED" |translate}}</strong>
+                                    <input type="radio" id="{{::drugProdCtrl.effAreRltdSexId}}"
+                                           name="{{::drugProdCtrl.effAreRltdSexId}}" value="Y"
+                                           data-ng-model="drugProdCtrl.model.effAreRltdSex"
+                                           required
+                                           data-ng-blur="drugProdCtrl.setTouch(drugProdCtrl.drugProdForm[drugProdCtrl.effAreRltdSexId])"
+                                    />
+                                    <label for="{{::drugProdCtrl.effAreRltdSexId}}">&nbsp;{{::'Y'|translate}}</label>
+                                    <input type="radio" id="{{::drugProdCtrl.effAreRltdSexId}}_1" name="{{::drugProdCtrl.effAreRltdSexId}}"
+                                           value="N" data-ng-model="drugProdCtrl.model.effAreRltdSex" required />
+                                    <label for="{{::drugProdCtrl.effAreRltdSexId}}_1">&nbsp;{{::'N'|translate}}</label>
+                                </fieldset>
+                            </div>
+
+                            <div class="row" ng-if="drugProdCtrl.model.incCTData == 'Y'">
+                                <fieldset class="col-md-12 chkbxrdio-grp"
+                                    data-ng-class="{'has-error':drugProdCtrl.drugProdForm[drugProdCtrl.safAreRltdSexId].$invalid}">
+                                    <legend>
+                                        <cmp-error-message field-name="drugProdCtrl.safAreRltdSexId"
+                                                           form-ref="drugProdCtrl.drugProdForm"
+                                                           show-error="drugProdCtrl.showError(drugProdCtrl.drugProdForm[drugProdCtrl.safAreRltdSexId])"
+                                                           error-types="drugProdCtrl.requiredOnly">
+                                        </cmp-error-message>
+                                    </legend>
+                                    <span translate="SAFETY"></span>
+                                    <strong class="required">{{::"REQUIRED" |translate}}</strong>
+                                    <input type="radio" id="{{::drugProdCtrl.safAreRltdSexId}}"
+                                           name="{{::drugProdCtrl.safAreRltdSexId}}" value="Y"
+                                           data-ng-model="drugProdCtrl.model.safAreRltdSex"
+                                           required
+                                           data-ng-blur="drugProdCtrl.setTouch(drugProdCtrl.drugProdForm[drugProdCtrl.safAreRltdSexId])"
+                                    />
+                                    <label for="{{::drugProdCtrl.safAreRltdSexId}}">&nbsp;{{::'Y'|translate}}</label>
+                                    <input type="radio" id="{{::drugProdCtrl.safAreRltdSexId}}_1" name="{{::drugProdCtrl.safAreRltdSexId}}"
+                                           value="N" data-ng-model="drugProdCtrl.model.safAreRltdSex" required/>
+                                    <label for="{{::drugProdCtrl.safAreRltdSexId}}_1">&nbsp;{{::'N'|translate}}</label>
+                                </fieldset>
+                            </div>
+
+                            <div class="row rep-margin-top-12" ng-if="drugProdCtrl.model.incCTData == 'Y'">
+                                <fieldset class="col-md-12 chkbxrdio-grp"
+                                          data-ng-class="{'has-error':drugProdCtrl.drugProdForm[drugProdCtrl.effAreRltdAgeId].$invalid}">
+                                    <legend class="required">
+                                        {{::'ARE_RLTD_AGE' |translate}}
+                                        <cmp-error-message field-name="drugProdCtrl.effAreRltdAgeId"
+                                                           form-ref="drugProdCtrl.drugProdForm"
+                                                           show-error="drugProdCtrl.showError(drugProdCtrl.drugProdForm[drugProdCtrl.effAreRltdAgeId])"
+                                                           error-types="drugProdCtrl.requiredOnly">
+                                        </cmp-error-message>
+                                    </legend>
+                                    <span translate="EFFICACY"></span>
+                                    <strong class="required">{{::"REQUIRED" |translate}}</strong>
+                                    <input type="radio" id="{{::drugProdCtrl.effAreRltdAgeId}}"
+                                           name="{{::drugProdCtrl.effAreRltdAgeId}}" value="Y"
+                                           data-ng-model="drugProdCtrl.model.effAreRltdAge"
+                                           required
+                                           data-ng-blur="drugProdCtrl.setTouch(drugProdCtrl.drugProdForm[drugProdCtrl.effAreRltdAgeId])"
+                                    />
+                                    <label for="{{::drugProdCtrl.effAreRltdAgeId}}">&nbsp;{{::'Y'|translate}}</label>
+                                    <input type="radio" id="{{::drugProdCtrl.effAreRltdAgeId}}_1" name="{{::drugProdCtrl.effAreRltdAgeId}}"
+                                           value="N" data-ng-model="drugProdCtrl.model.effAreRltdAge" required />
+                                    <label for="{{::drugProdCtrl.effAreRltdAgeId}}_1">&nbsp;{{::'N'|translate}}</label>
+                                </fieldset>
+                            </div>
+
+                            <div class="row rep-margin-top-12" ng-if="drugProdCtrl.model.incCTData == 'Y'">
+                                <fieldset class="col-md-12 chkbxrdio-grp"
+                                          data-ng-class="{'has-error':drugProdCtrl.drugProdForm[drugProdCtrl.safAreRltdAgeId].$invalid}">
+                                    <legend>
+                                        <cmp-error-message field-name="drugProdCtrl.safAreRltdAgeId"
+                                                           form-ref="drugProdCtrl.drugProdForm"
+                                                           show-error="drugProdCtrl.showError(drugProdCtrl.drugProdForm[drugProdCtrl.safAreRltdAgeId])"
+                                                           error-types="drugProdCtrl.requiredOnly">
+                                        </cmp-error-message>
+                                    </legend>
+                                    <span translate="SAFETY"></span>
+                                    <strong class="required">{{::"REQUIRED" |translate}}</strong>
+                                    <input type="radio" id="{{::drugProdCtrl.safAreRltdAgeId}}"
+                                           name="{{::drugProdCtrl.safAreRltdAgeId}}" value="Y"
+                                           data-ng-model="drugProdCtrl.model.safAreRltdAge"
+                                           required
+                                           data-ng-blur="drugProdCtrl.setTouch(drugProdCtrl.drugProdForm[drugProdCtrl.safAreRltdAgeId])"
+                                    />
+                                    <label for="{{::drugProdCtrl.safAreRltdAgeId}}">&nbsp;{{::'Y'|translate}}</label>
+                                    <input type="radio" id="{{::drugProdCtrl.safAreRltdAgeId}}_1" name="{{::drugProdCtrl.safAreRltdAgeId}}"
+                                           value="N" data-ng-model="drugProdCtrl.model.safAreRltdAge" required/>
+                                    <label for="{{::drugProdCtrl.safAreRltdAgeId}}_1">&nbsp;{{::'N'|translate}}</label>
+                                </fieldset>
+                            </div>
+
+                            <div class="row rep-margin-top-12" ng-if="drugProdCtrl.model.incCTData == 'Y'">
+                                <fieldset class="col-md-12 chkbxrdio-grp"
+                                          data-ng-class="{'has-error':drugProdCtrl.drugProdForm[drugProdCtrl.effAreRltdRaceId].$invalid}">
+                                    <legend class="required">
+                                        {{::'ARE_RLTD_RACE' |translate}}
+                                        <cmp-error-message field-name="drugProdCtrl.effAreRltdRaceId"
+                                                           form-ref="drugProdCtrl.drugProdForm"
+                                                           show-error="drugProdCtrl.showError(drugProdCtrl.drugProdForm[drugProdCtrl.effAreRltdRaceId])"
+                                                           error-types="drugProdCtrl.requiredOnly">
+                                        </cmp-error-message>
+                                    </legend>
+                                    <span translate="EFFICACY"></span>
+                                    <strong class="required">{{::"REQUIRED" |translate}}</strong>
+                                    <input type="radio" id="{{::drugProdCtrl.effAreRltdRaceId}}"
+                                           name="{{::drugProdCtrl.effAreRltdRaceId}}" value="Y"
+                                           data-ng-model="drugProdCtrl.model.effAreRltdRace"
+                                           required
+                                           data-ng-blur="drugProdCtrl.setTouch(drugProdCtrl.drugProdForm[drugProdCtrl.effAreRltdRaceId])"
+                                    />
+                                    <label for="{{::drugProdCtrl.effAreRltdRaceId}}">&nbsp;{{::'Y'|translate}}</label>
+                                    <input type="radio" id="{{::drugProdCtrl.effAreRltdRaceId}}_1" name="{{::drugProdCtrl.effAreRltdRaceId}}"
+                                           value="N" data-ng-model="drugProdCtrl.model.effAreRltdRace" required />
+                                    <label for="{{::drugProdCtrl.effAreRltdRaceId}}_1">&nbsp;{{::'N'|translate}}</label>
+                                </fieldset>
+                            </div>
+
+                            <div class="row" ng-if="drugProdCtrl.model.incCTData == 'Y'">
+                                <fieldset class="col-md-12 chkbxrdio-grp"
+                                          data-ng-class="{'has-error':drugProdCtrl.drugProdForm[drugProdCtrl.safAreRltdRaceId].$invalid}">
+                                    <legend>
+                                        <cmp-error-message field-name="drugProdCtrl.safAreRltdRaceId"
+                                                           form-ref="drugProdCtrl.drugProdForm"
+                                                           show-error="drugProdCtrl.showError(drugProdCtrl.drugProdForm[drugProdCtrl.safAreRltdRaceId])"
+                                                           error-types="drugProdCtrl.requiredOnly">
+                                        </cmp-error-message>
+                                    </legend>
+                                    <span translate="SAFETY"></span>
+                                    <strong class="required">{{::"REQUIRED" |translate}}</strong>
+                                    <input type="radio" id="{{::drugProdCtrl.safAreRltdRaceId}}"
+                                           name="{{::drugProdCtrl.safAreRltdRaceId}}" value="Y"
+                                           data-ng-model="drugProdCtrl.model.safAreRltdRace"
+                                           required
+                                           data-ng-blur="drugProdCtrl.setTouch(drugProdCtrl.drugProdForm[drugProdCtrl.safAreRltdRaceId])"
+                                    />
+                                    <label for="{{::drugProdCtrl.safAreRltdRaceId}}">&nbsp;{{::'Y'|translate}}</label>
+                                    <input type="radio" id="{{::drugProdCtrl.safAreRltdRaceId}}_1" name="{{::drugProdCtrl.safAreRltdRaceId}}"
+                                           value="N" data-ng-model="drugProdCtrl.model.safAreRltdRace" required/>
+                                    <label for="{{::drugProdCtrl.safAreRltdRaceId}}_1">&nbsp;{{::'N'|translate}}</label>
+                                </fieldset>
+                            </div>
+
+                            <div class="row rep-margin-top-12" ng-if="drugProdCtrl.model.incCTData == 'Y'">
+                                <fieldset class="col-md-12 chkbxrdio-grp"
+                                          data-ng-class="{'has-error':drugProdCtrl.drugProdForm[drugProdCtrl.fromPediPopulId].$invalid}">
+                                    <legend class="required">
+                                        {{::'FROM_PEDIATRIC_POPULATIONS' |translate}}
+                                        <strong class="required">{{::"REQUIRED" |translate}}</strong>
+                                        <cmp-error-message field-name="drugProdCtrl.fromPediPopulId"
+                                                           form-ref="drugProdCtrl.drugProdForm"
+                                                           show-error="drugProdCtrl.showError(drugProdCtrl.drugProdForm[drugProdCtrl.fromPediPopulId])"
+                                                           error-types="drugProdCtrl.requiredOnly">
+                                        </cmp-error-message>
+                                    </legend>
+                                    <input type="radio" id="{{::drugProdCtrl.fromPediPopulId}}"
+                                           name="{{::drugProdCtrl.fromPediPopulId}}" value="Y"
+                                           data-ng-model="drugProdCtrl.model.fromPediPopul"
+                                           required
+                                           data-ng-blur="drugProdCtrl.setTouch(drugProdCtrl.drugProdForm[drugProdCtrl.fromPediPopulId])"
+                                    />
+                                    <label for="{{::drugProdCtrl.fromPediPopulId}}">&nbsp;{{::'Y'|translate}}</label>
+                                    <input type="radio" id="{{::drugProdCtrl.fromPediPopulId}}_1" name="{{::drugProdCtrl.fromPediPopulId}}"
+                                           value="N" data-ng-model="drugProdCtrl.model.fromPediPopul" required />
+                                    <label for="{{::drugProdCtrl.fromPediPopulId}}_1">&nbsp;{{::'N'|translate}}</label>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+        </div>
         </div>
     </section>
     <!--<div class="row">-->

@@ -189,9 +189,16 @@
                     // hasDinNoc:"",
                     // isCanMarket:"",
                     // ctaSrcCountryList: []
-                }
-                //contactList: []
-
+                },
+                //contactList: [],
+                incCTData: "",
+                effAreRltdSex: "",
+                effAreRltdAge: "",
+                effAreRltdRace: "",
+                safAreRltdSex: "",
+                safAreRltdAge: "",
+                safAreRltdRace: "",
+                fromPediPopul: ""
             },
 
             getDefaultObject: function () {
@@ -281,10 +288,31 @@
                         propIndication: info.proposed_indication,
                         formulations: getFormulationList(info.formulation_group.formulation_details),//tab + grid +
                         appendixFourList: getAppendix4IngredientList(info.appendix4_group)
-                    }
+                    },
+                    incCTData: info.does_include_ct_data === 'Y' ? 'Y' : null
+
                     //contactList: getContactList(info.contact_record)
 
                 };
+
+                if (info.does_include_ct_data === 'Y') {
+                    formModel.effAreRltdSex = info.efficacy_are_rltd_sex === 'Y' ? 'Y' : 'N';
+                    formModel.effAreRltdAge = info.efficacy_are_rltd_age === 'Y' ? 'Y' : 'N';
+                    formModel.effAreRltdRace = info.efficacy_are_rltd_race === 'Y' ? 'Y' : 'N';
+                    formModel.safAreRltdSex = info.safety_are_rltd_sex === 'Y' ? 'Y' : 'N';
+                    formModel.safAreRltdAge = info.safety_are_rltd_age === 'Y' ? 'Y' : 'N';
+                    formModel.safAreRltdRace = info.safety_are_rltd_race === 'Y' ? 'Y' : 'N';
+                    formModel.fromPediPopul = info.from_pediatric_populations === 'Y' ? 'Y' : 'N';
+
+                }else {
+                    formModel.effAreRltdSex = info.efficacy_are_rltd_sex === 'Y' ? 'Y' : null;
+                    formModel.effAreRltdAge = info.efficacy_are_rltd_age === 'Y' ? 'Y' : null;
+                    formModel.effAreRltdRace = info.efficacy_are_rltd_race === 'Y' ? 'Y' : null;
+                    formModel.safAreRltdSex = info.safety_are_rltd_sex === 'Y' ? 'Y' : null;
+                    formModel.safAreRltdAge = info.safety_are_rltd_age === 'Y' ? 'Y' : null;
+                    formModel.safAreRltdRace = info.safety_are_rltd_race === 'Y' ? 'Y' : null;
+                    formModel.fromPediPopul = info.from_pediatric_populations === 'Y' ? 'Y' : null;
+                }
                /* if (info.therapeutic_class_list.therapeutic_class) {
                     dossierModel.drugProduct.therapeutic = getTherapeuticList(info.therapeutic_class_list.therapeutic_class)
                 }*/
@@ -429,6 +457,16 @@
                     baseModel.formulation_group.formulation_details = formulations;
                 }
             }
+
+            baseModel.does_include_ct_data = jsonObj.incCTData;
+            baseModel.efficacy_are_rltd_sex = jsonObj.effAreRltdSex;
+            baseModel.efficacy_are_rltd_age = jsonObj.effAreRltdAge;
+            baseModel.efficacy_are_rltd_race = jsonObj.effAreRltdRace;
+            baseModel.safety_are_rltd_sex = jsonObj.safAreRltdSex;
+            baseModel.safety_are_rltd_age = jsonObj.safAreRltdAge;
+            baseModel.safety_are_rltd_race = jsonObj.safAreRltdRace;
+            baseModel.from_pediatric_populations = jsonObj.fromPediPopul;
+
             //cant seem to use a variable for the key
             return {"DRUG_PRODUCT_ENROL": baseModel};
 

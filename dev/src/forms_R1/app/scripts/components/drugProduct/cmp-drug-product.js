@@ -712,6 +712,15 @@
             vm.disiTypeId = "disinfectant_type" + scopeId;
             vm.privacyStatementID = "privacy_statement" + scopeId;
             vm.isAdminSubId = "is_admin_submission" + scopeId;
+
+            vm.incCTDataId = "does_include_ct_data" + scopeId;
+            vm.effAreRltdSexId = "efficacy_are_rltd_sex" + scopeId;
+            vm.effAreRltdAgeId = "efficacy_are_rltd_age" + scopeId;
+            vm.effAreRltdRaceId = "efficacy_are_rltd_race" + scopeId;
+            vm.safAreRltdSexId = "safety_are_rltd_sex" + scopeId;
+            vm.safAreRltdAgeId = "safety_are_rltd_age" + scopeId;
+            vm.safAreRltdRaceId = "safety_are_rltd_race" + scopeId;
+            vm.fromPediPopulId = "from_pediatric_populations" + scopeId;
         }
 
         function goToErrorSummary() {
@@ -741,6 +750,16 @@
                     vm.adminSubTypeList = data;
                 });
         }
+
+        vm.cleanupCTData = function () {
+            vm.model.effAreRltdSex = null;
+            vm.model.effAreRltdAge = null;
+            vm.model.effAreRltdRace = null;
+            vm.model.safAreRltdSex = null;
+            vm.model.safAreRltdAge = null;
+            vm.model.safAreRltdRace = null;
+            vm.model.fromPediPopul = null;
+        };
     }//endcontroller
 
 })();

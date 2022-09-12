@@ -31,6 +31,14 @@
 	<hpfb:element name="is_regulated_cdsa" type="required_yes_no_content"/>
 	<hpfb:element name="is_prescription_drug" type="required_yes_no_content"/>
 	<hpfb:element name="is_sched_a" type="required_yes_no_content"/>
+	<hpfb:element name="does_include_ct_data" type="required_yes_no_content"/>
+	<hpfb:element name="efficacy_are_rltd_sex" type="required_yes_no_content"/>
+	<hpfb:element name="efficacy_are_rltd_age" type="required_yes_no_content"/>
+	<hpfb:element name="efficacy_are_rltd_race" type="required_yes_no_content"/>
+	<hpfb:element name="safety_are_rltd_sex" type="required_yes_no_content"/>
+	<hpfb:element name="safety_are_rltd_age" type="required_yes_no_content"/>
+	<hpfb:element name="safety_are_rltd_race" type="required_yes_no_content"/>
+	<hpfb:element name="from_pediatric_populations" type="required_yes_no_content"/>
 	<hpfb:element name="proposed_indication" type="char_1_1024_content"/>
 	<!-- Drug Product element definitions-->
 
@@ -351,6 +359,14 @@
 			<hpfb:element ref="is_prescription_drug"/>
 			<hpfb:element ref="is_sched_a"/>
 			<hpfb:element ref="proposed_indication"/>
+			<hpfb:element ref="does_include_ct_data"/>
+			<hpfb:element ref="efficacy_are_rltd_sex"/>
+			<hpfb:element ref="efficacy_are_rltd_age"/>
+			<hpfb:element ref="efficacy_are_rltd_race"/>
+			<hpfb:element ref="safety_are_rltd_sex"/>
+			<hpfb:element ref="safety_are_rltd_age"/>
+			<hpfb:element ref="safety_are_rltd_race"/>
+			<hpfb:element ref="from_pediatric_populations"/>
 			<hpfb:element ref="schedule_a_group" minOccurs="0" maxOccurs="1"/>
 			<hpfb:element ref="appendix4_group" minOccurs="0" maxOccurs="unbounded"/>
 			<hpfb:element ref="formulation_group"/>
