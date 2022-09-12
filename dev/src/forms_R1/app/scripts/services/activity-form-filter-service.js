@@ -100,9 +100,9 @@
                     /* case 'B02-20160301-089': //YBPR
                          newList.push(raList[i]);
                          break; */
-                    case 'B02-20160301-028': //DSUR
+                    /*case 'B02-20160301-028': //DSUR
                         newList.push(raList[i]);
-                        break;
+                        break;*/
                     case 'B02-20160301-018': //DINA
                         newList.push(raList[i]);
                         break;
@@ -217,9 +217,9 @@
                     case 'B02-20160301-089': //YBPR
                         newList.push(raList[i]);
                         break;
-                    case 'B02-20160301-028': //DSUR
+                    /*case 'B02-20160301-028': //DSUR
                         newList.push(raList[i]);
-                        break;
+                        break;*/
                     case 'B02-20160301-019': //DINB
                         newList.push(raList[i]);
                         break;
@@ -379,9 +379,9 @@
                     /* case 'B02-20160301-089': //YBPR
                          newList.push(raList[i]);
                          break; */
-                    case 'B02-20160301-028': //DSUR
+                    /*case 'B02-20160301-028': //DSUR
                         newList.push(raList[i]);
-                        break;
+                        break;*/
                     case 'B02-20160301-018': //DINA
                         newList.push(raList[i]);
                         break;
