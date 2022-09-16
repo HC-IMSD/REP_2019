@@ -289,7 +289,7 @@
                         formulations: getFormulationList(info.formulation_group.formulation_details),//tab + grid +
                         appendixFourList: getAppendix4IngredientList(info.appendix4_group)
                     },
-                    incCTData: info.does_include_ct_data === 'Y' ? 'Y' : null
+                    incCTData: info.does_include_ct_data === 'Y' ? 'Y' : (info.does_include_ct_data === 'N' ? 'N' : null)
 
                     //contactList: getContactList(info.contact_record)
 
