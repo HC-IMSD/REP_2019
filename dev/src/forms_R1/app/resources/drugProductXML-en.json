@@ -199,5 +199,13 @@
 	"ingredient_role": "Ingredient Role",
 	"add_importer" : "Add Importer",
 	"other_shelf_life_considerations":"Other Shelf Life Considerations",
-	"per_units_other_details":"Per Units Other Details"
+	"per_units_other_details":"Per Units Other Details",
+	"does_include_ct_data": "Does this submission include clinical trial data? ",
+	"efficacy_are_rltd_sex": "Are the clinical trial data in your submission disaggregated by sex (male / female) by? Efficacy",
+	"efficacy_are_rltd_age": "Are the clinical trial data in your submission disaggregated by age by? Efficacy",
+	"efficacy_are_rltd_race": "Are the clinical trial data in your submission disaggregated by race / ethnicity by? Efficacy",
+	"safety_are_rltd_sex": "Are the clinical trial data in your submission disaggregated by sex (male / female) by? Safety",
+	"safety_are_rltd_age": "Are the clinical trial data in your submission disaggregated by age by? Safety",
+	"safety_are_rltd_race": "Are the clinical trial data in your submission disaggregated by race / ethnicity by? Safety",
+	"from_pediatric_populations": "Does this submission include clinical trial data from pediatric populations (those under 18 years of age)? "
 }

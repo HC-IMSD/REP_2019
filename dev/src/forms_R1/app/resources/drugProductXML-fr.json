@@ -188,5 +188,13 @@
 	"nanomaterial": "Nanomaterial",
 	"contact_lens":"Contact Lens",
 	"importer_name": "Importer Name",
-	"institutional_industrial": "Institutional Industrial"
+	"institutional_industrial": "Institutional Industrial",
+	"does_include_ct_data": "Cette soumission inclut-elle des données d'essais cliniques? ",
+	"efficacy_are_rltd_sex": "Les données d’essais cliniques contenues dans votre soumission sont-elles désagrégées par sexe (homme / femme) par? efficacité",
+	"efficacy_are_rltd_age": "Les données d’essais cliniques contenues dans votre soumission sont-elles désagrégées par âge par? efficacité",
+	"efficacy_are_rltd_race": "Les données d’essais cliniques contenues dans votre soumission sont-elles désagrégées par race/ethnie par? efficacité",
+	"safety_are_rltd_sex": "Les données d’essais cliniques contenues dans votre soumission sont-elles désagrégées par sexe (homme / femme) par? innocuité",
+	"safety_are_rltd_age": "Les données d’essais cliniques contenues dans votre soumission sont-elles désagrégées par âge par? innocuité",
+	"safety_are_rltd_race": "Les données d’essais cliniques contenues dans votre soumission sont-elles désagrégées par race/ethnie par? innocuité",
+	"from_pediatric_populations": "Cette soumission inclut-elle des données d'essais cliniques provenant de populations pédiatriques (personnes âgées de moins de 18 ans)? "
 }
