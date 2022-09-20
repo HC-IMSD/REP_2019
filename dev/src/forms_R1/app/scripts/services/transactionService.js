@@ -17,14 +17,14 @@
         .factory('TransactionService', TransactionService);
 
     TransactionService.$inject = ['$filter', '$translate', 'getCountryAndProvinces', 'getContactLists', 'dataListLoader', 'utils',
-        'TransactionLists', 'YES', 'NO', 'HCSC', 'ENGLISH', 'FRENCH', 'SOFTWARE_VERSION', 'XSL_PREFIX', 'PROD'];
+        'TransactionLists', 'YES', 'NO', 'HCSC', 'ENGLISH', 'FRENCH', 'XSL_PREFIX', 'PROD'];
 
     //version 1.1 bug fix?
     //version 1.2 added Submission package/rq to MPNC, MPDNS
     //version 1.3 Chnage Lifecycle Rec associations of Sequence Clean-up and Notification of interruption of sale
 
     function TransactionService($filter, $translate, getCountryAndProvinces, getContactLists, dataListLoader, utils, TransactionLists,
-                                YES, NO, HCSC, ENGLISH, FRENCH,SOFTWARE_VERSION, XSL_PREFIX, PROD) {
+                                YES, NO, HCSC, ENGLISH, FRENCH, XSL_PREFIX, PROD) {
         //var vm = this;
         this.baseRequesters = [];
         this.userList =[];
@@ -34,16 +34,17 @@
             loadUserListData();
         };
         var isForProd = PROD === TransactionLists.getEnv();
-
+        var versions = TransactionLists.getVer();
+        var xslName = "REP_RT_" + versions.RT.major + "_" + versions.RT.minor + ".xsl";
+        var currentSoftwareVersion = versions.RT.major + "." + versions.RT.minor + versions.RT.patch;
 
         function TransactionService() {
             //construction logic
-            var defaultTransactionData = _getEmptyTransactionModel();
+            var defaultTransactionData = _getEmptyTransactionModel(currentSoftwareVersion);
             angular.extend(this._default, defaultTransactionData);
             this.rootTag = "TRANSACTION_ENROL";
             this.currSequence = 0;
-            // this.xslFileName = XSL_PREFIX + "REP_RT_2_2.xsl";
-            this.xslFileName = "REP_RT_4_4.xsl";
+            this.xslFileName = xslName;
             this.helpTextSequences = isForProd ?
                 {
                     loadFileInx: 0,
@@ -148,7 +149,7 @@
                     TRANSACTION_ENROL: {
                         template_type: "PHARMA",
                         date_saved: today,
-                        software_version: "4.4.0",
+                        software_version: currentSoftwareVersion,
                         data_checksum: jsonObj.dataChecksum,
                        // transaction_type: jsonObj.transactionType,
                         is_third_party: jsonObj.isThirdParty,
@@ -265,7 +266,7 @@
                 if (!jsonObj) {
                     return this._default;
                 }
-                var model = _getEmptyTransactionModel();
+                var model = _getEmptyTransactionModel(currentSoftwareVersion);
                 model.dateSaved = jsonObj.date_saved;
 
                 model.dataChecksum = jsonObj.data_checksum;
@@ -296,7 +297,7 @@
                     // this._transformReqFromFile(model, jsonObj.solicited_requester_record);
                     //  model.projectManager1 = jsonObj.regulatory_project_manager1;
                     //  model.projectManager2 = jsonObj.regulatory_project_manager2;
-                if (jsonObj.software_version === SOFTWARE_VERSION) {
+                if (jsonObj.software_version === currentSoftwareVersion) {
                     model.isFees = jsonObj.is_fees;
                     model.feeDetails = null;
                     if (model.isFees !== NO) {
@@ -468,7 +469,7 @@
                 var currentLang = $translate.proposedLanguage() || $translate.use();
                 result.submission_class = _getSubmissionClassForOutput(feeObj.submissionClass, currentLang, ENGLISH, FRENCH);
                 result.submission_description = _getSubDescription(feeObj.submissionClass, currentLang, ENGLISH, FRENCH);
-                result.fee = feeObj.submissionClass.fee;
+                //result.fee = feeObj.submissionClass.fee;
             }
             // result.deferral_request = feeObj.deferralRequest;
             // result.fee_remission = feeObj.feeRemission;
@@ -527,9 +528,9 @@
 
             if (feeObj.submission_class && feeObj.submission_class._id) {
                 result.submissionClass = $filter('findListItemById')(TransactionLists.getFeeList(), {id: feeObj.submission_class._id});
-                if(result.submissionClass.fee != feeObj.fee){
-                    result.submissionClass = {};
-                }
+                // if(result.submissionClass.fee != feeObj.fee){
+                //     result.submissionClass = {};
+                // }
             }
             // // result.deferralRequest = feeObj.deferral_request;
             // // result.feeRemission = feeObj.fee_remission;
@@ -1064,11 +1065,11 @@
         return contact;
     }
 
-    function _getEmptyTransactionModel() {
+    function _getEmptyTransactionModel(_formVersion) {
         var defaultTransactionData = {
             dataChecksum: "",
             dateSaved: "",
-            softwareVersion: "4.4.0",
+            softwareVersion: _formVersion,
            // transactionType: "",
             isThirdParty: "",
             isPriority: "",
