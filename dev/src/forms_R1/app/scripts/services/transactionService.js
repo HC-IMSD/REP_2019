@@ -36,7 +36,7 @@
         var isForProd = PROD === TransactionLists.getEnv();
         var versions = TransactionLists.getVer();
         var xslName = "REP_RT_" + versions.RT.major + "_" + versions.RT.minor + ".xsl";
-        var currentSoftwareVersion = versions.RT.major + "." + versions.RT.minor + versions.RT.patch;
+        var currentSoftwareVersion = versions.RT.major + "." + versions.RT.minor + "." + versions.RT.patch;
 
         function TransactionService() {
             //construction logic
