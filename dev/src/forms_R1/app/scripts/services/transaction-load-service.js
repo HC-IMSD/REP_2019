@@ -16,12 +16,17 @@
 
             return function (options) {
                 var deferred = $q.defer();
+                var versionsUrl = RELATIVE_FOLDER_DATA + "versions.json";
                 var envUrl = RELATIVE_FOLDER_DATA + "env.json";
                 var countryUrl = RELATIVE_FOLDER_DATA + "countries.json";
                 var raTypeUrl= RELATIVE_FOLDER_DATA + "raType.json";
                 var feeUrl= RELATIVE_FOLDER_DATA + "feeClass.json";
                 var mitigationUrl = RELATIVE_FOLDER_DATA + "mitigationType.json";
                 var resultTranslateList = {};
+                $http.get(versionsUrl)
+                    .then(function (response) {
+                        TransactionLists.setVer(response.data);
+                    });
                 $http.get(envUrl)
                     .then(function (response) {
                         //PROCESS env data

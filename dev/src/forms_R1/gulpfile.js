@@ -146,12 +146,18 @@ var companyRootTitles_fr = {
 };
 
 var transactionRootTitles_en = {
-    mainHeading: "Regulatory Transaction Template: Regulatory Enrolment Process (REP) (Version 4.4.0)",
+    mainHeading: "Regulatory Transaction Template: Regulatory Enrolment Process (REP) (Version "
+    + env.ver.RT.major
+    + "." + env.ver.RT.minor
+    + "." + env.ver.RT.patch + ")",
     title: 'Regulatory Transaction Template: Regulatory Enrolment Process - Canada.ca'
 
 };
 var transactionRootTitles_fr = {
-    mainHeading: "Modèle de transaction réglementaire: Processus d'inscription réglementaire (Version 4.4.0)",
+    mainHeading: "Modèle de transaction réglementaire: Processus d'inscription réglementaire (Version "
+    + env.ver.RT.major
+    + "." + env.ver.RT.minor
+    + "." + env.ver.RT.patch + ")",
     title: 'Modèle de transaction réglementaire: Processus d\'inscription réglementaire - Canada.ca'
 
 };

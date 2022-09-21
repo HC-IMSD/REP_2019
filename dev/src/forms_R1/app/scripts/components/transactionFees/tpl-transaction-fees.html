@@ -2,7 +2,7 @@
     <ng-form name="transFeeCtrl.transFeeForm">
         <div class="container-fluid">
             <div class="row alert alert-warning" >
-                {{::'FEE_PAY_NOTICE' |translate}}
+                {{::'FEE_PAY_NOTICE' |translate}}<a target="_blank" href="{{::'FEES_AND_FUNDING_URL' |translate}}">{{::"FEES_AND_FUNDING_REV" |translate}}</a>
             </div>
             <div class="row">
                 <div class="col-md-7 form-group"
@@ -22,14 +22,14 @@
 
                     </label>
                 </div>
-                <div class="col-md-5 form-group">
+<!--                <div class="col-md-5 form-group">
                     <label for="{{::transFeeCtrl.feeId}}">
                         <span class="field-name">{{::'FEE_AMOUNT' |translate}}</span>
                     </label>
                     <input type="text" class="form-control full-width" id="{{::transFeeCtrl.feeId}}" readonly
                            name="{{::transFeeCtrl.feeId}}"
                            data-ng-value="transFeeCtrl.getFee()"/>
-                </div>
+                </div>-->
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">

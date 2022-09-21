@@ -24,6 +24,7 @@
     function getTransactionSeq($http, $q) {
         var vm = this;
         vm.env = '';
+        vm.ver = [];
         vm.raTypeArray = [];
         vm.feeTypeArray = [];
         vm.mitigationTypeArray = [];
@@ -65,9 +66,10 @@
             PRESUB_MEETING_PKG: "PRESUB_MEETING_PKG", // submission meeting package -used to be presub
             PRESUB_MEETING_RQ: "PRESUB_MEETING_RQ",   //submission Meeting Request -used to be presub
             PRIORITY_REVIEW_RQ: "PRIORITY_REVIEW_RQ", // Priority rewiew request
+            PRODUCT_LABELLING_POST_APPROVAL: "PRODUCT_LABELLING_POST_APPROVAL",
             // PRISTINE_PM: "PRISTINE_PM", // Pristine PM
-            SECOND_LANG_PM: "SECOND_LANG_PM", // second language PM
-            PRISTINE_PM_2LANG: "PRISTINE_PM_2LANG", // pristine PM second language
+            // SECOND_LANG_PM: "SECOND_LANG_PM", // second language PM
+            // PRISTINE_PM_2LANG: "PRISTINE_PM_2LANG", // pristine PM second language
             ADVISEMENT_LETTER_RESPONSE: "ADVISEMENT_LETTER_RESPONSE", //REspose to Advisement Letter dated
             CLIN_CLARIF_RESPONSE: "CLIN_CLARIF_RESPONSE", //Response to clinical clarifiaction request
             EMAIL_RQ_RESPONSE: "EMAIL_RQ_RESPONSE",// response to email request
@@ -178,6 +180,8 @@
         var service = {
             getEnv: _getEnvString,
             setEnv: _setEnvString,
+            getVer: _getVerString,
+            setVer: _setVerString,
             getTransactionDescriptions: getTransactionDescriptionsArray,
             getActivityTypes: getActivityArray,
             createRaTypes: _createRaArray,
@@ -303,6 +307,18 @@
             vm.env = value.env;
         }
 
+        function _getVerString() {
+            if (vm.ver) {
+                return vm.ver;
+            } else {
+                return '@@verValue';
+            }
+        }
+
+        function _setVerString(value) {
+            vm.ver = value.ver;
+        }
+
         function _createRaArray(value) {
             vm.raTypeArray = value;
         }
@@ -351,8 +367,9 @@
                 vm.allActivities.INITIAL, //Initial
                 vm.allActivities.MEETING_MINUTES, //minutes of meeting dated
                 vm.allActivities.POST_CLEARANCE_DATA, //post clearance data
-                vm.allActivities.SECOND_LANG_PM, // Second Language PM
-                vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
+                vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL,
+                //vm.allActivities.SECOND_LANG_PM, // Second Language PM
+                //vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
                 vm.allActivities.PUB_RELEASE_INFO, //Public Release of Clinical Information
                 vm.allActivities.BE_CLARIF_RESPONSE,
                 vm.allActivities.CLIN_CLARIF_RESPONSE, //Response to clinical clarifiaction request
@@ -399,8 +416,8 @@
                 vm.allActivities.MEETING_MINUTES, //minutes of meeting dated
                 vm.allActivities.POST_CLEARANCE_DATA, //post clearance data
                 // vm.allActivities.PRISTINE_PM, // Pristine PM
-                vm.allActivities.SECOND_LANG_PM, // Second Language PM
-                vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
+                //vm.allActivities.SECOND_LANG_PM, // Second Language PM
+                //vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
                 vm.allActivities.PUB_RELEASE_INFO, //Public Release of Clinical Information
                 vm.allActivities.CLIN_CLARIF_RESPONSE, //Response to clinical clarifiaction request
                 vm.allActivities.EMAIL_RQ_RESPONSE,// response to email request
@@ -449,8 +466,8 @@
                 vm.allActivities.POST_CLEARANCE_DATA, //post clearance data
                 vm.allActivities.POST_NOC_CHANGE, //Post NOC change
                 // vm.allActivities.PRISTINE_PM, // Pristine PM
-                vm.allActivities.SECOND_LANG_PM, // Second Language PM
-                vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
+                //vm.allActivities.SECOND_LANG_PM, // Second Language PM
+                //vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
                 vm.allActivities.PUB_RELEASE_INFO, //Public Release of Clinical Information
                 vm.allActivities.CLIN_CLARIF_RESPONSE, //Response to clinical clarifiaction request
                 vm.allActivities.EMAIL_RQ_RESPONSE,// response to email request
@@ -511,8 +528,8 @@
         //         vm.allActivities.PRESUB_MEETING_PKG, // presubmission meeting package
         //         vm.allActivities.PRESUB_MEETING_RQ,   //submission Meeting Request -used to be presub
         //         // vm.allActivities.PRISTINE_PM, // Pristine PM
-        //         vm.allActivities.SECOND_LANG_PM, // Second Language PM
-        //         vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
+        //         //vm.allActivities.SECOND_LANG_PM, // Second Language PM
+        //         //vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
         //         vm.allActivities.CLIN_CLARIF_RESPONSE, //Response to clinical clarifiaction request
         //         vm.allActivities.EMAIL_RQ_RESPONSE,// response to email request
         //         vm.allActivities.LABEL_CLARIF_RESPONSE, //Response to labelling clarification request
@@ -549,8 +566,8 @@
                 vm.allActivities.PRESUB_MEETING_PKG, // presubmission meeting package
                 vm.allActivities.PRESUB_MEETING_RQ,   //submission Meeting Request -used to be presub
                 // vm.allActivities.PRISTINE_PM, // Pristine PM
-                vm.allActivities.SECOND_LANG_PM, // Second Language PM
-                vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
+                //vm.allActivities.SECOND_LANG_PM, // Second Language PM
+                //vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
                 vm.allActivities.PUB_RELEASE_INFO, //Public Release of Clinical Information
                 vm.allActivities.BE_CLARIF_RESPONSE, //Response to BE clarification request dated..
                 vm.allActivities.CLIN_CLARIF_RESPONSE, //Response to clinical clarifiaction request
@@ -598,8 +615,8 @@
                 vm.allActivities.PRESUB_MEETING_PKG, // presubmission meeting package
                 vm.allActivities.PRESUB_MEETING_RQ,   //submission Meeting Request -used to be presub
                 // vm.allActivities.PRISTINE_PM, // Pristine PM
-                vm.allActivities.SECOND_LANG_PM, // Second Language PM
-                vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
+                //vm.allActivities.SECOND_LANG_PM, // Second Language PM
+                //vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
                 vm.allActivities.PUB_RELEASE_INFO, //Public Release of Clinical Information
                 vm.allActivities.BE_CLARIF_RESPONSE, //Response to BE clarification request dated..
                 vm.allActivities.CLIN_CLARIF_RESPONSE, //Response to clinical clarifiaction request
@@ -689,8 +706,8 @@
                 vm.allActivities.POST_CLEARANCE_DATA, //post clearance data
                 vm.allActivities.POST_NOC_CHANGE, //Post NOC change
                 // vm.allActivities.PRISTINE_PM, // Pristine PM
-                vm.allActivities.SECOND_LANG_PM, // Second Language PM
-                vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
+                //vm.allActivities.SECOND_LANG_PM, // Second Language PM
+                //vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
                 vm.allActivities.PUB_RELEASE_INFO, //Public Release of Clinical Information
                 vm.allActivities.BE_CLARIF_RESPONSE, //Response to BE clarification request dated..
                 vm.allActivities.CLIN_CLARIF_RESPONSE, //Response to clinical clarifiaction request
@@ -740,8 +757,8 @@
                 vm.allActivities.PRESUB_MEETING_PKG, // submission meeting package
                 vm.allActivities.PRESUB_MEETING_RQ,   //submission Meeting Request -used to be presub
                 // vm.allActivities.PRISTINE_PM, // Pristine PM
-                vm.allActivities.SECOND_LANG_PM, // Second Language PM
-                vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
+                //vm.allActivities.SECOND_LANG_PM, // Second Language PM
+                //vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
                 vm.allActivities.PUB_RELEASE_INFO, //Public Release of Clinical Information
                 vm.allActivities.BE_CLARIF_RESPONSE, //Response to BE clarification request dated..
                 vm.allActivities.CLIN_CLARIF_RESPONSE, //Response to clinical clarifiaction request
@@ -787,8 +804,8 @@
                 vm.allActivities.POST_NOC_CHANGE, //Post NOC change
                 vm.allActivities.PUB_RELEASE_INFO, //Public Release of Clinical Information
                 // vm.allActivities.PRISTINE_PM, // Pristine PM
-                vm.allActivities.SECOND_LANG_PM, // Second Language PM
-                vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
+                //vm.allActivities.SECOND_LANG_PM, // Second Language PM
+                //vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
                 vm.allActivities.CLIN_CLARIF_RESPONSE, //Response to clinical clarifiaction request
                 vm.allActivities.EMAIL_RQ_RESPONSE,// response to email request
                 vm.allActivities.LABEL_CLARIF_RESPONSE, //Response to labelling clarification request
@@ -935,8 +952,8 @@
                 vm.allActivities.PROCESSING_CLARIF_RESPONSE, //Response to processing Clarification Request
                 vm.allActivities.PANDEMIC_APPL, //Pandemic application
                 vm.allActivities.PHONE_RQ_RESPONSE, //Response to telephone Request
-                vm.allActivities.SECOND_LANG_PM, // Second Language PM
-                vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
+                //vm.allActivities.SECOND_LANG_PM, // Second Language PM
+                //vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
                 // vm.allActivities.PRISTINE_PM, // Pristine PM
                 vm.allActivities.RECON_DECIS_LTR_INTENT,// Reconsideration of Decision - Letter of Intent
                 vm.allActivities.RECON_DECIS_RQ_RECON, //Reconsideration of Decision - Request for Reconsideration
@@ -1061,8 +1078,9 @@
                 vm.allActivities.POST_CLEARANCE_DATA,
                 vm.allActivities.PRESUB_MEETING_PKG,
                 vm.allActivities.PRESUB_MEETING_RQ,
+                vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL,
                 // vm.allActivities.PRISTINE_PM,
-                vm.allActivities.PRISTINE_PM_2LANG,
+                //vm.allActivities.PRISTINE_PM_2LANG,
                 vm.allActivities.RECON_DECIS_LTR_INTENT,
                 vm.allActivities.RECON_DECIS_RQ_RECON,
                 vm.allActivities.RECON_DECIS_OTHER_INFO,
@@ -1126,8 +1144,9 @@
                 vm.allActivities.POST_CLEARANCE_DATA,
                 vm.allActivities.PRESUB_MEETING_PKG,
                 vm.allActivities.PRESUB_MEETING_RQ,
+                vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL,
                 // vm.allActivities.PRISTINE_PM,
-                vm.allActivities.PRISTINE_PM_2LANG,
+                //vm.allActivities.PRISTINE_PM_2LANG,
                 vm.allActivities.RECON_DECIS_LTR_INTENT,
                 vm.allActivities.RECON_DECIS_RQ_RECON,
                 vm.allActivities.RECON_DECIS_OTHER_INFO,
@@ -1226,7 +1245,7 @@
                 vm.allActivities.POST_AUTH_DIV1_CHANGE,
                 vm.allActivities.POST_CLEARANCE_DATA,
                 // vm.allActivities.PRISTINE_PM,
-                vm.allActivities.PRISTINE_PM_2LANG,
+                //vm.allActivities.PRISTINE_PM_2LANG,
                 vm.allActivities.EMAIL_RQ_RESPONSE,
                 vm.allActivities.LABEL_CLARIF_RESPONSE,
                 vm.allActivities.NOL_RESPONSE,
@@ -1252,7 +1271,7 @@
                 vm.allActivities.POST_AUTH_DIV1_CHANGE,
                 vm.allActivities.POST_CLEARANCE_DATA,
                 // vm.allActivities.PRISTINE_PM,
-                vm.allActivities.PRISTINE_PM_2LANG,
+                //vm.allActivities.PRISTINE_PM_2LANG,
                 vm.allActivities.EMAIL_RQ_RESPONSE,
                 vm.allActivities.LABEL_CLARIF_RESPONSE,
                 vm.allActivities.NOL_RESPONSE,
@@ -1333,8 +1352,8 @@
                 vm.allActivities.POST_CLEARANCE_DATA, //post clearance data
                 vm.allActivities.POST_NOC_CHANGE, //Post NOC change
                 vm.allActivities.PUB_RELEASE_INFO, //Public Release of Clinical Information
-                vm.allActivities.SECOND_LANG_PM, // Second Language PM
-                vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
+                //vm.allActivities.SECOND_LANG_PM, // Second Language PM
+                //vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
                 vm.allActivities.RECON_DECIS_LTR_INTENT,// Reconsideration of Decision - Letter of Intent
                 vm.allActivities.RECON_DECIS_OTHER_INFO,// Reconsideration of Decision - Other Information
                 vm.allActivities.RECON_DECIS_RQ_RECON, //Reconsideration of Decision - Request for Reconsideration
@@ -1372,8 +1391,8 @@
                 vm.allActivities.MEETING_MINUTES, //minutes of meeting dated
                 vm.allActivities.POST_CLEARANCE_DATA, //post clearance data
                 // vm.allActivities.PRISTINE_PM, // Pristine PM
-                vm.allActivities.SECOND_LANG_PM, // Second Language PM
-                vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
+                //vm.allActivities.SECOND_LANG_PM, // Second Language PM
+                //vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
                 vm.allActivities.PUB_RELEASE_INFO, //Public Release of Clinical Information
                 vm.allActivities.CLIN_CLARIF_RESPONSE, //Response to clinical clarifiaction request
                 vm.allActivities.EMAIL_RQ_RESPONSE,// response to email request
@@ -1420,8 +1439,8 @@
                 vm.allActivities.MEETING_MINUTES, //minutes of meeting dated
                 vm.allActivities.POST_CLEARANCE_DATA, //post clearance data
                 // vm.allActivities.PRISTINE_PM, // Pristine PM
-                vm.allActivities.SECOND_LANG_PM, // Second Language PM
-                vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
+                //vm.allActivities.SECOND_LANG_PM, // Second Language PM
+                //vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
                 vm.allActivities.PUB_RELEASE_INFO, //Public Release of Clinical Information
                 vm.allActivities.CLIN_CLARIF_RESPONSE, //Response to clinical clarifiaction request
                 vm.allActivities.EMAIL_RQ_RESPONSE,// response to email request
@@ -1701,7 +1720,7 @@
                 vm.allActivities.MEETING_MINUTES,
                 vm.allActivities.POST_CLEARANCE_DATA,
                 vm.allActivities.POST_NOC_CHANGE,
-                vm.allActivities.PRISTINE_PM_2LANG,
+                //vm.allActivities.PRISTINE_PM_2LANG,
                 vm.allActivities.RECON_DECIS_LTR_INTENT,
                 vm.allActivities.RECON_DECIS_RQ_RECON,
                 vm.allActivities.RECON_DECIS_OTHER_INFO,
@@ -1720,7 +1739,7 @@
                 vm.allActivities.PRESUB_MEETING_PKG,
                 vm.allActivities.PRESUB_MEETING_RQ,
                 vm.allActivities.UNSOLICITED_DATA,
-                vm.allActivities.SECOND_LANG_PM
+                // vm.allActivities.SECOND_LANG_PM
                 ]);
          }
 
@@ -1729,7 +1748,7 @@
                 vm.allActivities.CANCEL_LETTER,
                 vm.allActivities.MEETING_MINUTES,
                 vm.allActivities.POST_CLEARANCE_DATA,
-                vm.allActivities.PRISTINE_PM_2LANG,
+                //vm.allActivities.PRISTINE_PM_2LANG,
                 vm.allActivities.RECON_DECIS_LTR_INTENT,
                 vm.allActivities.RECON_DECIS_RQ_RECON,
                 vm.allActivities.RECON_DECIS_OTHER_INFO,
@@ -1746,7 +1765,7 @@
                 vm.allActivities.PRESUB_MEETING_PKG,
                 vm.allActivities.PRESUB_MEETING_RQ,
                 vm.allActivities.UNSOLICITED_DATA,
-                vm.allActivities.SECOND_LANG_PM
+                // vm.allActivities.SECOND_LANG_PM
             ]);
         }
 
@@ -1941,8 +1960,8 @@
                 vm.allActivities.PRESUB_MEETING_PKG, // presubmission meeting package
                 vm.allActivities.PRESUB_MEETING_RQ,   //submission Meeting Request -used to be presub
                 vm.allActivities.CLARIF_RESPONSE, //Response to clarification request
-                vm.allActivities.SECOND_LANG_PM, // Second Language PM
-                vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
+                //vm.allActivities.SECOND_LANG_PM, // Second Language PM
+                //vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
                 vm.allActivities.PUB_RELEASE_INFO, //Public Release of Clinical Information
                 vm.allActivities.BE_CLARIF_RESPONSE, //Response to BE clarification request dated..
                 vm.allActivities.CLIN_CLARIF_RESPONSE, //Response to clinical clarifiaction request
@@ -1991,8 +2010,8 @@
                 vm.allActivities.PRESUB_MEETING_PKG, // presubmission meeting package
                 vm.allActivities.PRESUB_MEETING_RQ,   //submission Meeting Request -used to be presub
                 vm.allActivities.CLARIF_RESPONSE, //Response to clarification request
-                vm.allActivities.SECOND_LANG_PM, // Second Language PM
-                vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
+                //vm.allActivities.SECOND_LANG_PM, // Second Language PM
+                //vm.allActivities.PRISTINE_PM_2LANG, // pristine PM second language
                 vm.allActivities.PUB_RELEASE_INFO, //Public Release of Clinical Information
                 vm.allActivities.BE_CLARIF_RESPONSE, //Response to BE clarification request dated..
                 vm.allActivities.CLIN_CLARIF_RESPONSE, //Response to clinical clarifiaction request
