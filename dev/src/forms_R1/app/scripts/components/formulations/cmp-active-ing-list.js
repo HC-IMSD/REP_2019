@@ -42,7 +42,7 @@
         vm.isDetailValid = true;
         vm.selectRecord = -1;
         vm.alerts = [false]; //for help boxes
-        vm.noActiveValues=""; //used for error handling Business Rule: must be at least one medicinal
+        // vm.noActiveValues=""; //used for error handling Business Rule: must be at least one medicinal
         vm.isFocus = false;
 
         vm.colNames = [];
@@ -78,7 +78,7 @@
             if(changes.ingredients && changes.ingredients.currentValue){
                 vm.ingList = vm.ingredients;
                 vm.isDetailValid = true;
-                vm.noActives();
+                // vm.noActives();
             }
             if (changes.isFileLoaded) {
                 if (changes.isFileLoaded.currentValue) {
@@ -101,7 +101,7 @@
             vm.resetToCollapsed = !vm.resetToCollapsed;
             vm.onUpdate({list:vm.ingList});
             setRecord(-1);
-            vm.noActives();
+            // vm.noActives();
         };
 
         vm.updateIng = function (idx, ing) {
@@ -110,7 +110,7 @@
             vm.setValid(true);
             setRecord(-1);
             vm.resetToCollapsed = !vm.resetToCollapsed;
-            vm.noActives();
+            // vm.noActives();
         };
 
         vm.deleteIng = function (idx) {
@@ -119,7 +119,7 @@
             vm.setValid(true);
             setRecord(-1);
             vm.resetToCollapsed = !vm.resetToCollapsed;
-            vm.noActives();
+            // vm.noActives();
         };
 
         /**
@@ -174,22 +174,22 @@
             vm.updateErrorSummary();
         }, true);
 
-        vm.noActives=function(){
-
-            if (vm.ingList && vm.ingList.length !== 0) {
-                for (var i = 0; i < vm.ingList.length; i++) {
-                    if(vm.ingList[i].ingRole === 'MED') {
-                        vm.noActiveValues="values";
-                        return false;
-                    }
-                }
-                vm.noActiveValues = "";
-                return true;
-            } else {
-                vm.noActiveValues = "";
-                return true;
-            }
-        };
+        // vm.noActives=function(){
+        //
+        //     if (vm.ingList && vm.ingList.length !== 0) {
+        //         for (var i = 0; i < vm.ingList.length; i++) {
+        //             if(vm.ingList[i].ingRole === 'MED') {
+        //                 vm.noActiveValues="values";
+        //                 return false;
+        //             }
+        //         }
+        //         vm.noActiveValues = "";
+        //         return true;
+        //     } else {
+        //         vm.noActiveValues = "";
+        //         return true;
+        //     }
+        // };
 
         vm.addInstruct = function (value) {
 
