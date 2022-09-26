@@ -67,7 +67,8 @@
                     shelfLifeIndx: 0,
                     manuCntryIndx: 0,
                     haSIMIndx: 0,
-                    genXmlIndx: 0
+                    genXmlIndx: 0,
+                    ddqIndx: 0
                 } : {
                 loadFileIndx: 0,
                 prodInfoIndx: 0,
@@ -101,7 +102,8 @@
                 shelfLifeIndx: 0,
                 manuCntryIndx: 0,
                 haSIMIndx: 0,
-                genXmlIndx: 0
+                genXmlIndx: 0,
+                ddqIndx: 0
             };
 
             var keys = Object.keys(this.helpTextSequences);
@@ -289,29 +291,29 @@
                         formulations: getFormulationList(info.formulation_group.formulation_details),//tab + grid +
                         appendixFourList: getAppendix4IngredientList(info.appendix4_group)
                     },
-                    incCTData: info.does_include_ct_data === 'Y' ? 'Y' : (info.does_include_ct_data === 'N' ? 'N' : null)
+                    incCTData: info.disag_data_quest ? (info.disag_data_quest.does_include_ct_data === 'Y' ? 'Y' : (info.disag_data_quest.does_include_ct_data === 'N' ? 'N' : null)) : null
 
                     //contactList: getContactList(info.contact_record)
 
                 };
 
-                if (info.does_include_ct_data === 'Y') {
-                    formModel.effAreRltdSex = info.efficacy_are_rltd_sex === 'Y' ? 'Y' : 'N';
-                    formModel.effAreRltdAge = info.efficacy_are_rltd_age === 'Y' ? 'Y' : 'N';
-                    formModel.effAreRltdRace = info.efficacy_are_rltd_race === 'Y' ? 'Y' : 'N';
-                    formModel.safAreRltdSex = info.safety_are_rltd_sex === 'Y' ? 'Y' : 'N';
-                    formModel.safAreRltdAge = info.safety_are_rltd_age === 'Y' ? 'Y' : 'N';
-                    formModel.safAreRltdRace = info.safety_are_rltd_race === 'Y' ? 'Y' : 'N';
-                    formModel.fromPediPopul = info.from_pediatric_populations === 'Y' ? 'Y' : 'N';
+                if (info.disag_data_quest && info.disag_data_quest.does_include_ct_data === 'Y') {
+                    formModel.effAreRltdSex = info.disag_data_quest.efficacy_are_rltd_sex === 'Y' ? 'Y' : 'N';
+                    formModel.effAreRltdAge = info.disag_data_quest.efficacy_are_rltd_age === 'Y' ? 'Y' : 'N';
+                    formModel.effAreRltdRace = info.disag_data_quest.efficacy_are_rltd_race === 'Y' ? 'Y' : 'N';
+                    formModel.safAreRltdSex = info.disag_data_quest.safety_are_rltd_sex === 'Y' ? 'Y' : 'N';
+                    formModel.safAreRltdAge = info.disag_data_quest.safety_are_rltd_age === 'Y' ? 'Y' : 'N';
+                    formModel.safAreRltdRace = info.disag_data_quest.safety_are_rltd_race === 'Y' ? 'Y' : 'N';
+                    formModel.fromPediPopul = info.disag_data_quest.from_pediatric_populations === 'Y' ? 'Y' : 'N';
 
                 }else {
-                    formModel.effAreRltdSex = info.efficacy_are_rltd_sex === 'Y' ? 'Y' : null;
-                    formModel.effAreRltdAge = info.efficacy_are_rltd_age === 'Y' ? 'Y' : null;
-                    formModel.effAreRltdRace = info.efficacy_are_rltd_race === 'Y' ? 'Y' : null;
-                    formModel.safAreRltdSex = info.safety_are_rltd_sex === 'Y' ? 'Y' : null;
-                    formModel.safAreRltdAge = info.safety_are_rltd_age === 'Y' ? 'Y' : null;
-                    formModel.safAreRltdRace = info.safety_are_rltd_race === 'Y' ? 'Y' : null;
-                    formModel.fromPediPopul = info.from_pediatric_populations === 'Y' ? 'Y' : null;
+                    formModel.effAreRltdSex = null;
+                    formModel.effAreRltdAge = null;
+                    formModel.effAreRltdRace = null;
+                    formModel.safAreRltdSex = null;
+                    formModel.safAreRltdAge = null;
+                    formModel.safAreRltdRace = null;
+                    formModel.fromPediPopul = null;
                 }
                /* if (info.therapeutic_class_list.therapeutic_class) {
                     dossierModel.drugProduct.therapeutic = getTherapeuticList(info.therapeutic_class_list.therapeutic_class)
@@ -458,14 +460,22 @@
                 }
             }
 
-            baseModel.does_include_ct_data = jsonObj.incCTData;
-            baseModel.efficacy_are_rltd_sex = jsonObj.effAreRltdSex;
-            baseModel.efficacy_are_rltd_age = jsonObj.effAreRltdAge;
-            baseModel.efficacy_are_rltd_race = jsonObj.effAreRltdRace;
-            baseModel.safety_are_rltd_sex = jsonObj.safAreRltdSex;
-            baseModel.safety_are_rltd_age = jsonObj.safAreRltdAge;
-            baseModel.safety_are_rltd_race = jsonObj.safAreRltdRace;
-            baseModel.from_pediatric_populations = jsonObj.fromPediPopul;
+            if (jsonObj.incCTData == 'Y') {
+                baseModel.disag_data_quest = {
+                    does_include_ct_data: jsonObj.incCTData,
+                    efficacy_are_rltd_sex: jsonObj.effAreRltdSex,
+                    efficacy_are_rltd_age: jsonObj.effAreRltdAge,
+                    efficacy_are_rltd_race: jsonObj.effAreRltdRace,
+                    safety_are_rltd_sex: jsonObj.safAreRltdSex,
+                    safety_are_rltd_age: jsonObj.safAreRltdAge,
+                    safety_are_rltd_race: jsonObj.safAreRltdRace,
+                    from_pediatric_populations: jsonObj.fromPediPopul
+                };
+            } else if (jsonObj.incCTData == 'N') {
+                baseModel.disag_data_quest = {
+                    does_include_ct_data: jsonObj.incCTData
+                };
+            }
 
             //cant seem to use a variable for the key
             return {"DRUG_PRODUCT_ENROL": baseModel};
