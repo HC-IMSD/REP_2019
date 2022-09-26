@@ -202,6 +202,7 @@
   "HT_GEN_XML_6":"Reportez-vous au document d'orientation du PIR pour des informations détaillées sur le moment où cela est nécessaire.",
   "HT_ADMINITRATIVE_1":"Veuillez consulter la Ligne directrice : <a href='https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/medicaments/demandes-presentations/lignes-directrices/traitement-administratif-humains-desinfectants-medicaments-2019/document.html'>Traitement administratif des présentations et des demandes concernant les médicaments destinés aux humains ou les désinfectants</a>. ",
   "HT_ADMINITRATIVE_2":"Pour obtenir des instructions concernant la soumission administrative des médicaments vétérinaires, veuillez communiquer avec <a href='mailto:hc.vdd.skmd.so-dgps.dmv.cp.sc@canada.ca'>hc.vdd.skmd.so-dgps.dmv.cp.sc@canada.ca</a>.",
+  "HT_DATA_QUEST": "Si vous avez des questions sur la façon de répondre à ce questionnaire, veuillez contacter le Centre de la politique, de la pédiatrie et de la collaboration internationale par courriel à <a href='mailto:brddopic-bpcidmbr@hc-sc.gc.ca'>brddopic-bpcidmbr@hc-sc.gc.ca</a>.",
   "DATA_QUESTIONS": "Questions sur les données désagrégées",
   "DOES_INCLUDE_CT_DATA": "Cette soumission inclut-elle des données d'essais cliniques? ",
   "ARE_RLTD_SEX": "Les données d’essais cliniques contenues dans votre soumission sont-elles désagrégées par sexe (homme / femme) par? ",

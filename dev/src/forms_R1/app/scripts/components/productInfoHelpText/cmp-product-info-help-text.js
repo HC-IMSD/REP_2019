@@ -34,6 +34,7 @@
 
         $scope.administrativeHtmlHelpText1 = $translate.instant("HT_ADMINITRATIVE_1");
         $scope.administrativeHtmlHelpText2 = $translate.instant("HT_ADMINITRATIVE_2");
+        $scope.ddQuestionsHtmlHelpText2 = $translate.instant("HT_DATA_QUEST");
 
         vm.$onInit = function () {
             //vm.updateSummary=vm.updateSummary+1;
