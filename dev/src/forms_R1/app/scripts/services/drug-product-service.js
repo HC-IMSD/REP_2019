@@ -68,7 +68,12 @@
                     manuCntryIndx: 0,
                     haSIMIndx: 0,
                     genXmlIndx: 0,
-                    ddqIndx: 0
+                    ddqIndx: 0,
+                    incCTDataIndx: 0,
+                    areRltdSexIndx: 0,
+                    areRltdAgeIndx: 0,
+                    areRltdRaceIndx: 0,
+                    fromPediPopulIndx: 0
                 } : {
                 loadFileIndx: 0,
                 prodInfoIndx: 0,
@@ -103,7 +108,12 @@
                 manuCntryIndx: 0,
                 haSIMIndx: 0,
                 genXmlIndx: 0,
-                ddqIndx: 0
+                ddqIndx: 0,
+                incCTDataIndx: 0,
+                areRltdSexIndx: 0,
+                areRltdAgeIndx: 0,
+                areRltdRaceIndx: 0,
+                fromPediPopulIndx: 0
             };
 
             var keys = Object.keys(this.helpTextSequences);
@@ -291,13 +301,13 @@
                         formulations: getFormulationList(info.formulation_group.formulation_details),//tab + grid +
                         appendixFourList: getAppendix4IngredientList(info.appendix4_group)
                     },
-                    incCTData: info.disag_data_quest ? (info.disag_data_quest.does_include_ct_data === 'Y' ? 'Y' : (info.disag_data_quest.does_include_ct_data === 'N' ? 'N' : null)) : null
+                    incCTData: info.does_include_ct_data === 'Y' ? 'Y' : (info.does_include_ct_data === 'N' ? 'N' : null)
 
                     //contactList: getContactList(info.contact_record)
 
                 };
 
-                if (info.disag_data_quest && info.disag_data_quest.does_include_ct_data === 'Y') {
+                if ( info.does_include_ct_data === 'Y') {
                     formModel.effAreRltdSex = info.disag_data_quest.efficacy_are_rltd_sex === 'Y' ? 'Y' : 'N';
                     formModel.effAreRltdAge = info.disag_data_quest.efficacy_are_rltd_age === 'Y' ? 'Y' : 'N';
                     formModel.effAreRltdRace = info.disag_data_quest.efficacy_are_rltd_race === 'Y' ? 'Y' : 'N';
@@ -460,9 +470,11 @@
                 }
             }
 
-            if (jsonObj.incCTData == 'Y') {
+            if (baseModel.does_include_ct_data || jsonObj.incCTData)
+                baseModel.does_include_ct_data = jsonObj.incCTData;
+            if (jsonObj.incCTData === 'Y') {
+
                 baseModel.disag_data_quest = {
-                    does_include_ct_data: jsonObj.incCTData,
                     efficacy_are_rltd_sex: jsonObj.effAreRltdSex,
                     efficacy_are_rltd_age: jsonObj.effAreRltdAge,
                     efficacy_are_rltd_race: jsonObj.effAreRltdRace,
@@ -471,10 +483,8 @@
                     safety_are_rltd_race: jsonObj.safAreRltdRace,
                     from_pediatric_populations: jsonObj.fromPediPopul
                 };
-            } else if (jsonObj.incCTData == 'N') {
-                baseModel.disag_data_quest = {
-                    does_include_ct_data: jsonObj.incCTData
-                };
+            } else if (baseModel.disag_data_quest) {
+                baseModel.disag_data_quest = null;
             }
 
             //cant seem to use a variable for the key

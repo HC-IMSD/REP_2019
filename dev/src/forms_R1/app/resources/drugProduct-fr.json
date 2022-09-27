@@ -203,6 +203,17 @@
   "HT_ADMINITRATIVE_1":"Veuillez consulter la Ligne directrice : <a href='https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/medicaments/demandes-presentations/lignes-directrices/traitement-administratif-humains-desinfectants-medicaments-2019/document.html'>Traitement administratif des présentations et des demandes concernant les médicaments destinés aux humains ou les désinfectants</a>. ",
   "HT_ADMINITRATIVE_2":"Pour obtenir des instructions concernant la soumission administrative des médicaments vétérinaires, veuillez communiquer avec <a href='mailto:hc.vdd.skmd.so-dgps.dmv.cp.sc@canada.ca'>hc.vdd.skmd.so-dgps.dmv.cp.sc@canada.ca</a>.",
   "HT_DATA_QUEST": "Si vous avez des questions sur la façon de répondre à ce questionnaire, veuillez contacter le Centre de la politique, de la pédiatrie et de la collaboration internationale par courriel à <a href='mailto:brddopic-bpcidmbr@hc-sc.gc.ca'>brddopic-bpcidmbr@hc-sc.gc.ca</a>.",
+  "HT_INCLUDE_CT_DATA":"Cette question vise à savoir si des essais cliniques ont été utilisés pour recueillir des preuves pour le produit thérapeutique.",
+  "HT_ARE_RLTD_SEX_1":"Cette question vise à savoir si la totalité ou une partie de vos preuves cliniques peuvent être / ont été analysées en fonction des participants masculins vs les participants féminins.",
+  "HT_ARE_RLTD_SEX_2":"Cette question demande si les données sur l'efficacité ont été ventilées par sexe (hommes ou femmes). Remarque : cette question ne demande pas si des résultats statistiquement significatifs sont disponibles pour l'efficacité lorsqu'ils sont analysés par sexe.",
+  "HT_ARE_RLTD_SEX_3":"Cette question demande si les données sur l'innocuité ont été ventilées par sexe (hommes ou femmes). Remarque : cette question ne demande pas si des résultats statistiquement significatifs sont disponibles pour l'innocuité lorsqu'ils sont analysés par sexe.",
+  "HT_ARE_RLTD_AGE_1":"Cette question vise à savoir si la totalité ou une partie de vos preuves cliniques peuvent être analysées par catégories d'âge distinctes. Par exemple, les résultats des personnes âgées de 18 à 64 ans peuvent-ils être comparés à ceux des personnes âgées de 65 ans et plus ? Si des enfants sont inclus dans les essais, les preuves peuvent-elles être analysées par tranches d'âge pédiatriques spécifiques et cliniquement pertinentes (le cas échéant) ?",
+  "HT_ARE_RLTD_AGE_2":"Cette question vise à savoir si les données sur l'efficacité peuvent être ventilées par catégories d'âge distinctes. Remarque : cette question ne demande pas si des résultats statistiquement significatifs sont disponibles pour l'efficacité lorsqu'ils sont analysés par âge.",
+  "HT_ARE_RLTD_AGE_3":"Cette question demande si les données sur l'innocuité peuvent être ventilées par catégories d'âge distinctes. Remarque : cette question ne demande pas si des résultats statistiquement significatifs sont disponibles pour l'innocuité lorsqu'ils sont analysés par âge.",
+  "HT_ARE_RLTD_RACE_1":"Cette question vise à savoir si la totalité ou une partie de vos preuves cliniques peuvent être analysées par groupes raciaux et/ou ethniques distincts. Par exemple, les preuves peuvent-elles être analysées pour les participants aux essais cliniques noirs, asiatiques ou hispaniques ?",
+  "HT_ARE_RLTD_RACE_2":"Cette question demande si les données sur l'efficacité peuvent être ventilées par sous-populations raciales et/ou ethniques. Remarque : cette question ne demande pas si des résultats statistiquement significatifs sont disponibles pour l'efficacité lorsqu'ils sont analysés par race/ethnie.",
+  "HT_ARE_RLTD_RACE_3":"Cette question demande si les données sur l'innocuité peuvent être ventilées par sous-populations raciales et/ou ethniques. Remarque : cette question ne demande",
+  "HT_FROM_PED_POP":"pas si des résultats statistiquement significatifs sont disponibles pour l'innocuité lorsqu'ils sont analysés par race/ethnie.",
   "DATA_QUESTIONS": "Questions sur les données désagrégées",
   "DOES_INCLUDE_CT_DATA": "Cette soumission inclut-elle des données d'essais cliniques? ",
   "ARE_RLTD_SEX": "Les données d’essais cliniques contenues dans votre soumission sont-elles désagrégées par sexe (homme / femme) par? ",
@@ -218,9 +229,4 @@
   "SAFETY_ARE_RLTD_RACE": "Les données d’essais cliniques contenues dans votre soumission sont-elles désagrégées par race/ethnie par? innocuité",
   "FROM_PEDIATRIC_POPULATIONS": "Cette soumission inclut-elle des données d'essais cliniques provenant de populations pédiatriques (personnes âgées de moins de 18 ans)? "
 }
-
-
-
-
-
 
