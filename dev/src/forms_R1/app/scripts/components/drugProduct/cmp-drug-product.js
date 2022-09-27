@@ -437,6 +437,14 @@
             } else if (vm.model && vm.model.dossierType && vm.model.dossierType === "D24"){
                 vm.drugUseList = vm.vetDrugUseList;
                 vm.model.areDrugsImported ="";
+                vm.model.incCTData = "";
+                vm.model.effAreRltdSex = "";
+                vm.model.effAreRltdAge = "";
+                vm.model.effAreRltdRace = "";
+                vm.model.safAreRltdSex = "";
+                vm.model.safAreRltdAge = "";
+                vm.model.safAreRltdRace = "";
+                vm.model.fromPediPopul = "";
             } else {
                 vm.drugUseList = vm.defaultDrugUseList;
                 vm.model.areDrugsImported ="";
