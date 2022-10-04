@@ -308,13 +308,20 @@
                 };
 
                 if ( info.does_include_ct_data === 'Y') {
-                    formModel.effAreRltdSex = info.disag_data_quest.efficacy_are_rltd_sex === 'Y' ? 'Y' : 'N';
-                    formModel.effAreRltdAge = info.disag_data_quest.efficacy_are_rltd_age === 'Y' ? 'Y' : 'N';
-                    formModel.effAreRltdRace = info.disag_data_quest.efficacy_are_rltd_race === 'Y' ? 'Y' : 'N';
-                    formModel.safAreRltdSex = info.disag_data_quest.safety_are_rltd_sex === 'Y' ? 'Y' : 'N';
-                    formModel.safAreRltdAge = info.disag_data_quest.safety_are_rltd_age === 'Y' ? 'Y' : 'N';
-                    formModel.safAreRltdRace = info.disag_data_quest.safety_are_rltd_race === 'Y' ? 'Y' : 'N';
-                    formModel.fromPediPopul = info.disag_data_quest.from_pediatric_populations === 'Y' ? 'Y' : 'N';
+                    formModel.effAreRltdSex = info.disag_data_quest.efficacy_are_rltd_sex === 'Y' ? 'Y' :
+                        (info.disag_data_quest.efficacy_are_rltd_sex === 'N' ? 'N' : null);
+                    formModel.effAreRltdAge = info.disag_data_quest.efficacy_are_rltd_age === 'Y' ? 'Y' :
+                        (info.disag_data_quest.efficacy_are_rltd_age === 'N' ? 'N' : null);
+                    formModel.effAreRltdRace = info.disag_data_quest.efficacy_are_rltd_race === 'Y' ? 'Y' :
+                        (info.disag_data_quest.efficacy_are_rltd_race === 'N' ? 'N' : null);
+                    formModel.safAreRltdSex = info.disag_data_quest.safety_are_rltd_sex === 'Y' ? 'Y' :
+                        (info.disag_data_quest.safety_are_rltd_sex === 'N' ? 'N' : null);
+                    formModel.safAreRltdAge = info.disag_data_quest.safety_are_rltd_age === 'Y' ? 'Y' :
+                        (info.disag_data_quest.safety_are_rltd_age === 'N' ? 'N' : null);
+                    formModel.safAreRltdRace = info.disag_data_quest.safety_are_rltd_race === 'Y' ? 'Y' :
+                        (info.disag_data_quest.safety_are_rltd_race === 'N' ? 'N' : null);
+                    formModel.fromPediPopul = info.disag_data_quest.from_pediatric_populations === 'Y' ? 'Y' :
+                        (info.disag_data_quest.from_pediatric_populations === 'N' ? 'N' : null);
 
                 }else {
                     formModel.effAreRltdSex = null;
