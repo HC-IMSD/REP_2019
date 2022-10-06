@@ -641,9 +641,9 @@
                 vm.allActivities.PHONE_RQ_RESPONSE, //Response to telephone Request
                 vm.allActivities.UNSOLICITED_DATA, //Unsolicited Data
                 vm.allActivities.CORR_PATENT_MED, //Correspondence - Patented Medicines
-                vm.allActivities.ALLEGATION_NOTICE, //Notice of allegation
+                // vm.allActivities.ALLEGATION_NOTICE, //Notice of allegation
                 vm.allActivities.FORM_IV, //Form IV
-                vm.allActivities.FORM_V, //Form V
+                // vm.allActivities.FORM_V, //Form V
                 vm.allActivities.CONSENT_LTR, //Consent Letter
                 vm.allActivities.DATA_PROTECT_CORRESP, //Correspondence - Data Protection
                 vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
