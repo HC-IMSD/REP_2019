@@ -447,7 +447,8 @@
                 vm.allActivities.CONSENT_LTR, //Consent Letter
                 vm.allActivities.DATA_PROTECT_CORRESP, //Correspondence - Data Protection
                 vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
-                vm.allActivities.NONCLIN_CLARIF_RESPONSE //response to Nonclinical clarification request
+                vm.allActivities.NONCLIN_CLARIF_RESPONSE, //response to Nonclinical clarification request
+				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
             ]);
 
@@ -497,7 +498,8 @@
                 vm.allActivities.CONSENT_LTR, //Consent Letter
                 vm.allActivities.DATA_PROTECT_CORRESP, //Correspondence - Data Protection
                 vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
-                vm.allActivities.NONCLIN_CLARIF_RESPONSE //response to Nonclinical clarification request
+                vm.allActivities.NONCLIN_CLARIF_RESPONSE, //response to Nonclinical clarification request
+				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
             ]);
 
@@ -595,12 +597,13 @@
                 vm.allActivities.CONSENT_LTR, //Consent Letter
                 vm.allActivities.DATA_PROTECT_CORRESP, //Correspondence - Data Protection
                 vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
-                vm.allActivities.NONCLIN_CLARIF_RESPONSE //response to Non-clinical clarification request
+                vm.allActivities.NONCLIN_CLARIF_RESPONSE, //response to Non-clinical clarification request
+                vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
             ])
         }
 
-        function _getNDSCVArray() {
+        function _getNDSCVArray() {		// NDS CV - Pharma/Biologic (IO)
             return ([
                 vm.allActivities.ADMINISTRATIVE, //administrative
                 vm.allActivities.CANCEL_LETTER, //cancellation letter
@@ -645,7 +648,8 @@
                 vm.allActivities.DATA_PROTECT_CORRESP, //Correspondence - Data Protection
                 vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
                 vm.allActivities.ROLLING_INFO, //Rolling Information
-                vm.allActivities.NONCLIN_CLARIF_RESPONSE //response to Non-clinical clarification request
+                vm.allActivities.NONCLIN_CLARIF_RESPONSE, //response to Non-clinical clarification request
+				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
             ])
         }
@@ -737,7 +741,8 @@
                 vm.allActivities.FORM_V, //Form V
                 vm.allActivities.CONSENT_LTR, //Consent Letter
                 vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
-                vm.allActivities.DATA_PROTECT_CORRESP //Correspondence - Data Protection
+                vm.allActivities.DATA_PROTECT_CORRESP, //Correspondence - Data Protection
+				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
             ]);
         }
@@ -788,12 +793,13 @@
                 vm.allActivities.DATA_PROTECT_CORRESP, //Correspondence - Data Protection
                 vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
                 // vm.allActivities.PANDEMIC_APPL, //Pandemic application
-                vm.allActivities.NONCLIN_CLARIF_RESPONSE //response to Nonclinical clarification request
+                vm.allActivities.NONCLIN_CLARIF_RESPONSE, //response to Nonclinical clarification request
+				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
             ]);
         }
 
-        function getSNDSCArray() {
+        function getSNDSCArray() {		// SNDS-C
             return ([
                 vm.allActivities.CANCEL_LETTER, //cancellation letter
                 vm.allActivities.COMMENTS_NOC, // comments on notice of decision
@@ -828,7 +834,8 @@
                 vm.allActivities.CONSENT_LTR, //Consent Letter
                 vm.allActivities.UNSOLICITED_DATA, //Unsolicited Data
                 vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
-                vm.allActivities.DATA_PROTECT_CORRESP //Correspondence - Data Protection
+                vm.allActivities.DATA_PROTECT_CORRESP, //Correspondence - Data Protection
+				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
             ]);
 
@@ -1258,12 +1265,13 @@
                 vm.allActivities.UNSOLICITED_DATA, //Unsolicited Data
                 vm.allActivities.RECON_DECIS_LTR_INTENT,// Reconsideration of Decision - Letter of Intent
                 vm.allActivities.RECON_DECIS_RQ_RECON, //Reconsideration of Decision - Request for Reconsideration
-                vm.allActivities.RECON_DECIS_OTHER_INFO // Reconsideration of Decision - Other Information
+                vm.allActivities.RECON_DECIS_OTHER_INFO, // Reconsideration of Decision - Other Information
+				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
             ]);
         }
 
-        function getPDCBArray() {
+        function getPDCBArray() {	// PDC-B
             return ([
                 vm.allActivities.ADMINISTRATIVE, //administrative
                 vm.allActivities.CANCEL_LETTER,
@@ -1285,7 +1293,8 @@
                 vm.allActivities.UNSOLICITED_DATA, //Unsolicited Data
                 vm.allActivities.RECON_DECIS_LTR_INTENT,// Reconsideration of Decision - Letter of Intent
                 vm.allActivities.RECON_DECIS_RQ_RECON, //Reconsideration of Decision - Request for Reconsideration
-                vm.allActivities.RECON_DECIS_OTHER_INFO // Reconsideration of Decision - Other Information
+                vm.allActivities.RECON_DECIS_OTHER_INFO, // Reconsideration of Decision - Other Information
+				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
             ]);
         }
@@ -1336,7 +1345,7 @@
             ]);
         }
 
-        function _getSANDSCArray() {
+        function _getSANDSCArray() {	// SANDS-C
             return ([
                 vm.allActivities.CANCEL_LETTER, //cancellation letter
                 vm.allActivities.COMMENTS_NOC, // comments on notice of decision
@@ -1369,7 +1378,8 @@
                 vm.allActivities.SDN_RESPONSE, //response to SDN
                 vm.allActivities.PHONE_RQ_RESPONSE, //Response to telephone Request
                 vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
-                vm.allActivities.UNSOLICITED_DATA //Unsolicited Data
+                vm.allActivities.UNSOLICITED_DATA, //Unsolicited Data
+				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL
             ]);
         }
 
@@ -1422,7 +1432,8 @@
                 vm.allActivities.CONSENT_LTR, //Consent Letter
                 vm.allActivities.DATA_PROTECT_CORRESP, //Correspondence - Data Protection
                 vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
-                vm.allActivities.NONCLIN_CLARIF_RESPONSE //response to Nonclinical clarification request
+                vm.allActivities.NONCLIN_CLARIF_RESPONSE, //response to Nonclinical clarification request
+				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL
             ]);
 
         }
@@ -1470,7 +1481,8 @@
                 vm.allActivities.CONSENT_LTR, //Consent Letter
                 vm.allActivities.DATA_PROTECT_CORRESP, //Correspondence - Data Protection
                 vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
-                vm.allActivities.NONCLIN_CLARIF_RESPONSE //response to Nonclinical clarification request
+                vm.allActivities.NONCLIN_CLARIF_RESPONSE, //response to Nonclinical clarification request
+				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL
             ]);
         }
 
@@ -1712,7 +1724,7 @@
             ]);
         }
 
-        function getB_NcArray() {
+        function getB_NcArray() {	// NC (Biologic)
             return ([
                 vm.allActivities.ADMINISTRATIVE,
                 vm.allActivities.CANCEL_LETTER,
@@ -1739,6 +1751,7 @@
                 vm.allActivities.PRESUB_MEETING_PKG,
                 vm.allActivities.PRESUB_MEETING_RQ,
                 vm.allActivities.UNSOLICITED_DATA,
+                vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL
                 // vm.allActivities.SECOND_LANG_PM
                 ]);
          }
