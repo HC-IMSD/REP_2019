@@ -34,7 +34,8 @@
                 showRoutingId: '&',
                 // showAddrImpCompanyName: '&',
                 // addrImpCompanyName:'<',
-                isContact:'<'
+                isContact:'<',
+                templateName: '@'
             }
     });
 

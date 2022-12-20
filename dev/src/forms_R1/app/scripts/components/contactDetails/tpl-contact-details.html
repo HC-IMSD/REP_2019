@@ -116,7 +116,10 @@
                            data-ng-model="contCtrl.contactModel.fax" data-ng-readonly="!contCtrl.isEditable"
                            data-ng-required="contCtrl.faxMandatory" class="form-control full-width" data-ng-pattern="contCtrl.phoneReg"
                            name="{{::contCtrl.faxId}}" data-only-digits maxlength="25"/>
-                    <span data-ng-if="contCtrl.faxMandatory">{{::'FAX_NOT_AVAILABLE'|translate}} </span>
+                    <span data-ng-if="contCtrl.faxMandatory">
+                        <span ng-if="!contCtrl.templateName">{{::'FAX_NOT_AVAILABLE_1'|translate}}</span>
+                        <span ng-if="!!contCtrl.templateName && contCtrl.templateName=='CO'">{{::'FAX_NOT_AVAILABLE_2'|translate}} </span>
+                    </span>
                 </label>
             </div>
             <div class="col-md-6 form-group"
