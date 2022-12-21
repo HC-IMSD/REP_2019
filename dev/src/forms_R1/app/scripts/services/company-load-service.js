@@ -5,21 +5,28 @@
 (function () {
     'use strict';
     angular
-        .module('companyLoadService', ['dataLists','hpfbConstants'])
+        .module('companyLoadService', ['dataLists','hpfbConstants','VersionServiceModule']);
 })();
 
 (function () {
     'use strict';
     angular
         .module('companyLoadService')
-        .factory('customLoad', ['$http', '$q', '$filter', 'getCountryAndProvinces','CANADA','USA','RELATIVE_FOLDER_DATA', function ($http, $q, $filter, getCountryAndProvinces,CANADA,USA,RELATIVE_FOLDER_DATA) {
+        .factory('customLoad', ['$http', '$q', '$filter', 'getCountryAndProvinces','CANADA','USA','RELATIVE_FOLDER_DATA', 'VersionService',
+
+            function ($http, $q, $filter, getCountryAndProvinces,CANADA,USA,RELATIVE_FOLDER_DATA, VersionService) {
 
             return function (options) {
                 var deferred = $q.defer();
                 //var dataFolder = "data/"; //relative forlder to the data
+                var versionsUrl = RELATIVE_FOLDER_DATA + "versions.json";
                 var envUrl = RELATIVE_FOLDER_DATA + "env.json";
                 var countryUrl = RELATIVE_FOLDER_DATA + "countries.json";
                 var resultTranslateList = {};
+                $http.get(versionsUrl)
+                    .then(function (response) {
+                        VersionService.setVer(response.data);
+                    });
                 $http.get(envUrl)
                     .then(function (response) {
                         //PROCESS env data

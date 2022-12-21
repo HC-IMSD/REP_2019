@@ -135,12 +135,18 @@ var activityRootTitles_fr = {
 };
 
 var companyRootTitles_en = {
-    mainHeading: "Company Template: Regulatory Enrolment Process (REP) (Version 4.2.2)",
+    mainHeading: "Company Template: Regulatory Enrolment Process (REP) (Version "
+    + env.ver.CO.major
+    + "." + env.ver.CO.minor
+    + "." + env.ver.CO.patch + ")",
     title: 'Company Template: Regulatory Enrolment Process - Canada.ca'
 
 };
 var companyRootTitles_fr = {
-    mainHeading: "'Modèle de compagnie': Processus d'Inscription Réglementaire (Version 4.2.2)",
+    mainHeading: "'Modèle de compagnie': Processus d'Inscription Réglementaire (Version "
+    + env.ver.CO.major
+    + "." + env.ver.CO.minor
+    + "." + env.ver.CO.patch + ")",
     title: "'Modèle de compagnie': Processus d'Inscription Réglementaire - Canada.ca"
 
 };
@@ -588,7 +594,8 @@ var serviceFileNames = {
     drugProductService: 'drug-product-service',
     piConverterService: 'product-converter-service',
     commonRepService:'rep-util-common',
-    activityFormFilterService: 'activity-form-filter-service'
+    activityFormFilterService: 'activity-form-filter-service',
+    versionService: 'VersionService'
 };
 
 //Activity Form Service File names
@@ -612,7 +619,8 @@ var companyServiceFileNames =
         serviceFileNames.applicationInfoService,
         serviceFileNames.filterLists,
         serviceFileNames.hpfbConstants,
-        serviceFileNames.dataLists
+        serviceFileNames.dataLists,
+		serviceFileNames.versionService
     ];
 
 //Dossier Form Service Files

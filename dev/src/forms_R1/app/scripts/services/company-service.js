@@ -6,7 +6,7 @@
     'use strict';
 
     angular
-        .module('companyService', ['dataLists', 'hpfbConstants']);
+        .module('companyService', ['dataLists', 'hpfbConstants', 'VersionServiceModule']);
 })();
 
 (function () {
@@ -15,8 +15,15 @@
         .module('companyService')
         .factory('CompanyService', CompanyService);
 
-    CompanyService.$inject = ['$filter', '$translate', 'getCountryAndProvinces', 'XSL_PREFIX'];
-    function CompanyService($filter, $translate, getCountryAndProvinces, XSL_PREFIX) {
+    CompanyService.$inject = ['$filter', '$translate', 'getCountryAndProvinces', 'XSL_PREFIX', 'VersionService'];
+    function CompanyService($filter, $translate, getCountryAndProvinces, XSL_PREFIX, VersionService) {
+
+        var versions = VersionService.getVer();
+        // console.log(JSON.stringify(versions.CO));
+        var xslName = "REP_CO_" + versions.CO.major + "_" + versions.CO.minor + ".xsl";
+        var currentSoftwareVersion = versions.CO.major + "." + versions.CO.minor + "." + versions.CO.patch;
+        console.log("CO version is "+currentSoftwareVersion);
+
         // Define the CompanyService function
         function CompanyService() {
             //construction logic
@@ -25,7 +32,7 @@
                 enrolmentVersion: "0.0",
                 dateSaved: "",
                 applicationType: "NEW",
-                softwareVersion: "4.2.2",
+                softwareVersion: currentSoftwareVersion,
                 companyId: "",
                 reasonAmend:"",
                 addressList: [],
@@ -41,7 +48,7 @@
             this.addressID = 0;
             this.contactId = 0;
             // this.xslFileName = XSL_PREFIX + "REP_CO_2_2.xsl";
-            this.xslFileName = "REP_CO_4_2.xsl";
+            this.xslFileName = xslName;
             this.helpTextSequences = {
                 loadFileInx: 0,
                 enrolIdx: 0,
@@ -228,7 +235,7 @@
                         enrolment_version: jsonObj.enrolmentVersion,
                         date_saved: jsonObj.dateSaved,
                         application_type: jsonObj.applicationType,
-                        software_version: "4.2.2",
+                        software_version: currentSoftwareVersion,
                         company_id: jsonObj.companyId,
                         reason_amend: jsonObj.reasonAmend,
                         address_record: _mapAddressListToOutput(jsonObj.addressList, $translate), //TODOremoved zero index
