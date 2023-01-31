@@ -307,7 +307,7 @@
   "HT_NOC_REV_URL": "https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/medicaments/demandes-presentations/lignes-directrices/avis-conformite-conditions.html",
   "HT_ADMIN_SUB": "Ligne Directrice: Traitement administratif des présentations et des demandes concernant les médicaments destinés aux humains ou les désinfectants",
   "HT_ADMIN_SUB_URL": "https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/medicaments/demandes-presentations/lignes-directrices/traitement-administratif-humains-desinfectants-medicaments-2019/document.html",
-  "HT_ADMIN_SUB_1": "Pour obtenir des instructions concernant la soumission administrative des médicaments vétérinaires, veuillez communiquer avec hc.vdd.skmd.so-dgps.dmv.cp.sc@canada.ca",
+  "HT_ADMIN_SUB_1": "Pour obtenir des instructions concernant la soumission administrative des médicaments vétérinaires, veuillez communiquer avec vdd.skmd.so-dgps.dmv.cp@hc-sc.gc.ca",
   "HT_CTRL_NUM_1": "Entrez le numéro de contrôle à six chiffres associé à cette activité de réglementation (s’il est connu).",
   "HT_CTRL_NUM_2": "Entrez « 000000 » pour les transactions réglementaires qui n’exigent pas de numéro de contrôle (p. ex., niveau III - Changements survenus après l’AC; activité de réglementation non définie (ARND) : annulation de DIN, avis d’interruption de vente et réorganisation des dossiers en format eCTD).",
   "HT_CTRL_NUM_3": "Entrez « 000000 » pour la première transaction d’une NOUVELLE activité de réglementation pour laquelle un numéro de contrôle n’a pas été encore attribué.",

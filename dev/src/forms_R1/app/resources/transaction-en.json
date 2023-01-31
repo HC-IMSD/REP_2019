@@ -311,7 +311,7 @@
   "HT_NOC_REV_URL": "https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/applications-submissions/guidance-documents/notice-compliance-conditions.html",
   "HT_ADMIN_SUB": "Guidance Administrative Processing of Submissions and Applications Involving Human or Disinfectant Drugs",
   "HT_ADMIN_SUB_URL": "https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/applications-submissions/guidance-documents/administrative-processing-human-disinfectant-drugs-2019/document.html",
-  "HT_ADMIN_SUB_1": "For instructions regarding administrative submission for veterinary drugs, please contact hc.vdd.skmd.so-dgps.dmv.cp.sc@canada.ca.",
+  "HT_ADMIN_SUB_1": "For instructions regarding administrative submission for veterinary drugs, please contact vdd.skmd.so-dgps.dmv.cp@hc-sc.gc.ca.",
   "HT_CTRL_NUM_1": "Enter the 6 digit control number associated with this regulatory activity (if known).",
   "HT_CTRL_NUM_2": "Enter “000000” for regulatory transactions that Do Not require a control number (e.g. Level III - Post-NOC Changes, UDRA – DIN cancellations, UDRA - Notification Interruption of sale, UDRA -  eCTD Dossier Clean-up).",
   "HT_CTRL_NUM_3": "Enter “000000” for the first transaction of a NEW regulatory activity, where a control number has not yet been assigned.",
