@@ -72,11 +72,11 @@
             <div>
                 <section class="panel panel-default">
                     <header class="panel-heading clearfix">
-                        <h3 class="panel-title">{{::formulRecCtrl.getFirstOrder(3)}}. {{'INGREDIENTS'|translate}}
+                        <h5 class="rep-panel-title">{{::formulRecCtrl.getFirstOrder(3)}}. {{'INGREDIENTS'|translate}}
                             <sup id="dr9c_ref">
                                 <a class="fn-lnk" href="#dr9c"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::formulRecCtrl.htIndxList.ingredIndx}}</a>
                             </sup>
-                        </h3>
+                        </h5>
                     </header>
                     <div class="panel-body row">
                         <div>
@@ -196,7 +196,7 @@
             <div>
                 <section class="panel panel-default">
                     <header class="panel-heading">
-                        <h3 class="panel-title">{{formulRecCtrl.getNextOrder(6)}}. {{'CONTAINER_TYPES'|translate}}</h3>
+                        <h5 class="rep-panel-title">{{formulRecCtrl.getNextOrder(6)}}. {{'CONTAINER_TYPES'|translate}}</h5>
                     </header>
                     <div class="panel-body row">
                         <cmp-container-type-list containers="formulRecCtrl.frmModel.containerTypes"
@@ -212,7 +212,7 @@
             <div>
                 <section class="panel panel-default">
                     <header class="panel-heading">
-                        <h3 class="panel-title">{{formulRecCtrl.getNextOrder(7)}}. {{'ROA_TITLE'|translate}}</h3>
+                        <h5 class="rep-panel-title">{{formulRecCtrl.getNextOrder(7)}}. {{'ROA_TITLE'|translate}}</h5>
                     </header>
                     <div class="panel-body row">
                         <cmp-roa-list records="formulRecCtrl.frmModel.routeAdmins"
@@ -225,11 +225,11 @@
             <div>
                 <section class="panel panel-default">
                     <header class="panel-heading">
-                        <h3 class="panel-title">{{formulRecCtrl.getNextOrder(8)}}. {{'COUNTRIES_MANUFACT'|translate}}
+                        <h5 class="rep-panel-title">{{formulRecCtrl.getNextOrder(8)}}. {{'COUNTRIES_MANUFACT'|translate}}
                             <sup id="dr9g_ref">
                                 <a class="fn-lnk" href="#dr9g"><span class="wb-inv">{{::'INSTRUCTION'|translate}}</span>{{::formulRecCtrl.htIndxList.manuCntryIndx}}</a>
                             </sup>
-                        </h3>
+                        </h5>
                     </header>
                     <div class="panel-body" id="list_country_{{::$id}}">
                         <input type="hidden" name="{{::formulRecCtrl.noCountryId}}" id="{{::formulRecCtrl.noCountryId}}"
