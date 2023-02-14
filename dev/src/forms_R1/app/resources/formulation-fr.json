@@ -83,7 +83,7 @@
   "CONTAINER_TYPES": " Type de contenant, capacité de l'emballage et durée de vie",
   "ANIMAL_HUMAN_HDING": "Matériel(aux) de source humaine et/ou animale utilisé à l’une ou l’autre étape de la fabrication du produit",
   "ROA_TITLE": "Voie d'administration",
-  "COUNTRIES_MANUFACT": "Pays de fabricatin pour ce produit",
+  "COUNTRIES_MANUFACT": "Pays de fabrication pour ce produit",
   "IN_LIST": "Dans la liste",
   "UNITS_SRCH": "fr_Select or Search Units",
   "SOURCED_INFO": "Veuillez fournir des détails supplémentaires lié à cet ingrédient dans la section « 12. L'ingrédient ou matériel source humaine ou d'animale »",
