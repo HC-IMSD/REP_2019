@@ -143,11 +143,11 @@ var companyRootTitles_en = {
 
 };
 var companyRootTitles_fr = {
-    mainHeading: "'Modèle de compagnie': Processus d'Inscription Réglementaire (Version "
+    mainHeading: "Modèle de compagnie: Processus d'Inscription Réglementaire (Version "
     + env.ver.CO.major
     + "." + env.ver.CO.minor
     + "." + env.ver.CO.patch + ")",
-    title: "'Modèle de compagnie': Processus d'Inscription Réglementaire - Canada.ca"
+    title: "Modèle de compagnie: Processus d'Inscription Réglementaire - Canada.ca"
 
 };
 
