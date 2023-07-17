@@ -27,6 +27,7 @@
         var yesValue = YES;
         var noValue = NO;
         var versions = DossierLists.getVer();
+        var piFormVersion = versions.PI.major + "." + versions.PI.minor + "." + versions.PI.patch;
         var xslName = "REP_PI_" + versions.PI.major + "_" + versions.PI.minor + ".xsl";
         var isForProd = PROD === DossierLists.getEnv();
         // Define the DrugProductService object
@@ -145,7 +146,7 @@
                 enrolmentVersion: "0.00",
                 dateSaved: "",
                 //applicationType: "NEW",
-                softwareVersion: versions.PI.major + "." + versions.PI.minor + "." + versions.PI.patch,
+                softwareVersion: piFormVersion,
                 xslFileName: xslName,
                 dataChecksum: "",
                 privacyStat:"",
@@ -377,7 +378,7 @@
             baseModel.enrolment_version = jsonObj.enrolmentVersion;
             baseModel.date_saved = jsonObj.dateSaved;
             // baseModel.application_type = jsonObj.applicationType;
-            baseModel.software_version = versions.PI.major + "." + versions.PI.minor + ".0"; //TODO: hard code or make a function, should be centrally available
+            baseModel.software_version = piFormVersion;
             baseModel.data_checksum = "";
 
             baseModel.company_id = jsonObj.companyID;
