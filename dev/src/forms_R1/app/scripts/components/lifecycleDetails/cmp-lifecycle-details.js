@@ -411,6 +411,8 @@
                 vm.descriptionList = "";
                 setDetailsAsNone();
                 vm.setConcatDetails();
+                vm.activityTypeNote = "";
+                vm.activityDescrNote = "";
                 return;
             }
 
