@@ -28,35 +28,60 @@
 	<hpfb:element name="dossier_id" type="char_0_20_content"/>
 	<hpfb:element name="dossier_type" type="char_0_20_content"/>
 	<hpfb:element name="product_name" type="char_0_256_content"/>
-	<!--<hpfb:element name="sequence_number" type="sequence_content"/>-->
+	<hpfb:element name="product_protocol" type="char_0_256_content"/>
 	<!--<hpfb:element name="date_filed" type="yyyymmdd_date_content"/>-->
 	<hpfb:element name="control_number" type="control_number_content" nillable="true"/>
-	<hpfb:element name="sequence_activity_lead" type="char_0_20_content"/>
-	<hpfb:element name="sequence_activity_type">
-	<hpfb:complexType>
+	<hpfb:element name="regulatory_activity_lead">
+		<hpfb:complexType>
 			<hpfb:simpleContent>
 				<hpfb:extension base="hpfb:string">
+					<hpfb:attribute name="id" type="hpfb:string"/>
+				</hpfb:extension>
+			</hpfb:simpleContent>
+		</hpfb:complexType>
+	</hpfb:element>
+	<hpfb:element name="regulatory_activity_type">
+		<hpfb:complexType>
+			<hpfb:simpleContent>
+				<hpfb:extension base="hpfb:string">
+					<hpfb:attribute name="id" type="hpfb:string"/>
 					<hpfb:attribute name="label_en" type="hpfb:string"/>
 					<hpfb:attribute name="label_fr" type="hpfb:string"/>
 				</hpfb:extension>
 			</hpfb:simpleContent>
 		</hpfb:complexType>
 	</hpfb:element>
-	<hpfb:element name="sequence_description_value" type="sequence_description_list"/>
+	<hpfb:element name="sequence_description_value">
+		<hpfb:complexType>
+			<hpfb:simpleContent>
+				<hpfb:extension base="hpfb:string">
+					<hpfb:attribute name="id" type="hpfb:string"/>
+					<hpfb:attribute name="label_en" type="hpfb:string"/>
+					<hpfb:attribute name="label_fr" type="hpfb:string"/>
+				</hpfb:extension>
+			</hpfb:simpleContent>
+		</hpfb:complexType>
+	</hpfb:element>
 	<hpfb:element name="sequence_from_date" type="optional_yyyymmdd_date_content"/>
 	<hpfb:element name="sequence_to_date" type="optional_yyyymmdd_date_content"/>
 	<hpfb:element name="sequence_version" type="number_0_5_content"/>
-	<hpfb:element name="sequence_details" type="char_0_50_content"/>
+	<hpfb:element name="sequence_details" type="char_0_256_content"/>
+	<hpfb:element name="sequence_details_change" type="char_0_256_content"/>
 	<hpfb:element name="sequence_concat" type="hpfb:string"/>
 	<hpfb:element name="sequence_year" type="char_0_6_content"/>
+	<hpfb:element name="transaction_description" type="char_0_1024_content"/>
 
 	<hpfb:element name="lifecycle_record" type="lifecycle_record_content"/>
 	<hpfb:element name="is_solicited" type="required_yes_no_content"/>
     <hpfb:element name="solicited_requester_sequence" type="sequence_content"/>
     <hpfb:element name="solicited_requester" type="char_0_256_content"/>
 	<hpfb:element name="solicited_requester_record" type="solicited_requester_record_content"/>
+	<hpfb:element name="requester_name" type="char_0_256_content"/>
+	<hpfb:element name="requester_name2" type="char_0_256_content"/>
+	<hpfb:element name="requester_name3" type="char_0_256_content"/>
 	<hpfb:element name="regulatory_project_manager1" type="char_0_256_content"/>
 	<hpfb:element name="regulatory_project_manager2" type="char_0_256_content"/>
+	<hpfb:element name="regulatory_project_manager3" type="char_0_256_content"/>
 	<hpfb:element name="is_fees" type="required_yes_no_content"/>
 	<hpfb:element name="fee_details" type="fee_details_content"/>
 	
@@ -87,6 +112,7 @@
 	<hpfb:element name="certify_goverment_organization" type="yes_no_content"/>
 	<hpfb:element name="certify_urgent_health_need" type="yes_no_content"/>
 	<hpfb:element name="certify_funded_health_institution" type="yes_no_content"/>
+	<hpfb:element name="certify_isad" type="yes_no_content"/>
 
 	<hpfb:complexType name="transaction_enrol_content">
 		<hpfb:sequence>
@@ -104,8 +130,12 @@
 			<hpfb:element ref="ectd"/>
 			<hpfb:element ref="is_solicited"/>
 			<hpfb:element ref="solicited_requester"/>
+			<hpfb:element ref="requester_name"/>
+			<hpfb:element ref="requester_name2"/>
+			<hpfb:element ref="requester_name3"/>
 			<hpfb:element ref="regulatory_project_manager1"/>
 			<hpfb:element ref="regulatory_project_manager2"/>
+			<hpfb:element ref="regulatory_project_manager3"/>
 			<hpfb:element ref="is_fees"/>
 			<hpfb:element ref="fee_details" minOccurs="0" maxOccurs="1"/>
 			<hpfb:element ref="is_activity_changes"/>
@@ -133,6 +163,7 @@
 			<hpfb:element ref="dossier_id"/>
 			<hpfb:element ref="dossier_type"/>
 			<hpfb:element ref="product_name"/>
+			<hpfb:element ref="product_protocol"/>
 			<hpfb:element ref="lifecycle_record" minOccurs="1" maxOccurs="unbounded"/>
 		</hpfb:sequence>
 	</hpfb:complexType>
@@ -142,15 +173,17 @@
 			<!--<hpfb:element ref="sequence_number"/>
 			<hpfb:element ref="date_filed"/> -->
 			<hpfb:element ref="control_number"/>
-			<hpfb:element ref="sequence_activity_lead"/>
-			<hpfb:element ref="sequence_activity_type"/>
+			<hpfb:element ref="regulatory_activity_lead"/>
+			<hpfb:element ref="regulatory_activity_type"/>
 			<hpfb:element ref="sequence_description_value"/>
 			<hpfb:element ref="sequence_from_date"/>
 			<hpfb:element ref="sequence_to_date"/>
 			<hpfb:element ref="sequence_details"/>
+			<hpfb:element ref="sequence_details_change"/>
 			<hpfb:element ref="sequence_version"/>
 			<hpfb:element ref="sequence_year"/>
 			<hpfb:element ref="sequence_concat"/>
+			<hpfb:element ref="transaction_description"/>
 		</hpfb:sequence>
 	</hpfb:complexType>
 
@@ -197,6 +230,7 @@
 			<hpfb:element ref="certify_goverment_organization"/>
 			<hpfb:element ref="certify_urgent_health_need"/>
 			<hpfb:element ref="certify_funded_health_institution"/>
+			<hpfb:element ref="certify_isad"/>
 		</hpfb:sequence>
 	</hpfb:complexType>
 
@@ -207,7 +241,5 @@
 			<hpfb:element ref="fr"/>
 		</hpfb:sequence>
 	</hpfb:complexType>
-
-
 
 </hpfb:schema>

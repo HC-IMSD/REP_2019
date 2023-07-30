@@ -276,6 +276,12 @@
 		</hpfb:restriction>
 	</hpfb:simpleType>
 
+	<hpfb:simpleType name="char_0_1024_content">
+		<hpfb:restriction base="hpfb:string">
+			<hpfb:pattern value=".{0,1024}"/>
+		</hpfb:restriction>
+	</hpfb:simpleType>
+
 	<hpfb:simpleType name="rep_contact_role_list">
 		<hpfb:restriction base="hpfb:string">
 			<hpfb:enumeration value=""/>
