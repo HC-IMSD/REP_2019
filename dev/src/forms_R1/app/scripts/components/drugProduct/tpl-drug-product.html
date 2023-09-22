@@ -849,6 +849,25 @@
                     </section>
                 </div>
 
+
+                <div class="row" data-ng-if="drugProdCtrl.model.dossierType == 'D21' || drugProdCtrl.model.dossierType == 'D22'">
+                    <div class="col-xs-12 form-group">
+                        <label class="required">
+                            <span class="field-name">15.&nbsp; {{::"PEDIATRIC_PILOT_QUESTIONNAIRE" |translate}}</span>
+                            <strong class="required">{{::"REQUIRED" |translate}}</strong>
+                        </label>
+                        <strong>
+                            <div class="row alert alert-info" >
+                                <p>{{::'PEDIATRIC_PILOT_QUESTION'|translate}}</p>
+                                <ul class="hollow-bullets">
+                                    <li>{{::'PEDIATRIC_PILOT_QUESTION_1'|translate}}</li>
+                                    <li>{{::'PEDIATRIC_PILOT_QUESTION_2'|translate}}</li>
+                                    <li>{{::'PEDIATRIC_PILOT_QUESTION_3'|translate}}</li>
+                                </ul>
+                            </div>
+                        </strong>
+                    </div>
+                </div>
         </div>
         </div>
     </section>
