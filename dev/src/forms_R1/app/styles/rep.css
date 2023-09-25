@@ -252,10 +252,6 @@ ul.no-bullets li
     list-style-type: none;
 }
 
-.hollow-bullets {
-    list-style-type: circle;
-}
-
 div .module-attention {
     background-color: #fffcee;
     outline: 1px solid #ffe75d;
