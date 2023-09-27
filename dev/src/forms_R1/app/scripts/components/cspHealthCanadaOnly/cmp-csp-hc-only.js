@@ -60,7 +60,7 @@
         function _setIDNames() {
             var scopeId = "_" + $scope.$id;
             vm.dateReceivedId = "date_appl_rec" + scopeId;
-            vm.companyCodeId= "csp_customer_number"+ scopeId;
+            vm.companyCodeId= "csp_company_code"+ scopeId;
             vm.applicationCodeId="csp_application_code"+ scopeId;
             vm.notesId="notes"+ scopeId;
         }
