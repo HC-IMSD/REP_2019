@@ -5,7 +5,7 @@
   "LOAD_CSP_FILE": "Charger un fichier enregistré de la demande de certificat de protection supplémentaire",
   "HCONLY": "Á l'usage de Santé Canada",
   "DATE_APPL_REC": "Date de réception de la demande",
-  "CSP_COMPANY_CODE": "Code de la société du CPS",
+  "CSP_COMPANY_CODE": "Numéro de client de CPS",
   "CSPCOMPCODE_EXTERNAL": "Numéro de client de CPS",
   "CSP_APPLICATION_CODE": "Numéro de demande de CPS",
   "NOTES": "Remarques",
