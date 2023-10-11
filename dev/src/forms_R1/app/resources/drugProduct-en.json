@@ -238,7 +238,10 @@
   "SAFETY_ARE_RLTD_RACE": "Are the clinical trial data in your submission disaggregated by race / ethnicity by? Safety",
   "FROM_PEDIATRIC_POPULATIONS": "Does this submission include clinical trial data from pediatric populations (those under 18 years of age)? ",
   "PEDIATRIC_PILOT_QUESTIONNAIRE": "Pediatric Pilot Questionnaire",
-  "PEDIATRIC_PILOT_QUESTION": "If filing an NDS or an SNDS that includes a change listed below, please submit this questionnaire [link to come] with your filing:",
+  "PEDIATRIC_PILOT_QUESTION_TEXT1": "If filing an NDS or an SNDS that includes a change listed below, please submit the",
+  "PEDIATRIC_PILOT_QUESTION_LINK": "#",
+  "PEDIATRIC_PILOT_QUESTION_TEXT2": "pediatric pilot questionnaire",
+  "PEDIATRIC_PILOT_QUESTION_TEXT3": "with your filing:",
   "PEDIATRIC_PILOT_QUESTION_1": "new indication",
   "PEDIATRIC_PILOT_QUESTION_2": "new dosage form",
   "PEDIATRIC_PILOT_QUESTION_3": "new route of administration"
