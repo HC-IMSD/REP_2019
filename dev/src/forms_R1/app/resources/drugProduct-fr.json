@@ -230,9 +230,9 @@
   "FROM_PEDIATRIC_POPULATIONS": "Cette soumission inclut-elle des données d'essais cliniques provenant de populations pédiatriques (personnes âgées de moins de 18 ans)? ",
   "PEDIATRIC_PILOT_QUESTIONNAIRE": "Questionnaire pour le projet pilote sur les données pédiatriques",
   "PEDIATRIC_PILOT_QUESTION_TEXT1": "Si vous soumettez une PDN ou un SPDN qui inclut un des changements listés ci-dessous, veuillez inclure le",
-  "PEDIATRIC_PILOT_QUESTION_LINK": "#",
+  "PEDIATRIC_PILOT_QUESTION_LINK": "cette enquête",
   "PEDIATRIC_PILOT_QUESTION_TEXT2": "questionnaire pour le projet pilote sur les données pédiatriques",
-  "PEDIATRIC_PILOT_QUESTION_TEXT3": "dans votre présentation :",
+  "PEDIATRIC_PILOT_QUESTION_TEXT3": "dans votre présentation:",
   "PEDIATRIC_PILOT_QUESTION_1": "nouvelle indication",
   "PEDIATRIC_PILOT_QUESTION_2": "nouvelle forme posologique",
   "PEDIATRIC_PILOT_QUESTION_3": "nouvelle voie d'administration"
