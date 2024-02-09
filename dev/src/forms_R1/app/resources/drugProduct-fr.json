@@ -228,7 +228,7 @@
   "SAFETY_ARE_RLTD_AGE": "Les données d’essais cliniques contenues dans votre soumission sont-elles désagrégées par âge par? innocuité",
   "SAFETY_ARE_RLTD_RACE": "Les données d’essais cliniques contenues dans votre soumission sont-elles désagrégées par race/ethnie par? innocuité",
   "FROM_PEDIATRIC_POPULATIONS": "Cette soumission inclut-elle des données d'essais cliniques provenant de populations pédiatriques (personnes âgées de moins de 18 ans)? ",
-  "PEDIATRIC_PILOT_QUESTIONNAIRE": "Enquête pilote pédiatrique",
+  "PEDIATRIC_PILOT_QUESTIONNAIRE": "Sondage sur le programme pilote relatif aux médicaments pédiatriques",
   "PEDIATRIC_PILOT_QUESTION_TEXT1": "Si vous soumettez une PDN ou un SPDN qui inclut un des changements listés ci-dessous, veuillez inclure",
   "PEDIATRIC_PILOT_QUESTION_LINK": "https://www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/medicaments/pediatriques/pilote-plans-developpement-etudes/sondage.html",
   "PEDIATRIC_PILOT_QUESTION_TEXT2": "Sondage sur le programme pilote relatif aux médicaments pédiatriques",
