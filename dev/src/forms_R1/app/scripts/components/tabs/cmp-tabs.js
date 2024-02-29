@@ -6,7 +6,11 @@
 
 
     //TODO: Lazy load modules
-    angular.module('tabsModule', ['formulationsModule', 'appendixFourModule']);
+    angular.module('tabsModule',
+        ['formulationsModule',
+         'hpfbConstants',
+         'appendixFourModule',
+         'alertModule']);
 })();
 
 (function () {
@@ -19,17 +23,25 @@
             formulationList : '<',
             appendix4List : '<',
             recordChanged: '&',
-            service: '<'
+            service: '<',
+            errorSummaryUpdate:'<',
+            showErrorSummary:'<',
+            isFileLoaded:'<',
+            updateErrorSummary:'&',
+            setSelectedTab:'<'
         }
     });
 
-    tabsCtrl.$inject = ['$scope'];
+    tabsCtrl.$inject = ['$scope', 'FRENCH'];
 
 
-    function tabsCtrl($scope) {
+    function tabsCtrl($scope, FRENCH) {
 
-        var self = this;
-        self.tabs = [
+        var vm = this;
+        vm.showSummary=false;
+        vm.updateSummary=0;
+        vm.alerts = [false]; //for help boxes
+        vm.tabs = [
             {
                 label: "FORMULATIONS",
                 selected: true,
@@ -45,33 +57,75 @@
                 form: {}
             }
         ];
-        self.$onInit = function () {
+        vm.$onInit = function () {
 
         };
-        self.$onChanges = function () {
-            /*  if(changes.service){
+        vm.$onChanges=function(changes){
+            if(changes.errorSummaryUpdate){
+                vm.updateSummary=changes.errorSummaryUpdate.currentValue;
 
-             self.dosService=changes.service.currentValue;
-             }*/
+            }
+            if(changes.showErrorSummary){
+                vm.showSummary=changes.showErrorSummary.currentValue;
+            }
+            if(changes.setSelectedTab){
 
-        };
-
-        self.selectTab = function (idx) {
-
-            /*  angular.forEach(self.tabs, function (tab) {
-                    tab.selected = false;
-             tab.errors=tab.form.$invalid;
-             });*/
-
-            for (var i = 0; i < self.tabs.length; i++) {
-                self.tabs[i].selected = false;
-                if (idx !== i) {
-                    self.tabs[i].errors = self.tabs[i].form.$invalid;
+                if(changes.setSelectedTab.currentValue) {
+                 var index=changes.setSelectedTab.currentValue.id;
+                    if(index>-1) {
+                    vm.selectTab(index);
+                    }
                 }
             }
 
-                self.tabs[idx].selected = true;
-            //self.tabs[idx].errors= self.tabs[idx].form.$invalid
+        };
+
+        /***
+         * Selects the visible tab based on a zero based index
+         * @param idx
+         */
+        vm.selectTab = function (idx) {
+
+            if(idx>vm.tabs.length){
+                console.warn("Invalid tab index "+idx);
+                return;
+            }
+
+            for (var i = 0; i < vm.tabs.length; i++) {
+                vm.tabs[i].selected = false;
+                if (idx !== i) {
+                    vm.tabs[i].errors = vm.tabs[i].form.$invalid;
+                }
+            }
+                vm.tabs[idx].selected = true;
+            //vm.tabs[idx].errors= vm.tabs[idx].form.$invalid
+        };
+
+        vm.addInstruct = function (value) {
+
+            if (angular.isUndefined(value)) return;
+            if (value < vm.alerts.length) {
+                vm.alerts[value] = true;
+            }
+        };
+
+        /**
+         * Closes the instruction alerts
+         * @param value
+         */
+        vm.closeAlert = function (value) {
+            if (angular.isUndefined(value)) return;
+            if (value < vm.alerts.length) {
+                vm.alerts[value] = false;
+            }
+        };
+
+        /**
+         * Determines if form is in french
+         * @returns {boolean}
+         */
+        vm.isFrench = function(){
+            return(vm.lang===FRENCH);
         };
     }
 

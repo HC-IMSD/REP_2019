@@ -20,80 +20,109 @@
             bindings: {
                 withUnknown: '<',
                 listItems: '<',
-                onUpdate: '&',
+                onUpdate: '&', //seems redundant, but used as a messaging mech. when something changes
                 onDelete: '&',
-                showErrors: '&',
-                fieldLabel: '@'
+                showErrors:'<',
+                fieldLabel: '@',
+                isFileLoaded: '<',
+                updateErrorSummary:'&',
+                addButtonLabel: '@'
             }
         });
 
-    countryListController.$inject = ['$filter', 'getCountryAndProvinces','UNKNOWN'];
+    countryListController.$inject = ['$filter', 'getCountryAndProvinces','UNKNOWN','$scope'];
 
 
-    function countryListController($filter, getCountryAndProvinces,UNKNOWN) {
-        var self = this;
-        self.baseCountries = getCountryAndProvinces.getCountries();
-        self.countryList = "";
-        self.model = {};
-        self.isDetailValid = true;
-        self.resetToCollapsed = true;
-        self.selectRecord = 0;
-        self.columnDef = [
+    function countryListController($filter, getCountryAndProvinces,UNKNOWN,$scope) {
+        var vm = this;
+        vm.baseCountries = getCountryAndProvinces.getCountries();
+        vm.countries = angular.copy(vm.baseCountries);
+        vm.countryList = "";
+        vm.model = {};
+        vm.isDetailValid = true;
+        vm.resetToCollapsed = true;
+        vm.noCountries=""; //TODO deprecate
+        vm.showDetailErrors=false;
+        vm.requiredFlag = true; //use to signal expanding table extend an empty record
+        vm.selectRecord = -1;
+        vm.isFocus = false;
+        vm.columnDef = [
             {
-                label: self.fieldLabel,
+                label: vm.fieldLabel,
                 binding: "display",
                 width: "100"
             }
-        ]
+        ];
 
-        self.hasUnknown = false;
-        self.emptyModel = {"id": "", "country": "","unknownCountryDetails":"","display":""};
+        vm.hasUnknown = false;
+        vm.emptyModel = {"id": "", "country": "","unknownCountryDetails":"","display":"", saveButton:""};
 
 
-        self.$onInit = function () {
-            if (angular.isUndefined(self.model.list)) { //TODO should be comimg from parent
-                self.model.list = [];
+        vm.$onInit = function () {
+            _setIdNames();
+            vm.showDetailErrors=false;
+            if (angular.isUndefined(vm.model.list)) { //TODO should be comimg from parent
+                vm.model.list = [];
             }
             //should never happen,fallback...
-            if (angular.isUndefined(self.countryList)) {
-                setUnknownCountryState(self.withUnknown)
+            if (angular.isUndefined(vm.countryList)) {
+                setUnknownCountryState(vm.withUnknown);
             }
-        }
+            vm.countryList = vm.updateCountryList();
+        };
 
-        self.$onChanges = function (changes) {
+        vm.$onChanges = function (changes) {
             if (changes.withUnknown) {
-                setUnknownCountryState(changes.withUnknown.currentValue);
+                //setUnknownCountryState(changes.withUnknown.currentValue);
             }
             if (changes.listItems) {
-                self.model.list = changes.listItems.currentValue;
+                vm.model.list = changes.listItems.currentValue;
+                //vm.updateCountryList();
+            }
+            if(changes.showErrors){
+
+                vm.showDetailErrors=changes.showErrors.currentValue;
+            }
+            if (changes.isFileLoaded) {
+                if (changes.isFileLoaded.currentValue) {
+                    vm.requiredFlag = false;
+                }
             }
         };
+
+        vm.$postLink = function () {
+            if(!vm.isFileLoaded) {
+                vm.requiredFlag = true;
+                vm.addNew();
+            }
+        };
+
         function setUnknownCountryState(isUnknown) {
-            var countries = angular.copy(self.baseCountries);
             if (isUnknown) {
                 var unknownRec=getCountryAndProvinces.getUnknownCountryRecord();
-                countries.unshift(unknownRec);
-                self.countryList =countries;
-                self.hasUnknown = true;
-                self.columnDef = [
+                vm.countries.unshift(unknownRec);
+                vm.countryList =vm.countries;
+                vm.hasUnknown = true;
+                vm.columnDef = [
                     {
-                        label: self.fieldLabel,
+                        label: vm.fieldLabel,
                         binding: "display",
                         width: "50"
                     },
                     {
                         label: "UNKNOWN_COUNTRY_DETAILS",
                         binding: "unknownCountryDetails",
-                        width: "50"
-                    },
+                        width: "50",
+                        isHtml: "true"
+                    }
                 ]
             } else {
-                self.countryList = countries;
-                self.hasUnknown = false;
-                self.emptyModel = {"id": "", "country": "","unknownCountryDetails":"","display":""};
-                self.columnDef = [
+                vm.countryList = vm.countries;
+                vm.hasUnknown = false;
+                vm.emptyModel = {"id": "", "country": "","unknownCountryDetails":"","display":""};
+                vm.columnDef = [
                     {
-                        label: self.fieldLabel,
+                        label: vm.fieldLabel,
                         binding: "display",
                         width: "100"
                     }
@@ -103,51 +132,63 @@
 
         }
 
-        self.addNew = function () {
+        vm.addNew = function () {
             var maxID = getListMaxID();
-            var item = angular.copy(self.emptyModel);
+            var item = angular.copy(vm.emptyModel);
+            item.display = "";
             item.id = (getListMaxID() + 1);
-            (self.model.list).push(item);
-            setRecord(-1);
-            self.resetToCollapsed = !self.resetToCollapsed;
-            setRecord(self.model.list.length - 1);
-            //self.editRecord(item);
-            //self.onUpdate({list: self.model.list});
-
+            (vm.model.list).push(item);
+            // setRecord(-1);
+            vm.resetToCollapsed = !vm.resetToCollapsed;
+            setRecord(vm.model.list.length - 1);
+            //vm.editRecord(item);
+            vm.onUpdate({list: vm.model.list});
+            vm.countryList = vm.updateCountryList();
         };
 
         function setRecord(value) {
-            self.selectRecord = value;
+            vm.selectRecord = value;
 
         }
 
-        self.deleteRecord = function (_id) {
-            //console.log("Deleting item: "+_id);
-
-            var idx = self.model.list.indexOf(
-                $filter('filter')(self.model.list, {id: _id}, true)[0]
-            );
-            if (idx < 0) return;
-
-            self.model.list.splice(idx, 1);
-            // self.onUpdate({list:self.model.list});
+        vm.deleteRecord = function (_id) {
+            var aList = vm.deleteRecFromList(vm.model.list, _id);
+            vm.updateCountryList();
+            vm.onUpdate({list:aList});
+            vm.updateRecord();
         };
 
+        vm.deleteRecFromList = function (_list, _id) {
+            var idx = _list.indexOf(
+                $filter('filter')(_list, {id: _id}, true)[0]
+            );
+            if (idx >= 0) _list.splice(idx, 1);
+            return _list;
+        };
 
-        /***
-         * Shows a control error if touched and invalid or remote trigger
-         * @param isInvalid
-         * @param isTouched
-         * @returns {*}
-         */
-        self.showError = function (isInvalid, isTouched) {
-            return ((isInvalid && isTouched) || (isInvalid && self.showErrors()))
-        }
+        //to fix duplicate countries selected bug
+        vm.updateCountryList = function () {
+            var base = angular.copy(vm.baseCountries);
+            if(vm.model.list && vm.model.list.length > 0) {
+                var idx;
+                for (var j = 0; j < vm.model.list.length; j++) {
+                    if(vm.model.list[j].country && vm.model.list[j].country.id)
+                    {
+                        idx = base.indexOf(
+                            $filter('filter')(base, {id: vm.model.list[j].country.id}, true)[0]
+                        );
+                        if (idx >= 0) base.splice(idx, 1);
+                    }
+                }
+                vm.countryList = base;
+                return base;
+            }
+            return null;
+        };
 
         function getListMaxID() {
-
             var out = 0;
-            var list = self.model.list;
+            var list = vm.model.list;
             if (list) {
                 for (var i = 0; i < list.length; i++) {
                     if (list[i].id > out) {
@@ -156,7 +197,48 @@
                 }
             }
             return out;
-
         }
+
+        /**
+         * sets the names of the fields. Use underscore as the separator for the scope id. Scope id must be at end
+         * @private
+         */
+        function _setIdNames() {
+            var scopeId = "_" + $scope.$id;
+            vm.noCountryId="no_country"+scopeId;
+        }
+        vm.noCountry=function(){
+            if(! vm.model.list || vm.model.list.length===0 || vm.model.list[0].country == ""){
+                vm.noCountries="";
+                return true;
+            }
+            vm.noCountries="values";
+            return false;
+        };
+        vm.disableAddButton=function(){
+            if(vm.noCountry()) return false;
+            return(vm.countryListForm.$invalid);
+        };
+
+        vm.updateRecord = function(){
+            vm.selectRecord = -1;
+            vm.requiredFlag = false;
+            vm.resetToCollapsed = !vm.resetToCollapsed;
+        }
+        vm.onError = function(){
+            if(vm.model.list[0].country == ""){
+                vm.resetToCollapsed = true;
+            }
+        }
+        vm.setFocus = function () {
+            vm.isFocus = true;
+        }
+        vm.cancelFocus = function () {
+            vm.isFocus = false;
+        }
+
+        /*  $scope.$watch('countryListCtrl.countryListForm.$error', function () {
+                    vm.updateErrorSummary();
+                }, true);*/
     }
 })();

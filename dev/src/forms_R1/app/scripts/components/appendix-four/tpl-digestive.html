@@ -1,25 +1,25 @@
 <ng-form name="sysCtrl.digestForm">
     <div>
-        <fieldset>
-            <legend class="required">
-                <span class="field-name">{{'DIGESTIVE_LEGEND' |translate}}</span>
-                <strong class="required"> {{"REQUIRED" |translate}}</strong>
-                <input id="roleMissing_{{::$id}}" name="roleMissing" ng-required="true" ng-show="false"
-                       ng-model="sysCtrl.isSelected" required/>
-                <strong id="role-error{{::$id}}" class="error" ng-if="sysCtrl.showErrorMissing()">
-                         <span class="label label-danger" ng-messages="sysCtrl.digestForm.roleMissing.$error">
-                             <span ng-message="required">{{"MSG_ERR_ROLE"|translate}}</span>
-                         </span>
-                </strong>
+        <fieldset id="{{::sysCtrl.systemRoleId}}">
+            <legend class="required legend-rep">
+                <span id="DIGESTIVE_LEGEND_{{::$id}}" class="field-name">{{::'DIGESTIVE_LEGEND' |translate}}</span>
+                <strong class="required"> {{::"REQUIRED" |translate}}</strong>
+                <cmp-error-message field-name="sysCtrl.systemRoleId"
+                                   form-ref="sysCtrl.digestForm"
+                                   show-error="sysCtrl.showErrorMessage(sysCtrl.digestForm.$invalid)"
+                                   error-types="sysCtrl.requiredOnly">
+                </cmp-error-message>
+                <input id="{{::sysCtrl.roleMissingId}}" name="{{::sysCtrl.systemRoleId}}"  type="hidden"
+                       data-ng-model="sysCtrl.isSelected" required/>
             </legend>
             <div class="row">
                 <div class="col-md-3">
                     <div class="checkbox">
                         <label for="appendix_{{::$id}}">
                             <input type="checkbox" name="appendix" id="appendix_{{::$id}}"
-                                   ng-change="sysCtrl.detailsChanged('APPENDIX',sysCtrl.model.appendix)"
-                                   ng-model="sysCtrl.model.appendix"/>
-                            {{'APPENDIX'|translate}}
+                                   data-ng-change="sysCtrl.detailsChanged('APPENDIX',sysCtrl.model.appendix)"
+                                   data-ng-model="sysCtrl.model.appendix"/>
+                            {{::'APPENDIX'|translate}}
                         </label>
                     </div>
                 </div>
@@ -27,9 +27,9 @@
                     <div class="checkbox">
                         <label for="bile_{{::$id}}">
                             <input type="checkbox" name="bile" id="bile_{{::$id}}"
-                                   ng-change="sysCtrl.detailsChanged('BILE',sysCtrl.model.bile)"
-                                   ng-model="sysCtrl.model.bile"/>
-                            {{'BILE'|translate}}
+                                   data-ng-change="sysCtrl.detailsChanged('BILE',sysCtrl.model.bile)"
+                                   data-ng-model="sysCtrl.model.bile"/>
+                            {{::'BILE'|translate}}
                         </label>
                     </div>
                 </div>
@@ -37,9 +37,9 @@
                     <div class="checkbox">
                         <label for="distalIleum_{{::$id}}">
                             <input type="checkbox" name="distalIleum" id="distalIleum_{{::$id}}"
-                                   ng-change="sysCtrl.detailsChanged('DISTALILEUM',sysCtrl.model.distalIleum)"
-                                   ng-model="sysCtrl.model.distalIleum"/>
-                            {{'DISTALILEUM'|translate}}
+                                   data-ng-change="sysCtrl.detailsChanged('DISTALILEUM',sysCtrl.model.distalIleum)"
+                                   data-ng-model="sysCtrl.model.distalIleum"/>
+                            {{::'DISTALILEUM'|translate}}
                         </label>
                     </div>
                 </div>
@@ -47,9 +47,9 @@
                     <div class="checkbox">
                         <label for="largeIntestine_{{::$id}}">
                             <input type="checkbox" name="largeIntestine" id="largeIntestine_{{::$id}}"
-                                   ng-change="sysCtrl.detailsChanged('LARGEINTEST',sysCtrl.model.largeIntestine)"
-                                   ng-model="sysCtrl.model.largeIntestine"/>
-                            {{'LARGEINTEST'|translate}}
+                                   data-ng-change="sysCtrl.detailsChanged('LARGEINTEST',sysCtrl.model.largeIntestine)"
+                                   data-ng-model="sysCtrl.model.largeIntestine"/>
+                            {{::'LARGEINTEST'|translate}}
                         </label>
                     </div>
                 </div>
@@ -59,9 +59,9 @@
                     <div class="checkbox">
                         <label for="salivaSalivary_{{::$id}}">
                             <input type="checkbox" name="salivaSalivary" id="salivaSalivary_{{::$id}}"
-                                   ng-change="sysCtrl.detailsChanged('SALIVA',sysCtrl.model.salivaSalivary)"
-                                   ng-model="sysCtrl.model.salivaSalivary"/>
-                            {{'SALIVA'|translate}}
+                                   data-ng-change="sysCtrl.detailsChanged('SALIVA',sysCtrl.model.salivaSalivary)"
+                                   data-ng-model="sysCtrl.model.salivaSalivary"/>
+                            {{::'SALIVA'|translate}}
                         </label>
                     </div>
                 </div>
@@ -69,9 +69,9 @@
                     <div class="checkbox">
                         <label for="smallIntestine_{{::$id}}">
                             <input type="checkbox" name="smallIntestine" id="smallIntestine_{{::$id}}"
-                                   ng-change="sysCtrl.detailsChanged('SMALLINTESTINE',sysCtrl.model.smallIntestine)"
-                                   ng-model="sysCtrl.model.smallIntestine"/>
-                            {{'SMALLINTESTINE'|translate}}
+                                   data-ng-change="sysCtrl.detailsChanged('SMALLINTESTINE',sysCtrl.model.smallIntestine)"
+                                   data-ng-model="sysCtrl.model.smallIntestine"/>
+                            {{::'SMALLINTESTINE'|translate}}
                         </label>
                     </div>
                 </div>
@@ -79,9 +79,9 @@
                     <div class="checkbox">
                         <label for="stomach_{{::$id}}">
                             <input type="checkbox" name="stomach" id="stomach_{{::$id}}"
-                                   ng-change="sysCtrl.detailsChanged('STOMACH',sysCtrl.model.stomach)"
-                                   ng-model="sysCtrl.model.stomach"/>
-                            {{'STOMACH'|translate}}
+                                   data-ng-change="sysCtrl.detailsChanged('STOMACH',sysCtrl.model.stomach)"
+                                   data-ng-model="sysCtrl.model.stomach"/>
+                            {{::'STOMACH'|translate}}
                         </label>
                     </div>
                 </div>
@@ -89,21 +89,25 @@
                     <div class="checkbox">
                         <label for="otherDigestive_{{::$id}}">
                             <input type="checkbox" name="otherDigestive" id="otherDigestive_{{::$id}}"
-                                   ng-model="sysCtrl.model.otherDigestive"/>
-                            {{'DIGESTIVE_OTHER'|translate}}
+                                   data-ng-model="sysCtrl.model.otherDigestive"/>
+                            {{::'DIGESTIVE_OTHER'|translate}}
                         </label>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6">
+            <div class="row" data-ng-class="{'has-error':sysCtrl.digestForm[sysCtrl.otherDetailsId].$invalid}">
+                <div class="col-md-12">
                     <div ng-if="sysCtrl.otherChanged()" class="form-group">
-                        <label class="required" for="digestiveDetails_{{::$id}}">
-                            {{'DIGESTIVE_DETAILS'|translate}}
-                            <strong class="required">{{"REQUIRED" |translate}}</strong>
-                            <input type="text" size="40" maxlength="40" name="digestiveDetails" ng-required="{{sysCtrl.model.otherDigestive}}"
-                                   id="digestiveDetails_{{::$id}}" ng-model-options="{ debounce: '$inherit'}"
-                                   ng-model="sysCtrl.model.otherDetails"/>
+                        <label class="required" for="{{::sysCtrl.otherDetailsId}}">
+                            {{::'DIGESTIVE_DETAILS'|translate}}
+                            <strong class="required">{{::"REQUIRED" |translate}}</strong>
+                            <cmp-error-message field-name="sysCtrl.otherDetailsId"
+                                               form-ref="sysCtrl.digestForm"
+                                               show-error="sysCtrl.showErrorMessage(sysCtrl.digestForm[sysCtrl.otherDetailsId].$invalid)"
+                                               error-types="sysCtrl.requiredOnly"></cmp-error-message>
+                            <input type="text" size="40" maxlength="40" name="{{::sysCtrl.otherDetailsId}}" data-ng-required="{{sysCtrl.model.otherDigestive}}"
+                                   id="{{::sysCtrl.otherDetailsId}}" data-ng-model-options="{ debounce: '$inherit'}"
+                                   data-ng-model="sysCtrl.model.otherDetails" class="form-control"/>
                         </label>
                     </div>
                 </div>

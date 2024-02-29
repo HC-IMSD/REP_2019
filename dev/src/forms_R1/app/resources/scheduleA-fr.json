@@ -1,4 +1,5 @@
 {
+  "ACUTEALCOHOL":"Alcoolisme aigu",
   "ACUTEANXIETY":"État anxieux aigu",
   "ACUTERESP":"Syndromes respiratoires infectieux aigus",
   "ACUTEINFLAM":"Arthrite aiguë, inflammatoire et débilitante",
@@ -28,7 +29,8 @@
   "THYROIDDISEASE":"Maladie thyroïdienne",
   "UCLERGASTRO":"Ulcères des voies gastro-intestinales",
   "SCHEDA_CLAIMS":"Indiquer les allégations et indications de l’annexe A associées avec ce produit",
-  "SCHEDA_DISEASE": "fr_Please check the diseases and disorders that apply to the claims made (select at least one)",
-  "ISSCHEDA": "Ce médicament en vente libre auquel une ou plusieurs allégations de l’annexe A s’appliquent"
+  "SCHEDA_DISEASE": "Cochez la maladie ou le trouble visé par les allégations (au moins une)",
+  "ISSCHEDA": "Ce médicament en vente libre auquel une ou plusieurs allégations de l’annexe A s’appliquent",
+  "SCHEDA_DETAILS":"Annexe A détails des allégations"
 
 }

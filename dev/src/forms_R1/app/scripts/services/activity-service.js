@@ -14,36 +14,46 @@
     angular
         .module('activityService')
         .factory('ActivityService', ActivityService);
-    ActivityService.$inject = ['YES', 'NO','ActivityListFactory','$filter','$translate'];
-    function ActivityService(YES, NO,ActivityListFactory, $filter,$translate) {
+    ActivityService.$inject = ['APPROVED_TYPE','DEPRECATED_APPROVED_TYPE','NEW_TYPE','YES', 'NO','ActivityListFactory','$filter','$translate'];
+    function ActivityService(APPROVED_TYPE,DEPRECATED_APPROVED_TYPE,NEW_TYPE,  YES, NO,ActivityListFactory, $filter,$translate) {
 
         function ActivityService() {
             //construction logic
             var defaultActivityData = {
                 "companyId": "",
+                "reasonAmend": "",
                 "dstsControlNumber": "",
                 "enrolmentVersion": "",
                 "dateSaved": "",
-                "applicationType": "NEW",
-                "softwareVersion": "1.1.0",
+                "applicationType": NEW_TYPE,
+                "softwareVersion": "2.0.0",
                 "dataChecksum": "",
                 "dossierIdPrefix": "HC6-024-",
                 "dossierId": "",
                 "regActivityLead": "",
                 "regActivityType": "",
-                "feeClass": "",
+                //"feeClass": "",
+                "subType": "",
                 "reasonFiling": "",
                 "isThirdParty": "",
                 "isAdminSub": "",
-                "relatedActivity": {},
-                "contactRecord": []
+                "isPriority": "",
+                "isNoc": "",
+                //"relatedActivity": {},
+                "contactRecord": [],
+                "manu": false,
+                "mailling": false,
+                "thisActivity": false,
+                "importer": false,
+                "importerId": ""
             };
             defaultActivityData.rationaleTypes = _createRationalTypes();
             defaultActivityData.notifiableChangeTypes = _createNotifiableChangeTypes();
-            defaultActivityData.relatedActivity = _getEmptyActivity();
+            //defaultActivityData.relatedActivity = _getEmptyActivity();
             angular.extend(this._default, defaultActivityData);
             this.rootTag = "ACTIVITY_ENROL";
             this.activityId = 0;
+            this.xslFileName = "REP_RA_2_0.xsl";
         }
 
         ActivityService.prototype = {
@@ -53,13 +63,17 @@
             NC:  ActivityListFactory.getNCTypeValue(),
             VNC: "VNC",
             BIOLOGIC: ActivityListFactory.getBiologicalLeadValue(),
-            DIN: ActivityListFactory.getDINTypeValue()
+            DINB: ActivityListFactory.getDINBTypeValue() //DINB values was added on Mar 26,2018
 
         };
 
 
         ActivityService.prototype.getRootTag = function () {
-            return (this.rootTag)
+            return (this.rootTag);
+        };
+
+        ActivityService.prototype.getXSLFileName = function () {
+            return this.xslFileName;
         };
 
         /**
@@ -72,6 +86,7 @@
                 ACTIVITY_ENROL: {
                     template_type: "PHARMA",
                     company_id: jsonObj.companyId,
+                    reason_amend: jsonObj.reasonAmend,
                     dsts_control_number: jsonObj.dstsControlNumber,
                     enrolment_version: jsonObj.enrolmentVersion,
                     date_saved: jsonObj.dateSaved,
@@ -83,21 +98,29 @@
                     dossier_id_concat: "",
                     reg_activity_lead: jsonObj.regActivityLead,
                     reg_activity_type: "",
-                    fee_class:"",
+                    sub_type:"",
+                    //fee_class:"",
                     reason_filing: jsonObj.reasonFiling,
                     is_third_party: jsonObj.isThirdParty,
                     is_admin_submission: jsonObj.isAdminSub,
+                    is_priority: jsonObj.isPriority,
+                    is_noc: jsonObj.isNoc,
                     notifiable_change_types: {},
-                    rationale_types: {}
+                    rationale_types: {},
+                    manufacturer: jsonObj.manu === true ? 'Y' : 'N',
+                    mailing: jsonObj.mailling === true ? 'Y' : 'N',
+                    this_activity: jsonObj.thisActivity === true ? 'Y' : 'N',
+                    importer: jsonObj.importer === true ? 'Y' : 'N',
+                    importer_id: jsonObj.importerId
                 }
             };
-           if(jsonObj.feeClass) {
+           /*if(jsonObj.feeClass) {
                 activity[this.rootTag].fee_class={
                     _label_en: jsonObj.feeClass.en,
                     _label_fr: jsonObj.feeClass.fr,
                     __text:  jsonObj.feeClass.id
                 }
-            }
+            }*/
             if(jsonObj.regActivityType) {
                 activity[this.rootTag].reg_activity_type = {
                     _label_en: jsonObj.regActivityType.en,
@@ -105,9 +128,16 @@
                     __text: jsonObj.regActivityType.id
                 };
             }
+            if(jsonObj.subType) {
+                activity[this.rootTag].sub_type = {
+                    _label_en: jsonObj.subType.en,
+                    _label_fr: jsonObj.subType.fr,
+                    __text: jsonObj.subType.id
+                };
+            }
             activity[this.rootTag].notifiable_change_types = _mapNotifiableChangeTypesToOutput(jsonObj.notifiableChangeTypes);
             activity[this.rootTag].rationale_types = _mapRationaleTypeToOutput(jsonObj.rationaleTypes);
-            if (jsonObj.isAdminSub === YES) {
+           /* if (jsonObj.isAdminSub === YES) {
                 activity[this.rootTag].related_activity = this.tranformRelatedActivityToFileObj(jsonObj.relatedActivity);
             }
             /* if (relatedActList && relatedActList.length > 0) {
@@ -138,7 +168,7 @@
         };
 
         //TODO obsolete?
-        ActivityService.prototype.tranformRelatedActivityToFileObj = function (jsonObj) {
+        /*ActivityService.prototype.tranformRelatedActivityToFileObj = function (jsonObj) {
 
             var activity = {};
             activity.sponsor_name = jsonObj.sponsorName;
@@ -173,7 +203,7 @@
             activity.not_lasa = jsonObj.notLasa === true ? YES : NO;
             return activity;
 
-        };
+        };*/
         ActivityService.prototype.getModelInfo = function () {
             return this._default;
         };
@@ -186,10 +216,15 @@
             }
             var model = {};
             model.companyId = jsonObj.company_id;
+            model.reasonAmend = jsonObj.reason_amend;
             model.dstsControlNumber = jsonObj.dsts_control_number;
             model.enrolmentVersion = jsonObj.enrolment_version;
             model.dateSaved = jsonObj.date_saved;
-            model.applicationType = jsonObj.application_type;
+            if(DEPRECATED_APPROVED_TYPE== jsonObj.application_type) {
+                model.applicationType=APPROVED_TYPE;
+            }else{
+                model.applicationType = jsonObj.application_type;
+            }
             model.softwareVersion = jsonObj.software_version;
             model.dataChecksum = jsonObj.software_version;
             model.dossierIdPrefix = jsonObj.dossier_id_prefix;
@@ -197,21 +232,32 @@
             model.regActivityLead = jsonObj.reg_activity_lead;
             model.regActivityType = $filter('filter')(ActivityListFactory.getRaTypeList(), {id:  jsonObj.reg_activity_type.__text})[0];
            //TODO replace with a custom filter
-            var feeClassList= $filter('filter')(ActivityListFactory.getFeeClassList(), {id:  jsonObj.fee_class.__text});
-            model.feeClass =  _getFilterJsonMatch(feeClassList,jsonObj.fee_class.__text,"id");
+            if(jsonObj.sub_type) {
+                var subTypeList = $filter('filter')(ActivityListFactory.getAdminSubType(), {id: jsonObj.sub_type.__text});
+                model.subType = _getFilterJsonMatch(subTypeList, jsonObj.sub_type.__text, "id");
+            }
+            //var feeClassList= $filter('filter')(ActivityListFactory.getFeeClassList(), {id:  jsonObj.fee_class.__text});
+            //model.feeClass =  _getFilterJsonMatch(feeClassList,jsonObj.fee_class.__text,"id");
             model.reasonFiling = jsonObj.reason_filing;
             model.isThirdParty = jsonObj.is_third_party;
             model.isAdminSub = jsonObj.is_admin_submission;
-
+            model.isPriority = jsonObj.is_priority;
+            model.isNoc = jsonObj.is_noc;
             model.notifiableChangeTypes = _transformNotifiableChangeTypeFromFileObj(jsonObj.notifiable_change_types);
             model.rationaleTypes = _transformRationaleTypeFromFileObj(jsonObj.rationale_types);
-            model.relatedActivity = {};
+            model.manu = jsonObj.manufacturer === 'Y';
+            model.mailling = jsonObj.mailing === 'Y';
+            model.thisActivity = jsonObj.this_activity === 'Y';
+            model.importer = jsonObj.importer === 'Y';
+            model.importerId = jsonObj.importer_id;
+
+            //model.relatedActivity = {};
 
             var repContacts = {contactRecord: []};
 
-            if (jsonObj.related_activity) {
+            /*if (jsonObj.related_activity) {
                 model.relatedActivity = this.transformRelatedRegActivityFromFileObj(jsonObj.related_activity);
-            }
+            }*/
 
             if (jsonObj.contact_record) {
                 repContacts.contactRecord = this.mapContactList(jsonObj.contact_record)
@@ -261,43 +307,19 @@
         ActivityService.prototype.isRationale = function (activity, lead) {
 
             if (!activity) return false;
-            if (activity === this.SANDS || activity === this.SNDS) {
+            if (activity === this.SANDS || activity === this.SNDS || activity === this.DINB) {
                 return true;
             }
+          /*
+           DIN value was deprecated On Jav 23 2017 checkin
             if (activity === this.DIN && lead === this.BIOLOGIC) {
                 return true;
-            }
+            } */
             return false;
         };
 
-      /*  ActivityService.prototype.getActivityTypeList = function (isPilot) {
-
-            var activityList = [
-                "CTA",
-                "CTAA",
-                "NDS",
-                this.SNDS,
-                "ANDS",
-                this.SANDS,
-                this.NC,
-                this.DIN,
-                "PDC",
-                "ADMIN"
-            ];
 
 
-            if (!isPilot) {
-                activityList.push(
-                    "VIND",
-                    "VINDAM",
-                    "VNDS",
-                    "VANDS",
-                    "VSANDS",
-                    this.VNC,
-                    "VDIN")
-            }
-            return activityList;
-        };*/
 
         ActivityService.prototype.updateActivityId = function (value) {
             if (isNaN(value)) return;
@@ -325,7 +347,7 @@
          * @param jsonObj
          */
         //TODO deprecated
-        ActivityService.prototype.transformRelatedRegActivityFromFileObj = function (jsonObj) {
+        /**ActivityService.prototype.transformRelatedRegActivityFromFileObj = function (jsonObj) {
             var relatedActivity = this.getEmptyRelatedActivity();
             relatedActivity.sponsorName = jsonObj.sponsor_name;
             relatedActivity.dateCleared = "";
@@ -340,7 +362,7 @@
             relatedActivity.dinTransfer = jsonObj.din_transfer === YES;
             relatedActivity.notLasa = jsonObj.not_lasa === YES;
             return relatedActivity;
-        };
+        };*/
 
         // Return a reference to the object
         return ActivityService;
@@ -387,14 +409,12 @@
 
         var repContact = _transformContactFromFileObj(repObj.rep_contact_details);
         repContact.repRole = repObj.rep_contact_role;
-        repContact.amend = repObj.amend_record === 'Y';
         return (repContact);
     }
 
     function _mapRepContactToOutput(repObj) {
         var repContact = {};
         repContact.rep_contact_role = repObj.repRole;
-        repContact.amend_record = repObj.amend === true ? 'Y' : 'N';
         //deflatten the object
         repContact.rep_contact_details = _mapContactToOutput(repObj);
         return repContact;
@@ -403,7 +423,6 @@
     function _transformContactFromFileObj(contactObj) {
         var contact = {};
         if (!contactObj) {
-            console.error("There is no contact object");
             return contact;
         }
         contact.salutation = contactObj.salutation;
@@ -566,75 +585,6 @@
         };
     }
 
-    //TODO delete
-    /*  function _mapRelatedRegActivityToOutput(jsonObj) {
-        if (!jsonObj) return null;
-        var regActivityType = {
-            "activity_id": jsonObj.activityId,
-            "amend_record": jsonObj.amendRecord === true ? 'Y' : 'N',
-            "reg_activity_type": jsonObj.regActivityType,
-            "date_cleared": "",
-
-            "control_number": jsonObj.dstsControlNumber,
-            "dossier_id": jsonObj.dossierId,
-            "manufacturer_name": jsonObj.manufacturerName,
-            "reason_filing": jsonObj.reasonFiling,
-            "assoc_dins": []
-        };
-        var dateCleared = jsonObj.dateCleared;
-        var month = "";
-        var day = "";
-        if (dateCleared) {
-     month = dateCleared.getMonth() + 1;
-     day = dateCleared.getDate();
-            if (month < 10) {
-                //todo hack
-                month = "0" + month;
-            }
-            if (day < 10) {
-                day = "0" + day;
-            }
-     regActivityType.date_cleared = dateCleared.getFullYear() + '-' + (month) + '-' + day;
-        }
-        var dins = _mapRelatedDinsToOutput(jsonObj.assocDins);
-        if (dins && dins.length > 0) {
-            regActivityType.assoc_dins = dins;
-        } else {
-            regActivityType.assoc_dins = "";
-        }
-        return regActivityType;
-     }*/
-
-
-    /* function _transformRelatedDinsListFromFileObj(jsonObj) {
-        var result = [];
-        if (!jsonObj) return result;
-
-        if (!(jsonObj instanceof Array)) {
-            //make it an array, case there is only one
-            jsonObj = [jsonObj]
-        }
-        result = [];
-        for (var i = 0; i < jsonObj.length; i++) {
-            result.push({"dinNumber": jsonObj[i].din_number});
-        }
-        return result;
-     }*/
-
-    /* function _mapRelatedDinsToOutput(jsonObj) {
-        var result = "";
-        if (!jsonObj) return result;
-        if (!(jsonObj instanceof Array)) {
-            //make it an array, case there is only one
-            jsonObj = [jsonObj]
-        }
-        result = [];
-        for (var i = 0; i < jsonObj.length; i++) {
-            result.push({"din_number": jsonObj[i].dinNumber});
-        }
-
-        return result;
-     }*/
 
     function _parseDate(value) {
         var dateArray = value.split('-');

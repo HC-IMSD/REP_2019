@@ -2,7 +2,7 @@
   "FIRSTNAME": "First Name",
   "LASTNAME": "Last Name",
   "INITIALS": "Initials",
-  "LANGCORRESPOND": "Language of Correspondance",
+  "LANGCORRESPOND": "Language of Correspondence",
   "JOBTITLE": "Job Title",
   "SALUTATION": "Salutation",
   "SALUT_MR": "Mr.",
@@ -17,13 +17,14 @@
   "ROLES": "Roles",
   "PHONENUMBER": "Phone Number",
   "CONTACT_INFO": "Company Representative Information",
-  "AMEND": "Amend",
-  "REP_CONTACT":  "REP Contact",
+   "REP_CONTACT":  "Regulatory Enrolment Process Contact",
   "ONE_ROLE": "Role",
   "CONTACT_DETAILS": "Company Representative Details",
   "ADD_CONTACT": "Add REP Contact",
   "CONTACT_ROLE_LEGEND": "Select one or more roles for this company representative",
+  "CONTACT_ROLE_INSTRUCT":"Company Representative Role Instructions",
   "ADD_REPRES": "Add Company Representative",
   "DELETE_REPRES": "Delete Company Rep.",
-  "SAVE_REPRES": "Save Company Rep."
+  "SAVE_REPRES": "Save Company Rep.",
+  "IMP_COMPANY_NAME": "Canadian Importer Company Name"
 }

@@ -6,7 +6,12 @@
     'use strict';
 
     angular
-        .module('formulationsModule', ['expandingTable', 'formulationRecordModule'])
+        .module('formulationsModule',
+            [
+                'expandingTable',
+                'formulationRecordModule',
+                'errorSummaryModule'
+            ])
 })();
 
 (function () {
@@ -20,86 +25,136 @@
             controllerAs: 'formulCtrl',
             bindings: {
                 formulations: '<',
-                recordChanged: '&'
+                recordChanged: '&',
+                errorSummaryUpdate:'<',
+                showErrorSummary:'<',
+                isFileLoaded: '<',
+                htIndxList:'<',
+                updateErrorSummary:'&',
+                dossierType: '<'
             }
         });
 
-    function formulationsCtrl() {
+    formulationsCtrl.$inject = ['$scope'];
 
-        var self = this;
-        self.isDetailValid = true; //TODO this must be managed
-        self.selectRecord = -1;
-        self.resetToCollapsed = false;
-        self.noFormulations = "";
-        self.$onInit = function () {
+    function formulationsCtrl($scope) {
 
-            self.newFormShown = false;
+        var vm = this;
+        vm.isDetailValid = true; //TODO this must be managed
+        vm.selectRecord = -1;
+        vm.resetToCollapsed = false;
+        vm.noFormulations = "";
+        vm.updateSummary=0;
+        vm.showSummary=false;
+        vm.requiredFlag = true; //use to signal expanding table extend an empty record
+        vm.exclusions = {
 
-            self.colNames = [
-                {label: "FORM_ID", binding: "formulationId", width: "15"},
-                {label: "FORMULATION_NAME", binding: "formulationName", width: "85"}
-            ];
-            self.formulationList = [];
-
-            if (self.formulations) {
-                self.formulationList = self.formulations;
+        };
+        vm.transcludeList={
+            "cmp-formulation-record": "true"
+        };
+        vm.alias = {
+            "no_formulation": {
+                "type": "element",
+                "target": "list_formulation"
             }
-            self.updateFormulationsError();
+        };
+        vm.isFocus = false;
+
+
+        vm.$onInit = function () {
+
+            vm.newFormShown = false;
+            vm.formulationListId="formulation-list-form";
+
+            vm.colNames = [
+                {label: "FORM_ID", binding: "formulationId", width: "15", isHtml: "true"},
+                {label: "FORMULATION_NAME", binding: "formulationName", width: "85", isHtml: "true"}
+            ];
+            vm.formulationList = [];
+
+            if (vm.formulations) {
+                vm.formulationList = vm.formulations;
+            }
+            vm.updateFormulationsError();
         };
 
 
-        self.$onChanges = function (changes) {
+        vm.$onChanges = function (changes) {
 
             if (changes.formulations) {
-                self.formulationList = changes.formulations.currentValue;
-                self.updateFormulationsError();
+                vm.formulationList = changes.formulations.currentValue;
+                vm.updateFormulationsError();
+            }
+
+            if(changes.showErrorSummary){
+                vm.showSummary=changes.showErrorSummary.currentValue;
+                vm.updateErrorSummaryState();
+            }
+            if(changes.errorSummaryUpdate){
+                vm.updateErrorSummaryState();
+            }
+            if (changes.isFileLoaded) {
+                if (changes.isFileLoaded.currentValue) {
+                    vm.requiredFlag = false;
+                }
             }
         };
 
-        self.addNew = function () {
+        vm.$postLink = function () {
+            vm.addNew();
+        };
 
+        vm.addNew = function () {
 
             var newRecord = {
                 "formulationId": (getMaxFormulationId() + 1),
                 "formulationName": "",
                 "dosageForm": "",
+                "dosageFormHtml": "",
                 "dosageFormOther": "",
                 activeIngList: [],
                 nMedIngList: [],
                 containerTypes: [],
+                "isAnimalHumanMaterial": "",
                 animalHumanMaterials: [],
                 routeAdmins: [],
                 countryList: []
             };
 
-            self.formulationList.push(newRecord);
+            vm.formulationList.push(newRecord);
             //set the expanding table
-            setRecord(self.formulationList.length - 1);
-            self.resetToCollapsed = !self.resetToCollapsed;
-            self.updateFormulationsError();
+           vm.setRecord(vm.formulationList.length - 1);
+            vm.resetToCollapsed = !vm.resetToCollapsed;
+            vm.updateFormulationsError();
         };
 
-        self.addCopy=function(formulation){
+        vm.addCopy=function(formulation){
             if(formulation) {
                 formulation.formulationId=(getMaxFormulationId() + 1);
-                self.formulationList.push(formulation);
-                setRecord(- 1);
-                self.resetToCollapsed = !self.resetToCollapsed;
+                vm.formulationList.push(formulation);
+                vm.requiredFlag = false;
+                vm.isFileLoaded = true;
+                vm.setRecord(- 1);
+                //vm.resetToCollapsed = !vm.resetToCollapsed;
             }
         };
 
-        self.update = function (idx, frm) {
-            self.formulationList[idx] = angular.copy(frm);
+        vm.update = function (idx, frm) {
+            vm.formulationList[idx] = angular.copy(frm);
         };
 
-        self.delete = function (idx) {
-            //console.debug('frmList delete: ' + idx);
-            if (self.formulationList.splice(idx, 1))
-                setRecord(-1);
-                self.resetToCollapsed = !self.resetToCollapsed;
+        vm.updateFormulationRecord = function () {
+            vm.recordChanged();
+            vm.requiredFlag = false;
+        };
 
-            self.updateFormulationsError();
-
+        vm.delete = function (idx) {
+            if (vm.formulationList.splice(idx, 1))
+                vm.setRecord(-1);
+                vm.resetToCollapsed = !vm.resetToCollapsed;
+            vm.updateFormulationsError();
+            vm.requiredFlag = false;
         };
 
 
@@ -108,34 +163,55 @@
          * Used for error messaging that there are no active ingredients
          * @returns {string} string is empty if not empty
          */
-        self.updateFormulationsError = function () {
-            if (self.formulationList && self.formulationList.length > 0) {
-                self.noFormulations = self.formulationList.length;
+        vm.updateFormulationsError = function () {
+            if (vm.formulationList && vm.formulationList.length > 0) {
+                vm.noFormulations = vm.formulationList.length;
                 return false;
             }
-            self.noFormulations = "";
+            vm.noFormulations = "";
             return true;
 
         };
 
-        function setRecord(value){
-            self.selectRecord=value;
+        vm.updateErrorSummaryState = function () {
+            vm.updateSummary = vm.updateSummary + 1;
+        };
+
+
+        vm.setRecord=function(value){
+          resetMe();
+            vm.selectRecord=-1;
+            vm.selectRecord=value;
+
+        };
+        vm.setFocus = function () {
+            vm.isFocus = true;
+        }
+        vm.cancelFocus = function () {
+            vm.isFocus = false;
+        }
+
+        function resetMe(){
+            vm.resetToCollapsed = !vm.resetToCollapsed;
 
         }
+
         function getMaxFormulationId() {
             var out = 0;
-            var list = self.formulationList;
+            var list = vm.formulationList;
             if (list) {
                 for (var i = 0; i < list.length; i++) {
-                    if (list[i].formulationId > out) {
-                        out = list[i].formulationId;
+
+                    if (parseInt(list[i].formulationId) > out) {
+                        out = parseInt(list[i].formulationId);
                     }
                 }
             }
             return out;
         }
-
-
+        $scope.$watch('formulCtrl.formulationsForm.$error', function () {
+            vm.updateErrorSummary();
+        }, true);
     }
 
 })();

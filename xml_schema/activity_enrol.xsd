@@ -24,8 +24,7 @@
 	<hpfb:element name="dossier_id" type="char_1_10_content"/>
 	<hpfb:element name="dossier_id_concat" type="char_1_20_content"/>
 	<hpfb:element name="reg_activity_lead" type="hpfb:string"/>
-	<hpfb:element name="sponsor_name" type="char_1_80_content"/>
-
+	<hpfb:element name="reason_amend" type="char_0_200_content"/>	
 	<hpfb:element name="reg_activity_type">
 		<hpfb:complexType>
 			<hpfb:simpleContent>
@@ -36,7 +35,7 @@
 			</hpfb:simpleContent>
 		</hpfb:complexType>
 	</hpfb:element>
-	<hpfb:element name="fee_class">
+	<hpfb:element name="sub_type">
 		<hpfb:complexType>
 			<hpfb:simpleContent>
 				<hpfb:extension base="hpfb:string">
@@ -47,13 +46,9 @@
 		</hpfb:complexType>
 	</hpfb:element>
 	<hpfb:element name="is_admin_submission" type="yes_no_content"/>
-	<hpfb:element name="not_lasa" type="yes_no_content"/>
-	<hpfb:element name="din_transfer" type="yes_no_content"/>
 	<hpfb:element name="license_agreement" type="required_yes_no_content"/>
 	<hpfb:element name="reason_filing" type="char_1_1024_content"/>
-	<hpfb:element name="related_activity" type="related_reg_activity_content"/>
 	<hpfb:element name="is_third_party" type="required_yes_no_content"/>
-	<hpfb:element name="date_cleared" type="yyyymmdd_date_content"/>
 	<hpfb:element name="control_number" type="control_number_content"/>
 	<hpfb:element name="new_roa" type="required_yes_no_content"/>
 	<hpfb:element name="new_claims" type="required_yes_no_content"/>
@@ -61,7 +56,6 @@
 	<hpfb:element name="change_drug_substance" type="required_yes_no_content"/>
 	<hpfb:element name="replace_sterility" type="required_yes_no_content"/>
 	<hpfb:element name="confirmitory_studies" type="required_yes_no_content"/>
-	<hpfb:element name="other_rationale" type="required_yes_no_content"/>
 	<hpfb:element name="other_rationale_details" type="char_0_80_content"/>
 	<hpfb:element name="text_label_change" type="required_yes_no_content"/>
 	<hpfb:element name="drug_substance_change" type="required_yes_no_content"/>
@@ -77,17 +71,26 @@
 	<hpfb:element name="notifiable_change_types" type="change_types_content"/>
 	<hpfb:element name="rationale_types" type="rationale_content"/>
 	<hpfb:element name="contact_record" type="contact_record_content"/>
-	<hpfb:element name="rep_contact_role" type="required_yes_no_content"/>
+	<hpfb:element name="rep_contact_role" type="rep_contact_role_list"/>
 	<hpfb:element name="rep_contact_details" type="contact_content"/>
-	<hpfb:element name="amend_record" type="required_yes_no_content"/>
+
+	<hpfb:element name="is_priority" type="required_yes_no_content"/>
+	<hpfb:element name="is_noc" type="required_yes_no_content"/>
+	<hpfb:element name="manufacturer" type="required_yes_no_content"/>
+	<hpfb:element name="mailing" type="required_yes_no_content"/>
+	<hpfb:element name="this_activity" type="required_yes_no_content"/>
+	<hpfb:element name="importer" type="required_yes_no_content"/>
+	<hpfb:element name="importer_id" type="char_0_6_content"/>	
+
+
 	<!-- ****************************** -->
 	<!-- Main Content Element -->
 	<!-- ****************************** -->
 	<hpfb:complexType name="activity_enrol_content">
 		<hpfb:sequence>
-
 			<hpfb:element ref="template_type"/>
 			<hpfb:element ref="company_id"/>
+			<hpfb:element ref="reason_amend"/>
 			<hpfb:element ref="dsts_control_number"/>
 			<hpfb:element ref="enrolment_version"/>
 			<hpfb:element ref="date_saved"/>
@@ -99,13 +102,19 @@
 			<hpfb:element ref="dossier_id_concat"/>
 			<hpfb:element ref="reg_activity_lead"/>
 			<hpfb:element ref="reg_activity_type"/>
-			<hpfb:element ref="fee_class"/>
+			<hpfb:element ref="sub_type"/>
 			<hpfb:element ref="reason_filing"/>
 			<hpfb:element ref="is_third_party"/>
 			<hpfb:element ref="is_admin_submission"/>
+			<hpfb:element ref="is_priority"/>
+			<hpfb:element ref="is_noc"/>
 			<hpfb:element ref="notifiable_change_types"/>
 			<hpfb:element ref="rationale_types"/>
-			<hpfb:element ref="related_activity" minOccurs="0" maxOccurs="1"/>
+			<hpfb:element ref="manufacturer"/>
+			<hpfb:element ref="mailing"/>
+			<hpfb:element ref="this_activity"/>
+			<hpfb:element ref="importer"/>
+			<hpfb:element ref="importer_id"/>	
 			<hpfb:element ref="contact_record" minOccurs="1" maxOccurs="2"/>
 		</hpfb:sequence>
 	</hpfb:complexType>
@@ -129,7 +138,6 @@
 
 	<hpfb:complexType name="contact_record_content">
 		<hpfb:all>
-			<hpfb:element ref="amend_record"/>
 			<hpfb:element ref="rep_contact_role"/>
 			<hpfb:element ref="rep_contact_details"/>
 		</hpfb:all>
@@ -143,21 +151,10 @@
 			<hpfb:element ref="change_drug_substance"/>
 			<hpfb:element ref="replace_sterility"/>
 			<hpfb:element ref="confirmitory_studies"/>
-			<hpfb:element ref="other_rationale"/>
 			<hpfb:element ref="other_rationale_details"/>
 		</hpfb:all>
 	</hpfb:complexType>
 
-	<hpfb:complexType name="related_reg_activity_content">
-		<hpfb:sequence>
-			<hpfb:element ref="sponsor_name"/>
-			<hpfb:element ref="date_cleared"/>
-			<hpfb:element ref="reg_activity_type"/>
-			<hpfb:element ref="control_number"/>
 
-			<hpfb:element ref="license_agreement"/>
-			<hpfb:element ref="din_transfer"/>
-			<hpfb:element ref="not_lasa"/>
-		</hpfb:sequence>
-	</hpfb:complexType>
+
 </hpfb:schema>

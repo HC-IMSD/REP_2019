@@ -1,14 +1,20 @@
 {
-  "FOR_THE":"For the ",
-  "THERE_ARE_ERRORS":"There are errors ",
-  "ERRORS_FOUND":"errors were found.",
+  "FOR_THE":"The ",
+  "THERE_ARE_ERRORS":"There are errors",
+  "FORM_NOT_SAVED":"The form could not be saved because ",
+  "NOT_SAVED":" could not be saved because ",
+  "ERRORS_FOUND":" errors were found.",
   "ERROR_FOUND":"error was found.",
   "TYPE_REQUIRED":"This field is required.",
   "TYPE_EMAIL":"Please enter a valid email address.",
   "TYPE_DUPLICATEROLE": "This role has already been selected.",
+  "TYPE_DUPLICATESYS": "This system has already been selected.",
+  "TYPE_MIN": "Less than minimum value",
   "TYPE_MINLENGTH": "Less than minimum length",
   "POSTAL_FORMAT": "Please enter a valid format",
-  "TYPE_MIN": "Must be greater than the minimum",
   "TYPE_DATE":"Please enter a valid date",
-  "TYPE_NUMBER":"Please enter a valid number"
+  "TYPE_NUMBER":"Please enter a valid number",
+  "TYPE_PATTERN": "Incorrect format",
+  "MSG_VALUE_MAX": "Value is not within valid limits",
+  "COMPANY_IN_USE": "The importer is in use for Company Representative Details, delete that record first."
 }

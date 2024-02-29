@@ -1,16 +1,20 @@
-
-
 {
 "FOR_THE":"Pour le ",
-"THERE_ARE_ERRORS":"Il y a des erreurs ",
+"THERE_ARE_ERRORS":"Il y a des erreurs",
+"FORM_NOT_SAVED":"Le formulaire n’a pas pu être enregistré car ",
+"NOT_SAVED":" n’a pas pu être enregistré car ",
 "ERRORS_FOUND":"erreurs ont été trouvées.",
 "ERROR_FOUND":"erreur a été trouvée.",
 "TYPE_REQUIRED":"Ce champ est obligatoire.",
 "TYPE_EMAIL":"Veuillez fournir une adresse électronique valide.",
 "TYPE_DUPLICATEROLE": "Ce rôle a déjà été sélectionné.",
-"TYPE_MINLENGTH": "Moins de longueur minimale.",
+"TYPE_DUPLICATESYS": "Ce système a été déjà sélectionné.",
+"TYPE_MIN": "Moins que la valeur minimale.",
+"TYPE_MINLENGTH": "Veuillez fournir au moins 5 chiffres.",
 "POSTAL_FORMAT": "Entrez un format valide.",
-"TYPE_MIN": "Doit être supérieur au minimum.",
 "TYPE_DATE":"Veuillez fournir une une date valide.",
-  "TYPE_NUMBER":"Veuillez fournir un numéro valide."
+"TYPE_NUMBER":"Veuillez fournir un numéro valide.",
+"TYPE_PATTERN": "Format incorrect",
+  "MSG_VALUE_MAX": "La valeur n'est pas dans les limites valides",
+  "COMPANY_IN_USE": "L'importateur est en cours d'utilisation pour les Détails du représentant de la compagnie, supprimez ce premier enregistrement."
 }

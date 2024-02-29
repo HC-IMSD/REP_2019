@@ -1,0 +1,15 @@
+{
+  "job_title": "Titre",
+  "language_correspondance": "Langue de correspondance",
+  "given_name": "Prénom",
+  "initials": "Initiales",
+  "surname": "Nom de famille",
+  "rep_contact_role": "REP Contact Type",
+  "rep_contact_details": "REP Contact Details",
+  "salutation": "Salutation",
+  "phone_num": "No. de téléphone",
+  "phone_ext": "Extension de téléphone",
+  "fax_num": "No. de fax",
+  "email": "Courriel",
+  "imp_company_name": "Nom de la compagnie de l'importateur canadien"
+}

@@ -1,74 +1,86 @@
-<ng-form name="mirCtrl.materialIngRecordForm">
-    <div class="container-fluid">
+<ng-form name="mirCtrl.materialIngRecordForm" id="{{::mirCtrl.materialFormId}}">
+    <div class="container-fluid" style="border-style: solid; 
+    	border-width: thin; 
+    	padding-bottom: 8px;
+		">
+        <cmp-error-summary form-ref="mirCtrl.materialIngRecordForm"
+                           form-preamble="{{'MATERIAL_DETAILS'|translate}}&nbsp;{{mirCtrl.recordIndex+1}}" exclusion-list=mirCtrl.exclusions
+                           name-suffix="mirCtrl.materialIngRecordForm" set-heading-level="h3" form-id="mirCtrl.materialFormId"
+                           make-focused="mirCtrl.focusSummary" alias-list="mirCtrl.alias" show-errors="mirCtrl.showSummary"
+                           update-errors="mirCtrl.updateSummary"></cmp-error-summary>
         <fieldset>
-            <legend>{{'MATERIAL_DETAILS'|translate}}&nbsp;{{mirCtrl.recordIndex+1}}</legend>
+            <legend class="legend-rep">{{'MATERIAL_DETAILS'|translate}}&nbsp;{{mirCtrl.recordIndex+1}}</legend>
             <div class="row">
                 <div class="form-group col-md-12"
-                     ng-class="{'has-error':mirCtrl.materialIngRecordForm.matIngName.$invalid}">
-                    <label for="matIngName" class="required">
+                     data-ng-class="{'has-error':mirCtrl.materialIngRecordForm[mirCtrl.nameId].$invalid}">
+                    <label for="{{::mirCtrl.nameId}}" class="required">
                         <span class="field-name">{{'MATERIAL_NAME'|translate}}</span>
                         <strong class="required">{{"REQUIRED" |translate}}</strong>
-                        <input type="text" id="matIngName" data-ng-model="mirCtrl.mirModel.ingredientName"
-                               ng-model-options="{ debounce: $inherit}"
-                               maxlength="100" size="100" ng-required="true"
-                               class="form-control" name="matIngName" ng-required="true"/>
-                        <strong id="msterialName-error" class="error"
-                                ng-if="mirCtrl.showError(mirCtrl.materialIngRecordForm.matIngName.$invalid,mirCtrl.materialIngRecordForm.matIngName.$touched)">
-                            <span class="label label-danger" ng-messages="mirCtrl.materialIngRecordForm.inFinal.$error">
-                                <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
-                            </span>
-                        </strong>
+                        <cmp-error-message field-name="mirCtrl.nameId"
+                                           form-ref="mirCtrl.materialIngRecordForm"
+                                           show-error="mirCtrl.showError(mirCtrl.materialIngRecordForm[mirCtrl.nameId])"
+                                           error-types="mirCtrl.requiredOnly"></cmp-error-message>
+                        <input type="text" id="{{::mirCtrl.nameId}}" data-ng-model="mirCtrl.mirModel.ingredientName"
+                               data-ng-model-options="{ debounce: $inherit}" maxlength="100" required data-focus-if="mirCtrl.isFocus" data-ng-blur="mirCtrl.cancelFocus()"
+                               class="form-control full-width" name="{{::mirCtrl.nameId}}"/>
+
                     </label>
                 </div>
             </div>
-
             <div class="row">
-                <div class="form-group col-md-2">
-                    <label for="cas"><span class="field-name">{{'CAS_NUM'|translate}}</span></label>
-                    <input type="text" id="cas" data-ng-model="mirCtrl.mirModel.cas"
-                           ng-model-options="{ debounce: $inherit}"
-                           class="form-control" name="casNum" maxlength="12" size="12"/>
+                <div class="form-group col-md-6">
+                    <label for="{{::mirCtrl.casId}}" data-ng-if="mirCtrl.isFrench()"><span class="field-name" lang="en">{{'CAS_NUM'|translate}}</span></label>
+                    <label for="{{::mirCtrl.casId}}" data-ng-if="!mirCtrl.isFrench()"><span class="field-name">{{'CAS_NUM'|translate}}</span></label>
+                    <input type="text" id="{{::mirCtrl.casId}}" data-ng-model="mirCtrl.mirModel.cas"
+                           data-ng-model-options="{ debounce: $inherit}"
+                           class="form-control" name="{{::mirCtrl.casId}}" maxlength="12"/>
                 </div>
-                <div class="form-group col-md-4">
-                    <label for="standard"><span class="field-name">{{'STANDARD'|translate}}</span></label>
-                    <input type="text" id="standard" data-ng-model="mirCtrl.mirModel.ingredientStandard"
-                           ng-model-options="{ debounce: $inherit}"
-                           class="form-control" name="stamdard" maxlength="40" size="40"/>
+                <div class="form-group col-md-6">
+                    <label for="{{::mirCtrl.standardId}}"><span class="field-name">{{'STANDARD'|translate}}</span></label>
+                    <input type="text" id="{{::mirCtrl.standardId}}" data-ng-model="mirCtrl.mirModel.ingredientStandard"
+                           data-ng-model-options="{ debounce: $inherit}"
+                           class="form-control" name="{{::mirCtrl.standardId}}" maxlength="40"/>
                 </div>
-                <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12"
-                     ng-class="{'has-error':mirCtrl.materialIngRecordForm.inFinal.$invalid}">
-                    <label for="inFinalContainer" class="required">
+                <div class="form-group col-md-6"
+                     data-ng-class="{'has-error':mirCtrl.materialIngRecordForm[mirCtrl.inFinalId].$invalid}">
+                    <fieldset class="chkbxrdio-grp">
+                    <legend class="full-width required radioButtonTitle" >
                         <span class="field-name">{{'IN_FINAL_CONTAINER'|translate}}</span>
                         <strong class="required">{{"REQUIRED" |translate}}</strong>
-                        <select id="inFinalContainer" ng-model="mirCtrl.mirModel.inFinalContainer"
-                                ng-required="true" class="form-control" name="inFinal"
-                                ng-options="val |translate for val in  mirCtrl.yesNoList">
-                        </select>
-                        <strong id="inFinalContainer-error" class="error"
-                                ng-if="mirCtrl.showError(mirCtrl.materialIngRecordForm.inFinal.$invalid,mirCtrl.materialIngRecordForm.inFinal.$touched)">
-                        <span class="label label-danger"
-                              ng-messages="mirCtrl.materialIngRecordForm.inFinal.$error">
-                            <span ng-message="required"><span translate="MSG_ERR_MAND"></span></span>
-                        </span>
-                        </strong>
-                    </label>
+                        <cmp-error-message field-name="mirCtrl.inFinalId"
+                                           form-ref="mirCtrl.materialIngRecordForm"
+                                           show-error="mirCtrl.showError(mirCtrl.materialIngRecordForm[mirCtrl.inFinalId])"
+                                           error-types="mirCtrl.requiredOnly"></cmp-error-message>
+                        <!--<select id="{{::mirCtrl.inFinalId}}" data-ng-model="mirCtrl.mirModel.inFinalContainer"-->
+                                <!--data-ng-required="true" class="form-control" name="{{::mirCtrl.inFinalId}}"-->
+                                <!--data-ng-options="val |translate for val in  mirCtrl.yesNoList">-->
+                        <!--</select>-->
+                    </legend>
+                    <input type="radio" id="{{::mirCtrl.inFinalId}}" name="{{::mirCtrl.inFinalId}}" value="Y" data-ng-model="mirCtrl.mirModel.inFinalContainer" required/>
+                    <label for="{{::mirCtrl.inFinalId}}">&nbsp;{{::'Y'|translate}}</label>
+                    <input type="radio" id="{{::mirCtrl.inFinalId}}_1" name="{{::mirCtrl.inFinalId}}" value="N" data-ng-model="mirCtrl.mirModel.inFinalContainer" required />
+                    <label for="{{::mirCtrl.inFinalId}}_1">&nbsp;{{::'N'|translate}}</label>
+                    </fieldset>
                 </div>
             </div>
             <div class="row">
                 <div class="alert alert-info" role="alert" aria-live="polite">
-                    {{'SOURCED_INFO'|translate}}
+                    {{'SOURCED_INFO_MATERIAL'|translate}}
                 </div>
             </div>
             <div class="row">
 
-                <div class="btn-group-sm col-xs-12 text-right">
-                    <button class="btn btn-primary" name="saveMaterial"
-                            ng-click="mirCtrl.save()">Save
+                <div class="btn-group-sm col-xs-12">
+                    <button class="btn btn-primary" name="saveMaterial" onclick="focusOnTable(this, 'material_ing_list_')" data-ng-if="mirCtrl.cancelFocus()"
+                            data-ng-click="mirCtrl.save()">{{'SAVE_RECORD'|translate}}
                     </button>
-                    <button ng-if="mirCtrl.deleteBtn === true" class="btn btn-danger" name="deleteMaterial"
-                            ng-click="mirCtrl.delete()">Delete</button>
-                    <button class="btn btn-default" name="discardMaterial" ng-click="mirCtrl.discardChanges()">
-                        Discard Changes</button>
+                    <button class="btn btn-primary" name="saveMaterial" onclick="focusOnRow(this, 'addMaterialButton_')" data-ng-if="! mirCtrl.cancelFocus()"
+                            data-ng-click="mirCtrl.save()">{{'SAVE_RECORD'|translate}}
+                    </button>
+                    <button ng-if="mirCtrl.deleteBtn === true" class="btn btn-danger" name="deleteMaterial" onclick="focusOnRow(this, 'addMaterialButton_')"
+                            data-ng-click="mirCtrl.delete()">{{'DELETE_RECORD'|translate}}</button>
+                    <button class="btn btn-default" name="discardMaterial" data-ng-click="mirCtrl.discardChanges()">
+                        {{'DISCARD_CHANGES'|translate}}</button>
                 </div>
             </div>
         </fieldset>

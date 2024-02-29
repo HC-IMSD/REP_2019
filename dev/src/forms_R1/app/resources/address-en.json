@@ -1,5 +1,5 @@
 {
-  "CITY": "City",
+  "CITY": "City or Town",
   "COUNTRY": "Country",
   "PROVINCE": "Province",
   "POSTAL": "Postal Code",
@@ -15,13 +15,15 @@
   "ADDR_INFO": "Address Information",
   "ADDR_DETAILS": "Address Details",
   "ADDR_ROLE_LEGEND": "Select one or more roles for this company",
+  "ADDR_REP_ROLE_LEGEND": "Select one or more roles for this company representative",
   "PRODUCTS_IMPORTED": "Imported Products",
   "PRODUCT_TYPES":"Products imported by this Company",
   "ALL_PRODUCTS": "All Products",
   "SELECTED_PRODUCTS":"Some Products",
   "IDENTIFY_PRODUCTS": "Provide the Dossier Identifiers for the products that are imported by this Company",
-  "ADD_DOSSIER_ID":"Add Dossier Id",
-  "IMPORTER_NONCDN":"Please ensure you indicate a Canadian Importer",
+  "ADD_DOSSIER_ID":"Add Dossier ID",
+//  "IMPORTER_NONCDN":"Please ensure you indicate a Canadian Importer.",
   "COUNTRY_CHOOSE":"Choose a country",
-  "COUNTRY_SEARCH":"Select or Search for country"
+  "COUNTRY_SEARCH":"Select or Search for country",
+  "PROVINCELIST":"Province or State"
 }

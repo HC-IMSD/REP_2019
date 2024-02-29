@@ -6,7 +6,7 @@
     'use strict';
 
     angular
-        .module('theraClassRecord', [])
+        .module('theraClassRecord', ['errorMessageModule'])
 })();
 
 (function () {
@@ -21,18 +21,19 @@
             bindings: {
                 record: '<',
                 onDelete: '&',
+                onUpdate: '&',
                 showErrors: '&'
             }
         });
 
-
-    function therapeuticClassCtrl(){
+    therapeuticClassCtrl.$inject=['$scope'];
+    function therapeuticClassCtrl($scope){
         var vm = this;
-
+        vm.requiredOnly = [{type: "required", displayAlias: "MSG_ERR_MAND"}];
         vm.model = {};
 
         vm.$onInit = function(){
-
+            _setIdNames();
         };
 
         vm.$onChanges = function (changes) {
@@ -42,6 +43,9 @@
             }
         };
 
+        vm.updateState = function()  {
+            vm.onUpdate()
+        };
 
         vm.deleteRecord = function()  {
             vm.onDelete({id: vm.model.id})
@@ -52,6 +56,11 @@
             return ((isInvalid && isTouched) || (isInvalid && vm.showErrors()) )
         }
 
+        function _setIdNames() {
+            var scopeId = "_" + $scope.$id;
+            vm.theraNameId = "thera_class_name" + scopeId;
+
+        }
 
     }
 })();

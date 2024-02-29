@@ -13,57 +13,100 @@
     'use strict';
     angular
         .module('dossierLoadModule')
-        .factory('customLoad', ['$http', '$q', '$filter', 'getCountryAndProvinces', 'DossierLists', 'OTHER', 'RELATIVE_FOLDER_DATA', function ($http, $q, $filter, getCountryAndProvinces, DossierLists, OTHER, RELATIVE_FOLDER_DATA) {
+        .factory('customLoad', ['$http', '$q', '$filter', 'getCountryAndProvinces', 'DossierLists', 'OTHER', 'RELATIVE_FOLDER_DATA', 'CANADA', 'USA', function ($http, $q, $filter, getCountryAndProvinces, DossierLists, OTHER, RELATIVE_FOLDER_DATA, CANADA, USA) {
 
             return function (options) {
                 var deferred = $q.defer();
                 //var dataFolder = "data/"; //relative forlder to the data
+                var versionsUrl = RELATIVE_FOLDER_DATA + "versions.json";
+                var envUrl = RELATIVE_FOLDER_DATA + "env.json";
                 var roaUrl = RELATIVE_FOLDER_DATA + "roa.json";
                 var countryUrl = RELATIVE_FOLDER_DATA + "countries.json";
                 var nanoUrl = RELATIVE_FOLDER_DATA+"nanomaterials.json";
                 var unitsUrl = RELATIVE_FOLDER_DATA + "units.json";
+                var presentationUnitsUrl = RELATIVE_FOLDER_DATA + "presentationUnits.json";
+                var measureUnitsUrl = RELATIVE_FOLDER_DATA + "measureUnits.json";
                 var dosageFormUrl = RELATIVE_FOLDER_DATA + "dosageForm.json";
                 var activeUrl= RELATIVE_FOLDER_DATA +"activeIngred.json";
+                var speciesUrl = RELATIVE_FOLDER_DATA + "species.json";
+                var subtypesUrl= RELATIVE_FOLDER_DATA +"subTypes.json";
                 var resultTranslateList = {};
+                $http.get(versionsUrl)
+                	.then(function (response) {
+                    DossierLists.setVer(response.data);
+                });
+                $http.get(envUrl)
+                    .then(function (response) {
+                        //PROCESS env data
+                        DossierLists.setEnv(response.data);
+                    });
                 $http.get(unitsUrl)
                     .then(function (response) {
                         //PROCESS units list. Not creating translate list
                         var newList = _createNewSortedArrayWithOther(response.data, DossierLists.getUnitsPrefix(), options.key);
                         DossierLists.createUnitsList(newList);
                         //not adding units to translation
-                        return $http.get(countryUrl); //country list load
-                    })
-                    .then(function (response) {
+                       // return $http.get(presentationUnitsUrl); //presentation Units list load
+                    });
+                $http.get(presentationUnitsUrl).then(function (response) {
+                        //PROCESS units list. Not creating translate list
+                        var newList = _createNewSortedArrayWithOther(response.data, DossierLists.getUnitsPrefix(), options.key);
+                        DossierLists.createUnitsPresentationList(newList);
+                        //not adding units to translation
+                        //return $http.get(measureUnitsUrl); //measure Units list load
+                    });
+                $http.get(measureUnitsUrl).then(function (response) {
+                        //PROCESS units list. Not creating translate list
+                        var newList = _createNewSortedArrayWithOther(response.data, DossierLists.getUnitsPrefix(), options.key);
+                        DossierLists.createUnitsMeasureList(newList);
+                        //not adding units to translation
+                     //   return $http.get(countryUrl); //country list load
+                    });
+                $http.get(countryUrl).then(function (response) {
                         //PROCESS country list data
-                        var newList = _createSortedArray(response.data, options.key);
+                        var newList = _createSortedArrayNAFirst(response.data, options.key);
                         var translateList = _createTranslateList(newList, options.key);
                         getCountryAndProvinces.createCountryList(newList);
                         angular.extend(resultTranslateList, translateList);
-                        return $http.get(nanoUrl); //nanomaterial load
+                        //return $http.get(nanoUrl); //nanomaterial load
 
-                    }).then(function (response) {
+                    });
+                $http.get(nanoUrl).then(function (response) {
                     var newList = _createNewSortedArrayWithOther(response.data, DossierLists.getNanoPrefix(), options.key);
                     var translateList = _createTranslateList(newList, options.key);
                     DossierLists.createNanomaterialList(newList);
                     angular.extend(resultTranslateList, translateList);
-                    return $http.get(dosageFormUrl); //dosage form list Load contains both languages
-                })
-                    .then(function (response) {
+                    //return $http.get(dosageFormUrl); //dosage form list Load contains both languages
+                });
+                $http.get(dosageFormUrl).then(function (response) {
                         //PROCESSING: DOSAGE FORM list
                         var newList = _createNewSortedArrayWithOther(response.data, DossierLists.getDosageFormPrefix(), options.key);
                         var translateList = _createTranslateList(newList, options.key);
                         DossierLists.createDosageFormList(newList); //for display
-                        angular.extend(resultTranslateList, translateList);
-                        return $http.get(activeUrl); //active ingredient list load
-                    }).then(function (response) {
+                        angular.extend(resultTranslateList, translateList);//PROCESSING: DOSAGE FORM list
+                        var newList2 = _createNewSortedArrayWithOther(response.data, "", options.key);
+                        var translateList2 = _createTranslateList(newList2, options.key);
+                        angular.extend(resultTranslateList, translateList2);
+                       // return $http.get(activeUrl); //active ingredient list load
+                    });
+                $http.get(activeUrl).then(function (response) {
                     DossierLists.setActiveList(response.data);
-                    return $http.get(roaUrl); //roa load
-                }).then(function (response) {
+                   // return $http.get(roaUrl); //roa load
+                });
+                $http.get(speciesUrl).then(function (response) {
+                    DossierLists.setSpeciesList(response.data);
+                    // return $http.get(roaUrl); //roa load
+                });
+                $http.get(subtypesUrl).then(function (response) {
+                    DossierLists.setSubTypesList(response.data);
+                    // return $http.get(roaUrl); //roa load
+                });
+                $http.get(roaUrl).then(function (response) {
                     var newList = _createNewSortedArrayWithOther(response.data, DossierLists.getRoaPrefix(), options.key);
                     var translateList = _createTranslateList(newList, options.key);
                     DossierLists.createRoaList(newList); //for display
                     angular.extend(resultTranslateList, translateList);
-                    return response.data;
+                   // return response.data;
                 })
                     .catch(function (error) {
                         // this catches errors from the $http calls as well as from the explicit throw
@@ -169,6 +212,25 @@
                     newList.push(newRec);
                 }
                 return newList;
+            }
+
+            function _createSortedArrayNAFirst(jsonList,lang){
+                var result = [];
+                var canadaRecord = null;
+                var usaRecord = null;
+                angular.forEach($filter('orderByLocale')(jsonList,lang), function (sortedObject) {
+                    if (sortedObject.id === USA) {
+                        usaRecord = sortedObject;
+                    } else if (sortedObject.id === CANADA) {
+                        canadaRecord = sortedObject;
+                    }
+                    else {
+                        result.push(sortedObject);
+                    }
+                });
+                if (usaRecord) result.unshift(usaRecord);
+                if (canadaRecord) result.unshift(canadaRecord);
+                return result;
             }
 
 

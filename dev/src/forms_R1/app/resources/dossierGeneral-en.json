@@ -3,11 +3,12 @@
   "N": "No",
   "UNK":"Unknown",
   "REQUIRED":"(required)",
-  "DOSSIER_NUMBER": "Dossier ID",
+  "DOSSIER_NUMBER": "Dossier Identifier",
   "SAVE": "Save",
   "CANCEL": "Cancel",
   "DELETE": "Delete",
   "EDIT": "Edit",
   "CAN_REF_PRODUCTS": "Canadian Reference Products",
-  "PROD_NAME":"Product Name"
+  "CAN_REF_PRODUCT": "Canadian Reference Product"
+
 }

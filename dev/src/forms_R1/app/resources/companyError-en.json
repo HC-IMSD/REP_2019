@@ -1,11 +1,15 @@
 {
   "ADDRESSLISTCTRL.ADDRESSLISTFORM": "in the Address Information section.",
   "CONTACTLISTCTRL.CONTACTLISTFORM": "in the Company Representative Information section.",
-  "CONTACTROLESVALID": "For Company Representative, selection of  all roles: manufacturer, mailing, billing, and primary REP ",
+  "CONTACTROLESVALID": "For Company Representative, selection of  all roles: manufacturer, mailing and billing",
   "ADDRESSROLESVALID": "For the Address Information, selection of all roles: manufacturer, mailing, and billing",
   "CONTACTREC.CONTACTRECFORM":"in the Company Representative details",
   "ADDRESSREC.ADDRESSRECFORM":"in the Address details",
   "COMPANY_FORM":"Company Enrolment Form",
-  "ROLEMISSING": "Record Role",
-
+  "ROLEMISSING": "Select one or more roles for this company",
+  "CONTACTROLEMISSING": "Select one or more roles for this company representative",
+  "ROLEREPMISSING": "Roles for this company representative ",
+//  "IMPORTERIDVALID": "Please input importer ID for each importer",
+  "ADDRESS_EXPND": "Please input importer ID for each importer",
+//  "CONTACTIMPORTERVAILD": "Each Importer Company needs at least one representative"
 }
