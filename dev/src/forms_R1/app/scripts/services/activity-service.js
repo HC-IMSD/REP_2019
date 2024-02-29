@@ -69,7 +69,11 @@
 
 
         ActivityService.prototype.getRootTag = function () {
-            return (this.rootTag)
+            return (this.rootTag);
+        };
+
+        ActivityService.prototype.getXSLFileName = function () {
+            return this.xslFileName;
         };
 
         ActivityService.prototype.getXSLFileName = function () {
