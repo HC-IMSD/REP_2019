@@ -703,6 +703,7 @@
                     vm.activityTypeNote = "";
                     break;
             }
+            vm.activityTypeNote=$translate.instant(vm.activityTypeNote);
             if (value === "B02-20160301-038") {
                 vm.lifecycleModel.controlNumber = "000000";
             }
@@ -768,7 +769,6 @@
                 case(vm.descriptionObj.COMMENTS_SUMMARY_BASIS):   /*FALLTHROUGH*/
                 case(vm.descriptionObj.COMMENTS_REGULARTORY_DECISION):   /*FALLTHROUGH*/
                 case(vm.descriptionObj.MEETING_MINUTES):            /*FALLTHROUGH*/
-                case(vm.descriptionObj.ADVISEMENT_LETTER_RESPONSE):   /*FALLTHROUGH*/
                 case(vm.descriptionObj.ADV_COMP_REQ):           /*FALLTHROUGH*/
                 case(vm.descriptionObj.ISSUE_SAFETY_REQUEST):            /*FALLTHROUGH*/
                 // case(vm.descriptionObj.LABEL_CLARIF_RESPONSE):        /*FALLTHROUGH*/
@@ -867,6 +867,7 @@
                     setAsFromTo();
                     vm.setConcatDetails();
                     break;
+
                 default:
                     //nothing visible
                     setDetailsAsNone();
@@ -921,12 +922,48 @@
                 case(vm.descriptionObj.UNSOLICITED_DATA):
                     vm.activityDescrNote = "UNSOLICITED_DATA_DESCR";
                     break;
+                case(vm.descriptionObj.ADVISEMENT_LETTER_RESPONSE):
+                    vm.activityDescrNote = "ADVISEMENT_LETTER_RESPONSE_DESCR";
+                    break;
+                case(vm.descriptionObj.NOF_DRUG_SHORT):
+                    vm.activityDescrNote = "NOF_DRUG_SHORT_DESCR";
+                    break;
+                case(vm.descriptionObj.QUALITY_ISSU):
+                    vm.activityDescrNote = "QUALITY_ISSU_DESCR";
+                    break;
+                case(vm.descriptionObj.GMP_COMP_ISSU):
+                    vm.activityDescrNote = "GMP_COMP_ISSU_DESCR";
+                    break;
+                case(vm.descriptionObj.RECLASS_LOT_RELEASE):
+                    vm.activityDescrNote = "RECLASS_LOT_RELEASE_DESCR";
+                    break;
+                case(vm.descriptionObj.NOC_COMPLIANCE):
+                    vm.activityDescrNote = "NOC_COMPLIANCE_DESCR";
+                    break;
+                case(vm.descriptionObj.UDRA_CANCEL_LETTER):
+                    vm.activityDescrNote = "UDRA_CANCEL_LETTER_DESCR";
+                    break;
+                case(vm.descriptionObj.SEQUENCE_CLEANUP):
+                    vm.activityDescrNote = "SEQUENCE_CLEANUP_DESCR";
+                    break;
+                case(vm.descriptionObj.UDRA_MEETING_MINUTES):
+                    vm.activityDescrNote = "UDRA_MEETING_MINUTES_DESCR";
+                    break;
+                case(vm.descriptionObj.UDRA_EMAIL_RQ_RESPONSE):
+                    vm.activityDescrNote = "UDRA_EMAIL_RQ_RESPONSE_DESCR";
+                    break;
+                case(vm.descriptionObj.UDRA_PROCESSING_CLARIF_RESPONSE):
+                    vm.activityDescrNote = "UDRA_PROCESSING_CLARIF_RESPONSE_DESCR";
+                    break;
+                case(vm.descriptionObj.GEN_VOL_NOF):
+                    vm.activityDescrNote = "GEN_VOL_NOF_DESCR";
+                    break;
 
                 default:
                     vm.activityDescrNote = "";
                     break;
             }
-
+            vm.activityDescrNote = $translate.instant(vm.activityDescrNote);
         };
 
         /**
