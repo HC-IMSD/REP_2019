@@ -76,6 +76,10 @@
             return this.xslFileName;
         };
 
+        ActivityService.prototype.getXSLFileName = function () {
+            return this.xslFileName;
+        };
+
         /**
          * @ngdoc transforms the object model to the compatible file JSON objecct base transform call!!
          * @param jsonObj

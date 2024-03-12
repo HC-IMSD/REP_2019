@@ -769,6 +769,7 @@
                 case(vm.descriptionObj.COMMENTS_SUMMARY_BASIS):   /*FALLTHROUGH*/
                 case(vm.descriptionObj.COMMENTS_REGULARTORY_DECISION):   /*FALLTHROUGH*/
                 case(vm.descriptionObj.MEETING_MINUTES):            /*FALLTHROUGH*/
+                case(vm.descriptionObj.ADVISEMENT_LETTER_RESPONSE):   /*FALLTHROUGH*/
                 case(vm.descriptionObj.ADV_COMP_REQ):           /*FALLTHROUGH*/
                 case(vm.descriptionObj.ISSUE_SAFETY_REQUEST):            /*FALLTHROUGH*/
                 // case(vm.descriptionObj.LABEL_CLARIF_RESPONSE):        /*FALLTHROUGH*/
@@ -832,7 +833,7 @@
                     setAsDescriptionYear();
                     vm.setConcatDetails();
                     break;
-                case(vm.descriptionObj.BE_CLARIF_RESPONSE):
+case(vm.descriptionObj.BE_CLARIF_RESPONSE):
                 case(vm.descriptionObj.CLIN_CLARIF_RESPONSE):
                 case(vm.descriptionObj.EMAIL_RQ_RESPONSE):
                 case(vm.descriptionObj.HSC_RQ_RESPONSE):
@@ -867,7 +868,6 @@
                     setAsFromTo();
                     vm.setConcatDetails();
                     break;
-
                 default:
                     //nothing visible
                     setDetailsAsNone();
