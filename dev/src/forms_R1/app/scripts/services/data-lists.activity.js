@@ -70,7 +70,7 @@
             // PRISTINE_PM: "PRISTINE_PM", // Pristine PM
             // SECOND_LANG_PM: "SECOND_LANG_PM", // second language PM
             // PRISTINE_PM_2LANG: "PRISTINE_PM_2LANG", // pristine PM second language
-            ADVISEMENT_LETTER_RESPONSE: "ADVISEMENT_LETTER_RESPONSE", //REspose to Advisement Letter dated
+
             CLIN_CLARIF_RESPONSE: "CLIN_CLARIF_RESPONSE", //Response to clinical clarifiaction request
             EMAIL_RQ_RESPONSE: "EMAIL_RQ_RESPONSE",// response to email request
             HSC_RQ_RESPONSE: "HSC_RQ_RESPONSE", //Response to Human Safety Clarification Request
@@ -107,7 +107,6 @@
             CONSENT_LTR: "CONSENT_LTR", //Consent Letter
             DATA_PROTECT_CORRESP: "DATA_PROTECT_CORRESP", //Correspondence - Data Protection
             NONCLIN_CLARIF_RESPONSE: "NONCLIN_CLARIF_RESPONSE", //response to Nonclinical clarification request
-            SEQUENCE_CLEANUP:"SEQUENCE_CLEANUP",
             ADV_COMP_REQ: "ADV_COMP_REQ", //Advertising Complaint Request for Information
             CSOtRMP: "CSOtRMP", //CSOtRMP (Canadian Specific Opioid RMP)
             DISSEM_LIST: "DISSEM_LIST", //Dissemination List
@@ -167,13 +166,23 @@
             CTN_NEW_SUMM_ADF:"CTN_NEW_SUMM_ADF",                // CTN- New Summary of Additional Drugs Form
             COVIR_19: 'COVIR-19',
             COVIR_19AMD: 'COVIR-19AMD',
-            NOC_COMPLIANCE_CFM:"NOC_COMPLIANCE_CFM",    // Notice of Compliance - Confirmatory (NOC/c) commitment
-            NOF_DRUG_SHORT:"NOF_DRUG_SHORT",            // Notification of Drug Shortage
             POST_ANTH_CHANGE:"POST_ANTH_CHANGE",        // Post Authorization Change
             ROLLING_INFO:"ROLLING_INFO",                // Rolling Information
             WITHDRAWAL_NOF_FORM:"WITHDRAWAL_NOF_FORM",   // Withdrawal of Drug Notification Form
             PROTOCOL_REVIEW:"PROTOCOL_REVIEW",              //Protocol Review
-            BLOOD_EST: "BLOOD_EST"                      // Blood Establishment
+            BLOOD_EST: "BLOOD_EST",                      // Blood Establishment
+            ADVISEMENT_LETTER_RESPONSE: "ADVISEMENT_LETTER_RESPONSE",
+            NOF_DRUG_SHORT: "NOF_DRUG_SHORT",
+            QUALITY_ISSU: "QUALITY_ISSU",
+            GMP_COMP_ISSU: "GMP_COMP_ISSU",
+            RECLASS_LOT_RELEASE: "RECLASS_LOT_RELEASE",
+            NOC_COMPLIANCE: "NOC_COMPLIANCE",
+            UDRA_CANCEL_LETTER: "UDRA_CANCEL_LETTER",
+            SEQUENCE_CLEANUP: "SEQUENCE_CLEANUP",
+            UDRA_MEETING_MINUTES: "UDRA_MEETING_MINUTES",
+            UDRA_EMAIL_RQ_RESPONSE: "UDRA_EMAIL_RQ_RESPONSE",
+            UDRA_PROCESSING_CLARIF_RESPONSE: "UDRA_PROCESSING_CLARIF_RESPONSE",
+            GEN_VOL_NOF: "GEN_VOL_NOF"
         };
 
 
@@ -865,21 +874,17 @@
         function getUDRAArray() {
 
             return ([
-                vm.allActivities.CANCEL_LETTER, //cancellation letter
-                //vm.allActivities.CLARIF_RESPONSE, //Response to clarification request
-                vm.allActivities.DIN_DISCONTINUED, // din discontinued
                 vm.allActivities.ADVISEMENT_LETTER_RESPONSE, //REspose to Advisement Letter dated
-                vm.allActivities.EMAIL_RQ_RESPONSE,// response to email request
-                vm.allActivities.MEETING_MINUTES, //minutes of meeting dated
-                vm.allActivities.PRESUB_MEETING_PKG, //submission/presubmission meeting package
-                vm.allActivities.PRESUB_MEETING_RQ,   //submission Meeting Request -used to be presub
-                vm.allActivities.PROCESSING_CLARIF_RESPONSE, //Response to processing Clarification Request
-                vm.allActivities.PHONE_RQ_RESPONSE, //Response to telephone Request
-                vm.allActivities.NOTIFICATION_INTERRUPT_SALE, //Notification of interruputions of sale,
-                vm.allActivities.NOC_COMPLIANCE_CFM, //Notice of Compliance - Confirmatory (NOC/c) commitment,
                 vm.allActivities.NOF_DRUG_SHORT,            // Notification of Drug Shortage
-                vm.allActivities.UNSOLICITED_DATA, //Unsolicited Data
-                vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
+                vm.allActivities.QUALITY_ISSU,
+                vm.allActivities.GMP_COMP_ISSU,
+                vm.allActivities.RECLASS_LOT_RELEASE,
+                vm.allActivities.NOC_COMPLIANCE,
+                vm.allActivities.UDRA_CANCEL_LETTER,
+                vm.allActivities.SEQUENCE_CLEANUP,
+                vm.allActivities.UDRA_MEETING_MINUTES,
+                vm.allActivities.UDRA_EMAIL_RQ_RESPONSE,
+                vm.allActivities.GEN_VOL_NOF
             ])
 
         }

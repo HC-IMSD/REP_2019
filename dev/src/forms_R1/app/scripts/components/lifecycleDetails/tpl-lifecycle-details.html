@@ -89,7 +89,7 @@
                     </div>
                     <div class="row" data-ng-show="lifecycleCtrl.activityTypeNote">
                         <div class="col-xs-12 form-group well">
-                            <p>{{lifecycleCtrl.activityTypeNote|translate}}</p>
+                            <p ng-bind-html="lifecycleCtrl.activityTypeNote"></p>
                         </div>
                     </div>
                     <div class="row">
@@ -104,7 +104,7 @@
                                                    error-types="lifecycleCtrl.requiredOnly"></cmp-error-message>
                                 <select id="{{::lifecycleCtrl.seqDescriptId}}" name="{{::lifecycleCtrl.seqDescriptId}}"
                                         data-ng-model="lifecycleCtrl.lifecycleModel.descriptionValue"
-                                        data-ng-options="descript |translate for descript in  lifecycleCtrl.descriptionList| orderByTranslated"
+                                        data-ng-options="descript |translate for descript in  lifecycleCtrl.descriptionList"
                                         data-ng-change="lifecycleCtrl.setDetailsState()" required
                                         class="form-control full-width">
                                     <option label=" " value="" data-ng-empty="lifecycleCtrl.lifecycleModel.descriptionValue" />
@@ -115,7 +115,8 @@
                     </div>
                     <div class="row" data-ng-show="lifecycleCtrl.activityDescrNote">
                         <div class="col-xs-12 form-group well">
-                               <p> {{lifecycleCtrl.activityDescrNote|translate}}
+                            <p>
+                            <p ng-bind-html="lifecycleCtrl.activityDescrNote"></p>
                                 <a data-ng-if="lifecycleCtrl.activityDescrNote == 'ADMIN_DESCR'" href="{{::'ADMIN_DESCR_URL' |translate}}" target="_blank">
                                     {{::'ADMIN_DESCR_LINK_LABEL' |translate}}
                                 </a>
