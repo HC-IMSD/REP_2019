@@ -70,6 +70,7 @@
             // PRISTINE_PM: "PRISTINE_PM", // Pristine PM
             // SECOND_LANG_PM: "SECOND_LANG_PM", // second language PM
             // PRISTINE_PM_2LANG: "PRISTINE_PM_2LANG", // pristine PM second language
+
             CLIN_CLARIF_RESPONSE: "CLIN_CLARIF_RESPONSE", //Response to clinical clarifiaction request
             EMAIL_RQ_RESPONSE: "EMAIL_RQ_RESPONSE",// response to email request
             HSC_RQ_RESPONSE: "HSC_RQ_RESPONSE", //Response to Human Safety Clarification Request
@@ -873,7 +874,7 @@
         function getUDRAArray() {
 
             return ([
-                vm.allActivities.ADVISEMENT_LETTER_RESPONSE,
+                vm.allActivities.ADVISEMENT_LETTER_RESPONSE, //REspose to Advisement Letter dated
                 vm.allActivities.NOF_DRUG_SHORT,            // Notification of Drug Shortage
                 vm.allActivities.QUALITY_ISSU,
                 vm.allActivities.GMP_COMP_ISSU,

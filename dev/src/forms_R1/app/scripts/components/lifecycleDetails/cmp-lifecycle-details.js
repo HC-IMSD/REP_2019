@@ -833,7 +833,7 @@
                     setAsDescriptionYear();
                     vm.setConcatDetails();
                     break;
-case(vm.descriptionObj.BE_CLARIF_RESPONSE):
+                case(vm.descriptionObj.BE_CLARIF_RESPONSE):
                 case(vm.descriptionObj.CLIN_CLARIF_RESPONSE):
                 case(vm.descriptionObj.EMAIL_RQ_RESPONSE):
                 case(vm.descriptionObj.HSC_RQ_RESPONSE):
@@ -958,7 +958,6 @@ case(vm.descriptionObj.BE_CLARIF_RESPONSE):
                 case(vm.descriptionObj.GEN_VOL_NOF):
                     vm.activityDescrNote = "GEN_VOL_NOF_DESCR";
                     break;
-
                 default:
                     vm.activityDescrNote = "";
                     break;
