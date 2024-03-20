@@ -884,6 +884,7 @@
                 vm.allActivities.SEQUENCE_CLEANUP,
                 vm.allActivities.UDRA_MEETING_MINUTES,
                 vm.allActivities.UDRA_EMAIL_RQ_RESPONSE,
+                vm.allActivities.UDRA_PROCESSING_CLARIF_RESPONSE,
                 vm.allActivities.GEN_VOL_NOF
             ])
 
