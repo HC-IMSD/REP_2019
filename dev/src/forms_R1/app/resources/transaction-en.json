@@ -403,6 +403,7 @@
   "ADMIN_GUIDE_DOC_URL": "https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/applications-submissions/guidance-documents/administrative-processing-human-disinfectant-drugs-2019/document.html",
   "ADMIN_GUIDE_DOC_NOTE": "Note: The administrative fee class should be selected.",
   "ADMIN_GUIDE_DOC_NOTE2": "The Transaction description “Administrative” should be used for the first transaction for this regulatory activity.",
+  "WITHDRAWAL_NOF_FORM": "Withdrawal of Drug Notification Form",
   "ADVISEMENT_LETTER_RESPONSE": "Response to Advisement Letter to update the Product Monograph",
   "NOF_DRUG_SHORT": "Notification on Drug Shortage",
   "QUALITY_ISSU": "Quality issue raised by company and/or other regulator",
