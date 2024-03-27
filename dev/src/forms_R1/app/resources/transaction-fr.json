@@ -38,7 +38,7 @@
   "INITIAL": "INITIAL",
   "MEETING_MINUTES": "Procès-verbal de la réunion",
   "NOTIFICATION_CHANGE": "Avis de changement du profil des risques et avantages",
-  "NOTIFICATION_INTERRUPT_SALE":"Avis d’interruption de la vente",
+  "NOTIFICATION_INTERRUPT_SALE":"Avis de douze mois sans vente (État de DIN dormant)",
   "PANDEMIC_APPL": "Application en cas de pandémie",
   "POST_CLEARANCE_DATA": "Données consécutives à l’habilitation de sécurité",
   "POST_MARKET_SURV": "Surveillance après la mise en marché",
