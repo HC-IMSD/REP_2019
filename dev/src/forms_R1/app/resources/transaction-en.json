@@ -38,7 +38,7 @@
   "INITIAL": "INITIAL",
   "MEETING_MINUTES": "Minutes of Meeting",
   "NOTIFICATION_CHANGE": "Notification of Change in Benefit-Risk Profile",
-  "NOTIFICATION_INTERRUPT_SALE":"Notification Interruption of Sale",
+  "NOTIFICATION_INTERRUPT_SALE":"Notification for Interruption of Sale (DIN Dormant)",
   "PANDEMIC_APPL": "Pandemic Application",
   "POST_CLEARANCE_DATA": "Post Clearance Data",
   "POST_MARKET_SURV": "Post Marketing Surveillance",
