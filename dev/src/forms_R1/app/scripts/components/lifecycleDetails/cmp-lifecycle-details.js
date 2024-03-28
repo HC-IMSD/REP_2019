@@ -789,6 +789,7 @@
                 case(vm.descriptionObj.SCREENING_ACCEPT_RESPONSE):        /*FALLTHROUGH*/
                 // case(vm.descriptionObj.SCREENING_CLARIF_RESPONSE):        /*FALLTHROUGH*/
                 case(vm.descriptionObj.NOL_RESPONSE):        /*FALLTHROUGH*/
+                case(vm.descriptionObj.UDRA_MEETING_MINUTES):
                 case(vm.descriptionObj.CTN_ETHICS):        /*FALLTHROUGH */
                 case(vm.descriptionObj.CTN_RESPONSE):
                     setAsStartDate();
@@ -847,6 +848,8 @@
                 case(vm.descriptionObj.CLARIF_RESPONSE):        /*FALLTHROUGH July 17,2017*/
                 case(vm.descriptionObj.QHSC_RQ_RESPONSE):                  /*FALLTHROUGH*/
                 case(vm.descriptionObj.CHSC_RQ_RESPONSE):                  /*FALLTHROUGH*/
+                case(vm.descriptionObj.UDRA_EMAIL_RQ_RESPONSE):
+                case(vm.descriptionObj.UDRA_PROCESSING_CLARIF_RESPONSE):
                 case(vm.descriptionObj.QCHSC_RQ_RESPONSE):           /*FALLTHROUGH*/
                     setAsRequesterwithDate();
                     vm.setConcatDetails();
