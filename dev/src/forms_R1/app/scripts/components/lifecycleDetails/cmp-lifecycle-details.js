@@ -961,6 +961,12 @@
                 case(vm.descriptionObj.GEN_VOL_NOF):
                     vm.activityDescrNote = "GEN_VOL_NOF_DESCR";
                     break;
+                case(vm.descriptionObj.DIN_DISCONTINUED) :
+                    vm.activityDescrNote = "DIN_DISCONTINUED_DESCR";
+                    break;
+                case(vm.descriptionObj.NOTIFICATION_INTERRUPT_SALE) :
+                    vm.activityDescrNote = "NOTIFICATION_INTERRUPT_SALE_DESCR";
+                    break;
                 default:
                     vm.activityDescrNote = "";
                     break;
