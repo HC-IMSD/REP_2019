@@ -405,7 +405,7 @@
   "NOF_DRUG_SHORT": "Avis de pénurie de médicaments",
   "QUALITY_ISSU": "Problème de qualité soulevé par la compagnie et/ou un autre organisme de réglementation",
   "GMP_COMP_ISSU": "Problèmes de conformité aux BPF relevés par d’autres organismes de réglementation",
-  "RECLASS_LOT_RELEASE": "Reclassification request under BRDD Lot Release Program",
+  "RECLASS_LOT_RELEASE": "Demande de reclassification dans le cadre du Programme d’autorisation de mise en circulation des lots de la DPBTG",
   "NOC_COMPLIANCE": "Avis de conformité avec conditions (AC-C) - engagement",
   "UDRA_CANCEL_LETTER": "Lettre d'annulation pour l'ARND",
   "SEQUENCE_CLEANUP": "Nettoyage du dossier eCTD",
