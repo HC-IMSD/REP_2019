@@ -696,6 +696,9 @@
                 case ("B02-20160301-070"): //PDC
                     vm.activityTypeNote = "RA_TYPE_NOTE_PDC";
                     break;
+                case ("B02-20160301-071"): // PDCB
+                    vm.activityTypeNote = "RA_TYPE_NOTE_PDC";
+                    break;
                 case ("B02-20160819-01"): //PDINN
                     vm.activityTypeNote = "RA_TYPE_NOTE_PDINN";
                     break;
