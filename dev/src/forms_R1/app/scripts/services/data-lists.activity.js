@@ -1312,7 +1312,8 @@
                 vm.allActivities.RECON_DECIS_OTHER_INFO, // Reconsideration of Decision - Other Information
 				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL,
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
-                vm.allActivities.RQ_REVIEW_REPORT //Request Review Report(s)
+                vm.allActivities.RQ_REVIEW_REPORT, //Request Review Report(s)
+                vm.allActivities.SDN_RESPONSE //response to SDN
 
             ]);
         }
@@ -1342,7 +1343,8 @@
                 vm.allActivities.RECON_DECIS_OTHER_INFO, // Reconsideration of Decision - Other Information
 				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL,
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
-                vm.allActivities.RQ_REVIEW_REPORT //Request Review Report(s)
+                vm.allActivities.RQ_REVIEW_REPORT, //Request Review Report(s)
+                vm.allActivities.SDN_RESPONSE //response to SDN
             ]);
         }
 
