@@ -78,7 +78,7 @@
                                                    error-types="lifecycleCtrl.requiredOnly"></cmp-error-message>
                                 <select id="{{::lifecycleCtrl.regActivityId}}" name="{{::lifecycleCtrl.regActivityId}}"
                                         data-ng-model="lifecycleCtrl.lifecycleModel.activityType"
-                                        data-ng-change="lifecycleCtrl.setSequenceList()"
+                                        data-ng-change="lifecycleCtrl.setSequenceList(true)"
                                         class="form-control full-width" required
                                         data-ng-options="activity[lifecycleCtrl.lang] for activity in lifecycleCtrl.activityTypeList">
                                     <option value="" label=" " data-ng-empty="lifecycleCtrl.lifecycleModel.activityType" />

@@ -16,6 +16,7 @@
 
             return function (options) {
                 var deferred = $q.defer();
+                console.log(RELATIVE_FOLDER_DATA);
                 var versionsUrl = RELATIVE_FOLDER_DATA + "versions.json";
                 var envUrl = RELATIVE_FOLDER_DATA + "env.json";
                 var countryUrl = RELATIVE_FOLDER_DATA + "countries.json";
@@ -43,7 +44,7 @@
                     });
                 $http.get(raTypeUrl).then(function (response) {
                         //PROCESS raType list data
-                        var newList = _createSortedArray(response.data, options.key);
+                        var newList = _createSortedArrayRAType(response.data, options.key);
                         var translateList = _createTranslateList(newList, options.key);
                         TransactionLists.createRaTypes(newList);
                         angular.extend(resultTranslateList, translateList);
@@ -146,6 +147,26 @@
                 angular.forEach($filter('orderByLocale')(jsonList, lang), function (sortedObject) {
                     result.push(sortedObject);
                 });
+                return result;
+            }
+
+            function _createSortedArrayRAType(jsonList, lang) {
+                var result = [];
+                var placeLast = [];
+                angular.forEach($filter('orderByLocale')(jsonList, lang), function (sortedObject) {
+                    // If UDRA place last
+                    if (sortedObject.id === "B02-20160301-088") {
+                        // Collect items that are placed last separately
+                        placeLast.push(sortedObject);
+                    } else {
+                        // Add other items to result
+                        result.push(sortedObject);
+                    }
+
+                });
+
+                // Append items at the end
+                result = result.concat(placeLast);
                 return result;
             }
 
