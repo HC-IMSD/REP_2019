@@ -241,6 +241,9 @@
                 };
                 ectd.product_name = jsonObj.productName;
                 ectd.product_protocol = jsonObj.productProtocol;
+                if (jsonObj.dossierType == "D24") {
+                    jsonObj.lifecycleRecord.activityLead = "B14-20160301-11";
+                }
                 ectd.lifecycle_record = this._mapLifecycleListToOutput(jsonObj.lifecycleRecord);
                 return (ectd);
             },

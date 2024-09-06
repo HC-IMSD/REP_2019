@@ -184,7 +184,9 @@
             UDRA_MEETING_MINUTES: "UDRA_MEETING_MINUTES",
             UDRA_EMAIL_RQ_RESPONSE: "UDRA_EMAIL_RQ_RESPONSE",
             UDRA_PROCESSING_CLARIF_RESPONSE: "UDRA_PROCESSING_CLARIF_RESPONSE",
-            GEN_VOL_NOF: "GEN_VOL_NOF"
+            GEN_VOL_NOF: "GEN_VOL_NOF",
+            IMMEDIATE_NOTIFICATION: "IMMEDIATE_NOTIFICATION"
+
         };
 
         const allActivitiesEn = {
@@ -201,6 +203,7 @@
             "FOR_PERIOD": "For Period of",
             "FOR_NOC":"For NOC/c products",
             "FINAL_RISK_COM":"Final Risk Communication Document",
+            "IMMEDIATE_NOTIFICATION": "Immediate Notification",
             "INITIAL": "INITIAL",
             "MEETING_MINUTES": "Minutes of Meeting",
             "NOTIFICATION_CHANGE": "Notification of Change in Benefit-Risk Profile",
@@ -337,6 +340,7 @@
             "FOR_PERIOD": "Pour une période de",
             "FOR_NOC":"For our les produits AC-C",
             "FINAL_RISK_COM":"Document final de communication sur les risques",
+            "IMMEDIATE_NOTIFICATION":"Notification Immédiate",
             "INITIAL": "INITIAL",
             "MEETING_MINUTES": "Procès-verbal de la réunion",
             "NOTIFICATION_CHANGE": "Avis de changement du profil des risques et avantages",
@@ -690,7 +694,8 @@
                 vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
                 vm.allActivities.DIN_DISCONTINUED,
-                vm.allActivities.NOTIFICATION_INTERRUPT_SALE
+                vm.allActivities.NOTIFICATION_INTERRUPT_SALE,
+                vm.allActivities.IMMEDIATE_NOTIFICATION
             ]);
         }
 
@@ -741,7 +746,8 @@
 				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL,
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
                 vm.allActivities.DIN_DISCONTINUED,
-                vm.allActivities.NOTIFICATION_INTERRUPT_SALE
+                vm.allActivities.NOTIFICATION_INTERRUPT_SALE,
+                vm.allActivities.IMMEDIATE_NOTIFICATION
             ]);
 
         }
@@ -791,7 +797,8 @@
                 vm.allActivities.DATA_PROTECT_CORRESP, //Correspondence - Data Protection
                 vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
                 vm.allActivities.NONCLIN_CLARIF_RESPONSE, //response to Nonclinical clarification request
-				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL
+				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL,
+                vm.allActivities.IMMEDIATE_NOTIFICATION
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
             ]);
 
@@ -893,7 +900,8 @@
                 vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL,
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
                 vm.allActivities.DIN_DISCONTINUED,
-                vm.allActivities.NOTIFICATION_INTERRUPT_SALE
+                vm.allActivities.NOTIFICATION_INTERRUPT_SALE,
+                vm.allActivities.IMMEDIATE_NOTIFICATION
             ])
         }
 
@@ -946,7 +954,8 @@
 				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL,
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
                 vm.allActivities.DIN_DISCONTINUED,
-                vm.allActivities.NOTIFICATION_INTERRUPT_SALE
+                vm.allActivities.NOTIFICATION_INTERRUPT_SALE,
+                vm.allActivities.IMMEDIATE_NOTIFICATION
             ])
         }
 
@@ -1028,7 +1037,8 @@
                 vm.allActivities.CONSENT_LTR, //Consent Letter
                 vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
                 vm.allActivities.DATA_PROTECT_CORRESP, //Correspondence - Data Protection
-				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL
+				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL,
+                vm.allActivities.IMMEDIATE_NOTIFICATION
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
             ]);
         }
@@ -1080,7 +1090,8 @@
                 vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
                 // vm.allActivities.PANDEMIC_APPL, //Pandemic application
                 vm.allActivities.NONCLIN_CLARIF_RESPONSE, //response to Nonclinical clarification request
-				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL
+				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL,
+                vm.allActivities.IMMEDIATE_NOTIFICATION
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
             ]);
         }
@@ -1454,7 +1465,8 @@
                 vm.allActivities.NOD_RESPONSE, //Response to NOD
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
                 vm.allActivities.DIN_DISCONTINUED,
-                vm.allActivities.NOTIFICATION_INTERRUPT_SALE
+                vm.allActivities.NOTIFICATION_INTERRUPT_SALE,
+                vm.allActivities.IMMEDIATE_NOTIFICATION
             ]);
         }
 
@@ -1551,7 +1563,8 @@
                 vm.allActivities.RECON_DECIS_LTR_INTENT,// Reconsideration of Decision - Letter of Intent
                 vm.allActivities.RECON_DECIS_RQ_RECON, //Reconsideration of Decision - Request for Reconsideration
                 vm.allActivities.RECON_DECIS_OTHER_INFO, // Reconsideration of Decision - Other Information
-				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL
+				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL,
+                vm.allActivities.LABEL_PREAPPROVAL_2LANG // Second Language Label
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
             ]);
         }
@@ -1579,7 +1592,8 @@
                 vm.allActivities.RECON_DECIS_LTR_INTENT,// Reconsideration of Decision - Letter of Intent
                 vm.allActivities.RECON_DECIS_RQ_RECON, //Reconsideration of Decision - Request for Reconsideration
                 vm.allActivities.RECON_DECIS_OTHER_INFO, // Reconsideration of Decision - Other Information
-				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL
+				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL,
+                vm.allActivities.LABEL_PREAPPROVAL_2LANG // Second Language Label
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
             ]);
         }
@@ -1732,7 +1746,8 @@
                 vm.allActivities.NONCLIN_CLARIF_RESPONSE, //response to Nonclinical clarification request
 				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL,
                 vm.allActivities.DIN_DISCONTINUED,
-                vm.allActivities.NOTIFICATION_INTERRUPT_SALE
+                vm.allActivities.NOTIFICATION_INTERRUPT_SALE,
+                vm.allActivities.IMMEDIATE_NOTIFICATION
             ]);
 
         }
@@ -1781,7 +1796,8 @@
                 vm.allActivities.DATA_PROTECT_CORRESP, //Correspondence - Data Protection
                 vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
                 vm.allActivities.NONCLIN_CLARIF_RESPONSE, //response to Nonclinical clarification request
-				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL
+				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL,
+                vm.allActivities.IMMEDIATE_NOTIFICATION
             ]);
         }
 

@@ -16,7 +16,6 @@
 
             return function (options) {
                 var deferred = $q.defer();
-                console.log(RELATIVE_FOLDER_DATA);
                 var versionsUrl = RELATIVE_FOLDER_DATA + "versions.json";
                 var envUrl = RELATIVE_FOLDER_DATA + "env.json";
                 var countryUrl = RELATIVE_FOLDER_DATA + "countries.json";

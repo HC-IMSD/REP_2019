@@ -37,6 +37,7 @@
   "FOR_PERIOD": "For Period of",
   "FOR_NOC":"For NOC/c products",
   "FINAL_RISK_COM":"Final Risk Communication Document",
+  "IMMEDIATE_NOTIFICATION":"Immediate Notification",
   "INITIAL": "INITIAL",
   "MEETING_MINUTES": "Minutes of Meeting",
   "NOTIFICATION_CHANGE": "Notification of Change in Benefit-Risk Profile",
@@ -235,7 +236,7 @@
   "OTHER_DOC_DETAILS": "Other Documentation Details",
   "B14-20160301-09":	"Pharmaceutical",
   "B14-20160301-02":	"Biological",
-  "B14-20160301-10":	"Post-Market Vigilance",
+  "B14-20160301-10":	"Post-Market Vigilance (for Marketed Health Products Directorate (MHPD))",
   "B14-20160301-06":	"Consumer Health Product",
   "B14-20160301-11":	"Veterinary",
   "B14-20160301-04":	"Clinical Trial - Biologics",
@@ -440,5 +441,6 @@
   "RISK_COMMUN_DOC_DESCR":"First draft of the Health Product Risk Communication (HPRC) in Word format.",
   "FINAL_RISK_COM_DESCR":"Health Product Risk Communication (HPRC) final versions in English and French and in Word and PDF format.",
   "DISSEM_LIST_DESCR":"Dissemination strategy and dissemination results.",
-  "PATIENT_SAFETY_INFO_DESCR":"Response to Health Canada's request to provide information  or changes as oulined in the MHPD letter. Examples of these requests could be additional information,  additional monitoring, label changes, etc."
+  "PATIENT_SAFETY_INFO_DESCR":"Response to Health Canada's request to provide information  or changes as oulined in the MHPD letter. Examples of these requests could be additional information,  additional monitoring, label changes, etc.",
+  "IMMEDIATE_NOTIFICATION_DESCR":"Immediate Notifications are for minor changes where timely awareness is necessary. Health Canada should be notified within the time window extending from 21 days before and 14 days after the implementation date. This reporting category also includes the majority of major and moderate changes that have been downgraded to minor quality changes as a result of the execution of a PACMP or through a negotiated EC and associated reporting category."
 }

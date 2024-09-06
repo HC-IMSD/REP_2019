@@ -37,6 +37,7 @@
   "FOR_PERIOD": "Pour une période de",
   "FOR_NOC":"For our les produits AC-C",
   "FINAL_RISK_COM":"Document final de communication sur les risques",
+  "IMMEDIATE_NOTIFICATION":"Notification Immédiate",
   "INITIAL": "INITIAL",
   "MEETING_MINUTES": "Procès-verbal de la réunion",
   "NOTIFICATION_CHANGE": "Avis de changement du profil des risques et avantages",
@@ -237,7 +238,7 @@
   "OTHER_DOC_DETAILS": "Autres Détails de la Documentation",
   "B14-20160301-09":	"Pharmaceutique",
   "B14-20160301-02":	"Biologique",
-  "B14-20160301-10":	"Vigilance après la commercialisation",
+  "B14-20160301-10":	"Vigilance après la commercialisation (pour la Direction des produits de santé commercialisés (DPSC))",
   "B14-20160301-06":	"Produit de santé destinés aux consommateurs",
   "B14-20160301-11":	"Vétérinaire",
   "B14-20160301-04":	"Essai clinique - biologiques",
@@ -436,5 +437,6 @@
   "RISK_COMMUN_DOC_DESCR":"Première ébauche de la communication de risques liés aux produits de santé en format Word.",
   "FINAL_RISK_COM_DESCR":"Versions finales de la communication de risques liés aux produits de santé en anglais et en français et en format Word et PDF.",
   "DISSEM_LIST_DESCR":"Stratégie de diffusion et résultats de diffusion.",
-  "PATIENT_SAFETY_INFO_DESCR":"En réponse à la demande de Santé Canada de fournir des informations ou des modifications comme indiqué dans la lettre de la DPSC. Des exemples de ces demandes pourraient inclure des informations supplémentaires, une surveillance supplémentaire, des modifications d'étiquettes, etc."
+  "PATIENT_SAFETY_INFO_DESCR":"En réponse à la demande de Santé Canada de fournir des informations ou des modifications comme indiqué dans la lettre de la DPSC. Des exemples de ces demandes pourraient inclure des informations supplémentaires, une surveillance supplémentaire, des modifications d'étiquettes, etc.",
+  "IMMEDIATE_NOTIFICATION_DESCR":"Les notifications immédiates concernent les changements mineurs pour lesquels une prise de conscience en temps opportun est nécessaire. Santé Canada doit être informé dans une fenêtre allant de 21 jours avant et 14 jours après la date de mise en œuvre. Cette catégorie de changement  comprend également la majorité des changements majeurs et modérés qui ont été rétrogradés en changements de qualité mineurs à la suite de l'exécution d'un PGCAA ou via un CE négocié et la catégorie de changement associée."
 }

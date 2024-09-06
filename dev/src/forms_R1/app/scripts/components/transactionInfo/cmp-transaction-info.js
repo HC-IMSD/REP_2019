@@ -75,6 +75,7 @@
         vm.showOtherSolicitedDetail = false;
         vm.activityEditable = true;
         vm.isEctd = false;
+        vm.hideRaLead = false;
         vm.selectedDossierType = '';
         vm.alerts = [false, false, false, false, false, false, false, false, false];
         // vm.requesterList = [];
@@ -263,6 +264,7 @@
                    vm.transactionModel.isAdminSub = '';
                    vm.transactionModel.subType = '';
                    vm.showAdminSub = false;
+                   vm.hideRaLead = false;
                    // vm.transactionModel.isFees = YES;
                } else {
                    vm.transactionModel.ectd.productProtocol = '';
@@ -271,9 +273,11 @@
                        vm.transactionModel.isPriority = '';
                        vm.transactionModel.isNoc = '';
                        // vm.transactionModel.isFees = YES;
+                       vm.hideRaLead = true;
                    } else {
                        vm.transactionModel.isFees = '';
                        vm.transactionModel.feeDetails = null;
+                       vm.hideRaLead = false;
                    }
                }
         };

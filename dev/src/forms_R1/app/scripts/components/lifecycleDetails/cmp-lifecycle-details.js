@@ -39,7 +39,8 @@
                 showErrorSummary:'<', //show the component error summary
                 updateErrorSummary:'&', //update the parent error summary
                 updateProductProtocol:'&', //update the parent variable
-                htIndxList: '<'
+                htIndxList: '<',
+                hideRaLead: '<'
             }
         });
     lifecycleRecCtrl.$inject = ['ActivityFormFilterService',  'TransactionLists', '$filter', '$translate','$scope'];
@@ -138,6 +139,8 @@
                     vm.leadList = TransactionLists.getActivityLeadListByD21();
                 } else if(vm.dossierType === TransactionLists.getVeterinaryValue()){
                     vm.leadList = TransactionLists.getActivityLeadListByD24();
+                    vm.lifecycleModel.activityLead = "B14-20160301-11";
+                    vm.selectActivityList();
                 } else if(vm.dossierType === TransactionLists.getClinicalValue()){
                     vm.leadList = TransactionLists.getActivityLeadListByD26();
                 }else {
@@ -282,6 +285,8 @@
                     break;
                 case  TransactionLists.getVeterinaryValue():
                     vm.leadList = TransactionLists.getActivityLeadListByD24();
+                    vm.lifecycleModel.activityLead = "B14-20160301-11";
+                    vm.selectActivityList();
                     break;
                 case  TransactionLists.getClinicalValue():
                     vm.leadList = TransactionLists.getActivityLeadListByD26();
@@ -671,6 +676,15 @@
                     break;
             }
 
+            if (vm.dossierType != "D21" && vm.lifecycleModel.activityLead != "B14-20160301-02") {
+                // If vm.descriptionList contains IMMEDIATE_NOTIFICATION, delete it
+                var index = vm.descriptionList.indexOf('IMMEDIATE_NOTIFICATION');
+
+                // If the item was found, remove it from the array
+                if (index > -1) {
+                    vm.descriptionList.splice(index, 1);
+                }
+            }
             vm.descriptionList = _createTxDescSortedArray(vm.descriptionList);
 
             var isPreCta = (value === "B02-20160301-072");
@@ -1006,7 +1020,8 @@
                 case(vm.descriptionObj.PATIENT_SAFETY_INFO):
                     vm.activityDescrNote = "PATIENT_SAFETY_INFO_DESCR";
                     break;
-
+                case(vm.descriptionObj.IMMEDIATE_NOTIFICATION):
+                    vm.activityDescrNote = "IMMEDIATE_NOTIFICATION_DESCR";
                 default:
                     vm.activityDescrNote = "";
                     break;
