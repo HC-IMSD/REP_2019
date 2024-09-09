@@ -426,5 +426,6 @@
   "UDRA_PROCESSING_CLARIF_RESPONSE_DESCR": "Response to Health Canada clarification request during processing of the UDRA by Office of Submissions and Intellectual Property. Provide Health Canada issued correspondence.",
   "GEN_VOL_NOF_DESCR": "Contact Health Canada via email prior to using this regulatory transaction description. <br> For biologics and radiopharmaceuticals for human use: <a href='mailto:brdd.ora@hc-sc.gc.ca'>brdd.ora@hc-sc.gc.ca</a> <br> For pharmaceuticals for human use: <a href='mailto:rpmd-dgpr@hc-sc.gc.ca'>rpmd-dgpr@hc-sc.gc.ca</a> <br> For non-prescriptions and disinfectants: <a href='mailto:nded-demvso@hc-sc.gc.ca'>nded-demvso@hc-sc.gc.ca</a>",
   "DIN_DISCONTINUED_DESCR": "When reporting that the sale of the product (DIN) has been discontinued including discontinuation date, lot number and expiry date of the last lot distributed. DIN will be canceled by Health Canada",
-  "NOTIFICATION_INTERRUPT_SALE_DESCR":"When reporting that the product (DIN) has not been sold for twelve consecutive months"
+  "NOTIFICATION_INTERRUPT_SALE_DESCR":"When reporting that the product (DIN) has not been sold for twelve consecutive months",
+  "RQ_REVIEW_REPORT":"Request Review Report(s)"
 }
