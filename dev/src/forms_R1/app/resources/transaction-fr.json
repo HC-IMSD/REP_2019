@@ -427,6 +427,7 @@
   "GEN_VOL_NOF_DESCR": "Contactez Santé Canada par courriel avant d'utiliser cette description de transaction réglementaire.<br> Pour les produits biologiques et radiopharmaceutiques à usage humain : <a href='mailto:brdd.ora@hc-sc.gc.ca'>brdd.ora@hc-sc.gc.ca</a> <br>Pour les produits pharmaceutiques à usage humain : <a href='mailto:rpmd-dgpr@hc-sc.gc.ca'>rpmd-dgpr@hc-sc.gc.ca</a> <br>Pour les produits en vente libre et les désinfectants : <a href='mailto:nded-demvso@hc-sc.gc.ca'>nded-demvso@hc-sc.gc.ca</a> ",
   "DIN_DISCONTINUED_DESCR": "Utilise pour déclarer que la vente d’un médicament (DIN) a cessé. Inclus la date de la cessation de la vente, la date d’expiration du dernier lot distribué et le numéro de ce lot. Santé Canada annule le DIN",
   "NOTIFICATION_INTERRUPT_SALE_DESCR":"Utilise pour déclarer qu'un médicament (DIN) n'a pas été vendu pendant au moins 12 mois consécutifs",
+
   "POST_MARKET_SURVEILLANCE_DESCR":"Par exemple: Soumission non solicitée d'un document individuel en lien avec un PGR tel qu'une mise à jour à un protocole ou des résultats d'études après autorisation, des matériaux éducatifs; une proposition reliée à un changement quant à la fréquence des soumissions de RPPV/RPEAR; une proposition de cesser les stratégies de surveillance continue; des plans d'activités d'atténuation des risques dans d'autres pays; et des évaluations de l'Europe/PRAC. <br> Pour la présentation d'information demandée par la DPSC, veuillez utiliser 'Réponse à une lettre de la DPSC'.",
   "MHPD_RQ_LETTER_DESCR":"En réponse à une lettre envoyée par la DPSC suivant un examen scientifique après la commercialisation. Veuillez répondre tel qu'indiqué dans la lettre de la DPSC.",
   "BENEFIT_RISK_ASSESS_DESCR":"En réponse à une demande de Santé Canada concernant l'évaluation des avantages et des risques présentés au DAMM de façon volontaire ou sous l'article 21.31 de la Loi sur les aliments et drogues, ou les articles C.01.052 et C.01.013 du Règlement sur les aliments et drogues.",
@@ -444,4 +445,7 @@
   "RA_TYPE_NOTE_EUNDS":"Santé Canada ne facturera pas de frais pour les drogues nouvelles à usage extraordinaire déposées en vertu de l'article C.08.002.1 du Règlement sur les aliments et drogues (RAD). Cependant, veuillez vous assurer que la classe de présentation applicable est sélectionnée dans la section des frais ci-dessous.",
   "RA_TYPE_NOTE_EUSANDS":"Santé Canada ne facturera pas de frais pour les drogues nouvelles à usage extraordinaire déposées en vertu de l'article C.08.002.1 du Règlement sur les aliments et drogues (RAD). Cependant, veuillez vous assurer que la classe de présentation applicable est sélectionnée dans la section des frais ci-dessous.",
   "RA_TYPE_NOTE_EUSNDS":"Santé Canada ne facturera pas de frais pour les drogues nouvelles à usage extraordinaire déposées en vertu de l'article C.08.002.1 du Règlement sur les aliments et drogues (RAD). Cependant, veuillez vous assurer que la classe de présentation applicable est sélectionnée dans la section des frais ci-dessous."
+
+  "RQ_REVIEW_REPORT":"Demande de rapport(s) d’examen"
+
 }

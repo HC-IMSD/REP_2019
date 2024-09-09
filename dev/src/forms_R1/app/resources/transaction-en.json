@@ -430,7 +430,6 @@
   "GEN_VOL_NOF_DESCR": "Contact Health Canada via email prior to using this regulatory transaction description. <br> For biologics and radiopharmaceuticals for human use: <a href='mailto:brdd.ora@hc-sc.gc.ca'>brdd.ora@hc-sc.gc.ca</a> <br> For pharmaceuticals for human use: <a href='mailto:rpmd-dgpr@hc-sc.gc.ca'>rpmd-dgpr@hc-sc.gc.ca</a> <br> For non-prescriptions and disinfectants: <a href='mailto:nded-demvso@hc-sc.gc.ca'>nded-demvso@hc-sc.gc.ca</a>",
   "DIN_DISCONTINUED_DESCR": "When reporting that the sale of the product (DIN) has been discontinued including discontinuation date, lot number and expiry date of the last lot distributed. DIN will be canceled by Health Canada",
   "NOTIFICATION_INTERRUPT_SALE_DESCR":"When reporting that the product (DIN) has not been sold for twelve consecutive months",
-
   "POST_MARKET_SURV_DESCR":"Examples include: Unsolicited submission of stand-alone elements of an RMP such as updates to protocol and results of post-approval studies, educational materials; proposals for change in frequency of PSUR/PBRER submission; proposals for discontinuation of continued monitoring strategies; plans for risk mitigation activities in other jurisdictions; and EU/PRAC assessments. <br> For the submission of information requested by MHPD, use 'Response to MHPD Letter'.",
   "MHPD_RQ_LETTER_DESCR":"Response to MHPD Letter following review of post-authorization scientific review. Respond as directed within the MHPD correspondence.",
   "BENEFIT_RISK_ASSESS_DESCR":"Response to HC request for a benefit-risk assessment made to MAH either voluntarily or under section 21.31 of the Food and Drugs Act, or sections C.01.052 and C.01.013 of the Food and Drugs Regulations.",
@@ -448,6 +447,6 @@
   "RA_TYPE_NOTE_EUNDS":"Health Canada will not invoice fees for Extraordinary Use New Drugs filed under C.08.002.1 of the Food and Drug Regulations (FDR), however please ensure the applicable submission class is selected in the fee section below.",
   "RA_TYPE_NOTE_EUSANDS":"Health Canada will not invoice fees for Extraordinary Use New Drugs filed under C.08.002.1 of the Food and Drug Regulations (FDR), however please ensure the applicable submission class is selected in the fee section below.",
   "RA_TYPE_NOTE_EUSNDS":"Health Canada will not invoice fees for Extraordinary Use New Drugs filed under C.08.002.1 of the Food and Drug Regulations (FDR), however please ensure the applicable submission class is selected in the fee section below."
-
-
+ 
+  "RQ_REVIEW_REPORT":"Request Review Report(s)"
 }
