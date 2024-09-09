@@ -1341,7 +1341,8 @@
                 vm.allActivities.PROCESSING_CLARIF_RESPONSE, //Response to processing Clarification Request
                 vm.allActivities.UNSOLICITED_DATA, //Unsolicited Data
                 vm.allActivities.QUAL_CLARIF_RESPONSE, //Response to Quality Clarification request
-                vm.allActivities.PHONE_RQ_RESPONSE //Response to telephone Request
+                vm.allActivities.PHONE_RQ_RESPONSE, //Response to telephone Request,
+                vm.allActivities.SCREENING_CLARIF_RESPONSE
             ]);
         }
 
@@ -1696,7 +1697,10 @@
 
         function _getPostDINArray() {
             return ([
-                vm.allActivities.YEAR
+                vm.allActivities.YEAR,
+                vm.allActivities.CANCEL_LETTER,
+                vm.allActivities.EMAIL_RQ_RESPONSE,
+                vm.allActivities.PHONE_RQ_RESPONSE
             ]);
         }
 

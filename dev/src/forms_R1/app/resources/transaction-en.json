@@ -442,5 +442,12 @@
   "FINAL_RISK_COM_DESCR":"Health Product Risk Communication (HPRC) final versions in English and French and in Word and PDF format.",
   "DISSEM_LIST_DESCR":"Dissemination strategy and dissemination results.",
   "PATIENT_SAFETY_INFO_DESCR":"Response to Health Canada's request to provide information  or changes as oulined in the MHPD letter. Examples of these requests could be additional information,  additional monitoring, label changes, etc.",
-  "IMMEDIATE_NOTIFICATION_DESCR":"Immediate Notifications are for minor changes where timely awareness is necessary. Health Canada should be notified within the time window extending from 21 days before and 14 days after the implementation date. This reporting category also includes the majority of major and moderate changes that have been downgraded to minor quality changes as a result of the execution of a PACMP or through a negotiated EC and associated reporting category."
+  "IMMEDIATE_NOTIFICATION_DESCR":"Immediate Notifications are for minor changes where timely awareness is necessary. Health Canada should be notified within the time window extending from 21 days before and 14 days after the implementation date. This reporting category also includes the majority of major and moderate changes that have been downgraded to minor quality changes as a result of the execution of a PACMP or through a negotiated EC and associated reporting category.",
+
+  "RA_TYPE_NOTE_EUANDS":"Health Canada will not invoice fees for Extraordinary Use New Drugs filed under C.08.002.1 of the Food and Drug Regulations (FDR), however please ensure the applicable submission class is selected in the fee section below.",
+  "RA_TYPE_NOTE_EUNDS":"Health Canada will not invoice fees for Extraordinary Use New Drugs filed under C.08.002.1 of the Food and Drug Regulations (FDR), however please ensure the applicable submission class is selected in the fee section below.",
+  "RA_TYPE_NOTE_EUSANDS":"Health Canada will not invoice fees for Extraordinary Use New Drugs filed under C.08.002.1 of the Food and Drug Regulations (FDR), however please ensure the applicable submission class is selected in the fee section below.",
+  "RA_TYPE_NOTE_EUSNDS":"Health Canada will not invoice fees for Extraordinary Use New Drugs filed under C.08.002.1 of the Food and Drug Regulations (FDR), however please ensure the applicable submission class is selected in the fee section below."
+
+
 }

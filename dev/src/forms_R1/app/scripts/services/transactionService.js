@@ -706,7 +706,7 @@
         }
         lifecycleRec.sequence_description_value = '';
         if (lifecycleObj.descriptionValue) {
-            var sdv_text = $translate.instant(lifecycleObj.descriptionValue, "", '', ENGLISH);
+            var sdv_text = $translate.instant(lifecycleObj.descriptionValue, "", '', currentLang);
             lifecycleRec.sequence_description_value = {
                 _id: lifecycleObj.descriptionValue,
                 __text: sdv_text

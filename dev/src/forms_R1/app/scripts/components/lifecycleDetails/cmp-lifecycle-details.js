@@ -724,6 +724,18 @@
                 case ("B02-20160819-01"): //PDINN
                     vm.activityTypeNote = "RA_TYPE_NOTE_PDINN";
                     break;
+                case ("B02-20190627-07"): //EUANDS
+                    vm.activityTypeNote = "RA_TYPE_NOTE_EUANDS";
+                    break;
+                case ("B02-20160301-031"):
+                    vm.activityTypeNote = "RA_TYPE_NOTE_EUNDS";
+                    break;
+                case ("B02-20190627-08"):
+                    vm.activityTypeNote = "RA_TYPE_NOTE_EUSANDS";
+                    break;
+                case ("B02-20160301-032"):
+                    vm.activityTypeNote = "RA_TYPE_NOTE_EUSNDS";
+                    break;
                 default:
                     vm.activityTypeNote = "";
                     break;
@@ -742,8 +754,7 @@
          * what was selected for the details description
          */
         vm.setDetailsState = function () {
-            var descValue = vm.lifecycleModel.descriptionValue;
-            var value = _findKeyByValue(descValue);
+            var value = vm.lifecycleModel.descriptionValue;
             if (!vm.lifecycleModel.activityType.id) {
                 vm.descriptionList = [];
                 return;
@@ -1350,11 +1361,13 @@
             var startDate = "";
             var endDate = "";
             var concatText = "";
+            var lang = $translate.proposedLanguage() || $translate.use();
+            var transactionDescription = $translate.instant(vm.lifecycleModel.descriptionValue, "", '', lang);
             //translate value to english
-            var enDescription = translateToEnglish(vm.lifecycleModel.descriptionValue);
+            // var enDescription = translateToEnglish(vm.lifecycleModel.descriptionValue);
             if (vm.descriptionVisible && !vm.yearChangeVisible) {
                 // if (vm.startDateVisible ) {
-                concatText = enDescription + " - " + vm.lifecycleModel.details;
+                concatText = transactionDescription + " - " + vm.lifecycleModel.details;
                 // } else {
                 //     concatText = enDescription + "\n" + vm.lifecycleModel.details;
                 // }
@@ -1362,27 +1375,39 @@
             if (vm.startDateVisible) {
                 startDate = convertDate(vm.lifecycleModel.startDate);
                 if (vm.versionVisible){
-                    concatText = " dated " + startDate;
+                    if (lang == 'en') {
+                        concatText = " dated " + startDate;
+                    } else {
+                        concatText = " daté du " + startDate;
+                    }
                 }else {
-                    concatText = (concatText ? concatText : enDescription) + " dated " + startDate;
+                    if (lang == 'en'){
+                        concatText = (concatText ? concatText : transactionDescription) + " dated " + startDate;
+                    } else {
+                        concatText = (concatText ? concatText : transactionDescription) + " daté du " + startDate;
+                    }
                 }
             }
 
             if (vm.endDateVisible) {
                 endDate = convertDate(vm.lifecycleModel.endDate);
-                concatText = enDescription + " " + startDate + " to " + endDate;
+                if (lang == 'en'){
+                    concatText = transactionDescription + " " + startDate + " to " + endDate;
+                } else {
+                    concatText = transactionDescription + " " + startDate + " à " + endDate;
+                }
             }
             if (vm.versionVisible) {
-                if (vm.lifecycleModel.descriptionValue === vm.descriptionObj.RMP_VERSION_DATE) {
-                    concatText = enDescription + " " + vm.lifecycleModel.sequenceVersion + concatText;
-                } else if (vm.lifecycleModel.descriptionValue === vm.descriptionObj.CTN_PROTOCOL_INFO_UPDATE) {
+                if (transactionDescription === vm.descriptionObj.RMP_VERSION_DATE) {
+                    concatText = transactionDescription + " " + vm.lifecycleModel.sequenceVersion + concatText;
+                } else if (transactionDescription === vm.descriptionObj.CTN_PROTOCOL_INFO_UPDATE) {
                     concatText = "CTN-Protocol version " + vm.lifecycleModel.sequenceVersion +
                         " and Informed Consent Form version " + vm.lifecycleModel.sequenceVersion + " Update";
-                } else if (vm.lifecycleModel.descriptionValue === vm.descriptionObj.CTN_FORM_BROC_UPDATES) {
+                } else if (transactionDescription === vm.descriptionObj.CTN_FORM_BROC_UPDATES) {
                     concatText = "CTN-Informed Consent Form version " + vm.lifecycleModel.sequenceVersion +
                         " and Investigator’s Brochure version " + vm.lifecycleModel.sequenceVersion + concatText + " Updates";
                 } else {
-                    concatText = enDescription + " version " + vm.lifecycleModel.sequenceVersion + concatText;
+                    concatText = transactionDescription + " version " + vm.lifecycleModel.sequenceVersion + concatText;
                 }
             }
             if (vm.yearChangeVisible) {
@@ -1392,12 +1417,16 @@
                 concatText = vm.lifecycleModel.year;
             }
             if (vm.descriptionChangeVisible) {
-                concatText = enDescription +  "\n" + vm.lifecycleModel.detailsChange;
+                concatText = transactionDescription +  "\n" + vm.lifecycleModel.detailsChange;
             }
             if(vm.fromTo){
-                concatText = enDescription + " From " + vm.lifecycleModel.fromValue + " To " + vm.lifecycleModel.toValue;
+                if (lang == 'en'){
+                    concatText = transactionDescription + " From " + vm.lifecycleModel.fromValue + " To " + vm.lifecycleModel.toValue;
+                } else {
+                    concatText = transactionDescription + " De " + vm.lifecycleModel.fromValue + " à " + vm.lifecycleModel.toValue;
+                }
             }
-            if (!concatText) concatText = enDescription;
+            if (!concatText) concatText = transactionDescription;
             vm.lifecycleModel.sequenceConcat = concatText;
         };
         function translateToEnglish(key) {
@@ -1594,7 +1623,8 @@
 
             // Concatenate the result with placeLast to ensure 'lastTxDesc' items come last
             sortedTxDescs = sortedTxDescs.concat(placeLast);
-            return sortedTxDescs;
+            var sortedIds = sortedTxDescs.map(label => _findKeyByValue(label));
+            return sortedIds;
         }
 
         function _findKeyByValue(value) {
