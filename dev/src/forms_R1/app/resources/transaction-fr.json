@@ -35,6 +35,9 @@
   "DIN_DISCONTINUED": "Avis de cessation de vente",
   "DRUG_NOTIF_FORM": "Formulaire de notification de drogue (de mise en marché)",
   "FOR_PERIOD": "Pour une période de",
+  "FOR_NOC":"For our les produits AC-C",
+  "FINAL_RISK_COM":"Document final de communication sur les risques",
+  "IMMEDIATE_NOTIFICATION":"Notification Immédiate",
   "INITIAL": "INITIAL",
   "MEETING_MINUTES": "Procès-verbal de la réunion",
   "NOTIFICATION_CHANGE": "Avis de changement du profil des risques et avantages",
@@ -58,7 +61,7 @@
   "CHSC_RQ_RESPONSE": "Réponse à la demande de clarification concernant les aspects cliniques et la sécurité pour les humains",
   "QCHSC_RQ_RESPONSE": "Réponse à la demande de clarification concernant la qualité, les aspects cliniques et la sécurité pour les humains",
   "LABEL_CLARIF_RESPONSE": "Réponse à la demande de clarification de l’étiquetage",
-  "MHPD_RQ_RESPONSE": "Réponse à la demande de la DPSC",
+  "MHPD_RQ_RESPONSE": "Réponse à une lettre de la DPSC",
   "NOC_RESPONSE": "Réponse à l’avis de conformité/ avec conditions - avis d’admissibilité",
   "NOD_RESPONSE": "Réponse à l’avis d’insuffisance",
   "NON_RESPONSE": "Réponse à l’avis de non-conformité",
@@ -114,7 +117,7 @@
   "CSOtRMP": "PGR concernant les produits contenant des opioïdes vendus au Canada",
   "DISSEM_LIST": "Liste de distribution",
   "FOREIGN_SAFETY_NOTIFICATION": "Communications étrangères relatives aux risques",
-  "ISSUE_SAFETY_REQUEST": "Demande liée à la sécurité en cas de problème",
+  "ISSUE_SAFETY_REQUEST": "Demande d'un rapport de synthèse relatif à un sujet de préoccupation",
   "PATIENT_SAFETY_INFO": "Renseignements sur la sécurité des patients (erreur de médication)",
   "PUB_RELEASE_INFO": "Diffusion publique de renseignements cliniques",
   "RESSESS_ORDER": "Ordonnance de réévaluation",
@@ -235,7 +238,7 @@
   "OTHER_DOC_DETAILS": "Autres Détails de la Documentation",
   "B14-20160301-09":	"Pharmaceutique",
   "B14-20160301-02":	"Biologique",
-  "B14-20160301-10":	"Vigilance après la commercialisation",
+  "B14-20160301-10":	"Vigilance après la commercialisation (pour la Direction des produits de santé commercialisés (DPSC))",
   "B14-20160301-06":	"Produit de santé destinés aux consommateurs",
   "B14-20160301-11":	"Vétérinaire",
   "B14-20160301-04":	"Essai clinique - biologiques",
@@ -424,6 +427,25 @@
   "GEN_VOL_NOF_DESCR": "Contactez Santé Canada par courriel avant d'utiliser cette description de transaction réglementaire.<br> Pour les produits biologiques et radiopharmaceutiques à usage humain : <a href='mailto:brdd.ora@hc-sc.gc.ca'>brdd.ora@hc-sc.gc.ca</a> <br>Pour les produits pharmaceutiques à usage humain : <a href='mailto:rpmd-dgpr@hc-sc.gc.ca'>rpmd-dgpr@hc-sc.gc.ca</a> <br>Pour les produits en vente libre et les désinfectants : <a href='mailto:nded-demvso@hc-sc.gc.ca'>nded-demvso@hc-sc.gc.ca</a> ",
   "DIN_DISCONTINUED_DESCR": "Utilise pour déclarer que la vente d’un médicament (DIN) a cessé. Inclus la date de la cessation de la vente, la date d’expiration du dernier lot distribué et le numéro de ce lot. Santé Canada annule le DIN",
   "NOTIFICATION_INTERRUPT_SALE_DESCR":"Utilise pour déclarer qu'un médicament (DIN) n'a pas été vendu pendant au moins 12 mois consécutifs",
+
+  "POST_MARKET_SURVEILLANCE_DESCR":"Par exemple: Soumission non solicitée d'un document individuel en lien avec un PGR tel qu'une mise à jour à un protocole ou des résultats d'études après autorisation, des matériaux éducatifs; une proposition reliée à un changement quant à la fréquence des soumissions de RPPV/RPEAR; une proposition de cesser les stratégies de surveillance continue; des plans d'activités d'atténuation des risques dans d'autres pays; et des évaluations de l'Europe/PRAC. <br> Pour la présentation d'information demandée par la DPSC, veuillez utiliser 'Réponse à une lettre de la DPSC'.",
+  "MHPD_RQ_LETTER_DESCR":"En réponse à une lettre envoyée par la DPSC suivant un examen scientifique après la commercialisation. Veuillez répondre tel qu'indiqué dans la lettre de la DPSC.",
+  "BENEFIT_RISK_ASSESS_DESCR":"En réponse à une demande de Santé Canada concernant l'évaluation des avantages et des risques présentés au DAMM de façon volontaire ou sous l'article 21.31 de la Loi sur les aliments et drogues, ou les articles C.01.052 et C.01.013 du Règlement sur les aliments et drogues.",
+  "NOTIFICATION_CHANGE_DESCR":"Avis au ministre d'un changement important concernant ce qui est connu à propos des risques et des avantages d'un produit, comme prévu sous l'article C.01.018 (4) du Règlement sur les aliments et drogues.",
+  "TEST_STUDIES_ORDER_DESCR":"En réponse à une ordonnance par Santé Canada comme demandé sous l'article 21.32 de la Loi sur les aliments et drogues.",
+  "ISSUE_SAFETY_REQUEST_DESCR":"En réponse à une demande de Santé Canada de présenter un rapport de synthèse relatif à un sujet de préoccupation sous l'article C.01.019 du Règlement sur les aliments et drogues.",
+  "FOREIGN_SAFETY_NOTIFICATION_DESCR":"Présenter tel que prévu sous l'article C.01.050 du Règlement sur les aliments et drogues.",
+  "RISK_COMMUN_DOC_DESCR":"Première ébauche de la communication de risques liés aux produits de santé en format Word.",
+  "FINAL_RISK_COM_DESCR":"Versions finales de la communication de risques liés aux produits de santé en anglais et en français et en format Word et PDF.",
+  "DISSEM_LIST_DESCR":"Stratégie de diffusion et résultats de diffusion.",
+  "PATIENT_SAFETY_INFO_DESCR":"En réponse à la demande de Santé Canada de fournir des informations ou des modifications comme indiqué dans la lettre de la DPSC. Des exemples de ces demandes pourraient inclure des informations supplémentaires, une surveillance supplémentaire, des modifications d'étiquettes, etc.",
+  "IMMEDIATE_NOTIFICATION_DESCR":"Les notifications immédiates concernent les changements mineurs pour lesquels une prise de conscience en temps opportun est nécessaire. Santé Canada doit être informé dans une fenêtre allant de 21 jours avant et 14 jours après la date de mise en œuvre. Cette catégorie de changement  comprend également la majorité des changements majeurs et modérés qui ont été rétrogradés en changements de qualité mineurs à la suite de l'exécution d'un PGCAA ou via un CE négocié et la catégorie de changement associée.",
+
+  "RA_TYPE_NOTE_EUANDS":"Santé Canada ne facturera pas de frais pour les drogues nouvelles à usage extraordinaire déposées en vertu de l'article C.08.002.1 du Règlement sur les aliments et drogues (RAD). Cependant, veuillez vous assurer que la classe de présentation applicable est sélectionnée dans la section des frais ci-dessous.",
+  "RA_TYPE_NOTE_EUNDS":"Santé Canada ne facturera pas de frais pour les drogues nouvelles à usage extraordinaire déposées en vertu de l'article C.08.002.1 du Règlement sur les aliments et drogues (RAD). Cependant, veuillez vous assurer que la classe de présentation applicable est sélectionnée dans la section des frais ci-dessous.",
+  "RA_TYPE_NOTE_EUSANDS":"Santé Canada ne facturera pas de frais pour les drogues nouvelles à usage extraordinaire déposées en vertu de l'article C.08.002.1 du Règlement sur les aliments et drogues (RAD). Cependant, veuillez vous assurer que la classe de présentation applicable est sélectionnée dans la section des frais ci-dessous.",
+  "RA_TYPE_NOTE_EUSNDS":"Santé Canada ne facturera pas de frais pour les drogues nouvelles à usage extraordinaire déposées en vertu de l'article C.08.002.1 du Règlement sur les aliments et drogues (RAD). Cependant, veuillez vous assurer que la classe de présentation applicable est sélectionnée dans la section des frais ci-dessous."
+
   "RQ_REVIEW_REPORT":"Demande de rapport(s) d’examen"
 
 }

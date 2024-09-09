@@ -54,6 +54,8 @@
             DIN_DISCONTINUED: "DIN_DISCONTINUED", // Notification of Discontinued Sale (DIN Cancellation)
             DRUG_NOTIF_FORM: "DRUG_NOTIF_FORM", // drug notification form
             FOR_PERIOD: "FOR_PERIOD", //for period of ....
+            FOR_NOC: "FOR_NOC",
+            FINAL_RISK_COM:"FINAL_RISK_COM",
             INITIAL: "INITIAL", //Initial
             MEETING_MINUTES: "MEETING_MINUTES", //minutes of meeting dated
             NOTIFICATION_CHANGE: "NOTIFICATION_CHANGE", //notificaiton of change in benefit profile
@@ -183,6 +185,281 @@
             UDRA_EMAIL_RQ_RESPONSE: "UDRA_EMAIL_RQ_RESPONSE",
             UDRA_PROCESSING_CLARIF_RESPONSE: "UDRA_PROCESSING_CLARIF_RESPONSE",
             GEN_VOL_NOF: "GEN_VOL_NOF",
+            IMMEDIATE_NOTIFICATION: "IMMEDIATE_NOTIFICATION"
+        };
+
+        const allActivitiesEn = {
+            "ADMINISTRATIVE" : "Administrative",
+            "BENEFIT_RISK_ASSESS": "Benefit Risk Assessment",
+            "CANCEL_LETTER": "Cancellation Letter",
+            "CHANGE_TO_DIN": "Change to DIN",
+            "CLARIF_RESPONSE":"Response to Clarification Request",
+            "COMMENTS_NOC": "Comments on Notice of Decision",
+            "COMMENTS_SUMMARY_BASIS": "Comments on Summary Basis of Decision (SBD)",
+            "COMMENTS_REGULARTORY_DECISION": "Comments on Regulatory Decision Summary",
+            "DIN_DISCONTINUED": "Discontinuation of Sale Notification",
+            "DRUG_NOTIF_FORM": "Drug Notification Form (Market Notification)",
+            "FOR_PERIOD": "For Period of",
+            "FOR_NOC":"For NOC/c products",
+            "FINAL_RISK_COM":"Final Risk Communication Document",
+            "IMMEDIATE_NOTIFICATION": "Immediate Notification",
+            "INITIAL": "INITIAL",
+            "MEETING_MINUTES": "Minutes of Meeting",
+            "NOTIFICATION_CHANGE": "Notification of Change in Benefit-Risk Profile",
+            "NOTIFICATION_INTERRUPT_SALE":"Notification for Interruption of Sale (DIN Dormant)",
+            "PANDEMIC_APPL": "Pandemic Application",
+            "POST_CLEARANCE_DATA": "Post Clearance Data",
+            "POST_MARKET_SURV": "Post Market Surveillance",
+            "POST_NOC_CHANGE": "Post NOC Change",
+            "POST_AUTH_DIV1_CHANGE": "Post-Authorization Division 1 Change",
+            "PRESUB_MEETING_PKG": "Submission Meeting Package",
+            "PRESUB_MEETING_RQ": "Submission Meeting Request",
+            "PRIORITY_REVIEW_RQ": "Priority Review Request",
+            "PRODUCT_LABELLING_POST_APPROVAL": "Product Labelling - Post Approval",
+            "CLIN_CLARIF_RESPONSE": "Response to Clinical Clarification Request",
+            "EMAIL_RQ_RESPONSE": "Response to E-mail Request",
+            "HSC_RQ_RESPONSE": "Response to Human Safety Clarification Request",
+            "QHSC_RQ_RESPONSE": "Response to Quality & Human Safety Clarification Request",
+            "CHSC_RQ_RESPONSE": "Response to Clinical & Human Safety Clarification Request",
+            "QCHSC_RQ_RESPONSE": "Response to Quality, Clinical and Human Safety Clarification Request",
+            "LABEL_CLARIF_RESPONSE": "Response to Labelling Clarification Request",
+            "MHPD_RQ_RESPONSE": "Response to MHPD Letter",
+            "NOC_RESPONSE": "Response to NOC/c-QN",
+            "NOD_RESPONSE": "Response to NOD",
+            "NOL_RESPONSE": "Response to NOL",
+            "NON_RESPONSE": "Response to NON",
+            "PROCESSING_CLARIF_RESPONSE": "Response to Processing Clarification Request",
+            "QUAL_CLIN_CLARIF_RESPONSE": "Response to Quality & Clinical Clarification Request",
+            "QUAL_CLARIF_RESPONSE": "Response to Quality Clarification Request",
+            "RECON_DECIS_LTR_INTENT": "Reconsideration of Decision - Letter of Intent",
+            "RECON_DECIS_RQ_RECON":  "Reconsideration of Decision - Request for Reconsideration",
+            "RECON_DECIS_OTHER_INFO": "Reconsideration of Decision - Other Information",
+            "SCREENING_ACCEPT_RESPONSE": "Response to Screening Acceptance Letter",
+            "SCREENING_CLARIF_RESPONSE": "Response to Screening Clarification Request",
+            "SDN_RESPONSE": "Response to SDN",
+            "LABEL_PREAPPROVAL_2LANG":"Second Language Label - Pre-Approval",
+            "PHONE_RQ_RESPONSE": "Response to Telephone Request",
+            "RISK_COMMUN_DOC": "Risk Communication Document",
+            "RMP_VERSION_DATE": "Risk Management Plan (RMP)",
+            "UNSOLICITED_DATA": "Unsolicited Information",
+            "YEAR_LIST_OF_CHANGE": "Year(s) of change, list of change number(s) ",
+            "BE_CLARIF_RESPONSE": "Response to BE Clarification Request",
+            "CORR_PATENT_MED":"Correspondence - Patented Medicines",
+            "ALLEGATION_NOTICE":"Notice of Allegation",
+            "FORM_IV":"Form IV",
+            "FORM_V":"Form V",
+            "CONSENT_LTR":"Consent Letter",
+            "DATA_PROTECT_CORRESP":"Correspondence - Data Protection",
+            "NONCLIN_CLARIF_RESPONSE": "Response to Non-clinical Clarification Request ",
+            "ADV_COMP_REQ": "Advertising Complaint Request for Information",
+            "CSOtRMP": "Canadian Specific Opioid RMP",
+            "DISSEM_LIST": "Dissemination List",
+            "FOREIGN_SAFETY_NOTIFICATION": "Foreign Safety Action Notification",
+            "ISSUE_SAFETY_REQUEST": "Issue Related Summary Report Request",
+            "PATIENT_SAFETY_INFO": "Patient Safety Information (Medication error)",
+            "PUB_RELEASE_INFO": "Public Release of Clinical Information",
+            "RESSESS_ORDER": "Reassessment Order",
+            "WRITTEN_CONSULT_REQ": "Request for Written Consultation",
+            "TEST_STUDIES_ORDER": "Test and Studies Order",
+            "TERM_COND_COMM": "Terms and Conditions Commitment",
+            "YEAR": "Year",
+            "CTN_ADMINISTRATIVE":"CTN-Administrative Change to",
+            "CTN_APPENDIX":"CTN-Appendix",
+            "CTN_CONTACT":"CTN-Contact Change",
+            "CTN_DATA":"CTN-Data Safety Monitoring Committee",
+            "CTN_DEAR":"CTN-Dear Investigator/Doctor Letter",
+            "CTN_DILUENT":"CTN-Diluent Change",
+            "CTN_DRUG_PROD":"CTN-Drug Product Change",
+            "CTN_DRUG_SUBS":"CTN-Drug Substance change",
+            "CTN_ENROLLMENT":"CTN-Enrollment Suspension",
+            "CTN_ETHICS":"CTN-Ethics Board Communications",
+            "CTN_INFORMED":"CTN-Informed Consent Form Update",
+            "CTN_INVESTIGATOR":"CTN-Investigator’s Brochure Update",
+            "CTN_NEW_MANUFACTURING":"CTN-New Manufacturing Site for",
+            "CTN_NEW_PKG":"CTN-New Packaging/Labelling Site",
+            "CTN_NEW_QC":"CTN-New QC Testing Site",
+            "CTN_PACKAGING_LABELLING":"CTN-Packaging/Labelling Name Change",
+            "CTN_PROTOCOL_INFO_UPDATE":"CTN-Protocol and Informed Consent Form Update",
+            "CTN_PROTOCOL_UPDATE":"CTN-Protocol Update/Change",
+            "CTN_QOS":"CTN-QOS Update",
+            "CTN_REFUSALS":"CTN-Refusals by Foreign Regulatory Authorities/REBs",
+            "CTN_REGULATORY":"CTN-Regulatory Hold",
+            "CTN_RESPONSE":"CTN-Response to Information Request",
+            "CTN_SAFETY":"CTN-Safety Update",
+            "CTN_SHELF_PD":"CTN-Shelf Life Extension for DP",
+            "CTN_SHELF_DS":"CTN-Shelf Life Extension for DS",
+            "CTN_SITE":"CTN-Site Closure",
+            "CTN_SOURCE":"CTN-Source Change of",
+            "CTN_STRAIN":"CTN-Strain Change",
+            "CTN_STUDY_COMPLETION":"CTN-Study Completion",
+            "CTN_STUDY_DISC":"CTN-Study Discontinuation due to",
+            "CTN_STUDY_EXT":"CTN-Study Recruitment Timeline Extension",
+            "CTN_STUDY_SUS":"CTN-Study Suspension",
+            "CTN_TRANS_OWN":"CTN-Transfer of Ownership",
+            "CLINICAL":"CLINICAL",
+            "CLINICAL_QUALITY":"CLINICAL & QUALITY",
+            "QUALITY":"QUALITY",
+            "INITIAL_TEAT_SOLU_MONO":"INITIAL - Teat Solutions Monograph",
+            "REQ_ACCEPTED":"Request Accepted",
+            "CTN_FORM_BROC_UPDATES":"CTN-Informed Consent Form and Investigator’s Brochure Updates",
+            "CTN_IMPD_UPDATE":"CTN-IMPD Update",
+            "CTN_NEW_SUMM_ADF":"CTN-New Summary of Additional Drugs Form",
+            "COVIR-19": "COVID-19 Interim Order Application",
+            "COVIR-19AMD": "COVID-19 Interim Order Ap - Amendment",
+            "POST_ANTH_CHANGE": "Post Authorization Change",
+            "ROLLING_INFO": "Rolling Information",
+            "WITHDRAWAL_NOF_FORM": "Withdrawal of Drug Notification Form",
+            "PROTOCOL_REVIEW": "Protocol Review",
+            "BLOOD_EST": "Blood Establishment",
+            "ADVISEMENT_LETTER_RESPONSE": "Response to Advisement Letter to update the Product Monograph",
+            "NOF_DRUG_SHORT": "Notification on Drug Shortage",
+            "QUALITY_ISSU": "Quality issue raised by company and/or other regulator",
+            "GMP_COMP_ISSU": "GMP compliance issue raised by other regulators",
+            "RECLASS_LOT_RELEASE": "Reclassification request under BRDD Lot Release Program",
+            "NOC_COMPLIANCE": "Notice of Compliance with Conditions (NOC/c) – commitment",
+            "UDRA_CANCEL_LETTER": "Cancellation Letter for UDRA",
+            "SEQUENCE_CLEANUP": "eCTD Dossier Clean-up",
+            "UDRA_MEETING_MINUTES": "Minutes of Meeting for UDRA",
+            "UDRA_EMAIL_RQ_RESPONSE": "Response to E-mail Request for UDRA",
+            "UDRA_PROCESSING_CLARIF_RESPONSE": "Response to Processing Clarification Request for UDRA",
+            "GEN_VOL_NOF": "General / Voluntary Notification"
+        };
+
+        const allActivitiesFr = {
+            "ADMINISTRATIVE" : "Administratif",
+            "BENEFIT_RISK_ASSESS": "Évaluation des risques et des avantages",
+            "CANCEL_LETTER": "Lettre d’annulation",
+            "CHANGE_TO_DIN": "Modification du code d’IND (DIN)",
+            "CLARIF_RESPONSE":"Réponse à la demande de clarification",
+            "COMMENTS_NOC": "Commentaires sur l’avis de décision",
+            "COMMENTS_SUMMARY_BASIS": "Commentaires sur le sommaire des motifs de décision (SMD)",
+            "COMMENTS_REGULARTORY_DECISION": "Commentaires sur le sommaire de décision réglementaire",
+            "DIN_DISCONTINUED": "Avis de cessation de vente",
+            "DRUG_NOTIF_FORM": "Formulaire de notification de drogue (de mise en marché)",
+            "FOR_PERIOD": "Pour une période de",
+            "FOR_NOC":"For our les produits AC-C",
+            "FINAL_RISK_COM":"Document final de communication sur les risques",
+            "IMMEDIATE_NOTIFICATION":"Notification Immédiate",
+            "INITIAL": "INITIAL",
+            "MEETING_MINUTES": "Procès-verbal de la réunion",
+            "NOTIFICATION_CHANGE": "Avis de changement du profil des risques et avantages",
+            "NOTIFICATION_INTERRUPT_SALE":"Avis de douze mois sans vente (État de DIN dormant)",
+            "PANDEMIC_APPL": "Application en cas de pandémie",
+            "POST_CLEARANCE_DATA": "Données consécutives à l’habilitation de sécurité",
+            "POST_MARKET_SURV": "Surveillance après la mise en marché",
+            "POST_NOC_CHANGE": "Modification de l’avis de conformité",
+            "POST_AUTH_DIV1_CHANGE": "Modification en vertu de la Section 1 après l’autorisation",
+            "PRESUB_MEETING_PKG": "Trousse de la réunion préalable à la présentation",
+            "PRESUB_MEETING_RQ": "Demande de réunion préalable à la présentation",
+            "PRIORITY_REVIEW_RQ": "Demande d’examen prioritaire",
+            "PRODUCT_LABELLING_POST_APPROVAL": "Étiquetage des produits – après l’autorisation",
+            "CLIN_CLARIF_RESPONSE": "Réponse à la demande de clarification clinique",
+            "EMAIL_RQ_RESPONSE": "Réponse à une demande par courriel",
+            "HSC_RQ_RESPONSE": "Réponse à la demande de clarification en ce qui concerne la sécurité pour les humains",
+            "QHSC_RQ_RESPONSE": "Réponse à la demande de clarification concernant la qualité et la sécurité pour les humains",
+            "CHSC_RQ_RESPONSE": "Réponse à la demande de clarification concernant les aspects cliniques et la sécurité pour les humains",
+            "QCHSC_RQ_RESPONSE": "Réponse à la demande de clarification concernant la qualité, les aspects cliniques et la sécurité pour les humains",
+            "LABEL_CLARIF_RESPONSE": "Réponse à la demande de clarification de l’étiquetage",
+            "MHPD_RQ_RESPONSE": "Réponse à une lettre de la DPSC",
+            "NOC_RESPONSE": "Réponse à l’avis de conformité/ avec conditions - avis d’admissibilité",
+            "NOD_RESPONSE": "Réponse à l’avis d’insuffisance",
+            "NON_RESPONSE": "Réponse à l’avis de non-conformité",
+            "NOL_RESPONSE": "Réponse à la lettre de non-objection",
+            "PROCESSING_CLARIF_RESPONSE": "Réponse à la demande de clarification sur le traitement",
+            "QUAL_CLIN_CLARIF_RESPONSE": "Réponse à la demande de clarification sur la qualité et les aspects cliniques",
+            "QUAL_CLARIF_RESPONSE": "Réponse à la demande de clarification sur la qualité",
+            "RECON_DECIS_LTR_INTENT": "Réexamen de la décision - Lettre d’intention",
+            "RECON_DECIS_RQ_RECON":  "Réexamen de la décision - Demande de réexamen",
+            "RECON_DECIS_OTHER_INFO": "Réexamen de la décision - Autres renseignements",
+            "SCREENING_ACCEPT_RESPONSE": "Réponse à la lettre d’acceptation à l’examen préliminaire",
+            "SCREENING_CLARIF_RESPONSE": "Réponse à une demande de clarification au cours de l’examen préliminaire",
+            "SDN_RESPONSE": "Réponse à un avis d’insuffisance à l’examen préliminaire",
+            "LABEL_PREAPPROVAL_2LANG":"Étiquette en langue seconde - préapprobation",
+            "PHONE_RQ_RESPONSE": "Réponse à une demande téléphonique",
+            "RISK_COMMUN_DOC": "Document de communication sur les risques",
+            "RMP_VERSION_DATE": "Plan de gestion des risques",
+            "UNSOLICITED_DATA": "Renseignements non sollicités",
+            "YEAR_LIST_OF_CHANGE": "Year(s) of change, list of change number(s) ",
+            "BE_CLARIF_RESPONSE": "Réponse à la demande d’étude de bioéquivalence",
+            "CORR_PATENT_MED":"Correspondance - Médicaments brevetés",
+            "ALLEGATION_NOTICE":"Avis d’allégation",
+            "FORM_IV":"Formulaire IV",
+            "FORM_V":"Formulaire V",
+            "CONSENT_LTR":"Lettre de consentement",
+            "DATA_PROTECT_CORRESP":"Correspondance - Protection des données",
+            "NONCLIN_CLARIF_RESPONSE": "Réponse à la demande de clarification non clinique",
+            "ADV_COMP_REQ": "Demande de renseignements concernant une plainte en matière de publicité",
+            "CSOtRMP": "PGR concernant les produits contenant des opioïdes vendus au Canada",
+            "DISSEM_LIST": "Liste de distribution",
+            "FOREIGN_SAFETY_NOTIFICATION": "Communications étrangères relatives aux risques",
+            "ISSUE_SAFETY_REQUEST": "Demande d'un rapport de synthèse relatif à un sujet de préoccupation",
+            "PATIENT_SAFETY_INFO": "Renseignements sur la sécurité des patients (erreur de médication)",
+            "PUB_RELEASE_INFO": "Diffusion publique de renseignements cliniques",
+            "RESSESS_ORDER": "Ordonnance de réévaluation",
+            "WRITTEN_CONSULT_REQ": "Demande de consultation écrite",
+            "TEST_STUDIES_ORDER": "Ordonnance concernant des essais et des études",
+            "TERM_COND_COMM": "Règles de participation prévues dans les conditions générales",
+            "YEAR": "Année",
+            "CTN_ADMINISTRATIVE": "CTN-Administrative Change to",
+            "CTN_APPENDIX": "CTN-Appendix",
+            "CTN_CONTACT": "CTN-Contact Change",
+            "CTN_DATA": "CTN-Data Safety Monitoring Committee",
+            "CTN_DEAR": "CTN-Dear Investigator/Doctor Letter",
+            "CTN_DILUENT": "CTN-Diluent Change",
+            "CTN_DRUG_PROD": "CTN-Drug Product Change",
+            "CTN_DRUG_SUBS": "CTN-Drug Substance change",
+            "CTN_ENROLLMENT": "CTN-Enrollment Suspension",
+            "CTN_ETHICS": "CTN-Ethics Board Communications",
+            "CTN_INFORMED": "CTN-Informed Consent Form Update",
+            "CTN_INVESTIGATOR": "CTN-Investigator’s Brochure Update",
+            "CTN_NEW_MANUFACTURING": "CTN-New Manufacturing Site for",
+            "CTN_NEW_PKG": "CTN-New Packaging/Labelling Site",
+            "CTN_NEW_QC": "CTN-New QC Testing Site",
+            "CTN_PACKAGING_LABELLING": "CTN-Packaging/Labelling Name Change",
+            "CTN_PROTOCOL_INFO_UPDATE": "CTN-Protocol and Informed Consent Form Update",
+            "CTN_PROTOCOL_UPDATE": "CTN-Protocol Update/Change",
+            "CTN_QOS": "CTN-QOS Update",
+            "CTN_REFUSALS": "CTN-Refusals by Foreign Regulatory Authorities/REBs",
+            "CTN_REGULATORY": "CTN-Regulatory Hold",
+            "CTN_RESPONSE": "CTN-Response to Information Request",
+            "CTN_SAFETY": "CTN-Safety Update",
+            "CTN_SHELF_PD": "CTN-Shelf Life Extension for DP",
+            "CTN_SHELF_DS": "CTN-Shelf Life Extension for DS",
+            "CTN_SITE": "CTN-Site Closure",
+            "CTN_SOURCE": "CTN-Source Change of",
+            "CTN_STRAIN": "CTN-Strain Change",
+            "CTN_STUDY_COMPLETION": "CTN-Study Completion",
+            "CTN_STUDY_DISC": "CTN-Study Discontinuation due to",
+            "CTN_STUDY_EXT": "CTN-Study Recruitment Timeline Extension",
+            "CTN_STUDY_SUS": "CTN-Study Suspension",
+            "CTN_TRANS_OWN": "CTN-Transfer of Ownership",
+            "CLINICAL": "CLINICAL",
+            "CLINICAL_QUALITY": "CLINICAL & QUALITY",
+            "QUALITY": "QUALITY",
+            "INITIAL_TEAT_SOLU_MONO":"INITIAL - Monographie de solutions antiseptiques pour les trayons",
+            "REQ_ACCEPTED":"Demande acceptée",
+            "CTN_FORM_BROC_UPDATES":"CTN-Informed Consent Form and Investigator’s Brochure Updates",
+            "CTN_IMPD_UPDATE":"CTN-IMPD Update",
+            "CTN_NEW_SUMM_ADF":"CTN-New Summary of Additional Drugs Form",
+            "COVIR-19": "Demande d'ordonnance provisoire COVID-19",
+            "COVIR-19AMD": "Demande d'ordonnance provisoire COVID-19 - Modification",
+            "POST_ANTH_CHANGE_DESCR": "Première transaction d'une nouvelle activité réglementaire.",
+            "ROLLING_INFO": "Information continue",
+            "WITHDRAWAL_NOF_FORM": "Retrait du formulaire de déclaration de médicament",
+            "PROTOCOL_REVIEW": "Examens de protocole",
+            "BLOOD_EST": "Établissement de sang",
+            "ADVISEMENT_LETTER_RESPONSE": "Réponse à la lettre de mise en garde de mettre à jour la monographie de produit",
+            "NOF_DRUG_SHORT": "Avis de pénurie de médicaments",
+            "QUALITY_ISSU": "Problème de qualité soulevé par la compagnie et/ou un autre organisme de réglementation",
+            "GMP_COMP_ISSU": "Problèmes de conformité aux BPF relevés par d’autres organismes de réglementation",
+            "RECLASS_LOT_RELEASE": "Demande de reclassification dans le cadre du Programme d’autorisation de mise en circulation des lots de la DPBTG",
+            "NOC_COMPLIANCE": "Avis de conformité avec conditions (AC-C) - engagement",
+            "UDRA_CANCEL_LETTER": "Lettre d'annulation pour l'ARND",
+            "SEQUENCE_CLEANUP": "Nettoyage du dossier eCTD",
+            "UDRA_MEETING_MINUTES": "Procès-verbal de la réunion pour l'ARND",
+            "UDRA_EMAIL_RQ_RESPONSE": "Réponse à une demande par courrier électronique pour l'ARND",
+            "UDRA_PROCESSING_CLARIF_RESPONSE": "Réponse à la demande de clarification du traitement pour l'ARND",
+            "GEN_VOL_NOF": "Notification générale / volontaire",
             RQ_REVIEW_REPORT: "RQ_REVIEW_REPORT"   //Request Review Report(s)
         };
 
@@ -291,7 +568,12 @@
             getV_COV19AMDType: _getV_CoV19AmdArray,
             getVNDSCVType: _getV_NDSCVArray,
             getVPROREType: _getV_PROREArray,
-            getBEType: _getBEArray
+            getBEType: _getBEArray,
+
+            getNFAType: _getNFAArray,
+
+            getTxDescEn: _getTxDescEn,
+            getTxDescFr: _getTxDescFr
         };
         return service;
 
@@ -413,6 +695,7 @@
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
                 vm.allActivities.DIN_DISCONTINUED,
                 vm.allActivities.NOTIFICATION_INTERRUPT_SALE,
+                vm.allActivities.IMMEDIATE_NOTIFICATION,
                 vm.allActivities.RQ_REVIEW_REPORT //Request Review Report(s)
             ]);
         }
@@ -465,6 +748,7 @@
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
                 vm.allActivities.DIN_DISCONTINUED,
                 vm.allActivities.NOTIFICATION_INTERRUPT_SALE,
+                vm.allActivities.IMMEDIATE_NOTIFICATION,
                 vm.allActivities.RQ_REVIEW_REPORT //Request Review Report(s)
             ]);
 
@@ -516,6 +800,7 @@
                 vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
                 vm.allActivities.NONCLIN_CLARIF_RESPONSE, //response to Nonclinical clarification request
 				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL,
+                vm.allActivities.IMMEDIATE_NOTIFICATION,
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
                 vm.allActivities.RQ_REVIEW_REPORT //Request Review Report(s)
 
@@ -620,6 +905,7 @@
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
                 vm.allActivities.DIN_DISCONTINUED,
                 vm.allActivities.NOTIFICATION_INTERRUPT_SALE,
+                vm.allActivities.IMMEDIATE_NOTIFICATION,
                 vm.allActivities.RQ_REVIEW_REPORT //Request Review Report(s
             ])
         }
@@ -674,6 +960,7 @@
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
                 vm.allActivities.DIN_DISCONTINUED,
                 vm.allActivities.NOTIFICATION_INTERRUPT_SALE,
+                vm.allActivities.IMMEDIATE_NOTIFICATION,
                 vm.allActivities.RQ_REVIEW_REPORT //Request Review Report(s)
             ])
         }
@@ -681,15 +968,11 @@
         function getPSURCArray() {
             return ([
                 vm.allActivities.CANCEL_LETTER, //cancellation letter
-                vm.allActivities.COMMENTS_SUMMARY_BASIS, //commments on summary basis of decision (SBD)
                 vm.allActivities.FOR_PERIOD, //for period of ....
-                vm.allActivities.CLIN_CLARIF_RESPONSE, //Response to clinical clarifiaction request
                 vm.allActivities.EMAIL_RQ_RESPONSE,// response to email request
                 vm.allActivities.MEETING_MINUTES, //minutes of meeting dated
                 vm.allActivities.MHPD_RQ_RESPONSE, //Response to MHPD requests
                 vm.allActivities.PROCESSING_CLARIF_RESPONSE, //Response to processing Clarification Request
-                vm.allActivities.UNSOLICITED_DATA, //Unsolicited Data
-                vm.allActivities.PHONE_RQ_RESPONSE//Response to telephone Request
             ]);
         }
 
@@ -702,9 +985,6 @@
                 vm.allActivities.MEETING_MINUTES, //minutes of meeting dated
                 vm.allActivities.MHPD_RQ_RESPONSE, //Response to MHPD requests
                 vm.allActivities.PROCESSING_CLARIF_RESPONSE, //Response to processing Clarification Request
-                vm.allActivities.UNSOLICITED_DATA, //Unsolicited Data
-                vm.allActivities.PHONE_RQ_RESPONSE, //Response to telephone Request
-                vm.allActivities.CLIN_CLARIF_RESPONSE //Response to clinical clarification request
             ]);
         }
 
@@ -713,14 +993,11 @@
                 vm.allActivities.CANCEL_LETTER, //cancellation letter
                 vm.allActivities.CSOtRMP, //CSOtRMP (Canadian Specific Opioid RMP)
                 vm.allActivities.MEETING_MINUTES, //minutes of meeting dated
-                vm.allActivities.CLIN_CLARIF_RESPONSE, //Response to clinical clarification request
                 vm.allActivities.EMAIL_RQ_RESPONSE,// response to email request
                 vm.allActivities.MHPD_RQ_RESPONSE, //Response to MHPD requests
                 vm.allActivities.PROCESSING_CLARIF_RESPONSE, //Response to processing Clarification Request
-                vm.allActivities.PHONE_RQ_RESPONSE, //Response to telephone Request
                 vm.allActivities.RMP_VERSION_DATE, //RMP verison
                 vm.allActivities.PRESUB_MEETING_RQ,   //submission Meeting Request -used to be presub
-                vm.allActivities.UNSOLICITED_DATA //Unsolicited Data
             ]);
         }
 
@@ -766,7 +1043,8 @@
                 vm.allActivities.CONSENT_LTR, //Consent Letter
                 vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
                 vm.allActivities.DATA_PROTECT_CORRESP, //Correspondence - Data Protection
-				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL,
+				        vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL,
+                vm.allActivities.IMMEDIATE_NOTIFICATION,
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
                 vm.allActivities.RQ_REVIEW_REPORT //Request Review Report(s)
 
@@ -820,7 +1098,8 @@
                 vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
                 // vm.allActivities.PANDEMIC_APPL, //Pandemic application
                 vm.allActivities.NONCLIN_CLARIF_RESPONSE, //response to Nonclinical clarification request
-				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL,
+				        vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL,
+                vm.allActivities.IMMEDIATE_NOTIFICATION,
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
                 vm.allActivities.RQ_REVIEW_REPORT //Request Review Report(s)
             ]);
@@ -1013,15 +1292,11 @@
         function _getPBRERCArray() {
             return ([
                 vm.allActivities.CANCEL_LETTER, //cancellation letter
-                vm.allActivities.CLIN_CLARIF_RESPONSE, //Response to clinical clarifaction request
-                vm.allActivities.COMMENTS_SUMMARY_BASIS, //commments on summary basis of decision (SBD)
                 vm.allActivities.EMAIL_RQ_RESPONSE,// response to email request
                 vm.allActivities.FOR_PERIOD, //for period of ....
-                vm.allActivities.MEETING_MINUTES, //minutes of meeting dated
+                // vm.allActivities.MEETING_MINUTES, //minutes of meeting dated TODO DIANA: Might delete this?
                 vm.allActivities.MHPD_RQ_RESPONSE, //Response to MHPD requests
                 vm.allActivities.PROCESSING_CLARIF_RESPONSE, //Response to processing Clarification Request
-                vm.allActivities.UNSOLICITED_DATA, //Unsolicited Data
-                vm.allActivities.PHONE_RQ_RESPONSE //Response to telephone Request
             ]);
         }
 
@@ -1030,12 +1305,8 @@
                 vm.allActivities.CANCEL_LETTER, //cancellation letter
                 vm.allActivities.EMAIL_RQ_RESPONSE,// response to email request
                 vm.allActivities.FOR_PERIOD, //for period of ....
-                vm.allActivities.MEETING_MINUTES, //minutes of meeting dated
                 vm.allActivities.MHPD_RQ_RESPONSE, //Response to MHPD requests
                 vm.allActivities.PROCESSING_CLARIF_RESPONSE, //Response to processing Clarification Request
-                vm.allActivities.UNSOLICITED_DATA, //Unsolicited Data
-                vm.allActivities.PHONE_RQ_RESPONSE, //Response to telephone Request
-                vm.allActivities.CLIN_CLARIF_RESPONSE //Response to clinical clarification request
             ]);
         }
 
@@ -1083,6 +1354,8 @@
                 vm.allActivities.PROCESSING_CLARIF_RESPONSE, //Response to processing Clarification Request
                 vm.allActivities.UNSOLICITED_DATA, //Unsolicited Data
                 vm.allActivities.QUAL_CLARIF_RESPONSE, //Response to Quality Clarification request
+                vm.allActivities.PHONE_RQ_RESPONSE, //Response to telephone Request,
+                vm.allActivities.SCREENING_CLARIF_RESPONSE,
                 vm.allActivities.PHONE_RQ_RESPONSE, //Response to telephone Request
                 vm.allActivities.SCREENING_CLARIF_RESPONSE, // response to screening clarification request
                 vm.allActivities.RQ_REVIEW_REPORT //Request Review Report(s)
@@ -1211,6 +1484,7 @@
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
                 vm.allActivities.DIN_DISCONTINUED,
                 vm.allActivities.NOTIFICATION_INTERRUPT_SALE,
+                vm.allActivities.IMMEDIATE_NOTIFICATION,
                 vm.allActivities.RQ_REVIEW_REPORT //Request Review Report(s)
             ]);
         }
@@ -1310,7 +1584,8 @@
                 vm.allActivities.RECON_DECIS_LTR_INTENT,// Reconsideration of Decision - Letter of Intent
                 vm.allActivities.RECON_DECIS_RQ_RECON, //Reconsideration of Decision - Request for Reconsideration
                 vm.allActivities.RECON_DECIS_OTHER_INFO, // Reconsideration of Decision - Other Information
-				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL,
+				        vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL,
+                vm.allActivities.LABEL_PREAPPROVAL_2LANG, // Second Language Label
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
                 vm.allActivities.RQ_REVIEW_REPORT, //Request Review Report(s)
                 vm.allActivities.SDN_RESPONSE //response to SDN
@@ -1341,7 +1616,8 @@
                 vm.allActivities.RECON_DECIS_LTR_INTENT,// Reconsideration of Decision - Letter of Intent
                 vm.allActivities.RECON_DECIS_RQ_RECON, //Reconsideration of Decision - Request for Reconsideration
                 vm.allActivities.RECON_DECIS_OTHER_INFO, // Reconsideration of Decision - Other Information
-				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL,
+				        vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL,
+                vm.allActivities.LABEL_PREAPPROVAL_2LANG, // Second Language Label
                 //vm.allActivities.SEQUENCE_CLEANUP // Sequence cleanup as per email FEb 16, 2018
                 vm.allActivities.RQ_REVIEW_REPORT, //Request Review Report(s)
                 vm.allActivities.SDN_RESPONSE //response to SDN
@@ -1350,47 +1626,59 @@
 
         function _getIRSRPVArray() {
             return ([
+                vm.allActivities.CANCEL_LETTER,
                 vm.allActivities.ISSUE_SAFETY_REQUEST, //Issue Related Safety Request
                 vm.allActivities.MEETING_MINUTES,
+                vm.allActivities.EMAIL_RQ_RESPONSE,
+                vm.allActivities.PROCESSING_CLARIF_RESPONSE,
                 vm.allActivities.PRESUB_MEETING_RQ //submission Meeting Request
             ]);
         }
 
         function _getPAPVArray() {
             return ([
+                vm.allActivities.CANCEL_LETTER, // Cancellation letter
                 vm.allActivities.MEETING_MINUTES,
-                vm.allActivities.EMAIL_RQ_RESPONSE,
+                vm.allActivities.EMAIL_RQ_RESPONSE, // Response to E-mail Request
                 vm.allActivities.MHPD_RQ_RESPONSE, //Response to MHPD requests
-                vm.allActivities.NOTIFICATION_CHANGE, //notificaiton of change in benefit profile
                 vm.allActivities.PRESUB_MEETING_RQ,   //submission Meeting Request -used to be presub
-                vm.allActivities.POST_MARKET_SURV // post marketing surveillance
+                vm.allActivities.POST_MARKET_SURV, // post marketing surveillance
+                vm.allActivities.PROCESSING_CLARIF_RESPONSE
             ]);
         }
         //add new RT description arrays - request v3.0.3
         function _getPSAPVArray() {
             return ([
                 vm.allActivities.ADV_COMP_REQ, //Advertising Complaint Request for Information
-                vm.allActivities.PATIENT_SAFETY_INFO //Patient Safety Information (Medication error)
+                vm.allActivities.CANCEL_LETTER,
+                vm.allActivities.PATIENT_SAFETY_INFO, //Patient Safety Information (Medication error)
+                vm.allActivities.EMAIL_RQ_RESPONSE,
+                vm.allActivities.MHPD_RQ_RESPONSE,
+                vm.allActivities.PROCESSING_CLARIF_RESPONSE
             ]);
         }
 
         function _getRCPVArray() {
             return ([
+                vm.allActivities.CANCEL_LETTER,
                 vm.allActivities.DISSEM_LIST, //Dissemination List
-                vm.allActivities.RISK_COMMUN_DOC //Risk communication document
+                vm.allActivities.FINAL_RISK_COM, //Risk communication document
+                vm.allActivities.PROCESSING_CLARIF_RESPONSE,
+                vm.allActivities.RISK_COMMUN_DOC // Risk communication document
             ]);
         }
 
         function _getREGPVArray() {
             return ([
                 vm.allActivities.BENEFIT_RISK_ASSESS, //benefit risk assessment
-                vm.allActivities.FOREIGN_SAFETY_NOTIFICATION, //Foreign Safety Action Notification
+                vm.allActivities.CANCEL_LETTER, // Cancellation letter
                 vm.allActivities.MEETING_MINUTES,
-                vm.allActivities.RESSESS_ORDER, //Reassessment Order
-                vm.allActivities.PRESUB_MEETING_RQ,   //submission Meeting Request -used to be presub
+                vm.allActivities.NOTIFICATION_CHANGE, // Notification of Change in Benefit-Risk Profile
+                vm.allActivities.EMAIL_RQ_RESPONSE,
+                vm.allActivities.PRESUB_MEETING_RQ,   //submission Meeting Letter -used to be presub
+                vm.allActivities.PROCESSING_CLARIF_RESPONSE,
                 vm.allActivities.TEST_STUDIES_ORDER, //Test and Studies Order
                 vm.allActivities.MHPD_RQ_RESPONSE, //Response to MHPD requests
-                vm.allActivities.TERM_COND_COMM //Terms and Conditions Commitment
             ]);
         }
 
@@ -1437,6 +1725,9 @@
         function _getPostDINArray() {
             return ([
                 vm.allActivities.YEAR,
+                vm.allActivities.CANCEL_LETTER,
+                vm.allActivities.EMAIL_RQ_RESPONSE,
+                vm.allActivities.PHONE_RQ_RESPONSE,
                 vm.allActivities.CANCEL_LETTER, //cancellation letter
                 vm.allActivities.EMAIL_RQ_RESPONSE,// response to email request
                 vm.allActivities.PHONE_RQ_RESPONSE //Response to telephone Request
@@ -1490,6 +1781,7 @@
 				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL,
                 vm.allActivities.DIN_DISCONTINUED,
                 vm.allActivities.NOTIFICATION_INTERRUPT_SALE,
+                vm.allActivities.IMMEDIATE_NOTIFICATION,
                 vm.allActivities.RQ_REVIEW_REPORT //Request Review Report(s)
             ]);
 
@@ -1539,7 +1831,8 @@
                 vm.allActivities.DATA_PROTECT_CORRESP, //Correspondence - Data Protection
                 vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
                 vm.allActivities.NONCLIN_CLARIF_RESPONSE, //response to Nonclinical clarification request
-				vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL,
+				        vm.allActivities.PRODUCT_LABELLING_POST_APPROVAL,
+                vm.allActivities.IMMEDIATE_NOTIFICATION,
                 vm.allActivities.RQ_REVIEW_REPORT //Request Review Report(s)
             ]);
         }
@@ -1925,15 +2218,12 @@
                 vm.allActivities.CANCEL_LETTER,
                 vm.allActivities.FOR_PERIOD,
                 vm.allActivities.MEETING_MINUTES,
-                vm.allActivities.CLIN_CLARIF_RESPONSE,
                 vm.allActivities.EMAIL_RQ_RESPONSE,
                 vm.allActivities.HSC_RQ_RESPONSE,
                 vm.allActivities.QHSC_RQ_RESPONSE, //Response to Quality & Human Safety Clarification Request
                 vm.allActivities.CHSC_RQ_RESPONSE, // Response to Clinical & Human Safety Clarification Request
                 vm.allActivities.QCHSC_RQ_RESPONSE, // Response to Quality, Clinical and Human Safety Clarification Request
                 vm.allActivities.PROCESSING_CLARIF_RESPONSE,
-                vm.allActivities.PHONE_RQ_RESPONSE,
-                vm.allActivities.UNSOLICITED_DATA
             ]);
         }
         function getV_SandsArray() {
@@ -2242,6 +2532,15 @@
             ])
         }
 
+        function _getNFAArray() {
+            return ([
+                vm.allActivities.CANCEL_LETTER,
+                vm.allActivities.FOREIGN_SAFETY_NOTIFICATION,
+                vm.allActivities.EMAIL_RQ_RESPONSE,
+                vm.allActivities.PROCESSING_CLARIF_RESPONSE
+            ])
+        }
+
         function  _getBEArray() {
             return ([
                 vm.allActivities.BLOOD_EST
@@ -2348,6 +2647,13 @@
                     {"id":"MI","en":"Minutes","fr":"Minutes"}
                 ]
             )
+        }
+        function _getTxDescEn() {
+            return allActivitiesEn;
+        }
+
+        function _getTxDescFr() {
+            return allActivitiesFr;
         }
     }
 })();
