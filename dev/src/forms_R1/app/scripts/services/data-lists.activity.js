@@ -185,7 +185,8 @@
             UDRA_EMAIL_RQ_RESPONSE: "UDRA_EMAIL_RQ_RESPONSE",
             UDRA_PROCESSING_CLARIF_RESPONSE: "UDRA_PROCESSING_CLARIF_RESPONSE",
             GEN_VOL_NOF: "GEN_VOL_NOF",
-            IMMEDIATE_NOTIFICATION: "IMMEDIATE_NOTIFICATION"
+            IMMEDIATE_NOTIFICATION: "IMMEDIATE_NOTIFICATION",
+            RQ_REVIEW_REPORT: "RQ_REVIEW_REPORT"
         };
 
         const allActivitiesEn = {
@@ -322,7 +323,9 @@
             "UDRA_MEETING_MINUTES": "Minutes of Meeting for UDRA",
             "UDRA_EMAIL_RQ_RESPONSE": "Response to E-mail Request for UDRA",
             "UDRA_PROCESSING_CLARIF_RESPONSE": "Response to Processing Clarification Request for UDRA",
-            "GEN_VOL_NOF": "General / Voluntary Notification"
+            "GEN_VOL_NOF": "General / Voluntary Notification",
+            "RQ_REVIEW_REPORT": "Request for Review Report(s)"   //Request Review Report(s)
+
         };
 
         const allActivitiesFr = {
@@ -460,7 +463,7 @@
             "UDRA_EMAIL_RQ_RESPONSE": "Réponse à une demande par courrier électronique pour l'ARND",
             "UDRA_PROCESSING_CLARIF_RESPONSE": "Réponse à la demande de clarification du traitement pour l'ARND",
             "GEN_VOL_NOF": "Notification générale / volontaire",
-            RQ_REVIEW_REPORT: "RQ_REVIEW_REPORT"   //Request Review Report(s)
+            "RQ_REVIEW_REPORT": "Demande de rapport(s) d'examen"   //Request Review Report(s)
         };
 
 
@@ -1356,8 +1359,6 @@
                 vm.allActivities.QUAL_CLARIF_RESPONSE, //Response to Quality Clarification request
                 vm.allActivities.PHONE_RQ_RESPONSE, //Response to telephone Request,
                 vm.allActivities.SCREENING_CLARIF_RESPONSE,
-                vm.allActivities.PHONE_RQ_RESPONSE, //Response to telephone Request
-                vm.allActivities.SCREENING_CLARIF_RESPONSE, // response to screening clarification request
                 vm.allActivities.RQ_REVIEW_REPORT //Request Review Report(s)
             ]);
         }
@@ -1725,9 +1726,6 @@
         function _getPostDINArray() {
             return ([
                 vm.allActivities.YEAR,
-                vm.allActivities.CANCEL_LETTER,
-                vm.allActivities.EMAIL_RQ_RESPONSE,
-                vm.allActivities.PHONE_RQ_RESPONSE,
                 vm.allActivities.CANCEL_LETTER, //cancellation letter
                 vm.allActivities.EMAIL_RQ_RESPONSE,// response to email request
                 vm.allActivities.PHONE_RQ_RESPONSE //Response to telephone Request

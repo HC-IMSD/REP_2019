@@ -736,6 +736,9 @@
                 case ("B02-20160301-032"):
                     vm.activityTypeNote = "RA_TYPE_NOTE_EUSNDS";
                     break;
+                case ("B02-20160301-079"): // PSUR-PV
+                    vm.activityTypeNote = "RA_TYPE_NOTE_PSURPV";
+                    break;
                 default:
                     vm.activityTypeNote = "";
                     break;
@@ -1033,6 +1036,7 @@
                     break;
                 case(vm.descriptionObj.IMMEDIATE_NOTIFICATION):
                     vm.activityDescrNote = "IMMEDIATE_NOTIFICATION_DESCR";
+                    break;
                 default:
                     vm.activityDescrNote = "";
                     break;
@@ -1602,10 +1606,12 @@
                                 'NOC_COMPLIANCE', 'UDRA_CANCEL_LETTER', 'SEQUENCE_CLEANUP', 'UDRA_MEETING_MINUTES', 'UDRA_EMAIL_RQ_RESPONSE',
                                 'UDRA_PROCESSING_CLARIF_RESPONSE', 'GEN_VOL_NOF'];
 
-            var txDescLabels = selectedTxDescList.map(txDesc => ({
-                code: txDesc,
-                label: allTxDescriptions[txDesc]
-            }));
+            var txDescLabels = selectedTxDescList.map(function(txDesc) {
+                return {
+                    code: txDesc,
+                    label: allTxDescriptions[txDesc]
+                };
+            });
 
             txDescLabels.forEach(function(item) {
                 if (lastTxDesc.includes(item.code)) {
@@ -1623,7 +1629,9 @@
 
             // Concatenate the result with placeLast to ensure 'lastTxDesc' items come last
             sortedTxDescs = sortedTxDescs.concat(placeLast);
-            var sortedIds = sortedTxDescs.map(label => _findKeyByValue(label));
+            var sortedIds = sortedTxDescs.map(function(label) {
+                return _findKeyByValue(label);
+            });
             return sortedIds;
         }
 
