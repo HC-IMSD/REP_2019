@@ -988,6 +988,7 @@
                 vm.allActivities.MEETING_MINUTES, //minutes of meeting dated
                 vm.allActivities.MHPD_RQ_RESPONSE, //Response to MHPD requests
                 vm.allActivities.PROCESSING_CLARIF_RESPONSE, //Response to processing Clarification Request
+                vm.allActivities.RQ_REVIEW_REPORT
             ]);
         }
 
@@ -1444,7 +1445,8 @@
                 vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
                 vm.allActivities.NOD_RESPONSE, //Response to NOD
                 vm.allActivities.DIN_DISCONTINUED,
-                vm.allActivities.NOTIFICATION_INTERRUPT_SALE
+                vm.allActivities.NOTIFICATION_INTERRUPT_SALE,
+                vm.allActivities.RQ_REVIEW_REPORT
             ]);
         }
 
@@ -2131,6 +2133,7 @@
                 vm.allActivities.PRESUB_MEETING_PKG,
                 vm.allActivities.PRESUB_MEETING_RQ,
                 vm.allActivities.UNSOLICITED_DATA,
+                vm.allActivities.RQ_REVIEW_REPORT
                 // vm.allActivities.SECOND_LANG_PM
             ]);
         }
@@ -2221,7 +2224,7 @@
                 vm.allActivities.QHSC_RQ_RESPONSE, //Response to Quality & Human Safety Clarification Request
                 vm.allActivities.CHSC_RQ_RESPONSE, // Response to Clinical & Human Safety Clarification Request
                 vm.allActivities.QCHSC_RQ_RESPONSE, // Response to Quality, Clinical and Human Safety Clarification Request
-                vm.allActivities.PROCESSING_CLARIF_RESPONSE,
+                vm.allActivities.PROCESSING_CLARIF_RESPONSE
             ]);
         }
         function getV_SandsArray() {
@@ -2526,7 +2529,8 @@
                 vm.allActivities.QUAL_CLIN_CLARIF_RESPONSE,
                 vm.allActivities.QUAL_CLARIF_RESPONSE,
                 vm.allActivities.PHONE_RQ_RESPONSE,
-                vm.allActivities.UNSOLICITED_DATA
+                vm.allActivities.UNSOLICITED_DATA,
+                vm.allActivities.RQ_REVIEW_REPORT
             ])
         }
 
