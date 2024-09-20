@@ -736,8 +736,8 @@
                 case ("B02-20160301-032"):
                     vm.activityTypeNote = "RA_TYPE_NOTE_EUSNDS";
                     break;
-                case ("B02-20160301-079"): // PSUR-PV
-                    vm.activityTypeNote = "RA_TYPE_NOTE_PSURPV";
+                case ("B02-20160301-078"): // PSUR-C
+                    vm.activityTypeNote = "RA_TYPE_NOTE_PSURC";
                     break;
                 default:
                     vm.activityTypeNote = "";
@@ -750,6 +750,10 @@
             // else if (vm.lifecycleModel.controlNumber === "000000") {
             //     vm.lifecycleModel.controlNumber = "";
             // }
+
+            if (vm.lifecycleModel.descriptionValue) {
+                vm.setDetailsState();
+            }
         };
         /**
          * @ngdoc method sets the state of the details field based on

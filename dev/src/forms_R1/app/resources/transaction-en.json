@@ -272,7 +272,7 @@
   "REG_ACTIVITY_LEAD_DESC": "Regulatory Activity Lead Description",
   "ACTIVITY_LEAD_PHA": "Pharmaceutical: Includes all regulatory activities and transactions for prescription pharmaceuticals and ethical products under the Pharmaceutical Drugs Directorate (PDD) mandate. This lead is not applicable for non-prescription pharmaceutical or disinfectant products or post-market vigilance regulatory activities.",
   "ACTIVITY_LEAD_BIO": "Biological: Includes all regulatory activities and transactions under the Biologics and Radiopharmaceutical Drugs Directorate (BRDD) mandate (biologics/radiopharmaceuticals).",
-  "ACTIVITY_LEAD_PMV": "Post-Market Vigilance: Includes all regulatory activities and transactions under the Marketed Health Products Directorate (MHPD) mandate (prescription and non-prescription pharmaceuticals for human use, biologics, radiopharmaceuticals).",
+  "ACTIVITY_LEAD_PMV": "Post-Market Vigilance (for Marketed Health Products Directorate (MHPD)): Includes all regulatory activities and transactions under the Marketed Health Products Directorate (MHPD) mandate (prescription and non-prescription pharmaceuticals for human use, biologics, radiopharmaceuticals).",
   "ACTIVITY_LEAD_CHP": "Consumer Health Products: Includes all regulatory activities and transactions for non-prescription pharmaceuticals and disinfectants under the Natural and Non-Prescription Health Products Directorate (NNHPD) mandate.",
   "ACTIVITY_LEAD_VET": "Veterinary: Includes all regulatory activities and transactions for prescription and non-prescription pharmaceuticals under the Veterinary Drugs Directorate (VDD) mandate.",
   //  "HT_LOAD_FILE_1": "A file should not be loaded if it is the first REP transaction for this dossier.",
@@ -308,7 +308,7 @@
   "HT_ADMIN_SUB_URL": "https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/applications-submissions/guidance-documents/administrative-processing-human-disinfectant-drugs-2019/document.html",
   "HT_ADMIN_SUB_1": "For instructions regarding administrative submission for veterinary drugs, please contact vdd.skmd.so-dgps.dmv.cp@hc-sc.gc.ca.",
   "HT_CTRL_NUM_1": "Enter the 6 digit control number associated with this regulatory activity (if known).",
-  "HT_CTRL_NUM_2": "Enter “000000” for regulatory transactions that Do Not require a control number (e.g. Level III - Post-NOC Changes, UDRA -  eCTD Dossier Clean-up).",
+  "HT_CTRL_NUM_2": "Enter “000000” for regulatory transactions that Do Not require a control number (e.g. Level III - Post-NOC Changes and UDRA -  eCTD Dossier Clean-up).",
   "HT_CTRL_NUM_3": "Enter “000000” for the first transaction of a NEW regulatory activity, where a control number has not yet been assigned.",
   "HT_CTRL_NUM_4": "Enter the pre-assigned control number for the first transaction of a new regulatory activity that was communicated by Health Canada (e.g. via an Advisement Letter).",
   "HT_CTRL_NUM_5": "Drug Notification Form(s) (DNF) should be filed under the same control number it has been issued for the product(s) that are now being sold on the market.",
@@ -317,7 +317,7 @@
   "HT_ACT_LEAD_3": "Clinical Trials – Pharmaceuticals: Includes all regulatory activities and transactions for clinical trials for prescription pharmaceuticals under the Therapeutic Products Directorate (TPD) mandate and  for biologics under the Biologics and Genetic Therapies Directorate (BGTD) mandate",
   "HT_ACT_LEAD_4": "Consumer Health Products: Includes all regulatory activities and transactions for non-prescription pharmaceuticals and disinfectants under the Natural and Non-Prescription Health Products Directorate (NNHPD) mandate.",
   "HT_ACT_LEAD_5": "Pharmaceutical: Includes all regulatory activities and transactions for prescription pharmaceuticals and ethical products under the Pharmaceutical Drugs Directorate (PDD) mandate.",
-  "HT_ACT_LEAD_6": "Post-Market Vigilance: Includes all regulatory activities and transactions under the Marketed Health Products Directorate (MHPD) mandate (prescription and non-prescription pharmaceuticals for human use, biologics, radiopharmaceuticals).",
+  "HT_ACT_LEAD_6": "Post-Market Vigilance (for Marketed Health Products Directorate (MHPD)): Includes all regulatory activities and transactions under the Marketed Health Products Directorate (MHPD) mandate (prescription and non-prescription pharmaceuticals for human use, biologics, radiopharmaceuticals).",
   "HT_ACT_LEAD_7": "Veterinary: Includes all regulatory activities and transactions for prescription and non-O33prescription pharmaceuticals under the Veterinary Drugs Directorate (VDD) mandate.",
   "HT_YEAR_CHANGE_1": "For pharmaceuticals for veterinary and human use, biologics and radiopharmaceuticals, refer to the: ",
   "HT_YEAR_CHANGE_2": "Post-Notice of Compliance (NOC) Changes: ",
@@ -447,7 +447,7 @@
   "RA_TYPE_NOTE_EUNDS":"Health Canada will not invoice fees for Extraordinary Use New Drugs filed under C.08.002.1 of the Food and Drug Regulations (FDR), however please ensure the applicable submission class is selected in the fee section below.",
   "RA_TYPE_NOTE_EUSANDS":"Health Canada will not invoice fees for Extraordinary Use New Drugs filed under C.08.002.1 of the Food and Drug Regulations (FDR), however please ensure the applicable submission class is selected in the fee section below.",
   "RA_TYPE_NOTE_EUSNDS":"Health Canada will not invoice fees for Extraordinary Use New Drugs filed under C.08.002.1 of the Food and Drug Regulations (FDR), however please ensure the applicable submission class is selected in the fee section below.",
-  "RA_TYPE_NOTE_PSURPV":"For NOC/c products",
+  "RA_TYPE_NOTE_PSURC":"For NOC/c products",
 
-  "RQ_REVIEW_REPORT":"Request Review Report(s)"
+  "RQ_REVIEW_REPORT":"Request for Review Report(s)"
 }
