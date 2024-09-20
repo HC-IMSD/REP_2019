@@ -380,7 +380,7 @@
             "LABEL_PREAPPROVAL_2LANG":"Étiquette en langue seconde - préapprobation",
             "PHONE_RQ_RESPONSE": "Réponse à une demande téléphonique",
             "RISK_COMMUN_DOC": "Document de communication sur les risques",
-            "RMP_VERSION_DATE": "Plan de gestion des risques",
+            "RMP_VERSION_DATE": "Plan de gestion des risques (PGR)",
             "UNSOLICITED_DATA": "Renseignements non sollicités",
             "YEAR_LIST_OF_CHANGE": "Year(s) of change, list of change number(s) ",
             "BE_CLARIF_RESPONSE": "Réponse à la demande d’étude de bioéquivalence",
@@ -394,7 +394,7 @@
             "ADV_COMP_REQ": "Demande de renseignements concernant une plainte en matière de publicité",
             "CSOtRMP": "PGR concernant les produits contenant des opioïdes vendus au Canada",
             "DISSEM_LIST": "Liste de distribution",
-            "FOREIGN_SAFETY_NOTIFICATION": "Communications étrangères relatives aux risques",
+            "FOREIGN_SAFETY_NOTIFICATION": "Avis des mesures d'innocuité prises dans les pays étrangers",
             "ISSUE_SAFETY_REQUEST": "Demande d'un rapport de synthèse relatif à un sujet de préoccupation",
             "PATIENT_SAFETY_INFO": "Renseignements sur la sécurité des patients (erreur de médication)",
             "PUB_RELEASE_INFO": "Diffusion publique de renseignements cliniques",
@@ -988,6 +988,7 @@
                 vm.allActivities.MEETING_MINUTES, //minutes of meeting dated
                 vm.allActivities.MHPD_RQ_RESPONSE, //Response to MHPD requests
                 vm.allActivities.PROCESSING_CLARIF_RESPONSE, //Response to processing Clarification Request
+                vm.allActivities.RQ_REVIEW_REPORT
             ]);
         }
 
@@ -1444,7 +1445,8 @@
                 vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
                 vm.allActivities.NOD_RESPONSE, //Response to NOD
                 vm.allActivities.DIN_DISCONTINUED,
-                vm.allActivities.NOTIFICATION_INTERRUPT_SALE
+                vm.allActivities.NOTIFICATION_INTERRUPT_SALE,
+                vm.allActivities.RQ_REVIEW_REPORT
             ]);
         }
 
@@ -2131,6 +2133,7 @@
                 vm.allActivities.PRESUB_MEETING_PKG,
                 vm.allActivities.PRESUB_MEETING_RQ,
                 vm.allActivities.UNSOLICITED_DATA,
+                vm.allActivities.RQ_REVIEW_REPORT
                 // vm.allActivities.SECOND_LANG_PM
             ]);
         }
@@ -2221,7 +2224,7 @@
                 vm.allActivities.QHSC_RQ_RESPONSE, //Response to Quality & Human Safety Clarification Request
                 vm.allActivities.CHSC_RQ_RESPONSE, // Response to Clinical & Human Safety Clarification Request
                 vm.allActivities.QCHSC_RQ_RESPONSE, // Response to Quality, Clinical and Human Safety Clarification Request
-                vm.allActivities.PROCESSING_CLARIF_RESPONSE,
+                vm.allActivities.PROCESSING_CLARIF_RESPONSE
             ]);
         }
         function getV_SandsArray() {
@@ -2526,7 +2529,8 @@
                 vm.allActivities.QUAL_CLIN_CLARIF_RESPONSE,
                 vm.allActivities.QUAL_CLARIF_RESPONSE,
                 vm.allActivities.PHONE_RQ_RESPONSE,
-                vm.allActivities.UNSOLICITED_DATA
+                vm.allActivities.UNSOLICITED_DATA,
+                vm.allActivities.RQ_REVIEW_REPORT
             ])
         }
 

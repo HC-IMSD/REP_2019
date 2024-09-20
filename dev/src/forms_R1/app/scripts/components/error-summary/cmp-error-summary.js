@@ -242,7 +242,23 @@
                     }
                 }
                 vm.errorArray[vm.errorArray.length - 1] = temp;
-            }else{
+            }
+            if (vm.formPreamble == 'REG_TRANSACT') {
+                vm.errorArray = Object.keys(vm.uniqueErrorList).map(function (k) {
+                    return vm.uniqueErrorList[k]
+                });
+                var temp = vm.errorArray[0];
+                for(var i = 0; i< vm.errorArray.length - 1; i++){
+                    vm.errorArray[i] = vm.errorArray[i+1];
+                    if(vm.errorArray[i].errorName == "end_date_61") {
+                        if (vm.errorArray[i].type == "TYPE_MIN") {
+                            vm.errorArray[i].type = "END_DATE_EARLIER";
+                        }
+                    }
+                }
+                vm.errorArray[vm.errorArray.length - 1] = temp;
+            }
+            else{
                 var newErrors = _sortErrorsByDomOrder();
                 //  console.log('newErrors');
                 // console.log(newErrors);

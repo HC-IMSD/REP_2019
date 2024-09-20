@@ -10,6 +10,7 @@
   "TYPE_DUPLICATEROLE": "This role has already been selected.",
   "TYPE_DUPLICATESYS": "This system has already been selected.",
   "TYPE_MIN": "Less than minimum value",
+  "END_DATE_EARLIER": "End Date should not be earlier than Start Date.",
   "TYPE_MINLENGTH": "Less than minimum length",
   "POSTAL_FORMAT": "Please enter a valid format",
   "TYPE_DATE":"Please enter a valid date",
