@@ -711,8 +711,6 @@
                 case ("B02-20160301-050"): //UDRA
                     vm.activityTypeNote = "RA_TYPE_NOTE_NC";
                     break;
-                case ("B02-20160301-018"): //DINA
-                case ("B02-20160301-020"): //DIND
                 case ("B02-20160301-019"): //DINB
                 case ("B02-20160301-022"): //DINV
                 case ("B02-20160301-021"): //DINF
@@ -1053,7 +1051,9 @@
                     vm.activityDescrNote = "";
                     break;
             }
-            if (vm.activityDescNote === "ADMIN_DESCR") {
+
+            if (vm.activityDescrNote === "ADMIN_DESCR") {
+                console.log("true");
                 vm.adminDescrNote = true;
             } else {
                 vm.adminDescrNote = false;
