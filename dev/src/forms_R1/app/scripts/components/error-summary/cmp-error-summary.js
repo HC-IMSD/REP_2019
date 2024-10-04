@@ -250,7 +250,8 @@
                 var temp = vm.errorArray[0];
                 for(var i = 0; i< vm.errorArray.length - 1; i++){
                     vm.errorArray[i] = vm.errorArray[i+1];
-                    if(vm.errorArray[i].errorName == "end_date_61") {
+                    if(vm.errorArray[i].errorName == "end_date_61" || vm.errorArray[i].errorName == "end_date_93" ||
+                        vm.errorArray[i].errorName.startsWith("end_date")) {
                         if (vm.errorArray[i].type == "TYPE_MIN") {
                             vm.errorArray[i].type = "END_DATE_EARLIER";
                         }
@@ -266,6 +267,7 @@
                     vm.errorArray = newErrors;
                 }
             }
+            console.log(vm.errorArray);
         };
 
         //hide record required error if there are errors in the record
