@@ -2302,7 +2302,7 @@
                 vm.allActivities.PRESUB_MEETING_RQ,
                 vm.allActivities.WITHDRAWAL_NOF_FORM, //Withdrawal of Drug Notification Form
                 vm.allActivities.UNSOLICITED_DATA,
-                vm.allActivities.RQ_REVIEW_REPORTs
+                vm.allActivities.RQ_REVIEW_REPORT
             ]);
         }
         function getV_UdraArray() {

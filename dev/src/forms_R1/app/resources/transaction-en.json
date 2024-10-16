@@ -437,9 +437,9 @@
   "TEST_STUDIES_ORDER_DESCR":"Response to Order by HC as requested under section 21.32 of the Food and Drugs Act.",
   "ISSUE_SAFETY_REQUEST_DESCR":"Response to Health Canada's request to submit an Issue-Related Summary Report under C.01.019 of the Food and Drug Regulations.",
   "FOREIGN_SAFETY_NOTIFICATION_DESCR":"Submitted as required under Section C.01.050 of the Food and Drug Regulations.",
-  "RISK_COMMUN_DOC_DESCR":"First draft of the Health Product Risk Communication (HPRC) in Word format.",
+  "RISK_COMMUN_DOC_DESCR":"First draft of the Health Product Risk Communication (HPRC) in Word format",
   "FINAL_RISK_COM_DESCR":"Health Product Risk Communication (HPRC) final versions in English and French and in Word and PDF format.",
-  "DISSEM_LIST_DESCR":"Dissemination strategy and dissemination results.",
+  "DISSEM_LIST_DESCR":"Dissemination strategy and dissemination results",
   "PATIENT_SAFETY_INFO_DESCR":"Response to Health Canada's request to provide information  or changes as oulined in the MHPD letter. Examples of these requests could be additional information,  additional monitoring, label changes, etc.",
   "IMMEDIATE_NOTIFICATION_DESCR":"Immediate Notifications are for minor changes where timely awareness is necessary. Health Canada should be notified within the time window extending from 21 days before and 14 days after the implementation date. This reporting category also includes the majority of major and moderate changes that have been downgraded to minor quality changes as a result of the execution of a PACMP or through a negotiated EC and associated reporting category.",
 
