@@ -441,7 +441,7 @@
             </section>
         </div>
         <div>
-            <section class="panel  panel-primary">
+            <section class="panel  panel-primary mrgn-tp-lg">
                 <header class="panel-heading clearfix">
                     <h2 class="panel-title col-md-8">{{::'REG_CONTACT_THIS' |translate}}
                         <sup id="tr14_ref">
@@ -477,14 +477,14 @@
                                 <label for="{{::transInfoCtrl.thirdPartyId}}_1">&nbsp;{{::'N'|translate}}</label>
                             </fieldset>
                         </div>
-                        <div data-ng-show="transInfoCtrl.showThirdPartyNote" class="row" tabindex="-1" data-focus-if="transInfoCtrl.showThirdPartyNote">
-                            <div id="aut-letter" class="alert alert-info col-xs-12 form-group" role="alert" aria-live="polite">
-                                <p>{{::"AUT_LETTER_NOTE" |translate}}</p>
+                        <div data-ng-show="transInfoCtrl.showThirdPartyNote" class="row" data-focus-if="transInfoCtrl.showThirdPartyNote">
+                            <div id="aut-letter" class="col-xs-12 form-group alert alert-info" role="alert">
+                                <p aria-live="polite">{{::"AUT_LETTER_NOTE" |translate}}</p>
                             </div>
                             <!--<div class="ol-md-1">-->
-                                <!--<sup id="tr15_ref">-->
-                                <!--<a class="fn-lnk" href="#tr15"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::transInfoCtrl.htIndxList.thirdPtyNoteInx}}</a>-->
-                                <!--</sup>-->
+                            <!--<sup id="tr15_ref">-->
+                            <!--<a class="fn-lnk" href="#tr15"><span class="wb-inv">{{::'INSTRUCTION'|translate}}&nbsp;</span>{{::transInfoCtrl.htIndxList.thirdPtyNoteInx}}</a>-->
+                            <!--</sup>-->
                             <!--</div>-->
                         </div>
                         <div  data-ng-if="transInfoCtrl.transactionModel.isThirdParty != 'N'" class="row">
