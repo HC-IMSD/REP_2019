@@ -302,3 +302,11 @@ div .module-attention {
     font-weight:700;
     font-family: "Noto Sans",sans-serif;
 }
+
+#aut-letter p {
+    font-size:14.5px !important;
+    line-height: 23px !important;
+    margin-block-start: 5px !important;
+    margin-top: 5px !important;
+    padding-top: 0px !important;
+}
