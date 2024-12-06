@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!-- ****************************** -->
-<!-- Transaction Enrolment version 2.1 -->
+<!-- Transaction Enrolment version 4.4 -->
 <!-- ****************************** -->
 <hpfb:schema xmlns:hpfb="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
 	<hpfb:include schemaLocation="./common/data_types.xsd"/>
@@ -105,9 +105,9 @@
 		</hpfb:complexType>
 	</hpfb:element>
 	<hpfb:element name="requester_of_solicited_information" type="char_0_256_content"/>
-	<hpfb:element name="from_time" type="optional_yyyymmdd_date_content"/> <!--double check type -->
-	<hpfb:element name="to_time" type="optional_yyyymmdd_date_content"/> <!--double check type -->
-	<!--<hpfb:element name="sequence_concat" type="hpfb:string"/> CHECK IF NEEDED -->
+	<hpfb:element name="from_time" type="optional_yyyymmdd_date_content"/> 
+	<hpfb:element name="to_time" type="optional_yyyymmdd_date_content"/>
+	<!--<hpfb:element name="sequence_concat" type="hpfb:string"/> -->
 
 	<hpfb:element name="lifecycle_record" type="lifecycle_record_content"/>
 	<hpfb:element name="is_solicited" type="required_yes_no_content"/>
@@ -131,12 +131,6 @@
 	<hpfb:element name="rep_submission_contact_role" type="rep_contact_role_list"/>
 	<hpfb:element name="rep_submission_contact" type="contact_content"/>
 	<hpfb:element name="rep_submission_contact_record" type="rep_submission_contact_record_content"/>
-
-	<hpfb:element name="id" type="char_0_80_content"/> <!-- not sure if these work or not since not attribute -->
-	<hpfb:element name="en" type="char_0_256_content"/>
-	<hpfb:element name="fr" type="char_0_256_content"/>
-	<hpfb:element name="description_en" type="char_0_256_content"/>
-	<hpfb:element name="description_fr" type="char_0_256_content"/>
 
 	<hpfb:element name="submission_class" type="submission_class_content"/>
 	<hpfb:element name="submission_description">
