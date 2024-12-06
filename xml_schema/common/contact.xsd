@@ -27,7 +27,7 @@
 	<!-- main xml structure-->
 	<hpfb:complexType name="contact_content">
 		<hpfb:all>
-			<hpfb:element ref="salutation"/>
+			<!-- <hpfb:element ref="salutation"/> -->
 			<hpfb:element ref="given_name"/>
 			<hpfb:element ref="initials"/>
 			<hpfb:element ref="surname"/>

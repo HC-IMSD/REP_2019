@@ -253,7 +253,7 @@
 
 		<hpfb:simpleType name="char_0_256_content">
 		<hpfb:restriction base="hpfb:string">
-			<hpfb:pattern value=".{0,256}"/>
+			<hpfb:pattern value="[\s\S]{0,256}"/>
 		</hpfb:restriction>
 	</hpfb:simpleType>
 
