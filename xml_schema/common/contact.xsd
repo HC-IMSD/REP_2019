@@ -6,7 +6,7 @@
 	<!-- ****************************** -->
 	<hpfb:element name="salutation" type="salutation_content"/>
 	<hpfb:element name="given_name" type="char_1_40_content"/>
-	<hpfb:element name="initials" type="char_0_3_content" />
+	<hpfb:element name="initials" type="char_0_10_content" />
 	<hpfb:element name="surname" type="char_1_40_content"/>
 	<hpfb:element name="job_title" type="char_1_40_content"/>
 	<hpfb:element name="language_correspondance">
