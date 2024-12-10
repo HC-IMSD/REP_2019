@@ -74,8 +74,8 @@
 	<hpfb:element name="sequence_to_date" type="optional_yyyymmdd_date_content"/>
 	<hpfb:element name="sequence_details" type="char_0_256_content"/>
 	<hpfb:element name="sequence_details_change" type="char_0_256_content"/>
-	<hpfb:element name="sequence_version" type="number_0_5_content"/>
-	<hpfb:element name="sequence_year" type="char_0_6_content"/>
+	<hpfb:element name="sequence_version" type="char_0_1024_content"/>
+	<hpfb:element name="sequence_year" type="char_0_1024_content"/>
 	<hpfb:element name="transaction_description" type="char_0_1024_content"/>
 	<hpfb:element name="requester_name">
 		<hpfb:complexType>
